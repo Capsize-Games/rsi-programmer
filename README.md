@@ -12,13 +12,13 @@ pairs that force it to use operand features.
 
 - A frozen policy trained only on the W1 shadow family guides search
   on three brand-new rules it never trained on, beating the plain
-  enumerator on all three (158/122/957 tried vs 939/939/6807).
-- A backtracking beam author lifts wins from 9 to 10 of 24 tasks with
-  SNN attribution measured, and an oracle-rejection retry loop solves
-  the remaining distractor near-misses.
-- Known limits: operand top-1 precision is near chance on one seed,
-  and the beam still loses tasks where narrowing drops true paths.
-  Training continues; see `scripts/train.py`.
+  enumerator on all three (158/122/952 tried vs 939/939/6807).
+- A backtracking beam author lifts wins to 11 of 24 tasks with
+  SNN attribution measured and zero flips, and an oracle-rejection
+  retry loop solves the remaining distractor near-misses.
+- Known limits: operand top-1 precision is 0.267/0.133/0.200 across
+  seeds, and the beam still loses tasks where narrowing drops true
+  paths. Training continues; see `scripts/train.py`.
 
 ## Layout
 
