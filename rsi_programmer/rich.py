@@ -10,6 +10,8 @@ from __future__ import annotations
 
 from typing import Any
 
+import torch
+
 from rsi_programmer.evolve import SIGMA, guided_search
 from rsi_programmer.policy import Group, Rows, SearchPolicy, Task, Vals
 from rsi_programmer.policy import encode, layer_triples
@@ -65,6 +67,16 @@ def neg_pair(op: str, left: Expr, right: Expr, size: int,
 def signature_of(expr: Expr, rows: Rows) -> Vals:
     """Signature helper kept beside its only caller."""
     return signature(expr, rows)
+
+
+def listwise_loss(scores: torch.Tensor,
+                  labels: torch.Tensor) -> torch.Tensor:
+    """Softmax mass onto positives; the top-1 objective."""
+    pos = labels == 1
+    if not bool(pos.any()):
+        return torch.zeros(())
+    log_prob = scores - torch.logsumexp(scores, dim=0)
+    return -log_prob[pos].mean()
 
 
 def fit_rich(groups: list[Group]) -> list[float]:

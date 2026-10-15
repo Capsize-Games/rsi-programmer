@@ -1,0 +1,65 @@
+{
+  "license": "BSD-3-Clause",
+  "license_file": "LICENSE",
+  "name": "rsi-search-policy-w2",
+  "params": 229,
+  "spec": {
+    "edges": [
+      {
+        "delayed": false,
+        "source": "in_",
+        "target": "fc"
+      },
+      {
+        "delayed": false,
+        "source": "fc",
+        "target": "lif"
+      },
+      {
+        "delayed": false,
+        "source": "lif",
+        "target": "out"
+      }
+    ],
+    "input": "in_",
+    "output": "out",
+    "stages": [
+      {
+        "kind": "add",
+        "name": "in_",
+        "params": {}
+      },
+      {
+        "kind": "linear",
+        "name": "fc",
+        "params": {
+          "in_features": 12,
+          "out_features": 16
+        }
+      },
+      {
+        "kind": "leaky",
+        "name": "lif",
+        "params": {
+          "beta": 0.9,
+          "threshold": 1.0
+        }
+      },
+      {
+        "kind": "linear",
+        "name": "out",
+        "params": {
+          "in_features": 16,
+          "out_features": 1
+        }
+      }
+    ]
+  },
+  "training": {
+    "epochs": 50,
+    "fixture": "/home/joe/Projects/rsi-programmer/fixtures/rsi_shadow_tasks.json",
+    "seed": 0,
+    "snapshot_sha256": "bd888c708f9f5224038e0fda2e072e4f29358f67395c1ebbd61ddbbc572413d0",
+    "trained_rows": 24994
+  }
+}
