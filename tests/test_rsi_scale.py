@@ -10,6 +10,7 @@ from typing import Any
 
 import rsi_programmer.scale
 from rsi_programmer.rich import fit_rich
+from rsi_programmer import scale as rsi_scale
 from rsi_programmer.scale import ScaleUp
 
 SHADOW = "fixtures/rsi_shadow_tasks.json"

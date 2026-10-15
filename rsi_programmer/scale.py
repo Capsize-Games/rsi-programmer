@@ -13,10 +13,9 @@ from __future__ import annotations
 
 import json
 import time
-from pathlib import Path
 from typing import Any
 
-from rsi_programmer.lineage import LineageError, LineageStore
+from rsi_programmer.lineage import mission_ledger
 from rsi_programmer.evolve import OracleHook, guided_search
 from rsi_programmer.policy import Group, SearchPolicy, Task
 from rsi_programmer.pool import founders, make_entry, next_pool, persist_entry
@@ -33,18 +32,6 @@ EPOCHS = 40
 MISSION = "rsi-scale"
 
 
-def _mission_ledger(ledger: str) -> LineageStore:
-    """Ledger with the scale mission created exactly once."""
-    path = Path(ledger)
-    setup = LineageStore(path)
-    try:
-        setup.create_mission(MISSION, 1, {"task": MISSION})
-    except LineageError:
-        pass
-    setup.close()
-    return LineageStore(path)
-
-
 class ScaleUp:
     """Retrain and evolve the W2 policy against harder families."""
 
@@ -57,7 +44,7 @@ class ScaleUp:
         self._ha_rec = TraceRecorder(hard)
         self._sh_tasks = self._sh_rec.load_family()["tasks"]
         self._ha_tasks = self._ha_rec.load_family()["tasks"]
-        self._ledger = _mission_ledger(ledger)
+        self._ledger = mission_ledger(ledger, MISSION)
         self._rich = [0.0, 0.0, 0.0, 0.0]
         self._best: SearchPolicy = SearchPolicy(seed=seed)
         self._archive: list[dict[str, Any]] = []

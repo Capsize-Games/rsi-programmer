@@ -31,6 +31,18 @@ def _doc(intent: dict[str, Any]) -> tuple[str, str]:
     return text, hashlib.sha256(text.encode()).hexdigest()
 
 
+def mission_ledger(ledger: str | Path, mission: str) -> LineageStore:
+    """Store with ``mission`` created exactly once, ready to use."""
+    path = Path(ledger)
+    setup = LineageStore(path)
+    try:
+        setup.create_mission(mission, 1, {"task": mission})
+    except LineageError:
+        pass
+    setup.close()
+    return LineageStore(path)
+
+
 class LineageStore:
     """Mission intents with read-back rows for Pareto archives."""
 

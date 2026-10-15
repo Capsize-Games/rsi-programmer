@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Evolutionary policy loop with Pareto archive (RSI W2)."""
+
 from __future__ import annotations
 import json
-from pathlib import Path
 from typing import Any, Callable
-from rsi_programmer.lineage import LineageError, LineageStore
+from rsi_programmer.lineage import mission_ledger
 from rsi_programmer.probe import OPS, Expr, signature
 from rsi_programmer.probe import terminals
 from rsi_programmer.actions import ActionSpace
@@ -141,14 +141,7 @@ class PolicyLoop:
         self._base = {r["task"]: r for r in base}
         self._budget = sum(r["tried"] for r in base)
         self._seed = seed
-        path = Path(ledger)
-        setup = LineageStore(path)
-        try:
-            setup.create_mission("rsi-w2", 1, {"task": "w2"})
-        except LineageError:
-            pass
-        setup.close()
-        self._ledger = LineageStore(path)
+        self._ledger = mission_ledger(ledger, "rsi-w2")
         self._archive: list[dict[str, Any]] = []
     def _rows(self, task: Task, part: str) -> tuple[Rows, Vals, int]:
         rows = tuple((c[0], c[1]) for c in task[part])
