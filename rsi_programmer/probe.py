@@ -23,6 +23,7 @@ OPS: dict[str, Callable[[int, int], int]] = {
     "sub": lambda a, b: a - b,
     "mul": lambda a, b: a * b,
 }
+CONSTS: tuple[int, ...] = (-2, -1, 0, 1, 2, 3, 4, 5)
 TASK = "f(x, y) = (x + y) * (x + y) + y"
 TRAIN_CASES = ((-3, 1, 5), (-2, 2, 2), (-1, -2, 7), (0, 3, 12),
                (1, 0, 1), (2, -1, 0), (3, 2, 27), (4, -3, -2))
@@ -35,7 +36,7 @@ MAX_TREE_OPS = 4
 @dataclass(frozen=True)
 class Expr:
     op: str
-    left: Expr | str
+    left: Expr | str | int
     right: Expr | None = None
     size: int = 0
 
@@ -44,7 +45,16 @@ def terminals() -> tuple[Expr, ...]:
     return Expr("input", "x"), Expr("input", "y")
 
 
+def const_terms(values: tuple[int, ...] = ()) -> tuple[Expr, ...]:
+    """Size-zero constant terminals for the given values."""
+    return tuple(Expr("const", value, None, 0) for value in values)
+
+
 def signature(expr: Expr, rows: tuple[tuple[int, int], ...]) -> tuple[int, ...]:
+    if expr.op == "const":
+        value = expr.left
+        assert type(value) is int
+        return tuple(value for _ in rows)
     if expr.op == "input":
         col = 0 if expr.left == "x" else 1
         return tuple(row[col] for row in rows)
@@ -55,13 +65,17 @@ def signature(expr: Expr, rows: tuple[tuple[int, int], ...]) -> tuple[int, ...]:
 
 
 def enumerate_programs(rows: tuple[tuple[int, int], ...], expected: tuple[int, ...], max_ops: int,
-                       root_op: str | None = None, deduplicate: bool = True):
+                       root_op: str | None = None, deduplicate: bool = True,
+                       consts: tuple[int, ...] = ()):
     """Enumerate typed integer expression trees by node count.
 
     Each binary Apply consumes two Int values and returns Int. The output is
     later hash-consed into a DAG, so repeated subexpressions share one node.
+    Constant terminals join level zero only when consts is non-empty, so
+    frozen families keep their exact historical search order by default.
     """
-    levels: dict[int, list[Expr]] = {0: list(terminals())}
+    levels: dict[int, list[Expr]] = {
+        0: list(terminals()) + list(const_terms(consts))}
     tried = 0
     for size in range(1, max_ops + 1):
         current: list[Expr] = []
@@ -96,6 +110,15 @@ def lower_to_dag(expr: Expr) -> dict:
             if term not in {"x", "y"}:
                 raise ValueError("unknown input")
             return term
+        if term.op == "const":
+            if type(term.left) is not int or term.left not in CONSTS:
+                raise ValueError("constant out of range")
+            key = ("const", term.left)
+            if key not in intern:
+                intern[key] = len(nodes)
+                nodes.append({"op": "const", "type": "Int",
+                              "args": [], "value": term.left})
+            return intern[key]
         if term.op == "input":
             return visit(term.left)
         left, right = visit(term.left), visit(term.right)  # type: ignore[arg-type]
@@ -116,7 +139,19 @@ def validate_graph(graph: dict) -> None:
         raise ValueError("malformed inputs or node table")
     types: list[str] = []
     for index, node in enumerate(graph["nodes"]):
-        if not isinstance(node, dict) or set(node) != {"op", "type", "args"}:
+        if not isinstance(node, dict):
+            raise ValueError("malformed node")
+        if node.get("op") == "const":
+            if set(node) != {"op", "type", "args", "value"}:
+                raise ValueError("malformed constant")
+            if node["type"] != "Int" or node["args"] != []:
+                raise ValueError("constant signature mismatch")
+            if (type(node["value"]) is not int
+                    or node["value"] not in CONSTS):
+                raise ValueError("constant out of range")
+            types.append("Int")
+            continue
+        if set(node) != {"op", "type", "args"}:
             raise ValueError("malformed node")
         if node["op"] not in OPS:
             raise ValueError("unknown operation")
@@ -143,6 +178,9 @@ def interpret(graph: dict, x: int, y: int) -> int:
     values: list[int] = []
     inputs = {"x": x, "y": y}
     for node in graph["nodes"]:
+        if node["op"] == "const":
+            values.append(node["value"])
+            continue
         args = [inputs[arg] if isinstance(arg, str) else values[arg] for arg in node["args"]]
         values.append(OPS[node["op"]](*args))
     output = graph["output"]
@@ -158,6 +196,9 @@ def render_source(graph: dict) -> str:
     validate_graph(graph)
     lines = ["def synthesized(x: int, y: int) -> int:"]
     for i, node in enumerate(graph["nodes"]):
+        if node["op"] == "const":
+            lines.append(f"    t{i} = ({node['value']})")
+            continue
         args = [arg if isinstance(arg, str) else f"t{arg}" for arg in node["args"]]
         symbol = {"add": "+", "sub": "-", "mul": "*"}[node["op"]]
         lines.append(f"    t{i} = ({args[0]} {symbol} {args[1]})")
@@ -192,6 +233,8 @@ def _negative_controls(graph: dict) -> dict[str, bool]:
         "cycle": lambda g: g["nodes"].__setitem__(0, {"op": "add", "type": "Int", "args": [0, "y"]}),
         "malformed": lambda g: g["nodes"].__setitem__(0, {"op": "add", "type": "Int", "args": ["x"]}),
         "unhashable_reference": lambda g: g["nodes"].__setitem__(0, {"op": "add", "type": "Int", "args": [["x"], "y"]}),
+        "const_with_args": lambda g: g["nodes"].__setitem__(0, {"op": "const", "type": "Int", "args": ["x"], "value": 1}),
+        "const_out_of_range": lambda g: g["nodes"].__setitem__(0, {"op": "const", "type": "Int", "args": [], "value": 99}),
     }
     for name, corrupt in cases.items():
         candidate = json.loads(json.dumps(graph))

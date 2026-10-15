@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from typing import cast
 
-from rsi_programmer.probe import OPS, validate_graph
+from rsi_programmer.probe import CONSTS, OPS, validate_graph
 
 
 class ActionSpace:
@@ -32,6 +32,11 @@ class ActionSpace:
     def input_actions(self) -> list[dict[str, str]]:
         """List the terminal emit decisions of the enumerator."""
         return [{"kind": "input", "ref": ref} for ref in self._inputs]
+
+    def const_actions(self) -> list[dict[str, object]]:
+        """List the constant emit decisions over the IR range."""
+        return [{"kind": "const", "value": value}
+                for value in CONSTS]
 
     def apply_actions(
         self, refs: list[str | int]
@@ -57,10 +62,14 @@ class ActionSpace:
     def _extended(
         self, graph: dict[str, object], action: dict[str, object]
     ) -> dict[str, object]:
-        """Return the graph with the apply edit appended."""
+        """Return the graph with the apply/const edit appended."""
         nodes = list(cast(list[dict[str, object]], graph["nodes"]))
-        nodes.append({"args": [action["left"], action["right"]],
-                      "op": cast(str, action["op"]), "type": "Int"})
+        if action.get("kind") == "const":
+            nodes.append({"args": [], "op": "const",
+                          "type": "Int", "value": action["value"]})
+        else:
+            nodes.append({"args": [action["left"], action["right"]],
+                          "op": cast(str, action["op"]), "type": "Int"})
         return {"input_types": {"x": "Int", "y": "Int"},
                 "nodes": nodes, "output": len(nodes) - 1}
 
@@ -72,6 +81,12 @@ class ActionSpace:
         if kind == "input":
             if action.get("ref") not in self._inputs:
                 raise ValueError("unknown input emit")
+            return
+        if kind == "const":
+            if (set(action) != {"kind", "value"}
+                    or action.get("value") not in CONSTS):
+                raise ValueError("constant out of range")
+            validate_graph(self._extended(graph, action))
             return
         keys = {"kind", "left", "op", "right"}
         if kind != "apply" or set(action) != keys:

@@ -103,7 +103,9 @@ class HeadlessLoop:
                 args = [visit(a) for a in node["args"]]
                 remap[ref] = len(kept)
                 kept.append({"args": args, "op": node["op"],
-                             "type": node["type"]})
+                             "type": node["type"],
+                             **({"value": node["value"]}
+                                if "value" in node else {})})
             return remap[ref]
 
         root = visit(graph["output"])

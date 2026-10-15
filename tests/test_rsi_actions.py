@@ -64,6 +64,26 @@ class ActionSpaceTests(unittest.TestCase):
                                          "op": "add", "left": 0,
                                          "right": "y"})
 
+    def test_const_actions_cover_ir_range(self) -> None:
+        choices = self.space.const_actions()
+        self.assertEqual([c["value"] for c in choices],
+                         [-2, -1, 0, 1, 2, 3, 4, 5])
+        graph = self.space.apply(dict(EMPTY),
+                                 {"kind": "const", "value": 3})
+        validate_graph(graph)
+        full = self.space.apply(graph,
+                                {"kind": "apply", "op": "add",
+                                 "left": "x", "right": 0})
+        validate_graph(full)
+        self.assertEqual(interpret(full, 4, 9), 7)
+
+    def test_const_out_of_range_rejected(self) -> None:
+        for action in ({"kind": "const", "value": 99},
+                       {"kind": "const", "value": "x"},
+                       {"kind": "const"}):
+            with self.assertRaises(ValueError):
+                self.space.typecheck(dict(EMPTY), dict(action))
+
 
 class TraceRecorderTests(unittest.TestCase):
     def setUp(self) -> None:
@@ -119,6 +139,24 @@ class TraceRecorderTests(unittest.TestCase):
         print("solve=%d/%d wall=%.2fs"
               % (baseline["solved"], baseline["tasks"],
                  baseline["total_wall_s"]))
+
+    def test_const_fixture_splits_match(self) -> None:
+        path = (Path(__file__).resolve().parent.parent
+                / "fixtures" / "rsi_const_tasks.json")
+        recorder = TraceRecorder(str(path))
+        tasks = recorder.load_family()["tasks"]
+        self.assertEqual([t["id"] for t in tasks],
+                         ["plus_three", "shift_mul"])
+        for task in tasks:
+            self.assertEqual(recorder.split_hash(task),
+                             task["split_sha256"])
+        self.assertTrue(recorder.oracle_holds(
+            tasks[0], {"input_types": {"x": "Int", "y": "Int"},
+                       "nodes": [{"op": "const", "type": "Int",
+                                  "args": [], "value": 3},
+                                 {"op": "add", "type": "Int",
+                                  "args": ["x", 0]}],
+                       "output": 1}))
 
 
 if __name__ == "__main__":
