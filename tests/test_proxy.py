@@ -128,6 +128,24 @@ class ProxyScreenTests(unittest.TestCase):
         self.assertEqual(set(rep["eval_tasks"]), _novel_ids())
         self.assertEqual(set(rep["gains"]), {"c0"})
 
+    def test_report_command_keys(self) -> None:
+        """The CLI replay prints fidelity plus both walls."""
+        import os
+        import subprocess
+        import sys
+        argv = [sys.executable, "scripts/proxy_fidelity.py",
+                "--seeds", "2", "--epochs", "1"]
+        env = dict(os.environ, PYTHONPATH=str(ROOT))
+        proc = subprocess.run(argv, cwd=ROOT, capture_output=True,
+                              text=True, timeout=300, env=env)
+        self.assertEqual(proc.returncode, 0, proc.stderr[-500:])
+        rep = json.loads(proc.stdout)
+        self.assertEqual(rep["candidates"], 2)
+        self.assertIn("agreement", rep["fidelity"])
+        self.assertIn("winner", rep["selection"])
+        self.assertGreaterEqual(rep["screen_wall_s"], 0.0)
+        self.assertGreaterEqual(rep["full_wall_s"], 0.0)
+
 
 if __name__ == "__main__":
     unittest.main()
