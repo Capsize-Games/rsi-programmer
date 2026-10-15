@@ -1,7 +1,6 @@
 # rsi-programmer
 
-Proprietary Capsize LLC software (see [LICENSE](LICENSE)). No rights are
-granted without a separate written license.
+BSD-3-Clause software, copyright Capsize LLC (see [LICENSE](LICENSE)).
 
 ## Commands
 

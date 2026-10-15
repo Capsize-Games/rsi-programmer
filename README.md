@@ -57,5 +57,4 @@ together), reproducible with `python scripts/train.py --seed 0
 
 ## License
 
-Proprietary Capsize LLC software; see [LICENSE](LICENSE). No license
-or other right is granted by this notice.
+BSD-3-Clause, copyright Capsize LLC; see [LICENSE](LICENSE).

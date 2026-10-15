@@ -48,7 +48,7 @@ def _manifest(name: str, policy: SearchPolicy,
             "trained_rows": rows,
             "snapshot_sha256": _snapshot_hash(snap["weights"]),
         },
-        "license": "LicenseRef-Capsize-Proprietary",
+        "license": "BSD-3-Clause",
         "license_file": "LICENSE",
     }
 
