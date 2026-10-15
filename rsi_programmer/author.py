@@ -4,10 +4,13 @@ from __future__ import annotations
 import random
 import statistics
 from typing import Any
+import torch
 from rsi_programmer.actions import ActionSpace
 from rsi_programmer.evolve import guided_search
-from rsi_programmer.policy import DIM, OP_ORDER, Group, Rows, SearchPolicy, Vals
+from rsi_programmer.policy import DIM, OP_ORDER, Group, Rows
+from rsi_programmer.policy import SearchPolicy, Vals
 from rsi_programmer.policy import Triple, encode, layer_triples
+from rsi_programmer.rich import listwise_loss
 from rsi_programmer.traces import TraceRecorder
 from rsi_programmer.probe import Expr, enumerate_programs
 from rsi_programmer.probe import signature, terminals
@@ -100,9 +103,60 @@ def contrastive_groups(fixture: str, budget: int = 10 ** 9) -> list[Group]:
 def clone_groups(fixture: str, budget: int = 10 ** 9) -> list[Group]:
     groups = _base_groups(fixture, budget)
     return groups + contrastive_groups(fixture, budget)
+JOINT_LAMBDA = 0.2
+JOINT_EPOCHS = 5
+
+
+def _tensed_pairs(fixture: str) -> list[tuple[torch.Tensor,
+                                              torch.Tensor]]:
+    """Operand pairs as score/label tensors."""
+    tensed: list[tuple[torch.Tensor, torch.Tensor]] = []
+    for group in contrastive_groups(fixture):
+        feats = torch.tensor([f for f, _ in group])
+        labels = torch.tensor([y for _, y in group])
+        tensed.append((feats, labels))
+    return tensed
+
+
+def _tensed_margin(groups: list[Group]) -> list[tuple[torch.Tensor,
+                                                     torch.Tensor]]:
+    """Positive/negative tensors for the margin pass."""
+    out: list[tuple[torch.Tensor, torch.Tensor]] = []
+    for group in groups:
+        pos = torch.tensor([f for f, y in group if y == 1])
+        neg = torch.tensor([f for f, y in group if y == 0])
+        out.append((pos, neg))
+    return out
+
+
+def refine_operands(policy: SearchPolicy, groups: list[Group],
+                    fixture: str, lam: float = JOINT_LAMBDA,
+                    epochs: int = JOINT_EPOCHS) -> int:
+    """Joint margin/listwise pass lifting operand top-1."""
+    pair = _tensed_margin(groups)
+    ranked = _tensed_pairs(fixture)
+    for _ in range(epochs):
+        policy._opt.zero_grad()
+        loss = torch.zeros(())
+        for pos, neg in pair:
+            if not len(pos) or not len(neg):
+                continue
+            gap = policy._forward(pos).unsqueeze(1)
+            gap = gap - policy._forward(neg).unsqueeze(0)
+            loss = loss + torch.nn.functional.softplus(
+                1.0 - gap).mean()
+        for feats, labels in ranked:
+            scores = policy._forward(feats)
+            loss = loss + lam * listwise_loss(scores, labels)
+        loss.backward()
+        policy._opt.step()
+    return sum(int(f.shape[0]) for f, _ in ranked)
+
+
 def train_author(policy: SearchPolicy, fixture: str, epochs: int = 100) -> int:
     groups = clone_groups(fixture)
     policy.fit(groups, epochs=epochs)
+    refine_operands(policy, groups, fixture)
     return sum(len(g) for g in groups)
 def emit_edit(space: ActionSpace, graph: dict[str, Any],
               action: dict[str, Any], task_id: str, sig: Vals
