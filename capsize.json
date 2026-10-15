@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Capsize-Games/capsize-ci/1a50d06c20022f9bbc44bad002add302e1dae646/schema/capsize-1.json",
+  "schema_version": 1,
+  "standards": "1.x",
+  "name": "rsi-programmer",
+  "type": "library",
+  "languages": ["python"],
+  "framework": null,
+  "databases": [],
+  "runtimes": {"python": ">=3.12"},
+  "entrypoints": {
+    "python": "rsi_programmer",
+    "train": "scripts/train.py"
+  },
+  "task_runner": "just",
+  "commands": {
+    "setup": "setup",
+    "build": null,
+    "test": "test",
+    "lint": null,
+    "format": null,
+    "typecheck": null,
+    "run": "train",
+    "clean": null,
+    "docs": null,
+    "ci": "ci"
+  },
+  "dependencies": {
+    "python": "requirements.txt",
+    "core": "requirements.txt"
+  },
+  "instructions": {
+    "canonical": "AGENTS.md",
+    "rules": ["capsize/base", "capsize/python"]
+  },
+  "owner": "Capsize-Games",
+  "license": "LicenseRef-Capsize-Proprietary"
+}
