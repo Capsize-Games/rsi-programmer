@@ -1,0 +1,65 @@
+{
+  "license": "LicenseRef-Capsize-Proprietary",
+  "license_file": "LICENSE",
+  "name": "rsi-search-policy-w1",
+  "params": 229,
+  "spec": {
+    "edges": [
+      {
+        "delayed": false,
+        "source": "in_",
+        "target": "fc"
+      },
+      {
+        "delayed": false,
+        "source": "fc",
+        "target": "lif"
+      },
+      {
+        "delayed": false,
+        "source": "lif",
+        "target": "out"
+      }
+    ],
+    "input": "in_",
+    "output": "out",
+    "stages": [
+      {
+        "kind": "add",
+        "name": "in_",
+        "params": {}
+      },
+      {
+        "kind": "linear",
+        "name": "fc",
+        "params": {
+          "in_features": 12,
+          "out_features": 16
+        }
+      },
+      {
+        "kind": "leaky",
+        "name": "lif",
+        "params": {
+          "beta": 0.9,
+          "threshold": 1.0
+        }
+      },
+      {
+        "kind": "linear",
+        "name": "out",
+        "params": {
+          "in_features": 16,
+          "out_features": 1
+        }
+      }
+    ]
+  },
+  "training": {
+    "epochs": 50,
+    "fixture": "/home/joe/Projects/rsi-programmer/fixtures/rsi_shadow_tasks.json",
+    "seed": 0,
+    "snapshot_sha256": "bac51fd761240dd98ed87e6602eec59016d646e5ef14eb5fafd4f8064f08fcdf",
+    "trained_rows": 24994
+  }
+}
