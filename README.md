@@ -60,10 +60,13 @@ PyTorch index (see `requirements.txt`).
 
 ## Weights
 
-Released weights are distributed through the spikeforge model hub as
-`reference/rsi-search-policy-w1` (weights, manifest, and license
-together), reproducible with `python scripts/train.py --seed 0
---epochs 50` from this repo.
+Released weights ship as GitHub release assets (weights, manifest,
+and license together), reproducible with `python scripts/train.py
+--seed 0 --epochs 50` from this repo. Spikeforge hub listing is
+tracked but not yet published: `python scripts/verify_hub.py`
+currently reports GitHub PASS and hub FAIL (`no published model`)
+for both weights generations. Publishing to the hub is a release
+blocker before any hub-distribution claim returns here.
 
 ## License
 
