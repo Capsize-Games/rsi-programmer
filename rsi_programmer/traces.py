@@ -41,7 +41,8 @@ class TraceRecorder:
         text = Path(self._fixture).read_text(encoding="utf-8")
         return cast(dict[str, object], json.loads(text))
 
-    def split_hash(self, task: Task) -> str:
+    @staticmethod
+    def split_hash(task: Task) -> str:
         """Hash the frozen train/held-out split of one task."""
         canonical = json.dumps({"held_out": task["held_out"],
                                 "id": task["id"],
