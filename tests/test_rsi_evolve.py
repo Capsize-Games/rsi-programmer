@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from typing import Any
+from rsi_programmer.author import beam_search, refine_author
 from rsi_programmer.evolve import PolicyLoop, guided_search
 from rsi_programmer.policy import SearchPolicy
 from rsi_programmer.proxy import ProxyScreen
@@ -191,3 +192,83 @@ class ScreenedLoopTests(unittest.TestCase):
             self.assertEqual(len(rep["order"]), 4)
             self.assertIn("agreement", rep["pact"])
             self.assertIn("pairs", rep["pact"])
+
+
+class RefinableLoopTests(unittest.TestCase):
+    BUDGET = 3000
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        """One screened generation; elite refined on shadow."""
+        tmp = tempfile.mkdtemp(prefix="rsi-w2r-")
+        screen = ProxyScreen(FIXTURE, FIXTURE)
+        loop = PolicyLoop(FIXTURE, tmp + "/r.db", screen=screen)
+        cls.res = loop.run(1)
+        loop.close()
+        fam = TraceRecorder(FIXTURE).load_family()["tasks"]
+        cls.rows = [(str(t["id"]),
+                     tuple((c[0], c[1]) for c in t["train"]),
+                     tuple(c[2] for c in t["train"]),
+                     int(t.get("max_tree_ops", 4))) for t in fam]
+        best = max(cls.res["archive"],
+                   key=lambda e: (e["fitness"]["correctness"],
+                                  e["fitness"]["efficiency"]))
+        print("elite: id=%s operator=%s parent=%s corr=%.2f"
+              % (best["policy_id"], best["operator"],
+                 best["parent_id"],
+                 best["fitness"]["correctness"]))
+        cls.elite = SearchPolicy(seed=0)
+        cls.elite.restore({"spec": best["spec"],
+                           "weights": best["weights"]})
+        cls.weights, _ = refine_author(cls.elite, cls.rows,
+                                       seed=0)
+        author = next(e for e in cls.res["archive"]
+                      if e["operator"] == "author"
+                      and e["generation"] == 0)
+        cls.author = SearchPolicy(seed=0)
+        cls.author.restore({"spec": author["spec"],
+                            "weights": author["weights"]})
+        cls.author_weights, _ = refine_author(cls.author,
+                                              cls.rows, seed=0)
+
+    def test_founders_include_author_member(self) -> None:
+        """Author-trained founder joins the gene pool."""
+        ops = {e["operator"] for e in self.res["archive"]
+               if e["generation"] == 0}
+        self.assertIn("author", ops)
+        self.assertIn("train", ops)
+        self.assertIn("null", ops)
+
+    def _authored(self, policy: SearchPolicy,
+                  weights: list[float]) -> tuple[int, int]:
+        """Refined-policy shadow solves and tried."""
+        rec = TraceRecorder(FIXTURE)
+        fam = rec.load_family()["tasks"]
+        solved, tried = 0, 0
+        for task in fam:
+            rows = tuple((c[0], c[1]) for c in task["train"])
+            target = tuple(c[2] for c in task["train"])
+            bound = int(task.get("max_tree_ops", 4))
+            out = beam_search(policy, rows, target, bound,
+                              self.BUDGET, str(task["id"]),
+                              fallback=False, weights=weights)
+            tried += out["tried"]
+            if out["solved"] and rec.oracle_holds(task,
+                                                  out["graph"]):
+                solved += 1
+        return solved, tried
+
+    def test_elite_refines_and_reports_solves(self) -> None:
+        """Elite plus EXTRA refinement authors shadow tasks."""
+        fam = TraceRecorder(FIXTURE).load_family()["tasks"]
+        elite_solved, elite_tried = self._authored(
+            self.elite, self.weights)
+        auth_solved, auth_tried = self._authored(
+            self.author, self.author_weights)
+        self.assertLessEqual(elite_tried,
+                             self.BUDGET * len(fam))
+        self.assertLessEqual(auth_tried, self.BUDGET * len(fam))
+        print("elite+refine: solved=%d/%d tried=%d"
+              % (elite_solved, len(fam), elite_tried))
+        print("author+refine: solved=%d/%d tried=%d"
+              % (auth_solved, len(fam), auth_tried))

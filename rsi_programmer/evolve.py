@@ -203,17 +203,22 @@ class PolicyLoop:
                 "efficiency": max(0.0, 1.0 - cost / self._budget)}
     def _founders(self, groups: list[Any]
                   ) -> list[dict[str, Any]]:
+        from rsi_programmer.author import train_author
         trained = SearchPolicy(seed=self._seed + 1)
         trained.fit(groups, 40)
+        authored = SearchPolicy(seed=self._seed + 100)
+        train_author(authored, self._fixture, epochs=40)
         pop = [{"id": "p0", "policy": SearchPolicy(
             seed=self._seed), "parent": "", "operator":
             "null"}, {"id": "p1", "policy": trained,
-                      "parent": "", "operator": "train"}]
-        for i in range(POP - 2):
+                      "parent": "", "operator": "train"},
+               {"id": "p2", "policy": authored, "parent": "",
+                "operator": "author"}]
+        for i in range(POP - 3):
             child = SearchPolicy(seed=self._seed + 2 + i)
             child.restore(trained.snapshot())
             child.perturb(SIGMA, self._seed + i)
-            pop.append({"id": "p%d" % (i + 2), "policy": child,
+            pop.append({"id": "p%d" % (i + 3), "policy": child,
                         "parent": "p1", "operator": "perturb"})
         return pop
     def _spawn(self, parent: dict[str, Any], i: int, gen: int,
