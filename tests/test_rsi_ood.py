@@ -11,14 +11,16 @@ from rsi_programmer.ood import CAVEAT, assert_frozen
 from rsi_programmer.ood import benchmark, contrast_tensors
 from rsi_programmer.ood import guidance_similarity
 from rsi_programmer.ood import weights_hash
+from rsi_programmer.families import generate_family
 from rsi_programmer.policy import SearchPolicy
-from rsi_programmer.probe import Expr
-from rsi_programmer.tasks import _formula, _mirror
+from rsi_programmer.probe import SELECT, Expr
+from rsi_programmer.tasks import _formula, _mirror, _vacuous
 from rsi_programmer.traces import TraceRecorder
 
 OOD = "fixtures/rsi_ood_tasks.json"
 PLAIN = "fixtures/rsi_ood_plain.json"
 TWIN = "fixtures/rsi_ood_twin.json"
+V2 = "fixtures/rsi_ood_v2.json"
 SHADOW = "fixtures/rsi_shadow_tasks.json"
 BUDGET = 3000
 EPOCHS = 40
@@ -68,9 +70,45 @@ class MirrorTests(unittest.TestCase):
         self.assertEqual(aligned, len(twin))
         self.assertEqual(flipped, len(twin))
 
+    def test_names_degenerate_v1_patterns(self) -> None:
+        """Constant and out-of-range conditions are flagged."""
+        const_cond = Expr("eq", Expr("const", 3, None, 0),
+                          Expr("const", 5, None, 0), 1)
+        const_task = Expr(SELECT, const_cond, _leaf("y"), 2,
+                          third=_leaf("x"))
+        self.assertIn("const-condition",
+                      _vacuous(const_task))
+        oob_cond = Expr("eq", _leaf("y"),
+                        Expr("const", 5, None, 0), 1)
+        oob_task = Expr(SELECT, oob_cond, _leaf("x"), 2,
+                        third=_leaf("y"))
+        self.assertIn("vacuous-condition",
+                      _vacuous(oob_task))
+        healthy_cond = Expr("lt", _leaf("x"), _leaf("y"), 1)
+        healthy = Expr(SELECT, healthy_cond, _leaf("x"), 2,
+                       third=_leaf("y"))
+        self.assertEqual(_vacuous(healthy), [])
+
+    def test_strict_filter_bites_and_freezes(self) -> None:
+        """Strict seed-35 differs, matches file, old files hold."""
+        loose = generate_family(35, 8, 4, 2, "gen_ood2",
+                                mirror=True)
+        filed = _load(V2)
+        self.assertEqual(len(loose["tasks"]), len(filed))
+        self.assertNotEqual(
+            [t["task"] for t in loose["tasks"]],
+            [t["task"] for t in filed])
+        tight = generate_family(35, 8, 4, 2, "gen_ood2",
+                                mirror=True, strict=True)
+        self.assertEqual(tight, {"max_tree_ops": 4,
+                                 "tasks": filed, "version": 1})
+        twin = generate_family(34, 8, 4, 0, "gen_ood_u",
+                               mirror=False, consts=False)
+        self.assertEqual(twin["tasks"], _load(TWIN))
+
     def test_splits_verify_and_no_leakage(self) -> None:
         """Split hashes hold; held-out never trains its task."""
-        for path in (OOD, PLAIN, TWIN):
+        for path in (OOD, PLAIN, TWIN, V2):
             for task in _load(path):
                 self.assertEqual(
                     TraceRecorder.split_hash(task),

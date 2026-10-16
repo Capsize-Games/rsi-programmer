@@ -136,6 +136,38 @@ def _has_branch(expr: Expr | str) -> bool:
                if isinstance(p, Expr))
 
 
+GRID = tuple((x, y) for x in range(ROW_LO, ROW_HI)
+             for y in range(ROW_LO, ROW_HI))
+
+
+def _cond_values(cond: Expr) -> set[bool]:
+    """Condition outcomes over every sampleable row."""
+    left = signature(cond.left, GRID)  # type: ignore[arg-type]
+    right = signature(cond.right, GRID)  # type: ignore[arg-type]
+    if cond.op == "lt":
+        return {a < b for a, b in zip(left, right)}
+    return {a == b for a, b in zip(left, right)}
+
+
+def _vacuous(expr: Expr) -> list[str]:
+    """Name degenerate branches: const or never-firing."""
+    found: list[str] = []
+    if expr.op == SELECT and isinstance(expr.left, Expr):
+        cond = expr.left
+        if isinstance(cond.left, Expr) and \
+                cond.left.op == "const" and \
+                isinstance(cond.right, Expr) and \
+                cond.right.op == "const":
+            found.append("const-condition")
+        elif len(_cond_values(cond)) < 2:
+            found.append("vacuous-condition")
+    parts: list[Any] = [expr.left, expr.right, expr.third]
+    for part in parts:
+        if isinstance(part, Expr):
+            found += _vacuous(part)
+    return found
+
+
 def _mirror(expr: Expr) -> Expr:
     """Relational reversal: swap operand roles throughout."""
     if expr.op == "input":
@@ -168,7 +200,8 @@ def _rows(rng: random.Random, count: int,
 
 def generate_task(rng: random.Random, task_id: str, bound: int,
                   branch: bool, consts: bool,
-                  mirror: bool = False) -> dict[str, Any]:
+                  mirror: bool = False,
+                  strict: bool = False) -> dict[str, Any]:
     """One frozen task requiring the requested IR features."""
 
     if branch and bound < 4:
@@ -192,6 +225,8 @@ def generate_task(rng: random.Random, task_id: str, bound: int,
                 used_const = True
         if mirror:
             expr = _mirror(expr)
+        if strict and _vacuous(expr):
+            continue
         graph = lower_to_dag(expr)
         taken: set[tuple[int, int]] = set()
         train = _rows(rng, TRAIN_ROWS, taken)

@@ -20,7 +20,8 @@ def generate_family(seed: int, count: int, bound: int,
                     branch_every: int, prefix: str,
                     start: int = 0,
                     mirror: bool = False,
-                    consts: bool = True) -> dict[str, Any]:
+                    consts: bool = True,
+                    strict: bool = False) -> dict[str, Any]:
     """Count frozen tasks; every branch_every-th needs select."""
     rng = random.Random(seed)
     seen: set[tuple] = set()
@@ -31,7 +32,7 @@ def generate_family(seed: int, count: int, bound: int,
             (len(tasks) % branch_every) == 1
         task = generate_task(rng, "%s_%02d" % (prefix, index),
                              bound, need_branch, consts,
-                             mirror=mirror)
+                             mirror=mirror, strict=strict)
         key = (tuple(tuple(c) for c in task["train"]),
                tuple(tuple(c) for c in task["held_out"]))
         index += 1
