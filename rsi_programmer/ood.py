@@ -15,7 +15,7 @@ from typing import Any
 
 import torch
 
-from rsi_programmer.author import beam_search
+from rsi_programmer.author import beam_search, refine_author
 from rsi_programmer.policy import SearchPolicy, encode
 from rsi_programmer.policy import layer_triples
 from rsi_programmer.probe import CONSTS, enumerate_programs
@@ -67,7 +67,8 @@ def enumerator_cost(task: dict[str, Any]) -> int:
 
 def evaluate(policy: SearchPolicy, tasks: list[dict[str, Any]],
              recorder: TraceRecorder, budget: int, *,
-             order: str = "fifo", widen: int = 0
+             order: str = "fifo", widen: int = 0,
+             weights: list[float] | None = None
              ) -> list[dict[str, Any]]:
     """Frozen beam sweep; solved needs train + held-out hold."""
     per: list[dict[str, Any]] = []
@@ -75,7 +76,8 @@ def evaluate(policy: SearchPolicy, tasks: list[dict[str, Any]],
         rows, target, bound = _parts(task)
         out = beam_search(policy, rows, target, bound,
                           budget, str(task["id"]), fallback=False,
-                          order=order, widen=widen)
+                          order=order, widen=widen,
+                          weights=weights)
         holds = out["solved"] and recorder.oracle_holds(
             task, out["graph"])
         per.append({"task": str(task["id"]),
@@ -139,24 +141,45 @@ def guidance_similarity(policy: SearchPolicy,
             "pairs": len(sims)}
 
 
+def _refine_rows(tasks: list[dict[str, Any]]
+                ) -> list[tuple[str, Any, Any, int]]:
+    """Refinement inputs: train rows only, never held-out."""
+    return [(str(task["id"]),) + _parts(task) for task in tasks]
+
+
+def _refine_locked(policy: SearchPolicy,
+                   tasks: list[dict[str, Any]]) -> list[float]:
+    """EXTRA refinement on train rows; returns locked weights."""
+    weights, _ = refine_author(policy, _refine_rows(tasks),
+                               seed=0)
+    return weights
+
+
 def benchmark(narrow: SearchPolicy, broad: SearchPolicy,
               tasks: list[dict[str, Any]], budget: int,
               name: str = "ood", order: str = "fifo",
-              widen: int = 0) -> dict[str, Any]:
+              widen: int = 0, refine: bool = False
+              ) -> dict[str, Any]:
     """Frozen OOD runs plus enumerator baseline; prints gap."""
     recorder = TraceRecorder(OOD_FIXTURE)
+    extras = {}
+    if refine:
+        extras["narrow"] = _refine_locked(narrow, tasks)
+        extras["broad"] = _refine_locked(broad, tasks)
     locked = {name: weights_hash(pol)
               for name, pol in (("narrow", narrow),
                                 ("broad", broad))}
     narrow_per = evaluate(narrow, tasks, recorder, budget,
-                          order=order, widen=widen)
+                          order=order, widen=widen,
+                          weights=extras.get("narrow"))
     assert_frozen(locked["narrow"], narrow)
     broad_per = evaluate(broad, tasks, recorder, budget,
-                         order=order, widen=widen)
+                         order=order, widen=widen,
+                         weights=extras.get("broad"))
     assert_frozen(locked["broad"], broad)
     base = [enumerator_cost(task) for task in tasks]
     report = {"name": name, "tasks": len(tasks),
-              "budget": budget,
+              "budget": budget, "refined": refine,
               "narrow_solve": round(
                   sum(1 for r in narrow_per if r["solved"]) /
                   len(tasks), 4),

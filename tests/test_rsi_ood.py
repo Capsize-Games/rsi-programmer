@@ -8,7 +8,8 @@ import unittest
 from typing import Any
 
 from rsi_programmer.ood import CAVEAT, assert_frozen
-from rsi_programmer.ood import benchmark, contrast_tensors
+from rsi_programmer.ood import _refine_rows, benchmark
+from rsi_programmer.ood import contrast_tensors
 from rsi_programmer.ood import guidance_similarity
 from rsi_programmer.ood import weights_hash
 from rsi_programmer.families import generate_family
@@ -207,6 +208,31 @@ class FrozenBenchmarkTests(unittest.TestCase):
         print("widen: base=%.3f/%.3f wide=%.3f/%.3f"
               % (base["narrow_solve"], base["broad_solve"],
                  wide["narrow_solve"], wide["broad_solve"]))
+
+    def test_refinement_sees_train_rows_only(self) -> None:
+        """No task's held-out rows train that same task."""
+        for task in self.plain + self.twin:
+            train = {tuple(c[:2]) for c in task["train"]}
+            held = {tuple(c[:2]) for c in task["held_out"]}
+            for tid, rows, target, bound in _refine_rows([task]):
+                self.assertEqual(tid, task["id"])
+                pairs = {tuple(r) for r in rows}
+                self.assertTrue(pairs <= train)
+                self.assertFalse(pairs & held)
+                self.assertEqual(bound,
+                                 int(task["max_tree_ops"]))
+
+    def test_refined_bench_keeps_discipline(self) -> None:
+        """Refine-then-lock bench reports its refined flag."""
+        rep = benchmark(self.narrow, self.broad,
+                        self.plain[:2], BUDGET, name="ood-ref",
+                        order="score", widen=6, refine=True)
+        self.assertTrue(rep["refined"])
+        self.assertTrue(rep["weights_unchanged"])
+        self.assertEqual(rep["tasks"], 2)
+        self.assertEqual(rep["caveat"], CAVEAT)
+        print("refined: narrow=%.3f broad=%.3f"
+              % (rep["narrow_solve"], rep["broad_solve"]))
 
     def test_overfit_policy_blinder_to_mirror(self) -> None:
         """Narrow guidance barely notices the reversal."""

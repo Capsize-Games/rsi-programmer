@@ -45,11 +45,14 @@ def main() -> int:
     broad = SearchPolicy(seed=0)
     broad.fit(shadow + extra, EPOCHS, contrast=pairs)
     ref = benchmark(narrow, broad, twin_tasks, BUDGET,
-                    name="ood-twin", order="score", widen=6)
+                    name="ood-twin", order="score", widen=6,
+                    refine=True)
     mir = benchmark(narrow, broad, plain_tasks, BUDGET,
-                    name="ood-plain", order="score", widen=6)
+                    name="ood-plain", order="score", widen=6,
+                    refine=True)
     benchmark(narrow, broad, _load(FULL), BUDGET,
-              name="ood-full", order="score", widen=6)
+              name="ood-full", order="score", widen=6,
+              refine=True)
     for who in ("narrow_solve", "broad_solve"):
         print("shift-bite %s: twin=%.3f mirrored=%.3f "
               "bite=%+.3f" % (who, ref[who], mir[who],
