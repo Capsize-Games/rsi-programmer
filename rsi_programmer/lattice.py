@@ -12,14 +12,17 @@ from __future__ import annotations
 from typing import Any
 
 import torch
+import torch.nn.functional as func
 from spikeforge.topology.builder import build_module
 from spikeforge.topology.edge import Edge
 from spikeforge.topology.spec import TopologySpec
 from spikeforge.topology.stage import Stage
 
+from rsi_programmer.author import contrastive_groups
+from rsi_programmer.lineage import mission_ledger
 from rsi_programmer.modules import MOD_DIM, with_gap
-from rsi_programmer.policy import STEPS, _clone
-from rsi_programmer.words import pack
+from rsi_programmer.policy import OP_ORDER, STEPS, _clone
+from rsi_programmer.words import OPCODES, pack, unpack
 
 N_BITS = 4
 EMIT, STOP = 0, 1
@@ -187,3 +190,80 @@ class BitLattice:
         self._steps = int(snap.get("steps", STEPS))
         self._hidden = int(snap.get("hidden", 16))
         self._temporal = _clone(snap.get("temporal"))
+
+
+def _bit_targets(groups: list[Any]
+                 ) -> tuple[list[list[float]], list[int]]:
+    """Opcode bits for positives, reserved word for negatives."""
+    feats: list[list[float]] = []
+    bits: list[int] = []
+    for group in groups:
+        for row, label in group:
+            op = OP_ORDER[max(range(len(OP_ORDER)),
+                              key=lambda i: row[i])]
+            word = unpack(OPCODES[op]) if label == 1 else \
+                [1, 1, 1, 1]
+            feats.append(row)
+            bits += word
+    return feats, bits
+
+
+def train_lattice(lat: BitLattice, fixture: str, ledger: str,
+                  epochs: int = 8,
+                  lam: float = 0.2) -> dict[str, Any]:
+    """Train bit heads on opcode words; encoder stays frozen.
+
+    Struct gate targets solution membership. A worst-bit
+    joint term couples the four heads per word. Records one
+    lineage intent; returns per-head and word-exact metrics.
+    """
+    groups = contrastive_groups(fixture)
+    feats, flat = _bit_targets(groups)
+    labels = [row[1] for group in groups for row in group]
+    mat = with_gap(feats, None)
+    want = torch.tensor(flat, dtype=torch.float32)
+    want = want.reshape(len(feats), N_BITS)
+    membership = torch.tensor(labels, dtype=torch.float32)
+    lat.set_encoder_frozen(True)
+    lat.reset()
+    for _ in range(epochs):
+        lat._opt.zero_grad()
+        out = lat._drive(mat)
+        bit = [func.binary_cross_entropy(out["b%d" % i]
+                                         [:, 0], want[:, i],
+                                         reduction="none")
+               for i in range(N_BITS)]
+        emit = func.binary_cross_entropy(out["st"][:, EMIT],
+                                         membership)
+        stop = func.binary_cross_entropy(out["st"][:, STOP],
+                                         1.0 - membership)
+        per_sample = torch.stack(bit, dim=1)
+        worst = per_sample.max(dim=1).values.mean()
+        loss = per_sample.mean() + emit + stop + lam * worst
+        loss.backward()
+        lat._opt.step()
+    report = _report(lat, mat, want, fixture, epochs,
+                     len(feats))
+    store = mission_ledger(ledger, "rsi-lattice")
+    store.record_intent("train-seed-%d" % lat._seed,
+                        "rsi-lattice", 0, 1, report)
+    store.close()
+    return report
+
+
+def _report(lat: BitLattice, mat: torch.Tensor,
+            want: torch.Tensor, fixture: str, epochs: int,
+            rounds: int) -> dict[str, Any]:
+    """Per-head and word-exact metrics, no gradients."""
+    with torch.no_grad():
+        out = lat._drive(mat)
+    got = torch.stack([out["b%d" % i][:, 0] >= 0.5
+                       for i in range(N_BITS)], dim=1)
+    truth = want > 0.5
+    acc = [(got[:, i] == truth[:, i]).float().mean().item()
+           for i in range(N_BITS)]
+    exact = (got == truth).all(dim=1).float().mean()
+    return {"fixture": fixture, "epochs": epochs,
+            "rounds": rounds, "head_accuracy": acc,
+            "word_exact": exact.item(),
+            "emit_rate": out["st"][:, EMIT].mean().item()}
