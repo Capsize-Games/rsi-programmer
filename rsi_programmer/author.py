@@ -263,15 +263,22 @@ def refine_author(policy: SearchPolicy, tasks: list[TaskRow],
         fit = _fitness(policy, tasks, cand, topk, budget)
         if fit > best_fit: best, best_fit = cand, fit
     return best, {"solved": best_fit[0], "tried": -best_fit[1]}
+def _fresh(sig: Vals, ctx: dict[str, Any]) -> bool:
+    """A signature worth committing has no committed twin."""
+    return sig not in ctx["sigs"]
+
 def _beam_scan(policy: SearchPolicy, ctx: dict[str, Any], rows: Rows,
     target: Vals, size: int, bound: int, budget: int, task_id: str,
     width: int, w: list[float], stash: Stash) -> bool:
     triples, sigs, order, scored = _score_order(
         policy, ctx, rows, target, size, bound, budget, w)
-    ctx["levels"][size] = []
+    if size not in ctx["levels"]:
+        ctx["levels"][size] = []
+    base = len(ctx["levels"][size])
     for idx in order:
         if ctx["tried"] >= budget: return False
-        if len(ctx["levels"][size]) >= width:
+        if not _fresh(sigs[idx], ctx): continue
+        if len(ctx["levels"][size]) - base >= width:
             stash[size].append((scored[idx], triples[idx],
                                 sigs[idx]))
             continue
@@ -290,24 +297,42 @@ def _backtrack(ctx: dict[str, Any], task_id: str, bound: int,
                 _, triple, sig = stash[size].pop(idx)
             else:
                 triple, sig = stash[size].pop(0)[1:]
+            if not _fresh(sig, ctx): continue
             ctx["tried"] += 1
             if _commit(ctx, triple, sig, task_id, size, target): return True
     return False
+MAX_PASSES = 3
+
+
 def _beam_sweep(policy: SearchPolicy, rows: Rows, target: Vals,
                 bound: int, budget: int, task_id: str,
                 width: int, w: list[float],
                 order: str) -> tuple[dict[str, Any],
                                      dict[str, Any]]:
-    """One width-capped scan plus ordered backtrack revisit."""
+    """Width-capped scans plus ordered backtrack, to fixpoint.
+
+    One bottom-up pass strands late backtrack commits: upper
+    sizes already scanned without them. Repeat scan plus
+    backtrack until a full pass commits nothing new or the
+    budget is spent, so late intermediates feed upper sizes.
+    Signature dedup keeps every triple committed at most
+    once; passes are capped so never-solve tasks cost at
+    most a small multiple of one sweep.
+    """
     ctx = _new_ctx()
-    stash: Stash = {s: [] for s in range(1, bound + 1)}
-    for size in range(1, bound + 1):
-        if _beam_scan(policy, ctx, rows, target, size, bound,
-                      budget, task_id, width, w, stash):
+    for _ in range(MAX_PASSES):
+        stash: Stash = {s: [] for s in range(1, bound + 1)}
+        for size in range(1, bound + 1):
+            if ctx["tried"] >= budget: break
+            if _beam_scan(policy, ctx, rows, target, size, bound,
+                          budget, task_id, width, w, stash):
+                return _pack(ctx, True, ctx["graph"], "", "beam"), ctx
+        if ctx["tried"] >= budget: break
+        known = len(ctx["sigs"])
+        if _backtrack(ctx, task_id, bound, budget, stash, target,
+                      order):
             return _pack(ctx, True, ctx["graph"], "", "beam"), ctx
-    if _backtrack(ctx, task_id, bound, budget, stash, target,
-                  order):
-        return _pack(ctx, True, ctx["graph"], "", "beam"), ctx
+        if len(ctx["sigs"]) == known: break
     verdict = "budget-exhausted" if ctx["tried"] >= budget else \
         "no-authored-solution"
     return _pack(ctx, False, None, verdict, "beam"), ctx

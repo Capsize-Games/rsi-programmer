@@ -41,10 +41,10 @@ separate column, never the headline.
   agency profile converges as fitness spread collapses.
   See `rsi_programmer/autonomy.py`.
 - Structural OOD (expression-only, v2.4.0 §9.1: no gradient
-  placement): all plain pools in training — broad holds 4/8
-  plain but twin slips 4/8 to 3/8 (narrow 2/8; blindness
-  0.92/0.42): more/harder data is spent, diminishing recorded
-  in #29;
+  placement): fixpoint beam (scan/backtrack to signature
+  fixpoint, #31) — narrow and broad solve 8/8 mirrored plain
+  and twin (blindness 0.92/0.42); full-IR stays 2/8, the next
+  frontier;
   evolved-policy scale accept still 0/8 with higher tried
   (width cannot fix bad ranking).
   Full-IR boundary: 2 solves a side via degenerate branches;

@@ -17,7 +17,8 @@ KEYS = ("gen", "task", "tried", "solved", "sandbox",
         "violations", "lineage", "oracle_holds", "path",
         "author_verdict")
 TOKENS = ("oracle", "held_out", "heldout", "promot", "ledger")
-SOLVED = {"diff_squares", "twice_product"}
+SOLVED = {"diff_squares", "twice_product", "square_plus",
+          "square_minus"}
 
 
 def _forging_hook(first: str, width: int) -> Any:
@@ -51,16 +52,15 @@ class HeadlessLoopTests(unittest.TestCase):
         return [json.loads(line) for line in lines]
 
     def test_hands_off_author_only_honest_rate(self) -> None:
-        """Author path 2/4 with no rescue, zero bad executions."""
+        """Author path 4/4 with no rescue, zero bad executions."""
         res = self.result
         self.assertEqual(res["status"], "complete")
-        self.assertEqual(res["solve_rate"], 0.5)
+        self.assertEqual(res["solve_rate"], 1.0)
         self.assertEqual(res["baseline_solve_rate"], 1.0)
         self.assertLess(res["cost_tried"], res["baseline_cost"])
         self.assertEqual(res["safety_failures"], 0)
         self.assertEqual(res["paths"], {"beam": 4})
-        self.assertEqual(res["reject_histogram"],
-                         {"no-authored-solution": 2, "solved": 2})
+        self.assertEqual(res["reject_histogram"], {"solved": 4})
         got = {d["task"] for d in res["decisions"] if d["solved"]}
         self.assertEqual(got, SOLVED)
         for decision in res["decisions"]:
@@ -93,7 +93,7 @@ class HeadlessLoopTests(unittest.TestCase):
         self.assertEqual(leaked, [])
 
     def test_no_silent_rescue(self) -> None:
-        """Enumerator-solved task stays unsolved with no fallback."""
+        """Beam-solved task needs no fallback; verdict clean."""
         from rsi_programmer.author import beam_search
         from rsi_programmer.policy import SearchPolicy
         task = next(t for t in self.tasks
@@ -104,9 +104,11 @@ class HeadlessLoopTests(unittest.TestCase):
         policy = SearchPolicy(seed=1)
         out = beam_search(policy, rows, target, bound, 10 ** 9,
                           "square_plus", fallback=False)
-        self.assertFalse(out["solved"])
+        self.assertTrue(out["solved"])
         self.assertEqual(out.get("path"), "beam")
-        self.assertEqual(out["verdict"], "no-authored-solution")
+        self.assertEqual(out["verdict"], "")
+        self.assertTrue(self.recorder.oracle_holds(task,
+                                                  out["graph"]))
 
     def test_fallback_debug_column_labelled(self) -> None:
         """Compare flag adds the enumerator column, never headline."""
@@ -116,7 +118,7 @@ class HeadlessLoopTests(unittest.TestCase):
         res = loop.run()
         self.assertTrue(res["fallback_compared"])
         self.assertEqual(res["fallback_solve_rate"], 1.0)
-        self.assertEqual(res["solve_rate"], 0.5)
+        self.assertEqual(res["solve_rate"], 1.0)
 
     def test_budget_exhaustion_stops_cleanly(self) -> None:
         """One-candidate budget stops the loop without failing."""

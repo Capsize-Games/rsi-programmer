@@ -15,7 +15,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent.parent / "docs" / "gains"
 CSV = HERE / "gains.csv"
 RELEASES = ("code-v12", "code-v13", "code-v17", "code-v20",
-            "code-v21", "code-v26", "code-v27")
+            "code-v21", "code-v26", "code-v27", "code-v29")
 STRATA = ("twin", "plain", "full-ir")
 
 
