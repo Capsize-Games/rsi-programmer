@@ -12,5 +12,11 @@ setup SPIKEFORGE_DIR="$HOME/Projects/spikeforge/spikeforge":
 test:
     .venv/bin/python -m unittest discover -s tests -t . -v
 
+# Dev loop: fast files only (no scale/evolve/transfer/beam/author/
+# operands/retry budgets; retry's distractor search alone takes ~15
+# minutes). The full `just test` stays the release gate.
+test-fast:
+    .venv/bin/python -m unittest tests.test_rsi_actions tests.test_rsi_sandbox tests.test_rsi_headless tests.test_proxy tests.test_rsi_hard tests.test_typed_dag_programming_probe -v
+
 train:
     .venv/bin/python scripts/train.py --seed 0 --epochs 50
