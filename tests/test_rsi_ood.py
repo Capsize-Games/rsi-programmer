@@ -8,6 +8,7 @@ import unittest
 from typing import Any
 
 from rsi_programmer.ood import CAVEAT, assert_frozen
+from rsi_programmer.ood import _probe_feats, _probe_layer
 from rsi_programmer.ood import _refine_rows, benchmark
 from rsi_programmer.ood import contrast_tensors
 from rsi_programmer.ood import guidance_similarity
@@ -233,6 +234,18 @@ class FrozenBenchmarkTests(unittest.TestCase):
         self.assertEqual(rep["caveat"], CAVEAT)
         print("refined: narrow=%.3f broad=%.3f"
               % (rep["narrow_solve"], rep["broad_solve"]))
+
+    def test_wider_net_trains_and_scores(self) -> None:
+        """Hidden-64 policy fits, scores finite, deterministic."""
+        first = SearchPolicy(seed=0, hidden=64)
+        first.fit(self.groups[:1], 2)
+        second = SearchPolicy(seed=0, hidden=64)
+        second.fit(self.groups[:1], 2)
+        feats = _probe_feats(self.twin[0], *_probe_layer())
+        both = [pol.scores(feats) for pol in (first, second)]
+        self.assertEqual(len(both[0]), len(feats))
+        self.assertEqual(both[0], both[1])
+        self.assertTrue(all(v == v for v in both[0]))
 
     def test_overfit_policy_blinder_to_mirror(self) -> None:
         """Narrow guidance barely notices the reversal."""

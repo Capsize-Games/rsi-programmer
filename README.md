@@ -41,9 +41,9 @@ separate column, never the headline.
   agency profile converges as fitness spread collapses.
   See `rsi_programmer/autonomy.py`.
 - Structural OOD (expression-only, v2.4.0 §9.1: no gradient
-  placement): refined EXTRA weights, locked before the sweep —
-  narrow 2/8, broad holds 3/8 mirrored plain and twin
-  (blindness 0.985/0.27; refinement sees train rows only);
+  placement): hidden-64 bench policies — narrow 2/8, broad 4/8
+  mirrored plain and twin (blindness 0.92/0.49; wider nets are
+  less blind but the solve/blindness link is non-monotonic);
   evolved-policy scale accept still 0/8 with higher tried
   (width cannot fix bad ranking).
   Full-IR boundary: 2 solves a side via degenerate branches;

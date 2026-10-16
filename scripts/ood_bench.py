@@ -40,16 +40,20 @@ def main() -> int:
     maker = SearchPolicy(seed=0)
     shadow = maker.trace_groups(SHADOW)
     extra = SearchPolicy(seed=0).trace_groups(TRAIN)
-    narrow = SearchPolicy(seed=0)
+    narrow = SearchPolicy(seed=0, hidden=64)
     narrow.fit(shadow[:2], EPOCHS)
-    broad = SearchPolicy(seed=0)
+    broad = SearchPolicy(seed=0, hidden=64)
     broad.fit(shadow + extra, EPOCHS, contrast=pairs)
     ref = benchmark(narrow, broad, twin_tasks, BUDGET,
                     name="ood-twin", order="score", widen=6,
                     refine=True)
+    print("twin broad solves: %s"
+          % [r["task"] for r in ref["per_task"] if r["broad"]])
     mir = benchmark(narrow, broad, plain_tasks, BUDGET,
                     name="ood-plain", order="score", widen=6,
                     refine=True)
+    print("plain broad solves: %s"
+          % [r["task"] for r in mir["per_task"] if r["broad"]])
     benchmark(narrow, broad, _load(FULL), BUDGET,
               name="ood-full", order="score", widen=6,
               refine=True)
