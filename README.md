@@ -37,6 +37,15 @@ separate column, never the headline.
   policy (fb_fc severed, seeds 0/1/2: 0.208/0.056/0.069);
   agency profile converges as fitness spread collapses.
   See `rsi_programmer/autonomy.py`.
+- Structural OOD (expression-only, v2.4.0 §9.1: no gradient
+  placement): frozen narrow/broad policies solve 1/8 mirrored
+  plain tasks each, same as unmirrored (floor effect, not
+  transfer); guidance-blindness 0.985 narrow vs 0.945 broad
+  (1.0 = blind to the reversal). Full-IR boundary: 2 narrow
+  solves via degenerate branches (constant condition;
+  out-of-range comparison over rows -4..4). Enumerator from
+  scratch solves 8/8 plain (mean tried 2935) and 8/8 full-IR
+  (125930). See `rsi_programmer/ood.py`.
 
 ## Layout
 

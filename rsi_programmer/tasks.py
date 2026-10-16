@@ -136,6 +136,23 @@ def _has_branch(expr: Expr | str) -> bool:
                if isinstance(p, Expr))
 
 
+def _mirror(expr: Expr) -> Expr:
+    """Relational reversal: swap operand roles throughout."""
+    if expr.op == "input":
+        other = "y" if expr.left == "x" else "x"
+        return Expr("input", other, None, 0)
+    if expr.op == "const":
+        return expr
+    left = _mirror(expr.left) \
+        if isinstance(expr.left, Expr) else expr.left
+    right = _mirror(expr.right) \
+        if isinstance(expr.right, Expr) else expr.right
+    third = _mirror(expr.third) \
+        if isinstance(expr.third, Expr) else expr.third
+    return Expr(expr.op, left, right, expr.size,
+                third if isinstance(third, Expr) else None)
+
+
 def _rows(rng: random.Random, count: int,
           taken: set[tuple[int, int]]) -> list[tuple[int, int]]:
     """Distinct input pairs outside the taken set."""
@@ -150,8 +167,10 @@ def _rows(rng: random.Random, count: int,
 
 
 def generate_task(rng: random.Random, task_id: str, bound: int,
-                  branch: bool, consts: bool) -> dict[str, Any]:
+                  branch: bool, consts: bool,
+                  mirror: bool = False) -> dict[str, Any]:
     """One frozen task requiring the requested IR features."""
+
     if branch and bound < 4:
         raise ValueError("select needs bound 4 or more")
     for _ in range(200):
@@ -171,6 +190,8 @@ def generate_task(rng: random.Random, task_id: str, bound: int,
             if consts and not used_const:
                 expr = _force_const(rng, expr)
                 used_const = True
+        if mirror:
+            expr = _mirror(expr)
         graph = lower_to_dag(expr)
         taken: set[tuple[int, int]] = set()
         train = _rows(rng, TRAIN_ROWS, taken)

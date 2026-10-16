@@ -18,16 +18,20 @@ from rsi_programmer.traces import TraceRecorder
 
 def generate_family(seed: int, count: int, bound: int,
                     branch_every: int, prefix: str,
-                    start: int = 0) -> dict[str, Any]:
+                    start: int = 0,
+                    mirror: bool = False,
+                    consts: bool = True) -> dict[str, Any]:
     """Count frozen tasks; every branch_every-th needs select."""
     rng = random.Random(seed)
     seen: set[tuple] = set()
     tasks: list[dict[str, Any]] = []
     index = start
     while len(tasks) < count:
-        need_branch = (len(tasks) % branch_every) == 1
+        need_branch = branch_every > 0 and \
+            (len(tasks) % branch_every) == 1
         task = generate_task(rng, "%s_%02d" % (prefix, index),
-                             bound, need_branch, True)
+                             bound, need_branch, consts,
+                             mirror=mirror)
         key = (tuple(tuple(c) for c in task["train"]),
                tuple(tuple(c) for c in task["held_out"]))
         index += 1
