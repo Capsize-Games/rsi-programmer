@@ -38,14 +38,16 @@ separate column, never the headline.
   agency profile converges as fitness spread collapses.
   See `rsi_programmer/autonomy.py`.
 - Structural OOD (expression-only, v2.4.0 §9.1: no gradient
-  placement): expanded plain training (24 tasks) lifted broad
-  to 3/8 mirrored plain and twin (narrow 1/8); blindness swung
-  past orthogonal to -0.267 (narrow 0.985; 1.0 = blind to the
-  reversal). Full-IR boundary: 2 solves a side via degenerate
-  branches (constant condition; out-of-range comparison over
-  rows -4..4); v2 fixture rejects them at generation.
-  Enumerator from scratch solves 8/8 plain (mean tried 2935)
-  and 8/8 full-IR (125930). See `rsi_programmer/ood.py`.
+  placement): band-hinge separation holds broad blindness at
+  +0.27 with correct polarity (raw cosine blew through to
+  -0.267); broad solves 2/8 mirrored plain and twin (narrow
+  1/8) against 3/8 under the flipped objective — one-solve
+  polarity trade, documented in #21. Full-IR boundary: 2
+  solves a side via degenerate branches (constant condition;
+  out-of-range comparison over rows -4..4); v2 fixture
+  rejects them at generation. Enumerator from scratch solves
+  8/8 plain (mean tried 2935) and 8/8 full-IR (125930).
+  See `rsi_programmer/ood.py`.
 
 ## Layout
 

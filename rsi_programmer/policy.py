@@ -177,8 +177,10 @@ class SearchPolicy:
             other = self._forward(second)
             denom = torch.sqrt((vec * vec).sum() *
                                (other * other).sum())
-            loss = loss + lam * (vec * other).sum() / \
-                (denom + 1e-8)
+            cos = (vec * other).sum() / (denom + 1e-8)
+            band = torch.relu(cos - 0.3) + \
+                torch.relu(0.1 - cos)
+            loss = loss + lam * band
         loss.backward()
         self._opt.step()
         return float(loss.detach())
