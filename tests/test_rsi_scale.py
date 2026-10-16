@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 import rsi_programmer.scale
+from rsi_programmer.author import EXTRA
 from rsi_programmer.rich import fit_rich
 from rsi_programmer import scale as rsi_scale
 from rsi_programmer.scale import ScaleUp
@@ -77,6 +78,18 @@ class ScaleUpTests(unittest.TestCase):
         self.assertGreater(grown, 0)
         print("archive entries=%d gens=%d"
               % (grown, evo["generations"]))
+
+    def test_author_weighted_acceptance_locks_weights(self) -> None:
+        """Refined EXTRA weights ride the sweep, locked."""
+        acc = self.loop._accept()
+        self.assertTrue(acc["weights_unchanged"])
+        self.assertEqual(acc["weights_hash"][0],
+                         acc["weights_hash"][1])
+        self.assertEqual(len(acc["author_weights"]), len(EXTRA))
+        print("accept author: w1=%.2f hard=%.2f weights=%s"
+              % (acc["w1"]["solve_rate"],
+                 acc["hard"]["solve_rate"],
+                 [round(w, 3) for w in acc["author_weights"]]))
 
     def test_run_reports_organization_metrics(self) -> None:
         """run() carries autonomy, integration, agency (#11)."""

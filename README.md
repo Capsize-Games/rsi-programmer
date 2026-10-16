@@ -17,9 +17,12 @@ separate column, never the headline.
 - Author path, shadow family: beam authors 2 of 4 (solve 0.50,
   cost 487 vs enumerator baseline 14673) with refined author
   weights; misses report `no-authored-solution`, never a rescue.
-- Author path, scale acceptance (evolved policy, zero author
-  weights): beam authors 0 of 4 shadow and 0 of 4 hard tasks;
-  every verdict carries its path.
+- Author path, scale acceptance (evolved policy, refined
+  EXTRA weights locked): beam authors 0 of 4 shadow and 0 of
+  4 hard tasks; every verdict carries its path. The same
+  recipe on a fresh policy authors 2 of 4 shadow — the
+  evolved elite sits where refinement sees only ties (see
+  #26); acceptance stays on the evolved product.
 - Enumerator path (debug comparison only): exhaustive search
   solves 4 of 4 shadow at cost 14673, and guides novel transfer
   on three brand-new rules (158/122/952 tried vs 939/939/6807).

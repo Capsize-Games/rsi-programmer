@@ -15,10 +15,12 @@ import json
 import time
 from typing import Any
 
-from rsi_programmer.author import beam_search
+from rsi_programmer.author import beam_search, refine_author
+from rsi_programmer.author import train_author
 from rsi_programmer.autonomy import agency_profile, autonomy_ratio
 from rsi_programmer.autonomy import integration_divergence
 from rsi_programmer.lineage import mission_ledger
+from rsi_programmer.ood import weights_hash
 from rsi_programmer.policy import Group, SearchPolicy, Task
 from rsi_programmer.pool import founders, make_entry, next_pool, persist_entry
 from rsi_programmer.rich import RICH, bonus_for, family_pairs, fit_rich
@@ -161,10 +163,21 @@ class ScaleUp:
         return {"history": history, "generations": gen,
                 "stopped": stopped}
 
+    def _refine_author(self) -> list[float]:
+        """train_author plus EXTRA refinement; locked weights."""
+        train_author(self._best, self._shadow, epochs=50)
+        rows = [(str(t["id"]),) + self._parts(t)
+                for t in self._sh_tasks + self._ha_tasks]
+        weights, _ = refine_author(self._best, rows,
+                                   seed=self._seed)
+        return weights
+
     def _accept(self) -> dict[str, Any]:
         """Author-only sweep over all eight tasks, no rescue."""
         jobs = [(t, self._sh_rec, "w1") for t in self._sh_tasks]
         jobs += [(t, self._ha_rec, "hard") for t in self._ha_tasks]
+        weights = self._refine_author()
+        before = weights_hash(self._best)
         per = []
         for task, rec, fam in jobs:
             rows, target, bound = self._parts(task)
@@ -172,7 +185,8 @@ class ScaleUp:
                 "tried"]) or 1
             out = beam_search(self._best, rows, target, bound,
                               total, str(task["id"]), fallback=False,
-                              order="score", widen=6)
+                              order="score", widen=6,
+                              weights=weights)
             ok = out["solved"] and rec.oracle_holds(task, out["graph"])
             base = int(self._base[fam]["tasks"][task["id"]][
                 "tried"])
@@ -182,8 +196,12 @@ class ScaleUp:
                         "oracle": ok, "truncated": False,
                         "path": out.get("path", "beam"),
                         "author_verdict": out["verdict"]})
+        after = weights_hash(self._best)
         return {"per_task": per, "w1": rollup(per, "w1"),
-                "hard": rollup(per, "hard")}
+                "hard": rollup(per, "hard"),
+                "author_weights": weights,
+                "weights_hash": [before, after],
+                "weights_unchanged": before == after}
 
     def _consts(self, evo: dict[str, Any]) -> dict[str, Any]:
         """Predeclared budgets plus fidelity caps and biases."""
