@@ -148,7 +148,9 @@ class SearchPolicy:
         """Additive per-choice bonus; scale-up assigns its own."""
         return [0.0] * len(feats)
 
-    def rank(self, feats: list[list[float]]) -> list[int]:
+    def rank(self, feats: list[list[float]],
+             triples: list[Triple] | None = None,
+             gap: float | None = None) -> list[int]:
         """Descending score order over choices, stable on ties."""
         scored = self.scores(feats)
         extra = self._bonus(feats)

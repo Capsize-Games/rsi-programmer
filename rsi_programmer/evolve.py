@@ -91,6 +91,14 @@ def _scan(ctx: dict[str, Any], triples: list[Triple],
         if _oracle_kept(ctx, found, sigs[idx], task_id, oracle):
             return found
     return None
+def _layer_gap(sigs: list[Vals], target: Vals) -> float:
+    """Open fraction: one minus the best row-match rate."""
+    total = len(target) or 1
+    best = max((sum(1 for a, b in zip(sig, target) if a == b)
+                for sig in sigs), default=0)
+    return 1.0 - best / total
+
+
 def _step(policy: SearchPolicy, ctx: dict[str, Any],
           rows: Rows, target: Vals, size: int, bound: int,
           budget: int, task_id: str, oracle: OracleHook | None
@@ -103,7 +111,9 @@ def _step(policy: SearchPolicy, ctx: dict[str, Any],
                     left.size, right.size, size, bound,
                     ctx["tried"] + i + 1, budget)
              for i, (op, left, right) in enumerate(triples)]
-    return _scan(ctx, triples, sigs, policy.rank(feats),
+    gap = _layer_gap(sigs, target)
+    return _scan(ctx, triples, sigs, policy.rank(feats, triples,
+                                                gap),
                  target, task_id, oracle)
 def _accept(ctx: dict[str, Any], found: Any) -> dict[str, Any]:
     try:
