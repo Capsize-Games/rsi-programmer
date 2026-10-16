@@ -272,3 +272,83 @@ class RefinableLoopTests(unittest.TestCase):
               % (elite_solved, len(fam), elite_tried))
         print("author+refine: solved=%d/%d tried=%d"
               % (auth_solved, len(fam), auth_tried))
+
+
+class ProbeLoopTests(unittest.TestCase):
+    BUDGET = 3000
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        """One probe-pressured generation; elite refined."""
+        tmp = tempfile.mkdtemp(prefix="rsi-w2p-")
+        screen = ProxyScreen(FIXTURE, FIXTURE)
+        loop = PolicyLoop(FIXTURE, tmp + "/p.db", screen=screen,
+                          probe_rounds=6)
+        cls.res = loop.run(1)
+        loop.close()
+        fam = TraceRecorder(FIXTURE).load_family()["tasks"]
+        cls.rows = [(str(t["id"]),
+                     tuple((c[0], c[1]) for c in t["train"]),
+                     tuple(c[2] for c in t["train"]),
+                     int(t.get("max_tree_ops", 4))) for t in fam]
+        best = max(cls.res["archive"],
+                   key=lambda e: (e["fitness"]["correctness"],
+                                  e["fitness"]["refinability"]))
+        print("probe elite: id=%s operator=%s corr=%.2f probe=%.2f"
+              % (best["policy_id"], best["operator"],
+                 best["fitness"]["correctness"],
+                 best["fitness"]["refinability"]))
+        cls.elite = SearchPolicy(seed=0)
+        cls.elite.restore({"spec": best["spec"],
+                           "weights": best["weights"]})
+        cls.weights, _ = refine_author(cls.elite, cls.rows,
+                                       seed=0)
+
+    def test_probe_off_by_default(self) -> None:
+        """Probe defaults off; fitness key still present."""
+        tmp = tempfile.mkdtemp(prefix="rsi-w2q-")
+        loop = PolicyLoop(FIXTURE, tmp + "/q.db")
+        fit = loop.evaluate(SearchPolicy(seed=0))
+        loop.close()
+        self.assertIn("refinability", fit)
+        self.assertEqual(fit["refinability"], 0.0)
+
+    def test_probe_scores_bounded_and_deterministic(self) -> None:
+        """Probe shares sit in [0, 1] and repeat per seed."""
+        tmp = tempfile.mkdtemp(prefix="rsi-w2r-")
+        loop = PolicyLoop(FIXTURE, tmp + "/r.db", probe_rounds=2)
+        first = loop._probe(SearchPolicy(seed=1))
+        second = loop._probe(SearchPolicy(seed=1))
+        loop.close()
+        self.assertGreaterEqual(first, 0.0)
+        self.assertLessEqual(first, 1.0)
+        self.assertEqual(first, second)
+
+    def test_probe_recorded_in_lineage(self) -> None:
+        """Every archive fitness carries a probe score."""
+        for entry in self.res["archive"]:
+            self.assertIn("refinability", entry["fitness"])
+            self.assertGreaterEqual(
+                entry["fitness"]["refinability"], 0.0)
+            self.assertLessEqual(entry["fitness"]["refinability"],
+                                 1.0)
+
+    def test_probe_elite_refines_and_reports(self) -> None:
+        """Probe-pressured elite + refine vs #26 1/4 baseline."""
+        rec = TraceRecorder(FIXTURE)
+        fam = rec.load_family()["tasks"]
+        solved, tried = 0, 0
+        for task in fam:
+            rows = tuple((c[0], c[1]) for c in task["train"])
+            target = tuple(c[2] for c in task["train"])
+            bound = int(task.get("max_tree_ops", 4))
+            out = beam_search(self.elite, rows, target, bound,
+                              self.BUDGET, str(task["id"]),
+                              fallback=False, weights=self.weights)
+            tried += out["tried"]
+            if out["solved"] and rec.oracle_holds(task,
+                                                  out["graph"]):
+                solved += 1
+        self.assertLessEqual(tried, self.BUDGET * len(fam))
+        print("probe-elite+refine: solved=%d/%d tried=%d"
+              % (solved, len(fam), tried))

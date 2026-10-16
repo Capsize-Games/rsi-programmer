@@ -12,13 +12,15 @@ from rsi_programmer.traces import TraceRecorder
 COMPS = ("correctness", "efficiency", "recovery")
 POP = 4
 SIGMA = 0.1
+PROBE_TASKS = 2
+PROBE_BUDGET = 2000
 def _dom(a: dict[str, float], b: dict[str, float]) -> bool:
     return all(a[k] >= b[k] for k in COMPS) and any(
         a[k] > b[k] for k in COMPS)
 def _fitkey(entry: dict[str, Any]) -> tuple[float, ...]:
     fit = entry["fitness"]
-    return (fit["correctness"], fit["efficiency"],
-            fit["recovery"])
+    return (fit["correctness"], fit.get("refinability", 0.0),
+            fit["efficiency"], fit["recovery"])
 def _front(pop: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return [e for e in pop if not any(
         _dom(o["fitness"], e["fitness"]) for o in pop
@@ -27,12 +29,14 @@ class PolicyLoop:
     """Evolve the policy; Pareto archive on LineageStore."""
     def __init__(self, fixture: str, ledger: str,
                  seed: int = 0, *,
-                 screen: Any = None, stop_after: int = 2
+                 screen: Any = None, stop_after: int = 2,
+                 probe_rounds: int = 0
                  ) -> None:
         """Bind the frozen family, baseline, and intent log."""
         self._fixture = fixture
         self._screen = screen
         self._stop_after = stop_after
+        self._probe_rounds = probe_rounds
         self._recorder = TraceRecorder(fixture)
         self._tasks = self._recorder.load_family()["tasks"]
         base = self._recorder.record_all()["records"]
@@ -71,7 +75,13 @@ class PolicyLoop:
         return {"solved": True, "cost": out["tried"], "gate": "",
                 "recovery": self._recovery(policy, task, out["tried"])}
     def evaluate(self, policy: SearchPolicy) -> dict[str, Any]:
-        """Gated correctness/efficiency/recovery; no scalar."""
+        """Gated correctness/refinability/efficiency/recovery.
+
+        Correctness dominates; refinability (EXTRA-refined
+        author solves on the fixed probe tasks) is the second
+        objective and tiebreak; efficiency then recovery.
+        Pareto dominance stays on the original three comps.
+        """
         parts = [self._score_task(policy, t)
                  for t in self._tasks]
         gate = next((p["gate"] for p in parts if p["gate"]),
@@ -79,12 +89,35 @@ class PolicyLoop:
         cost = sum(p["cost"] for p in parts)
         if gate or cost > self._budget:
             return {"gates_pass": False, "gate": gate or "over-budget",
-                    "correctness": 0.0, "efficiency": 0.0, "recovery": 0.0}
+                    "correctness": 0.0, "efficiency": 0.0, "recovery": 0.0,
+                    "refinability": 0.0}
         solved = sum(1 for p in parts if p["solved"])
         rec = sum(p["recovery"] for p in parts) / len(parts)
         return {"gates_pass": True, "gate": "",
                 "correctness": solved / len(parts), "recovery": rec,
+                "refinability": self._probe(policy),
                 "efficiency": max(0.0, 1.0 - cost / self._budget)}
+
+    def _probe_rows(self) -> list[Any]:
+        """Fixed probe set: first tasks as author TaskRows."""
+        rows = []
+        for task in self._tasks[:PROBE_TASKS]:
+            rows.append((str(task["id"]),
+                         tuple((c[0], c[1]) for c in task["train"]),
+                         tuple(c[2] for c in task["train"]),
+                         int(task.get("max_tree_ops", 4))))
+        return rows
+
+    def _probe(self, policy: SearchPolicy) -> float:
+        """EXTRA-refined author solves share on the probe set."""
+        if self._probe_rounds <= 0:
+            return 0.0
+        from rsi_programmer.author import refine_author
+        rows = self._probe_rows()
+        _, report = refine_author(policy, rows, seed=self._seed,
+                                 rounds=self._probe_rounds,
+                                 budget=PROBE_BUDGET)
+        return report["solved"] / len(rows)
     def _founders(self, groups: list[Any]
                   ) -> list[dict[str, Any]]:
         from rsi_programmer.author import train_author
