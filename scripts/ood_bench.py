@@ -13,7 +13,8 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from rsi_programmer.ood import benchmark, guidance_similarity
+from rsi_programmer.ood import benchmark, contrast_tensors
+from rsi_programmer.ood import guidance_similarity
 from rsi_programmer.policy import SearchPolicy
 
 SHADOW = "fixtures/rsi_shadow_tasks.json"
@@ -32,13 +33,14 @@ def _load(path: str) -> list[dict[str, Any]]:
 
 def main() -> int:
     """Train narrow/broad, run all frozen strata, report."""
+    twin_tasks = _load(TWIN)
+    plain_tasks = _load(PLAIN)
+    pairs = contrast_tensors(twin_tasks, plain_tasks)
     shadow = SearchPolicy(seed=0).trace_groups(SHADOW)
     narrow = SearchPolicy(seed=0)
     narrow.fit(shadow[:2], EPOCHS)
     broad = SearchPolicy(seed=0)
-    broad.fit(shadow, EPOCHS)
-    twin_tasks = _load(TWIN)
-    plain_tasks = _load(PLAIN)
+    broad.fit(shadow, EPOCHS, contrast=pairs)
     ref = benchmark(narrow, broad, twin_tasks, BUDGET,
                     name="ood-twin")
     mir = benchmark(narrow, broad, plain_tasks, BUDGET,

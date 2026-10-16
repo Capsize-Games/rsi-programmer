@@ -13,6 +13,8 @@ from __future__ import annotations
 import hashlib
 from typing import Any
 
+import torch
+
 from rsi_programmer.author import beam_search
 from rsi_programmer.policy import SearchPolicy, encode
 from rsi_programmer.policy import layer_triples
@@ -82,26 +84,47 @@ def evaluate(policy: SearchPolicy, tasks: list[dict[str, Any]],
     return per
 
 
+def _probe_layer() -> tuple[list[Any], int]:
+    """Size-1 triple layer over terminals, plus its count."""
+    levels = {0: list(terminals())}
+    triples = layer_triples(levels, 1)
+    return triples, len(triples) or 1
+
+
+def _probe_feats(task: dict[str, Any], triples: list[Any],
+                 total: int) -> list[list[float]]:
+    """Encode one task's probe layer against its own target."""
+    rows = tuple((c[0], c[1]) for c in task["train"])
+    target = tuple(c[2] for c in task["train"])
+    bound = int(task.get("max_tree_ops", 4))
+    return [encode(op, signature(left, rows),
+                   signature(right, rows), target,
+                   left.size, right.size, 1, bound, 0, total)
+            for op, left, right in triples]
+
+
+def contrast_tensors(twin: list[dict[str, Any]],
+                     shifted: list[dict[str, Any]]
+                     ) -> list[tuple[torch.Tensor,
+                                     torch.Tensor]]:
+    """Aligned probe-layer tensors for contrastive training."""
+    triples, total = _probe_layer()
+    return [(torch.tensor(_probe_feats(ref, triples, total)),
+             torch.tensor(_probe_feats(alt, triples, total)))
+            for ref, alt in zip(twin, shifted)]
+
+
 def guidance_similarity(policy: SearchPolicy,
                         twin: list[dict[str, Any]],
                         shifted: list[dict[str, Any]]
                         ) -> dict[str, Any]:
     """Cosine of guidance scores across row-aligned pairs."""
-    levels = {0: list(terminals())}
-    triples = layer_triples(levels, 1)
-    total = len(triples) or 1
+    triples, total = _probe_layer()
     sims: list[float] = []
     for ref, alt in zip(twin, shifted):
         vecs = []
         for task in (ref, alt):
-            rows = tuple((c[0], c[1]) for c in task["train"])
-            target = tuple(c[2] for c in task["train"])
-            bound = int(task.get("max_tree_ops", 4))
-            feats = [encode(op, signature(left, rows),
-                            signature(right, rows), target,
-                            left.size, right.size, 1, bound,
-                            0, total)
-                     for op, left, right in triples]
+            feats = _probe_feats(task, triples, total)
             vecs.append(policy.scores(feats))
         num = sum(a * b for a, b in zip(vecs[0], vecs[1]))
         left = sum(a * a for a in vecs[0]) ** 0.5

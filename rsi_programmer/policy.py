@@ -158,8 +158,11 @@ class SearchPolicy:
         return sorted(order,
                       key=lambda i: scored[i] + extra[i],
                       reverse=True)
-    def _epoch(self, groups: list[Any]) -> float:
-        """One pairwise margin pass over final-layer groups."""
+    def _epoch(self, groups: list[Any],
+               contrast: list[tuple[torch.Tensor,
+                                    torch.Tensor]] | None = None,
+               lam: float = 1.0) -> float:
+        """Margin pass plus mirror-separation penalty."""
         self._opt.zero_grad()
         loss = torch.zeros(())
         for pos, neg in groups:
@@ -169,18 +172,28 @@ class SearchPolicy:
             gap = gap - self._forward(neg).unsqueeze(0)
             margin = torch.nn.functional.softplus(1.0 - gap)
             loss = loss + margin.mean()
+        for first, second in contrast or []:
+            vec = self._forward(first)
+            other = self._forward(second)
+            denom = torch.sqrt((vec * vec).sum() *
+                               (other * other).sum())
+            loss = loss + lam * (vec * other).sum() / \
+                (denom + 1e-8)
         loss.backward()
         self._opt.step()
         return float(loss.detach())
     def fit(self, groups: list[Group],
-            epochs: int = 40) -> float:
+            epochs: int = 40, *,
+            contrast: list[tuple[torch.Tensor,
+                                 torch.Tensor]] | None = None,
+            lam: float = 1.0) -> float:
         """Gradient operator: rank solvers above the rest."""
         tensed = [(torch.tensor([f for f, y in g if y == 1]),
                    torch.tensor([f for f, y in g if y == 0]))
                   for g in groups]
         loss_val = 0.0
         for _ in range(epochs):
-            loss_val = self._epoch(tensed)
+            loss_val = self._epoch(tensed, contrast, lam)
         return loss_val
     def trace_groups(self, fixture: str) -> list[Group]:
         """Final-layer groups from the frozen W1 traces."""

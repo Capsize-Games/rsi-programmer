@@ -8,7 +8,8 @@ import unittest
 from typing import Any
 
 from rsi_programmer.ood import CAVEAT, assert_frozen
-from rsi_programmer.ood import benchmark, guidance_similarity
+from rsi_programmer.ood import benchmark, contrast_tensors
+from rsi_programmer.ood import guidance_similarity
 from rsi_programmer.ood import weights_hash
 from rsi_programmer.policy import SearchPolicy
 from rsi_programmer.probe import Expr
@@ -83,12 +84,13 @@ class FrozenBenchmarkTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         """Overfit narrow plus broadly trained policies."""
-        shadow = SearchPolicy(seed=0).trace_groups(SHADOW)
+        cls.groups = SearchPolicy(seed=0).trace_groups(SHADOW)
         cls.narrow = SearchPolicy(seed=0)
-        cls.narrow.fit(shadow[:2], EPOCHS)
+        cls.narrow.fit(cls.groups[:2], EPOCHS)
         cls.broad = SearchPolicy(seed=0)
-        cls.broad.fit(shadow, EPOCHS)
+        cls.broad.fit(cls.groups, EPOCHS)
         cls.twin, cls.plain = _load(TWIN), _load(PLAIN)
+        cls.pairs = contrast_tensors(cls.twin, cls.plain)
 
     def test_weights_locked_through_eval(self) -> None:
         """Frozen run leaves every weight byte untouched."""
@@ -116,6 +118,19 @@ class FrozenBenchmarkTests(unittest.TestCase):
         moved.perturb(sigma=0.5, seed=1)
         with self.assertRaises(RuntimeError):
             assert_frozen(before, moved)
+
+    def test_contrast_training_separates_guidance(self) -> None:
+        """Mirror penalty pushes broad guidance off baseline."""
+        self.assertEqual(len(self.pairs), len(self.twin))
+        first, second = self.pairs[0]
+        self.assertEqual(first.shape, second.shape)
+        self.assertGreater(first.shape[0], 0)
+        shaped = SearchPolicy(seed=0)
+        shaped.fit(self.groups, EPOCHS, contrast=self.pairs)
+        sim = guidance_similarity(shaped, self.twin, self.plain)
+        self.assertLessEqual(sim["mean"], 0.8946)
+        print("contrast blindness: %.4f (baseline 0.9446)"
+              % sim["mean"])
 
     def test_overfit_policy_blinder_to_mirror(self) -> None:
         """Narrow guidance barely notices the reversal."""
