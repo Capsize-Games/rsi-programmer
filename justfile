@@ -12,9 +12,13 @@ setup SPIKEFORGE_DIR="$HOME/Projects/spikeforge/spikeforge":
 test:
     .venv/bin/python -m unittest discover -s tests -t . -v
 
-# Dev loop: fast files only (no scale/evolve/transfer/beam/author/
-# operands/retry budgets; retry's distractor search alone takes ~15
-# minutes). The full `just test` stays the release gate.
+# Lanes (measured code-v18 era, Ryzen 5800X): test-fast ~4 min;
+# slow files seconds to minutes each, except the retry
+# distractor search at ~58 min (solved, tried=830954). Full
+# `just test` needs ~2.5 h wall; every file stays inside the
+# default discover gate, retry included (proven green, not
+# quarantined). Dev loop: fast files only (no scale/evolve/
+# transfer/beam/author/operands/retry budgets).
 test-fast:
     .venv/bin/python -m unittest tests.test_rsi_actions tests.test_rsi_sandbox tests.test_rsi_headless tests.test_proxy tests.test_rsi_hard tests.test_typed_dag_programming_probe tests.test_rsi_decoder tests.test_modular tests.test_rsi_tasks tests.test_edits tests.test_self_gate tests.test_rsi_loop tests.test_autonomy tests.test_rsi_ood tests.test_gains -v
 
