@@ -18,6 +18,7 @@ from rsi_programmer.ood import guidance_similarity
 from rsi_programmer.policy import SearchPolicy
 
 SHADOW = "fixtures/rsi_shadow_tasks.json"
+TRAIN = "fixtures/rsi_plain_train.json"
 TWIN = "fixtures/rsi_ood_twin.json"
 PLAIN = "fixtures/rsi_ood_plain.json"
 FULL = "fixtures/rsi_ood_tasks.json"
@@ -36,11 +37,13 @@ def main() -> int:
     twin_tasks = _load(TWIN)
     plain_tasks = _load(PLAIN)
     pairs = contrast_tensors(twin_tasks, plain_tasks)
-    shadow = SearchPolicy(seed=0).trace_groups(SHADOW)
+    maker = SearchPolicy(seed=0)
+    shadow = maker.trace_groups(SHADOW)
+    extra = SearchPolicy(seed=0).trace_groups(TRAIN)
     narrow = SearchPolicy(seed=0)
     narrow.fit(shadow[:2], EPOCHS)
     broad = SearchPolicy(seed=0)
-    broad.fit(shadow, EPOCHS, contrast=pairs)
+    broad.fit(shadow + extra, EPOCHS, contrast=pairs)
     ref = benchmark(narrow, broad, twin_tasks, BUDGET,
                     name="ood-twin")
     mir = benchmark(narrow, broad, plain_tasks, BUDGET,

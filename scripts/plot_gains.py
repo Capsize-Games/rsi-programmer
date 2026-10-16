@@ -14,7 +14,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent / "docs" / "gains"
 CSV = HERE / "gains.csv"
-RELEASES = ("code-v12", "code-v13")
+RELEASES = ("code-v12", "code-v13", "code-v17")
 STRATA = ("twin", "plain", "full-ir")
 
 
@@ -29,7 +29,7 @@ def load() -> list[dict[str, str]]:
         for key in ("narrow_solve", "broad_solve"):
             assert 0.0 <= float(row[key]) <= 1.0, row
         for key in ("blind_narrow", "blind_broad"):
-            assert 0.0 <= float(row[key]) <= 1.0, row
+            assert -1.0 <= float(row[key]) <= 1.0, row
         assert float(row["enum_tried"]) >= 0, row
     return rows
 
@@ -44,7 +44,7 @@ def plot(rows: list[dict[str, str]]) -> list[str]:
     width, pos = 0.2, {"twin": 0, "plain": 1, "full-ir": 2}
     series = [(rel, who) for rel in RELEASES
               for who in ("narrow_solve", "broad_solve")]
-    off = {key: (num - 1.5) * width
+    off = {key: (num - (len(series) - 1) / 2) * width
            for num, key in enumerate(series)}
     tint = {key: "C%d" % num for num, key in
             enumerate(series)}

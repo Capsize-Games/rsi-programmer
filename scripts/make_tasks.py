@@ -8,9 +8,10 @@ fixtures/rsi_ood_plain.json (8 mirrored plain-OPS tasks,
 seed 34), fixtures/rsi_ood_twin.json (8 unmirrored
 row-aligned reference tasks, seed 34), and
 fixtures/rsi_ood_v2.json (8 mirrored tasks with degenerate
-branches rejected at generation, seed 35, strict) with
-bound 4. Same seeds always yield byte-identical files;
-verify with the split-hash test.
+branches rejected at generation, seed 35, strict), and
+fixtures/rsi_plain_train.json (24 plain-OPS training tasks,
+seed 55) with bound 4. Same seeds always yield
+byte-identical files; verify with the split-hash test.
 """
 from __future__ import annotations
 
@@ -27,7 +28,9 @@ SPECS = (("fixtures/rsi_gen_train.json", 7, 24, "gen_train",
          ("fixtures/rsi_ood_twin.json", 34, 8, "gen_ood_u",
           False, False, 0),
          ("fixtures/rsi_ood_v2.json", 35, 8, "gen_ood2",
-          True, True, 2, True))
+          True, True, 2, True),
+         ("fixtures/rsi_plain_train.json", 55, 24, "gen_plain",
+          False, False, 0))
 
 
 def main() -> int:

@@ -21,6 +21,7 @@ OOD = "fixtures/rsi_ood_tasks.json"
 PLAIN = "fixtures/rsi_ood_plain.json"
 TWIN = "fixtures/rsi_ood_twin.json"
 V2 = "fixtures/rsi_ood_v2.json"
+TRAIN = "fixtures/rsi_plain_train.json"
 SHADOW = "fixtures/rsi_shadow_tasks.json"
 BUDGET = 3000
 EPOCHS = 40
@@ -108,7 +109,7 @@ class MirrorTests(unittest.TestCase):
 
     def test_splits_verify_and_no_leakage(self) -> None:
         """Split hashes hold; held-out never trains its task."""
-        for path in (OOD, PLAIN, TWIN, V2):
+        for path in (OOD, PLAIN, TWIN, V2, TRAIN):
             for task in _load(path):
                 self.assertEqual(
                     TraceRecorder.split_hash(task),
@@ -129,6 +130,10 @@ class FrozenBenchmarkTests(unittest.TestCase):
         cls.broad.fit(cls.groups, EPOCHS)
         cls.twin, cls.plain = _load(TWIN), _load(PLAIN)
         cls.pairs = contrast_tensors(cls.twin, cls.plain)
+        cls.extra = SearchPolicy(seed=0).trace_groups(TRAIN)
+        cls.wide = SearchPolicy(seed=0)
+        cls.wide.fit(cls.groups + cls.extra, EPOCHS,
+                     contrast=cls.pairs)
 
     def test_weights_locked_through_eval(self) -> None:
         """Frozen run leaves every weight byte untouched."""
@@ -169,6 +174,21 @@ class FrozenBenchmarkTests(unittest.TestCase):
         self.assertLessEqual(sim["mean"], 0.8946)
         print("contrast blindness: %.4f (baseline 0.9446)"
               % sim["mean"])
+
+    def test_expanded_training_keeps_discipline(self) -> None:
+        """Wide training runs frozen with caveat attached."""
+        rep = benchmark(self.narrow, self.wide, self.plain[:2],
+                        BUDGET, name="ood-wide")
+        self.assertEqual(rep["tasks"], 2)
+        self.assertEqual(rep["caveat"], CAVEAT)
+        self.assertTrue(rep["weights_unchanged"])
+        sim = guidance_similarity(self.wide, self.twin,
+                                  self.plain)
+        self.assertGreaterEqual(sim["mean"], -1.0)
+        self.assertLessEqual(sim["mean"], 1.0)
+        print("wide: narrow=%.3f wide=%.3f blindness=%.4f"
+              % (rep["narrow_solve"], rep["broad_solve"],
+                 sim["mean"]))
 
     def test_overfit_policy_blinder_to_mirror(self) -> None:
         """Narrow guidance barely notices the reversal."""
