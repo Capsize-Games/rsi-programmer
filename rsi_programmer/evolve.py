@@ -142,9 +142,13 @@ def guided_search(policy: SearchPolicy, rows: Rows,
 class PolicyLoop:
     """Evolve the policy; Pareto archive on LineageStore."""
     def __init__(self, fixture: str, ledger: str,
-                 seed: int = 0) -> None:
+                 seed: int = 0, *,
+                 screen: Any = None, stop_after: int = 2
+                 ) -> None:
         """Bind the frozen family, baseline, and intent log."""
         self._fixture = fixture
+        self._screen = screen
+        self._stop_after = stop_after
         self._recorder = TraceRecorder(fixture)
         self._tasks = self._recorder.load_family()["tasks"]
         base = self._recorder.record_all()["records"]
@@ -241,6 +245,8 @@ class PolicyLoop:
         entry = {"policy_id": item["id"],
                  "parent_id": item["parent"], "generation": gen,
                  "operator": item["operator"], "fitness": fitness,
+                 "screen_skipped": bool(item.get("screen_skipped",
+                                                False)),
                  "weights": snap["weights"], "spec": snap["spec"]}
         cmd = "rsi-w2-g%d-%s" % (gen, item["id"])
         self._ledger.record_intent(cmd, "rsi-w2", 0, gen + 1,
@@ -251,21 +257,62 @@ class PolicyLoop:
         rows = self._ledger.commands_in("rsi-w2", "prepared")
         return [json.loads(r["intent"]) for r in rows]
 
+    def _evaluate_pop(self, pop: list[dict[str, Any]],
+                      parents: list[dict[str, Any]] | None,
+                      gen: int) -> dict[str, Any] | None:
+        """Full eval in screen order; decisive top picks skip."""
+        if self._screen is None:
+            order, scored = list(pop), None
+        else:
+            scored = self._screen.rank_policies(
+                {i["id"]: i["policy"] for i in pop})
+            order = sorted(pop, key=lambda i: scored[i["id"]],
+                           reverse=True)
+        by_id = {i["id"]: i for i in (parents or [])}
+        early: list[bool] = []
+        for item in order:
+            decisive = self._screen is not None and \
+                self._stop_after > 0 and \
+                len(early) >= self._stop_after and all(early)
+            if decisive and parents is not None:
+                item["fitness"] = dict(
+                    by_id[item["parent"]]["fitness"])
+                item["screen_skipped"] = True
+                self._persist(item, gen, item["fitness"])
+                continue
+            fitness = self.evaluate(item["policy"])
+            item["fitness"] = fitness
+            item["screen_skipped"] = False
+            self._persist(item, gen, fitness)
+            if len(early) < self._stop_after:
+                early.append(bool(fitness.get("gates_pass")))
+        if scored is None:
+            return None
+        full = {i["id"]: i["fitness"]["correctness"]
+                for i in order if not i["screen_skipped"]}
+        pact = self._screen.fidelity(scored, full)
+        return {"order": [i["id"] for i in order],
+                "skipped": [i["id"] for i in order
+                             if i["screen_skipped"]],
+                "pact": pact}
+
     def run(self, generations: int = 2) -> dict[str, Any]:
         """Elitist loop; every entry persists to the ledger."""
         groups = SearchPolicy(self._seed).trace_groups(
             self._fixture)
         pop = self._founders(groups)
         history = []
+        screened: list[Any] = []
+        parents = None
         for gen in range(generations + 1):
-            for item in pop:
-                fitness = self.evaluate(item["policy"])
-                item["fitness"] = fitness
-                self._persist(item, gen, fitness)
+            screened.append(self._evaluate_pop(pop, parents,
+                                               gen))
             history.append(dict(max(pop, key=_fitkey)["fitness"]))
+            parents = pop
             if gen < generations:
                 pop = self._next_pop(pop, gen, groups)
-        return {"history": history, "archive": self._archive}
+        return {"history": history, "archive": self._archive,
+                "screened": screened}
     def close(self) -> None:
         """Close the ledger handle."""
         self._ledger.close()

@@ -161,6 +161,12 @@ class ProxyScreen:
                 "seeds": len(self._seeds),
                 "wall_s": round(wall, 3)}
 
+    def rank_policies(self, policies: dict[str, SearchPolicy]
+                      ) -> Scores:
+        """Holdback gain per live policy; promotion order."""
+        return {pid: round(_mean_gain(policy, self._hold), 4)
+                for pid, policy in policies.items()}
+
     def full_eval(self, candidates: list[Candidate],
                   epochs: int = FULL_EPOCHS) -> dict[str, Any]:
         """Full W1 training, novel-task gain per candidate."""

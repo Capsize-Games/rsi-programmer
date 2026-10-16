@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 from rsi_programmer.evolve import PolicyLoop, guided_search
 from rsi_programmer.policy import SearchPolicy
+from rsi_programmer.proxy import ProxyScreen
 from rsi_programmer.traces import TraceRecorder
 from rsi_programmer.probe import enumerate_programs
 from rsi_programmer.probe import lower_to_dag
@@ -134,3 +135,59 @@ class PolicyLoopTests(unittest.TestCase):
         policy.perturb(0.5, 99)
         policy.restore(snap)
         self.assertEqual(mid, policy.scores(feats))
+
+
+class ScreenedLoopTests(unittest.TestCase):
+    NOVEL = str(Path(__file__).resolve().parent.parent
+                / "fixtures" / "rsi_novel_tasks.json")
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        """Baseline and screen-promoted loops on one seed."""
+        tmp = tempfile.mkdtemp(prefix="rsi-w2s-")
+        base = PolicyLoop(FIXTURE, tmp + "/base.db")
+        cls.base = base.run(1)
+        base.close()
+        screen = ProxyScreen(FIXTURE, cls.NOVEL)
+        loop = PolicyLoop(FIXTURE, tmp + "/screen.db",
+                          screen=screen)
+        cls.screened = loop.run(1)
+        loop.close()
+
+    def _evaluated(self, res: dict[str, Any]) -> int:
+        """Archive entries actually fully evaluated."""
+        return sum(1 for e in res["archive"]
+                   if not e.get("screen_skipped"))
+
+    def test_promotion_evaluates_no_more(self) -> None:
+        """Screened loop never pays for extra full evals."""
+        self.assertEqual(len(self.screened["archive"]),
+                         len(self.base["archive"]))
+        self.assertLessEqual(self._evaluated(self.screened),
+                             self._evaluated(self.base))
+        print("screened evals=%d base evals=%d skipped=%s"
+              % (self._evaluated(self.screened),
+                 self._evaluated(self.base),
+                 [s["skipped"]
+                  for s in self.screened["screened"]]))
+
+    def test_skips_carry_parent_fitness(self) -> None:
+        """Skipped kids inherit, evaluated kids measure."""
+        for res in (self.base, self.screened):
+            by_id = {e["policy_id"]: e for e in res["archive"]}
+            for entry in res["archive"]:
+                self.assertIn("screen_skipped", entry)
+                if entry["screen_skipped"]:
+                    parent = by_id[entry["parent_id"]]
+                    self.assertEqual(entry["fitness"],
+                                     parent["fitness"])
+        self.assertFalse(any(e["screen_skipped"]
+                             for e in self.base["archive"]))
+
+    def test_screen_order_and_pact_reported(self) -> None:
+        """Every screened generation names order and pact."""
+        self.assertEqual(len(self.screened["screened"]), 2)
+        for rep in self.screened["screened"]:
+            self.assertEqual(len(rep["order"]), 4)
+            self.assertIn("agreement", rep["pact"])
+            self.assertIn("pairs", rep["pact"])
