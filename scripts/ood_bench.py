@@ -19,6 +19,8 @@ from rsi_programmer.policy import SearchPolicy
 
 SHADOW = "fixtures/rsi_shadow_tasks.json"
 TRAIN = "fixtures/rsi_plain_train.json"
+HARD = "fixtures/rsi_plain_hard.json"
+MORE = "fixtures/rsi_plain_more.json"
 TWIN = "fixtures/rsi_ood_twin.json"
 PLAIN = "fixtures/rsi_ood_plain.json"
 FULL = "fixtures/rsi_ood_tasks.json"
@@ -40,6 +42,8 @@ def main() -> int:
     maker = SearchPolicy(seed=0)
     shadow = maker.trace_groups(SHADOW)
     extra = SearchPolicy(seed=0).trace_groups(TRAIN)
+    extra += SearchPolicy(seed=0).trace_groups(HARD)
+    extra += SearchPolicy(seed=0).trace_groups(MORE)
     narrow = SearchPolicy(seed=0, hidden=64)
     narrow.fit(shadow[:2], EPOCHS)
     broad = SearchPolicy(seed=0, hidden=64)

@@ -24,6 +24,8 @@ PLAIN = "fixtures/rsi_ood_plain.json"
 TWIN = "fixtures/rsi_ood_twin.json"
 V2 = "fixtures/rsi_ood_v2.json"
 TRAIN = "fixtures/rsi_plain_train.json"
+HARD = "fixtures/rsi_plain_hard.json"
+MORE = "fixtures/rsi_plain_more.json"
 SHADOW = "fixtures/rsi_shadow_tasks.json"
 BUDGET = 3000
 EPOCHS = 40
@@ -109,9 +111,21 @@ class MirrorTests(unittest.TestCase):
                                mirror=False, consts=False)
         self.assertEqual(twin["tasks"], _load(TWIN))
 
+    def test_hard_corpus_plain_and_bounded(self) -> None:
+        """New pools are plain-OPS with the intended bounds."""
+        hard, more = _load(HARD), _load(MORE)
+        self.assertEqual(len(hard), 12)
+        self.assertEqual(len(more), 12)
+        for task in hard + more:
+            self.assertEqual(task["features"], [])
+        self.assertEqual({t["max_tree_ops"] for t in hard},
+                         {5})
+        self.assertEqual({t["max_tree_ops"] for t in more},
+                         {4})
+
     def test_splits_verify_and_no_leakage(self) -> None:
         """Split hashes hold; held-out never trains its task."""
-        for path in (OOD, PLAIN, TWIN, V2, TRAIN):
+        for path in (OOD, PLAIN, TWIN, V2, TRAIN, HARD, MORE):
             for task in _load(path):
                 self.assertEqual(
                     TraceRecorder.split_hash(task),
