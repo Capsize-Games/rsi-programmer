@@ -6,7 +6,7 @@ import statistics
 from typing import Any
 import torch
 from rsi_programmer.actions import ActionSpace
-from rsi_programmer.evolve import guided_search
+from rsi_programmer.search import guided_search
 from rsi_programmer.policy import DIM, OP_ORDER, Group, Rows
 from rsi_programmer.policy import SearchPolicy, Vals
 from rsi_programmer.policy import Triple, encode, layer_triples
