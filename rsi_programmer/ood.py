@@ -66,14 +66,16 @@ def enumerator_cost(task: dict[str, Any]) -> int:
 
 
 def evaluate(policy: SearchPolicy, tasks: list[dict[str, Any]],
-             recorder: TraceRecorder, budget: int
+             recorder: TraceRecorder, budget: int, *,
+             order: str = "fifo", widen: int = 0
              ) -> list[dict[str, Any]]:
     """Frozen beam sweep; solved needs train + held-out hold."""
     per: list[dict[str, Any]] = []
     for task in tasks:
         rows, target, bound = _parts(task)
         out = beam_search(policy, rows, target, bound,
-                          budget, str(task["id"]), fallback=False)
+                          budget, str(task["id"]), fallback=False,
+                          order=order, widen=widen)
         holds = out["solved"] and recorder.oracle_holds(
             task, out["graph"])
         per.append({"task": str(task["id"]),
@@ -139,15 +141,18 @@ def guidance_similarity(policy: SearchPolicy,
 
 def benchmark(narrow: SearchPolicy, broad: SearchPolicy,
               tasks: list[dict[str, Any]], budget: int,
-              name: str = "ood") -> dict[str, Any]:
+              name: str = "ood", order: str = "fifo",
+              widen: int = 0) -> dict[str, Any]:
     """Frozen OOD runs plus enumerator baseline; prints gap."""
     recorder = TraceRecorder(OOD_FIXTURE)
     locked = {name: weights_hash(pol)
               for name, pol in (("narrow", narrow),
                                 ("broad", broad))}
-    narrow_per = evaluate(narrow, tasks, recorder, budget)
+    narrow_per = evaluate(narrow, tasks, recorder, budget,
+                          order=order, widen=widen)
     assert_frozen(locked["narrow"], narrow)
-    broad_per = evaluate(broad, tasks, recorder, budget)
+    broad_per = evaluate(broad, tasks, recorder, budget,
+                         order=order, widen=widen)
     assert_frozen(locked["broad"], broad)
     base = [enumerator_cost(task) for task in tasks]
     report = {"name": name, "tasks": len(tasks),

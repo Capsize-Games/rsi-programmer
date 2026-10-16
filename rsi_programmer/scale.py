@@ -171,7 +171,8 @@ class ScaleUp:
             total = int(self._base[fam]["tasks"][task["id"]][
                 "tried"]) or 1
             out = beam_search(self._best, rows, target, bound,
-                              total, str(task["id"]), fallback=False)
+                              total, str(task["id"]), fallback=False,
+                              order="score", widen=6)
             ok = out["solved"] and rec.oracle_holds(task, out["graph"])
             base = int(self._base[fam]["tasks"][task["id"]][
                 "tried"])

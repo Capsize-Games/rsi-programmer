@@ -20,7 +20,7 @@ class GainsTests(unittest.TestCase):
             capture_output=True, text=True, timeout=120,
             cwd=str(ROOT))
         self.assertEqual(proc.returncode, 0, proc.stderr)
-        self.assertIn("gains rows=12", proc.stdout)
+        self.assertIn("gains rows=15", proc.stdout)
 
 
 if __name__ == "__main__":

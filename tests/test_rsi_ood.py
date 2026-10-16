@@ -191,6 +191,23 @@ class FrozenBenchmarkTests(unittest.TestCase):
               % (rep["narrow_solve"], rep["broad_solve"],
                  sim["mean"]))
 
+    def test_widened_bench_superset_within_budget(self) -> None:
+        """Production schedule only adds solves in budget."""
+        base = benchmark(self.narrow, self.broad,
+                         self.plain[:2], BUDGET, name="ood-w0")
+        wide = benchmark(self.narrow, self.broad,
+                         self.plain[:2], BUDGET, name="ood-w6",
+                         order="score", widen=6)
+        self.assertGreaterEqual(wide["narrow_solve"],
+                                base["narrow_solve"])
+        self.assertGreaterEqual(wide["broad_solve"],
+                                base["broad_solve"])
+        self.assertLessEqual(wide["mean_narrow_tried"], BUDGET)
+        self.assertLessEqual(wide["mean_broad_tried"], BUDGET)
+        print("widen: base=%.3f/%.3f wide=%.3f/%.3f"
+              % (base["narrow_solve"], base["broad_solve"],
+                 wide["narrow_solve"], wide["broad_solve"]))
+
     def test_overfit_policy_blinder_to_mirror(self) -> None:
         """Narrow guidance barely notices the reversal."""
         narrow_sim = guidance_similarity(
