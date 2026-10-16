@@ -56,7 +56,7 @@ class ProxyScreenTests(unittest.TestCase):
 
     def test_screen_runs_within_budget(self) -> None:
         """Few epochs and few seeds stay far under budget."""
-        self.assertEqual(self.result["epochs"], 2)
+        self.assertEqual(self.result["epochs"], 4)
         self.assertEqual(self.result["seeds"], 2)
         self.assertLess(self.result["wall_s"], 300.0)
 

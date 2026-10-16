@@ -24,7 +24,7 @@ from rsi_programmer.traces import TraceRecorder
 Candidate = dict[str, Any]
 Scores = dict[str, float]
 
-PROXY_EPOCHS = 2
+PROXY_EPOCHS = 4
 PROXY_SEEDS = (0, 1)
 SUBSET_TASKS = 2
 FULL_EPOCHS = 50
