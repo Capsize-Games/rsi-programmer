@@ -17,8 +17,8 @@ from rsi_programmer.probe import signature, terminals
 EXTRA = ("nodes_per_bound", "open_gap", "exact_flag", "self_apply")
 OPDIMS = tuple(range(len(OP_ORDER) + 3, len(OP_ORDER) + 7))
 TaskRow = tuple[str, Rows, Vals, int]
-Scored = tuple[list[Triple], list[Vals], list[int]]
-Stash = dict[int, list[tuple[Triple, Vals]]]
+Scored = tuple[list[Triple], list[Vals], list[int], list[float]]
+Stash = dict[int, list[tuple[float, Triple, Vals]]]
 def open_gap(sigs: list[Vals], target: Vals) -> float:
     return 1.0 - max([sum(1 for a, b in zip(s, target) if a == b)
                        / (len(target) or 1) for s in sigs] or [0.0])
@@ -194,7 +194,8 @@ def _score_order(policy: SearchPolicy, ctx: dict[str, Any],
                  rows: Rows, target: Vals, size: int, bound: int,
                  budget: int, w: list[float]) -> Scored:
     triples = layer_triples(ctx["levels"], size)
-    if not triples or ctx["tried"] >= budget: return triples, [], []
+    if not triples or ctx["tried"] >= budget: \
+        return triples, [], [], []
     gap = open_gap(ctx["sigs"], target)
     sigs = [signature(Expr(o, l, r, size), rows) for o, l, r in triples]
     tried, nodes = ctx["tried"] + 1, ctx["graph"]["nodes"]
@@ -202,13 +203,14 @@ def _score_order(policy: SearchPolicy, ctx: dict[str, Any],
                            budget, nodes, gap) for t, s in zip(triples, sigs)]
     scored = author_scores(policy, feats, w)
     order = sorted(range(len(feats)), key=scored.__getitem__, reverse=True)
-    return triples, sigs, order
+    return triples, sigs, order, scored
 def _author_step(policy: SearchPolicy, ctx: dict[str, Any],
                  rows: Rows, target: Vals, size: int, bound: int,
                  budget: int, task_id: str, topk: int,
                  w: list[float]) -> bool:
-    triples, sigs, order = _score_order(policy, ctx, rows, target,
-                                        size, bound, budget, w)
+    triples, sigs, order, _ = _score_order(policy, ctx, rows,
+                                            target, size, bound,
+                                            budget, w)
     ctx["tried"] += len(triples)
     ctx["levels"][size] = []
     for idx in order[:topk] if ctx["tried"] < budget else []:
@@ -264,41 +266,70 @@ def refine_author(policy: SearchPolicy, tasks: list[TaskRow],
 def _beam_scan(policy: SearchPolicy, ctx: dict[str, Any], rows: Rows,
     target: Vals, size: int, bound: int, budget: int, task_id: str,
     width: int, w: list[float], stash: Stash) -> bool:
-    triples, sigs, order = _score_order(policy, ctx, rows, target,
-                                        size, bound, budget, w)
+    triples, sigs, order, scored = _score_order(
+        policy, ctx, rows, target, size, bound, budget, w)
     ctx["levels"][size] = []
     for idx in order:
         if ctx["tried"] >= budget: return False
         if len(ctx["levels"][size]) >= width:
-            stash[size].append((triples[idx], sigs[idx]))
+            stash[size].append((scored[idx], triples[idx],
+                                sigs[idx]))
             continue
         ctx["tried"] += 1
         triple, sig = triples[idx], sigs[idx]
         if _commit(ctx, triple, sig, task_id, size, target): return True
     return False
 def _backtrack(ctx: dict[str, Any], task_id: str, bound: int,
-               budget: int, stash: Stash, target: Vals) -> bool:
+               budget: int, stash: Stash, target: Vals,
+               order: str = "fifo") -> bool:
     for size in range(1, bound + 1):
         while stash[size] and ctx["tried"] < budget:
-            triple, sig = stash[size].pop(0)
+            if order == "score":
+                idx = max(range(len(stash[size])),
+                          key=lambda i: stash[size][i][0])
+                _, triple, sig = stash[size].pop(idx)
+            else:
+                triple, sig = stash[size].pop(0)[1:]
             ctx["tried"] += 1
             if _commit(ctx, triple, sig, task_id, size, target): return True
     return False
-def beam_search(policy: SearchPolicy, rows: Rows, target: Vals,
-                bound: int, budget: int, task_id: str = "",
-                width: int = 3, weights: list[float] | None = None,
-                fallback: bool = True) -> dict[str, Any]:
-    ctx, w = _new_ctx(), list(weights) if weights else [0.0] * len(EXTRA)
+def _beam_sweep(policy: SearchPolicy, rows: Rows, target: Vals,
+                bound: int, budget: int, task_id: str,
+                width: int, w: list[float],
+                order: str) -> tuple[dict[str, Any],
+                                     dict[str, Any]]:
+    """One width-capped scan plus ordered backtrack revisit."""
+    ctx = _new_ctx()
     stash: Stash = {s: [] for s in range(1, bound + 1)}
     for size in range(1, bound + 1):
         if _beam_scan(policy, ctx, rows, target, size, bound,
                       budget, task_id, width, w, stash):
-            return _pack(ctx, True, ctx["graph"], "", "beam")
-    if _backtrack(ctx, task_id, bound, budget, stash, target):
-        return _pack(ctx, True, ctx["graph"], "", "beam")
-    if fallback:
-        return _use_fallback(policy, ctx, rows, target, bound, budget,
-                             task_id)
+            return _pack(ctx, True, ctx["graph"], "", "beam"), ctx
+    if _backtrack(ctx, task_id, bound, budget, stash, target,
+                  order):
+        return _pack(ctx, True, ctx["graph"], "", "beam"), ctx
     verdict = "budget-exhausted" if ctx["tried"] >= budget else \
         "no-authored-solution"
-    return _pack(ctx, False, None, verdict, "beam")
+    return _pack(ctx, False, None, verdict, "beam"), ctx
+
+
+def beam_search(policy: SearchPolicy, rows: Rows, target: Vals,
+                bound: int, budget: int, task_id: str = "",
+                width: int = 3, weights: list[float] | None = None,
+                fallback: bool = True, order: str = "fifo",
+                widen: int = 0) -> dict[str, Any]:
+    """Beam sweep, optional wider retry, optional fallback."""
+    w = list(weights) if weights else [0.0] * len(EXTRA)
+    out, ctx = _beam_sweep(policy, rows, target, bound, budget,
+                           task_id, width, w, order)
+    if not out["solved"] and widen > 0 and \
+            out["tried"] < budget:
+        again, ctx = _beam_sweep(
+            policy, rows, target, bound,
+            budget - out["tried"], task_id, widen, w, order)
+        again["tried"] = out["tried"] + again["tried"]
+        out = again
+    if out["solved"] or not fallback:
+        return out
+    return _use_fallback(policy, ctx, rows, target, bound, budget,
+                         task_id)

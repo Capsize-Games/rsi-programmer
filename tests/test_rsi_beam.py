@@ -16,8 +16,9 @@ from rsi_programmer.author import TaskRow, beam_search, emit_edit
 from rsi_programmer.author import refine_author, train_author
 from rsi_programmer.author import _backtrack, _beam_scan, _new_ctx
 from rsi_programmer.evolve import guided_search
-from rsi_programmer.policy import SearchPolicy
+from rsi_programmer.policy import SearchPolicy, layer_triples
 from rsi_programmer.traces import TraceRecorder
+from rsi_programmer.probe import Expr, signature
 from rsi_programmer.probe import validate_graph
 FIXTURE = (Path(__file__).resolve().parent.parent
            / "fixtures" / "rsi_shadow_tasks.json")
@@ -174,5 +175,87 @@ class BeamTests(unittest.TestCase):
         """Whole module stays under 600 wall seconds."""
         print("beam wall=%.1fs" % self.wall_s)
         self.assertLess(self.wall_s, 600.0)
+class BeamOrderTests(unittest.TestCase):
+    TWIN = (Path(__file__).resolve().parent.parent
+            / "fixtures" / "rsi_ood_twin.json")
+
+    def _tasks(self) -> list[tuple[str, Any, Any, int]]:
+        """First two shadow plus first two twin tasks."""
+        out = []
+        for path in (str(FIXTURE), str(self.TWIN)):
+            fam = TraceRecorder(path).load_family()["tasks"]
+            for task in fam[:2]:
+                rows = tuple((c[0], c[1]) for c in task["train"])
+                out.append((str(task["id"]), rows,
+                            tuple(c[2] for c in task["train"]),
+                            int(task.get("max_tree_ops", 4))))
+        return out
+
+    def test_score_backtrack_pops_best_first(self) -> None:
+        """Best-scored stash entry commits before the rest."""
+        rows = ((0, 0), (1, 1), (2, 0), (0, 2))
+        base = _new_ctx()
+        triples = layer_triples(base["levels"], 1)
+        sigs = [signature(Expr(o, left, right, 1), rows)
+                for o, left, right in triples]
+        self.assertNotEqual(sigs[0], sigs[1])
+        low = (0.1, triples[0], sigs[0])
+        high = (0.9, triples[1], sigs[1])
+        target = sigs[1]
+        fifo_ctx, score_ctx = _new_ctx(), _new_ctx()
+        leaves = {id(leaf): leaf.left
+                  for triple in (triples[0], triples[1])
+                  for leaf in triple[1:]}
+        for ctx in (fifo_ctx, score_ctx):
+            ctx["refs"].update(leaves)
+            ctx["levels"][1] = []
+        fifo_stash = {1: [low, high]}
+        score_stash = {1: [low, high]}
+        self.assertTrue(_backtrack(fifo_ctx, "unit", 1, 100,
+                                   fifo_stash, target, "fifo"))
+        self.assertTrue(_backtrack(score_ctx, "unit", 1, 100,
+                                   score_stash, target,
+                                   "score"))
+        self.assertEqual(fifo_ctx["tried"], 2)
+        self.assertEqual(score_ctx["tried"], 1)
+
+    def test_score_order_costs_no_more(self) -> None:
+        """Score revisit never costs more tried per task."""
+        policy = SearchPolicy(seed=0)
+        fifo_tried, score_tried = 0, 0
+        for tid, rows, target, bound in self._tasks():
+            plain = beam_search(policy, rows, target, bound,
+                                3000, tid, fallback=False)
+            ranked = beam_search(policy, rows, target, bound,
+                                 3000, tid, fallback=False,
+                                 order="score")
+            self.assertLessEqual(ranked["tried"],
+                                 plain["tried"])
+            self.assertGreaterEqual(ranked["solved"],
+                                    plain["solved"])
+            fifo_tried += plain["tried"]
+            score_tried += ranked["tried"]
+        print("beam order: fifo=%d score=%d" % (fifo_tried,
+                                                score_tried))
+
+    def test_widen_schedule_superset_within_budget(self) -> None:
+        """Wider retry only adds solves inside the budget."""
+        policy = SearchPolicy(seed=0)
+        base_solved, wide_solved = 0, 0
+        for tid, rows, target, bound in self._tasks():
+            base = beam_search(policy, rows, target, bound,
+                               3000, tid, fallback=False)
+            wide = beam_search(policy, rows, target, bound,
+                               3000, tid, fallback=False,
+                               order="score", widen=6)
+            self.assertGreaterEqual(wide["solved"],
+                                    base["solved"])
+            self.assertLessEqual(wide["tried"], 3000)
+            base_solved += base["solved"]
+            wide_solved += wide["solved"]
+        print("beam widen: base=%d wide=%d" % (base_solved,
+                                               wide_solved))
+
+
 if __name__ == "__main__":
     unittest.main()
