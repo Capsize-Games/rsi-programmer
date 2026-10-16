@@ -45,6 +45,11 @@ separate column, never the headline.
   fixpoint, #31) — narrow and broad solve 8/8 mirrored plain
   and twin (blindness 0.92/0.42); full-IR stays 2/8, the next
   frontier;
+- Bit-slice lattice author (#36): four 1-bit heads over a
+  co-adapted encoder name opcodes through 4-bit words; the
+  word-gated sweep reproduces the beam strata exactly
+  (shadow 4/4, novel 3/3, twin+plain 16/16, full-IR 2/8)
+  with honest no-authored-solution misses;
   evolved-policy scale accept still 0/8 with higher tried
   (width cannot fix bad ranking).
   Full-IR boundary: 2 solves a side via degenerate branches;
