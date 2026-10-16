@@ -29,6 +29,14 @@ separate column, never the headline.
   0.267/0.133/0.200 across seeds (chance 0.060).
 - Known limits: the beam still loses tasks where narrowing drops
   true paths. Training continues; see `scripts/train.py`.
+- Organization metrics (expression-only, describe the process,
+  never a standing): autonomy ratio 0.000 on a 1-generation
+  elite archive (single lineage, nothing to attribute);
+  partition divergence 0.000000 on the W1 feedforward monolith
+  (no cross edges to sever) vs 0.208 on the driven modular
+  policy (fb_fc severed, seeds 0/1/2: 0.208/0.056/0.069);
+  agency profile converges as fitness spread collapses.
+  See `rsi_programmer/autonomy.py`.
 
 ## Layout
 

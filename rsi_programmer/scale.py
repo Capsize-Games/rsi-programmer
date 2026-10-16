@@ -16,6 +16,8 @@ import time
 from typing import Any
 
 from rsi_programmer.author import beam_search
+from rsi_programmer.autonomy import agency_profile, autonomy_ratio
+from rsi_programmer.autonomy import integration_divergence
 from rsi_programmer.lineage import mission_ledger
 from rsi_programmer.policy import Group, SearchPolicy, Task
 from rsi_programmer.pool import founders, make_entry, next_pool, persist_entry
@@ -209,9 +211,19 @@ class ScaleUp:
         start = time.perf_counter()
         before = len(self.archive())
         base = self.baselines()
-        evo = self.evolve(self._prepare())
+        groups = self._prepare()
+        evo = self.evolve(groups)
         acc = self._accept()
-        after = len(self.archive())
+        arch = self.archive()
+        after = len(arch)
+        hists: dict[str, list[float]] = {}
+        for entry in arch:
+            fit = entry.get("fitness", {}) or {}
+            key = str(entry.get("parent_id", "?"))
+            hists.setdefault(key, []).append(
+                float(fit.get("correctness", 0.0)))
+        feats = [[float(x) for x in f]
+                 for f, _ in groups[0][:8]]
         wall = time.perf_counter() - start
         reg = (acc["w1"]["solve_rate"], acc["hard"]["solve_rate"])
         low = (base["w1"]["solve_rate"], base["hard"]["solve_rate"])
@@ -220,6 +232,11 @@ class ScaleUp:
                     "evolution": evo, "wall_s": wall,
                     "regression": reg < low,
                     "archive": {"before": before, "after": after},
+                    "autonomy": autonomy_ratio(hists),
+                    "integration": integration_divergence(
+                        self._best, feats,
+                        lambda outs: outs["out"][:, 0]),
+                    "agency": agency_profile(arch),
                     "status": "over-budget" if wall > CPU_BUDGET_S
                     else "complete"})
         return rep

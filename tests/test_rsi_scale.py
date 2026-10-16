@@ -78,6 +78,31 @@ class ScaleUpTests(unittest.TestCase):
         print("archive entries=%d gens=%d"
               % (grown, evo["generations"]))
 
+    def test_run_reports_organization_metrics(self) -> None:
+        """run() carries autonomy, integration, agency (#11)."""
+        old_gen, old_budget = rsi_scale.GENERATIONS, \
+            rsi_scale.EVOLVE_BUDGET_S
+        rsi_scale.GENERATIONS, rsi_scale.EVOLVE_BUDGET_S = 1, 300
+        try:
+            rep = self.loop.run()
+        finally:
+            rsi_scale.GENERATIONS = old_gen
+            rsi_scale.EVOLVE_BUDGET_S = old_budget
+        ratio = rep["autonomy"]["ratio"]
+        self.assertGreaterEqual(ratio, 0.0)
+        self.assertLessEqual(ratio, 1.0)
+        div = rep["integration"]["divergence"]
+        self.assertGreaterEqual(div, 0.0)
+        self.assertEqual(rep["integration"]["severed"], [])
+        prof = rep["agency"]
+        self.assertGreater(len(prof), 0)
+        self.assertIn(prof[-1]["direction"],
+                      ("start", "converging", "diverging",
+                       "stable"))
+        print("autonomy=%.3f integration=%.6f gens=%s"
+              % (ratio, div,
+                 [p["generation"] for p in prof]))
+
 
 if __name__ == "__main__":
     unittest.main()
