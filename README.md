@@ -10,15 +10,25 @@ pairs that force it to use operand features.
 
 ## Measured behaviour
 
-- A frozen policy trained only on the W1 shadow family guides search
-  on three brand-new rules it never trained on, beating the plain
-  enumerator on all three (158/122/952 tried vs 939/939/6807).
-- A backtracking beam author lifts wins to 11 of 24 tasks with
-  SNN attribution measured and zero flips, and an oracle-rejection
-  retry loop solves the remaining distractor near-misses.
-- Known limits: operand top-1 precision is 0.267/0.133/0.200 across
-  seeds, and the beam still loses tasks where narrowing drops true
-  paths. Training continues; see `scripts/train.py`.
+Headline numbers are author-path only: programs the SNN authors
+with no enumerator rescue. Enumerator-backed figures sit in a
+separate column, never the headline.
+
+- Author path, shadow family: beam authors 2 of 4 (solve 0.50,
+  cost 487 vs enumerator baseline 14673) with refined author
+  weights; misses report `no-authored-solution`, never a rescue.
+- Author path, scale acceptance (evolved policy, zero author
+  weights): beam authors 0 of 4 shadow and 0 of 4 hard tasks;
+  every verdict carries its path.
+- Enumerator path (debug comparison only): exhaustive search
+  solves 4 of 4 shadow at cost 14673, and guides novel transfer
+  on three brand-new rules (158/122/952 tried vs 939/939/6807).
+- Legacy mixed-path figures (enumerator rescue included, kept
+  for continuity, not comparable): beam wins 11 of 24, retry
+  loop clearing distractor near-misses, operand top-1
+  0.267/0.133/0.200 across seeds (chance 0.060).
+- Known limits: the beam still loses tasks where narrowing drops
+  true paths. Training continues; see `scripts/train.py`.
 
 ## Layout
 

@@ -14,8 +14,10 @@ from rsi_programmer.traces import TraceRecorder
 FIXTURE = str(Path(__file__).resolve().parent.parent
               / "fixtures" / "rsi_shadow_tasks.json")
 KEYS = ("gen", "task", "tried", "solved", "sandbox",
-        "violations", "lineage", "oracle_holds")
+        "violations", "lineage", "oracle_holds", "path",
+        "author_verdict")
 TOKENS = ("oracle", "held_out", "heldout", "promot", "ledger")
+SOLVED = {"diff_squares", "twice_product"}
 
 
 def _forging_hook(first: str, width: int) -> Any:
@@ -48,17 +50,27 @@ class HeadlessLoopTests(unittest.TestCase):
         lines = path.read_text(encoding="utf-8").splitlines()
         return [json.loads(line) for line in lines]
 
-    def test_hands_off_green_neutral_or_better(self) -> None:
-        """Solve parity at lower cost, zero bad executions."""
+    def test_hands_off_author_only_honest_rate(self) -> None:
+        """Author path 2/4 with no rescue, zero bad executions."""
         res = self.result
         self.assertEqual(res["status"], "complete")
-        self.assertGreaterEqual(res["solve_rate"],
-                               res["baseline_solve_rate"])
+        self.assertEqual(res["solve_rate"], 0.5)
+        self.assertEqual(res["baseline_solve_rate"], 1.0)
         self.assertLess(res["cost_tried"], res["baseline_cost"])
         self.assertEqual(res["safety_failures"], 0)
+        self.assertEqual(res["paths"], {"beam": 4})
+        self.assertEqual(res["reject_histogram"],
+                         {"no-authored-solution": 2, "solved": 2})
+        got = {d["task"] for d in res["decisions"] if d["solved"]}
+        self.assertEqual(got, SOLVED)
         for decision in res["decisions"]:
-            self.assertEqual(decision["sandbox"], "accepted")
-            self.assertTrue(decision["solved"])
+            self.assertEqual(decision["path"], "beam")
+            if decision["solved"]:
+                self.assertEqual(decision["sandbox"], "accepted")
+                self.assertTrue(decision["oracle_holds"])
+            else:
+                self.assertEqual(decision["author_verdict"],
+                                 "no-authored-solution")
         print("solve=%.2f base=%.2f cost=%d base=%d wall=%.1fs"
               % (res["solve_rate"], res["baseline_solve_rate"],
                  res["cost_tried"], res["baseline_cost"],
@@ -72,11 +84,39 @@ class HeadlessLoopTests(unittest.TestCase):
             for key in KEYS:
                 self.assertIn(key, record)
                 self.assertEqual(record[key], decision[key])
-            self.assertTrue(record["solved"])
-            self.assertEqual(len(record["lineage"]), 64)
+            if record["solved"]:
+                self.assertEqual(len(record["lineage"]), 64)
+            else:
+                self.assertEqual(record["lineage"], "")
         leaked = [p for p in Path(self.tmp, "box").rglob("*")
                   if any(tok in p.name for tok in TOKENS)]
         self.assertEqual(leaked, [])
+
+    def test_no_silent_rescue(self) -> None:
+        """Enumerator-solved task stays unsolved with no fallback."""
+        from rsi_programmer.author import beam_search
+        from rsi_programmer.policy import SearchPolicy
+        task = next(t for t in self.tasks
+                    if t["id"] == "square_plus")
+        rows = tuple((c[0], c[1]) for c in task["train"])
+        target = tuple(c[2] for c in task["train"])
+        bound = int(task.get("max_tree_ops", 4))
+        policy = SearchPolicy(seed=1)
+        out = beam_search(policy, rows, target, bound, 10 ** 9,
+                          "square_plus", fallback=False)
+        self.assertFalse(out["solved"])
+        self.assertEqual(out.get("path"), "beam")
+        self.assertEqual(out["verdict"], "no-authored-solution")
+
+    def test_fallback_debug_column_labelled(self) -> None:
+        """Compare flag adds the enumerator column, never headline."""
+        loop = HeadlessLoop(FIXTURE, self.tmp + "/cmp.jsonl",
+                            self.tmp + "/cmpbox", seed=1,
+                            compare_fallback=True)
+        res = loop.run()
+        self.assertTrue(res["fallback_compared"])
+        self.assertEqual(res["fallback_solve_rate"], 1.0)
+        self.assertEqual(res["solve_rate"], 0.5)
 
     def test_budget_exhaustion_stops_cleanly(self) -> None:
         """One-candidate budget stops the loop without failing."""
@@ -90,8 +130,10 @@ class HeadlessLoopTests(unittest.TestCase):
 
     def test_tampered_candidate_rejected_loop_continues(self) -> None:
         """Forged mid-run claim is rejected; the loop finishes."""
-        first = str(self.tasks[0]["id"])
-        width = len(self.tasks[0]["train"])
+        solved = next(t for t in self.tasks
+                      if t["id"] in SOLVED)
+        first = str(solved["id"])
+        width = len(solved["train"])
         hook = _forging_hook(first, width)
         loop = HeadlessLoop(FIXTURE, self.tmp + "/tamper.jsonl",
                             self.tmp + "/tamperbox", seed=1)
@@ -102,8 +144,9 @@ class HeadlessLoopTests(unittest.TestCase):
         self.assertFalse(hit["solved"])
         self.assertEqual(hit["sandbox"], "rejected")
         self.assertIn("forged-completion", hit["violations"])
-        rest = [d for d in res["decisions"] if d["task"] != first]
-        self.assertTrue(all(d["solved"] for d in rest))
+        rest = {d["task"] for d in res["decisions"]
+                if d["task"] != first and d["solved"]}
+        self.assertEqual(rest, SOLVED - {first})
 
 
 if __name__ == "__main__":

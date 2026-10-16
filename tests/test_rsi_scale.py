@@ -50,7 +50,7 @@ class ScaleUpTests(unittest.TestCase):
         self.assertTrue(any(abs(w) > 0 for w in
                             self.loop._rich))
 
-    def test_evolve_and_accept_no_regression(self) -> None:
+    def test_evolve_and_accept_author_paths(self) -> None:
         old_gen, old_budget = rsi_scale.GENERATIONS, \
             rsi_scale.EVOLVE_BUDGET_S
         rsi_scale.GENERATIONS, rsi_scale.EVOLVE_BUDGET_S = 1, 300
@@ -62,12 +62,17 @@ class ScaleUpTests(unittest.TestCase):
             rsi_scale.EVOLVE_BUDGET_S = old_budget
         self.assertGreaterEqual(len(evo["history"]), 1)
         for fam in ("w1", "hard"):
-            base = self.base[fam]["solve_rate"]
             got = acc[fam]["solve_rate"]
+            self.assertGreaterEqual(got, 0.0)
+            self.assertLessEqual(got, 1.0)
             print("%s solve=%.2f cost=%d base_cost=%d"
                   % (fam, got, acc[fam]["cost"],
                      acc[fam]["baseline_cost"]))
-            self.assertGreaterEqual(got, base)
+        per = acc["per_task"]
+        self.assertEqual(len(per), 8)
+        for entry in per:
+            self.assertEqual(entry["path"], "beam")
+            self.assertIn("author_verdict", entry)
         grown = len(self.loop.archive())
         self.assertGreater(grown, 0)
         print("archive entries=%d gens=%d"

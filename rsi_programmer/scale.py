@@ -15,8 +15,8 @@ import json
 import time
 from typing import Any
 
+from rsi_programmer.author import beam_search
 from rsi_programmer.lineage import mission_ledger
-from rsi_programmer.evolve import OracleHook, guided_search
 from rsi_programmer.policy import Group, SearchPolicy, Task
 from rsi_programmer.pool import founders, make_entry, next_pool, persist_entry
 from rsi_programmer.rich import RICH, bonus_for, family_pairs, fit_rich
@@ -159,15 +159,8 @@ class ScaleUp:
         return {"history": history, "generations": gen,
                 "stopped": stopped}
 
-    @staticmethod
-    def _oracle(rec: TraceRecorder, task: Task) -> OracleHook:
-        """Post-hoc held-out filter; never a search signal."""
-        def holds(graph: dict[str, Any]) -> bool:
-            return rec.oracle_holds(task, graph)
-        return holds
-
     def _accept(self) -> dict[str, Any]:
-        """Full-search headless sweep over all eight tasks."""
+        """Author-only sweep over all eight tasks, no rescue."""
         jobs = [(t, self._sh_rec, "w1") for t in self._sh_tasks]
         jobs += [(t, self._ha_rec, "hard") for t in self._ha_tasks]
         per = []
@@ -175,16 +168,17 @@ class ScaleUp:
             rows, target, bound = self._parts(task)
             total = int(self._base[fam]["tasks"][task["id"]][
                 "tried"]) or 1
-            out = guided_search(self._best, rows, target, bound,
-                                total, str(task["id"]),
-                                oracle=self._oracle(rec, task))
+            out = beam_search(self._best, rows, target, bound,
+                              total, str(task["id"]), fallback=False)
             ok = out["solved"] and rec.oracle_holds(task, out["graph"])
             base = int(self._base[fam]["tasks"][task["id"]][
                 "tried"])
             per.append({"task": task["id"], "family": fam,
                         "solved": out["solved"] and ok,
                         "tried": out["tried"], "base_tried": base,
-                        "oracle": ok, "truncated": False})
+                        "oracle": ok, "truncated": False,
+                        "path": out.get("path", "beam"),
+                        "author_verdict": out["verdict"]})
         return {"per_task": per, "w1": rollup(per, "w1"),
                 "hard": rollup(per, "hard")}
 

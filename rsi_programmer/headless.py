@@ -16,6 +16,7 @@ import time
 from pathlib import Path
 from typing import Any, Callable, cast
 
+from rsi_programmer.author import EXTRA, beam_search, refine_author
 from rsi_programmer.evolve import guided_search
 from rsi_programmer.policy import SearchPolicy
 from rsi_programmer.promote import PromotionGate
@@ -37,10 +38,14 @@ class HeadlessLoop:
     def __init__(self, fixture: str, trace: str, workdir: str,
                  seed: int = 0, max_wall_s: float = 600.0,
                  max_cands: int = 32, max_gens: int = 1, epochs: int = 40,
-                 policy: SearchPolicy | None = None) -> None:
+                 policy: SearchPolicy | None = None, width: int = 3,
+                 author_rounds: int = 12,
+                 compare_fallback: bool = False) -> None:
         """Bind family, budgets, trace path, sandbox, and gate."""
         if max_wall_s <= 0 or max_cands < 1 or max_gens < 1:
             raise ValueError("headless budgets must be positive")
+        if width < 1 or author_rounds < 0:
+            raise ValueError("author width/rounds must be valid")
         self._fixture = fixture
         self._trace = trace
         self._recorder = TraceRecorder(fixture)
@@ -52,6 +57,9 @@ class HeadlessLoop:
         self._max_gens = max_gens
         self._epochs = epochs
         self._given = policy
+        self._width = width
+        self._author_rounds = author_rounds
+        self._compare = compare_fallback
         self._spent = 0
 
     def _split(self, task: dict[str, Any]
@@ -73,13 +81,20 @@ class HeadlessLoop:
         return {"solve_rate": rate, "cost": cost,
                 "solved": solved, "budget": cost}
 
-    def _trained(self) -> SearchPolicy:
-        """Train hands-off on frozen W1 traces unless given."""
+    def _trained(self) -> tuple[SearchPolicy, list[float]]:
+        """Ranker plus refined author weights; given skips both."""
         if self._given is not None:
-            return self._given
+            return self._given, [0.0] * len(EXTRA)
         policy = SearchPolicy(seed=self._seed + 1)
         policy.fit(policy.trace_groups(self._fixture), self._epochs)
-        return policy
+        rows = [(str(t["id"]),
+                 tuple((c[0], c[1]) for c in t["train"]),
+                 tuple(c[2] for c in t["train"]),
+                 int(t.get("max_tree_ops", 4)))
+                for t in self._recorder.load_family()["tasks"]]
+        weights, _ = refine_author(policy, rows,
+                                   rounds=self._author_rounds)
+        return policy, weights
 
     def _over(self, start: float) -> bool:
         """True once any predeclared budget is exhausted."""
@@ -125,13 +140,15 @@ class HeadlessLoop:
         line = self._box.lineage_hash(graph)
         return verdict, holds, line, good
 
-    def _propose(self, policy: SearchPolicy, task: dict[str, Any],
+    def _propose(self, policy: SearchPolicy,
+                 weights: list[float], task: dict[str, Any],
                  gen: int, hook: Hook | None,
                  budget: int) -> dict[str, Any]:
-        """Search once; sandbox verdict recomputed supervisor-side."""
+        """Author once with no enumerator rescue; verdicts logged."""
         rows, target, bound, pairs = self._split(task)
-        out = guided_search(policy, rows, target, bound,
-                            budget, str(task["id"]))
+        out = beam_search(policy, rows, target, bound, budget,
+                          str(task["id"]), width=self._width,
+                          weights=weights, fallback=False)
         graph = out["graph"] if out["solved"] else None
         mini = self._minimize(graph) if graph is not None else None
         claim: Claim = hook(str(task["id"]), mini) if hook else None
@@ -142,7 +159,14 @@ class HeadlessLoop:
         record = {"gen": gen, "task": str(task["id"]),
                   "tried": out["tried"], "solved": solved,
                   "sandbox": status, "violations": list(viol),
-                  "lineage": lineage, "oracle_holds": holds}
+                  "lineage": lineage, "oracle_holds": holds,
+                  "path": out.get("path", "beam"),
+                  "author_verdict": out["verdict"] or "solved"}
+        if self._compare:
+            base = guided_search(policy, rows, target, bound,
+                                 budget, str(task["id"]))
+            record["fallback_solved"] = base["solved"]
+            record["fallback_tried"] = base["tried"]
         self._append(record)
         return record
 
@@ -159,7 +183,7 @@ class HeadlessLoop:
         """Sweep the family within budgets; budgets stop, not fail."""
         start = time.perf_counter()
         base = self._baseline()
-        policy = self._trained()
+        policy, weights = self._trained()
         family = self._recorder.load_family()
         tasks = cast(Tasks, family["tasks"])
         decisions: list[dict[str, Any]] = []
@@ -167,8 +191,9 @@ class HeadlessLoop:
             for task in tasks:
                 if self._over(start):
                     break
-                decisions.append(self._propose(policy, task, gen,
-                                               hook, base["budget"]))
+                decisions.append(self._propose(policy, weights, task,
+                                               gen, hook,
+                                               base["budget"]))
                 self._spent += 1
             if self._over(start):
                 break
@@ -177,7 +202,7 @@ class HeadlessLoop:
     def _summarize(self, start: float, base: dict[str, Any],
                    tasks: Tasks,
                    decisions: list[dict[str, Any]]) -> dict[str, Any]:
-        """Solve-rate/cost vs baseline plus the gate verdict."""
+        """Author solve-rate/cost vs baseline plus the gate verdict."""
         wall = time.perf_counter() - start
         cand = [1.0 if d["solved"] else 0.0 for d in decisions]
         ref = [base["solved"][i % len(tasks)] for i in range(len(cand))]
@@ -187,9 +212,25 @@ class HeadlessLoop:
         gate = self._gate_decide(ref, cand, bad, cost, wall)
         done = len(decisions) == len(tasks) * self._max_gens
         status = "complete" if done else "stopped-not-failed"
+        paths: dict[str, int] = {}
+        hist: dict[str, int] = {}
+        for decision in decisions:
+            path = str(decision.get("path", "beam"))
+            paths[path] = paths.get(path, 0) + 1
+            verdict = str(decision.get("author_verdict", ""))
+            hist[verdict] = hist.get(verdict, 0) + 1
+        compared = any("fallback_solved" in d for d in decisions)
+        fallback = None
+        if compared:
+            got = [d for d in decisions if "fallback_solved" in d]
+            fallback = sum(1.0 for d in got if d["fallback_solved"])
+            fallback = fallback / len(got) if got else 0.0
         return {"status": status, "decisions": decisions,
                 "solve_rate": rate,
                 "baseline_solve_rate": base["solve_rate"],
                 "cost_tried": cost, "baseline_cost": base["cost"],
                 "safety_failures": bad, "gate": gate,
-                "wall_s": wall, "trace": self._trace}
+                "wall_s": wall, "trace": self._trace,
+                "paths": paths, "reject_histogram": hist,
+                "fallback_compared": compared,
+                "fallback_solve_rate": fallback}
