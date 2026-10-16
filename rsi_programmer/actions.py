@@ -10,7 +10,8 @@ from __future__ import annotations
 
 from typing import cast
 
-from rsi_programmer.probe import CONSTS, OPS, validate_graph
+from rsi_programmer.probe import CMP, CONSTS, OPS, SELECT
+from rsi_programmer.probe import validate_graph
 
 
 class ActionSpace:
@@ -37,6 +38,23 @@ class ActionSpace:
         """List the constant emit decisions over the IR range."""
         return [{"kind": "const", "value": value}
                 for value in CONSTS]
+
+    def branch_actions(self, refs: list[str | int]
+                       ) -> list[dict[str, str | int]]:
+        """List every comparison and select decision over refs."""
+        choices: list[dict[str, str | int]] = []
+        for op in CMP:
+            for left in refs:
+                for right in refs:
+                    choices.append({"kind": "apply", "op": op,
+                                    "left": left, "right": right})
+        for cond in refs:
+            for first in refs:
+                for second in refs:
+                    choices.append({"kind": "apply", "op": SELECT,
+                                    "cond": cond, "left": first,
+                                    "right": second})
+        return choices
 
     def apply_actions(
         self, refs: list[str | int]
@@ -67,6 +85,14 @@ class ActionSpace:
         if action.get("kind") == "const":
             nodes.append({"args": [], "op": "const",
                           "type": "Int", "value": action["value"]})
+        elif action.get("op") == SELECT:
+            nodes.append({"args": [action["cond"], action["left"],
+                                   action["right"]],
+                          "op": SELECT, "type": "Int"})
+        elif action.get("op") in CMP:
+            nodes.append({"args": [action["left"], action["right"]],
+                          "op": cast(str, action["op"]),
+                          "type": "Bool"})
         else:
             nodes.append({"args": [action["left"], action["right"]],
                           "op": cast(str, action["op"]), "type": "Int"})
@@ -88,10 +114,23 @@ class ActionSpace:
                 raise ValueError("constant out of range")
             validate_graph(self._extended(graph, action))
             return
+        if action.get("op") == SELECT:
+            if kind != "apply" or set(action) != {"kind", "op",
+                                                  "cond", "left",
+                                                  "right"}:
+                raise ValueError("malformed action")
+            nodes = graph.get("nodes")
+            if not isinstance(nodes, list):
+                raise ValueError("malformed graph")
+            self._check_ref(action.get("cond"), len(nodes))
+            self._check_ref(action.get("left"), len(nodes))
+            self._check_ref(action.get("right"), len(nodes))
+            validate_graph(self._extended(graph, action))
+            return
         keys = {"kind", "left", "op", "right"}
         if kind != "apply" or set(action) != keys:
             raise ValueError("malformed action")
-        if action.get("op") not in OPS:
+        if action.get("op") not in OPS and action.get("op") not in CMP:
             raise ValueError("unknown operation")
         nodes = graph.get("nodes")
         if not isinstance(nodes, list):

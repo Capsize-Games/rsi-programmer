@@ -84,6 +84,32 @@ class ActionSpaceTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.space.typecheck(dict(EMPTY), dict(action))
 
+    def test_branch_actions_build_typed_graph(self) -> None:
+        cond = self.space.apply(dict(EMPTY),
+                                {"kind": "apply", "op": "lt",
+                                 "left": "x", "right": "y"})
+        self.assertEqual(cond["nodes"][0]["type"], "Bool")
+        graph = self.space.apply(cond,
+                                 {"kind": "apply", "op": "select",
+                                  "cond": 0, "left": "y",
+                                  "right": "x"})
+        validate_graph(graph)
+        self.assertEqual(interpret(graph, 4, 9), 9)
+        self.assertEqual(interpret(graph, 9, 4), 9)
+
+    def test_branch_mistyped_edits_rejected(self) -> None:
+        plain = self.space.apply(dict(EMPTY),
+                                 {"kind": "apply", "op": "add",
+                                  "left": "x", "right": "y"})
+        bad = [{"kind": "apply", "op": "select",
+                "cond": 0, "left": "x", "right": "y"},
+               {"kind": "apply", "op": "select",
+                "cond": "x", "left": "x"},
+               {"kind": "apply", "op": "lt", "left": "x"}]
+        for action in bad:
+            with self.assertRaises(ValueError):
+                self.space.typecheck(dict(plain), dict(action))
+
 
 class TraceRecorderTests(unittest.TestCase):
     def setUp(self) -> None:
@@ -139,6 +165,24 @@ class TraceRecorderTests(unittest.TestCase):
         print("solve=%d/%d wall=%.2fs"
               % (baseline["solved"], baseline["tasks"],
                  baseline["total_wall_s"]))
+
+    def test_branch_fixture_splits_match(self) -> None:
+        path = (Path(__file__).resolve().parent.parent
+                / "fixtures" / "rsi_branch_tasks.json")
+        recorder = TraceRecorder(str(path))
+        tasks = recorder.load_family()["tasks"]
+        self.assertEqual([t["id"] for t in tasks],
+                         ["abs_diff", "max_xy"])
+        for task in tasks:
+            self.assertEqual(recorder.split_hash(task),
+                             task["split_sha256"])
+        self.assertTrue(recorder.oracle_holds(
+            tasks[1], {"input_types": {"x": "Int", "y": "Int"},
+                       "nodes": [{"op": "lt", "type": "Bool",
+                                  "args": ["x", "y"]},
+                                 {"op": "select", "type": "Int",
+                                  "args": [0, "y", "x"]}],
+                       "output": 1}))
 
     def test_const_fixture_splits_match(self) -> None:
         path = (Path(__file__).resolve().parent.parent

@@ -77,6 +77,41 @@ class TypedDagProgrammingProbeTests(unittest.TestCase):
         self.assertEqual(interpret(graph, 4, 9), 7)
         self.assertIn("(3)", render_source(graph))
 
+    def test_branch_tasks_need_select_to_solve(self):
+        cases = [(((-3, 1), (-2, 2), (-1, -2), (0, 3), (1, 0), (2, -1)), (4, 4, 1, 3, 1, 3), 4),
+                 (((-3, 1), (-2, 2), (-1, -2), (0, 3), (1, 0), (2, -1)), (1, 2, -1, 3, 1, 2), 2)]
+        for rows, target, bound in cases:
+            with self.subTest(target=target):
+                bare, _, _ = enumerate_programs(rows, target, bound)
+                self.assertIsNone(bare)
+                const_only, _, _ = enumerate_programs(rows, target, bound, consts=CONSTS)
+                self.assertIsNone(const_only)
+                expr, _, _ = enumerate_programs(rows, target, bound, consts=CONSTS, branch=True)
+                self.assertIsNotNone(expr)
+                graph = lower_to_dag(expr)
+                self.assertEqual([interpret(graph, x, y) for x, y in rows], list(target))
+
+    def test_validator_rejects_bad_branch_types(self):
+        bad_graphs = [
+            {"input_types": {"x": "Int", "y": "Int"}, "nodes": [{"op": "lt", "type": "Int", "args": ["x", "y"]}], "output": 0},
+            {"input_types": {"x": "Int", "y": "Int"}, "nodes": [{"op": "add", "type": "Int", "args": ["x", "y"]}, {"op": "select", "type": "Int", "args": [0, "x", "y"]}], "output": 1},
+            {"input_types": {"x": "Int", "y": "Int"}, "nodes": [{"op": "lt", "type": "Bool", "args": ["x"]}], "output": 0},
+        ]
+        for graph in bad_graphs:
+            with self.subTest(graph=graph), self.assertRaises(ValueError):
+                validate_graph(graph)
+        bool_out = {"input_types": {"x": "Int", "y": "Int"}, "nodes": [{"op": "lt", "type": "Bool", "args": ["x", "y"]}], "output": 0}
+        validate_graph(bool_out)
+        with self.assertRaises(ValueError):
+            interpret(bool_out, 1, 2)
+
+    def test_select_graph_runs_and_renders(self):
+        graph = {"input_types": {"x": "Int", "y": "Int"}, "nodes": [{"op": "lt", "type": "Bool", "args": ["x", "y"]}, {"op": "select", "type": "Int", "args": [0, "y", "x"]}], "output": 1}
+        validate_graph(graph)
+        self.assertEqual(interpret(graph, 4, 9), 9)
+        self.assertEqual(interpret(graph, 9, 4), 9)
+        self.assertIn("if", render_source(graph))
+
 
 if __name__ == "__main__":
     unittest.main()

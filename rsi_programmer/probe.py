@@ -24,6 +24,20 @@ OPS: dict[str, Callable[[int, int], int]] = {
     "mul": lambda a, b: a * b,
 }
 CONSTS: tuple[int, ...] = (-2, -1, 0, 1, 2, 3, 4, 5)
+CMP: dict[str, Callable[[int, int], bool]] = {
+    "lt": lambda a, b: a < b,
+    "eq": lambda a, b: a == b,
+}
+SELECT = "select"
+
+
+def type_of(expr: Expr | str) -> str:
+    """Static IR type: Bool for comparisons, Int otherwise."""
+    if isinstance(expr, str):
+        return "Int"
+    if expr.op in CMP:
+        return "Bool"
+    return "Int"
 TASK = "f(x, y) = (x + y) * (x + y) + y"
 TRAIN_CASES = ((-3, 1, 5), (-2, 2, 2), (-1, -2, 7), (0, 3, 12),
                (1, 0, 1), (2, -1, 0), (3, 2, 27), (4, -3, -2))
@@ -39,6 +53,7 @@ class Expr:
     left: Expr | str | int
     right: Expr | None = None
     size: int = 0
+    third: Expr | None = None
 
 
 def terminals() -> tuple[Expr, ...]:
@@ -58,6 +73,18 @@ def signature(expr: Expr, rows: tuple[tuple[int, int], ...]) -> tuple[int, ...]:
     if expr.op == "input":
         col = 0 if expr.left == "x" else 1
         return tuple(row[col] for row in rows)
+    if expr.op in CMP:
+        left = signature(expr.left, rows)  # type: ignore[arg-type]
+        right = signature(expr.right, rows)  # type: ignore[arg-type]
+        fn = CMP[expr.op]
+        return tuple(fn(a, b) for a, b in zip(left, right))
+    if expr.op == SELECT:
+        cond = signature(expr.left, rows)  # type: ignore[arg-type]
+        first = signature(expr.right, rows)  # type: ignore[arg-type]
+        assert expr.third is not None
+        second = signature(expr.third, rows)
+        return tuple(a if c else b for c, a, b in
+                     zip(cond, first, second))
     left = signature(expr.left, rows)  # type: ignore[arg-type]
     right = signature(expr.right, rows)  # type: ignore[arg-type]
     fn = OPS[expr.op]
@@ -66,16 +93,19 @@ def signature(expr: Expr, rows: tuple[tuple[int, int], ...]) -> tuple[int, ...]:
 
 def enumerate_programs(rows: tuple[tuple[int, int], ...], expected: tuple[int, ...], max_ops: int,
                        root_op: str | None = None, deduplicate: bool = True,
-                       consts: tuple[int, ...] = ()):
+                       consts: tuple[int, ...] = (),
+                       branch: bool = False):
     """Enumerate typed integer expression trees by node count.
 
     Each binary Apply consumes two Int values and returns Int. The output is
     later hash-consed into a DAG, so repeated subexpressions share one node.
-    Constant terminals join level zero only when consts is non-empty, so
+    Constant terminals join level zero only when consts is non-empty, and
+    Bool comparisons plus ternary select join only when branch is set, so
     frozen families keep their exact historical search order by default.
     """
     levels: dict[int, list[Expr]] = {
         0: list(terminals()) + list(const_terms(consts))}
+    blevels: dict[int, list[Expr]] = {0: []}
     tried = 0
     for size in range(1, max_ops + 1):
         current: list[Expr] = []
@@ -94,11 +124,55 @@ def enumerate_programs(rows: tuple[tuple[int, int], ...], expected: tuple[int, .
                         current_seen.add(key)
                     # Keep per-layer candidates in deterministic grammar order.
                     current.append(expr)
+        bcurrent: list[Expr] = []
+        if branch:
+            bseen: set[tuple[str, tuple[int, ...]]] = set()
+            for left_size in range(size):
+                right_size = size - left_size - 1
+                pairs = itertools.product(levels[left_size],
+                                          levels[right_size])
+                for left, right in pairs:
+                    for op in CMP:
+                        tried += 1
+                        expr = Expr(op, left, right, size)
+                        if deduplicate:
+                            key = (op, signature(expr, rows))
+                            if key in bseen:
+                                continue
+                            bseen.add(key)
+                        bcurrent.append(expr)
+            for cond_size in range(size):
+                for first_size in range(size - cond_size):
+                    second_size = size - cond_size - first_size - 1
+                    triples = itertools.product(
+                        blevels[cond_size], levels[first_size],
+                        levels[second_size])
+                    for cond, first, second in triples:
+                        tried += 1
+                        expr = Expr(SELECT, cond, first, size,
+                                    third=second)
+                        if deduplicate:
+                            key = (SELECT, signature(expr, rows))
+                            if key in current_seen:
+                                continue
+                            current_seen.add(key)
+                        current.append(expr)
         levels[size] = current
+        blevels[size] = bcurrent
         for expr in current:
-            if (root_op is None or expr.op == root_op) and signature(expr, rows) == expected:
-                return expr, tried, sum(map(len, levels.values()))
-    return None, tried, sum(map(len, levels.values()))
+            if (root_op is None or expr.op == root_op
+                    or (branch and root_op == SELECT
+                        and expr.op == SELECT)):
+                if signature(expr, rows) == expected:
+                    return expr, tried, _volume(levels, blevels)
+    return None, tried, _volume(levels, blevels)
+
+
+def _volume(levels: dict[int, list[Expr]],
+            blevels: dict[int, list[Expr]]) -> int:
+    """Retained expressions across both typed level tables."""
+    return sum(map(len, levels.values())) + sum(
+        map(len, blevels.values()))
 
 
 def lower_to_dag(expr: Expr) -> dict:
@@ -121,6 +195,26 @@ def lower_to_dag(expr: Expr) -> dict:
             return intern[key]
         if term.op == "input":
             return visit(term.left)
+        if term.op in CMP:
+            left = visit(term.left)  # type: ignore[arg-type]
+            right = visit(term.right)  # type: ignore[arg-type]
+            key = (term.op, left, right)
+            if key not in intern:
+                intern[key] = len(nodes)
+                nodes.append({"op": term.op, "type": "Bool",
+                              "args": [left, right]})
+            return intern[key]
+        if term.op == SELECT:
+            assert term.third is not None
+            cond = visit(term.left)  # type: ignore[arg-type]
+            first = visit(term.right)  # type: ignore[arg-type]
+            second = visit(term.third)
+            key = (term.op, cond, first, second)
+            if key not in intern:
+                intern[key] = len(nodes)
+                nodes.append({"op": term.op, "type": "Int",
+                              "args": [cond, first, second]})
+            return intern[key]
         left, right = visit(term.left), visit(term.right)  # type: ignore[arg-type]
         key = (term.op, left, right)
         if key not in intern:
@@ -153,18 +247,29 @@ def validate_graph(graph: dict) -> None:
             continue
         if set(node) != {"op", "type", "args"}:
             raise ValueError("malformed node")
-        if node["op"] not in OPS:
+        if node["op"] not in OPS and node["op"] not in CMP \
+                and node["op"] != SELECT:
             raise ValueError("unknown operation")
-        if node["type"] != "Int" or not isinstance(node["args"], list) or len(node["args"]) != 2:
+        args = node["args"]
+        if node["op"] in CMP:
+            want, kinds, ntype = 2, ("Int", "Int"), "Bool"
+        elif node["op"] == SELECT:
+            want, kinds, ntype = 3, ("Bool", "Int", "Int"), "Int"
+        else:
+            want, kinds, ntype = 2, ("Int", "Int"), "Int"
+        if node["type"] != ntype or not isinstance(args, list) \
+                or len(args) != want:
             raise ValueError("operation signature mismatch")
-        for arg in node["args"]:
+        for arg, kind in zip(args, kinds):
             if isinstance(arg, str):
-                if arg in {"x", "y"}:
+                if arg in {"x", "y"} and kind == "Int":
                     continue
                 raise ValueError("unknown input reference")
             if type(arg) is not int or arg < 0 or arg >= index:
-                raise ValueError("invalid, cyclic, or forward node reference")
-        types.append("Int")
+                raise ValueError("invalid, cyclic, or forward reference")
+            if types[arg] != kind:
+                raise ValueError("operand type mismatch")
+        types.append(node["type"])
     out = graph["output"]
     if isinstance(out, str):
         if out not in {"x", "y"}:
@@ -175,6 +280,9 @@ def validate_graph(graph: dict) -> None:
 
 def interpret(graph: dict, x: int, y: int) -> int:
     validate_graph(graph)
+    out = graph["output"]
+    if not isinstance(out, str) and graph["nodes"][out]["type"] != "Int":
+        raise ValueError("program output must be Int")
     values: list[int] = []
     inputs = {"x": x, "y": y}
     for node in graph["nodes"]:
@@ -182,7 +290,12 @@ def interpret(graph: dict, x: int, y: int) -> int:
             values.append(node["value"])
             continue
         args = [inputs[arg] if isinstance(arg, str) else values[arg] for arg in node["args"]]
-        values.append(OPS[node["op"]](*args))
+        if node["op"] in CMP:
+            values.append(CMP[node["op"]](*args))
+        elif node["op"] == SELECT:
+            values.append(args[1] if args[0] else args[2])
+        else:
+            values.append(OPS[node["op"]](*args))
     output = graph["output"]
     return inputs[output] if isinstance(output, str) else values[output]
 
@@ -200,6 +313,14 @@ def render_source(graph: dict) -> str:
             lines.append(f"    t{i} = ({node['value']})")
             continue
         args = [arg if isinstance(arg, str) else f"t{arg}" for arg in node["args"]]
+        if node["op"] in CMP:
+            symbol = {"lt": "<", "eq": "=="}[node["op"]]
+            lines.append(f"    t{i} = ({args[0]} {symbol} {args[1]})")
+            continue
+        if node["op"] == SELECT:
+            lines.append(f"    t{i} = ({args[1]} if {args[0]}"
+                         f" else {args[2]})")
+            continue
         symbol = {"add": "+", "sub": "-", "mul": "*"}[node["op"]]
         lines.append(f"    t{i} = ({args[0]} {symbol} {args[1]})")
     result = graph["output"]
