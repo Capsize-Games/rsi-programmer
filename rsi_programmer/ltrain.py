@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Bit-slice team training loop (lattice v32).
 
-Positive solution triples target their opcode bits;
-negatives target the reserved word (rejected at decode).
-The struct gate targets solution membership. A worst-bit
-joint term couples the four heads per word. The shared
-encoder stays write-locked throughout; one lineage intent
-is recorded per run.
+Every triple targets its own opcode bits (recognition);
+solution membership belongs to the struct gate alone. A
+worst-bit joint term couples the four heads per word. A
+held-out threshold sweep learns the decode operating
+point in the precision pass (lprecision); one lineage
+intent is recorded per run.
 """
 from __future__ import annotations
 
@@ -51,7 +51,7 @@ def _head_rate(lat: BitLattice, mat: torch.Tensor, key: str,
 
 def _calibrate(lat: BitLattice, mat: torch.Tensor
                ) -> dict[str, float]:
-    """Center every readout head at 50% firing (max-entropy).
+    """Center bit and EMIT heads at 50% firing (max-entropy).
 
     Fresh spiking heads land outside the surrogate-gradient
     band (measured exactly-zero gradients) and can never
@@ -59,7 +59,13 @@ def _calibrate(lat: BitLattice, mat: torch.Tensor
     heads where gradients flow; training does the rest. No
     hand-tuned constants: 50% is the maximum-slope point,
     found by binary search per head (firing is monotone in
-    bias), deterministic on the training batch.
+    bias), deterministic on the training batch. The STOP
+    column stays zeroed on purpose: the linear gate cannot
+    separate membership (measured pos/neg admit 0.55/0.45
+    when centered), so any living STOP only vetoes true
+    solutions. The gate stays permissive and the decoded
+    words decide; a gate with real precision needs its own
+    capacity (follow-up issue).
     """
     state = lat.weights()
     found: dict[str, float] = {}
@@ -113,29 +119,20 @@ def _bit_targets(groups: list[Any]
     return feats, bits, labels
 
 
-def train_lattice(lat: BitLattice, fixture: str, ledger: str,
-                  epochs: int = 8,
-                  lam: float = 0.2) -> dict[str, Any]:
-    """Train heads and encoder jointly from the modular init.
+def pack_rows(group: list[Any]) -> tuple[Any, Any, Any]:
+    """One contrastive group to training tensors."""
+    feats, flat, labels = _bit_targets([group])
+    mat = with_gap(feats, None)
+    want = torch.tensor(flat, dtype=torch.float32)
+    want = want.reshape(len(feats), N_BITS)
+    return mat, want, torch.tensor(labels,
+                                    dtype=torch.float32)
 
-    The encoder is deliberately NOT frozen: with frozen
-    shared weights the fresh spiking heads sit outside the
-    surrogate-gradient band (measured exactly-zero head and
-    gate gradients) and nothing can learn. Joint training
-    follows the house pattern (policy/modular); eval-time
-    freezing via weights_hash still guards every benchmark.
-    """
-    groups = contrastive_groups(fixture)
-    packs: list[tuple[Any, Any, Any]] = []
-    for group in groups:
-        feats, flat, labels = _bit_targets([group])
-        mat = with_gap(feats, None)
-        want = torch.tensor(flat, dtype=torch.float32)
-        want = want.reshape(len(feats), N_BITS)
-        packs.append((mat, want, torch.tensor(
-            labels, dtype=torch.float32)))
-    full = torch.cat([mat for mat, _, _ in packs])
-    calibration = _calibrate(lat, full)
+
+def fit_packs(lat: BitLattice,
+              packs: list[tuple[Any, Any, Any]], epochs: int,
+              lam: float) -> None:
+    """Margin + joint fitting over packs (house loss)."""
     for _ in range(epochs):
         lat._opt.zero_grad()
         total, count = torch.zeros(()), 0
@@ -156,11 +153,37 @@ def train_lattice(lat: BitLattice, fixture: str, ledger: str,
         loss = total / max(count, 1)
         loss.backward()
         lat._opt.step()
-    report = _report(lat, full, torch.cat(
+
+
+def train_lattice(lat: BitLattice, fixture: str, ledger: str,
+                  epochs: int = 8,
+                  lam: float = 0.2) -> dict[str, Any]:
+    """Train heads and encoder jointly from the modular init.
+
+    The encoder is deliberately NOT frozen: with frozen
+    shared weights the fresh spiking heads sit outside the
+    surrogate-gradient band (measured exactly-zero head and
+    gate gradients) and nothing can learn. Joint training
+    follows the house pattern (policy/modular); eval-time
+    freezing via weights_hash still guards every benchmark.
+    The precision pass then learns the decode operating
+    point on a held-out slice. Metrics report the final
+    shipped weights.
+    """
+    from rsi_programmer.lprecision import refine
+    groups = contrastive_groups(fixture)
+    packs = [pack_rows(group) for group in groups]
+    full = torch.cat([mat for mat, _, _ in packs])
+    calibration = _calibrate(lat, full)
+    fit_packs(lat, packs, epochs, lam)
+    report = {"fixture": fixture, "epochs": epochs,
+              "calibration": calibration}
+    report.update(refine(lat, groups))
+    final = _report(lat, full, torch.cat(
         [want.reshape(-1) for _, want, _ in packs]).reshape(
         -1, N_BITS), fixture, epochs, sum(
         mat.shape[0] for mat, _, _ in packs))
-    report["calibration"] = calibration
+    report.update(final)
     store = mission_ledger(ledger, "rsi-lattice")
     store.record_intent("train-seed-%d" % lat._seed,
                         "rsi-lattice", 0, 1, report)
@@ -171,11 +194,16 @@ def train_lattice(lat: BitLattice, fixture: str, ledger: str,
 def _report(lat: BitLattice, mat: torch.Tensor,
             want: torch.Tensor, fixture: str, epochs: int,
             rounds: int) -> dict[str, Any]:
-    """Per-head and word-exact metrics, no gradients."""
+    """Per-head and word-exact metrics, no gradients.
+
+    Bits decode at the learned thresholds, matching the
+    author path; the struct emit rate stays raw.
+    """
     lat.reset()
     with torch.no_grad():
         out = lat._drive(mat)
-    got = torch.stack([out["b%d" % i][:, 0] >= 0.5
+    got = torch.stack([out["b%d" % i][:, 0] >=
+                       lat.thresholds["b%d" % i]
                        for i in range(N_BITS)], dim=1)
     truth = want > 0.5
     acc = [(got[:, i] == truth[:, i]).float().mean().item()

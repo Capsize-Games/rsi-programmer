@@ -49,6 +49,9 @@ class BitLattice:
         self._opt = torch.optim.Adam(self._net.parameters(),
                                      lr=lr)
         self._temporal: Any = None
+        self.thresholds = {"b%d" % i: 0.5
+                            for i in range(N_BITS)}
+        self.thresholds["st"] = 0.0
 
     @staticmethod
     def _spec_for(hidden: int) -> TopologySpec:
@@ -117,20 +120,23 @@ class BitLattice:
 
     def bits(self, feats: list[list[float]],
              gap: float | None = None) -> list[int]:
-        """One packed word per row; head rate >= 0.5 is 1."""
+        """One packed word per row; learned head thresholds."""
         rates = self.head_rates(feats, gap)
         words = []
         for row in range(len(feats)):
-            bits = [1 if rates["b%d" % i][row][0] >= 0.5
+            bits = [1 if rates["b%d" % i][row][0] >=
+                    self.thresholds["b%d" % i]
                     else 0 for i in range(N_BITS)]
             words.append(pack(bits))
         return words
 
     def struct(self, feats: list[list[float]],
                gap: float | None = None) -> list[bool]:
-        """EMIT-majority commit flag per row (ties commit)."""
+        """Commit flag: EMIT beats STOP by learned margin."""
         rates = self.head_rates(feats, gap)
-        return [row[EMIT] >= row[STOP] for row in rates["st"]]
+        margin = self.thresholds["st"]
+        return [row[EMIT] >= row[STOP] + margin
+                for row in rates["st"]]
 
     def load_encoder(self, weights: dict[str, Any]) -> int:
         """Copy encoder/struct/feedback stages by key prefix."""
@@ -172,6 +178,7 @@ class BitLattice:
         return {"spec": self._spec.to_dict(),
                 "weights": weights,
                 "temporal": _clone(self._temporal),
+                "thresholds": dict(self.thresholds),
                 "seed": self._seed, "steps": self._steps,
                 "hidden": self._hidden}
 
@@ -187,3 +194,5 @@ class BitLattice:
         self._steps = int(snap.get("steps", STEPS))
         self._hidden = int(snap.get("hidden", 16))
         self._temporal = _clone(snap.get("temporal"))
+        if "thresholds" in snap:
+            self.thresholds = dict(snap["thresholds"])

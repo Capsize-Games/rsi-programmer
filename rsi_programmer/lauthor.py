@@ -36,12 +36,14 @@ def _words_and_emit(lat: BitLattice, feats: list[list[float]],
     if rng is None:
         words = []
         for row in range(len(feats)):
-            bits = [1 if rates["b%d" % i][row][0] >= 0.5
+            bits = [1 if rates["b%d" % i][row][0] >=
+                    lat.thresholds["b%d" % i]
                     else 0 for i in range(4)]
             words.append(pack(bits))
     else:
         words = [rng.randrange(16) for _ in feats]
-    struct = [row[0] >= row[1] for row in rates["st"]]
+    margin = lat.thresholds["st"]
+    struct = [row[0] >= row[1] + margin for row in rates["st"]]
     return words, struct
 
 
@@ -83,7 +85,9 @@ def _lattice_scan(lat: BitLattice, ctx: dict[str, Any],
         if not (words[idx] == OPCODES[op] and emits[idx]):
             if trace is not None:
                 trace.append({"size": size, "op": op,
-                              "sig": sigs[idx], "named": False,
+                              "sig": sigs[idx],
+                              "feats": feats[idx],
+                              "named": False,
                               "fate": "dropped"})
             continue
         ctx["named"] = ctx.get("named", 0) + 1
@@ -91,15 +95,18 @@ def _lattice_scan(lat: BitLattice, ctx: dict[str, Any],
             stash[size].append((0.0, triples[idx], sigs[idx]))
             if trace is not None:
                 trace.append({"size": size, "op": op,
-                              "sig": sigs[idx], "named": True,
+                              "sig": sigs[idx],
+                              "feats": feats[idx],
+                              "named": True,
                               "fate": "stashed"})
             continue
         ctx["tried"] += 1
         triple, sig = triples[idx], sigs[idx]
         if trace is not None:
             trace.append({"size": size, "op": op,
-                          "sig": sigs[idx], "named": True,
-                          "fate": "committed"})
+                          "sig": sigs[idx],
+                          "feats": feats[idx],
+                          "named": True, "fate": "committed"})
         if _commit(ctx, triple, sig, task_id, size,
                    target):
             return True
