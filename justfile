@@ -35,5 +35,27 @@ test-slow:
 test-retry:
     .venv/bin/python -m unittest tests.test_rsi_retry -v
 
+# Parallel lanes for local iteration only (measured: 8268s
+# wall vs 13530s sequential = 1.64x; fast 147, slow 60,
+# retry 3 all green, memory under 70%). Lane granularity
+# cannot reach 2x since slow dominates. Release gates and
+# CI stay sequential for deterministic logs. One builder at
+# a time still applies: never train in the background
+# during a par run.
+test-par:
+    #!/usr/bin/env bash
+    set -u
+    log=$(mktemp -d /tmp/rsi-par-XXXXXX)
+    echo "lane logs in $log"
+    just test-fast > $log/fast.log 2>&1 & p_fast=$!
+    just test-slow > $log/slow.log 2>&1 & p_slow=$!
+    just test-retry > $log/retry.log 2>&1 & p_retry=$!
+    code=0
+    wait $p_fast || code=1
+    wait $p_slow || code=1
+    wait $p_retry || code=1
+    grep -H -E "^(OK|FAILED|Ran)" $log/fast.log $log/slow.log $log/retry.log
+    exit $code
+
 train:
     .venv/bin/python scripts/train.py --seed 0 --epochs 50
