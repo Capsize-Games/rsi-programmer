@@ -64,7 +64,9 @@ separate column, never the headline.
   `author`/`evolve`/`pool` (training operators),
   `scale`/`headless` (acceptance loops), `sandbox`/`promote`
   (execution gate), `traces`/`rich`/`actions` (data and features),
-  `lineage` (sqlite record of training runs).
+  `lineage` (sqlite record of training runs),
+  `lattice`/`ltrain`/`lauthor` (bit-slice team),
+  `words` (word codec), `bytecode` (stack VM lowering).
 - `fixtures/` — frozen task families: W1 shadow (training), hard,
   and novel (held-out transfer).
 - `scripts/train.py` — canonical training run; writes weights and a
@@ -77,9 +79,16 @@ separate column, never the headline.
 
 ```sh
 just setup          # .venv + requirements + spikeforge source pin
-just test           # full suite from the repo root
+just test           # full suite from the repo root (~3.7 h)
+just test-fast      # dev lane, ~5 min (145 tests)
+just test-slow      # slow lane, ~2 h 11 min (51 tests)
+just test-retry     # retry distractor lane, ~61 min
 just train          # seed 0, 50 epochs -> weights/rsi-search-policy-w1.*
 ```
+
+Lane durations measured code-v34 era on Ryzen 5800X,
+CPU-only torch. One builder at a time; a red lane stays
+red and blocking.
 
 `spikeforge` is a source dependency (Capsize-Games/spikeforge); `just
 setup` pins a local checkout. Torch CPU wheels come from the
