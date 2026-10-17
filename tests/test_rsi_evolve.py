@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from typing import Any
+import torch
 from rsi_programmer.author import beam_search, refine_author
 from rsi_programmer.evolve import PolicyLoop, guided_search
 from rsi_programmer.policy import SearchPolicy
@@ -136,6 +137,41 @@ class PolicyLoopTests(unittest.TestCase):
         policy.perturb(0.5, 99)
         policy.restore(snap)
         self.assertEqual(mid, policy.scores(feats))
+
+
+class RestoreOptimizerTests(unittest.TestCase):
+    def test_fit_after_restore_moves_weights(self) -> None:
+        """Restore rebinds the optimizer to the live net (#51)."""
+        snap = SearchPolicy(seed=0).snapshot()
+        policy = SearchPolicy(seed=123, lr=0.06)
+        policy.restore(snap)
+        live = {id(p) for p in policy._net.parameters()}
+        bound = {id(p) for group in policy._opt.param_groups
+                 for p in group["params"]}
+        self.assertEqual(bound, live)
+        self.assertEqual(policy._opt.param_groups[0]["lr"], 0.06)
+        before = {k: v.clone()
+                  for k, v in policy.weights().items()}
+        groups = [[([0.0] * 12, 1), ([1.0] * 12, 0)]]
+        policy.fit(groups, epochs=2)
+        moved = [k for k, v in policy.weights().items()
+                 if not torch.equal(before[k], v)]
+        self.assertTrue(moved)
+
+
+class StatelessScoringTests(unittest.TestCase):
+    def test_scores_idempotent_and_history_free(self) -> None:
+        """Repeated scores ignore prior drives (#52)."""
+        feats = [[float(i == j) for j in range(12)]
+                 for i in range(6)]
+        other = [[0.5] * 12 for _ in range(6)]
+        policy = SearchPolicy(seed=0)
+        first = policy.scores(feats)
+        self.assertEqual(first, policy.scores(feats))
+        policy.scores(other)
+        self.assertEqual(first, policy.scores(feats))
+        fresh = SearchPolicy(seed=0).scores(feats)
+        self.assertEqual(first, fresh)
 
 
 class ScreenedLoopTests(unittest.TestCase):

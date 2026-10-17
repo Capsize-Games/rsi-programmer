@@ -88,22 +88,17 @@ class BitLattice:
         """Drop temporal state; next drive starts fresh."""
         self._temporal = None
 
-    def _state(self, batch: int) -> Any:
-        """Reuse temporal state when the batch shape agrees."""
-        try:
-            mem = self._temporal["enc"][0]
-        except (KeyError, TypeError, IndexError):
-            return None
-        if torch.is_tensor(mem) and mem.shape[0] == batch:
-            return self._temporal
-        return None
-
     def _drive(self, mat: torch.Tensor) -> dict[str, Any]:
-        """Mean spike rates per bit head and struct gate."""
+        """Mean spike rates, fresh state per drive (#52).
+
+        The end state is kept only for snapshot
+        serialization; scoring never consumes it. reset()
+        stays as an explicit no-history marker for callers.
+        """
         keys = ["b%d" % i for i in range(N_BITS)] + ["st"]
         acc = {k: torch.zeros(mat.shape[0], 1 if k != "st"
                               else 2) for k in keys}
-        state = self._state(mat.shape[0])
+        state: Any = None
         for _ in range(self._steps):
             outs, state = self._net.step(mat, state)
             for key in keys:
@@ -183,7 +178,8 @@ class BitLattice:
                 "hidden": self._hidden}
 
     def restore(self, snap: dict[str, Any]) -> None:
-        """Reload a snapshot; reuse temporal state when valid."""
+        """Reload a snapshot; rebind optimizer to the live net."""
+        lr = float(self._opt.param_groups[0]["lr"])
         spec = TopologySpec.from_dict(snap["spec"])
         spec.validate()
         self._spec = spec
@@ -191,6 +187,8 @@ class BitLattice:
         state = {k: torch.tensor(v)
                  for k, v in snap["weights"].items()}
         self._net.load_state_dict(state)
+        self._opt = torch.optim.Adam(self._net.parameters(),
+                                     lr=lr)
         self._steps = int(snap.get("steps", STEPS))
         self._hidden = int(snap.get("hidden", 16))
         self._temporal = _clone(snap.get("temporal"))

@@ -121,19 +121,15 @@ class SearchPolicy:
                             "in_", "out")
         spec.validate()
         return spec
-    def _state(self, batch: int) -> Any:
-        """Reuse temporal state when the batch shape agrees."""
-        try:
-            mem = self._temporal["lif"][0]
-        except (KeyError, TypeError, IndexError):
-            return None
-        if torch.is_tensor(mem) and mem.shape[0] == batch:
-            return self._temporal
-        return None
     def _forward(self, mat: torch.Tensor) -> torch.Tensor:
-        """Mean readout over constant-drive steps."""
+        """Mean readout over steps, fresh state per drive.
+
+        The end state is kept only for snapshot
+        serialization; scoring never consumes it, so scores
+        depend on features and weights alone (#52).
+        """
         acc = torch.zeros(mat.shape[0])
-        state = self._state(mat.shape[0])
+        state: Any = None
         for _ in range(self._steps):
             outs, state = self._net.step(mat, state)
             acc = acc + outs["out"][:, 0]
@@ -246,7 +242,8 @@ class SearchPolicy:
                 "temporal": _clone(self._temporal),
                 "seed": self._seed, "steps": self._steps}
     def restore(self, snap: dict[str, Any]) -> None:
-        """Reload a snapshot; reuse temporal state when valid."""
+        """Reload a snapshot; rebind optimizer to the live net."""
+        lr = float(self._opt.param_groups[0]["lr"])
         spec = TopologySpec.from_dict(snap["spec"])
         spec.validate()
         self._spec = spec
@@ -254,5 +251,7 @@ class SearchPolicy:
         state = {k: torch.tensor(v)
                  for k, v in snap["weights"].items()}
         self._net.load_state_dict(state)
+        self._opt = torch.optim.Adam(self._net.parameters(),
+                                     lr=lr)
         self._steps = int(snap.get("steps", STEPS))
         self._temporal = _clone(snap.get("temporal"))

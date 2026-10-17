@@ -117,13 +117,19 @@ class ModularPolicy:
             out = self._drive(with_gap(feats, gap))
         return {k: v.tolist() for k, v in out.items()}
 
+    @staticmethod
+    def _mean_scores(out: dict[str, torch.Tensor]
+                     ) -> list[float]:
+        """Compat scores from one already-completed drive."""
+        mean_op = out["op"].mean(dim=1)
+        total = mean_op + out["lo"][:, 0] + out["ro"][:, 0]
+        return [float(v) for v in total + out["st"][:, EMIT]]
+
     def scores(self, feats: list[list[float]]) -> list[float]:
         """Compat-only ranking; rank() with triples is exact."""
         with torch.no_grad():
             out = self._drive(with_gap(feats, None))
-        mean_op = out["op"].mean(dim=1)
-        total = mean_op + out["lo"][:, 0] + out["ro"][:, 0]
-        return [float(v) for v in total + out["st"][:, EMIT]]
+        return self._mean_scores(out)
 
     def rank(self, feats: list[list[float]],
              triples: list[Triple] | None = None,
@@ -135,7 +141,7 @@ class ModularPolicy:
             out = self._drive(with_gap(feats, gap))
         order = sorted(range(len(feats)))
         if triples is None:
-            scored = self.scores(feats)
+            scored = self._mean_scores(out)
             return sorted(order, key=scored.__getitem__,
                           reverse=True)
         idx = [OP_ORDER.index(op) for op, _, _ in triples]
@@ -223,7 +229,8 @@ class ModularPolicy:
                 "seed": self._seed, "steps": self._steps}
 
     def restore(self, snap: dict[str, Any]) -> None:
-        """Reload a snapshot; reuse temporal state when valid."""
+        """Reload a snapshot; rebind optimizer to the live net."""
+        lr = float(self._opt.param_groups[0]["lr"])
         spec = TopologySpec.from_dict(snap["spec"])
         spec.validate()
         self._spec = spec
@@ -231,5 +238,7 @@ class ModularPolicy:
         state = {k: torch.tensor(v)
                  for k, v in snap["weights"].items()}
         self._net.load_state_dict(state)
+        self._opt = torch.optim.Adam(self._net.parameters(),
+                                     lr=lr)
         self._steps = int(snap.get("steps", STEPS))
         self._temporal = _clone(snap.get("temporal"))
