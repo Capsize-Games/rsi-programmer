@@ -25,6 +25,7 @@ from typing import Any
 from rsi_programmer.author import refine_operands
 from rsi_programmer.evolve import guided_search
 from rsi_programmer.policy import SearchPolicy
+from rsi_programmer.probe import CONSTS
 from rsi_programmer.traces import TraceRecorder
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -48,6 +49,17 @@ def _score(out: dict[str, Any]) -> float:
         math.log10(BUDGET)
 
 
+def _consts_for(task: dict[str, Any]) -> tuple[int, ...]:
+    """Constant terminals for tasks flagged needing them.
+
+    Mirrors the oracle-side rule: CONSTS iff the task lists
+    const among its features, else bare terminals.
+    """
+    if "const" in task.get("features", []):
+        return CONSTS
+    return ()
+
+
 def _solves(policy: SearchPolicy, fixture: str) -> list[float]:
     """Per-task cost-aware scores over one fixture family."""
     rec = TraceRecorder(fixture)
@@ -57,7 +69,8 @@ def _solves(policy: SearchPolicy, fixture: str) -> list[float]:
         target = tuple(c[2] for c in task["train"])
         bound = int(task.get("max_tree_ops", 4))
         out = guided_search(policy, rows, target, bound,
-                            BUDGET, str(task["id"]))
+                            BUDGET, str(task["id"]),
+                            consts=_consts_for(task))
         flags.append(_score(out))
     return flags
 

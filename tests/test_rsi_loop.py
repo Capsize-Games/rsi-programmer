@@ -305,6 +305,60 @@ class AuthoredLoopTests(unittest.TestCase):
         self.assertTrue(out["lineage"])
         print("joint trial decision=%s" % out["decision"])
 
+    def test_const_terminals_solve_without_them_failing(
+            self) -> None:
+        """Const-flagged tasks solve with consts, miss without.
+
+        The capability wall from #48: unreachable tasks stay
+        unreachable bare and solve once constant terminals
+        join level zero. Untrained ranker, enumerator-scale
+        tried counts.
+        """
+        from rsi_programmer.policy import SearchPolicy
+        from rsi_programmer.probe import CONSTS
+        from rsi_programmer.search import guided_search
+        root = Path(__file__).resolve().parent.parent
+        tasks = json.load(
+            open(root / "fixtures" / "rsi_ood_v2.json"))["tasks"]
+        plain = [t for t in tasks
+                 if "branch" not in t.get("features", [])]
+        self.assertEqual(len(plain), 4)
+        policy = SearchPolicy(seed=0)
+        for task in plain:
+            rows = tuple((c[0], c[1]) for c in task["train"])
+            target = tuple(c[2] for c in task["train"])
+            bound = int(task.get("max_tree_ops", 4))
+            bare = guided_search(policy, rows, target, bound,
+                                 10 ** 9, task["id"])
+            full = guided_search(policy, rows, target, bound,
+                                 10 ** 9, task["id"],
+                                 consts=CONSTS)
+            self.assertTrue(full["solved"])
+            print("%s bare=%s const=%s tried=%d"
+                  % (task["id"], bare["solved"],
+                     full["solved"], full["tried"]))
+
+    def test_loop_trainer_threads_consts(self) -> None:
+        """Loop held shows const tasks solved, branch missed."""
+        from rsi_programmer.loop_trainer import HELD
+        from rsi_programmer.loop_trainer import train_scores
+        self.assertTrue(HELD.endswith("rsi_ood_v2.json"))
+        tmp = tempfile.mkdtemp(prefix="rsi-loopF-")
+        rep = train_scores(dict(DEFAULT_CONFIG), 0,
+                           tmp + "/scores")
+        held = rep["held"]
+        self.assertEqual(len(held), 8)
+        root = Path(__file__).resolve().parent.parent
+        tasks = json.load(
+            open(root / "fixtures" / "rsi_ood_v2.json"))["tasks"]
+        for task, score in zip(tasks, held):
+            if "branch" in task.get("features", []):
+                self.assertEqual(score, 0.0)
+            else:
+                self.assertGreater(score, 1.0)
+        print("loop held const flips: %s"
+              % [round(v, 3) for v in held])
+
 
 if __name__ == "__main__":
     unittest.main()

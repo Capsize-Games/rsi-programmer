@@ -12,7 +12,8 @@ from rsi_programmer.policy import SearchPolicy, Vals
 from rsi_programmer.policy import Triple, encode, layer_triples
 from rsi_programmer.rich import listwise_loss
 from rsi_programmer.traces import TraceRecorder
-from rsi_programmer.probe import Expr, enumerate_programs
+from rsi_programmer.probe import Expr, const_node, const_terms
+from rsi_programmer.probe import enumerate_programs
 from rsi_programmer.probe import signature, terminals
 EXTRA = ("nodes_per_bound", "open_gap", "exact_flag", "self_apply")
 OPDIMS = tuple(range(len(OP_ORDER) + 3, len(OP_ORDER) + 7))
@@ -168,11 +169,19 @@ def emit_edit(space: ActionSpace, graph: dict[str, Any],
         rec["verdict"] = "validator: " + str(exc)
         return graph, rec, False
     return nxt, rec, True
-def _new_ctx() -> dict[str, Any]:
-    levels: dict[int, list[Expr]] = {0: list(terminals())}
+def _new_ctx(consts: tuple[int, ...] = ()) -> dict[str, Any]:
+    """Author context, plus const nodes when values given."""
+    terms = list(terminals()) + list(const_terms(consts))
     graph = {"input_types": {"x": "Int", "y": "Int"},
              "nodes": [], "output": "x"}
-    refs = {id(term): term.left for term in levels[0]}
+    refs: dict[int, Any] = {}
+    for term in terms:
+        if term.op == "const":
+            refs[id(term)] = len(graph["nodes"])
+            graph["nodes"].append(const_node(term.left))
+        else:
+            refs[id(term)] = term.left
+    levels: dict[int, list[Expr]] = {0: terms}
     return {"space": ActionSpace(), "graph": graph, "levels": levels,
             "refs": refs, "sigs": [], "tried": 0, "log": []}
 def _commit(ctx: dict[str, Any], triple: Triple, sig: Vals,
@@ -222,23 +231,28 @@ def _pack(ctx: dict[str, Any], solved: bool, graph: dict[str, Any] | None,
     return {"solved": solved, "tried": ctx["tried"], "graph": graph,
             "rejected": ctx["log"], "verdict": verdict, "path": path}
 def _use_fallback(policy: SearchPolicy, ctx: dict[str, Any], rows: Rows,
-    target: Vals, bound: int, budget: int, task_id: str) -> dict[str, Any]:
-    ranked = guided_search(policy, rows, target, bound, budget, task_id)
+    target: Vals, bound: int, budget: int, task_id: str,
+    consts: tuple[int, ...] = ()) -> dict[str, Any]:
+    ranked = guided_search(policy, rows, target, bound, budget,
+                           task_id, consts=consts)
     ranked["path"] = "fallback"
     ranked["author_log"], ranked["author_tried"] = ctx["log"], ctx["tried"]
     return ranked
 def author_search(policy: SearchPolicy, rows: Rows, target: Vals,
                   bound: int, budget: int, task_id: str = "",
                   topk: int = 3, weights: list[float] | None = None,
-                  fallback: bool = True) -> dict[str, Any]:
-    ctx, w = _new_ctx(), list(weights) if weights else [0.0] * len(EXTRA)
+                  fallback: bool = True,
+                  consts: tuple[int, ...] = ()
+                  ) -> dict[str, Any]:
+    ctx, w = _new_ctx(consts), list(weights) if weights \
+        else [0.0] * len(EXTRA)
     for size in range(1, bound + 1):
         if _author_step(policy, ctx, rows, target, size, bound,
                         budget, task_id, topk, w):
             return _pack(ctx, True, ctx["graph"], "")
     if fallback:
         return _use_fallback(policy, ctx, rows, target, bound, budget,
-                             task_id)
+                             task_id, consts)
     verdict = "budget-exhausted" if ctx["tried"] >= budget else \
         "no-authored-solution"
     return _pack(ctx, False, None, verdict)
@@ -307,8 +321,10 @@ MAX_PASSES = 3
 def _beam_sweep(policy: SearchPolicy, rows: Rows, target: Vals,
                 bound: int, budget: int, task_id: str,
                 width: int, w: list[float],
-                order: str) -> tuple[dict[str, Any],
-                                     dict[str, Any]]:
+                order: str,
+                consts: tuple[int, ...] = ()
+                ) -> tuple[dict[str, Any],
+                           dict[str, Any]]:
     """Width-capped scans plus ordered backtrack, to fixpoint.
 
     One bottom-up pass strands late backtrack commits: upper
@@ -319,7 +335,7 @@ def _beam_sweep(policy: SearchPolicy, rows: Rows, target: Vals,
     once; passes are capped so never-solve tasks cost at
     most a small multiple of one sweep.
     """
-    ctx = _new_ctx()
+    ctx = _new_ctx(consts)
     for _ in range(MAX_PASSES):
         stash: Stash = {s: [] for s in range(1, bound + 1)}
         for size in range(1, bound + 1):
@@ -342,19 +358,22 @@ def beam_search(policy: SearchPolicy, rows: Rows, target: Vals,
                 bound: int, budget: int, task_id: str = "",
                 width: int = 3, weights: list[float] | None = None,
                 fallback: bool = True, order: str = "fifo",
-                widen: int = 0) -> dict[str, Any]:
+                widen: int = 0,
+                consts: tuple[int, ...] = ()
+                ) -> dict[str, Any]:
     """Beam sweep, optional wider retry, optional fallback."""
     w = list(weights) if weights else [0.0] * len(EXTRA)
     out, ctx = _beam_sweep(policy, rows, target, bound, budget,
-                           task_id, width, w, order)
+                           task_id, width, w, order, consts)
     if not out["solved"] and widen > 0 and \
             out["tried"] < budget:
         again, ctx = _beam_sweep(
             policy, rows, target, bound,
-            budget - out["tried"], task_id, widen, w, order)
+            budget - out["tried"], task_id, widen, w, order,
+            consts)
         again["tried"] = out["tried"] + again["tried"]
         out = again
     if out["solved"] or not fallback:
         return out
     return _use_fallback(policy, ctx, rows, target, bound, budget,
-                         task_id)
+                         task_id, consts)

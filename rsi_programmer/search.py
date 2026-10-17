@@ -8,14 +8,29 @@ from typing import Any, Callable
 from rsi_programmer.actions import ActionSpace
 from rsi_programmer.policy import Rows, SearchPolicy, Triple, Vals
 from rsi_programmer.policy import encode, layer_triples
-from rsi_programmer.probe import Expr, signature, terminals
+from rsi_programmer.probe import Expr, const_node, const_terms
+from rsi_programmer.probe import signature, terminals
 OracleHook = Callable[[dict[str, Any]], bool]
-def _new_ctx() -> dict[str, Any]:
-    levels: dict[int, list[Expr]] = {0: list(terminals())}
-    refs = {id(term): term.left for term in levels[0]}
+def _new_ctx(consts: tuple[int, ...] = ()) -> dict[str, Any]:
+    """Search context, plus const nodes when values given.
+
+    Constant terminals join level zero with pre-created
+    graph nodes, so triples over them intern exactly like
+    committed expressions; empty consts keeps the bare
+    input-only context byte-identical to before.
+    """
+    terms = list(terminals()) + list(const_terms(consts))
     graph: dict[str, Any] = {"input_types": {"x": "Int",
                                              "y": "Int"},
                              "nodes": [], "output": "x"}
+    refs: dict[int, Any] = {}
+    for term in terms:
+        if term.op == "const":
+            refs[id(term)] = len(graph["nodes"])
+            graph["nodes"].append(const_node(term.left))
+        else:
+            refs[id(term)] = term.left
+    levels: dict[int, list[Expr]] = {0: terms}
     return {"space": ActionSpace(), "graph": graph, "levels": levels,
             "refs": refs, "interned": {}, "tried": 0, "rejected": []}
 def _intern(ctx: dict[str, Any], rows: Rows,
@@ -112,9 +127,15 @@ def _accept(ctx: dict[str, Any], found: Any) -> dict[str, Any]:
 def guided_search(policy: SearchPolicy, rows: Rows,
                   expected: Vals, bound: int, budget: int,
                   task_id: str = "",
-                  oracle: OracleHook | None = None) -> dict[str, Any]:
-    """Policy-ranked search; oracle vetoes retry past near-misses."""
-    ctx = _new_ctx()
+                  oracle: OracleHook | None = None,
+                  consts: tuple[int, ...] = ()
+                  ) -> dict[str, Any]:
+    """Policy-ranked search; oracle vetoes retry past near-misses.
+
+    Constant terminals join level zero when values are
+    given; empty consts searches exactly as before.
+    """
+    ctx = _new_ctx(consts)
     for size in range(1, bound + 1):
         found = _step(policy, ctx, rows, expected, size, bound,
                       budget, task_id, oracle)

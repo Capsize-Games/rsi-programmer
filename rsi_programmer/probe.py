@@ -65,6 +65,12 @@ def const_terms(values: tuple[int, ...] = ()) -> tuple[Expr, ...]:
     return tuple(Expr("const", value, None, 0) for value in values)
 
 
+def const_node(value: int) -> dict:
+    """Size-zero constant graph node for the given value."""
+    return {"op": "const", "type": "Int", "args": [],
+            "value": value}
+
+
 def signature(expr: Expr, rows: tuple[tuple[int, int], ...]) -> tuple[int, ...]:
     if expr.op == "const":
         value = expr.left
@@ -190,8 +196,7 @@ def lower_to_dag(expr: Expr) -> dict:
             key = ("const", term.left)
             if key not in intern:
                 intern[key] = len(nodes)
-                nodes.append({"op": "const", "type": "Int",
-                              "args": [], "value": term.left})
+                nodes.append(const_node(term.left))
             return intern[key]
         if term.op == "input":
             return visit(term.left)
