@@ -712,5 +712,25 @@ python -m unittest discover -s tests -t .
 | `scripts/train.py` | Canonical training entry (`just train`) |
 | `tests/` (14 files) | Per-issue validation commands above |
 
+## Appendix — Delivery log (issues 13-43, code-v1 onward)
+
+Filed verbatim on GitHub in dependency order; code released as
+`code-vN` tags with GitHub releases. Strata (beam baseline):
+shadow 4/4, novel 3/3, twin+plain 16/16, full-IR >= 2/8.
+
+| Issue | State | Delivered |
+|---|---|---|
+| #13-31 signal/solve lifts | closed | Contrastive guidance, band-hinge, width, harder data, refinability, fixpoint beam |
+| #32 binary lowering | closed | Bytecode VM with behavioral oracle |
+| #33-36 bit-slice lattice | closed | Words/ISA, frozen team, training, lattice author |
+| #37 re-verification | closed | Full discover green on clean checkout |
+| #38 lanes | closed | test-fast/slow/retry split, CI mapping |
+| #39 selectivity | closed | Directing-vs-echo: shuffle 27->1, echo at chance |
+| #40 precision | closed | code-v36: held-out sweep (b0=0.6, val-exact 1.000), train exact 1.000, strata intact; linear gate proven inseparable |
+| #41 proposer | closed | code-v37: EditProposer, trials-to-first-promotion 2 vs 14 seeded |
+| #42 closed loop | open | Proposer wired into RsiLoop, joint fields threaded, autonomy/agency report; release gated on full suite |
+| #43 gate capacity | open | Follow-up: membership needs a nonlinear readout (emit<=0.30 + F1 carried here) |
+| #19 gains log | open | Per-release posts; CSV beam series ends at code-v29 (backlog noted, never backfilled) |
+
 
 

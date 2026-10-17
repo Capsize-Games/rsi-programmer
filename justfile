@@ -14,12 +14,18 @@ test:
 
 # Lanes (measured code-v34 era, Ryzen 5800X, CPU-only torch):
 # test-fast ~5 min (147 tests); test-slow ~2 h 11 min (60
-# tests: hub/author/baseline/beam/evolve/operands/scale/
-# transfer); test-retry ~61 min (distractor solved,
+# tests: hub/author/baseline/beam/evolve/loop/operands/
+# scale/transfer); test-retry ~61 min (distractor solved,
 # tried=830954). Full `just test` ~3.7 h wall. One builder
 # at a time: never run lanes in parallel and never train in
 # the background during a build (freeze lesson). A red lane
 # stays red and blocking; never split a lane to pass.
+# Release gating (code-v39 onward): a release needs
+# test-fast plus every lane its diff touches green; the full
+# discover runs on main push via CI full (once #44 lands)
+# and locally per milestone, not per release. Cross-file
+# interference is covered by those full runs, not by
+# re-running 3.7 h per release.
 test-fast:
     .venv/bin/python -m unittest tests.test_rsi_actions tests.test_rsi_sandbox tests.test_rsi_headless tests.test_proxy tests.test_rsi_hard tests.test_typed_dag_programming_probe tests.test_rsi_decoder tests.test_modular tests.test_rsi_tasks tests.test_edits tests.test_self_gate tests.test_autonomy tests.test_rsi_ood tests.test_gains tests.test_rsi_words tests.test_rsi_lattice tests.test_rsi_lattice_train tests.test_rsi_lattice_author tests.test_rsi_bytecode tests.test_rsi_selectivity tests.test_rsi_proposer -v
 
