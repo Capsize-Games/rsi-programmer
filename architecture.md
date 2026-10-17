@@ -1,0 +1,1122 @@
+# rsi-programmer architecture: learning and inference, as implemented
+
+This document transcribes the algorithms in the tree at `code-v40`
+(`f854a5e`) into math, step by step. It describes what the code
+does, not what earlier design documents intended. Where the math as
+implemented is wrong, inconsistent, or weaker than the claims made
+for it, the text says so at the point of transcription and links
+the GitHub issue filed for it. No issue filed from this audit is
+fixed here.
+
+Two facts frame everything below and are worth stating before any
+detail:
+
+1. **Candidate generation and candidate evaluation are always
+   classical.** In every inference path, the full candidate set for
+   a search layer is enumerated by ordinary code and every
+   candidate's exact output vector on the train rows (its
+   *signature*, Section 2) is computed before any network output is
+   consulted. The networks reorder, subset, or accept/reject
+   already-enumerated, already-evaluated candidates. They never
+   generate a candidate. ([#70](https://github.com/Capsize-Games/rsi-programmer/issues/70))
+2. **Acceptance is independent of the networks.** A program counts
+   as solved only when the typed-DAG interpreter reproduces the
+   frozen expected outputs on train and held-out rows
+   (`TraceRecorder.oracle_holds`, `words.oracle_holds_words`,
+   `bytecode.binary_holds`). Network scores never enter acceptance.
+
+## 0. System map
+
+```mermaid
+flowchart TD
+    subgraph DATA["Data (classical)"]
+        FIX["Frozen fixtures<br/>fixtures/*.json<br/>8 train + 8 held rows per task"]
+        GEN["Task generator<br/>tasks.py / families.py"]
+        ENUM["Enumerator<br/>probe.enumerate_programs"]
+        TR["Trace replay<br/>traces.py / policy.replay_layers"]
+    end
+    subgraph LEARN["Learning"]
+        LBL["Label builders<br/>trace / author / contrastive / modular groups"]
+        SP["SearchPolicy (ranker)<br/>policy.py"]
+        MP["ModularPolicy (4 heads)<br/>modules.py"]
+        BL["BitLattice (4 bit heads + gate)<br/>lattice.py / ltrain.py"]
+        CAL["Calibration + threshold sweep<br/>ltrain._calibrate / lprecision.py"]
+        ES["(1+1)-ES author weights<br/>author.refine_author"]
+        RICH["Rich centroid weights<br/>rich.fit_rich"]
+    end
+    subgraph INFER["Inference (program synthesis)"]
+        GUIDED["guided_search<br/>ranked scan, complete"]
+        AUTHOR["author_search<br/>greedy top-k commits"]
+        BEAM["beam_search<br/>width + stash + fixpoint"]
+        LAT["lattice_search<br/>word-gated commits"]
+        DEC["SpikeDecoder (standalone,<br/>not wired into search)"]
+        WORDS["Word decoder<br/>words.decode"]
+        BC["Bytecode VM<br/>bytecode.py"]
+    end
+    subgraph JUDGE["Judging (independent of networks)"]
+        VAL["validate_graph (types)<br/>probe.py"]
+        INT["interpret on train+held<br/>oracle_holds"]
+        SAND["SandboxRunner subprocess<br/>sandbox.py"]
+        GATE["PromotionGate<br/>promote.py"]
+    end
+    subgraph OUTER["Outer loops"]
+        EVO["PolicyLoop evolution<br/>evolve.py"]
+        SCALE["ScaleUp<br/>scale.py / pool.py"]
+        PROXY["ProxyScreen<br/>proxy.py"]
+        SG["SelfGate + RsiLoop<br/>self_gate.py / scripts/rsi_loop.py"]
+        HEAD["HeadlessLoop<br/>headless.py"]
+        LIN["LineageStore (sqlite)<br/>lineage.py"]
+    end
+    GEN --> FIX
+    FIX --> ENUM --> TR --> LBL
+    FIX --> LBL
+    LBL --> SP & MP & BL
+    BL --> CAL
+    SP --> GUIDED & AUTHOR & BEAM
+    ES --> AUTHOR & BEAM
+    MP -. "rank-compatible API" .-> GUIDED
+    BL --> LAT
+    RICH -. "bonus in rank() only" .-> GUIDED
+    GUIDED & AUTHOR & BEAM & LAT --> VAL --> INT
+    WORDS --> VAL
+    INT --> SAND
+    SP --> BC
+    INT --> EVO & SCALE & PROXY & HEAD
+    EVO & SCALE --> LIN
+    SG --> GATE --> SG
+    SG --> LIN
+    HEAD --> GATE & SAND
+```
+
+```mermaid
+flowchart LR
+    subgraph TRAIN_PIPE["Learning pipeline (canonical: scripts/train.py)"]
+        T1["Fixture family"] --> T2["Replay enumerator<br/>per task, layer by layer"]
+        T2 --> T3["Encode every triple<br/>12-d features"]
+        T3 --> T4["Label: on canonical<br/>solution signature set"]
+        T4 --> T5["Full-batch margin loss<br/>softplus(1 - gap)"]
+        T5 --> T6["One Adam step / epoch<br/>x EPOCHS"]
+        T6 --> T7["Joint pass: margin +<br/>0.2 * listwise, 5 epochs"]
+        T7 --> T8["Weights + manifest"]
+    end
+    subgraph INFER_PIPE["Inference pipeline (one task)"]
+        I1["Train rows + target vector"] --> I2["For size s = 1..bound:<br/>enumerate all triples"]
+        I2 --> I3["Compute every signature<br/>(exact outputs, classical)"]
+        I3 --> I4{"Which path?"}
+        I4 -->|guided| I5["SNN permutes scan order;<br/>scan until signature == target"]
+        I4 -->|author/beam| I6["SNN score picks commits<br/>(top-k / width)"]
+        I4 -->|lattice| I7["Commit iff decoded word<br/>== opcode AND EMIT wins"]
+        I5 & I6 & I7 --> I8["Commit via ActionSpace<br/>(typecheck every edit)"]
+        I8 --> I9["signature == target?"]
+        I9 -->|yes| I10["Oracle: interpret graph<br/>on train + held-out"]
+        I9 -->|no, sizes left| I2
+        I10 -->|holds| I11["Solved"]
+        I10 -->|fails| I12["Rejected (counts as miss)"]
+    end
+```
+
+## 1. Notation
+
+A task is a frozen set of input rows
+$R = \{(x_i, y_i)\}_{i=1}^{n}$ with expected outputs
+$\mathbf{t} = (t_1, \dots, t_n)$, $n = 8$ train rows, plus 8
+disjoint held-out rows with their own expectations. Inputs are
+drawn from the grid $\{-4, \dots, 4\}^2$ for generated families
+(`tasks.py: ROW_LO, ROW_HI = -4, 5`, rows sampled without
+replacement across train and held). Programs are typed integer/
+boolean expressions over inputs $x, y$, binary operators
+$\mathrm{OPS} = \{+, -, \times\}$, comparisons
+$\mathrm{CMP} = \{<, ==\}$, a ternary $\mathrm{select}(c, a, b)$,
+and integer constants from
+$\mathrm{CONSTS} = \{-2, -1, 0, 1, 2, 3, 4, 5\}$.
+
+The *size* $|e|$ of an expression is its number of internal
+operator nodes: terminals (inputs, constants) have size 0 and
+$|\mathrm{op}(a, b)| = |a| + |b| + 1$,
+$|\mathrm{select}(c, a, b)| = |c| + |a| + |b| + 1$. Search is
+bounded by $|e| \le B$ (`max_tree_ops`, typically 4). One task in
+`tasks.py` computes size differently after constant forcing
+([#71](https://github.com/Capsize-Games/rsi-programmer/issues/71)).
+
+## 2. Semantics: signatures, DAGs, and the checker
+
+### 2.1 Signature semantics (`probe.signature`)
+
+Every expression is evaluated pointwise over the rows. Writing
+$\sigma_R(e) \in \mathbb{Z}^n$ (or $\mathbb{B}^n$ for comparisons)
+for the output vector of $e$ on $R$:
+
+$$
+\sigma_R(x) = (x_1, \dots, x_n), \qquad
+\sigma_R(y) = (y_1, \dots, y_n), \qquad
+\sigma_R(c) = (c, \dots, c)
+$$
+
+$$
+\sigma_R(\mathrm{op}(a,b))_i = \mathrm{op}\big(\sigma_R(a)_i,\,
+\sigma_R(b)_i\big), \qquad
+\sigma_R(\mathrm{select}(c,a,b))_i =
+\begin{cases} \sigma_R(a)_i & \sigma_R(c)_i \\ \sigma_R(b)_i &
+\text{otherwise} \end{cases}
+$$
+
+An expression *solves the train split* iff
+$\sigma_R(e) = \mathbf{t}$ exactly. There is no partial credit in
+acceptance; partial-match rates appear only as features
+(Section 4).
+
+Two properties matter later:
+
+- **Pointwise composition.** If $\sigma_R(a) = \sigma_R(a')$ then
+  $\sigma_R(C[a]) = \sigma_R(C[a'])$ for every context $C$. This is
+  what makes signature dedup sound for train-fit *existence* - and
+  only for that ([#54](https://github.com/Capsize-Games/rsi-programmer/issues/54)).
+- **Train equality is not semantic equality.** $\sigma_R(a) =
+  \sigma_R(a')$ says nothing about rows outside $R$. Held-out
+  checking is a second, separate evaluation of the same recursion
+  on different rows (`interpret` below), never an extrapolation
+  proof.
+
+### 2.2 Typed DAG form (`probe.lower_to_dag`, `validate_graph`)
+
+Expressions lower to a hash-consed DAG: a node list where node $j$
+is $(\mathrm{op}_j, \tau_j, \mathrm{args}_j)$, each arg is either
+an input name $x$/$y$ or an index $< j$, plus constant nodes
+carrying a value in CONSTS. Intering key
+$(\mathrm{op}, r_l, r_r)$ makes structurally equal subtrees share
+one node, so DAG size is at most tree size. `validate_graph`
+checks, in order: exact field sets, known ops, per-op arity and
+operand types ($\mathrm{Int}\times\mathrm{Int}\to\mathrm{Int}$ for
+OPS, $\mathrm{Int}\times\mathrm{Int}\to\mathrm{Bool}$ for CMP,
+$\mathrm{Bool}\times\mathrm{Int}\times\mathrm{Int}\to\mathrm{Int}$
+for select), backward-only references (hence acyclicity), constant
+range, and output reference validity. It does **not** require the
+output node to be Int; `interpret` adds that check separately
+([#67](https://github.com/Capsize-Games/rsi-programmer/issues/67)).
+
+`interpret(G, x, y)` validates, then evaluates nodes in order in
+unbounded Python integer arithmetic. `render_source` prints the
+DAG as Python source text as a report artifact; nothing executes
+it. Every graph mutation in search goes through
+`ActionSpace.apply` (`actions.py`), which typechecks the extended
+graph with `validate_graph` before returning it, and always sets
+the output to the newly appended node. So every intermediate and
+final graph in every search path is well-typed by construction;
+the networks can only propose edits from the typed alphabet.
+
+### 2.3 Acceptance
+
+```mermaid
+flowchart LR
+    G["Candidate graph"] --> V["validate_graph<br/>(structure + types)"]
+    V --> O["oracle_holds:<br/>interpret(G,x,y) == expected<br/>for all train + held rows"]
+    O -->|all equal| A["Accepted"]
+    O -->|any mismatch| R["Miss"]
+```
+
+The frozen expected outputs are generated by evaluating the
+generating expression (`tasks.generate_task`), or fixed in the
+fixture; they are never derived from a candidate. This is the one
+part of the stack with no learned component in the loop.
+
+## 3. The enumerator (`probe.enumerate_programs`)
+
+Bottom-up enumeration by size. Let $L_s$ be the retained set of
+Int expressions of size $s$ and $L^B_s$ the Bool set:
+
+$$
+L_0 = \{x, y\} \cup \{\text{const } c : c \in \text{given consts}\},
+\qquad L^B_0 = \emptyset
+$$
+
+$$
+\tilde L_s = \bigcup_{a=0}^{s-1}
+\{\mathrm{op}(u,v) : \mathrm{op} \in \mathrm{OPS},\ u \in L_a,\
+v \in L_{s-1-a}\}
+$$
+
+and optionally (branch families) comparisons into
+$\tilde L^B_s$ analogously, plus
+$\mathrm{select}(c, u, v)$ for $c \in L^B_{a}$, $u \in L_b$,
+$v \in L_{s-1-a-b}$. The raw candidate count at size $s$ is
+$3 \sum_a |L_a|\,|L_{s-1-a}|$ (doubled with CMP, plus the ternary
+select term), which grows roughly like $3^s$ times a Catalan
+factor before pruning.
+
+**Dedup.** With `deduplicate=True` (the default everywhere), each
+layer keeps at most one expression per key
+$(\mathrm{op}, \sigma_R(e))$, in generation order:
+$L_s = \mathrm{dedup}(\tilde L_s)$. By pointwise composition
+(Section 2.1) this preserves the existence of a train fit of each
+size, but discards held-out-distinguishable equivalents, so the
+enumerator is **incomplete as a search for held-out-correct
+programs** ([#54](https://github.com/Capsize-Games/rsi-programmer/issues/54), with a size-1
+counterexample). After each full layer is built, the layer is
+scanned in generation order for the first $e$ with
+$\sigma_R(e) = \mathbf{t}$ (optionally restricted to a root op);
+that $e$ is returned.
+
+**Cost counter.** The returned `tried` counts every raw candidate
+generated, including the entire solving layer, because the match
+check happens after the layer is built. `tried` is therefore not
+"candidates examined until first fit", and it is not the same unit
+as the `tried` reported by guided, author, beam, or lattice
+search ([#53](https://github.com/Capsize-Games/rsi-programmer/issues/53)).
+
+## 4. Network substrate math
+
+All three networks are `SpikeForge` `TopologySpec` stage graphs
+executed by `StageModule.step`. Within one step, stages run in
+topological order; a stage's input is the **sum** of its inbound
+edge outputs (`stage_module._gather`), where delayed edges read
+the previous step's outputs. There is no gating or attention: the
+merge operation is addition everywhere.
+
+### 4.1 Neuron (`leaky` = snnTorch `Leaky`)
+
+Each `leaky` stage is a first-order LIF population with fixed
+$\beta = 0.9$, threshold $\theta = 1$, reset-by-subtraction.
+Neither $\beta$ nor $\theta$ is a learned parameter anywhere in
+this codebase. For input current $I_i[t]$ (the output of the
+preceding linear stage, summed with any delayed feedback):
+
+$$
+\tilde U_i[t] = \beta\, U_i[t-1] + I_i[t], \qquad
+S_i[t] = \Theta(\tilde U_i[t] - \theta) \in \{0,1\}
+$$
+
+$$
+U_i[t] = \tilde U_i[t] - \theta\, S_i[t]
+\quad\text{(subtract reset, with snnTorch's double-reset guard)}
+$$
+
+$\Theta$ has no derivative, so training substitutes the ATan
+surrogate (snnTorch default, $\alpha = 2$) on the backward pass
+only, with $u = \tilde U - \theta$:
+
+$$
+\frac{\partial S}{\partial \tilde U} \;:=\;
+\frac{\alpha/2}{1 + (\pi \alpha u / 2)^2}
+\;=\; \frac{1}{1 + (\pi u)^2}
+$$
+
+This derivative peaks at 1 at threshold and decays as
+$u^{-2}$; neurons resting far below or saturated far above
+threshold receive effectively zero gradient. (The lattice's
+bias-centering calibration, Section 6.5, exists because of this.)
+
+### 4.2 Constant-drive readout
+
+Every drive presents the same input matrix $X$ for
+$T = 6$ steps (`STEPS`). For `SearchPolicy`
+($\text{Linear}_{12\to16} \to \text{LIF} \to \text{Linear}_{16\to1}$),
+the hidden current is the constant $I = X W_1 + b_1$ at every
+step, spikes $S[t]$ evolve by Section 4.1, and the score is the
+mean readout:
+
+$$
+s(x) = \frac{1}{T} \sum_{t=1}^{T} \big(S[t]\, W_2 + b_2\big)
+     = \bar r(x)\, W_2 + b_2, \qquad
+\bar r(x) = \frac{1}{T} \sum_t S[t] \in [0,1]^{16}
+$$
+
+i.e. the ranker score is exactly an affine function of the mean
+hidden spike-rate vector. All nonlinearity lives in
+$\bar r(x)$. Learned parameters are exactly the linear stages'
+weights and biases; optimization is Adam ($\mathrm{lr}=0.05$
+default) with one full-batch step per epoch (Section 6).
+
+`ModularPolicy` and `BitLattice` share a 13-d input
+(12 features plus a scalar "gap" channel, Section 5), a shared
+encoder $\text{Linear}_{13\to16} \to \text{LIF}$, parallel
+linear+LIF heads, and a delayed feedback edge
+$\text{st} \to \text{fb\_fc} \to \text{enc}$, so the encoder
+current at step $t$ is $W_{enc} x + b + W_{fb}\, S_{st}[t-1]$.
+Head outputs are read out as mean spike rates in $[0,1]$.
+
+**State handling (defect).** Each network keeps the final step's
+membrane state (`_temporal`, detached clone) and reuses it as the
+initial state of the next drive **whenever the batch size
+matches** ([#52](https://github.com/Capsize-Games/rsi-programmer/issues/52)). Scores are
+therefore a function of drive history, not of $x$ and weights
+alone, except in lattice paths that call `reset()` per scan. The
+math in Sections 6-7 is written as if drives were stateless,
+which is the assumption the losses encode; the implementation
+only sometimes satisfies it.
+
+## 5. Feature encoding (`policy.encode` and extensions)
+
+Each candidate triple $(\mathrm{op}, u, v)$ at target size $s$ is
+encoded as 12 floats, all computed classically from signatures
+that search has already evaluated. With
+$n = |R|$, target $\mathbf{t}$, bound $B$, candidate index
+$k$ (1-based, in generation order) and nominal total $N$:
+
+| # | feature | definition |
+|---|---|---|
+| 0-2 | op one-hot | $\mathbf{1}[\mathrm{op} = \text{add/sub/mul}]$ |
+| 3 | left size | $\lvert u \rvert / B$ |
+| 4 | right size | $\lvert v \rvert / B$ |
+| 5 | node size | $s / B$ |
+| 6 | left hit | $\frac{1}{n}\sum_i \mathbf{1}[\sigma(u)_i = t_i]$ |
+| 7 | left inside | $\frac{1}{n}\sum_i \mathbf{1}[\min\mathbf{t} \le \sigma(u)_i \le \max\mathbf{t}]$ |
+| 8 | right hit | same for $v$ |
+| 9 | right inside | same for $v$ |
+| 10 | progress | $k / N$ |
+| 11 | remaining | $1 - k/N$ (exact affine duplicate of #10) |
+
+The author path appends four more (`author.EXTRA`), scored by
+separately evolved weights $\mathbf{w}$ and added to the ranker
+score:
+
+$$
+s_{\text{author}} = s_{\text{policy}}(x_{0:12}) +
+\sum_{j} w_j\, e_j, \qquad
+\mathbf{e} = \big(\tfrac{|\text{nodes}|}{B},\ \text{gap},\
+\mathbf{1}[\sigma(\mathrm{op}(u,v)) = \mathbf{t}],\
+\mathbf{1}[u \text{ is } v]\big)
+$$
+
+The third extra, `exact_flag`, is the literal answer to "does this
+candidate solve the train split", computed classically before the
+network is consulted ([#70](https://github.com/Capsize-Games/rsi-programmer/issues/70)). The
+gap is
+
+$$
+\text{gap}(\mathcal{S}) = 1 - \max_{\sigma \in \mathcal{S}}
+\frac{1}{n}\sum_i \mathbf{1}[\sigma_i = t_i]
+$$
+
+over a context set $\mathcal{S}$ of signatures (current layer for
+modular training, committed nodes for author inference); gap $=0$
+iff $\mathcal{S}$ already contains an exact match. Modular and
+lattice drives append this scalar as a 13th input channel
+(defaulting to 1.0 when absent).
+
+The scale-up ("rich") features are a fixed linear re-derivation
+from the 12: $\text{depth-frac} = x_5$,
+$\text{imbalance} = |x_3 - x_4|$,
+$\text{joint-hit} = (x_6+x_8)/2$,
+$\text{joint-inside} = (x_7+x_9)/2$, scored by centroid weights
+(Section 6.6) and added only inside `SearchPolicy.rank`, not
+inside `scores()` ([#55](https://github.com/Capsize-Games/rsi-programmer/issues/55)).
+
+**Encoding is not consistent between training and inference**
+([#55](https://github.com/Capsize-Games/rsi-programmer/issues/55)): the denominator $N$ in
+features 10-11 is a task's trace length in trace training but the
+search budget (often $10^9$) at inference; the author passes a
+constant $k$ for a whole layer where training used per-candidate
+$k$; the lattice trains with gap fixed at 1.0 and infers with the
+real gap. The formulas above are the shared intent; the
+arguments fed to them differ by call site.
+
+## 6. Learning algorithms
+
+### 6.1 Training data and labels
+
+All supervision comes from replaying the enumerator on frozen
+fixtures (`policy.replay_layers`, `traces.TraceRecorder`). Four
+label schemes exist, and they are not equivalent:
+
+1. **Trace groups** (`SearchPolicy.trace_groups`): per task, only
+   the solving layer, label
+   $y = \mathbf{1}[\sigma(\mathrm{op}(u,v)) = \mathbf{t}]$.
+   This label is exact: every program that solves the train split
+   at that layer is positive.
+2. **Author groups** (`author._base_groups`): every layer up to
+   the solving layer. Let $e^\*$ be the enumerator's first-found
+   solution and $\mathcal{W} = \{\sigma(z) : z \text{ a subtree of
+   } e^\*\}$. Label
+   $y = \mathbf{1}[\sigma(\mathrm{op}(u,v)) \in \mathcal{W}]$:
+   positive iff the candidate computes a value-vector that the
+   canonical solution uses. Candidates that would complete via a
+   different solution are negative
+   ([#66](https://github.com/Capsize-Games/rsi-programmer/issues/66)).
+3. **Contrastive groups** (`author.contrastive_groups`): author
+   groups partitioned by the candidate's own op, keeping only
+   partitions with both classes present and with nonzero variance
+   in at least one of the four operand feature dims
+   (`OPDIMS` = features 6-9). Same labels as (2); used by the
+   operand-refinement and lattice paths.
+4. **Modular groups** (`mgroups.modular_groups`): author labels
+   plus per-group metadata (candidate op index, solution op set,
+   layer gap). One group per task layer.
+
+For the lattice, each row additionally carries two independent
+targets: its own op's 4-bit opcode (Section 7.5) as the bit-head
+target, and the author label (2) as struct-gate membership.
+
+### 6.2 The pairwise margin loss (ranker core)
+
+For a group with positive index set $P$ and negative set $N$ and
+scores $s_i$, every learner in the stack uses the same term:
+
+$$
+\mathcal{M}(P, N) = \frac{1}{|P|\,|N|}
+\sum_{p \in P}\sum_{n \in N}
+\mathrm{softplus}\big(1 - (s_p - s_n)\big), \qquad
+\mathrm{softplus}(z) = \log(1 + e^z)
+$$
+
+with gradient weight
+$\partial \mathcal{M}/\partial (s_p - s_n) =
+-\sigma(1 - (s_p - s_n))$ ($\sigma$ the logistic sigmoid): pairs
+already separated by more than the margin 1 contribute almost
+nothing. `SearchPolicy.fit` runs epochs of: zero grads, sum
+$\mathcal{M}$ over all groups (each group weight 1 regardless of
+size), backpropagate through $T=6$ unrolled steps with the ATan
+surrogate, one Adam step. Groups missing either class are
+skipped. There is no minibatching, no weight decay, no lr
+schedule.
+
+An optional contrast term acts on paired score vectors
+$\mathbf{u}, \mathbf{v}$ from two tasks' aligned probe layers:
+
+$$
+\cos(\mathbf{u}, \mathbf{v}) =
+\frac{\mathbf{u} \cdot \mathbf{v}}
+{\sqrt{(\mathbf{u}\cdot\mathbf{u})(\mathbf{v}\cdot\mathbf{v})} + 10^{-8}},
+\qquad
+\mathcal{C} = \mathrm{relu}(\cos - 0.3) + \mathrm{relu}(0.1 - \cos)
+$$
+
+added as $\lambda \mathcal{C}$ ($\lambda = 1$ default). Note what
+this actually optimizes: cosine is driven into the band
+$[0.1, 0.3]$ - neither invariance ($\cos \to 1$) nor separation
+($\cos \to 0$ or $-1$). Outside the band the penalty is linear in
+cosine with constant-magnitude gradient direction; the band
+endpoints are constants, not derived quantities.
+
+### 6.3 Author joint pass (`author.train_author`)
+
+`train_author(policy, fixture, epochs)` = `fit` on
+trace-style author groups plus contrastive groups, then
+`refine_operands`: for `JOINT_EPOCHS = 5` epochs, one Adam step on
+
+$$
+\mathcal{L} = \sum_g \mathcal{M}_g \;+\;
+\lambda \sum_{g'} \mathcal{LW}_{g'}, \qquad
+\mathcal{LW} = -\frac{1}{|P|}\sum_{p \in P}
+\Big( s_p - \log \sum_j e^{s_j} \Big)
+= \mathrm{logsumexp}(\mathbf{s}) -
+\frac{1}{|P|}\sum_{p \in P} s_p
+$$
+
+with $\lambda = $ `JOINT_LAMBDA` $= 0.2$, $\mathcal{M}$ over the
+author groups and listwise over contrastive groups. The listwise
+gradient is $\mathrm{softmax}(\mathbf{s}) -
+\mathbf{1}_P/|P|$: it maximizes the total softmax mass on the
+positive set, which is the differentiable surrogate for
+top-1-in-group that the margin alone does not optimize. The
+canonical entry point `scripts/train.py` runs exactly this
+(50 epochs of fit plus the joint pass) and writes weights and a
+manifest.
+
+### 6.4 ModularPolicy loss (`modules.ModularPolicy.fit`)
+
+Four heads produce rates per candidate row: op rates
+$o_i \in [0,1]^3$, left/right scalars $l_i, r_i \in [0,1]$, struct
+rates $q_i = (q_i^{E}, q_i^{S})$. The combined choice score is
+
+$$
+c_i = o_i[\mathrm{op}_i] + l_i + r_i + q_i^{E}
+$$
+
+and the per-group loss is the margin of Section 6.2 applied five
+times over the same $(P, N)$: to $\mathbf{c}$, to own-op rates, to
+$\mathbf{l}$, to $\mathbf{r}$, and to $\mathbf{q}^E$. STOP
+($q^S$) appears in neither the loss nor ranking. Two consequences
+the transcription makes plain
+([#65](https://github.com/Capsize-Games/rsi-programmer/issues/65)): no term
+compares op channels within a row, so the op head is never
+trained to classify ops even though `module_report` scores
+argmax op accuracy; and $l_i, r_i$ are per-row scalars, so the
+"operand heads" cannot represent a choice among operands - all
+five terms train correlated row rankings whose sum is the only
+quantity any search consumes.
+
+### 6.5 BitLattice training (`ltrain.train_lattice`)
+
+Step by step:
+
+1. **Init.** Encoder/struct/feedback weights may be copied from a
+   modular snapshot by stage-name prefix (`load_encoder`); bit
+   heads start fresh. Despite early design language about a
+   frozen encoder, training is **joint**: `set_encoder_frozen` is
+   never called in this path, because frozen-encoder gradients
+   were measured at exactly zero (see step 2).
+2. **Bias calibration** (`_calibrate`). For each head in order
+   b0..b3, then st/EMIT: binary-search the head bias in
+   $[-10, 10]$ (at most 12 halvings) until the head's mean firing
+   rate on the full concatenated training batch is within 0.05 of
+   0.5. The STOP bias is left at 0 by this procedure. The search
+   assumes rate is monotone in bias and that heads do not affect
+   each other; the delayed edge st $\to$ fb_fc $\to$ enc violates
+   both for the head calibrated last
+   ([#57](https://github.com/Capsize-Games/rsi-programmer/issues/57)).
+3. **Fit** (`fit_packs`, `epochs = 8` default). Per pack
+   (contrastive group), six terms: for bit $j$,
+   $\mathcal{M}$ between rows whose target bit is 1 vs 0, where
+   the target word is the candidate's **own opcode**; for the
+   struct gate, $\mathcal{M}$ of EMIT rate against author-label
+   membership, and of STOP rate against $1 -{}$membership. If a
+   bit's target is constant within the pack, the margin is
+   replaced by squared regression to that constant. Pack loss:
+
+   $$
+   \mathcal{L}_{\text{pack}} =
+   \operatorname{mean}(\boldsymbol{\ell}) +
+   \lambda \max(\boldsymbol{\ell}), \qquad
+   \boldsymbol{\ell} = (\ell_{b0}, \dots, \ell_{b3},
+   \ell_{E}, \ell_{S}),\ \lambda = 0.2
+   $$
+
+   averaged over packs, one Adam step per epoch, state reset per
+   pack. What the math does and does not do
+   ([#56](https://github.com/Capsize-Games/rsi-programmer/issues/56)): every rate is
+   in $[0,1]$, so the margin 1 equals the entire attainable gap
+   and $\mathrm{softplus}(1-\text{gap}) \ge \ln 2$ with equality
+   only at saturated 1-vs-0 rates, where the surrogate gradient
+   vanishes; the max is taken over six losses each already
+   averaged over all pairs in the pack, so it is not a per-word
+   worst-bit coupling; and the STOP term trains the gate column
+   the calibration step says stays zeroed.
+4. **Threshold sweep** (`lprecision.refine`). Split every group
+   80/20 with a seeded shuffle; on the pooled 20%, coordinate
+   descent (2 rounds) over bit thresholds
+   $\theta_j \in \{0.5, 0.4, 0.6, 0.7\}$ maximizing word-exact
+   rate, then struct margin $m \in \{0, -0.2, 0.2\}$ maximizing
+   gate F1 $= 2 \cdot \frac{TP}{TP+FP} \cdot \frac{TP}{TP+FN} /
+   (\text{precision} + \text{recall})$ (defined as 0 when
+   $TP = 0$). No gradients. However, step 3 already fitted on
+   100% of the groups, so this "held-out" slice is training data
+   ([#58](https://github.com/Capsize-Games/rsi-programmer/issues/58)), and the
+   joint decode rule actually used at inference (word correct
+   AND emit) is never the optimized objective.
+
+Decode (used both in reporting and in `lauthor`): bit
+$\hat b_j = \mathbf{1}[r_j \ge \theta_j]$,
+word $\hat w = \sum_j \hat b_j 2^j$, struct flag
+$\mathbf{1}[r_E \ge r_S + m]$.
+
+### 6.6 Non-gradient learners
+
+- **Rich centroid weights** (`rich.fit_rich`): per group,
+  $w_j \mathrel{+}= \bar x_j^{P} - \bar x_j^{N}$ over the four
+  rich features (`RICH_LR = 1`), averaged over groups. This is
+  the class-mean difference direction (an unnormalized Fisher-
+  style linear probe), with no variance scaling; it is consumed
+  as an additive bonus inside `rank()` only.
+- **Author weight refinement** (`author.refine_author`): a
+  $(1{+}1)$ evolution strategy on $\mathbf{w} \in \mathbb{R}^4$.
+  Each round proposes
+  $\mathbf{w}' = \mathbf{w} + \mathcal{N}(0, 0.1^2)$
+  (reseeded deterministically per round) and accepts iff the
+  lexicographic fitness
+  $(\text{solved}, -\text{tried})$ strictly improves, evaluated
+  by actually running author search on the given tasks. Callers
+  routinely pass the same tasks later used for reporting
+  ([#64](https://github.com/Capsize-Games/rsi-programmer/issues/64)).
+- **Weight perturbation** (`perturb` on all three networks):
+  $\theta \leftarrow \theta + \sigma \varepsilon$,
+  $\varepsilon \sim \mathcal{N}(0, I)$ with a seeded generator,
+  applied to all parameters (lattice: head prefixes only,
+  including struct - which is simultaneously classed as an
+  "encoder prefix" for freezing and a "head prefix" for
+  perturbation).
+
+### 6.7 Snapshots and restore (critical defect)
+
+All three networks serialize `{spec, weights, temporal, seed,
+steps}` (lattice adds thresholds/hidden) and restore by building
+a new module and loading weights. The optimizer is created once
+in `__init__` over the original module's parameters and **is
+never rebound on restore**, so any `fit` after `restore` steps a
+disconnected parameter set and changes nothing - verified
+experimentally for all three classes in this audit
+([#51](https://github.com/Capsize-Games/rsi-programmer/issues/51)). Every evolution
+operator named "gradient" below is, as implemented, the identity
+copy. Perturbation and evaluation after restore work normally
+because they address the live module.
+
+## 7. Inference algorithms
+
+All search paths share one skeleton: maintain retained levels
+$L_0, L_1, \dots$ as in Section 3 (with per-task const terminals
+joining $L_0$ when the task declares the `const` feature),
+generate every triple at the next size with
+`policy.layer_triples`, compute every signature, then let the
+path's network decide examination or commitment. They differ in
+exactly what the network controls:
+
+```mermaid
+flowchart TD
+    S["Per size s: enumerate all triples,<br/>compute all signatures"] --> Q{"Path"}
+    Q -->|guided| G["Network permutes order.<br/>Scan in that order;<br/>nothing is pruned."]
+    Q -->|author| A["Network score picks<br/>top-k commits per size.<br/>Rest of layer discarded."]
+    Q -->|beam| B["Network order; commit up to<br/>width fresh signatures,<br/>stash overflow; backtrack<br/>after the size sweep;<br/>repeat passes to fixpoint (<=3)."]
+    Q -->|lattice| L["No ranking (probe order).<br/>Commit iff decoded word<br/>names the candidate's op<br/>AND struct emits.<br/>Rejects dropped, overflow stashed."]
+    G & A & B & L --> C["Commit = ActionSpace.apply<br/>(typechecked append; output := new node)"]
+    C --> D{"committed signature<br/>== target?"}
+    D -->|yes| J["Return graph;<br/>oracle judges on train+held"]
+    D -->|no| S
+```
+
+### 7.1 Guided search (`search.guided_search`)
+
+Per size: generate triples, intern them (materializing one graph
+node per distinct $(\mathrm{op}, r_l, r_r)$ in the search
+context's graph), build the deduped next level, encode all
+triples, get a permutation $\pi$ from `policy.rank` (descending
+score, ties stable in generation order), then scan in order
+$\pi$ counting each examination until the first triple whose
+signature equals $\mathbf{t}$. An optional oracle hook may veto a
+train match (e.g. held-out failure), in which case scanning
+resumes - the only retry mechanism over held-out failures, and
+it still cannot recover deduped-away equivalents
+([#54](https://github.com/Capsize-Games/rsi-programmer/issues/54)).
+
+Mathematical character: for plain tasks within the bound,
+guided search is **complete** - it returns a train fit iff the
+deduped enumerator does - because ranking permutes within-layer
+examination order and prunes nothing. The network can only
+change the within-layer position of the first match, i.e. the
+reported `tried`. Given Section 3's counter asymmetry, that
+number is not comparable to the enumerator baseline it is
+typically ratioed against ([#53](https://github.com/Capsize-Games/rsi-programmer/issues/53)).
+The returned graph contains every interned candidate as (mostly
+dead) nodes plus one duplicated solving node appended by
+`ActionSpace.apply`; e.g. a size-1 solve returns a 13-node graph.
+The `budget` argument is never enforced as a search limit; it
+only feeds feature 10-11 denominators, and the failure verdict
+"budget-exhausted" means "no fit within size bound".
+
+### 7.2 Greedy author (`author.author_search`)
+
+Per size: score all triples with
+$s_{\text{author}}$ (Section 5), then actually **commit** the
+top-$k$ ($k = 3$ default) through `emit_edit`/`ActionSpace`,
+each append verified by the typechecker and logged. Committed
+expressions form the next level; everything else in the layer is
+discarded, so this path is **incomplete**: if no needed
+intermediate is in any size's top-$k$, the task fails even though
+a within-bound solution exists. Returns solved the moment a
+commit's signature equals the target. With `fallback=True`
+(default), failure falls back to a full `guided_search` and the
+result is relabelled `path="fallback"` - reports must (and
+largely do) separate the two. Duplicate signatures are not
+filtered before committing here (beam added that check; greedy
+did not). Its `tried` counts all generated triples per layer,
+including layers where the post-hoc budget check then commits
+nothing.
+
+### 7.3 Beam author (`author.beam_search`, `_beam_sweep`)
+
+Per size, in descending author score: skip non-fresh signatures
+(already committed anywhere), commit the first `width` fresh
+ones, stash the remaining fresh ones with their scores. After
+the size sweep, a backtrack phase drains stashes in FIFO (or
+score) order, committing until the budget (denominated in
+commits) is spent. Because backtrack commits at a low size
+arrive after higher sizes were already scanned, the whole
+scan+backtrack repeats for up to `MAX_PASSES = 3` passes,
+stopping when a backtrack adds no new signature. Termination is
+guaranteed by the pass cap and by signature freshness (each
+commit consumes a previously unseen train-signature, of which
+there are finitely many retained candidates). An optional
+`widen` reruns the sweep from scratch at a larger width with the
+remaining budget. Beam is incomplete in a softer sense than
+greedy: width bounds *immediate* commits per size, but the stash
+retains all fresh overflow, so with enough commit-budget it can
+commit most of a layer - width controls ordering priority, not
+total work. Signature computation cost is the full layer's in
+every case; `tried` counts commits only
+([#53](https://github.com/Capsize-Games/rsi-programmer/issues/53)).
+
+### 7.4 Lattice author (`lauthor.lattice_search`)
+
+Beam skeleton with the ranking removed: candidates are examined
+in probe (generation) order, state is reset per scan, and a
+candidate commits iff
+
+$$
+\underbrace{\sum_{j=0}^{3}
+\mathbf{1}[r_j \ge \theta_j]\, 2^j}_{\text{decoded word}}
+\;=\; \mathrm{OPCODE}(\mathrm{op}_{\text{candidate}})
+\quad\wedge\quad r_E \ge r_S + m
+$$
+
+i.e. the four bit heads must collectively *name* the candidate's
+own operator and the struct gate must emit. Named overflow goes
+to the FIFO stash; unnamed candidates are dropped permanently
+(never stashed), which is what makes misses capability verdicts
+rather than budget verdicts. There is no fallback on this path.
+`named_rate = named / max(examined, 1)` is reported, where both
+counters exclude duplicate-signature skips. A `shuffle` ablation
+mode replaces decoded words with seeded uniform words in
+$\{0..15\}$ while keeping the struct gate, measuring how much of
+the solve depends on naming versus sweep structure
+(`selectivity.py` builds its report from this, plus an "echo
+overlap": the fraction of lattice-named signatures that a beam
+top-`width` selection on the same layers would also have
+committed).
+
+What the network contributes here is a binary filter, not a
+ranking and not generation: the bit heads are trained to
+recognize the op that features 0-2 already state as a one-hot,
+so word agreement is largely a learned identity check on a
+given input, and the selective pressure comes from the struct
+gate's membership decision - the component measured to cap at
+low F1 ([#56](https://github.com/Capsize-Games/rsi-programmer/issues/56),
+[#58](https://github.com/Capsize-Games/rsi-programmer/issues/58)).
+
+### 7.5 Word codec (`words.py`)
+
+A 4-bit word alphabet (ISA v0):
+$0{=}\text{add}, 1{=}\text{sub}, 2{=}\text{mul}, 3{=}\text{lt},
+4{=}\text{eq}, 5{=}\text{select}, 6{=}\text{input},
+7{=}\text{const}, 8{=}\text{stop}$; words 9-15 are reserved.
+`pack`/`unpack` are LSB-first bit packing,
+$w = \sum_j b_j 2^j$. A program is a flat word stream: opcode
+word followed by ref-words (1 for input/const, 2 for binary ops,
+3 for select), terminated by stop. Refs index the live table
+$[x, y, \text{node}_0, \text{node}_1, \dots]$ as it grows; output
+is the last Int node built. The assembled graph must pass
+`validate_graph`.
+
+As implemented the boundary is softer than its docstring
+([#67](https://github.com/Capsize-Games/rsi-programmer/issues/67)): only
+opcode-position words are range-checked; ref-words are reduced
+modulo the live table size and const indices modulo 8 (negative
+values wrap in Python semantics); words after stop are never
+examined. `input` instructions consume a word and do nothing.
+`oracle_holds_words` decodes and checks train+held, returning
+False on any decode error.
+
+### 7.6 Stack bytecode and VM (`bytecode.py`)
+
+A validated DAG (add/sub/mul/const only, at most 255 nodes)
+lowers node-by-node: pushes of inputs (`PUSH_X/Y`), constants
+(`PUSH_IMM16`, little-endian signed), or earlier slot values
+(`FETCH slot`), then the op, then `STORE slot`; finally push the
+output and `HALT`. The VM keeps a value stack (limit 1024) and
+256 slots, all arithmetic masked to 16 bits, result read as
+signed two's complement via
+
+$$
+\mathrm{wrap16}(v) = (v \bmod 2^{16}) -
+2^{16}\,\mathbf{1}[(v \bmod 2^{16}) \ge 2^{15}]
+$$
+
+**Correctness (this part checks out).** Reduction mod $2^{16}$
+is a ring homomorphism for $+, -, \times$, inputs are masked on
+push and immediates are stored mod $2^{16}$, so by induction
+over the node order every slot holds
+$\llbracket \text{node} \rrbracket \bmod 2^{16}$ and
+
+$$
+\mathrm{VM}(G, x, y) =
+\mathrm{wrap16}\big(\llbracket G \rrbracket(x, y)\big)
+$$
+
+for every bytecode-supported graph. Hence `binary_holds`
+(equality with unbounded expected outputs) holds iff the true
+value lies in $[-2^{15}, 2^{15})$ on every row - the check
+simultaneously verifies value and range. Caveats are in the
+error handling, not the arithmetic: STORE underflow raises
+`IndexError` out of `binary_holds`, slots read before any STORE
+yield 0, and instructions after a mid-stream HALT are accepted
+by the disassembler but unreachable
+([#67](https://github.com/Capsize-Games/rsi-programmer/issues/67)).
+
+### 7.7 SpikeDecoder (`decoder.py`, standalone)
+
+A fixed winner-take-all decoder from named spike populations
+(struct, op, left/right pointers, cond, value - each a
+$T \times \text{population}$ train) to one `ActionSpace` edit.
+For each population, rates $\bar r$ are step means; the winner
+is $\arg\max$ subject to $\bar r_{\text{top}} \ge$ threshold
+(0.5 default for all three kinds) and a margin over the
+runner-up strictly greater than `tie_eps` $= 10^{-6}$;
+otherwise the decode rejects with a reason (`sub-threshold`,
+`tie`, `unknown-token`, `stop`, `type-mismatch`) instead of
+guessing. Struct must decode to `emit`, then op, then pointers,
+with static Int/Bool types checked against a caller-supplied
+kind table. It learns nothing. As wired today, no search path
+calls it: the searches consume `rank()`/head rates directly, so
+this is a tested boundary component, not a stage in synthesis.
+Pointer failures of every kind are reported as `tie`, whatever
+the actual reason.
+
+### 7.8 Sandbox judging (`sandbox.py`, `headless.py`)
+
+For headless acceptance, the solved graph is first minimized
+(post-order reachability prune from the output, remapping
+indices) - necessary because guided/beam graphs carry dead
+frontier nodes past the sandbox's 64-node cap. `SandboxRunner`
+prescreens the JSON-serialized graph+claim for denied substrings
+(`oracle`, `exec`, `open(`, ... - string matching on a payload
+the candidate never executes, so this is hygiene theater more
+than a boundary), node/byte caps, and `validate_graph`. It then
+spawns a disposable subprocess (scrubbed environment, isolated
+cwd, CPU rlimit 5s, wall timeout 5s) that re-runs the *same*
+`probe.interpret` on the submitted rows; the supervisor
+recomputes outputs itself, rejects on child/supervisor mismatch
+or on a candidate claim whose claimed outputs differ
+("forged-completion"), and hashes the canonical JSON graph as
+its lineage id. The independence here is process and
+environment isolation, not implementation diversity: both sides
+run identical interpreter code. The final solve bit still comes
+from `oracle_holds` against frozen expectations, evaluated
+supervisor-side.
+
+## 8. Outer loops: evolution, screening, promotion, self-edits
+
+### 8.1 Evolution (`evolve.PolicyLoop`, `scale.ScaleUp`, `pool`)
+
+Populations (`POP = 4` in evolve; scale runs 3 founders then
+elite+3 children) of policies, founded as {untrained, trace-fit,
+author-fit, perturbed variants}. Children alternate "gradient"
+(8 epochs of `fit` after restore - the identity, per
+Section 6.7) and "perturb"
+($\theta + 0.1\,\mathcal{N}(0, I)$). Selection keeps the
+lexicographic best as elite (same object, aliased) and spawns
+from the Pareto front under dominance
+$\mathbf{a} \succ \mathbf{b} \iff
+(\forall k: a_k \ge b_k) \wedge (\exists k: a_k > b_k)$.
+
+Fitness components as implemented:
+
+$$
+\text{correctness} = \frac{\#\text{ tasks solved and
+oracle-held}}{\#\text{ tasks}}, \qquad
+\text{efficiency} = \max\Big(0,\ 1 -
+\frac{\sum \text{tried}}{\text{baseline tried sum}}\Big)
+$$
+
+$$
+\text{recovery}_{\text{evolve}} =
+\begin{cases}
+\max\big(0,\ 1 - \frac{\text{tried}_{\text{noisy}} -
+\text{tried}}{\text{family baseline sum}}\big) & \text{noisy copy solves}\\
+0 & \text{otherwise}
+\end{cases}
+\qquad
+\text{recovery}_{\text{scale}} =
+\frac{\#\text{ noisy solves}}{\#\text{ tasks}}
+$$
+
+plus *refinability* (fraction of 2 probe tasks solved after
+EXTRA-weight refinement) in evolve's ordering key, and
+*hard_benefit* in scale: the fraction of selection sets (750
+hard negatives + 1 positive, positive last) where
+policy-score-plus-rich-bonus ranks the positive first. Ordering
+is lexicographic on the components (`_fitkey`, `fitkey4`), while
+Pareto dominance uses a subset - the two rankings can and do
+disagree, and both drive selection in different lines of the
+same function.
+
+Three integrity problems sit inside this machinery:
+`evaluate` returns all-zero fitness whenever any single task
+misses, erasing partial ordering among near-misses;
+recovery$_{\text{evolve}}$ divides a per-task difference by a
+family-sum budget and is therefore $\approx 1$ whenever it is
+nonzero ([#63](https://github.com/Capsize-Games/rsi-programmer/issues/63)); and
+screen-skipped children inherit their parent's fitness verbatim
+into selection, history, and the lineage archive
+([#62](https://github.com/Capsize-Games/rsi-programmer/issues/62)).
+
+### 8.2 Proxy screening (`proxy.ProxyScreen`)
+
+For each candidate seed, the proxy trains briefly on the first
+2 shadow tasks' groups (`PROXY_EPOCHS = 4`), averages over seed
+offsets, and scores mean per-task gain on the remaining shadow
+tasks, where
+
+$$
+\text{gain} = \begin{cases}
+\dfrac{\text{tried}_{\text{plain}} - \text{tried}_{\text{guided}}}
+{\text{tried}_{\text{plain}}} & \text{solved} \\[6pt]
+-1 & \text{otherwise}
+\end{cases}
+$$
+
+Full eval trains 50 epochs on all shadow groups and measures the
+same gain on novel tasks. Fidelity between proxy and full
+rankings over shared candidate ids is pairwise agreement with
+ties at half credit,
+$\mathrm{agree} = (C + T/2)/(C + D + T)$ over concordant,
+discordant, and tied pairs - a pairwise accuracy, not Kendall's
+$\tau$. The proxy may name a winner only when agreement
+$\ge 0.8$ on at least 3 pairs ("proven"); 3 pairs is 3
+candidates, so proof can rest on very little evidence. The gain
+formula inherits the `tried` asymmetry of Sections 3/7.1, and
+`screen` ignores the configured seed *values*
+([#68](https://github.com/Capsize-Games/rsi-programmer/issues/68)).
+
+### 8.3 Promotion gate (`promote.PromotionGate`)
+
+Given paired per-task scores $\mathbf{b}$ (base) and
+$\mathbf{c}$ (candidate), diffs $d_i = c_i - b_i$:
+
+$$
+\bar d = \frac{1}{n}\sum_i d_i, \qquad
+\text{lower} = Q_{0.05}\big\{\bar d^{*(1)}, \dots,
+\bar d^{*(2000)}\big\}
+$$
+
+where each $\bar d^{*}$ is the mean of $n$ diffs resampled with
+replacement (percentile bootstrap, sorted index
+$\lfloor 0.05 \cdot 2000 \rfloor$). Promote iff safety failures
+$= 0$, $\text{lower} > 0$, $\bar d \ge \text{min\_gain}$
+(0.05), and token/wall budgets hold. As filed in
+[#59](https://github.com/Capsize-Games/rsi-programmer/issues/59): there is no
+cluster structure despite the "seed-cluster" name; $n = 1$ makes
+lower $= d_1$; and the self-edit caller passes safety $= 0$ and
+tokens $= 0$ always. Failure clusters map to a curriculum list
+(count by `kind`, ranked by count), which `families.
+curriculum_params` converts by keyword rules into generated-
+family parameters - closing a failure-to-data loop whose task
+generation is itself filtered by the evaluated search
+([#54](https://github.com/Capsize-Games/rsi-programmer/issues/54)).
+
+### 8.4 Self-edits and the closed loop (`edits`, `proposer`,
+`self_gate`, `loop_trainer`, `scripts/rsi_loop.py`)
+
+```mermaid
+flowchart TD
+    CFG["Current trainer config<br/>(11 named fields)"] --> P{"Pool order"}
+    P -->|blind| B["all_edits, seeded shuffle"]
+    P -->|proposer| D["Diagnostics rules:<br/>suspect > prior-promoted ><br/>coupling > capacity > alphabet"]
+    B & D --> E["Next single-field edit<br/>(validate_edit checked)"]
+    E --> F["Fenced trial: train base and<br/>trial configs from scratch,<br/>score per held task"]
+    F --> G{"PromotionGate:<br/>lower>0 and mean gain>=0.05"}
+    G -->|promote| H["config := trial<br/>record to lineage"]
+    G -->|refuse/crash| I["config unchanged<br/>record to lineage"]
+    H & I --> J{"Stop? budget spent,<br/>wall spent, or 2<br/>consecutive non-promotions"}
+    J -->|no| P
+    J -->|yes| K["Report: cycles, promotions,<br/>autonomy/agency summaries"]
+```
+
+Edits are data: `{op: "set", field, value}` with values drawn
+from small enumerated sets (`edits.FIELDS`); the alphabet
+structurally cannot name gate/sandbox/lineage/validator/oracle
+fields. `SelfGate.propose` runs the trainer twice (base, trial)
+in separate workdirs, pairs the returned held scores, applies
+Section 8.3, and records every outcome (promote, refuse,
+rollback-on-crash, budget-exhausted, malformed) to lineage,
+decrementing a fixed trial budget.
+
+The default trainer (`loop_trainer.train_scores`) builds a
+`SearchPolicy` from the config's hidden/steps/lr, fits 5 epochs
+on shadow trace groups, runs the joint pass with the config's
+joint_lambda/joint_epochs, then scores guided search per task
+on shadow (train) and the v2 family (held) with cost-aware
+scores
+
+$$
+s = \begin{cases}
+0 & \text{miss}\\
+2 - \dfrac{\log_{10}(\text{tried} + 1)}{\log_{10}(10^9)}
+& \text{solved}
+\end{cases} \in (1, 2)
+$$
+
+so any solve beats any miss and faster solves score higher, on
+a log scale normalized by the (unenforced) budget $10^9$. Of
+the 11 editable fields only those five reach this computation;
+beta, margin, pop, sigma, generations, and evolve_budget_s
+are causally inert here - 13 of the 23 possible edits produce
+identical score vectors and are guaranteed refusals
+([#61](https://github.com/Capsize-Games/rsi-programmer/issues/61)). The
+proposer's field priorities (suspect fields, prior promotions,
+coupling fields on agreed-wrong diagnostics, capacity fields -
+including inert pop/generations - on low named-rate) are
+keyword rules over diagnostic dictionaries, with provenance
+attached per proposal.
+
+The loop's own summary metrics reuse `autonomy.py`:
+
+$$
+\text{autonomy} = \eta^2 =
+\frac{\sum_h |G_h|\,(\bar y_h - \bar y)^2}
+{\sum_i (y_i - \bar y)^2}, \qquad
+\text{agency}_g = \big(\text{mean pairwise }
+\lVert \mathbf{w}_a - \mathbf{w}_b \rVert_2,\
+\max \text{fit} - \min \text{fit},\ \text{direction}\big)
+$$
+
+plus integration divergence: mean absolute readout change when
+cross-partition stages (fan-in $> 1$ targets or delayed-edge
+sources) are zeroed, measured over $2T$ steps rather than the
+$T$ used in search. As wired in the loop (histories grouped by
+promote/refuse outcome with refuse gains imputed at 0;
+one record per generation) these quantities are degenerate -
+$\eta^2 \approx 1$ by construction, agency identically "stable"
+- wherever they have been reported
+([#60](https://github.com/Capsize-Games/rsi-programmer/issues/60)).
+
+### 8.5 Lineage (`lineage.LineageStore`)
+
+A sqlite store of missions and command intents
+(canonical-JSON payload plus SHA-256 digest), used as the
+Pareto archive for evolution and the audit trail for gates.
+Records are written with `INSERT OR REPLACE` under
+deterministic ids, so a second run against the same ledger
+overwrites the first run's trials/generations instead of
+appending, and one caller reads back "the" digest by
+lexicographic order rather than by the id it wrote
+([#69](https://github.com/Capsize-Games/rsi-programmer/issues/69)).
+
+## 9. What does hold (verified in this audit)
+
+- **Type safety of every emitted graph.** All construction goes
+  through `ActionSpace.apply` or `lower_to_dag` plus
+  `validate_graph`; references are backward-only, so graphs are
+  acyclic and operands correctly typed. (Output Int-ness is
+  enforced at `interpret`, not in `validate_graph` -
+  [#67](https://github.com/Capsize-Games/rsi-programmer/issues/67).)
+- **Acceptance independence.** Solved means exact equality on
+  train and held rows under the frozen expectations (Sections
+  2.3, 7.8); no network score, vote, or self-report can promote
+  a program.
+- **Guided completeness within the deduped space** (Section
+  7.1): the ranker cannot turn a solve into a miss on that path;
+  it can only change reported examination order.
+- **Bytecode arithmetic** exactly implements wrap16 of the
+  unbounded semantics for supported ops (Section 7.6).
+- **Determinism of data.** Fixture generation is seeded and
+  byte-stable, and split hashes are recorded; the *bias* in
+  which tasks survive generation is separate
+  ([#54](https://github.com/Capsize-Games/rsi-programmer/issues/54)).
+- **Fencing of self-edits.** The edit alphabet cannot name the
+  judge components, malformed edits are refused before budget
+  is spent, and trainer crashes roll back (`self_gate.py`).
+
+## 10. Defect index
+
+Filed 2026-10-17 from this audit; fixes are for later sessions.
+
+| Issue | Defect | Where the math shows it |
+|---|---|---|
+| [#51](https://github.com/Capsize-Games/rsi-programmer/issues/51) | restore() orphans optimizer; post-restore training is a no-op | §6.7 |
+| [#52](https://github.com/Capsize-Games/rsi-programmer/issues/52) | temporal-state leakage makes scores history-dependent | §4.2 |
+| [#53](https://github.com/Capsize-Games/rsi-programmer/issues/53) | `tried` is four units; enumerator counts full solving layer; guided budget unenforced | §3, §7.1-7.4 |
+| [#54](https://github.com/Capsize-Games/rsi-programmer/issues/54) | signature dedup incompleteness; task generation filtered by evaluated search | §3, §8.3 |
+| [#55](https://github.com/Capsize-Games/rsi-programmer/issues/55) | train/inference feature-encoding mismatch | §5 |
+| [#56](https://github.com/Capsize-Games/rsi-programmer/issues/56) | lattice margin ≥ dynamic range; joint term not per-word; STOP contradiction | §6.5 |
+| [#57](https://github.com/Capsize-Games/rsi-programmer/issues/57) | bias calibration invalidated by delayed feedback | §6.5 |
+| [#58](https://github.com/Capsize-Games/rsi-programmer/issues/58) | threshold sweep on fitted data, reported as held-out | §6.5 |
+| [#59](https://github.com/Capsize-Games/rsi-programmer/issues/59) | gate is not a cluster bootstrap; n=1 degeneracy; dead safety/token clauses | §8.3 |
+| [#60](https://github.com/Capsize-Games/rsi-programmer/issues/60) | autonomy/agency metrics degenerate as wired | §8.4 |
+| [#61](https://github.com/Capsize-Games/rsi-programmer/issues/61) | 13/23 self-edits causally inert in default trainer | §8.4 |
+| [#62](https://github.com/Capsize-Games/rsi-programmer/issues/62) | screen-skip fabricates child fitness from parent | §8.1 |
+| [#63](https://github.com/Capsize-Games/rsi-programmer/issues/63) | fitness zeroing erases partial credit; recovery mis-scaled | §8.1 |
+| [#64](https://github.com/Capsize-Games/rsi-programmer/issues/64) | author weights refined on evaluation tasks | §6.6 |
+| [#65](https://github.com/Capsize-Games/rsi-programmer/issues/65) | modular head losses vs reported head metrics mismatch | §6.4 |
+| [#66](https://github.com/Capsize-Games/rsi-programmer/issues/66) | canonical-solution labels mislabel valid alternatives | §6.1 |
+| [#67](https://github.com/Capsize-Games/rsi-programmer/issues/67) | decoder/VM boundary gaps; Bool output passes validate_graph | §7.5-7.6, §2.2 |
+| [#68](https://github.com/Capsize-Games/rsi-programmer/issues/68) | proxy screen ignores seed values | §8.2 |
+| [#69](https://github.com/Capsize-Games/rsi-programmer/issues/69) | lineage overwrites across runs | §8.5 |
+| [#70](https://github.com/Capsize-Games/rsi-programmer/issues/70) | exact_flag/gap answer channels confound authorship claims | §5 |
+| [#71](https://github.com/Capsize-Games/rsi-programmer/issues/71) | `tasks._size_of` double-counts child roots | §1 |
