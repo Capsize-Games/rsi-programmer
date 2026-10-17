@@ -2,16 +2,19 @@
 """Default loop trainer: ranker fit on shadow, transfer on novel.
 
 Builds a SearchPolicy from the ranker-surface config fields
-(hidden, steps, lr), fits briefly on frozen shadow traces, and
-scores per-task solve flags on shadow (train) and novel (held).
-Only ranker fields thread through today; author/evolve fields are
-recorded by the loop but inert here until those trainers plug in.
+(hidden, steps, lr), fits briefly on frozen shadow traces,
+runs the author joint pass with the threaded joint fields,
+and scores per-task solve flags on shadow (train) and novel
+(held). Evolve/population fields stay inert until those
+trainers plug in; margin and beta have no policy-surface
+counterpart and are recorded but inert here too.
 """
 from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
 
+from rsi_programmer.author import refine_operands
 from rsi_programmer.evolve import guided_search
 from rsi_programmer.policy import SearchPolicy
 from rsi_programmer.traces import TraceRecorder
@@ -39,12 +42,22 @@ def _solves(policy: SearchPolicy, fixture: str) -> list[float]:
 
 def train_scores(config: dict[str, Any], seed: int,
                  workdir: str) -> dict[str, list[float]]:
-    """Fit on shadow, score transfer on novel; deterministic."""
+    """Fit on shadow, score transfer on novel; deterministic.
+
+    The author joint pass threads the joint config fields so
+    joint_lambda/joint_epochs edits move the policy and the
+    gate can price them; the loop EPOCHS constant still caps
+    the ranker fit.
+    """
     _ = workdir
     policy = SearchPolicy(seed=seed,
                           hidden=int(config.get("hidden", 16)),
                           steps=int(config.get("steps", 6)),
                           lr=float(config.get("lr", 0.05)))
-    policy.fit(policy.trace_groups(SHADOW), EPOCHS)
+    groups = policy.trace_groups(SHADOW)
+    policy.fit(groups, EPOCHS)
+    refine_operands(policy, groups, SHADOW,
+                    lam=float(config.get("joint_lambda", 0.2)),
+                    epochs=int(config.get("joint_epochs", 5)))
     return {"train": _solves(policy, SHADOW),
             "held": _solves(policy, NOVEL)}
