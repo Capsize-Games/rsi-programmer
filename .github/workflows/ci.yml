@@ -20,8 +20,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - run: pip install -r requirements.txt
       - uses: extractions/setup-just@v2
+      - uses: astral-sh/setup-uv@v5
+      - run: UV_PYTHON=${{ matrix.python-version }} just setup
+          SPIKEFORGE_DIR=vendor/spikeforge/spikeforge
       - run: just test-fast
   full:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
