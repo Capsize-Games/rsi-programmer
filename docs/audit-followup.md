@@ -1,5 +1,34 @@
 # Audit follow-up
 
+## code-v50: why the gap ablation is inert in author/beam
+
+Code review explains the code-v48 gap result beyond the five zero
+fitted weights. `author._score_order` computes one gap and node count
+for a whole layer, then `author_scores` adds those same weighted
+values to every candidate score. These two extras supply a common
+offset, with no candidate-specific ordering information. Beam stashes
+are bucketed by size, and each pass recreates the buckets, so their
+backtracking does not compare offsets across layers or passes either.
+
+Gap itself need not stay at one: partial target matches in committed
+signatures can lower it. Its uniform use within a compared candidate
+set is what makes this additive author/beam ablation structurally
+inert. Thus the 84/84 unchanged gap outcomes are expected from the
+implemented score comparisons, including the one fit with a nonzero
+gap weight. They do not estimate the effect of a candidate-varying gap
+feature. The exact-flag and conditional neural comparisons remain as
+reported. The modular network's nonlinear gap input is a different use.
+
+Evidence at this source: `rsi_programmer/author.py` lines 27-43 define
+gap and additive scoring; lines 376-386 share the gap/node count;
+lines 505-515 compare one size bucket; lines 568-573 recreate and fill
+the stash each pass. The architecture now states this scope.
+
+This is a documentation correction backed by code review. Runtime,
+test and fixture inputs remain identical to code-v48. CI fast remains
+259 tests green on Python 3.12 and 3.13. Local slow scale acceptance
+and queued retry are still pending; no new completed lane is claimed.
+
 ## code-v49: CI fast matrix and provenance checkpoint
 
 Both code-v48 CI fast jobs passed on the same 102 validation inputs:

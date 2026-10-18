@@ -432,6 +432,14 @@ channel. Modular training uses lower-layer signatures; when gap
 metadata is absent, the drive defaults explicitly to 1.0. Lattice
 training and inference currently use the default constant 1.0.
 
+For the additive author/beam bonus, `_score_order` fixes `gap` and
+`nodes_per_bound` once per scored layer. They add the same offset to
+every candidate, supplying no candidate-specific ordering signal.
+Beam backtracking compares entries within a size bucket and recreates
+the stash on every pass, so it does not compare these offsets across
+layers or passes. `exact_flag` and `self_apply` can vary by candidate.
+This does not describe the modular network's nonlinear gap input.
+
 The scale-up ("rich") features are a fixed linear re-derivation
 from the 12: $\text{depth-frac} = x_5$,
 $\text{imbalance} = |x_3 - x_4|$,
