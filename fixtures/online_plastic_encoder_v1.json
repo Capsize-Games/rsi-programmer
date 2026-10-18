@@ -1,0 +1,244 @@
+{
+  "protocol": {
+    "acceptance_gates": {
+      "plastic_snn_vs_persistent_readout_only": {
+        "accepted_tasks_at_least_each": [
+          "persistent_snn",
+          "reset_plastic_snn"
+        ],
+        "each_phase_order": true,
+        "first_lane_margin": 0.1,
+        "positive_first_lane_margin_each_seed_and_order": true
+      },
+      "plastic_snn_vs_plastic_nonspiking": {
+        "accepted_tasks_at_least_control": true,
+        "each_phase_order": true,
+        "first_lane_margin": 0.1,
+        "total_cpu_at_most_control": true
+      },
+      "primary_budget": 144,
+      "streaming_deployment": {
+        "accepted_tasks_at_least_control": true,
+        "budgets": [
+          144,
+          432
+        ],
+        "each_phase_order": true,
+        "total_cpu_at_most_control": true
+      }
+    },
+    "arm_contract": {
+      "episode_reset_snn": "readout reset per task; both encoders fixed",
+      "frozen_snn": "readout and both encoders fixed",
+      "grammar_streaming": "fixed grammar order; no policy or model",
+      "online_nonspiking": "readout learns; both encoders fixed; continuous-leaky state",
+      "persistent_snn": "readout learns; both encoders fixed; state persists within order",
+      "plastic_nonspiking": "readout and both encoders learn; continuous-leaky",
+      "plastic_snn": "readout and both encoders learn; binary LIF",
+      "reset_plastic_snn": "readout and both encoders reset per task; binary LIF"
+    },
+    "arms": [
+      "persistent_snn",
+      "frozen_snn",
+      "episode_reset_snn",
+      "online_nonspiking",
+      "grammar_streaming",
+      "plastic_snn",
+      "reset_plastic_snn",
+      "plastic_nonspiking"
+    ],
+    "base_policy": {
+      "action_sampler_and_rng_unchanged": true,
+      "base_encoder_columns": 6,
+      "hidden_count": 16,
+      "membrane_beta": 0.8,
+      "observed_context": "online-observed-context-v1",
+      "observed_context_projection_initialization_unchanged": true,
+      "observed_context_rng_unchanged": true,
+      "original_fixed_encoder_initialization_unchanged": true,
+      "persistent_state_scope": "Readout and reward baseline persist within an order; membrane and pending credit clear at episode boundaries.",
+      "readout_lr": 0.05,
+      "readout_update_clip": 0.05,
+      "reward_and_readout_update_unchanged": true,
+      "reward_baseline_rate": 0.05,
+      "steps": 6,
+      "threshold": 1.0,
+      "weight_clip": 5.0
+    },
+    "budgets": [
+      144,
+      432
+    ],
+    "matrix": {
+      "arms": 8,
+      "budgets": 2,
+      "episode_rows": 13824,
+      "fresh_model_scope": [
+        "phase_order",
+        "model_seed",
+        "arm",
+        "budget"
+      ],
+      "orders": 6,
+      "seeds": 3,
+      "task_stream_repeated_across_orders": true,
+      "tasks_per_order": 48
+    },
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "plastic_encoder": {
+      "binary_lif": {
+        "actual_membrane": "u_t*(1-spike_t)",
+        "eligibility_recurrence": {
+          "dM_t": "(1-spike_t)*dU_t - u_t*psi(u_t)*dU_t",
+          "dRate_dWeight": "sum_t(psi(u_t)*dU_t)/6",
+          "dU_t": "0.8*dM_(t-1) + input_derivative",
+          "initial_dmembrane": 0.0,
+          "input_derivative": "x_j for base encoder E[h,j]; h_j/18 for context projection C[j,h]"
+        },
+        "spike_t": "1[u_t >= 1]",
+        "surrogate_derivative": "psi(u)=0.3*max(0,1-abs(u-1))",
+        "u_t": "0.8*m_(t-1) + input_t"
+      },
+      "continuous_leaky": {
+        "actual_membrane": "u_t",
+        "actual_rate": "tanh(u_t)",
+        "eligibility_recurrence": {
+          "dM_t": "dU_t",
+          "dRate_dWeight": "sum_t((1-tanh(u_t)^2)*dU_t)/6",
+          "dU_t": "0.8*dM_(t-1) + input_derivative",
+          "initial_dmembrane": 0.0,
+          "input_derivative": "x_j for base encoder E[h,j]; h_j/18 for context projection C[j,h]"
+        },
+        "surrogate_derivative": "1-tanh(u)^2",
+        "u_t": "0.8*m_(t-1) + input_t"
+      },
+      "credit": "six-step current-decision surrogate eligibility; no delayed reward or cross-action credit",
+      "decision_credit": {
+        "context_projection_refresh": "Recompute the 18x16 context projection current from updated C at each subsequent choose; account 288 multiply-accumulate operations per decision.",
+        "current_readout_gradient": "Compute g_h with pre-observation readout W_pre before the inherited readout update; use the same g_h for both E and C updates.",
+        "encoder_delta": "clip_to_0.05(0.01*advantage*g_h*dRate/dWeight)",
+        "feedback": "only after executing the selected graph on the six observed rows",
+        "history_gradient": "six steps within current choice; truncate at each choose",
+        "readout_gradient": "g_h=sum_a W_pre[a,h]*(1[a==sampled_action]-p[a])"
+      },
+      "disabled_controls": "encoder_learning=false; inherited choice, feedback, and reset behavior remain unchanged",
+      "enabled_arms": [
+        "plastic_snn",
+        "reset_plastic_snn",
+        "plastic_nonspiking"
+      ],
+      "encoder_learning": true,
+      "encoder_lr": 0.01,
+      "encoder_update_clip": 0.05,
+      "initialization": {
+        "action_rng_initialization_and_draw_order": "Inherited seed and draw order; unchanged",
+        "base_encoder_E": "Seeded inherited 16x6 ternary projection from OnlineSpikingPolicy; bytes initially match fixed control and receive updates only when encoder_learning=true",
+        "extra_random_draws": 0,
+        "observed_context_projection_C": "Seeded inherited 18x16 ternary projection from ObservedContextPolicy using its isolated context RNG; bytes initially match fixed control and receive updates only when encoder_learning=true",
+        "readout_initialization": "Inherited zero readout and baseline; unchanged"
+      },
+      "reset_plastic_scope": "restore seeded readout and both seeded encoder projections before each task without rewinding action RNG",
+      "spike_surrogate": "psi(u)=0.3*max(0,1-abs(u-1))",
+      "surrogate_slope": 0.3,
+      "weight_clip": 5.0
+    },
+    "policy_input_contract": {
+      "available_to_policy": [
+        "current task six observed integer (x,y,target) triples",
+        "six existing action/history/progress features",
+        "available root-lane mask",
+        "post-execution reward for selected candidate"
+      ],
+      "feedback_order": "Execute the selected graph on observed rows, then provide the existing reward; external held checker runs outside policy.",
+      "never_available_to_policy": [
+        "task ID",
+        "phase ID/order/position",
+        "root label",
+        "held rows or outputs",
+        "symbolic polynomial or answer key"
+      ],
+      "opaque_episode_id": "Boundary validation only; never encoded or used in action/update."
+    },
+    "protocol_name": "online-plastic-encoder-counterbalanced-v1",
+    "reporting": {
+      "memory": "Report whole-process peak RSS and serialized state size only; no per-arm peak claim",
+      "no_tuning_after_freeze": true,
+      "report_per_seed_order_pooled": true,
+      "report_phase_and_root_family_separately": true,
+      "report_search_only_and_probe_charged_cpu": true,
+      "retain_failed_episodes": true,
+      "scope_limit": "One fixed 48-task synthetic stream repeated across orders and seeds; not evidence of generalization to new functions, real sensing, chip behavior, or energy use"
+    },
+    "retention_diagnostic": {
+      "boundaries_completed_tasks": [
+        0,
+        16,
+        32,
+        48
+      ],
+      "boundary_fields": [
+        "source_state_sha256_before",
+        "source_state_sha256_after",
+        "evaluation_copy_state_sha256",
+        "cpu_seconds",
+        "work_counters",
+        "distinct_rate_codes"
+      ],
+      "charge_to_total_cpu": true,
+      "context_order": "canonical frozen corpus order, independent of presented task order",
+      "contexts_per_boundary": 48,
+      "no_policy_rng_draws": true,
+      "per_context_fields": [
+        "task_id",
+        "context_sha256",
+        "rates",
+        "probabilities",
+        "root_probability",
+        "argmax"
+      ],
+      "policy_input_excludes": [
+        "task_id",
+        "phase",
+        "root_label",
+        "held_rows",
+        "polynomial",
+        "schedule_position"
+      ],
+      "policy_rng_draws_allowed": false,
+      "probability_calculation": "evaluation_copy, fresh zero membrane, encoder forward pass, current readout logits and masked softmax over add/sub/mul; no choose/sample/observe calls",
+      "probe_features": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "probe_method": "evaluation_copy at a policy boundary; set one task's six observed triples, run cold initial features, read probabilities without sampling or observing reward",
+      "purpose": "Measure cold root-lane preference retention, not held-solution or complete-program retention",
+      "raw_artifact": "retention.jsonl.gz; one row per order, budget, seed, neural arm, boundary, with 48 ordered context probes",
+      "root_label_use": "post-probe metadata only for root-label probability and correctness summaries",
+      "source_hash_must_match_before_after": true,
+      "source_state_mutation_allowed": false
+    },
+    "source_corpus": {
+      "path": "fixtures/online_graph_v1.json",
+      "sha256": "a4f9af2dfc0d8c4539d700b032dcc223c82aa272f02497902024d9f371096140",
+      "tasks": 48
+    },
+    "source_schedule": {
+      "common_random_draw_pairing": false,
+      "orders": 6,
+      "pairing_unit": "task content identified by frozen task_id",
+      "path": "fixtures/online_counterbalanced_v1.json",
+      "rng_offsets_recorded_per_episode": true,
+      "sha256": "0ffbd7eadac93aa63b8df68d9ba250cd4da5a55a178e8339f9505d81638af3f1",
+      "within_phase_order_preserved": true
+    },
+    "status": "frozen-before-measurement"
+  }
+}
