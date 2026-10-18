@@ -1,0 +1,50 @@
+{
+  "workflow_run_id": 39145562287,
+  "workflow_run_json": "run.json",
+  "source_head": "4ea5491c0a53f960efa5e6c0889c84d3e8b6f423",
+  "run_status_at_capture": "in_progress",
+  "retrieval_commands": [
+    "gh api repos/Capsize-Games/rsi-programmer/actions/runs/39145562287",
+    "gh api repos/Capsize-Games/rsi-programmer/actions/jobs/117728565002",
+    "gh api repos/Capsize-Games/rsi-programmer/actions/jobs/117728565002/logs",
+    "gh api repos/Capsize-Games/rsi-programmer/actions/jobs/117728565064",
+    "gh api repos/Capsize-Games/rsi-programmer/actions/jobs/117728565064/logs"
+  ],
+  "jobs": [
+    {
+      "job_id": 117728565002,
+      "name": "fast (3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "step_command": "just test-fast",
+      "test_command": "just test-fast; recipe invoked .venv/bin/python -m unittest <fast-module-list> -v",
+      "tests": 352,
+      "result": "OK",
+      "test_elapsed_seconds": 455.57,
+      "job_json": "job-117728565002/job.json",
+      "job_json_sha256": "b739a924f82209064d81800851367553384a581f8496ce8206125473ca57488f",
+      "full_log": "job-117728565002/full-log.txt.gz",
+      "full_log_sha256": "f659db9895a00067560f3e5b519a460c34fb85685c4ff80e3e0cb5e9f0ae8309",
+      "full_log_decompressed_sha256": "a0f9da17d83bae985cdc55610121b44bb80b8a4eb0a57ad182f88abb6d4f71e9"
+    },
+    {
+      "job_id": 117728565064,
+      "name": "fast (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "step_command": "just test-fast",
+      "test_command": "just test-fast; recipe invoked .venv/bin/python -m unittest <fast-module-list> -v",
+      "tests": 352,
+      "result": "OK",
+      "test_elapsed_seconds": 450.121,
+      "job_json": "job-117728565064/job.json",
+      "job_json_sha256": "0404e6b2bdc3d818f804e984959b80342ff236507cdc513808f32b05bf8e6796",
+      "full_log": "job-117728565064/full-log.txt.gz",
+      "full_log_sha256": "1e857b170771ed4df93dbd5642a6335df5c272eb3a65a41de08dd2b34bb0de89",
+      "full_log_decompressed_sha256": "95f0433b29424e13dd759ee7b6f31e0591929a162603d755fdd2805e0d0d68a4"
+    }
+  ],
+  "run_json_sha256": "febab88f2105748ad81c062064eb6bba25d04ca5651cf9bafd54f6a61f1ad73e",
+  "failures": [],
+  "log_storage": "Deterministic gzip, mtime=0; decompressed bytes exactly match original API logs. Both stored and decompressed SHA256 values retained."
+}
