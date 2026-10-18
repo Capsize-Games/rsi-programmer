@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import tempfile
+import json
 import unittest
 from pathlib import Path
 from typing import Any
@@ -11,6 +12,20 @@ from rsi_programmer import benchmark_total_work as benchmark
 
 
 class TotalWorkContractTests(unittest.TestCase):
+    def test_published_inputs_pass_every_guard_before_group_generation(
+            self) -> None:
+        path = benchmark.ROOT / "fixtures/benchmark_total_work_v1.json"
+        protocol = json.loads(path.read_bytes())
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "preflight"
+            with patch.object(benchmark, "build_training_groups",
+                              side_effect=RuntimeError("preflight passed")):
+                with self.assertRaisesRegex(RuntimeError,
+                                            "preflight passed"):
+                    benchmark.run_total_work(output, protocol)
+            self.assertTrue((output / "raw.jsonl").exists())
+            self.assertEqual((output / "raw.jsonl").read_bytes(), b"")
+
     def test_attempt_timers_include_initial_and_final_hashes(self) -> None:
         events: list[str] = []
         tick = 0

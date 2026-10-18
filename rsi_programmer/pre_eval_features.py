@@ -37,7 +37,6 @@ class FeatureStatistics:
         result = hit, inside
         self._stats[key] = result
         return result
-
     def gap(self, previous: list[tuple[int, Vals]]) -> float:
         """Return the existing best-hit gap, reusing operand hit counts."""
         best = max((self.operand(key, signature)[0]
