@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import sqlite3
 import tempfile
 import unittest
@@ -17,12 +18,88 @@ from rsi_programmer.evolve import PolicyLoop
 from rsi_programmer.lineage import LineageError, LineageStore
 from rsi_programmer.policy import SearchPolicy
 from rsi_programmer.proxy import ProxyScreen
+from rsi_programmer.scale import ScaleUp
 from rsi_programmer.tasks import _size_of
 from rsi_programmer.probe import Expr
 from rsi_programmer.words import decode, oracle_holds_words
 
 
 class IntegrityReviewTests(unittest.TestCase):
+    def test_scale_repeated_evolve_uses_new_logical_run_ids(
+            self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            loop = ScaleUp("fixtures/rsi_shadow_tasks.json",
+                           "fixtures/rsi_hard_tasks.json",
+                           str(Path(tmp) / "scale.sqlite"))
+            loop._sel = []
+            loop._rich = [0.0] * 4
+            loop._sh_tasks = []
+            loop._w1cost = 1
+
+            def no_fit(policy: SearchPolicy, groups: list[Any],
+                       epochs: int = 0) -> int:
+                del policy, groups, epochs
+                return 0
+
+            def fixed_fitness(policy: SearchPolicy, jobs: list[Any],
+                              selection: list[Any], rich: list[float],
+                              cost: int, seed: int) -> dict[str, float]:
+                del policy, jobs, selection, rich, cost, seed
+                return {"correctness": 1.0, "efficiency": 1.0,
+                        "hard_benefit": 1.0, "recovery": 1.0}
+
+            try:
+                with patch.object(SearchPolicy, "fit", no_fit), \
+                        patch("rsi_programmer.scale.fitness_of",
+                              fixed_fitness), \
+                        patch("rsi_programmer.scale.GENERATIONS", 0):
+                    loop.evolve([])
+                    loop.evolve([])
+                rows = loop._ledger.commands_in("rsi-scale", "prepared")
+                entries = [json.loads(row["intent"])
+                           for row in rows]
+                run_ids = {entry["run_id"] for entry in entries}
+                command_ids = {row["command_id"] for row in rows}
+                self.assertEqual(len(entries), 6)
+                self.assertEqual(len(run_ids), 2)
+                self.assertEqual(len(command_ids), 6)
+            finally:
+                loop.close()
+
+    def test_policy_repeated_run_uses_new_logical_run_ids(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            loop = PolicyLoop("fixtures/rsi_shadow_tasks.json",
+                              str(Path(tmp) / "policy.sqlite"))
+
+            def founders(groups: list[Any]) -> list[dict[str, Any]]:
+                del groups
+                return [{"id": "p0", "policy": SearchPolicy(seed=0),
+                         "parent": "", "operator": "null"}]
+
+            def evaluated(policy: SearchPolicy) -> dict[str, Any]:
+                del policy
+                return {"gates_pass": True, "gate": "",
+                        "correctness": 1.0, "efficiency": 1.0,
+                        "recovery": 1.0, "refinability": 0.0}
+
+            loop._founders = founders
+            loop.evaluate = evaluated
+            try:
+                with patch.object(SearchPolicy, "trace_groups",
+                                  return_value=[]):
+                    loop.run(0)
+                    loop.run(0)
+                rows = loop._ledger.commands_in("rsi-w2", "prepared")
+                entries = [json.loads(row["intent"])
+                           for row in rows]
+                self.assertEqual(len(entries), 2)
+                self.assertEqual(len({entry["run_id"] for entry
+                                      in entries}), 2)
+                self.assertEqual(len({row["command_id"] for row in rows}),
+                                 2)
+            finally:
+                loop.close()
+
     def test_lineage_appends_run_scoped_records_and_checks_digest(
             self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -87,6 +164,7 @@ class IntegrityReviewTests(unittest.TestCase):
         loop._stop_after = 1
         loop._archive = []
         loop._ledger = Ledger()
+        loop._run_id = "synthetic-run"
 
         def evaluate(policy: Policy) -> dict[str, Any]:
             del policy

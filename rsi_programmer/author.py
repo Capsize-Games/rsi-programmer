@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """SNN edits: greedy author (#37), beam (#38), operands (#39)."""
 from __future__ import annotations
+import math
 import random
 import statistics
 from typing import Any
@@ -349,6 +350,35 @@ def _backtrack(ctx: dict[str, Any], task_id: str, bound: int,
                budget: int, stash: Stash, target: Vals,
                order: str = "fifo") -> bool:
     for size in range(1, bound + 1):
+        bucket = stash[size]
+        if not bucket or ctx["tried"] >= budget:
+            continue
+        if order == "score" and not any(
+                math.isnan(score) for score, _, _ in bucket):
+            # Stable reverse sorting matches repeated max(): ties retain
+            # their earliest original entry. Defer compaction so an early
+            # solve/budget stop leaves the unconsumed stash in original order.
+            ranked = sorted(range(len(bucket)),
+                            key=lambda i: bucket[i][0], reverse=True)
+            consumed: set[int] = set()
+            try:
+                for idx in ranked:
+                    if ctx["tried"] >= budget:
+                        break
+                    consumed.add(idx)
+                    _, triple, sig = bucket[idx]
+                    ctx["examined"] += 1
+                    if not _fresh(sig, ctx):
+                        continue
+                    ctx["tried"] += 1
+                    if _commit(ctx, triple, sig, task_id, size,
+                               target):
+                        return True
+            finally:
+                if consumed:
+                    bucket[:] = [entry for i, entry in enumerate(bucket)
+                                 if i not in consumed]
+            continue
         while stash[size] and ctx["tried"] < budget:
             if order == "score":
                 idx = max(range(len(stash[size])),

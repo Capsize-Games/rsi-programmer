@@ -1082,7 +1082,11 @@ A sqlite store of missions and command intents
 (canonical-JSON payload plus SHA-256 digest), used as the
 Pareto archive for evolution and the audit trail for gates.
 Intent writes are insert-only and return the exact inserted
-record. Run-scoped command ids preserve history across runs
+record. The store prefixes commands with its session UUID.
+`PolicyLoop.run` and `ScaleUp.evolve` also create a fresh logical
+run UUID for each invocation, so repeated runs on the same
+instance preserve earlier records. Duplicate commands within
+one logical run still reject
 ([#69](https://github.com/Capsize-Games/rsi-programmer/issues/69)).
 
 ## 9. Current contracts

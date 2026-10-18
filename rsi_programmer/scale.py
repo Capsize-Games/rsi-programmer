@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import time
+import uuid
 from typing import Any
 
 from rsi_programmer.author import EXTRA, beam_search, refine_author
@@ -64,6 +65,7 @@ class ScaleUp:
         self._ha_tasks = self._ha_rec.load_family()["tasks"]
         self._ledger = mission_ledger(ledger, MISSION)
         self._rich = [0.0, 0.0, 0.0, 0.0]
+        self._run_id = uuid.uuid4().hex
         self._best: SearchPolicy = SearchPolicy(seed=seed)
         self._archive: list[dict[str, Any]] = []
         self._exprs: dict[str, Any] = {}
@@ -157,7 +159,7 @@ class ScaleUp:
                              self._seed)
             item["fitness"] = fit
             persist_entry(self._ledger, MISSION, item, gen, fit,
-                          self._rich, self._archive)
+                          self._rich, self._archive, self._run_id)
 
     def _advance(self, pop: list[Any], gen: int,
                  groups: list[Group]) -> list[Any]:
@@ -171,6 +173,7 @@ class ScaleUp:
 
     def evolve(self, groups: list[Group]) -> dict[str, Any]:
         """Elitist generations inside the evolve time budget."""
+        self._run_id = uuid.uuid4().hex
         start = time.perf_counter()
         trained = SearchPolicy(seed=self._seed + 1)
         trained.fit(groups, EPOCHS)

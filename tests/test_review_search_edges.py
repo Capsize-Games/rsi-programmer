@@ -1,20 +1,142 @@
 """Small edge regressions for search work accounting contracts."""
 from __future__ import annotations
 
+import math
 import unittest
 from unittest.mock import patch
 from typing import Any
 
 from rsi_programmer import traces
-from rsi_programmer.author import (_author_step, _new_ctx, _score_order,
-                                   beam_search)
+from rsi_programmer import author
+from rsi_programmer.author import (_author_step, _backtrack, _new_ctx,
+                                   _score_order, beam_search)
 from rsi_programmer.policy import OP_ORDER, layer_triples
 from rsi_programmer.probe import Expr, signature, terminals
 from rsi_programmer.policy import SearchPolicy
 from rsi_programmer.search import guided_search
 
 
+def _legacy_backtrack(ctx: dict[str, Any], task_id: str, bound: int,
+                      budget: int, stash: dict[int, list[Any]],
+                      target: Any, order: str) -> bool:
+    """Pre-optimization max/pop reference, kept for differential tests."""
+    for size in range(1, bound + 1):
+        while stash[size] and ctx["tried"] < budget:
+            if order == "score":
+                idx = max(range(len(stash[size])),
+                          key=lambda i: stash[size][i][0])
+                _, triple, sig = stash[size].pop(idx)
+            else:
+                triple, sig = stash[size].pop(0)[1:]
+            ctx["examined"] += 1
+            if sig in ctx["sigs"]:
+                continue
+            ctx["tried"] += 1
+            ctx["events"].append(sig)
+            ctx["sigs"].append(sig)
+            if sig == ctx.get("raise_on"):
+                raise RuntimeError("commit test")
+            if sig == ctx.get("solve_on"):
+                return True
+    return False
+
+
+def _score_text(value: float) -> str:
+    if math.isnan(value):
+        return "nan"
+    return repr(value)
+
+
+def _stash_state(stash: dict[int, list[Any]]) -> dict[int, list[Any]]:
+    return {size: [(_score_text(score), triple, sig)
+                   for score, triple, sig in entries]
+            for size, entries in stash.items()}
+
+
 class SearchEdgeTests(unittest.TestCase):
+    def test_score_backtrack_matches_legacy_order_and_mutation(self) -> None:
+        cases = [
+            {"scores": [2.0, 5.0, 5.0, -math.inf,
+                        math.inf, 5.0, 2.0]},
+            {"scores": [math.inf, -math.inf, math.inf, -math.inf]},
+            {"scores": [0.0, -0.0, 0.0]},
+            {"scores": [1.0, 4.0, 3.0, 2.0, 5.0],
+             "stale": {1, 3}},
+            {"scores": [1.0, 4.0, 3.0, 2.0, 5.0],
+             "budget": 2},
+            {"scores": [1.0, 4.0, 3.0, 2.0, 5.0],
+             "stale": {4}, "budget": 2},
+            {"scores": [1.0, 4.0, 3.0, 2.0, 5.0],
+             "solve": 4},
+            {"scores": [1.0, 4.0, 3.0, 2.0, 5.0],
+             "raise": 4},
+            {"scores": [math.nan, 3.0, 2.0]},
+            {"scores": [2.0, math.nan, 3.0]},
+            {"scores": [2.0, 3.0, math.nan]},
+        ]
+
+        def run(optimized: bool, case: dict[str, Any]
+                ) -> tuple[Any, dict[str, Any], dict[int, list[Any]]]:
+            bucket = [(score, ("add", i, "x"), (i,))
+                      for i, score in enumerate(case["scores"])]
+            stash = {1: bucket, 2: []}
+            ctx: dict[str, Any] = {
+                "tried": 0, "examined": 0,
+                "sigs": [(i,) for i in case.get("stale", set())],
+                "events": [], "solve_on": (
+                    (case["solve"],) if "solve" in case else None),
+                "raise_on": (
+                    (case["raise"],) if "raise" in case else None)}
+
+            def commit(state: dict[str, Any], triple: Any, sig: Any,
+                       task_id: str, size: int, target: Any) -> bool:
+                state["events"].append(sig)
+                state["sigs"].append(sig)
+                if sig == state["raise_on"]:
+                    raise RuntimeError("commit test")
+                return sig == state["solve_on"]
+
+            try:
+                if optimized:
+                    with patch.object(author, "_fresh",
+                                      side_effect=lambda sig, state:
+                                      sig not in state["sigs"]), \
+                         patch.object(author, "_commit", side_effect=commit):
+                        result = _backtrack(
+                            ctx, "unit", 2,
+                            case.get("budget", 100), stash, (), "score")
+                else:
+                    result = _legacy_backtrack(
+                        ctx, "unit", 2, case.get("budget", 100),
+                        stash, (), "score")
+                outcome: Any = ("returned", result)
+            except RuntimeError as exc:
+                outcome = ("raised", type(exc).__name__, str(exc))
+            return outcome, ctx, stash
+
+        for case in cases:
+            with self.subTest(scores=case["scores"], case=case):
+                actual = run(True, case)
+                expected = run(False, case)
+                self.assertEqual(actual[0], expected[0])
+                self.assertEqual(actual[1], expected[1])
+                self.assertEqual(_stash_state(actual[2]),
+                                 _stash_state(expected[2]))
+
+    def test_score_backtrack_zero_budget_skips_ordering(self) -> None:
+        stash = {1: [(float(i), ("add", i, "x"), (i,))
+                     for i in range(3)]}
+        before = _stash_state(stash)
+        ctx = {"tried": 0, "examined": 0, "sigs": []}
+        with patch.object(author.math, "isnan",
+                          side_effect=AssertionError("unexpected sort")):
+            self.assertFalse(_backtrack(ctx, "unit", 1, 0, stash,
+                                        (), "score"))
+            self.assertFalse(_backtrack(
+                ctx, "unit", 1, 10, {1: []}, (), "score"))
+        self.assertEqual(_stash_state(stash), before)
+        self.assertEqual(ctx["examined"], 0)
+
     def test_ranker_restore_has_explicit_donor_optimizer_opt_in(self) -> None:
         donor = SearchPolicy(seed=2, lr=0.07)
         donor._opt.param_groups[0]["weight_decay"] = 0.1

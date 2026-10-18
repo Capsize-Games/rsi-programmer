@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 import json
+import uuid
 from typing import Any
 from rsi_programmer.lineage import mission_ledger
 from rsi_programmer.policy import Rows, SearchPolicy, Task, Vals
@@ -62,6 +63,7 @@ class PolicyLoop:
         self._seed = seed
         self._ledger = mission_ledger(ledger, "rsi-w2")
         self._archive: list[dict[str, Any]] = []
+        self._run_id = uuid.uuid4().hex
     def _rows(self, task: Task, part: str) -> tuple[Rows, Vals, int]:
         rows = tuple((c[0], c[1]) for c in task[part])
         target = tuple(c[2] for c in task[part])
@@ -199,8 +201,9 @@ class PolicyLoop:
                  "inherited_fitness": item.get("inherited_fitness"),
                  "screen_skipped": bool(item.get("screen_skipped",
                                                 False)),
-                 "weights": snap["weights"], "spec": snap["spec"]}
-        cmd = "rsi-w2-g%d-%s" % (gen, item["id"])
+                 "weights": snap["weights"], "spec": snap["spec"],
+                 "run_id": self._run_id}
+        cmd = "rsi-w2-%s-g%d-%s" % (self._run_id, gen, item["id"])
         self._ledger.record_intent(cmd, "rsi-w2", 0, gen + 1,
                                    entry)
         self._archive.append(entry)
@@ -251,6 +254,7 @@ class PolicyLoop:
 
     def run(self, generations: int = 2) -> dict[str, Any]:
         """Elitist loop; every entry persists to the ledger."""
+        self._run_id = uuid.uuid4().hex
         groups = SearchPolicy(self._seed).trace_groups(
             self._fixture)
         pop = self._founders(groups)

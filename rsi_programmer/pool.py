@@ -39,14 +39,17 @@ def founders(seed: int, trained: SearchPolicy) -> list[Any]:
 def persist_entry(ledger: Any, mission: str, item: dict[str, Any],
                   gen: int, fitness: dict[str, float],
                   rich: list[float],
-                  archive: list[dict[str, Any]]) -> None:
+                  archive: list[dict[str, Any]],
+                  run_id: str) -> None:
     """Persist one lineage entry through the LineageStore."""
     snap = item["policy"].snapshot()
     entry = {"policy_id": item["id"], "parent_id": item["parent"],
              "generation": gen, "operator": item["operator"],
              "fitness": fitness, "rich": list(rich),
-             "weights": snap["weights"], "spec": snap["spec"]}
-    ledger.record_intent("rsi-scale-g%d-%s" % (gen, item["id"]),
+             "weights": snap["weights"], "spec": snap["spec"],
+             "run_id": run_id}
+    command = "rsi-scale-%s-g%d-%s" % (run_id, gen, item["id"])
+    ledger.record_intent(command,
                          mission, 0, gen + 1, entry)
     archive.append(entry)
 
