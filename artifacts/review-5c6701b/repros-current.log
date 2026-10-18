@@ -1,0 +1,41 @@
+51 {"bound": true, "lr": 0.06, "moved": 4, "network": "SearchPolicy"}
+51 {"bound": true, "lr": 0.06, "moved": 12, "network": "ModularPolicy"}
+51 {"bound": true, "lr": 0.06, "moved": 10, "network": "BitLattice"}
+52 {"history_equal": true, "network": "SearchPolicy", "repeat_equal": true}
+52 {"history_equal": false, "network": "ModularPolicy", "repeat_equal": false}
+52 {"history_equal": true, "network": "BitLattice", "repeat_equal": true}
+52 {"within_drive_feedback_changes_outputs": false}
+53 {"budget": 1, "enumerator_tried": 12, "guided_tried": 4, "nodes": 13, "solved": true}
+54 {"enum_held": 2, "guided_with_oracle_recovers": true, "lower_layer_collision_solved": false, "required": "x+2*y within bound 2"}
+55 {"author_counter": "constant in _score_order; increments in _label_layer", "bonus_roundtrip_equal": false, "infer_frac_last": [1.2e-08, 0.999999988], "train_frac_last": [1.0, 0.0], "training_gap": [1.0]}
+56 {"atan_derivative_at_10": 0.0010121862773065456, "max_over_terms": "six scalar aggregate losses, including two struct heads", "perfect_margin_loss": 0.6931471824645996, "rate_gradient": [-0.5, 0.5]}
+56 {"stop_weight_grad_norm": 0.038196198642253876}
+57 {"final": {"b0": 0.4833333194255829, "b1": 0.472222238779068, "b2": 0.5083333253860474, "b3": 0.569444477558136, "st": 0.4833333194255829}, "max_drift": 0.030555546283721924, "reported": {"b0": 0.4750000238418579, "b1": 0.4888888895511627, "b2": 0.49444442987442017, "b3": 0.5388889312744141, "st": 0.4833333194255829}, "seed": 0}
+57 {"final": {"b0": 0.49166667461395264, "b1": 0.49722224473953247, "b2": 0.4888888895511627, "b3": 0.5638889074325562, "st": 0.5083333253860474}, "max_drift": 0.04722219705581665, "reported": {"b0": 0.5388888716697693, "b1": 0.4861111044883728, "b2": 0.4750000238418579, "b3": 0.5305556058883667, "st": 0.5083333253860474}, "seed": 1}
+57 {"final": {"b0": 0.5083333253860474, "b1": 0.48055559396743774, "b2": 0.4416666626930237, "b3": 0.4277777671813965, "st": 0.4777778089046478}, "max_drift": 0.061111122369766235, "reported": {"b0": 0.5138888955116272, "b1": 0.4888888895511627, "b2": 0.4861111044883728, "b3": 0.4888888895511627, "st": 0.4777778089046478}, "seed": 2}
+58 {"also_fitted": 2, "validation_rows": 2}
+59 {"iid_lower_repeated": 0.42, "iid_lower_two": 0.0, "singleton": {"bootstrap_lower": 0.1, "mean_gain": 0.1, "promote": true, "reasons": [], "safety_failures": 0, "tokens_cap": 100000, "tokens_used": 0, "wall_cap_s": 1800.0, "wall_s": 0}}
+59 {"self_gate_safety_tokens": [0, 0]}
+60 {"profile": [{"direction": "start", "diversity": 0.0, "generation": 0, "members": 1, "spread": 0.0}, {"direction": "stable", "diversity": 0.0, "generation": 1, "members": 1, "spread": 0.0}, {"direction": "stable", "diversity": 0.0, "generation": 2, "members": 1, "spread": 0.0}], "singletons": {"between": 0.5, "histories": 2, "ratio": 1.0, "samples": 2, "total": 0.5}, "truncated_distance": 0.0, "variable_promoted": {"between": 2502.5006, "histories": 2, "ratio": 0.3338, "samples": 4, "total": 7497.5019}}
+61 {"consumed": ["hidden", "joint_epochs", "joint_lambda", "lr", "steps"], "documented": true, "inert_edits": 13, "total_edits": 23, "unused": ["beta", "evolve_budget_s", "generations", "margin", "pop", "sigma"]}
+62 {"entries": [{"fitness": {"correctness": 1.0, "efficiency": 0.5, "gates_pass": true, "recovery": 1.0}, "id": "good", "parent": "p", "policy": "good", "screen_skipped": false}, {"fitness": {"correctness": 1.0, "efficiency": 1.0, "gates_pass": true, "recovery": 1.0}, "id": "bad", "parent": "p", "policy": "bad", "screen_skipped": true}], "selected": "bad"}
+Traceback (most recent call last):
+  File "$REVIEW_ARTIFACTS/repros.py", line 214, in <module>
+    try: extras() if n=='extras' else globals()['case'+n]()
+                                      ~~~~~~~~~~~~~~~~~~~^^
+  File "$REVIEW_ARTIFACTS/repros.py", line 128, in case63
+    with patch.object(evolve,'guided_search',return_value={'solved':True,'tried':200}):r=obj._recovery(policy.SearchPolicy(),{},100)
+                                                                                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$REVIEW_REPO/rsi_programmer/evolve.py", line 59, in _recovery
+    self._budget, str(task["id"]))
+                      ~~~~^^^^^^
+KeyError: 'id'
+63 {"REPRO_ERROR": "KeyError('id')"}
+64 {"behavior_change_covered_by_hash": false, "evaluated_ids": ["t"], "held_rows_in_refine": false, "refined_ids": ["t"]}
+65 {"caveat": "STOP can still affect encoder through delayed feedback", "direct_stop_grad": [0.0, 0.0], "op_argmax": [1, 0], "op_grad": [[-0.6495845317840576, 0.0, 0.0], [0.0, 0.6495845317840576, 0.0]], "op_truth": [0, 1]}
+66 {"alternative_intermediate_label": 0, "canonical_signature_count": 1, "valid_alternative": true}
+67 {"binary_holds": {"add": "ValueError: stack underflow", "empty": "ValueError: empty stack at HALT", "store": "IndexError: pop from empty list"}, "bool_validated": true, "early_halt": [["PUSH_X"], ["HALT"], ["PUSH_Y"], ["HALT"]], "undefined_fetch": 0, "wrapped_graph": {"input_types": {"x": "Int", "y": "Int"}, "nodes": [{"args": ["y", "y"], "op": "add", "type": "Int"}], "output": 0}}
+68 {"configured": [10, 20, 30], "observed": [100, 101, 102], "reported": 3}
+69 {"kinds": ["third", "second"], "returned_second_digest": true, "returned_written_digest": false, "rows": 2}
+70 {"extra_features": 4, "gap_before_commit": 1.0, "gap_with_solver": 0.0, "nn_features": 12, "zero_snn_exact_weight_solves": true}
+71 {"recount": 5, "true_size": 3}

@@ -13,6 +13,11 @@ described in [architecture.md](architecture.md). Historical performance
 figures in earlier reports used older feature encodings and work
 counters; they should not be read as measurements of the current code.
 
+The [audit checkpoint](docs/audit-progress.md) records completed fixes,
+test evidence, and pending validation. The [historical adversarial
+review](docs/audit-review-5c6701b.md) includes reproductions for issues
+#51–#71 and the baseline measurement at `5c6701b`.
+
 ## Layout
 
 - `rsi_programmer/` — policies, search, typed-DAG validation,

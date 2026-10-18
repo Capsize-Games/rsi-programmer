@@ -1,0 +1,11 @@
+test_fit_after_restore_moves_weights (tests.test_rsi_evolve.RestoreOptimizerTests.test_fit_after_restore_moves_weights)
+Restore rebinds the optimizer to the live net (#51). ... ok
+test_scores_idempotent_and_history_free (tests.test_rsi_evolve.StatelessScoringTests.test_scores_idempotent_and_history_free)
+Repeated scores ignore prior drives (#52). ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.410s
+
+OK
+new_regressions {"errors": 0, "failures": 0, "run": 2}
+turnover_method {"class_setup": "not invoked; method independent of fixture", "passed": true}

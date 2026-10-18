@@ -1,0 +1,49 @@
+{
+  "kind": "partial_validation_checkpoint",
+  "captured_at_utc": "2026-10-18T06:19:41.092443+00:00",
+  "implementation_commit": "0fcf8689b9e26a872230b89741902aecd98eba48",
+  "source_inputs": {
+    "sha256": "2a6b6ebbaabbd95e3ed77f467cc359ebf798fb9907794612db423b5a25b79d94",
+    "files": 96
+  },
+  "fast": "222 tests OK in 276.362s",
+  "ci_fast": [
+    {
+      "python": "3.12",
+      "tests": 222,
+      "seconds": 329.066,
+      "url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39091107647/job/117567864300"
+    },
+    {
+      "python": "3.13",
+      "tests": 222,
+      "seconds": 422.996,
+      "url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39091107647/job/117567864202"
+    }
+  ],
+  "slow": {
+    "status": "running",
+    "reported_passes": 58,
+    "complete": false
+  },
+  "retry": {
+    "status": "not_started"
+  },
+  "independent_measurement": {
+    "status": "not_started_on_final_sources"
+  },
+  "log_sha256": {
+    "repeat-run-red-confirmed.command": "08733f021b338cad3aaf0940458184482fd2c3806b8e582ed91c1b888b88a6d8",
+    "repeat-run-integrity-confirmed.log": "607130cfae822ef3c52be60a62f6620753db3af8aa93303aaf684689ae53cd30",
+    "repeat-run-integrity-confirmed.command": "5875476d909f39fa80484139dc9d56f78a948af924b19ffd76ebf339cf9aad80",
+    "slow-partial.log": "3df63f4911406cce14e5fd7c2e26ff4e5d84077f41f4be7e6c066e8f610fe74b",
+    "slow-attempt-3.log": "6e7372324d3a6c23c05a8fdd302f0ae118679d3dc4d43b2cf29419e7676bb42d",
+    "slow-attempt-1.log": "3d20e97147dbd66d4b6515476fefa526cafcab33a3a9bc4cb29bacc854e57999",
+    "repeat-run-red-confirmed.log": "8c83815d3e68fb7173df3aa8280823608d603c82a9a0957c354471a45f8a4760",
+    "fast-final.log": "76ef12fc9f1569a8fec33766f497760600b873a6e17b53e256687cb82abd1497",
+    "ci-fast-312-public.log": "3196cb168dfdc746e90d3c0602a2b94076d431a5ddc1c76a2b5119c3b5ed9514",
+    "ci-fast-313-public.log": "719fecbe4f7698584349b8e4b112b5dd39981656a2eb6764d5c91e99707c93de",
+    "slow-attempt-2.log": "8a324ba609d6587ea51407c40fd593edeec3976d9765431ae8c549af19e61378"
+  },
+  "sanitization": "Local absolute paths replaced; CI mirrors contain setup/test sections only"
+}

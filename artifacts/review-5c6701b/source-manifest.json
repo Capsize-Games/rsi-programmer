@@ -1,0 +1,45 @@
+{
+  "repo": "5c6701bbd9d0b2bba4bcd4022f0069a12f29c3cc",
+  "audit": "e4d7210",
+  "spikeforge": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6",
+  "python": "3.13.5 (main, Jul 11 2025, 22:43:46) [Clang 20.1.4 ]",
+  "packages": {
+    "torch": "2.8.0+cpu",
+    "snntorch": "1.0.0",
+    "nir": "1.0.8",
+    "nirtorch": "2.6",
+    "safetensors": "0.8.0"
+  },
+  "fixtures": {
+    "fixtures/rsi_ood_v2.json": "257ddcd9d5b13fab06f2a0c543da69c7f6f68f01ce530501cda8a16b309d0f97",
+    "fixtures/rsi_plain_more.json": "f43ed91d43cf5b670a3621c4d044a89cfd23cd963bb2d3258df65c92c32c096f",
+    "fixtures/rsi_novel_tasks.json": "0267aaa6a5a11f2d036f6f07a5104663dde5793afd08f11f4b665bd1025181c8",
+    "fixtures/rsi_ood_twin.json": "ed69b8b1fb9ad385c6ab03c7fe0e6de6b1b696bda0505648fbaf33363c8811ec",
+    "fixtures/rsi_plain_hard.json": "461b63daa4d6103562021e85771280be1c8c6b7adfa24d72d0fd7e949060d376",
+    "fixtures/rsi_plain_train.json": "5b2d371f97cdb52fa1278d9d6774f34d9e0adb81517167978d8f529d1fee7f7b",
+    "fixtures/rsi_const_tasks.json": "4c6b0ef7265a36b08244f700d0b3b1bfbb65e84b7c4822ee9f4ad570acd1d030",
+    "fixtures/rsi_ood_plain.json": "944217d3b212c4d50c8866218314ea4391d03d8eb00bcceb7e1fe6d9150320ca",
+    "fixtures/rsi_hard_tasks.json": "a0eea149103b7c06bc3fcb55281ba44abb31229228e408dd18b8401c8ecb6ec8",
+    "fixtures/rsi_gen_train.json": "286d1390442e14ee63fd19cee20cbba133e0f1edfc7b2cbeb0e67ddb380dd7c5",
+    "fixtures/rsi_branch_tasks.json": "d2237862eb447545d2f605f4ff911ecf3ef986bab73a61e9af18a0f7e5abfc1e",
+    "fixtures/rsi_ood_tasks.json": "bc0a24603752116248bce44a761a9f4094758f84cebae21f665c76196dbbf8ea",
+    "fixtures/rsi_gen_novel.json": "fd7e267e3805610fe1375f383442a15e6c14b8a71c0670e02b1db97a75634c4f",
+    "fixtures/rsi_shadow_tasks.json": "da7b2603f9a17a6f85e3f46cc358f717a1653c119ad6ae373db9f78a22b6156d"
+  },
+  "prior_measurement_script_read": false,
+  "measurement_seeds": [
+    0,
+    1,
+    2
+  ],
+  "measurement_epochs": [
+    5,
+    40,
+    50
+  ],
+  "measurement_families": [
+    "shadow",
+    "novel",
+    "ood_plain"
+  ]
+}

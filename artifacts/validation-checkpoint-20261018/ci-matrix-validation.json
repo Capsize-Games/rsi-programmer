@@ -1,0 +1,85 @@
+{
+  "status": "fast_jobs_passed",
+  "validation_scope": "Python 3.12 and 3.13 fast jobs only; full workflow status is reported separately and is not counted as a pass",
+  "run_id": 39091107647,
+  "workflow_run_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39091107647",
+  "workflow_status": "in_progress",
+  "workflow_conclusion": null,
+  "repository_commit": "0fcf8689b9e26a872230b89741902aecd98eba48",
+  "source_inputs": {
+    "sha256": "2a6b6ebbaabbd95e3ed77f467cc359ebf798fb9907794612db423b5a25b79d94",
+    "files": 96,
+    "scope": [
+      "rsi_programmer/*.py",
+      "scripts/*.py",
+      "tests/*.py",
+      "fixtures/*.json",
+      "justfile",
+      "requirements.txt"
+    ],
+    "hash_method": "sorted relative path bytes then file bytes"
+  },
+  "file_sha256": {
+    "workflow": "e1ccebd9c738c0136e46069d35b7a68942b30e02a214a0127b072f69c2f44be6",
+    "justfile": "9ab4a6b3891aea52b297e16c9faa24bcaf2af285b584e28076c272ff162a48e3",
+    "requirements": "83836c10253073571cb302a8be96d58d7054a02b29a467f96d40061084d18b27"
+  },
+  "spikeforge": {
+    "repository": "Capsize-Games/spikeforge",
+    "commit": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6"
+  },
+  "jobs": [
+    {
+      "python": "3.12",
+      "job_id": 117567864300,
+      "job_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39091107647/job/117567864300",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-18T02:43:35Z",
+      "completed_at": "2026-10-18T02:49:25Z",
+      "test_step_started_at": "2026-10-18T02:43:46Z",
+      "test_step_completed_at": "2026-10-18T02:49:23Z",
+      "tests_run": 222,
+      "test_seconds": 329.066,
+      "spikeforge_commit": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6",
+      "raw_log": "ci-fast-312.log",
+      "public_log": "ci-fast-312-public.log",
+      "public_log_sha256": "3196cb168dfdc746e90d3c0602a2b94076d431a5ddc1c76a2b5119c3b5ed9514",
+      "excluded_sections": [
+        "checkout",
+        "post-job cleanup"
+      ],
+      "sanitization": {
+        "runner_paths_replaced": true,
+        "response_headers_excluded": true,
+        "secret_and_signed_url_patterns_absent": true
+      }
+    },
+    {
+      "python": "3.13",
+      "job_id": 117567864202,
+      "job_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39091107647/job/117567864202",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-18T02:43:35Z",
+      "completed_at": "2026-10-18T02:51:03Z",
+      "test_step_started_at": "2026-10-18T02:43:48Z",
+      "test_step_completed_at": "2026-10-18T02:51:00Z",
+      "tests_run": 222,
+      "test_seconds": 422.996,
+      "spikeforge_commit": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6",
+      "raw_log": "ci-fast-313.log",
+      "public_log": "ci-fast-313-public.log",
+      "public_log_sha256": "719fecbe4f7698584349b8e4b112b5dd39981656a2eb6764d5c91e99707c93de",
+      "excluded_sections": [
+        "checkout",
+        "post-job cleanup"
+      ],
+      "sanitization": {
+        "runner_paths_replaced": true,
+        "response_headers_excluded": true,
+        "secret_and_signed_url_patterns_absent": true
+      }
+    }
+  ]
+}

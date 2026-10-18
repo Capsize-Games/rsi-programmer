@@ -1,0 +1,171 @@
+{
+  "kind": "historical_review_evidence_bundle",
+  "repository_commit": "5c6701bbd9d0b2bba4bcd4022f0069a12f29c3cc",
+  "architecture_revision": "e4d7210",
+  "current_amendments": "docs/audit-amendments.md",
+  "source_files": {
+    "review.txt": "5751f978dacaecc3d4973bd95f67ce700d5908db409a401c52c9a76c79e1271e",
+    "repros.py": "0775e8b4ee5417fd9cc313e5b075db3c7a94e05b4e7c2c84582496f7455a45aa",
+    "deeper.py": "e3d8a6181036505d71e82d0430cb1a6b404f0b38408209ebbe96b2db7ddfbbce",
+    "measure.py": "9056e6e2332751771f5a01290585a5b8ff5c4c91384e52764829d76e11df5f04",
+    "repros-before.log": "726dd1f1b2c7d8320741593171955139fa1e3737bd5ff5e319046e54b20ff2fc",
+    "repros-current.log": "54da7966687fb7fcd6cf97d997a0a39637307c35dcda9d959db5ff1ed80a353c",
+    "repros-extra.log": "462cf7a82ff73a9129d42c62bda905098e340767e27249820f7b4546bd0807a5",
+    "deeper.log": "63d0b660a7cbf8615fea0bf82f9a8ee47bbc39209039b9ea705729cbb48ceaba",
+    "measurement.log": "ac86b8e9d00b9fee4b723f0c1e54ededfd0e15b0cd0651d21bc03cadb82236c5",
+    "positions.csv": "c924ed8a2b3aaf30e089965a2a4237d07633b72f5f782290e3098c08823ae227",
+    "position-summary.json": "8d30b671b2178e7fd02ddaa7f9aeac6fd915b9beda541f4313c97be50fedd5ca",
+    "signature-work.json": "d8d865d19c6e1503e5806771577c7b87781114d5449f551191a89e8403fafef8",
+    "regressions.log": "06ba29dab26b69adfe1826255ee887ae2ed388c36c22d2c9f469317ee3849d7f",
+    "test-fast.log": "71bbae7e59ca57af576f898b38fd8b2262deac2b12a26bbf2427866dff74644f",
+    "manifest.json": "2bc3b6ac3b2e7a1ac0e3c56f73cbd3fb956f5762918193209b5918c219923a18"
+  },
+  "published_files": {
+    "docs/audit-review-5c6701b.md": {
+      "sha256": "539cccaf14a0ac1b3af70ce697be773f002eb2c739644388b891b92d15b8f746",
+      "source": "review.txt",
+      "source_sha256": "5751f978dacaecc3d4973bd95f67ce700d5908db409a401c52c9a76c79e1271e",
+      "transformations": [
+        "inserted explicit historical-baseline and separate-amendment note",
+        "replaced machine-specific reproduction paths with checkout paths",
+        "reuse root environment while importing archived source revisions",
+        "write measurement reruns outside the historical evidence bundle",
+        "linked copied data files relative to the published document",
+        "linked the test-fast verification log",
+        "changed predeclared wording to fixed checkpoints",
+        "redacted local absolute paths",
+        "documented and retained the failed case-63 harness log"
+      ]
+    },
+    "artifacts/review-5c6701b/repros.py": {
+      "sha256": "155ade22a9d7d11852892376b2aa4dea3ea32f0fe6ce6d20a7bd566a39adda18",
+      "source": "repros.py",
+      "source_sha256": "0775e8b4ee5417fd9cc313e5b075db3c7a94e05b4e7c2c84582496f7455a45aa",
+      "transformations": [
+        "REVIEW_REPO defaults to the current checkout",
+        "insert checkout into sys.path and chdir to checkout",
+        "removed machine-specific repository default"
+      ]
+    },
+    "artifacts/review-5c6701b/deeper.py": {
+      "sha256": "2a70595f82816cae15460e83f5ba159870216089cab127faf27817ed0e9503d9",
+      "source": "deeper.py",
+      "source_sha256": "e3d8a6181036505d71e82d0430cb1a6b404f0b38408209ebbe96b2db7ddfbbce",
+      "transformations": [
+        "REVIEW_REPO defaults to the current checkout",
+        "insert checkout into sys.path and chdir to checkout"
+      ]
+    },
+    "artifacts/review-5c6701b/measure.py": {
+      "sha256": "6799a851b66e9dad5a19365d591ca1c50e839cdf8cc172013b35292a3a1fe77f",
+      "source": "measure.py",
+      "source_sha256": "9056e6e2332751771f5a01290585a5b8ff5c4c91384e52764829d76e11df5f04",
+      "transformations": [
+        "REVIEW_REPO defaults to the current checkout",
+        "insert checkout into sys.path",
+        "removed machine-specific repository default",
+        "REVIEW_OUTPUT selects a separate rerun output directory",
+        "replaced predeclared wording with fixed checkpoints",
+        "no measurement executed"
+      ]
+    },
+    "artifacts/review-5c6701b/repros-before.log": {
+      "sha256": "726dd1f1b2c7d8320741593171955139fa1e3737bd5ff5e319046e54b20ff2fc",
+      "source": "repros-before.log",
+      "source_sha256": "726dd1f1b2c7d8320741593171955139fa1e3737bd5ff5e319046e54b20ff2fc",
+      "transformations": [
+        "redacted local absolute paths"
+      ]
+    },
+    "artifacts/review-5c6701b/repros-current.log": {
+      "sha256": "351e29e2ef24d533ba06f94319430796cfed3bb23866c57f80ef819c102ae82f",
+      "source": "repros-current.log",
+      "source_sha256": "54da7966687fb7fcd6cf97d997a0a39637307c35dcda9d959db5ff1ed80a353c",
+      "transformations": [
+        "redacted local absolute paths"
+      ]
+    },
+    "artifacts/review-5c6701b/repros-extra.log": {
+      "sha256": "462cf7a82ff73a9129d42c62bda905098e340767e27249820f7b4546bd0807a5",
+      "source": "repros-extra.log",
+      "source_sha256": "462cf7a82ff73a9129d42c62bda905098e340767e27249820f7b4546bd0807a5",
+      "transformations": [
+        "redacted local absolute paths"
+      ]
+    },
+    "artifacts/review-5c6701b/deeper.log": {
+      "sha256": "63d0b660a7cbf8615fea0bf82f9a8ee47bbc39209039b9ea705729cbb48ceaba",
+      "source": "deeper.log",
+      "source_sha256": "63d0b660a7cbf8615fea0bf82f9a8ee47bbc39209039b9ea705729cbb48ceaba",
+      "transformations": [
+        "redacted local absolute paths"
+      ]
+    },
+    "artifacts/review-5c6701b/measurement.log": {
+      "sha256": "ac86b8e9d00b9fee4b723f0c1e54ededfd0e15b0cd0651d21bc03cadb82236c5",
+      "source": "measurement.log",
+      "source_sha256": "ac86b8e9d00b9fee4b723f0c1e54ededfd0e15b0cd0651d21bc03cadb82236c5",
+      "transformations": [
+        "redacted local absolute paths"
+      ]
+    },
+    "artifacts/review-5c6701b/positions.csv": {
+      "sha256": "c924ed8a2b3aaf30e089965a2a4237d07633b72f5f782290e3098c08823ae227",
+      "source": "positions.csv",
+      "source_sha256": "c924ed8a2b3aaf30e089965a2a4237d07633b72f5f782290e3098c08823ae227",
+      "transformations": [
+        "redacted local absolute paths"
+      ]
+    },
+    "artifacts/review-5c6701b/position-summary.json": {
+      "sha256": "8d30b671b2178e7fd02ddaa7f9aeac6fd915b9beda541f4313c97be50fedd5ca",
+      "source": "position-summary.json",
+      "source_sha256": "8d30b671b2178e7fd02ddaa7f9aeac6fd915b9beda541f4313c97be50fedd5ca",
+      "transformations": [
+        "redacted local absolute paths"
+      ]
+    },
+    "artifacts/review-5c6701b/signature-work.json": {
+      "sha256": "d8d865d19c6e1503e5806771577c7b87781114d5449f551191a89e8403fafef8",
+      "source": "signature-work.json",
+      "source_sha256": "d8d865d19c6e1503e5806771577c7b87781114d5449f551191a89e8403fafef8",
+      "transformations": [
+        "redacted local absolute paths"
+      ]
+    },
+    "artifacts/review-5c6701b/regressions.log": {
+      "sha256": "06ba29dab26b69adfe1826255ee887ae2ed388c36c22d2c9f469317ee3849d7f",
+      "source": "regressions.log",
+      "source_sha256": "06ba29dab26b69adfe1826255ee887ae2ed388c36c22d2c9f469317ee3849d7f",
+      "transformations": [
+        "redacted local absolute paths"
+      ]
+    },
+    "artifacts/review-5c6701b/test-fast.log": {
+      "sha256": "71bbae7e59ca57af576f898b38fd8b2262deac2b12a26bbf2427866dff74644f",
+      "source": "test-fast.log",
+      "source_sha256": "71bbae7e59ca57af576f898b38fd8b2262deac2b12a26bbf2427866dff74644f",
+      "transformations": [
+        "redacted local absolute paths"
+      ]
+    },
+    "artifacts/review-5c6701b/source-manifest.json": {
+      "sha256": "2bc3b6ac3b2e7a1ac0e3c56f73cbd3fb956f5762918193209b5918c219923a18",
+      "source": "manifest.json",
+      "source_sha256": "2bc3b6ac3b2e7a1ac0e3c56f73cbd3fb956f5762918193209b5918c219923a18",
+      "transformations": [
+        "redacted local absolute paths"
+      ]
+    }
+  },
+  "global_transformations": [
+    "Original raw artifacts are not modified in the review directory.",
+    "Copied logs redact local absolute paths.",
+    "Report adds historical framing, portable commands, and relative links.",
+    "No tests, reproductions, training, or measurement are run."
+  ],
+  "excluded": [
+    "CI raw headers and CI logs",
+    "private assets and unrelated working-tree files"
+  ]
+}

@@ -1,0 +1,238 @@
+.venv/bin/python -m unittest tests.test_hub_verify tests.test_rsi_author tests.test_rsi_baseline tests.test_rsi_beam tests.test_rsi_evolve tests.test_rsi_loop tests.test_rsi_operands tests.test_rsi_scale tests.test_rsi_transfer -v
+test_missing_hub_listing_recorded (tests.test_hub_verify.HubVerifyTests.test_missing_hub_listing_recorded)
+Unpublished models report hub FAIL with the reason. ... ok
+test_wrong_checksum_fails (tests.test_hub_verify.HubVerifyTests.test_wrong_checksum_fails)
+Corrupted local weights fail against real assets. ... ok
+test_enumerator_fallback_intact (tests.test_rsi_author.AuthorTests.test_enumerator_fallback_intact)
+Zero scan budget leaves both author and fallback unsolved. ... ok
+test_every_authored_edit_verdict_carrying (tests.test_rsi_author.AuthorTests.test_every_authored_edit_verdict_carrying)
+Each emitted edit names its validator verdict. ... ok
+test_honest_report_complete (tests.test_rsi_author.AuthorTests.test_honest_report_complete)
+Every row tagged; authoring non-vacuous. ... s0 k3 square_plus  rank_work= 6807/True au_work=  201/False loss
+s0 k3 diff_squares rank_work=  939/True au_work=  111/True win
+s0 k3 square_minus rank_work= 6807/True au_work=  201/False loss
+s0 k3 twice_product rank_work=  120/True au_work=   48/True win
+s0 k6 square_plus  rank_work= 6807/True au_work=  552/False loss
+s0 k6 diff_squares rank_work=  939/True au_work=  264/True win
+s0 k6 square_minus rank_work= 6807/True au_work=  552/False loss
+s0 k6 twice_product rank_work=  120/True au_work=  552/False loss
+s1 k3 square_plus  rank_work= 6807/True au_work=  201/False loss
+s1 k3 diff_squares rank_work=  939/True au_work=  111/True win
+s1 k3 square_minus rank_work= 6807/True au_work=  201/False loss
+s1 k3 twice_product rank_work=  120/True au_work=   48/True win
+s1 k6 square_plus  rank_work= 6807/True au_work=  552/False loss
+s1 k6 diff_squares rank_work=  939/True au_work=  264/True win
+s1 k6 square_minus rank_work= 6807/True au_work=  552/False loss
+s1 k6 twice_product rank_work=  120/True au_work=  552/False loss
+s2 k3 square_plus  rank_work= 6807/True au_work=  201/False loss
+s2 k3 diff_squares rank_work=  939/True au_work=  111/True win
+s2 k3 square_minus rank_work= 6807/True au_work=  201/False loss
+s2 k3 twice_product rank_work=  120/True au_work=   48/True win
+s2 k6 square_plus  rank_work= 6807/True au_work=  552/False loss
+s2 k6 diff_squares rank_work=  939/True au_work=  552/False loss
+s2 k6 square_minus rank_work= 6807/True au_work=  552/False loss
+s2 k6 twice_product rank_work=  120/True au_work=  552/False loss
+wins=8 ties=0 losses=16 wall=38.9s
+ok
+test_malformed_edits_rejected_pre_execution (tests.test_rsi_author.AuthorTests.test_malformed_edits_rejected_pre_execution)
+Validator gate rejects malformed edits pre-execution. ... ok
+test_runs_within_cpu_budget (tests.test_rsi_author.AuthorTests.test_runs_within_cpu_budget)
+Whole module stays under 600 wall seconds. ... author wall=38.9s
+ok
+test_solved_graphs_pass_frozen_oracle (tests.test_rsi_author.AuthorTests.test_solved_graphs_pass_frozen_oracle)
+Authored solutions validate and meet expectations. ... ok
+test_enumerator_baseline_per_family (tests.test_rsi_baseline.GeneratedBaselineTests.test_enumerator_baseline_per_family)
+Every generated task solves within its bound. ... fixtures/rsi_gen_train.json solve=1.00 cost=4881127 tasks=24
+fixtures/rsi_gen_novel.json solve=1.00 cost=475541 tasks=12
+ok
+test_score_backtrack_pops_best_first (tests.test_rsi_beam.BeamOrderTests.test_score_backtrack_pops_best_first)
+Best-scored stash entry commits before the rest. ... ok
+test_score_order_costs_no_more (tests.test_rsi_beam.BeamOrderTests.test_score_order_costs_no_more)
+Score revisit never costs more tried per task. ... beam order: fifo=1835 score=1835
+ok
+test_widen_schedule_superset_within_budget (tests.test_rsi_beam.BeamOrderTests.test_widen_schedule_superset_within_budget)
+Wider retry only adds solves inside the budget. ... beam widen: base=4 wide=4
+ok
+test_backtrack_revisits_deprioritized (tests.test_rsi_beam.BeamTests.test_backtrack_revisits_deprioritized)
+Width-capped scan stashes; backtrack re-evaluates. ... ok
+test_beam_accounting_identical (tests.test_rsi_beam.BeamTests.test_beam_accounting_identical)
+Legacy tried counts beam commit attempts in its edit log. ... ok
+test_beam_report_with_win (tests.test_rsi_beam.BeamTests.test_beam_report_with_win)
+Every row tagged; beam beats rank at least once. ... s0 w3 square_plus  rank_work= 6807/True bm_work=  201/True win
+s0 w3 diff_squares rank_work=  939/True bm_work=  111/True win
+s0 w3 square_minus rank_work= 6807/True bm_work= 1716/True win
+s0 w3 twice_product rank_work=  120/True bm_work=   48/True win
+s0 w6 square_plus  rank_work= 6807/True bm_work= 3816/True win
+s0 w6 diff_squares rank_work=  939/True bm_work=  264/True win
+s0 w6 square_minus rank_work= 6807/True bm_work= 3237/True win
+s0 w6 twice_product rank_work=  120/True bm_work=  552/True loss
+s1 w3 square_plus  rank_work= 6807/True bm_work= 2568/True win
+s1 w3 diff_squares rank_work=  939/True bm_work=  111/True win
+s1 w3 square_minus rank_work= 6807/True bm_work= 2121/True win
+s1 w3 twice_product rank_work=  120/True bm_work=   48/True win
+s1 w6 square_plus  rank_work= 6807/True bm_work= 3780/True win
+s1 w6 diff_squares rank_work=  939/True bm_work=  264/True win
+s1 w6 square_minus rank_work= 6807/True bm_work= 3336/True win
+s1 w6 twice_product rank_work=  120/True bm_work=   84/True win
+s2 w3 square_plus  rank_work= 6807/True bm_work= 2466/True win
+s2 w3 diff_squares rank_work=  939/True bm_work=  111/True win
+s2 w3 square_minus rank_work= 6807/True bm_work= 1581/True win
+s2 w3 twice_product rank_work=  120/True bm_work=   48/True win
+s2 w6 square_plus  rank_work= 6807/True bm_work= 4503/True win
+s2 w6 diff_squares rank_work=  939/True bm_work=  552/True win
+s2 w6 square_minus rank_work= 6807/True bm_work= 3123/True win
+s2 w6 twice_product rank_work=  120/True bm_work=  552/True loss
+wins=22 ties=0 losses=2 wall=39.7s
+ok
+test_enumerator_fallback_intact (tests.test_rsi_beam.BeamTests.test_enumerator_fallback_intact)
+Zero scan budget leaves beam and fallback unsolved. ... ok
+test_every_beam_edit_verdict_carrying (tests.test_rsi_beam.BeamTests.test_every_beam_edit_verdict_carrying)
+Each emitted edit names its validator verdict. ... ok
+test_malformed_edits_rejected_pre_execution (tests.test_rsi_beam.BeamTests.test_malformed_edits_rejected_pre_execution)
+Validator gate rejects malformed edits pre-execution. ... ok
+test_runs_within_cpu_budget (tests.test_rsi_beam.BeamTests.test_runs_within_cpu_budget)
+Whole module stays under 600 wall seconds. ... beam wall=39.7s
+ok
+test_solved_graphs_pass_frozen_oracle (tests.test_rsi_beam.BeamTests.test_solved_graphs_pass_frozen_oracle)
+Beam solutions validate and meet expectations. ... ok
+test_archive_lineage_round_trips (tests.test_rsi_evolve.PolicyLoopTests.test_archive_lineage_round_trips)
+Lineage survives close and reopen through intents. ... ok
+test_every_rejection_carries_verdict (tests.test_rsi_evolve.PolicyLoopTests.test_every_rejection_carries_verdict)
+No silent drops: each rejection names its verdict. ... ok
+test_heldout_matches_baseline_at_equal_signature_work (tests.test_rsi_evolve.PolicyLoopTests.test_heldout_matches_baseline_at_equal_signature_work)
+Guidance changes scan order, not eager root signature work. ... ok
+test_snapshot_restore_turnover (tests.test_rsi_evolve.PolicyLoopTests.test_snapshot_restore_turnover)
+Temporal state round-trips across generation turnover. ... ok
+test_two_generations_show_no_regression (tests.test_rsi_evolve.PolicyLoopTests.test_two_generations_show_no_regression)
+Elite archive fitness never steps back. ... ok
+probe elite: id=p2 operator=author corr=1.00 probe=0.50
+test_probe_elite_refines_and_reports (tests.test_rsi_evolve.ProbeLoopTests.test_probe_elite_refines_and_reports)
+Probe-pressured elite + refine vs #26 1/4 baseline. ... probe-elite+refine: solved=4/4 tried=457
+ok
+test_probe_off_by_default (tests.test_rsi_evolve.ProbeLoopTests.test_probe_off_by_default)
+Probe defaults off; fitness key still present. ... ok
+test_probe_recorded_in_lineage (tests.test_rsi_evolve.ProbeLoopTests.test_probe_recorded_in_lineage)
+Every archive fitness carries a probe score. ... ok
+test_probe_scores_bounded_and_deterministic (tests.test_rsi_evolve.ProbeLoopTests.test_probe_scores_bounded_and_deterministic)
+Probe shares sit in [0, 1] and repeat per seed. ... ok
+elite: id=p0 operator=null parent= corr=1.00
+test_elite_refines_and_reports_solves (tests.test_rsi_evolve.RefinableLoopTests.test_elite_refines_and_reports_solves)
+Elite plus EXTRA refinement authors shadow tasks. ... elite+refine: solved=4/4 tried=647
+author+refine: solved=4/4 tried=457
+ok
+test_founders_include_author_member (tests.test_rsi_evolve.RefinableLoopTests.test_founders_include_author_member)
+Author-trained founder joins the gene pool. ... ok
+test_fit_after_restore_moves_weights (tests.test_rsi_evolve.RestoreOptimizerTests.test_fit_after_restore_moves_weights)
+Restore rebinds the optimizer to the live net (#51). ... ok
+test_promotion_evaluates_no_more (tests.test_rsi_evolve.ScreenedLoopTests.test_promotion_evaluates_no_more)
+Screened loop never pays for extra full evals. ... screened evals=6 base evals=8 skipped=[[], ['g1-1', 'g1-2']]
+ok
+test_screen_order_and_pact_reported (tests.test_rsi_evolve.ScreenedLoopTests.test_screen_order_and_pact_reported)
+Every screened generation names order and pact. ... ok
+test_skips_keep_parent_fitness_provisional (tests.test_rsi_evolve.ScreenedLoopTests.test_skips_keep_parent_fitness_provisional)
+Skipped kids retain parent scores separately as provisional. ... ok
+test_scores_idempotent_and_history_free (tests.test_rsi_evolve.StatelessScoringTests.test_scores_idempotent_and_history_free)
+Repeated scores ignore prior drives (#52). ... ok
+loop diagnostics: {'reject_histogram': {'no-authored-solution': 6, 'solved': 2}, 'named_rate': 0.4707391096385295, 'agreed_wrong': 0}
+test_const_terminals_solve_without_them_failing (tests.test_rsi_loop.AuthoredLoopTests.test_const_terminals_solve_without_them_failing)
+Const-flagged tasks solve with consts, miss without. ... gen_ood2_00 bare=True const=True tried=256
+gen_ood2_02 bare=False const=True tried=2245
+gen_ood2_04 bare=True const=True tried=1284
+gen_ood2_06 bare=False const=True tried=41037
+ok
+test_dry_run_uses_authored_order (tests.test_rsi_loop.AuthoredLoopTests.test_dry_run_uses_authored_order)
+Dry plans follow proposer rank, train nothing. ... ok
+test_loop_trainer_threads_consts (tests.test_rsi_loop.AuthoredLoopTests.test_loop_trainer_threads_consts)
+Loop held shows const tasks solved, branch missed. ... loop held const flips: [1.725, 0.0, 1.568, 0.0, 1.568, 0.0, 1.436, 0.0]
+ok
+test_prior_promotion_authors_next_one (tests.test_rsi_loop.AuthoredLoopTests.test_prior_promotion_authors_next_one)
+A measured prior promotion authors the next loop. ... authored loop promotions=1 outcome_association=0.738
+ok
+test_real_diagnostics_report_honestly (tests.test_rsi_loop.AuthoredLoopTests.test_real_diagnostics_report_honestly)
+Lattice-wall diagnostics drive an honest report. ... ok
+test_real_trainer_joint_trial (tests.test_rsi_loop.AuthoredLoopTests.test_real_trainer_joint_trial)
+Joint-field edits reach a real gate verdict. ... Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+    ~~~~^^^^^^^^^^^^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/main.py", line 104, in __init__
+    self.runTests()
+    ~~~~~~~~~~~~~^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/main.py", line 270, in runTests
+    self.result = testRunner.run(self.test)
+                  ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/runner.py", line 240, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/case.py", line 707, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(testMethod)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "<UV>/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/case.py", line 606, in _callTestMethod
+    if method() is not None:
+       ~~~~~~^^
+  File "<REPO>/tests/test_rsi_loop.py", line 307, in test_real_trainer_joint_trial
+    out = gate.propose(
+        dict(DEFAULT_CONFIG),
+        {"op": "set", "field": "joint_epochs",
+         "value": 10}, train_scores, seed=0)
+  File "<REPO>/rsi_programmer/self_gate.py", line 88, in propose
+    got = trainer(dict(trial), seed, trial_dir)["held"]
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO>/rsi_programmer/loop_trainer.py", line 96, in train_scores
+    refine_operands(policy, groups, SHADOW,
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+                    lam=float(config.get("joint_lambda", 0.2)),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    epochs=int(config.get("joint_epochs", 5)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO>/rsi_programmer/author.py", line 142, in refine_operands
+    ranked = _tensed_pairs(fixture)
+  File "<REPO>/rsi_programmer/author.py", line 119, in _tensed_pairs
+    for group in contrastive_groups(fixture):
+                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "<REPO>/rsi_programmer/author.py", line 101, in contrastive_groups
+    for group in _base_groups(fixture, budget):
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "<REPO>/rsi_programmer/author.py", line 80, in _base_groups
+    frozen = {r["task"]: r for r in rec.record_all()["records"]}
+                                    ~~~~~~~~~~~~~~^^
+  File "<REPO>/rsi_programmer/traces.py", line 101, in record_all
+    records = [self.record_task(task) for task in tasks]
+               ~~~~~~~~~~~~~~~~^^^^^^
+  File "<REPO>/rsi_programmer/traces.py", line 82, in record_task
+    expr, tried, unique = enumerate_programs(rows, expected,
+                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+                                             bound,
+                                             ^^^^^^
+                                             on_candidate=record)
+                                             ^^^^^^^^^^^^^^^^^^^^
+  File "<REPO>/rsi_programmer/probe.py", line 131, in enumerate_programs
+    sig = signature(expr, rows)
+  File "<REPO>/rsi_programmer/probe.py", line 97, in signature
+    return tuple(fn(a, b) for a, b in zip(left, right))
+                                      ~~~^^^^^^^^^^^^^
+KeyboardInterrupt
+error: recipe `test-slow` was terminated on line 33 by signal 2

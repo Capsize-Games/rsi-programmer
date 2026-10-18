@@ -23,3 +23,12 @@ BSD-3-Clause software, copyright Capsize LLC (see [LICENSE](LICENSE)).
   independent checker (`probe.validate_graph`) holds on held-out rows.
   Learner-reported scores alone prove nothing.
 - Never commit `weights/*.pt`, lineage databases, or `.venv/`.
+
+## Audit checkpoints
+
+When publication is authorized, publish completed fixes and review evidence
+as the work progresses, including during long test runs. Push meaningful
+checkpoints and tag published snapshots. Record the exact completed tests,
+partial runs, and pending checks in each checkpoint. Update issue status
+with the evidence available; keep unresolved findings open. Publish again
+at validation milestones instead of holding all evidence for the final run.
