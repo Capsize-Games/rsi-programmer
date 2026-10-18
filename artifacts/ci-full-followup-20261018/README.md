@@ -41,5 +41,21 @@ cancels its sibling after a full-job failure; the observed full cancellation
 was not caused by the separate fast-matrix failure. No job was canceled or
 rerun by this follow-up.
 
-The corrected workflow will be pushed as code-v87. Issue #44 stays open until
-the corrected full jobs have actual verdicts; no pending run is a pass.
+The corrected workflow was pushed as code-v87, commit 59ef1ab. Its corrected
+CI run is 39154146448. Both fast jobs passed all 374 tests: Python 3.12 in
+346.461 seconds and Python 3.13 in 238.441 seconds. Compressed logs, exact
+job metadata and byte hashes are in `code87/`; its full jobs remain pending
+in the retained snapshot.
+
+Local `just test-fast` subsequently passed all 374 tests in 237.352 seconds
+(240.766 seconds CLI). `fast-ci-auth.*` and `local-verification.json` prove
+that the same 456 source/dependency/workflow files were used before and
+after both the authenticated affected checks and the fast suite, with no
+source exclusions. `static-check.json` records AST and 79-column checks on
+the three artifact scripts. No local full/slow/retry lane was run.
+
+Issue #44 stays open until corrected full jobs have actual verdicts. A
+background follow-up checks every fifteen minutes, remains quiet while
+unchanged, and continues the authorized fix/test/publish workflow on any
+new failure. It stops after full verification, publication and issue updates.
+No pending run is a pass.

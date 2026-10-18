@@ -1,0 +1,57 @@
+{
+  "source_commit": "59ef1abe06a5a9d0d8e9813252f05c902fdfc729",
+  "workflow_run_id": 39154146448,
+  "verified_utc": "2026-10-18T18:34:32.210328+00:00",
+  "fast_jobs": [
+    {
+      "name": "fast (3.12)",
+      "job_id": 117753752743,
+      "conclusion": "success",
+      "test_count": 374,
+      "unittest_seconds": 346.461,
+      "raw_log_bytes": 114207,
+      "raw_log_sha256": "ce5b56079840280254b128e2b8a0d36086eacb5930b80cb427244dbe9d76e093",
+      "compressed_log_sha256": "a6a83edd39e1b7563e77714ff6de2575382ad2cfd4d22effc40020d6a382eeb9",
+      "retrieval_command": "gh api repos/Capsize-Games/rsi-programmer/actions/jobs/117753752743/logs"
+    },
+    {
+      "name": "fast (3.13)",
+      "job_id": 117753752861,
+      "conclusion": "success",
+      "test_count": 374,
+      "unittest_seconds": 238.441,
+      "raw_log_bytes": 114209,
+      "raw_log_sha256": "6bc006804b8e548bf1e3bf194c0bc0e89b7434940231a62049f0d00b41b9e7f0",
+      "compressed_log_sha256": "947a2a3de08f2ae212492d80fd7a99da74c6f14a8498d389ba0654e56833e2f1",
+      "retrieval_command": "gh api repos/Capsize-Games/rsi-programmer/actions/jobs/117753752861/logs"
+    }
+  ],
+  "full_jobs_at_snapshot": [
+    {
+      "id": 117753752836,
+      "name": "full (3.12)",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 117753752870,
+      "name": "full (3.13)",
+      "status": "in_progress",
+      "conclusion": null
+    }
+  ],
+  "full_ci_pending": true,
+  "files_sha256": {
+    "README.md": "4d1b9f8465462e14655b4876dcbe8898f7bce7d450e7f59ead6623e91db85364",
+    "fast-312.log.gz": "a6a83edd39e1b7563e77714ff6de2575382ad2cfd4d22effc40020d6a382eeb9",
+    "fast-313.log.gz": "947a2a3de08f2ae212492d80fd7a99da74c6f14a8498d389ba0654e56833e2f1",
+    "job-fast-312.json": "d5165deab61240e6b94498ecdadc8df60b11ed62062d78dd326222b95b72bb99",
+    "job-fast-313.json": "e14f961b807d986e28da64747584d8d9cd9334f1f8d96b8b3960e14a3216208a",
+    "jobs-fast-complete.json": "fa2888ba31de309d459556d7aead8377f3b57746fa1f79f61c41c4b7126b26f3",
+    "jobs-fast313-completed.json": "e47e63f6146a6a66ae4e16f548a54a926a9e27f86314038bc3973835735f07fb",
+    "jobs-initial.json": "b52ba1b7a5e393908f412adea72778bb668fb78918d00314d3ebee3ab6680565",
+    "run-fast-complete.json": "94dd3d33c0d68567e763098e6bfcba617bd2017eb1319a7bea33102a1ccb6b54",
+    "run-fast313-completed.json": "94dd3d33c0d68567e763098e6bfcba617bd2017eb1319a7bea33102a1ccb6b54",
+    "run-initial.json": "94dd3d33c0d68567e763098e6bfcba617bd2017eb1319a7bea33102a1ccb6b54"
+  }
+}
