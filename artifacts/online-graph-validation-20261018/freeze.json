@@ -1,0 +1,33 @@
+{
+  "frozen_files": {
+    "docs/benchmark-online-graph.md": "b8246207997e3f6578874d1166cf5810333ec5fe500bdb622bac7026fe8a8638",
+    "docs/online-learning-direction.md": "626d17ab88925257113a0d212f5a1596218ac429d9fe024d1d6f8f8bf558eb59",
+    "fixtures/online_graph_v1.json": "a4f9af2dfc0d8c4539d700b032dcc223c82aa272f02497902024d9f371096140",
+    "rsi_programmer/online_corpus.py": "5c4ae63c98868d5a36e0c303e4b363ae95373e376787e9586328fb0953d64421",
+    "scripts/generate_online_corpus.py": "28858e801bbbfc7d005e9b108f2bd25ea14d80f63d4d3b4610c0839dfd96886b",
+    "tests/test_online_corpus.py": "883e8bde4ee20ca34488328854fe68d5c0cfb59d048af8447e3107853a70f90d"
+  },
+  "full_local_discovery": false,
+  "pending": [
+    "controller/runner publication",
+    "fast lane",
+    "complete frozen matrix",
+    "independent audit",
+    "full CI for additive runtime"
+  ],
+  "stage": "protocol freeze before solver measurements",
+  "tests": {
+    "command": ".venv/bin/python -m unittest tests.test_online_spiking tests.test_online_graph tests.test_online_corpus -v",
+    "lock": "/tmp/rsi-programmer-builder.lock",
+    "log": "focused-initial.log",
+    "result": "26 tests OK",
+    "scope": "26 prototype checks, including 8 corpus checks; controller source is not included in this protocol-only checkpoint",
+    "seconds": 0.087
+  },
+  "unpublished_tested_runtime": {
+    "rsi_programmer/online_graph.py": "399a4512a7749b05875adf15f4fc795c03f6d87f1aee1b53f4f8b7a9d1b8a6be",
+    "rsi_programmer/online_spiking.py": "ec129b19a80ec522a90a5994966ae0fcd85d4926e08dff48183b0f31d2dc7c67",
+    "tests/test_online_graph.py": "81d3f00ee18c4be0c7beb82ab60a752b6084721f989543368940496eae21f32d",
+    "tests/test_online_spiking.py": "880967ff6e72e85c4974ad82c19764999a841986008598ea21bfd60b1cbefc08"
+  }
+}
