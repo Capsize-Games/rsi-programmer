@@ -32,6 +32,14 @@ def training_charge(
     return training["training_group_" + axis + "_ns"] + own
 
 
+def _work_total(rows: list[dict[str, Any]], key: str) -> int | None:
+    """Sum a work axis only when every attempt measured it."""
+    values = [row["work"].get(key) for row in rows]
+    if any(value is None for value in values):
+        return None
+    return sum(value for value in values if value is not None)
+
+
 def summarize(
     records: list[dict[str, Any]],
     training: dict[str, Any],
@@ -58,8 +66,8 @@ def summarize(
                 if not rows:
                     continue
                 work = {
-                    k: sum(r["work"].get(k) or 0 for r in rows)
-                    for k in rows[0]["work"]
+                    key: _work_total(rows, key)
+                    for key in rows[0]["work"]
                 }
                 cpu = sum(
                     r["attempt_cpu_ns_including_hashes_and_validation"]

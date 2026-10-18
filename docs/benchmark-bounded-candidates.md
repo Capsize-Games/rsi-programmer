@@ -90,3 +90,60 @@ full-cached SNN before training charges. Memory reductions at lower coverage
 do not establish a same-success efficiency improvement. Keep the generic
 cache and the historical default; test a complete fallback before promoting
 any future shortlist. This supplies no CPU case for SNN expansion.
+
+## Re-auditing the measured source
+
+The auditor checks source files relative to its own repository location,
+not the shell's working directory. After a source or test amendment, export
+code-v76 to a fresh directory and copy the published auditor into the same
+artifact subdirectory there. Code-v76 runtime and tests are identical to the
+measured code-v74. Pass the immutable full bundle by absolute path:
+
+```sh
+repo=/absolute/path/to/rsi-programmer
+frozen=$(mktemp -d)
+git -C "$repo" archive code-v76 | tar -x -C "$frozen"
+cp "$repo/artifacts/benchmark-bounded-audit-20261018/bounded_audit.py" \
+  "$frozen/artifacts/benchmark-bounded-audit-20261018/bounded_audit.py"
+flock /tmp/rsi-programmer-builder.lock python3 \
+  "$frozen/artifacts/benchmark-bounded-audit-20261018/bounded_audit.py" \
+  "$repo/artifacts/benchmark-bounded-v1-verified-20261018" \
+  --output /tmp/rsi-bounded-reaudit.json
+```
+
+Use a new output path to retain earlier evidence. The auditor uses only the
+standard library. Captured dependency paths must still exist with their
+recorded bytes. Do not disable source checks or point the measured-source
+audit at a checkout with later runtime/test changes. The code-v77 report's
+short instruction to supply an absolute auditor path is incomplete unless
+the auditor is copied into the frozen export as shown here.
+
+## Post-measurement test and metadata amendment
+
+The portable startup regression still builds the actual 24 training groups,
+passes the original frozen hash map to its test spy, and performs all 40
+optimizer updates for SNN, MLP and recurrent controls. It checks learned
+weights change and untrained weights stay fixed. Within that test only,
+golden neural hash checks are disabled and training is checked through its
+actual optimizer updates and before/after weight hashes. A separate one-epoch
+regression verifies the production helper rejects a deliberately wrong hash.
+The production CLI still enforces the frozen model hashes.
+
+Future bundles report absent non-bounded `peak_live_descriptors` and
+`peak_live_features` as null. Summary totals preserve null when any component
+is unavailable. Known zero scoring/pruning counters stay zero. Bounded peak
+work totals sum per-attempt maxima; they are not the maximum across attempts.
+The auditor supports numeric and null totals and requires bounded peaks to
+remain nonnegative measured integers within the frozen window. The original
+auditor and receipt are retained separately. No frozen raw rows, training
+records or aggregates were rewritten, and no performance rerun was needed:
+these metadata assignments occur after the timed attempt returns.
+
+Final local verification passed 53 affected tests (7.835 s unittest time;
+8.881 s CLI) and 352 fast tests (226.174 s unittest time; 229.506 s CLI),
+with matching source snapshots across both runs. The initial 11-test run
+failed because its new guard test requested zero epochs; the redundant fast
+attempt was interrupted. Both are retained with the corrected successful
+runs in `artifacts/benchmark-bounded-validation-20261018`. Full/slow/retry
+suites were not run locally; these amendments change benchmark reporting
+and tests, with the search/training implementation unchanged.

@@ -117,7 +117,10 @@ def attempt(
     """Use the same timed hash/search/independent verification wrapper."""
     row = work._attempt(engine, fn, policy, task, budget, task["id"])
     for key in EXTRA_COUNTS:
-        row["work"][key] = row["search"].get(key, 0)
+        default = None if key in {
+            "peak_live_descriptors", "peak_live_features"
+        } else 0
+        row["work"][key] = row["search"].get(key, default)
     row["work"]["scored_unexecuted_descriptors"] = (
         row["work"]["scored_descriptors"] - row["root_calls"]
         if engine != "streaming"

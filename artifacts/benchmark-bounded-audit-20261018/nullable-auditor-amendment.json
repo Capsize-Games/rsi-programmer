@@ -1,0 +1,38 @@
+{
+  "auditor_after_sha256": "23ba7bec996cffb24eeb0691f7de2bf94c2461d2ddfb2873c390bd03f22d6600",
+  "auditor_before_sha256": "56d26318d1dac80816132a9a08802cc4ab4c1e271a5e05e06e0b8af0f44d8bbf",
+  "clean_export": {
+    "audits_run": true,
+    "bundle_path": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-v1-verified-20261018",
+    "copied_auditor_sha256": "23ba7bec996cffb24eeb0691f7de2bf94c2461d2ddfb2873c390bd03f22d6600",
+    "path": "/tmp/rsi-programmer-audit-code-v76",
+    "root": "/tmp/rsi-programmer-audit-code-v76",
+    "tag": "code-v76"
+  },
+  "preserved_code_v77_auditor": "bounded_audit_code_v77.py",
+  "preserved_code_v77_auditor_sha256": "56d26318d1dac80816132a9a08802cc4ab4c1e271a5e05e06e0b8af0f44d8bbf",
+  "prior_receipt_preserved": "audit-receipt.json",
+  "purpose": "Keep nullable peak work-axis totals faithful to the v78 summary while preserving the code-v77 auditor and prior published-bundle audit receipts.",
+  "regression_cases": [
+    "mixed numeric and null work values => null",
+    "known zero values => 0",
+    "numeric work values => exact sum",
+    "null bounded descriptor peak rejected after temporary raw-row corruption"
+  ],
+  "regression_script": "nullable_work_regression.py",
+  "regression_script_sha256": "3c47f43f410ef2ba68d35f081a15f70fa55de1f72a29d1078222a0f50b6a3b6f",
+  "report_type": "nullable-work-auditor-amendment",
+  "semantics": "Auditor work_sum now matches summary _work_total: any missing or null input yields null; otherwise values sum. Bounded descriptor and feature peak fields must still be nonnegative integers and within the frozen window.",
+  "verification": {
+    "clean_root": "/tmp/rsi-programmer-audit-code-v76",
+    "negative_controls_passed": 5,
+    "negative_controls_report": "negative-controls-nullable.json",
+    "positive_passed": true,
+    "positive_report": "final-audit-nullable.json",
+    "receipt": "audit-receipt-nullable.json",
+    "receipt_sha256": "bb8c9d41407205a19bca688a712ca59a1f6ed1f7f14060cd1fe0a108a1a1362b",
+    "regression_passed": true,
+    "regression_report": "nullable-work-regression.json",
+    "runner_mode": "python -I -B with builder lock held"
+  }
+}

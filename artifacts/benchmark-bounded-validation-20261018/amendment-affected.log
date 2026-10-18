@@ -1,0 +1,35 @@
+test_cli_preflight_does_not_create_measurement_output (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_cli_preflight_does_not_create_measurement_output) ... ok
+test_engine_pair_order_is_counterbalanced (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_engine_pair_order_is_counterbalanced) ... ok
+test_existing_output_is_preserved_on_rejection (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_existing_output_is_preserved_on_rejection) ... {"infrastructure_valid": false, "run_error": "ValueError: use a new output directory"}
+ok
+test_fresh_memory_child_keeps_instrumented_results_separate (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_fresh_memory_child_keeps_instrumented_results_separate) ... {"preflight_valid": true, "timed_cells": 10656, "memory_cells": 864}
+ok
+test_full_setup_charge_and_censoring_are_not_erased (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_full_setup_charge_and_censoring_are_not_erased) ... ok
+test_learned_policy_can_score_in_isolated_memory_child (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_learned_policy_can_score_in_isolated_memory_child) ... ok
+test_model_builder_rejects_wrong_post_fit_hash (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_model_builder_rejects_wrong_post_fit_hash) ... FAIL
+test_protocol_corruption_rejected_before_loading_training_inputs (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_protocol_corruption_rejected_before_loading_training_inputs) ... ok
+test_real_frozen_preflight_and_complete_asymmetric_grid (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_real_frozen_preflight_and_complete_asymmetric_grid) ... ok
+test_real_training_startup_stops_before_any_evaluation (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_real_training_startup_stops_before_any_evaluation) ... ok
+test_unavailable_peak_counters_remain_null_in_summary (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_unavailable_peak_counters_remain_null_in_summary) ... ok
+
+======================================================================
+FAIL: test_model_builder_rejects_wrong_post_fit_hash (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_model_builder_rejects_wrong_post_fit_hash)
+----------------------------------------------------------------------
+ValueError: epochs must be a positive integer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joe/Projects/rsi-programmer/tests/test_benchmark_bounded.py", line 111, in test_model_builder_rejects_wrong_post_fit_hash
+    with self.assertRaisesRegex(
+         ~~~~~~~~~~~~~~~~~~~~~~^
+        ValueError, "trained_snn post-fit weights differ"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+AssertionError: "trained_snn post-fit weights differ" does not match "epochs must be a positive integer"
+
+----------------------------------------------------------------------
+Ran 11 tests in 7.632s
+
+FAILED (failures=1)

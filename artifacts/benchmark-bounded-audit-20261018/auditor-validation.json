@@ -19,6 +19,16 @@
     "sha256": "93205061ecabc43f2f6dc54ebbcaed150e703c1df2fdb485633d5a8821e550d0",
     "syntax": "passed"
   },
+  "nullable_work_amendment": {
+    "auditor_sha256": "23ba7bec996cffb24eeb0691f7de2bf94c2461d2ddfb2873c390bd03f22d6600",
+    "bounded_peak_nulls": "still rejected as invalid",
+    "clean_positive_audit": "passed 10,656 timed and 864 memory rows",
+    "negative_controls": "all five passed",
+    "preserved_code_v77_sha256": "56d26318d1dac80816132a9a08802cc4ab4c1e271a5e05e06e0b8af0f44d8bbf",
+    "receipt_sha256": "bb8c9d41407205a19bca688a712ca59a1f6ed1f7f14060cd1fe0a108a1a1362b",
+    "regression": "passed",
+    "summary_semantics": "None if any constituent work axis is missing or null; otherwise exact sum"
+  },
   "provenance_audit_amendment": {
     "auditor_sha256_after": "56d26318d1dac80816132a9a08802cc4ab4c1e271a5e05e06e0b8af0f44d8bbf",
     "corrected_report": "final-audit-v2.json",

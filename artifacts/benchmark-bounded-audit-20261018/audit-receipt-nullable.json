@@ -1,0 +1,88 @@
+{
+  "artifact_sha256": {
+    "artifacts/benchmark-bounded-audit-20261018/bounded_audit.py": "23ba7bec996cffb24eeb0691f7de2bf94c2461d2ddfb2873c390bd03f22d6600",
+    "artifacts/benchmark-bounded-audit-20261018/bounded_audit_code_v77.py": "56d26318d1dac80816132a9a08802cc4ab4c1e271a5e05e06e0b8af0f44d8bbf",
+    "artifacts/benchmark-bounded-audit-20261018/final-audit-nullable.json": "96304de3c8f06123201b57196c5e3b55817e8c9d0e60ecbcceb9dc3e10df9922",
+    "artifacts/benchmark-bounded-audit-20261018/negative-controls-nullable.json": "93b712c399cfa57e47972d6405da6cf2b64d0d9b4c09712bb5337cb617c6bd36",
+    "artifacts/benchmark-bounded-audit-20261018/negative_controls.py": "93205061ecabc43f2f6dc54ebbcaed150e703c1df2fdb485633d5a8821e550d0",
+    "artifacts/benchmark-bounded-audit-20261018/nullable-work-regression.json": "f816cf2f904ba2bf9a0cbaf4f3457124263b221db334981948458e5f2721d712",
+    "artifacts/benchmark-bounded-audit-20261018/nullable_work_regression.py": "3c47f43f410ef2ba68d35f081a15f70fa55de1f72a29d1078222a0f50b6a3b6f",
+    "artifacts/benchmark-bounded-v1-verified-20261018/aggregate.json": "cd1087248b01f7e4667e1618230b8bc25916ef73e3be63cdba2fef1194f92765",
+    "artifacts/benchmark-bounded-v1-verified-20261018/manifest.json": "ce7f22f79945cdb7a4a183f30cea8b7f6c744b3a4501e6661831c63d52882905",
+    "artifacts/benchmark-bounded-v1-verified-20261018/memory.jsonl": "6579e4d108e8bb7f9412f6aa53c2b421446e48d3c4cbac0e37fd9b3621930b46",
+    "artifacts/benchmark-bounded-v1-verified-20261018/raw.jsonl": "9961e1a6950cc21c9dd9476713fd4b325171b951e9477e9dff6afd9864abff38",
+    "artifacts/benchmark-bounded-v1-verified-20261018/training.json": "6c4ffd0ed01d38a10adaef505f4a1265c6cb48c4e35ea56c097b34cce8a3cc03"
+  },
+  "audit_errors": 0,
+  "builder_lock_held": true,
+  "bundle": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-v1-verified-20261018",
+  "commands": [
+    {
+      "command": "python -I -B /tmp/rsi-programmer-audit-code-v76/artifacts/benchmark-bounded-audit-20261018/nullable_work_regression.py /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-v1-verified-20261018",
+      "exit_code": 0,
+      "name": "nullable_regression",
+      "report_json": "nullable-work-regression.json",
+      "report_sha256": "f816cf2f904ba2bf9a0cbaf4f3457124263b221db334981948458e5f2721d712",
+      "stderr_log": "nullable_regression.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_log": "nullable_regression.stdout.log",
+      "stdout_sha256": "f816cf2f904ba2bf9a0cbaf4f3457124263b221db334981948458e5f2721d712",
+      "wall_seconds": 3.1835433190281037
+    },
+    {
+      "command": "python -I -B /tmp/rsi-programmer-audit-code-v76/artifacts/benchmark-bounded-audit-20261018/bounded_audit.py /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-v1-verified-20261018 --output /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-audit-20261018/final-audit-nullable.json",
+      "exit_code": 0,
+      "name": "positive_nullable_audit",
+      "report_json": "final-audit-nullable.json",
+      "stderr_log": "positive_nullable_audit.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_log": "positive_nullable_audit.stdout.log",
+      "stdout_sha256": "96304de3c8f06123201b57196c5e3b55817e8c9d0e60ecbcceb9dc3e10df9922",
+      "wall_seconds": 1.1984989309858065
+    },
+    {
+      "command": "python -I -B /tmp/rsi-programmer-audit-code-v76/artifacts/benchmark-bounded-audit-20261018/negative_controls.py /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-v1-verified-20261018 --output /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-audit-20261018/negative-controls-nullable.json",
+      "exit_code": 0,
+      "name": "negative_nullable_controls",
+      "report_json": "negative-controls-nullable.json",
+      "stderr_log": "negative_nullable_controls.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_log": "negative_nullable_controls.stdout.log",
+      "stdout_sha256": "93b712c399cfa57e47972d6405da6cf2b64d0d9b4c09712bb5337cb617c6bd36",
+      "wall_seconds": 9.723129215999506
+    },
+    {
+      "command": "uv tool run --from ruff ruff format --check --line-length 79 /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-audit-20261018/bounded_audit.py /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-audit-20261018/negative_controls.py /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-audit-20261018/nullable_work_regression.py",
+      "exit_code": 0,
+      "name": "format_check",
+      "stderr_log": "format_check.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_log": "format_check.stdout.log",
+      "stdout_sha256": "eee76f865de5a9f2456950f710ae5d5f9b5bd0ea02aa54f614c5eed6642a0bfd",
+      "wall_seconds": 0.026027872983831912
+    },
+    {
+      "command": "python -I -B -c <AST parse and <=79 columns for all 3 scripts>",
+      "exit_code": 0,
+      "name": "syntax_line_width",
+      "stderr_log": "syntax_width.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_log": "syntax_width.stdout.log",
+      "stdout_sha256": "b185ed0a7c6c9a664f22ba529868f86d724c8bcd756c143038aa413d415744a1",
+      "wall_seconds": 0.03087626598426141
+    }
+  ],
+  "decision_supported_on_cost": false,
+  "expected_memory_rows": 864,
+  "expected_timed_rows": 10656,
+  "five_negative_controls_passed": true,
+  "nullable_regression_passed": true,
+  "observed_memory_rows": 864,
+  "observed_timed_rows": 10656,
+  "positive_audit_passed": true,
+  "prior_code_v77_receipt_preserved": "audit-receipt.json",
+  "python_mode": "-I -B; stdlib-only auditor rooted at parents[2] of exported audit script",
+  "report_type": "nullable-work-independent-audit-receipt",
+  "source_root": "/tmp/rsi-programmer-audit-code-v76",
+  "source_tag": "code-v76 (runtime and tests match measured code-v74; later Git changes were data-only)"
+}

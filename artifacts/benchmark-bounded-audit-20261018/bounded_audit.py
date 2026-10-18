@@ -291,14 +291,19 @@ def expected_memory_sequence(
     return sequence
 
 
-def work_sum(rows: list[dict[str, Any]]) -> dict[str, int]:
+def work_sum(rows: list[dict[str, Any]]) -> dict[str, int | None]:
     axes: set[str] = set()
     for row in rows:
         axes.update((row.get("work") or {}).keys())
-    return {
-        axis: sum(int((row.get("work") or {}).get(axis) or 0) for row in rows)
-        for axis in sorted(axes)
-    }
+    totals = {}
+    for axis in sorted(axes):
+        values = [(row.get("work") or {}).get(axis) for row in rows]
+        totals[axis] = (
+            None
+            if any(value is None for value in values)
+            else sum(int(value) for value in values)
+        )
+    return totals
 
 
 def training_charge(
@@ -681,17 +686,22 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
                 method = protocol["method"]
                 if search.get("window_size") != method["window_size"]:
                     errors.append(f"bounded window mismatch at line {n}")
-                if (
-                    search.get("peak_live_descriptors", 10**9)
-                    > method["window_size"]
-                ):
+                descriptor_peak = search.get("peak_live_descriptors")
+                feature_peak = search.get("peak_live_features")
+                if type(descriptor_peak) is not int or descriptor_peak < 0:
+                    errors.append(
+                        "bounded descriptor peak missing or invalid at "
+                        f"line {n}"
+                    )
+                elif descriptor_peak > method["window_size"]:
                     errors.append(
                         f"bounded descriptor peak exceeded at line {n}"
                     )
-                if (
-                    search.get("peak_live_features", 10**9)
-                    > method["window_size"]
-                ):
+                if type(feature_peak) is not int or feature_peak < 0:
+                    errors.append(
+                        f"bounded feature peak missing or invalid at line {n}"
+                    )
+                elif feature_peak > method["window_size"]:
                     errors.append(f"bounded feature peak exceeded at line {n}")
                 if work.get("scored_descriptors") != search.get(
                     "scored_descriptors"

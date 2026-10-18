@@ -30,6 +30,13 @@ rejections. `final-audit.json` preserves the first audit failure;
 `final-audit-v2.json` is the corrected audit report. `audit-receipt.json`
 records final command exit codes, durations, log hashes, and bundle hashes.
 
+The nullable-work amendment was checked against the same bundle from a clean
+code-v76 export. Its regression verified null-propagating sums, exact zero and
+numeric totals, and rejection of a null bounded peak. The amended positive
+audit and all five negative controls passed; see `final-audit-nullable.json`,
+`negative-controls-nullable.json`, and `audit-receipt-nullable.json`. The old
+code-v77 auditor and receipt remain preserved separately.
+
 Run the result audit on a future completed bundle with:
 
 ```sh
