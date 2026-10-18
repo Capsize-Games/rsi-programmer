@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "credential_scope": "Existing local gh credential supplied only as the authenticated child GH_TOKEN; no credential saved. This does not mint or test the Actions token itself.",
+  "isolation": "Fresh empty GH_CONFIG_DIR, no inherited token, GH_HOST or GH_REPO variables; GITHUB_ACTIONS=true for both child processes.",
+  "stages": [
+    {
+      "name": "unauthenticated",
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_hub_verify.HubVerifyTests.test_missing_hub_listing_recorded",
+        "-v"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 0.09501782199367881,
+      "log": "unauthenticated.log"
+    },
+    {
+      "name": "authenticated",
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_hub_release_lookup",
+        "tests.test_hub_verify",
+        "-v"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.6213380900153425,
+      "log": "authenticated.log"
+    }
+  ],
+  "expected_negative_failures": 1,
+  "authenticated_tests_passed": 6
+}

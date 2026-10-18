@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/joe/Projects/rsi-programmer/artifacts/ci-full-followup-20261018/probe_gh_auth.py", line 86, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/joe/Projects/rsi-programmer/artifacts/ci-full-followup-20261018/probe_gh_auth.py", line 63, in main
+    assert result.returncode == 1, output
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: test_missing_hub_listing_recorded (tests.test_hub_verify.HubVerifyTests.test_missing_hub_listing_recorded)
+Unpublished models report hub FAIL with the reason. ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.431s
+
+OK
+

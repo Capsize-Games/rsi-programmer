@@ -1,0 +1,155 @@
+{
+  "annotations_available": true,
+  "annotations_count_total": 0,
+  "captured_at": "2026-10-18T18:19:23Z",
+  "commands": [
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/actions/runs/39149596790",
+      "exit": 0,
+      "outputs": [
+        "run-initial.json",
+        "run-latest.json"
+      ]
+    },
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/actions/runs/39149596790/jobs?per_page=100",
+      "exit": 0,
+      "outputs": [
+        "jobs-initial.json",
+        "jobs-latest.json"
+      ]
+    },
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/check-runs/<job-id>",
+      "exit": 0,
+      "outputs": [
+        "check-run-latest-117740330754.json",
+        "check-run-latest-117740331011.json"
+      ]
+    },
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/check-runs/<job-id>/annotations",
+      "exit": 0,
+      "outputs": [
+        "annotations-latest-117740330754.json",
+        "annotations-latest-117740331011.json"
+      ]
+    },
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/actions/jobs/<job-id>/logs",
+      "per_job_exit": 1,
+      "provider_error": "Azure BlobNotFound",
+      "stderr": "gh: HTTP 404"
+    },
+    {
+      "command": "gh run view 39149596790 --job <job-id> --log",
+      "per_job_exit": 1,
+      "stderr": "job <id> is still in progress; logs will be available when it is complete"
+    }
+  ],
+  "fast_context": [
+    {
+      "job_id": 117740331048,
+      "python": "3.12",
+      "seconds": 464.011,
+      "status": "success",
+      "tests": 374
+    },
+    {
+      "job_id": 117740330958,
+      "python": "3.13",
+      "seconds": 483.614,
+      "status": "success",
+      "tests": 374
+    }
+  ],
+  "file_sha256": {
+    "README.md": "e9b6995f4ce436794fed8fde4db7c6897b2950930596f8b800aeaf85358c1557",
+    "annotations-latest-117740330754.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "annotations-latest-117740331011.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "check-run-latest-117740330754.json": "af5748374fed018c845b16faee1763d2014701bccc34b8a155020cdff2e4eac5",
+    "check-run-latest-117740331011.json": "ebac78a88c2173ac0573d28feed4f7a9a65db1921db5a1fbe5f8566808705e00",
+    "gh-log-attempt-117740330754.stderr": "9a7b81f5a9cd6585c207c23ad6c4a4f5c949186f6c06d83b91eed08f6ef6c63f",
+    "gh-log-attempt-117740331011.stderr": "370ed2de01c3a86f0f7b89d2cf2bce7268eb3f7f05d475c016d6360602cff54b",
+    "jobs-initial.json": "2bf9cf704dfe3bff39ffb988b1b5f04fbc8a80b023a2a3773b5a3025b4a49a95",
+    "jobs-latest.json": "2bf9cf704dfe3bff39ffb988b1b5f04fbc8a80b023a2a3773b5a3025b4a49a95",
+    "latest-captured-at.txt": "4ff039cc21a0decf0477119ad3d9be2f28bcc95814316e695333b95bf2642c8a",
+    "logs-attempt-117740330754.stderr": "6c5ec582d3b25e97273d17fd4088d0e13837c8384ee94aba555afc35856ec3ae",
+    "logs-attempt-117740331011.stderr": "6c5ec582d3b25e97273d17fd4088d0e13837c8384ee94aba555afc35856ec3ae",
+    "run-initial.json": "c9eeb171f0df6481eb572f9e25d1eedd811cc3e60389d87266a24f057a3e050a",
+    "run-latest.json": "c9eeb171f0df6481eb572f9e25d1eedd811cc3e60389d87266a24f057a3e050a"
+  },
+  "full_jobs": [
+    {
+      "actions_logs_endpoint_exit": 1,
+      "actions_logs_provider_error": "Azure BlobNotFound; raw XML omitted because it includes transient request identifiers.",
+      "actions_logs_provider_response_sha256": "58874ffd6078028ae2559c855c1f86807ac26cd038ed4f11b0122247c409359c",
+      "actions_logs_stderr": "gh: HTTP 404",
+      "active_step": "Run .venv/bin/python -m unittest discover -s tests -t .",
+      "active_step_elapsed_seconds_at_capture": 3154,
+      "active_step_started_at": "2026-10-18T17:26:49Z",
+      "annotations_count": 0,
+      "annotations_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "check_run_conclusion": null,
+      "check_run_status": "in_progress",
+      "completed_setup_steps_successful": true,
+      "conclusion": null,
+      "gh_cli_log_empty_output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gh_cli_log_exit": 1,
+      "gh_cli_log_stderr": "job 117740330754 is still in progress; logs will be available when it is complete",
+      "job_id": 117740330754,
+      "job_json_sha256": "af5748374fed018c845b16faee1763d2014701bccc34b8a155020cdff2e4eac5",
+      "name": "full (3.13)",
+      "started_at": "2026-10-18T17:26:35Z",
+      "status": "in_progress"
+    },
+    {
+      "actions_logs_endpoint_exit": 1,
+      "actions_logs_provider_error": "Azure BlobNotFound; raw XML omitted because it includes transient request identifiers.",
+      "actions_logs_provider_response_sha256": "8746c6450bb172ea097b49d4fa65b1f308c0c75cc31b23da59c2816802bced56",
+      "actions_logs_stderr": "gh: HTTP 404",
+      "active_step": "Run .venv/bin/python -m unittest discover -s tests -t .",
+      "active_step_elapsed_seconds_at_capture": 3155,
+      "active_step_started_at": "2026-10-18T17:26:48Z",
+      "annotations_count": 0,
+      "annotations_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "check_run_conclusion": null,
+      "check_run_status": "in_progress",
+      "completed_setup_steps_successful": true,
+      "conclusion": null,
+      "gh_cli_log_empty_output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gh_cli_log_exit": 1,
+      "gh_cli_log_stderr": "job 117740331011 is still in progress; logs will be available when it is complete",
+      "job_id": 117740331011,
+      "job_json_sha256": "ebac78a88c2173ac0573d28feed4f7a9a65db1921db5a1fbe5f8566808705e00",
+      "name": "full (3.12)",
+      "started_at": "2026-10-18T17:26:35Z",
+      "status": "in_progress"
+    }
+  ],
+  "log_availability": {
+    "actions_job_logs_endpoint": "Both requests exited 1 with HTTP 404; the response identified Azure BlobNotFound. Only the response SHA256 is retained because the raw XML contains transient request identifiers.",
+    "check_run_annotations": "Latest check-runs annotation endpoints returned an empty list for both jobs.",
+    "failure_summary": "No failing step or failure annotation was present in latest metadata. Both unittest steps remain in progress.",
+    "gh_run_view_log": "Both commands exited 1 with \u201cjob <id> is still in progress; logs will be available when it is complete\u201d. Their empty stdout files were removed."
+  },
+  "observed_failures": [],
+  "repository": "Capsize-Games/rsi-programmer",
+  "run_conclusion": null,
+  "run_id": 39149596790,
+  "run_status": "in_progress",
+  "snapshot_policy": "Kept initial and latest metadata; discarded repeated unchanged intermediate snapshots. No incomplete log was treated as a completed log or compressed.",
+  "source_head_sha": "6b1559986f3e240219661383a8f3f84bf1fb1557",
+  "workflow_declared_full_workload": {
+    "command": ".venv/bin/python -m unittest discover -s tests -t .",
+    "matrix_python_versions": [
+      "3.12",
+      "3.13"
+    ],
+    "timeout_minutes_declared": null,
+    "workload_note": "One full unittest discovery runs in each Python matrix job. The workflow declares no timeout or test-count budget, so it provides no defensible completion ETA."
+  },
+  "workflow_file": ".github/workflows/ci.yml",
+  "workflow_file_sha256": "d621632fcd3c683caf6e0753dfa81cffa7d7869b77abba5d070716ac33d6cb38",
+  "workflow_updated_at": "2026-10-18T17:26:45Z"
+}

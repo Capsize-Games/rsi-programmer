@@ -1,0 +1,46 @@
+{
+  "code_v78": {
+    "sha": "c8f8aac38f783f49222e897ca15c1f96ef109643",
+    "ci_run": "39145562287",
+    "vs_code_v86_full_suite_relevant_changes": [
+      "M\tjustfile",
+      "A\trsi_programmer/benchmark_shortlist.py",
+      "A\trsi_programmer/benchmark_shortlist_summary.py",
+      "A\trsi_programmer/shortlist_pre_eval.py",
+      "A\tscripts/benchmark_complete_shortlist.py",
+      "A\tscripts/select_shortlist_method.py",
+      "A\ttests/test_benchmark_shortlist.py",
+      "A\ttests/test_shortlist_contract.py",
+      "A\ttests/test_shortlist_pre_eval.py"
+    ]
+  },
+  "code_v80": {
+    "sha": "1c1865047f06e804ebd16f57231567d1a2cdeebe",
+    "ci_run": "39147846343",
+    "vs_code_v86_full_suite_relevant_changes": [
+      "M\tjustfile",
+      "A\trsi_programmer/benchmark_shortlist.py",
+      "A\trsi_programmer/benchmark_shortlist_summary.py",
+      "A\tscripts/benchmark_complete_shortlist.py",
+      "A\ttests/test_benchmark_shortlist.py"
+    ]
+  },
+  "code_v86": {
+    "sha": "4e4f904364e99fb71c2958a39b030ac1c5e147ec"
+  },
+  "ci_workflow_sha256_by_tag": {
+    "code-v78": "e1ccebd9c738c0136e46069d35b7a68942b30e02a214a0127b072f69c2f44be6",
+    "code-v80": "e1ccebd9c738c0136e46069d35b7a68942b30e02a214a0127b072f69c2f44be6",
+    "code-v86": "e1ccebd9c738c0136e46069d35b7a68942b30e02a214a0127b072f69c2f44be6"
+  },
+  "ci_workflow_identical_across_tags": true,
+  "workflow_test_commands": {
+    "fast": "just test-fast",
+    "full": ".venv/bin/python -m unittest discover -s tests -t .",
+    "python_matrix": [
+      "3.12",
+      "3.13"
+    ]
+  },
+  "scope": "Read-only comparison of older pending GitHub full-suite runs and current code-v86; no local test execution."
+}

@@ -27,6 +27,8 @@ jobs:
       - run: just test-fast
   full:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -45,3 +47,5 @@ jobs:
       - run: UV_PYTHON=${{ matrix.python-version }} just setup
           "${GITHUB_WORKSPACE}/vendor/spikeforge"
       - run: .venv/bin/python -m unittest discover -s tests -t .
+        env:
+          GH_TOKEN: ${{ github.token }}

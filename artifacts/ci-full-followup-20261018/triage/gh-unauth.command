@@ -1,0 +1,1 @@
+GH_CONFIG_DIR="$(mktemp -d /tmp/rsi-gh-unauth-XXXXXX)" GH_PROMPT_DISABLED=1 env -u GH_TOKEN -u GITHUB_TOKEN gh api repos/Capsize-Games/rsi-programmer/releases --jq '.[0].tag_name' > /tmp/rsi-gh-unauth.stdout 2> /tmp/rsi-gh-unauth.stderr

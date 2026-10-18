@@ -1,0 +1,20 @@
+{
+  "review": "read-only workflow delta review",
+  "workflow_file": ".github/workflows/ci.yml",
+  "current_working_diff": "diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml\nindex 4a10bb3..128ed72 100644\n--- a/.github/workflows/ci.yml\n+++ b/.github/workflows/ci.yml\n@@ -27,6 +27,8 @@ jobs:\n       - run: just test-fast\n   full:\n     if: github.event_name == 'push' && github.ref == 'refs/heads/main'\n+    permissions:\n+      contents: read\n     runs-on: ubuntu-latest\n     strategy:\n       matrix:\n@@ -45,3 +47,5 @@ jobs:\n       - run: UV_PYTHON=${{ matrix.python-version }} just setup\n           \"${GITHUB_WORKSPACE}/vendor/spikeforge\"\n       - run: .venv/bin/python -m unittest discover -s tests -t .\n+        env:\n+          GH_TOKEN: ${{ github.token }}\n",
+  "current_workflow_sha256": "d621632fcd3c683caf6e0753dfa81cffa7d7869b77abba5d070716ac33d6cb38",
+  "test_sources_modified_by_delta": false,
+  "review_findings": {
+    "job_scoped_minimum_permission": "full job only: contents: read",
+    "token_scope": "GH_TOKEN=${{ github.token }} only in full unittest step",
+    "pull_request_full_job": "still excluded by existing full job condition",
+    "test_contract": "unchanged; test_hub_verify still executes gh release metadata/assets and hub HTTP verification; no mocks or expectations changed",
+    "matrix_fail_fast": "default true for full matrix; one full-job failure can cancel sibling; this is separate from the missing-gh-auth failure being fixed",
+    "issue_44_history": "original issue described fast-job failure causing full jobs to cancel; observed code-v77 incident was a full job gh-auth failure canceling its full sibling"
+  },
+  "validation": {
+    "git_diff_check_exit": 0,
+    "tests_run": false,
+    "heavy_jobs_started": false
+  }
+}

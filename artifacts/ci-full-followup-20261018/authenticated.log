@@ -1,0 +1,13 @@
+test_finds_asset_beyond_first_fifty_releases (tests.test_hub_release_lookup.HubReleaseLookupTests.test_finds_asset_beyond_first_fifty_releases) ... ok
+test_malformed_release_json_fails_closed (tests.test_hub_release_lookup.HubReleaseLookupTests.test_malformed_release_json_fails_closed) ... ok
+test_missing_asset_reports_missing (tests.test_hub_release_lookup.HubReleaseLookupTests.test_missing_asset_reports_missing) ... ok
+test_release_api_error_fails_closed (tests.test_hub_release_lookup.HubReleaseLookupTests.test_release_api_error_fails_closed) ... ok
+test_missing_hub_listing_recorded (tests.test_hub_verify.HubVerifyTests.test_missing_hub_listing_recorded)
+Unpublished models report hub FAIL with the reason. ... ok
+test_wrong_checksum_fails (tests.test_hub_verify.HubVerifyTests.test_wrong_checksum_fails)
+Corrupted local weights fail against real assets. ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.555s
+
+OK
