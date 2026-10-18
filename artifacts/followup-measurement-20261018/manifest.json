@@ -1,0 +1,236 @@
+{
+  "snapshot_at_unix": 1792315063.2173312,
+  "base_commit": "01ae4bec8aa8f0da7377ebcb0d7481856bda1ea8",
+  "source": {
+    "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+    "files": 102
+  },
+  "source_method": "SHA256(sorted(relative_path_bytes + file_bytes))",
+  "input_files": {
+    "fixtures/rsi_branch_tasks.json": "d2237862eb447545d2f605f4ff911ecf3ef986bab73a61e9af18a0f7e5abfc1e",
+    "fixtures/rsi_const_tasks.json": "4c6b0ef7265a36b08244f700d0b3b1bfbb65e84b7c4822ee9f4ad570acd1d030",
+    "fixtures/rsi_gen_novel.json": "fd7e267e3805610fe1375f383442a15e6c14b8a71c0670e02b1db97a75634c4f",
+    "fixtures/rsi_gen_train.json": "286d1390442e14ee63fd19cee20cbba133e0f1edfc7b2cbeb0e67ddb380dd7c5",
+    "fixtures/rsi_hard_tasks.json": "a0eea149103b7c06bc3fcb55281ba44abb31229228e408dd18b8401c8ecb6ec8",
+    "fixtures/rsi_novel_tasks.json": "0267aaa6a5a11f2d036f6f07a5104663dde5793afd08f11f4b665bd1025181c8",
+    "fixtures/rsi_ood_plain.json": "944217d3b212c4d50c8866218314ea4391d03d8eb00bcceb7e1fe6d9150320ca",
+    "fixtures/rsi_ood_tasks.json": "bc0a24603752116248bce44a761a9f4094758f84cebae21f665c76196dbbf8ea",
+    "fixtures/rsi_ood_twin.json": "ed69b8b1fb9ad385c6ab03c7fe0e6de6b1b696bda0505648fbaf33363c8811ec",
+    "fixtures/rsi_ood_v2.json": "257ddcd9d5b13fab06f2a0c543da69c7f6f68f01ce530501cda8a16b309d0f97",
+    "fixtures/rsi_plain_hard.json": "461b63daa4d6103562021e85771280be1c8c6b7adfa24d72d0fd7e949060d376",
+    "fixtures/rsi_plain_more.json": "f43ed91d43cf5b670a3621c4d044a89cfd23cd963bb2d3258df65c92c32c096f",
+    "fixtures/rsi_plain_train.json": "5b2d371f97cdb52fa1278d9d6774f34d9e0adb81517167978d8f529d1fee7f7b",
+    "fixtures/rsi_shadow_tasks.json": "da7b2603f9a17a6f85e3f46cc358f717a1653c119ad6ae373db9f78a22b6156d",
+    "justfile": "ae62f33a56f18c9ec9fa1c5205fd6560bb3e04a2a7a49f0ced6fe56979e28f3f",
+    "requirements.txt": "83836c10253073571cb302a8be96d58d7054a02b29a467f96d40061084d18b27",
+    "rsi_programmer/__init__.py": "0e898ba1f3b9fb6f2c9d0ebad9d323077ee85a1e524b3ab6e200c30fe0a57379",
+    "rsi_programmer/actions.py": "ca32d8c6f621f1c15d9edd273d5e80e6901ff98e0a740909433fef896e7161e9",
+    "rsi_programmer/author.py": "24361254d788c923b0ff19509ba74efc5de94d2a4df4556c1d570fe3fdaa2ed3",
+    "rsi_programmer/autonomy.py": "6d7de4be1e8319c61c737eac975974f4b1f7db4df707857cc38ca4b5d3848859",
+    "rsi_programmer/bytecode.py": "74d4e7ca5a3da8de4990e001c43ecfed7c3b4721585796ceffc0a122c4b8e757",
+    "rsi_programmer/decoder.py": "70069451adbecaae1bef4ded27261a980c5d7b651f50859c3f6aa2b1503fee14",
+    "rsi_programmer/edits.py": "9ba828de61f22c0517a3ac273172699b6fb4a4244326482b7aaa2443b4193415",
+    "rsi_programmer/evolve.py": "43aabb164e398393f05e0b23f78b9d30adf717baa3c00cbd4437bad0c5a114a7",
+    "rsi_programmer/families.py": "d3492ac4e7154625c8b0415cbf7fc9cdc78a486a37963464d7c6fe00311ea636",
+    "rsi_programmer/headless.py": "d73c0536ae56e0d4abed4ca1da94ad4467f9bd597d6ea3385363659e4dc33b54",
+    "rsi_programmer/lattice.py": "47f7e8152f501583352a243152c18bdcc23fbd509db24239a5661e519a988558",
+    "rsi_programmer/lauthor.py": "40441fe96c119b8df6c82dda04e9c6fd89194f00770054ee43f012cd936a2257",
+    "rsi_programmer/lineage.py": "b3709d2aa7ae77abcee7f82abaa48c71b82692008254deb7322d309f7473231f",
+    "rsi_programmer/loop_trainer.py": "748d6fe56b28bcd06ca50cefbe999e9b81b95e080baed096a10769bfe798d4ec",
+    "rsi_programmer/lprecision.py": "d1dd5c288366b4a3a50308a0b48a8744f6df8bbf91a00ed88b5d02774907b275",
+    "rsi_programmer/ltrain.py": "d8def3f1727bbd3ffcd3151adb5bbdb37aa48faf33062492de905a01c7671c25",
+    "rsi_programmer/mgroups.py": "930b5b9e69dc6fad971b615c33599184f3fdc876f8e90cc2a33fb07b7451f6d6",
+    "rsi_programmer/modules.py": "9ff3a3707b31740bcff7db7175d87c4ce0714cdba4b018054c2c68c7b12d304b",
+    "rsi_programmer/ood.py": "1e8294c1850ba2ff5bcde20bfa9c115e3eb1ecad05ffaa9fcfff5fadb7090522",
+    "rsi_programmer/policy.py": "7c64bdbd4fa57847586344e7f1b639d086dd90c335a6eb4ea03428f3690223c8",
+    "rsi_programmer/pool.py": "cf8b1de50c564b805011ed090b7a5c0dd475193567a1ed3fa32ccbac17a53563",
+    "rsi_programmer/probe.py": "cdcd5475abcf35dbbaee4505569ba8db26f2e091f0aadc7e1bd2690bec262914",
+    "rsi_programmer/promote.py": "45bfad2170c3b78a5e67f605d1d36d71af274060946094242d31467654cf00c5",
+    "rsi_programmer/proposer.py": "35621f5c7c3bf7a78c8e96a3c9eb2e83d09ac1bd92b719a7776c9f6bb5111406",
+    "rsi_programmer/proxy.py": "3c42b0807e170deeebe76a2c8d45730f068e07132de9a9b6768838504bf0ee66",
+    "rsi_programmer/rich.py": "a9a536e5c14fa78340a344834b773aa7e329827ebd9efe63dc8289f56eaa3721",
+    "rsi_programmer/sandbox.py": "9fa2af4cc766f61bc3503934db4960039e87012a80ca78a6a9a8dc53eecb9798",
+    "rsi_programmer/scale.py": "cab83ecb690386a2b44ec5839ed202f4309882948e610b05e51daff435fbe669",
+    "rsi_programmer/search.py": "92694dd1a4eabcc72aadceab0132a69425acd4348a3ed37aa20a6a561f4ad96e",
+    "rsi_programmer/selectivity.py": "01eb482919f904fd594c6818371ca5616545b5c3f2f45691d269658976e3142a",
+    "rsi_programmer/self_gate.py": "fd710304902466d46921e62e6e5151fddde9c05dfcccfc80f4e9fd1988d0ba90",
+    "rsi_programmer/tasks.py": "f4060c9406a9d9236882c567f69d8d947029a56a3eeac4a2d2a638643be43166",
+    "rsi_programmer/traces.py": "3e9c5ba60bf9f7f7c7186bfa5db246f0bfdf9e5771ab8e307681e953f689b332",
+    "rsi_programmer/words.py": "93fe070725d11557ffdc11b503bf5f525d13021f3e49c59c933698d9659ca21c",
+    "scripts/make_tasks.py": "42d3d3b5c978da8416abaa5f4b004cb9be3c29381cedb05bdd2cfa65ef961d73",
+    "scripts/measure_author_ablation.py": "41d5482aeb7952fec2d6470fa82cbb36d91a10dfbc49692ed1d317a24780b1b7",
+    "scripts/measure_ranker.py": "d62365e86a4d8f9496d3a2c17735bb5850926a8f398d17716070150c669e2c15",
+    "scripts/ood_bench.py": "9c50e5b96ce66a0c1a041b41903b0ed25a5b84b1da5ba5a7066cd7994394e1a8",
+    "scripts/plot_gains.py": "4ca79ac2d0ce1221b31f59de627fb14bfd949b3079f884c5b30e84c3c5e6f066",
+    "scripts/proxy_fidelity.py": "513a77023214947c4d20edcd9d8c1a321f01c335de52b86fcad05a08a4913887",
+    "scripts/rsi_loop.py": "70695785a359d7ddf13c3b449621797b5e5e64f5792af734bb561a5ffc8a81e9",
+    "scripts/train.py": "4a08e301e39ffdc492481e27897925a947ea8ba6a70cfa192d409f25fb3a9d88",
+    "scripts/verify_hub.py": "a3e5ee45375d7db92a33aeba03cf57a0c61c6c595d6cb69f6bda5b9e9d0dad2b",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/test_autonomy.py": "c486d4589b95711f2d39ca57e110a8cb6e5ac83f9258ca63c9e8d3e615420710",
+    "tests/test_edits.py": "0eb534da84c0d2bc9df0d9ddd6b91a4211eda4eabf93032385333c073df48321",
+    "tests/test_gains.py": "d863eed71a19d9b9de3a184eed2510e32316171f4ea9ffb56188b2715aa91be2",
+    "tests/test_generator_amendments.py": "92f9dd5a23af0de28f401b1eed0cb6dcc98e7f649596ad38caada6ecbcd0c213",
+    "tests/test_hub_verify.py": "41bbda5085038f50ae0abd99a1cc1e479a88abe4d88b07980674ece511f78723",
+    "tests/test_measurement_provenance.py": "a0338f2e729708685ef355a0ddd19c5cd1e3b695b762c46e2077ad9953ec43b3",
+    "tests/test_modular.py": "edda03647147a528930aa1663a0c1c499e1a6ce58d50839fdfa75b831d0deb39",
+    "tests/test_objective_amendments.py": "686b0ce10357eeee493884fa7a9aa95b2c725b8a2fa5b83258bd45679bf3069e",
+    "tests/test_proxy.py": "5fc58e8bddc03be5342137a4777576a40aa2fc68d00e3908cfbcd73dbb81f909",
+    "tests/test_review_acceptance.py": "b489950ae5a4a4262f4278ca167bc6a364a476771a3d6205f0b3183ac91a52da",
+    "tests/test_review_integrity.py": "14389290d40fde3b7a04e7c03f1772368e63fcc121834c3286ca1e05c67008c9",
+    "tests/test_review_lattice.py": "55e636cafb042da98614271caf9270e362d84810f08896fa3bbda66a58ef51ce",
+    "tests/test_review_protocol.py": "5eaf90265503a9896d33279193fb970bd681ee977546201f381badf4384eb101",
+    "tests/test_review_search.py": "a12dc61866456baa01ac8f0004ed087bc71d60153db0d052ae51218d2c516fb9",
+    "tests/test_review_search_edges.py": "3a59e488567fc10b7cf870acba8b6d4bd9fd82e3cc8c1a5b1d4283cfcd04f574",
+    "tests/test_rsi_actions.py": "9476852bb9181b5f086c8bded60bd0c10d1d099dd099519057e8decac6c6b213",
+    "tests/test_rsi_author.py": "c94bf11c5376fa68f5e40b19930c878465e07c9719e82df0bae08193e0259544",
+    "tests/test_rsi_baseline.py": "1cc2def514f3290e9fc30dfb960d5eb109bc6684b62d84e4d756dbd6a70e0df9",
+    "tests/test_rsi_beam.py": "8293331f6fdad73e6f81962e948e9f321201604baec644586b6b7d7be04ac887",
+    "tests/test_rsi_bytecode.py": "7d4a555ddbaca0e8f23de3b4b8651751e0c5aff207ef3a1c88cd1f6930df2acc",
+    "tests/test_rsi_decoder.py": "5ef2d05e4b481f222fa7de0dc5a5243e969b6711816d2c88cb5880a3c948caa4",
+    "tests/test_rsi_evolve.py": "4b799ff8b44d3c039b011f853db43bc8659fcf549f45303d2bfdcd18657e3021",
+    "tests/test_rsi_hard.py": "c398a052db299e747d4dc4bd4b59a580b1bc3d44d5c5337a15e30635971e2b8b",
+    "tests/test_rsi_headless.py": "9c7dcbc204fc06021979b6ddc95ef54c88ee78b11f39c84cfa0ebf6a6783a468",
+    "tests/test_rsi_lattice.py": "c68b6a9dfbdb5fcd174d2b3a07d4c08e46e0de708fe92488cf238e1a196f5569",
+    "tests/test_rsi_lattice_author.py": "93008d1e6c6693d9bfc9306429eac056da13162b86d669df45b0eec7e9bb0cbc",
+    "tests/test_rsi_lattice_train.py": "60093eba819ad58cb3d52bd258fdd8dbb040bda29acd364f36df44f1dec2cc81",
+    "tests/test_rsi_loop.py": "ead283a2045caafc32c6ce97140c6d289946815128a2ddf212cf557503fe7638",
+    "tests/test_rsi_ood.py": "78d00ad14124119411e1a8458c15088abd3fdd26fbb790d5ce9bd01d049c9597",
+    "tests/test_rsi_operands.py": "8668e958f5b60b42d21a82444bffbfbf4551d5bd9b2ffd70463610e701b5ef76",
+    "tests/test_rsi_proposer.py": "2c7ac4dcd9b369395efabcae7ed3eca410c2de68bc347c29b0a591214ba50b79",
+    "tests/test_rsi_retry.py": "0e95baf0c00e92fcffc56f1842d1892a6d91e1650ea5c1b2e8f37f760ea2e8db",
+    "tests/test_rsi_sandbox.py": "9c227149220c017e4f972aa632cf0bd975576659ce6de0f5d4741ad2be40ff53",
+    "tests/test_rsi_scale.py": "ebbafbd863a1cad5ec40f8b9d1c16107c911d9e87a1c859c7d618411a4651de8",
+    "tests/test_rsi_selectivity.py": "af5992dcf71af63dda6787270c948864092e10d0f5e0b0c5e235fb20394f2055",
+    "tests/test_rsi_tasks.py": "58c1e02513f72bb59a56110211133c6d8e802f97957a3950260671cc24be3da8",
+    "tests/test_rsi_transfer.py": "5609b0037940624d7d3c759fe35733b92b9cc7083318cca9069b9ff63b801fb2",
+    "tests/test_rsi_words.py": "17f9d6fdb0169a37f823edfbe9919f4b1ca85dd96125819b2ce2d557f8e4966e",
+    "tests/test_search_amendments.py": "90d7954eda99597d81f82bb8719882f953375e0eabdd3a6fb82777aaf9bad800",
+    "tests/test_self_gate.py": "5bfde222d1d63b9cedd281a604006db317f706718ce87971500a7838ca6516f8",
+    "tests/test_supervision_amendments.py": "bdb72695f6eec2c35d153719f7c5a96065b4fd247ee22b83de450d8ccd0175cc",
+    "tests/test_typed_dag_programming_probe.py": "6c888ab1d8f40239a83f70c902e4eb41368c34fea70401ec98a1602e8eac1d36"
+  },
+  "fast": {
+    "base_commit": "01ae4bec8aa8f0da7377ebcb0d7481856bda1ea8",
+    "patch_files": {
+      "scripts/measure_author_ablation.py": "41d5482aeb7952fec2d6470fa82cbb36d91a10dfbc49692ed1d317a24780b1b7",
+      "tests/test_measurement_provenance.py": "a0338f2e729708685ef355a0ddd19c5cd1e3b695b762c46e2077ad9953ec43b3"
+    },
+    "source": {
+      "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+      "files": 102
+    },
+    "command": [
+      "just",
+      "test-fast"
+    ],
+    "status": "passed",
+    "started_at": 1792314619.8872285,
+    "exit_code": 0,
+    "wall_seconds": 231.0477638244629,
+    "source_after": {
+      "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+      "files": 102
+    }
+  },
+  "stages": {
+    "source": {
+      "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+      "files": 102
+    },
+    "stages": [
+      {
+        "name": "author-ablation",
+        "command": [
+          ".venv/bin/python",
+          "scripts/measure_author_ablation.py",
+          "--seeds",
+          "0",
+          "1",
+          "2",
+          "--epochs",
+          "100",
+          "--rounds",
+          "12",
+          "--budget",
+          "128",
+          "--topk",
+          "3",
+          "--width",
+          "3",
+          "--output",
+          "artifacts/author-ablation-v1.json"
+        ],
+        "source_start": {
+          "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+          "files": 102
+        },
+        "status": "passed",
+        "started_at_unix": 1792314851.489588,
+        "exit_code": 0,
+        "wall_seconds": 71.3024230003357,
+        "source_finish": {
+          "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+          "files": 102
+        }
+      },
+      {
+        "name": "ranker",
+        "command": [
+          ".venv/bin/python",
+          "scripts/measure_ranker.py",
+          "--out",
+          "artifacts/ranker-v47"
+        ],
+        "source_start": {
+          "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+          "files": 102
+        },
+        "status": "passed",
+        "started_at_unix": 1792314922.7985647,
+        "exit_code": 0,
+        "wall_seconds": 13.575035572052002,
+        "source_finish": {
+          "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+          "files": 102
+        }
+      },
+      {
+        "name": "slow",
+        "command": [
+          "just",
+          "test-slow"
+        ],
+        "source_start": {
+          "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+          "files": 102
+        },
+        "status": "running",
+        "started_at_unix": 1792314936.3808098
+      }
+    ],
+    "execution": "sequential under one shared builder lock",
+    "full_local_discovery": false,
+    "excluded_tests": []
+  },
+  "pending": [
+    "complete slow lane",
+    "complete retry lane"
+  ],
+  "full_local_discovery": false,
+  "excluded_tests": [],
+  "logs": "local paths and trailing whitespace normalized; values unchanged",
+  "outputs_sha256": {
+    "analyze_author_ablation.py": "3de884d69081e0155f7c1967d0694cee91b1113e7c2f53c4be56b2f0a5c585f2",
+    "author-ablation-v1.json": "ddcde31990aecbd8e9f86ae14729e1730c9f46a90ae23fec91ac6a4af16da4e4",
+    "author-ablation.log": "e9060310f330856eb9ddafb47c3034f1f6a5a007a9b05e8193f257444c9e6f21",
+    "author-analysis.json": "d5e8b0c90b52c5126d90cf23a709d6139d7046ca9d0b238ecd29eb130af50883",
+    "fast.log": "fede0781cace656d81b218620a4ba5a01ff9a8618a3e70d2ea58d21fe4764d6d",
+    "ranker/positions.csv": "e83e5f29ebc43134b3f95227880060780d27f739c8edbfdf2f8cf028198c3b67",
+    "ranker/summary.json": "21c048a4dacbfe8eecb41bbb3ff7e5f8b5d02e6c5323b0976cf86ca6f02cc3c9",
+    "ranker/work.json": "3df685c5c3dc5d8112f10750204617a3bcd1200028e91f2a77cecc4b4bcc86d9",
+    "ranker.log": "21752187acefa02601d0010b9dda41dc1e331f43512b83d9a63b8a5ba442b377",
+    "slow-partial.log": "aee536ac047ccd8f043d9b57817077a33ac037ca8dd1a96e86f90646bb16c3a6",
+    "author-integrity-audit.json": "c299aed6d663c8844da1ede8e64f4c2b388e9057726659bb494737600ecf505b"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "checks": {
+    "420_rows": true,
+    "all_expected_unique_cells": true,
+    "six_paired_training_fits": true,
+    "variants_follow_fitted_weights_and_named_zero_ablation": true,
+    "neural_flag_matches_variant": true,
+    "acceptance_and_counts_consistent_with_frozen_fixture": true,
+    "solved_train_matches_independent_training_interpreter": true,
+    "path_budget_units_consistent": true,
+    "source_hash_matches_frozen_tree": true,
+    "fixture_hashes_match_frozen_tree_and_remained_stable": true,
+    "spikeforge_content_hash_matches_imported_dependency": true,
+    "no_absolute_machine_paths_in_report": true
+  },
+  "result_rows_by_path": {
+    "author": 210,
+    "beam": 210
+  },
+  "accepted_and_train_solved_by_path": {
+    "author": {
+      "accepted": 60,
+      "solved_train": 60
+    },
+    "beam": {
+      "accepted": 112,
+      "solved_train": 112
+    }
+  },
+  "signature_evaluations_by_path": {
+    "author": 24635,
+    "beam": 208920
+  },
+  "signature_evaluations_vary_by_variant_within_cell": 45,
+  "result_rows": 420,
+  "unique_result_keys": 420,
+  "training_records": 6,
+  "source_sha256": "bc875146ae472731d075a475dc20354e44433909285f23df53a3dd3887125170",
+  "source_file_count": 35,
+  "fixture_sha256": {
+    "fixtures/rsi_novel_tasks.json": "0267aaa6a5a11f2d036f6f07a5104663dde5793afd08f11f4b665bd1025181c8",
+    "fixtures/rsi_shadow_tasks.json": "da7b2603f9a17a6f85e3f46cc358f717a1653c119ad6ae373db9f78a22b6156d"
+  },
+  "spikeforge_content_sha256": "9e9bba1834c842ad08bbe4cf43459aee43977e8e6d7aed737c59d69fa94e4b20",
+  "spikeforge_python_file_count": 290,
+  "spikeforge_reported_commit": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6",
+  "spikeforge_reported_dirty": false,
+  "wall_s": 70.29631051901379,
+  "budget_units": {
+    "author": "generated_triples",
+    "beam": "committed_nodes"
+  },
+  "equal_work_claim": false
+}

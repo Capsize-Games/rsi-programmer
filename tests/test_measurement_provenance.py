@@ -104,3 +104,31 @@ class MeasurementProvenanceTests(unittest.TestCase):
         self.assertEqual(row["train_hits"], row["train_count"])
         self.assertFalse(row["held_correct"])
         self.assertFalse(row["accepted"])
+
+    def test_raw_rows_use_portable_fixture_reference(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            fixture = root / "fixture.json"
+            self._write_fixture(fixture)
+            args = self._args(fixture)
+            args.seeds = [0]
+            task = ("tiny", ((1, 2),), (3,), 1)
+            with patch.object(measurement, "ROOT", root), \
+                    patch.object(measurement, "_source_hash",
+                                 return_value="fixed-source"), \
+                    patch.object(measurement, "_dependency_provenance",
+                                 return_value={
+                                     "content_sha256": "fixed-dependency"}), \
+                    patch.object(measurement, "_tasks",
+                                 return_value=([task], [{"id": "tiny"}])), \
+                    patch.object(measurement, "SearchPolicy"), \
+                    patch.object(measurement, "train_author", return_value=1), \
+                    patch.object(measurement, "refine_author",
+                                 return_value=([1.0] * len(
+                                     measurement.EXTRA), [])), \
+                    patch.object(measurement, "_measure_one",
+                                 side_effect=lambda *a: {}):
+                report = measurement.measure(args)
+        self.assertTrue(report["results"])
+        self.assertEqual({row["fixture"] for row in report["results"]},
+                         {"fixture.json"})

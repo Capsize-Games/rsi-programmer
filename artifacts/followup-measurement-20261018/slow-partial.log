@@ -1,0 +1,25 @@
+.venv/bin/python -m unittest tests.test_hub_verify tests.test_rsi_author tests.test_rsi_baseline tests.test_rsi_beam tests.test_rsi_evolve tests.test_rsi_loop tests.test_rsi_operands tests.test_rsi_scale tests.test_rsi_transfer -v
+test_missing_hub_listing_recorded (tests.test_hub_verify.HubVerifyTests.test_missing_hub_listing_recorded)
+Unpublished models report hub FAIL with the reason. ... ok
+test_wrong_checksum_fails (tests.test_hub_verify.HubVerifyTests.test_wrong_checksum_fails)
+Corrupted local weights fail against real assets. ... ok
+test_enumerator_fallback_intact (tests.test_rsi_author.AuthorTests.test_enumerator_fallback_intact)
+Zero scan budget leaves both author and fallback unsolved. ... ok
+test_every_authored_edit_verdict_carrying (tests.test_rsi_author.AuthorTests.test_every_authored_edit_verdict_carrying)
+Each emitted edit names its validator verdict. ... ok
+test_honest_report_complete (tests.test_rsi_author.AuthorTests.test_honest_report_complete)
+Every row tagged; authoring non-vacuous. ... ok
+test_malformed_edits_rejected_pre_execution (tests.test_rsi_author.AuthorTests.test_malformed_edits_rejected_pre_execution)
+Validator gate rejects malformed edits pre-execution. ... ok
+test_runs_within_cpu_budget (tests.test_rsi_author.AuthorTests.test_runs_within_cpu_budget)
+Whole module stays under 600 wall seconds. ... ok
+test_solved_graphs_pass_frozen_oracle (tests.test_rsi_author.AuthorTests.test_solved_graphs_pass_frozen_oracle)
+Authored solutions validate and meet expectations. ... ok
+test_enumerator_baseline_per_family (tests.test_rsi_baseline.GeneratedBaselineTests.test_enumerator_baseline_per_family)
+Every generated task solves within its bound. ... ok
+test_score_backtrack_pops_best_first (tests.test_rsi_beam.BeamOrderTests.test_score_backtrack_pops_best_first)
+Best-scored stash entry commits before the rest. ... ok
+test_score_order_costs_no_more (tests.test_rsi_beam.BeamOrderTests.test_score_order_costs_no_more)
+Score revisit never costs more tried per task. ... ok
+test_widen_schedule_superset_within_budget (tests.test_rsi_beam.BeamOrderTests.test_widen_schedule_superset_within_budget)
+Wider retry only adds solves inside the budget. ... ok

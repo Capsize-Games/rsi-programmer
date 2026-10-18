@@ -1,0 +1,422 @@
+[
+  {
+    "fixture": "fixtures/rsi_shadow_tasks.json",
+    "task": "square_plus",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 2428
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 1488
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 3936
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 975
+      }
+    },
+    "eager_enumerator_candidate_signatures": 6807,
+    "streaming_early_stop_candidate_signatures": 2428
+  },
+  {
+    "fixture": "fixtures/rsi_shadow_tasks.json",
+    "task": "diff_squares",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 488
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 442
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 382
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 122
+      }
+    },
+    "eager_enumerator_candidate_signatures": 939,
+    "streaming_early_stop_candidate_signatures": 488
+  },
+  {
+    "fixture": "fixtures/rsi_shadow_tasks.json",
+    "task": "square_minus",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 1621
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 1795
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 2919
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 963
+      }
+    },
+    "eager_enumerator_candidate_signatures": 6807,
+    "streaming_early_stop_candidate_signatures": 1621
+  },
+  {
+    "fixture": "fixtures/rsi_shadow_tasks.json",
+    "task": "twice_product",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 36
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 13
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 81
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 15
+      }
+    },
+    "eager_enumerator_candidate_signatures": 120,
+    "streaming_early_stop_candidate_signatures": 36
+  },
+  {
+    "fixture": "fixtures/rsi_novel_tasks.json",
+    "task": "prod_plus_sum",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 220
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 137
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 162
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 137
+      }
+    },
+    "eager_enumerator_candidate_signatures": 939,
+    "streaming_early_stop_candidate_signatures": 220
+  },
+  {
+    "fixture": "fixtures/rsi_novel_tasks.json",
+    "task": "sum_squares",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 487
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 417
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 505
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 186
+      }
+    },
+    "eager_enumerator_candidate_signatures": 939,
+    "streaming_early_stop_candidate_signatures": 487
+  },
+  {
+    "fixture": "fixtures/rsi_novel_tasks.json",
+    "task": "scaled_mix",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 2956
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 1368
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 2648
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 1321
+      }
+    },
+    "eager_enumerator_candidate_signatures": 6807,
+    "streaming_early_stop_candidate_signatures": 2956
+  },
+  {
+    "fixture": "fixtures/rsi_ood_plain.json",
+    "task": "gen_ood_p_00",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 356
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 429
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 338
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 655
+      }
+    },
+    "eager_enumerator_candidate_signatures": 939,
+    "streaming_early_stop_candidate_signatures": 356
+  },
+  {
+    "fixture": "fixtures/rsi_ood_plain.json",
+    "task": "gen_ood_p_01",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 960
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 2447
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 3879
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 3306
+      }
+    },
+    "eager_enumerator_candidate_signatures": 6807,
+    "streaming_early_stop_candidate_signatures": 960
+  },
+  {
+    "fixture": "fixtures/rsi_ood_plain.json",
+    "task": "gen_ood_p_02",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 3471
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 4947
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 3815
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 4108
+      }
+    },
+    "eager_enumerator_candidate_signatures": 6807,
+    "streaming_early_stop_candidate_signatures": 3471
+  },
+  {
+    "fixture": "fixtures/rsi_ood_plain.json",
+    "task": "gen_ood_p_03",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 311
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 338
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 263
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 190
+      }
+    },
+    "eager_enumerator_candidate_signatures": 939,
+    "streaming_early_stop_candidate_signatures": 311
+  },
+  {
+    "fixture": "fixtures/rsi_ood_plain.json",
+    "task": "gen_ood_p_04",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 14
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 23
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 23
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 62
+      }
+    },
+    "eager_enumerator_candidate_signatures": 120,
+    "streaming_early_stop_candidate_signatures": 14
+  },
+  {
+    "fixture": "fixtures/rsi_ood_plain.json",
+    "task": "gen_ood_p_05",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 29
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 28
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 67
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 120,
+        "operand_signatures": 253,
+        "examined": 97
+      }
+    },
+    "eager_enumerator_candidate_signatures": 120,
+    "streaming_early_stop_candidate_signatures": 29
+  },
+  {
+    "fixture": "fixtures/rsi_ood_plain.json",
+    "task": "gen_ood_p_06",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 302
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 219
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 323
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 939,
+        "operand_signatures": 1950,
+        "examined": 150
+      }
+    },
+    "eager_enumerator_candidate_signatures": 939,
+    "streaming_early_stop_candidate_signatures": 302
+  },
+  {
+    "fixture": "fixtures/rsi_ood_plain.json",
+    "task": "gen_ood_p_07",
+    "guided_runs": {
+      "probe_order": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 1618
+      },
+      "uniform_permutation_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 4377
+      },
+      "untrained_seed0": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 4291
+      },
+      "trained_last_seed_last_epoch": {
+        "candidate_signatures": 6807,
+        "operand_signatures": 14018,
+        "examined": 1319
+      }
+    },
+    "eager_enumerator_candidate_signatures": 6807,
+    "streaming_early_stop_candidate_signatures": 1618
+  }
+]

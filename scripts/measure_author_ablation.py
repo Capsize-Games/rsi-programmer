@@ -264,7 +264,7 @@ def measure(args: argparse.Namespace) -> dict[str, Any]:
         str, Path, list[TaskRow], list[dict[str, Any]]]] = []
     for resolved in eval_paths:
         rows, tasks = _tasks(resolved)
-        evaluation.append((str(resolved), resolved, rows, tasks))
+        evaluation.append((_fixture_ref(resolved), resolved, rows, tasks))
 
     raw: list[dict[str, Any]] = []
     training: list[dict[str, Any]] = []

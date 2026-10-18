@@ -1,5 +1,108 @@
 # Audit follow-up
 
+## code-v48: paired ablations and independent rank measurement
+
+The measurement script now uses repository-relative fixture names in raw
+rows as well as its manifest. A regression checks the serialized row
+reference. The source-matched full fast lane passed **259 tests in
+227.655s**, with no exclusions. Its 102 input files have SHA-256
+`6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c`.
+The complete affected slow lane is running; retry follows sequentially.
+Neither is counted as passed here. Earlier code-v45 results are historical.
+
+### Author and beam (#70, #66)
+
+The prespecified run used seeds 0, 1, 2, 100 training epochs, 12 bonus
+refinement rounds, top-k/beam width 3, budget 128 and no fallback. Six
+models were fitted on the four shadow tasks, using canonical or retained
+reachability labels. Evaluation covered all four shadow and three novel
+tasks, both search paths, and full/no-exact/no-gap/neither/no-neural
+settings: **420 raw rows**, collected in **70.296s**. Independent train
+and held-row interpretation determines acceptance. The two Luna reviews
+check coverage, pairing, counts, weights and provenance; they did not
+rerun training. All 336 bonus/neural and 210 supervision comparisons
+have partners. Source, fixtures and imported SpikeForge bytes were
+unchanged across measurement; its separate 290-file dependency hash
+and clean Git commit are in the raw artifact.
+
+Accepted results below require both train and held correctness. Each
+denominator repeats the same task family across three seeds; these are
+not independent task samples. Shadow is seen-task held-out evaluation;
+novel tasks were not used for fitting or bonus selection.
+
+| Labels | Family | Path | Full | No exact | No gap | Neither | No neural |
+|---|---|---|---:|---:|---:|---:|---:|
+| canonical | shadow | author | 6/12 | 5/12 | 6/12 | 5/12 | 1/12 |
+| canonical | shadow | beam | 8/12 | 8/12 | 8/12 | 8/12 | 6/12 |
+| canonical | novel | author | 0/9 | 0/9 | 0/9 | 0/9 | 1/9 |
+| canonical | novel | beam | 6/9 | 6/9 | 6/9 | 6/9 | 3/9 |
+| reachability | shadow | author | 9/12 | 9/12 | 9/12 | 9/12 | 0/12 |
+| reachability | shadow | beam | 10/12 | 10/12 | 10/12 | 10/12 | 3/12 |
+| reachability | novel | author | 0/9 | 0/9 | 0/9 | 0/9 | 0/9 |
+| reachability | novel | beam | 1/9 | 1/9 | 1/9 | 1/9 | 0/9 |
+
+Only seed 0/canonical fitted nonzero exact/gap weights: exact 0.066947,
+gap -0.114816. The other five fits selected zero for every bonus.
+Consequently 70 of 84 pairs for each named bonus ablation are null
+contrasts. Exact ablation changes one shadow author acceptance; gap
+changes none. This run does not establish a general exact/gap effect.
+Full versus no-neural holds the fitted full bonuses fixed: across 84
+pairs, full wins 29, loses 3 and ties 52 on acceptance. This supports a
+conditional neural ordering contribution on these small fixtures.
+The no-neural control is paired with full bonuses, not a full factorial
+of neural removal and every bonus ablation.
+
+Reachability versus canonical improves shadow author from 6 to 9 and
+beam from 8 to 10, but novel beam regresses from 6 to 1; novel author
+remains zero. These are separately fitted/refined pipelines, not a
+controlled label-only effect. Corrected train-graph labels do not
+guarantee better transfer. The regression remains in the published data.
+
+Candidate generation and signature evaluation remain classical. Author
+budgets count generated triples; beam budgets count committed nodes.
+Work counters are reported, but these are not equal-work comparisons.
+Within-path ranking can change later expansions and their work; it
+does not eliminate eager signature computation inside an expansion.
+Wall times are descriptive for this host. Small selected frozen fixture
+families and three seeds do not establish broad generalization.
+
+### Solving-layer rank and actual signature work (#53)
+
+A separate independent enumerator/encoder ran all three seeds at
+epochs 0, 5, 40 and 50 on shadow, novel and plain-OOD: **180 rows**,
+in **13.575s** stage wall time. This uses final-layer equality groups,
+not the author-label training recipe above. The epoch-50 means are:
+
+| Family | Tasks | Trained position | Probe order | Exact random expectation |
+|---|---:|---:|---:|---:|
+| shadow | 4 | 17.25 | 640.75 | 912.60 |
+| novel | 3 | 390.11 | 828.00 | 521.43 |
+| plain OOD | 8 | 831.12 | 482.50 | 830.29 |
+
+All checkpoints and task rows remain published. The original blanket
+"worse than random on transfer" conclusion does not survive this
+recipe: novel beats random, while plain OOD is slightly worse at epoch
+50. Other epochs differ. The author experiment also shows recipe
+dependence; these results do not select a universally superior recipe.
+
+Direct production instrumentation finds candidate-signature counts
+identical across four rankers on each of all 15 tasks. Summed guided
+signature work divided by summed streaming early-stop work is **3.209x
+shadow, 2.371x novel, 3.325x plain OOD**. These are ratios of family
+totals, not means of per-task ratios. Guided search also computes
+operand signatures and neural scores. Good ordering does not produce
+a signature-work win for the eager guided implementation.
+
+[Raw author/beam data](../artifacts/followup-measurement-20261018/author-ablation-v1.json),
+[paired summaries](../artifacts/followup-measurement-20261018/author-analysis.json),
+[independent integrity checks](../artifacts/followup-measurement-20261018/author-integrity-audit.json),
+[reproducible analyzer](../artifacts/followup-measurement-20261018/analyze_author_ablation.py),
+[ranker task rows](../artifacts/followup-measurement-20261018/ranker/positions.csv),
+[instrumented work](../artifacts/followup-measurement-20261018/ranker/work.json),
+[fast log](../artifacts/followup-measurement-20261018/fast.log),
+[partial slow log](../artifacts/followup-measurement-20261018/slow-partial.log),
+and [source/stage/output manifest](../artifacts/followup-measurement-20261018/manifest.json).
+
 ## code-v47: accounting, objectives, and supervision
 
 `just test-fast`: **Ran 258 tests in 223.871s; OK**, on an isolated tree over
