@@ -1,5 +1,27 @@
 # Audit follow-up
 
+## code-v57: complete slow lane verified; retry remains
+
+The complete current `just test-slow` passed: **64 tests in 3399.418s;
+OK**, with no exclusions. The original rich-surrogate fidelity assertion
+now passes inside the full lane, together with scale-report, eight-task
+acceptance, evolution, loop, operand and transfer checks. The earlier
+completed red slow run and interrupted hub failure remain published.
+
+All 105 validation inputs remained unchanged before and after the lane,
+matching code-v53 and the final checkout:
+`476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73`. Local fast and Python 3.12/3.13 CI
+fast are already green. At **2026-10-18T11:39:36.787651+00:00**, retry follows sequentially
+and has not completed; #66 remains open until its result. This is an
+evidence-only checkpoint and does not claim complete validation yet.
+
+Hard surrogate fitting and selection retain one-task coverage under the
+cap, while full search acceptance still covers all eight tasks. The
+research conclusions and bounded-search limitations in code-v53 remain.
+
+[Complete slow log](../artifacts/followup-slow-pass-20261018/slow.log)
+and [source/command/result manifest](../artifacts/followup-slow-pass-20261018/manifest.json).
+
 ## code-v56: scale evolution and eight-task acceptance verified
 
 The original `test_evolve_and_accept_author_paths` passed on the

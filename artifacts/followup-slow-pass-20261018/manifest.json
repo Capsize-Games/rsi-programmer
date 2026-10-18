@@ -1,0 +1,44 @@
+{
+  "observed_at": "2026-10-18T11:39:36.787651+00:00",
+  "source": {
+    "sha256": "476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73",
+    "files": 105
+  },
+  "stage": {
+    "name": "slow",
+    "command": [
+      "just",
+      "test-slow"
+    ],
+    "source_start": {
+      "sha256": "476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73",
+      "files": 105
+    },
+    "status": "passed",
+    "started_at_unix": 1792320128.8131084,
+    "exit_code": 0,
+    "wall_seconds": 3400.5373437404633,
+    "source_finish": {
+      "sha256": "476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73",
+      "files": 105
+    }
+  },
+  "unittest_result": "64 tests in 3399.418s; OK",
+  "excluded_slow_tests": [],
+  "retry_at_observation": {
+    "name": "retry",
+    "command": [
+      "just",
+      "test-retry"
+    ],
+    "source_start": {
+      "sha256": "476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73",
+      "files": 105
+    },
+    "status": "running",
+    "started_at_unix": 1792323529.3569455
+  },
+  "input_manifest": "../followup-hub-fix-20261018/manifest.json",
+  "input_manifest_sha256": "75180da774c64628ccd8402ddc39672ff1d348ea1b0fddf29684b7465c932ec0",
+  "log_sha256": "f1a6b31d9179b7e2296a6a78ecb9203ed8743eb7d76edca3120cec0d63a0847a"
+}
