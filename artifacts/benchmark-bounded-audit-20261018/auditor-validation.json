@@ -1,20 +1,21 @@
 {
-  "auditor_sha256": "3b686b9460d9a191a749cc9db2455df367496a97806b944cc700b9bec8129934",
+  "auditor_sha256": "06ea473eb8225a4be0d16d9a8b18726aead8a803950fb0dad6875523fba0b27d",
   "commands": [
     "uv tool run --from ruff ruff format --check --line-length 79 artifacts/benchmark-bounded-audit-20261018/bounded_audit.py",
     "python -B inline validation: AST parse; <=79 columns; close(0.2,0.6)=False; close(True,1)=False; close(1.0,1.0+1e-12)=True; independently enumerate expected_rows against frozen protocol/corpus"
   ],
   "negative_control_harness": {
-    "bundle_execution": "pending completed benchmark bundle",
+    "bundle_execution": "pending builder unlock and completed benchmark bundle",
     "controls": [
       "duplicate raw key",
+      "reordered raw rows",
       "paired ratio +0.25",
       "wrong accepted graph",
       "forged training charge"
     ],
     "format": "passed",
     "path": "artifacts/benchmark-bounded-audit-20261018/negative_controls.py",
-    "sha256": "2450fa8fdb100850f419c155e6c2ac725bc85e5e3c6a6bf9d894f648355897d1",
+    "sha256": "11a7abaf9d23e01e07065b2b5640aedee97e79cdaf708c51e2999c5999a5de18",
     "syntax": "passed"
   },
   "report_type": "bounded-candidate-auditor-validation",
@@ -33,5 +34,14 @@
     "syntax_and_line_length": "passed",
     "timed_rows_independent": 10656,
     "timed_rows_protocol": 10656
+  },
+  "sequence_audit_amendment": {
+    "auditor_execution": "pending lock-free state",
+    "auditor_sha256_after": "06ea473eb8225a4be0d16d9a8b18726aead8a803950fb0dad6875523fba0b27d",
+    "auditor_sha256_before": "3b686b9460d9a191a749cc9db2455df367496a97806b944cc700b9bec8129934",
+    "format": "passed",
+    "line_width": "passed",
+    "reason": "Static review found the auditor validated each row engine_order label and the row-key set, but did not validate actual JSONL row sequence against the frozen schedule. Added exact timed sequence and memory sequence comparisons, plus a reordered-rows negative control.",
+    "syntax": "passed"
   }
 }

@@ -35,10 +35,10 @@ python artifacts/benchmark-bounded-audit-20261018/bounded_audit.py \
 `auditor-preflight.json` records the frozen protocol hash and reconciled matrix
 sizes. `auditor-validation.json` records syntax, formatting, and numeric
 comparison checks. `negative_controls.py` tests rejection of duplicate raw
-keys, a paired ratio changed by 0.25, an incorrect accepted graph, and a
-forged training charge. It makes temporary copies and refreshes bundle file
-hashes after mutation, so the auditor must reject the corrupted content. Run
-it after the completed bundle exists:
+keys, reordered rows, a paired ratio changed by 0.25, an incorrect accepted
+graph, and a forged training charge. It makes temporary copies and refreshes
+bundle file hashes after mutation, so the auditor must reject the corrupted
+content. Run it after the completed bundle exists:
 
 ```sh
 python artifacts/benchmark-bounded-audit-20261018/negative_controls.py \

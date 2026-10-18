@@ -234,6 +234,63 @@ def expected_rows(
     return keys
 
 
+def expected_sequence(
+    tasks: list[dict[str, Any]], protocol: dict[str, Any]
+) -> list[tuple[Any, ...]]:
+    """Build the frozen timed write order, including adjacent engine pairs."""
+    ev = protocol["evaluation"]
+    sequence = []
+    for seed in SEEDS:
+        for task in tasks:
+            for budget in ev["streaming_budgets"]:
+                for repeat in REPEATS:
+                    sequence.append(
+                        (
+                            repeat,
+                            "streaming",
+                            seed,
+                            "streaming",
+                            task["id"],
+                            budget,
+                        )
+                    )
+            for control in RANKED_CONTROLS:
+                for budget in ev["ranked_budgets"]:
+                    for repeat in REPEATS:
+                        for engine in expected_order(
+                            seed, task["id"], budget, control, repeat
+                        ):
+                            sequence.append(
+                                (
+                                    repeat,
+                                    engine,
+                                    seed,
+                                    control,
+                                    task["id"],
+                                    budget,
+                                )
+                            )
+    return sequence
+
+
+def expected_memory_sequence(
+    tasks: list[dict[str, Any]], protocol: dict[str, Any]
+) -> list[tuple[Any, ...]]:
+    """Build memory write order from the protocol's mode/task/control plan."""
+    sequence = []
+    budget = protocol["memory"]["budget"]
+    controls = [("streaming", "streaming")] + [
+        (engine, control)
+        for control in RANKED_CONTROLS
+        for engine in RANKED_ENGINES
+    ]
+    for mode in protocol["memory"]["modes"]:
+        for task in tasks:
+            for engine, control in controls:
+                sequence.append((mode, engine, 0, control, task["id"], budget))
+    return sequence
+
+
 def work_sum(rows: list[dict[str, Any]]) -> dict[str, int]:
     axes: set[str] = set()
     for row in rows:
@@ -531,10 +588,12 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
     }
     expected = expected_rows(tasks, protocol)
     rows: dict[tuple[Any, ...], dict[str, Any]] = {}
+    raw_sequence: list[tuple[Any, ...]] = []
     for n, line in enumerate(raw_bytes.splitlines(), 1):
         try:
             row = json.loads(line)
             key = row_key(row)
+            raw_sequence.append(key)
             if key in rows:
                 errors.append(f"duplicate raw key at line {n}")
                 continue
@@ -785,6 +844,21 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
             errors.append(
                 f"malformed raw row {n}: {type(exc).__name__}: {exc}"
             )
+    scheduled_raw = expected_sequence(tasks, protocol)
+    if raw_sequence != scheduled_raw:
+        mismatch = next(
+            (
+                i
+                for i, (actual, scheduled) in enumerate(
+                    zip(raw_sequence, scheduled_raw)
+                )
+                if actual != scheduled
+            ),
+            min(len(raw_sequence), len(scheduled_raw)),
+        )
+        errors.append(
+            f"raw row order differs from frozen schedule at index {mismatch}"
+        )
     if set(rows) != expected:
         errors.append(
             f"raw grid incomplete: {len(rows)} observed, "
@@ -885,6 +959,7 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
         )
     # Verify the two isolated memory passes against timed repeat-zero behavior.
     memory_rows: dict[tuple[Any, ...], dict[str, Any]] = {}
+    memory_sequence: list[tuple[Any, ...]] = []
     modes = protocol["memory"]["modes"]
     for n, line in enumerate(memory_bytes.splitlines(), 1):
         try:
@@ -897,6 +972,7 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
                 row["task_id"],
                 row["budget"],
             )
+            memory_sequence.append(key)
             if key in memory_rows:
                 errors.append(f"duplicate memory key at line {n}")
                 continue
@@ -961,6 +1037,22 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
                         protocol["memory"]["budget"],
                     )
                 )
+    scheduled_memory = expected_memory_sequence(tasks, protocol)
+    if memory_sequence != scheduled_memory:
+        mismatch = next(
+            (
+                i
+                for i, (actual, scheduled) in enumerate(
+                    zip(memory_sequence, scheduled_memory)
+                )
+                if actual != scheduled
+            ),
+            min(len(memory_sequence), len(scheduled_memory)),
+        )
+        errors.append(
+            "memory row order differs from frozen schedule at "
+            f"index {mismatch}"
+        )
     if set(memory_rows) != mem_expected:
         errors.append(
             f"memory grid mismatch: {len(memory_rows)} observed, "

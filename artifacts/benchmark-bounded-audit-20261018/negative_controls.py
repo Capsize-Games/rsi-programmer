@@ -56,6 +56,16 @@ def mutate_duplicate_raw_key(bundle: Path) -> None:
     refresh_hashes(bundle, "raw.jsonl")
 
 
+def mutate_raw_sequence(bundle: Path) -> None:
+    path = bundle / "raw.jsonl"
+    lines = path.read_text().splitlines()
+    if len(lines) < 2:
+        raise RuntimeError("completed bundle has too few raw rows to reorder")
+    lines[0], lines[1] = lines[1], lines[0]
+    path.write_text("\n".join(lines) + "\n")
+    refresh_hashes(bundle, "raw.jsonl")
+
+
 def mutate_forged_ratio(bundle: Path) -> None:
     path = bundle / "aggregate.json"
     aggregate = json.loads(path.read_text())
@@ -95,6 +105,10 @@ def mutate_training_charge(bundle: Path) -> None:
 
 CONTROLS = {
     "duplicate_raw_key": (mutate_duplicate_raw_key, "duplicate raw key"),
+    "reordered_raw_rows": (
+        mutate_raw_sequence,
+        "raw row order differs from frozen schedule",
+    ),
     "forged_ratio_plus_0_25": (
         mutate_forged_ratio,
         "paired_cost_ratios differs",
