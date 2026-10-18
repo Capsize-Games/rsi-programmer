@@ -1,0 +1,120 @@
+{
+  "cases": [
+    {
+      "details": {
+        "aggregate_matches_raw": false,
+        "expected_rows": 4032,
+        "graph_validation_errors": 0,
+        "independently_accepted_rows": 1743,
+        "raw_rows": 4032,
+        "raw_sha256": "5ef58ead9fc8ef832f924600737fb86951e676db4ec0ff8b66eaa666dafa137b",
+        "returned_graphs": 1743,
+        "source_files_checked": 341,
+        "unique_matrix_keys": 4031,
+        "work_invariant_cells_checked": 4031
+      },
+      "error_count": 5,
+      "expected_reason": "duplicated matrix key",
+      "expected_reason_found": true,
+      "matching_errors": [
+        "raw row 1: duplicated matrix key (0, 'streaming', 'v2_eval_01', 512)"
+      ],
+      "name": "duplicate-cell",
+      "rejected": true
+    },
+    {
+      "details": {
+        "aggregate_matches_raw": true,
+        "expected_rows": 4032,
+        "graph_validation_errors": 0,
+        "independently_accepted_rows": 1742,
+        "raw_rows": 4032,
+        "raw_sha256": "3e27a9819986ad6ed58380d308b9768154b09d055e7633a152b389e3fb364486",
+        "returned_graphs": 1743,
+        "source_files_checked": 341,
+        "unique_matrix_keys": 4032,
+        "work_invariant_cells_checked": 4032
+      },
+      "error_count": 5,
+      "expected_reason": "accepted flag bypasses independent gates",
+      "expected_reason_found": true,
+      "matching_errors": [
+        "(0, 'streaming', 'v2_eval_01', 2048): accepted flag bypasses independent gates"
+      ],
+      "name": "wrong-accepted-graph",
+      "rejected": true
+    },
+    {
+      "details": {
+        "aggregate_matches_raw": true,
+        "expected_rows": 4032,
+        "graph_validation_errors": 0,
+        "independently_accepted_rows": 1743,
+        "raw_rows": 4032,
+        "raw_sha256": "27a3ce907539959da90cae80ba35af707f92095c14373e9c34e5dd1fb20611e6",
+        "returned_graphs": 1743,
+        "source_files_checked": 341,
+        "unique_matrix_keys": 4032,
+        "work_invariant_cells_checked": 4032
+      },
+      "error_count": 1,
+      "expected_reason": "selected_candidates differs",
+      "expected_reason_found": true,
+      "matching_errors": [
+        "v2_train_01: training field selected_candidates differs"
+      ],
+      "name": "tampered-training-feature",
+      "rejected": true
+    },
+    {
+      "details": {
+        "aggregate_matches_raw": false,
+        "expected_rows": 4032,
+        "graph_validation_errors": 0,
+        "independently_accepted_rows": 1743,
+        "raw_rows": 4032,
+        "raw_sha256": "27a3ce907539959da90cae80ba35af707f92095c14373e9c34e5dd1fb20611e6",
+        "returned_graphs": 1743,
+        "source_files_checked": 341,
+        "unique_matrix_keys": 4032,
+        "work_invariant_cells_checked": 4032
+      },
+      "error_count": 1,
+      "expected_reason": "aggregate or paired bootstrap differs",
+      "expected_reason_found": true,
+      "matching_errors": [
+        "aggregate or paired bootstrap differs from raw rows"
+      ],
+      "name": "tampered-aggregate",
+      "rejected": true
+    },
+    {
+      "details": {
+        "aggregate_matches_raw": true,
+        "expected_rows": 4032,
+        "graph_validation_errors": 0,
+        "independently_accepted_rows": 1743,
+        "raw_rows": 4032,
+        "raw_sha256": "c0b2667fa6b6853e43021c164bc6e4a03ff383d90ba4d6fe12bc62a2b815347f",
+        "returned_graphs": 1743,
+        "source_files_checked": 341,
+        "unique_matrix_keys": 4032,
+        "work_invariant_cells_checked": 4032
+      },
+      "error_count": 2,
+      "expected_reason": "state differs from fitted model",
+      "expected_reason_found": true,
+      "matching_errors": [
+        "(0, 'trained_snn', 'v2_eval_01', 512): state differs from fitted model"
+      ],
+      "name": "forged-model-state",
+      "rejected": true
+    }
+  ],
+  "command": "python3 /home/joe/Projects/rsi-programmer/artifacts/benchmark-pre-eval-v2-audit-20261018/selfcheck.py",
+  "duration_seconds": 16.081192462996114,
+  "ok": true,
+  "source_bundle_sha256_after": "4719e9860106e30e55fbffcdace6bf78a87781de735063ccfe545e38a6ffa7b1",
+  "source_bundle_sha256_before": "4719e9860106e30e55fbffcdace6bf78a87781de735063ccfe545e38a6ffa7b1",
+  "source_bundle_unchanged": true
+}
