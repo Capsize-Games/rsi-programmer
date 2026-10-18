@@ -1,0 +1,47 @@
+{
+  "cli_run_log_limitation": "gh run view --job --log refused while full matrix pending; completed job logs fetched through official job API instead",
+  "completed_jobs": [
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/Capsize-Games/rsi-programmer/actions/jobs/117815741156/logs"
+      ],
+      "compressed_log": "ci-fast-3.13.log.gz",
+      "conclusion": "success",
+      "gzip_sha256": "890df1ff2a580121e8c4cb6f01b9dd9d98414bc39d2af2175f6a4dfc1087973b",
+      "job": 117815741156,
+      "log_sha256": "19f18beb2279a8c7f6e48931d9b3949c52442c7a7ccc6a0f0e50cff6705edb96",
+      "name": "fast (3.13)",
+      "run": 39175002963,
+      "source": "643be256363f2f23f9c51f280fb38d262a6f992d",
+      "test_runs": [
+        {
+          "seconds": 466.981,
+          "tests": 521
+        }
+      ]
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/Capsize-Games/rsi-programmer/actions/jobs/117815741211/logs"
+      ],
+      "compressed_log": "ci-fast-3.12.log.gz",
+      "conclusion": "success",
+      "gzip_sha256": "beff58ceae91c47199466110dbac99dd9e8d054884b6145804d4391cb1de84e5",
+      "job": 117815741211,
+      "log_sha256": "e736f1a02294938405785afe945eb90a7545139b434cbcf3a460c316a03423ea",
+      "name": "fast (3.12)",
+      "run": 39175002963,
+      "source": "643be256363f2f23f9c51f280fb38d262a6f992d",
+      "test_runs": [
+        {
+          "seconds": 385.627,
+          "tests": 521
+        }
+      ]
+    }
+  ]
+}

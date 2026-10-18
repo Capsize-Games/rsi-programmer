@@ -1,0 +1,438 @@
+{
+  "all_seed_gates": {
+    "adaptation": false,
+    "competitive": false,
+    "practical": false,
+    "snn_specific": false
+  },
+  "analysis": "Descriptive post-run contrasts; no fitting or tuning",
+  "calibration_design_concern": {
+    "ideal_continuous_iid_raw_exceedances_per_minute": 1.5000000000000013,
+    "ideal_iid_alarm_rate_with_five_window_cooldown": 1.4705882352941175,
+    "quantile": 0.995,
+    "required_sham_alarms_per_minute": 1,
+    "scope": "An idealized design check, not an estimate of this correlated source or proof of the observed failure's cause. The frozen operating point is preserved.",
+    "window_hz": 5
+  },
+  "contrasts": {
+    "encoder_mse_reduction_vs_readout": 0.000762605802103522,
+    "encoder_processing_cpu_ratio": 1.4524119077264053,
+    "online_mse_reduction_vs_frozen": 0.1680951602010834,
+    "snn_vs_ann_recall_difference": 0.015151515151515152,
+    "snn_vs_ann_sham_alarm_difference": 1.032357473035439,
+    "snn_vs_ema_mse_ratio": 2.3814561444292486,
+    "snn_vs_ema_processing_cpu_ratio": 8.719577317906996
+  },
+  "manifest_sha256": "2406c593a906aa0ec322bbab1714f704767e169946928994edbe1686f14b527d",
+  "plastic_snn_by_speed_seed": [
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 0,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 25
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 0,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 30
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 0,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 40
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 0,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 45
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 0,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 55
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 0,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 60
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 1,
+      "events": 6,
+      "recall": 0.16666666666666666,
+      "seed": 0,
+      "sham_false_alarms": 25,
+      "sham_false_alarms_per_minute": 12.711864406779661,
+      "speed": 70
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 2,
+      "events": 6,
+      "recall": 0.3333333333333333,
+      "seed": 0,
+      "sham_false_alarms": 29,
+      "sham_false_alarms_per_minute": 14.745762711864407,
+      "speed": 75
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 0,
+      "sham_false_alarms": 2,
+      "sham_false_alarms_per_minute": 1.0169491525423728,
+      "speed": 85
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 2,
+      "events": 6,
+      "recall": 0.3333333333333333,
+      "seed": 0,
+      "sham_false_alarms": 6,
+      "sham_false_alarms_per_minute": 3.0508474576271185,
+      "speed": 90
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 0,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 100
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 1,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 25
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 1,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 30
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 1,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 40
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 1,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 45
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 1,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 55
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 1,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 60
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 1,
+      "events": 6,
+      "recall": 0.16666666666666666,
+      "seed": 1,
+      "sham_false_alarms": 27,
+      "sham_false_alarms_per_minute": 13.728813559322035,
+      "speed": 70
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 2,
+      "events": 6,
+      "recall": 0.3333333333333333,
+      "seed": 1,
+      "sham_false_alarms": 30,
+      "sham_false_alarms_per_minute": 15.254237288135593,
+      "speed": 75
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 1,
+      "sham_false_alarms": 2,
+      "sham_false_alarms_per_minute": 1.0169491525423728,
+      "speed": 85
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 2,
+      "events": 6,
+      "recall": 0.3333333333333333,
+      "seed": 1,
+      "sham_false_alarms": 6,
+      "sham_false_alarms_per_minute": 3.0508474576271185,
+      "speed": 90
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 1,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 100
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 2,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 25
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 2,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 30
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 2,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 40
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 2,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 45
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 2,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 55
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 2,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 60
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 2,
+      "sham_false_alarms": 19,
+      "sham_false_alarms_per_minute": 9.661016949152541,
+      "speed": 70
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 3,
+      "events": 6,
+      "recall": 0.5,
+      "seed": 2,
+      "sham_false_alarms": 27,
+      "sham_false_alarms_per_minute": 13.728813559322035,
+      "speed": 75
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 2,
+      "sham_false_alarms": 2,
+      "sham_false_alarms_per_minute": 1.0169491525423728,
+      "speed": 85
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 2,
+      "events": 6,
+      "recall": 0.3333333333333333,
+      "seed": 2,
+      "sham_false_alarms": 6,
+      "sham_false_alarms_per_minute": 3.0508474576271185,
+      "speed": 90
+    },
+    {
+      "arm": "plastic_snn",
+      "detected": 0,
+      "events": 6,
+      "recall": 0.0,
+      "seed": 2,
+      "sham_false_alarms": 0,
+      "sham_false_alarms_per_minute": 0.0,
+      "speed": 100
+    }
+  ],
+  "pooled_work": {
+    "ema": {
+      "changed_parameters": 0,
+      "filter_updates": 39468,
+      "parameter_visits": 0,
+      "predictions": 39600,
+      "scored_targets": 39468,
+      "sessions": 132,
+      "updates": 0
+    },
+    "frozen_snn": {
+      "changed_input_parameters": 0,
+      "changed_readout_parameters": 0,
+      "input_synapse_visits": 0,
+      "neuron_ticks": 475200,
+      "predictions": 39600,
+      "readout_synapse_visits": 0,
+      "scored_targets": 39468,
+      "sessions": 132,
+      "spikes": 71523,
+      "updates": 0
+    },
+    "nlms": {
+      "changed_parameters": 118404,
+      "filter_updates": 0,
+      "parameter_visits": 118404,
+      "predictions": 39600,
+      "scored_targets": 39468,
+      "sessions": 132,
+      "updates": 39468
+    },
+    "persistence": {
+      "changed_parameters": 0,
+      "filter_updates": 0,
+      "parameter_visits": 0,
+      "predictions": 39600,
+      "scored_targets": 39468,
+      "sessions": 132,
+      "updates": 0
+    },
+    "plastic_ann": {
+      "changed_input_parameters": 947232,
+      "changed_readout_parameters": 513084,
+      "input_synapse_visits": 947232,
+      "neuron_ticks": 475200,
+      "predictions": 39600,
+      "readout_synapse_visits": 513084,
+      "scored_targets": 39468,
+      "sessions": 132,
+      "spikes": 0,
+      "updates": 39468
+    },
+    "plastic_snn": {
+      "changed_input_parameters": 876809,
+      "changed_readout_parameters": 257831,
+      "input_synapse_visits": 947232,
+      "neuron_ticks": 475200,
+      "predictions": 39600,
+      "readout_synapse_visits": 513084,
+      "scored_targets": 39468,
+      "sessions": 132,
+      "spikes": 71540,
+      "updates": 39468
+    },
+    "readout_snn": {
+      "changed_input_parameters": 0,
+      "changed_readout_parameters": 257832,
+      "input_synapse_visits": 0,
+      "neuron_ticks": 475200,
+      "predictions": 39600,
+      "readout_synapse_visits": 513084,
+      "scored_targets": 39468,
+      "sessions": 132,
+      "spikes": 71426,
+      "updates": 39468
+    }
+  },
+  "scope": "Repeated clips and seeds are correlated. CPU is software model/detector processing, not device power or latency. No independent physical transitions, faults or chip measurement.",
+  "summary_sha256": "3433a773e0ed6a09472bda22ad145cd9b1d9557e80e27373ea4ac49c51a6d16e"
+}

@@ -32,7 +32,7 @@ DISPLAY_NAMES: dict[str, str] = {
     "nlms": "NLMS",
 }
 METRICS: tuple[tuple[str, str, str, float | None], ...] = (
-    ("event recall", "recall", "percent", 80.0),
+    ("Event recall", "recall", "percent", 80.0),
     ("Sham false alarms / minute",
      "sham_false_alarms_per_minute", "rate", 1.0),
     ("Test model + detector CPU seconds",
@@ -174,6 +174,7 @@ def _plotted_data(summary: dict[str, Any], manifest: dict[str, Any],
     return {
         "source_bundle": str(bundle.resolve()),
         "source_hashes": {
+            "plot_script_sha256": _sha256(Path(__file__)),
             "summary_json": _sha256(bundle / "summary.json"),
             "manifest_json": _sha256(bundle / "manifest.json"),
             "files": manifest["files"],
@@ -182,43 +183,41 @@ def _plotted_data(summary: dict[str, Any], manifest: dict[str, Any],
             "dataset": manifest.get("dataset"),
         },
         "scope": (
-            "Bars show the median of three seed aggregates; whiskers show "
-            "the observed min-max range, not confidence intervals. Diamonds "
-            "show pooled recall/rate and pooled CPU divided by three for a "
-            "mean per seed. CPU covers test model plus detector time; "
+            "Bars show pooled rates or mean CPU per seed; whiskers show "
+            "the observed min-max range, not confidence intervals. CPU "
+            "is pooled CPU divided by three for a mean per seed and "
+            "covers test model plus detector time; "
             "provenance hashing is excluded."),
         "panels": panels,
     }
 
 
 def render(data: dict[str, Any], output: Path) -> None:
-    """Render side-by-side aggregate panels to PNG and SVG."""
+    """Render readable aggregate panels to PNG and SVG."""
     import matplotlib
 
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     from matplotlib.lines import Line2D
 
-    figure, axes = plt.subplots(1, 3, figsize=(18.0, 5.8))
+    figure, axes = plt.subplots(3, 1, figsize=(10.0, 11.6))
     for axis, panel in zip(axes, data["panels"]):
         entries = panel["arms"]
         positions = list(range(len(entries)))
-        medians = [entry["median"] for entry in entries]
-        lows = [entry["median"] - entry["observed_range"][0]
+        pooled = [entry["pooled_plot_value"] for entry in entries]
+        lows = [entry["pooled_plot_value"] - entry["observed_range"][0]
                 for entry in entries]
-        highs = [entry["observed_range"][1] - entry["median"]
+        highs = [entry["observed_range"][1] - entry["pooled_plot_value"]
                  for entry in entries]
         colors = [COLORS[entry["arm"]] for entry in entries]
-        axis.barh(positions, medians, color=colors, height=0.62, zorder=2)
-        axis.errorbar(medians, positions, xerr=[lows, highs], fmt="none",
+        axis.barh(positions, pooled, color=colors, height=0.62, zorder=2)
+        axis.errorbar(pooled, positions, xerr=[lows, highs], fmt="none",
                       ecolor="#222222", elinewidth=1.2, capsize=3, zorder=3)
-        pooled = [entry["pooled_plot_value"] for entry in entries]
-        axis.scatter(pooled, positions, marker="D", color="#222222",
-                     s=22, zorder=4)
         axis.set_yticks(positions)
-        axis.set_yticklabels([entry["display_name"] for entry in entries])
+        axis.set_yticklabels([entry["display_name"] for entry in entries],
+                            fontsize=11)
         axis.invert_yaxis()
-        axis.set_title(panel["title"], fontsize=10, pad=9)
+        axis.set_title(panel["title"], fontsize=12, pad=10, loc="left")
         axis.grid(axis="x", color="#dddddd", linewidth=0.7, zorder=0)
         axis.set_axisbelow(True)
         unit_labels = {
@@ -226,7 +225,8 @@ def render(data: dict[str, Any], output: Path) -> None:
             "rate": "False alarms per minute",
             "seconds": "CPU seconds per seed",
         }
-        axis.set_xlabel(unit_labels[panel["units"]], fontsize=8)
+        axis.set_xlabel(unit_labels[panel["units"]], fontsize=11)
+        axis.tick_params(axis="x", labelsize=10)
         reference = panel["reference_line"]
         if reference is not None:
             axis.axvline(reference, color="#555555", linestyle="--",
@@ -234,34 +234,31 @@ def render(data: dict[str, Any], output: Path) -> None:
         upper = max(max(entry["observed_range"][1],
                         entry["pooled_plot_value"])
                     for entry in entries)
-        upper = max(upper, max(pooled))
-        axis.set_xlim(left=0.0, right=max(upper * 2.2, 0.15))
+        bound = 100.0 if panel["units"] == "percent" else upper * 1.22
+        axis.set_xlim(left=0.0, right=max(bound, 0.15))
+        if reference is not None:
+            axis.text(reference, -0.65, f"target {reference:g}",
+                      ha="center", va="bottom", fontsize=10)
         for y, entry in zip(positions, entries):
-            low, high = entry["observed_range"]
-            digits = 3 if panel["units"] == "seconds" else 1
-            label = (f"median {entry['median']:.{digits}f} "
-                     f"[{low:.{digits}f}–{high:.{digits}f}]; "
-                     f"pooled {entry['pooled_plot_value']:.{digits}f}")
-            label_x = upper * 1.03 if upper else 0.01
-            axis.text(label_x, y, label, transform=axis.transData,
-                      va="center", ha="left", fontsize=7.5, clip_on=False)
+            digits = 3 if panel["units"] == "seconds" else 2
+            value = entry["pooled_plot_value"]
+            label_x = max(entry["observed_range"][1], value)
+            axis.annotate(f"{value:.{digits}f}", (label_x, y),
+                          xytext=(6, 0), textcoords="offset points",
+                          va="center", ha="left", fontsize=11)
     handles = [
-        Line2D([0], [0], marker="D", color="none", markerfacecolor="#222222",
-               markeredgecolor="#222222", label="pooled aggregate"),
         Line2D([0], [0], color="#222222", marker="|", markersize=10,
-               label="three-seed observed range"),
+               label="3-seed range; not a confidence interval"),
     ]
-    figure.legend(handles=handles, loc="upper center", ncol=2,
-                  bbox_to_anchor=(0.5, 0.98), frameon=False, fontsize=8)
+    figure.legend(handles=handles, loc="upper center",
+                  bbox_to_anchor=(0.5, 0.995), frameon=False, fontsize=11)
     footer = (
-        "Bars: median across 3 seeds; whiskers: observed min–max range, "
-        "not confidence intervals. Diamonds: pooled recall and false-alarm "
-        "rates; CPU diamond is pooled CPU divided by 3 (mean per seed). "
-        "CPU excludes provenance hashing."
+        "924 stitched streams from one fan; correlated repetitions.\n"
+        "CPU: model + detector, mean per seed; excludes provenance hashing."
     )
-    figure.text(0.5, 0.025, footer, ha="center", va="bottom", fontsize=8)
-    figure.subplots_adjust(left=0.15, right=0.99, top=0.84, bottom=0.16,
-                           wspace=0.35)
+    figure.text(0.5, 0.01, footer, ha="center", va="bottom", fontsize=11)
+    figure.subplots_adjust(left=0.20, right=0.97, top=0.94, bottom=0.09,
+                           hspace=0.57)
     figure.savefig(output / "sensing-results.png", dpi=180,
                    bbox_inches="tight")
     figure.savefig(output / "sensing-results.svg", bbox_inches="tight")

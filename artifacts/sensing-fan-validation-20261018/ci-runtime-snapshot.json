@@ -1,0 +1,352 @@
+{
+  "captured_at_utc": "2026-10-18T23:15:59.382341+00:00",
+  "conclusion": "",
+  "headSha": "643be256363f2f23f9c51f280fb38d262a6f992d",
+  "jobs": [
+    {
+      "completedAt": "0001-01-01T00:00:00Z",
+      "conclusion": "",
+      "databaseId": 117815740893,
+      "name": "full (3.13)",
+      "startedAt": "2026-10-18T23:05:09Z",
+      "status": "in_progress",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-python@v5",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run extractions/setup-just@v2",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run astral-sh/setup-uv@v5",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": "",
+          "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+          "number": 8,
+          "status": "in_progress"
+        },
+        {
+          "conclusion": "",
+          "name": "Post Run astral-sh/setup-uv@v5",
+          "number": 13,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Post Run actions/setup-python@v5",
+          "number": 14,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Post Run actions/checkout@v4",
+          "number": 15,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Post Run actions/checkout@v4",
+          "number": 16,
+          "status": "pending"
+        }
+      ],
+      "url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39175002963/job/117815740893"
+    },
+    {
+      "completedAt": "0001-01-01T00:00:00Z",
+      "conclusion": "",
+      "databaseId": 117815741131,
+      "name": "full (3.12)",
+      "startedAt": "2026-10-18T23:05:09Z",
+      "status": "in_progress",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-python@v5",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run extractions/setup-just@v2",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run astral-sh/setup-uv@v5",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": "",
+          "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+          "number": 8,
+          "status": "in_progress"
+        },
+        {
+          "conclusion": "",
+          "name": "Post Run astral-sh/setup-uv@v5",
+          "number": 13,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Post Run actions/setup-python@v5",
+          "number": 14,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Post Run actions/checkout@v4",
+          "number": 15,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Post Run actions/checkout@v4",
+          "number": 16,
+          "status": "pending"
+        }
+      ],
+      "url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39175002963/job/117815741131"
+    },
+    {
+      "completedAt": "2026-10-18T23:13:36Z",
+      "conclusion": "success",
+      "databaseId": 117815741156,
+      "name": "fast (3.13)",
+      "startedAt": "2026-10-18T23:05:09Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-python@v5",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run extractions/setup-just@v2",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run astral-sh/setup-uv@v5",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run just test-fast",
+          "number": 8,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run astral-sh/setup-uv@v5",
+          "number": 13,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@v5",
+          "number": 14,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 15,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 16,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39175002963/job/117815741156"
+    },
+    {
+      "completedAt": "2026-10-18T23:12:12Z",
+      "conclusion": "success",
+      "databaseId": 117815741211,
+      "name": "fast (3.12)",
+      "startedAt": "2026-10-18T23:05:10Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-python@v5",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run extractions/setup-just@v2",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run astral-sh/setup-uv@v5",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run just test-fast",
+          "number": 8,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run astral-sh/setup-uv@v5",
+          "number": 13,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@v5",
+          "number": 14,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 15,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 16,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39175002963/job/117815741211"
+    }
+  ],
+  "status": "in_progress"
+}

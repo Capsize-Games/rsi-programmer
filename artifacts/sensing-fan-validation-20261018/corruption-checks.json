@@ -1,0 +1,55 @@
+{
+  "original_manifest_sha256": "2406c593a906aa0ec322bbab1714f704767e169946928994edbe1686f14b527d",
+  "cases": [
+    {
+      "case": "prediction_next",
+      "rejected": true,
+      "reason": "stream[('plastic_snn', 0, 25, 'positive', 0)].windows[6].prediction_next mismatch",
+      "artifact_hash_rebound": true
+    },
+    {
+      "case": "score",
+      "rejected": true,
+      "reason": "stream[('plastic_snn', 0, 25, 'positive', 0)].windows[6].score mismatch",
+      "artifact_hash_rebound": true
+    },
+    {
+      "case": "model_hash_after",
+      "rejected": true,
+      "reason": "stream[('plastic_snn', 0, 25, 'positive', 0)].windows[6].model_hash_after mismatch",
+      "artifact_hash_rebound": true
+    },
+    {
+      "case": "alarm",
+      "rejected": true,
+      "reason": "stream[('plastic_snn', 0, 25, 'positive', 0)].windows[6].alarm mismatch",
+      "artifact_hash_rebound": true
+    },
+    {
+      "case": "value",
+      "rejected": true,
+      "reason": "stream[('plastic_snn', 0, 25, 'positive', 0)].windows[6].value mismatch",
+      "artifact_hash_rebound": true
+    },
+    {
+      "case": "source_slices",
+      "rejected": true,
+      "reason": "stream[('plastic_snn', 0, 25, 'positive', 0)].source_slices[0].start mismatch",
+      "artifact_hash_rebound": true
+    },
+    {
+      "case": "fractional_work",
+      "rejected": true,
+      "reason": "stream[('plastic_snn', 0, 25, 'positive', 0)].work.updates mismatch",
+      "artifact_hash_rebound": true
+    },
+    {
+      "case": "trained_hash",
+      "rejected": true,
+      "reason": "training[plastic_snn,0].trained_weight_hash mismatch",
+      "artifact_hash_rebound": true
+    }
+  ],
+  "all_rejected": true,
+  "original_bundle_modified": false
+}

@@ -1361,7 +1361,7 @@ At each feature, `a = exp(-dt/tau)`,
 `u = a*m + (1-a)*(w*x+b)`, `s = 1[u >= 1]`, and `m = u-s`.
 There is at most one spike per feature per unit. Filtered activity is
 `r = q*r + (1-q)*s`, where `q = exp(-dt/0.2)`. The next forecast is
-`p = sigmoid(sum(v*r)+c)`. Real nominal elapsed seconds determine decay;
+`p = sigmoid(sum(v*r)+c)`. Elapsed seconds determine decay;
 the first window uses `dt = 0.2` seconds. Timestamps are inferred from the
 dataset's stated sampling period, not measured timestamp fields.
 
@@ -1396,3 +1396,9 @@ slices, normalization, training, calibration, updates, alarms and metrics
 without importing the production predictor or detector. The fixed
 comparison uses stitched physical-fan recordings at held operating speeds;
 it cannot establish detection of actual physical transitions or faults.
+
+The first frozen comparison fails all detection gates in all three seeds.
+Online updates reduce prediction error relative to freezing the same
+trained SNN, but encoder learning adds no detected events. See the
+[measured result and controls](docs/sensing-fan-result.md); no hardware
+deployment or energy gain is established.
