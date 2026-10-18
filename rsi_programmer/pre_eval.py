@@ -7,7 +7,8 @@ from typing import Any, Callable, Iterator, cast
 
 from rsi_programmer.actions import ActionSpace
 from rsi_programmer.policy import OP_ORDER, Rows, SearchPolicy, Triple, Vals
-from rsi_programmer.policy import encode, layer_triples
+from rsi_programmer.policy import layer_triples
+from rsi_programmer.pre_eval_features import FeatureStatistics
 from rsi_programmer.probe import CONSTS, OPS, Expr
 from rsi_programmer.probe import const_terms, minimize_graph, terminals
 
@@ -191,6 +192,14 @@ def pre_evaluation_search(
         "operand_vector_lookups": 0,
         "generated_descriptors": 0, "scored_descriptors": 0,
         "feature_builds": 0, "policy_batches": 0,
+        "feature_stat_cache_hits": 0,
+        "feature_stat_cache_misses": 0,
+        "feature_stat_cache_lookups": 0,
+        "feature_target_range_elements_scanned": 0,
+        "feature_operand_elements_scanned": 0,
+        "reference_feature_target_range_elements_scanned": 0,
+        "reference_feature_operand_elements_scanned": 0,
+        "reference_gap_elements_scanned": 0,
         "policy_time_seconds": 0.0, "snn_steps": 0,
         "policy_batch_ticks": 0, "policy_row_steps": 0,
         "node_row_operations": 0, "graph_validation_calls": 0,
@@ -203,9 +212,26 @@ def pre_evaluation_search(
         "signature_budget_exhausted": False,
         "budget_exhausted": False,
     }
+    feature_statistics: FeatureStatistics | None = None
 
     def finish(graph: dict[str, Any] | None, verdict: str
                ) -> dict[str, Any]:
+        if feature_statistics is not None:
+            metrics["feature_stat_cache_hits"] = (
+                feature_statistics.cache_hits)
+            metrics["feature_stat_cache_misses"] = (
+                feature_statistics.cache_misses)
+            metrics["feature_stat_cache_lookups"] = (
+                feature_statistics.cache_lookups)
+            metrics["feature_target_range_elements_scanned"] = (
+                feature_statistics.target_range_elements_scanned)
+            metrics["feature_operand_elements_scanned"] = (
+                feature_statistics.operand_feature_elements_scanned)
+        feature_builds = metrics["feature_builds"]
+        metrics["reference_feature_target_range_elements_scanned"] = (
+            4 * len(expected) * feature_builds)
+        metrics["reference_feature_operand_elements_scanned"] = (
+            4 * len(expected) * feature_builds)
         metrics["elapsed_seconds"] = perf_counter() - started
         metrics["graph"] = graph
         metrics["verdict"] = verdict
@@ -255,23 +281,25 @@ def pre_evaluation_search(
                 for left_size in range(size))
             order: list[int] | None = None
         else:
+            if feature_statistics is None:
+                feature_statistics = FeatureStatistics(expected)
             triples = layer_triples(levels, size)
             width = len(triples)
             metrics["generated_descriptors"] += width
             feats: list[list[float]] = []
-            previous = [vectors[id(term)] for layer in levels.values()
-                        for term in layer]
-            total = len(expected)
-            best = max((sum(a == b for a, b in zip(vec, expected))
-                        for vec in previous), default=0)
-            gap = 1.0 - best / (total or 1)
+            previous = [(id(term), vectors[id(term)])
+                        for layer in levels.values() for term in layer]
+            metrics["reference_gap_elements_scanned"] += sum(
+                min(len(signature), len(expected))
+                for _key, signature in previous)
+            gap = feature_statistics.gap(previous)
             for index, (op, left, right) in enumerate(triples):
                 left_sig = vectors[id(left)]
                 right_sig = vectors[id(right)]
                 metrics["operand_vector_lookups"] += 2
-                feats.append(encode(op, left_sig, right_sig, expected,
-                                    left.size, right.size, size, bound,
-                                    index + 1, width))
+                feats.append(feature_statistics.encode(
+                    op, id(left), left_sig, id(right), right_sig,
+                    left.size, right.size, size, bound, index + 1, width))
             metrics["feature_builds"] += len(feats)
             order = _rank(policy, feats, triples, gap, metrics)
 

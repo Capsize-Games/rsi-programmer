@@ -1,0 +1,53 @@
+{
+  "audit": "static-freeze-audit-v1",
+  "date": "2026-10-18",
+  "measurement_run_performed": false,
+  "checks": {
+    "protocol_sha256": {
+      "expected": "b5399f0ab7f90df5191a2b72c1dd3a17706bb4d64538e616e44512cbe76a1130",
+      "actual": "b5399f0ab7f90df5191a2b72c1dd3a17706bb4d64538e616e44512cbe76a1130",
+      "matches": true
+    },
+    "baseline_source_sha256": {
+      "expected": "e5af5fe565f24a3bb08d97c3bf2e7545fbd2a34e83ee99786c2cf95a0b0c49d4",
+      "actual": "e5af5fe565f24a3bb08d97c3bf2e7545fbd2a34e83ee99786c2cf95a0b0c49d4",
+      "matches": true
+    },
+    "baseline_source_equals_code_v65_blob": true,
+    "baseline_source_equals_protocol_baseline_revision_blob": true,
+    "corpus_sha256": {
+      "expected": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+      "actual": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+      "matches": true
+    },
+    "corpus_protocol_sha256": {
+      "expected": "cf83dc077dc7960d4e576d898d842484655ac2c61d0e36128da6cda5ae8e7015",
+      "actual": "cf83dc077dc7960d4e576d898d842484655ac2c61d0e36128da6cda5ae8e7015",
+      "matches": true
+    },
+    "model_reference_sha256": {
+      "expected": "47b02c532f5a11faa4808f5ae9646ba976ab8a56d80a0aadfcaf062239d82b6b",
+      "actual": "47b02c532f5a11faa4808f5ae9646ba976ab8a56d80a0aadfcaf062239d82b6b",
+      "matches": true
+    },
+    "post_fit_weight_hashes": {
+      "expected_control_seed_hashes": 21,
+      "matching_hashes": 21,
+      "matches": true
+    },
+    "matrix_rows": {
+      "calculated": 16128,
+      "protocol": 16128,
+      "matches": true
+    }
+  },
+  "schedule_review": {
+    "protocol_hash_payload": "83080:seed:task_id:budget:control",
+    "runner_source_payload": "83080:seed:task_id:budget:control",
+    "matches": true,
+    "status": "static source review confirms order payload matches frozen protocol"
+  },
+  "limitations": [
+    "This audit verifies frozen bytes and declared counts only. It does not verify the benchmark runner, execute the experiment, or establish performance."
+  ]
+}

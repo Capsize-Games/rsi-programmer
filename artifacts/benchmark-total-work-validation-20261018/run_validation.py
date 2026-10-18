@@ -1,0 +1,50 @@
+import datetime
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+import sys
+import time
+import resource
+import spikeforge
+root = Path('/home/joe/Projects/rsi-programmer')
+name = sys.argv[1]
+command = sys.argv[2:]
+artifact = root / 'artifacts/benchmark-total-work-validation-20261018'
+artifact.mkdir(exist_ok=True)
+dependency = Path(spikeforge.__file__).resolve().parent
+def snapshot():
+    paths = set((root / 'rsi_programmer').rglob('*.py'))
+    paths.update((root / 'tests').rglob('*.py'))
+    paths.update((root / 'benchmarks').rglob('*.py'))
+    paths.add(root / 'artifacts/benchmark-pre-eval-v2-20261018/training.json')
+    paths.update((root / 'fixtures').rglob('*.json'))
+    paths.update((root / 'scripts').glob('*.py'))
+    paths.update((root / 'scripts').glob('*.js'))
+    paths.update(dependency.rglob('*.py'))
+    paths.update([root / 'justfile', root / 'requirements.txt'])
+    return {str(p.relative_to(root)) if p.is_relative_to(root) else
+            'spikeforge/' + str(p.relative_to(dependency)):
+            hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
+before = snapshot()
+usage_before = resource.getrusage(resource.RUSAGE_CHILDREN)
+started = time.monotonic()
+with (artifact / f'{name}.log').open('w') as out:
+    result = subprocess.run(command, cwd=root, stdout=out,
+                            stderr=subprocess.STDOUT)
+usage_after = resource.getrusage(resource.RUSAGE_CHILDREN)
+after = snapshot()
+record = {'command': command, 'exit_code': result.returncode,
+          'stage_wall_seconds': time.monotonic() - started,
+          'child_user_cpu_seconds': usage_after.ru_utime - usage_before.ru_utime,
+          'child_system_cpu_seconds': usage_after.ru_stime - usage_before.ru_stime,
+          'child_total_cpu_seconds': (usage_after.ru_utime + usage_after.ru_stime - usage_before.ru_utime - usage_before.ru_stime),
+          'whole_child_scope': 'CLI process and waited descendants through exit, including imports, setup, training, provenance and final output I/O; observer wrapper overhead excluded.',
+          'finished_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+          'files_before': before, 'files_after': after,
+          'source_unchanged': before == after,
+          'scope': 'All runtime/test Python, scripts, JSON fixtures, baseline/reference Python, model-reference JSON, requirements, justfile and full imported SpikeForge Python source tree. No source exclusions.'}
+(artifact / f'{name}.json').write_text(json.dumps(record, indent=2)+'\n')
+print(json.dumps({k:v for k,v in record.items() if not k.startswith('files_')}, indent=2))
+print((artifact / f'{name}.log').read_text()[-4000:])
+sys.exit(result.returncode or (0 if before == after else 99))

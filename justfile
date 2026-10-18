@@ -29,6 +29,8 @@ test:
 test-fast:
     .venv/bin/python -m unittest tests.test_pre_eval \
         tests.test_pre_eval_contract tests.test_benchmark_policy \
+        tests.test_pre_eval_features tests.test_pre_eval_feature_contract \
+        tests.test_benchmark_total_work tests.test_total_work_contract \
         tests.test_benchmark_fit_work tests.test_frozen_benchmark \
         tests.test_frozen_benchmark_eval \
         tests.test_benchmark_v2_corpus tests.test_benchmark_v2_runner \
