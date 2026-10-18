@@ -1,0 +1,25 @@
+{
+  "audit_command": ".venv/bin/python -m scripts.audit_online_graph --bundle artifacts/online-graph-v1-20261018",
+  "execution": "serial under /tmp/rsi-programmer-builder.lock",
+  "full_local_discovery": false,
+  "matrix_command": ".venv/bin/python -m scripts.benchmark_online_graph --output artifacts/online-graph-v1-20261018",
+  "measured_runtime": "5cdb9b5782a37bf0c32bb15d22098399f3ce12df",
+  "negative_command": "env PYTHONPATH=. .venv/bin/python artifacts/online-graph-v1-20261018/negative-controls.py",
+  "outputs": {
+    "audit-errors.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "audit.json": "1cf55b692bc93d084e65582b315e68f9590f8b7346ca7bf50a74cb14acc331aa",
+    "ci-observation.json": "12d51ac7c52475d70259a84c313bfb9dbd7c8f2bec4e115d4b8e59ec1fcc9db3",
+    "episodes.jsonl.gz": "816b5486a45cb77c4a1cafe8dc28d1480a7739f2ebdac4ae8b14fa48c9c7a702",
+    "manifest.json": "8f25b50dc20efc620105e3227991892afcf9b00d8c6cdafd16dff08b8a6527e6",
+    "negative-controls.json": "8b6062fbdafbf680e1326e4d9c1bea69f1002e5f37c270f461ca7091c4aca570",
+    "negative-controls.log": "b46082e35488a9840e699cd68208048d7a351fff07bf64ec69dda121b43381d4",
+    "negative-controls.py": "920214b3965910c689841e8d52c074db6afee348fa456d23550c38d4f5c1a7f7",
+    "summary.json": "563194e8d6ad649969c8d0870fac04a8ccf0c3c29706ad843b512e9d968d20ac"
+  },
+  "protocol_freeze": "428fbbb2badba947fc42bcac866abcfbf03c54a4",
+  "result": "All 1,440 rows replayed; six corrupted bundles rejected; all three outcome gates fail",
+  "scope": "48 shared synthetic functions and three model seeds, not sensor/hardware/energy validation",
+  "source_manifest_files": 175,
+  "validation": "artifacts/online-graph-validation-20261018/validation.json",
+  "weights_or_databases_written": false
+}
