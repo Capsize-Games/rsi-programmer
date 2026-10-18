@@ -111,9 +111,10 @@ class AudioLearner:
         return result.evaluation_copy()
 
     def frozen_reference(self) -> AudioLearner:
-        """Create a matched, untrained bank with parameter learning disabled."""
+        """Create a matched, untrained bank with learning disabled."""
         if self._active:
-            raise RuntimeError("reference creation requires a session boundary")
+            raise RuntimeError(
+                "reference creation requires a session boundary")
         return AudioLearner(seed=self._seed, spiking=self._spiking,
                             learning=False, encoder_learning=False)
 

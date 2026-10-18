@@ -1,0 +1,18 @@
+Initial auditor unittest run
+
+Ran 10 tests in 0.457s: FAILED (failures=2).
+The production-generated 700-frame fixture trace integration test passed.
+
+1. test_rejects_changed_prior_forecast
+   ValueError: normalized[0] mismatch
+   AssertionError: "prior forecast" does not match "normalized[0] mismatch" at tests/test_audio_session_audit.py:242
+   Cause: the corruption mutated a shared list; the test now detaches the
+   prediction vector before changing it.
+
+2. test_rejects_fixed_weight_hash_drift
+   ValueError: fixed_snn parameters changed
+   AssertionError: "fixed_snn hash" does not match "fixed_snn parameters changed" at tests/test_audio_session_audit.py:254
+   Cause: the auditor reported the more specific fixed-parameter error; the
+   assertion now matches that message.
+
+This note records the two reported failures only. It is not the full raw log.

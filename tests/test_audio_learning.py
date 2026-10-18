@@ -25,7 +25,7 @@ class AudioLearnerTests(unittest.TestCase):
         self.assertEqual(metrics["updates"], 6)
         self.assertTrue(all(0.0 <= value <= 1.0 for value in first + second))
 
-    def test_frozen_reference_hash_stays_fixed_while_state_advances(self) -> None:
+    def test_frozen_hash_stays_fixed_while_state_advances(self) -> None:
         reference = AudioLearner(seed=2, learning=False,
                                  encoder_learning=False)
         hashes = reference.weight_hash()
@@ -43,7 +43,7 @@ class AudioLearnerTests(unittest.TestCase):
         self.assertEqual(reference.metrics()["learning"], False)
         self.assertEqual(reference.metrics()["encoder_learning"], False)
 
-    def test_active_evaluation_clone_preserves_live_pending_credit(self) -> None:
+    def test_evaluation_clone_preserves_live_pending_credit(self) -> None:
         learner = AudioLearner(seed=5)
         learner.start_session(0.0, (0.3,) * 6)
         before = copy.deepcopy([band.__dict__ for band in learner._bands])
