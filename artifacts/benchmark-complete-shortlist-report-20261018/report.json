@@ -1,0 +1,221 @@
+{
+  "status": "complete",
+  "rows": [
+    {
+      "engine": "streaming",
+      "control": "streaming",
+      "first_full_success_budget": 131072,
+      "mean_attempt_cpu_ns": 38994207,
+      "N48_cpu_ns": 38994207,
+      "N480_cpu_ns": 38994207,
+      "N4800_cpu_ns": 38994207,
+      "per_attempt_work": {
+        "cheap_row_operations": 0,
+        "root_calls": 13385,
+        "policy_scored_features": 0,
+        "duplicate_descriptor_evaluations": 0,
+        "descriptor_replays": 0
+      }
+    },
+    {
+      "engine": "cheap_only",
+      "control": "cheap_only",
+      "first_full_success_budget": 131072,
+      "mean_attempt_cpu_ns": 44001279,
+      "N48_cpu_ns": 1227183591,
+      "N480_cpu_ns": 162319510,
+      "N4800_cpu_ns": 55833102,
+      "per_attempt_work": {
+        "cheap_row_operations": 13524,
+        "root_calls": 13269,
+        "policy_scored_features": 0,
+        "duplicate_descriptor_evaluations": 0,
+        "descriptor_replays": 0
+      }
+    },
+    {
+      "engine": "full_cached",
+      "control": "heuristic",
+      "first_full_success_budget": 131072,
+      "mean_attempt_cpu_ns": 158358094,
+      "N48_cpu_ns": 158358094,
+      "N480_cpu_ns": 158358094,
+      "N4800_cpu_ns": 158358094,
+      "per_attempt_work": {
+        "cheap_row_operations": 0,
+        "root_calls": 9783,
+        "policy_scored_features": 30982,
+        "duplicate_descriptor_evaluations": 0,
+        "descriptor_replays": 0
+      }
+    },
+    {
+      "engine": "complete_shortlist",
+      "control": "heuristic",
+      "first_full_success_budget": 131072,
+      "mean_attempt_cpu_ns": 55704105,
+      "N48_cpu_ns": 1238886417,
+      "N480_cpu_ns": 174022336,
+      "N4800_cpu_ns": 67535928,
+      "per_attempt_work": {
+        "cheap_row_operations": 13524,
+        "root_calls": 13273,
+        "policy_scored_features": 879,
+        "duplicate_descriptor_evaluations": 0,
+        "descriptor_replays": 0
+      }
+    },
+    {
+      "engine": "full_cached",
+      "control": "trained_snn",
+      "first_full_success_budget": 32768,
+      "mean_attempt_cpu_ns": 231651618,
+      "N48_cpu_ns": 350415016,
+      "N480_cpu_ns": 243527958,
+      "N4800_cpu_ns": 232839252,
+      "per_attempt_work": {
+        "cheap_row_operations": 0,
+        "root_calls": 6781,
+        "policy_scored_features": 30982,
+        "duplicate_descriptor_evaluations": 0,
+        "descriptor_replays": 0
+      }
+    },
+    {
+      "engine": "complete_shortlist",
+      "control": "trained_snn",
+      "first_full_success_budget": 131072,
+      "mean_attempt_cpu_ns": 105211069,
+      "N48_cpu_ns": 1407156779,
+      "N480_cpu_ns": 235405640,
+      "N4800_cpu_ns": 118230526,
+      "per_attempt_work": {
+        "cheap_row_operations": 13524,
+        "root_calls": 13273,
+        "policy_scored_features": 879,
+        "duplicate_descriptor_evaluations": 0,
+        "descriptor_replays": 0
+      }
+    },
+    {
+      "engine": "full_cached",
+      "control": "mlp",
+      "first_full_success_budget": 32768,
+      "mean_attempt_cpu_ns": 137852661,
+      "N48_cpu_ns": 197806754,
+      "N480_cpu_ns": 143848070,
+      "N4800_cpu_ns": 138452202,
+      "per_attempt_work": {
+        "cheap_row_operations": 0,
+        "root_calls": 7132,
+        "policy_scored_features": 30982,
+        "duplicate_descriptor_evaluations": 0,
+        "descriptor_replays": 0
+      }
+    },
+    {
+      "engine": "complete_shortlist",
+      "control": "mlp",
+      "first_full_success_budget": 131072,
+      "mean_attempt_cpu_ns": 57577946,
+      "N48_cpu_ns": 1300714351,
+      "N480_cpu_ns": 181891586,
+      "N4800_cpu_ns": 70009310,
+      "per_attempt_work": {
+        "cheap_row_operations": 13524,
+        "root_calls": 13275,
+        "policy_scored_features": 879,
+        "duplicate_descriptor_evaluations": 0,
+        "descriptor_replays": 0
+      }
+    },
+    {
+      "engine": "full_cached",
+      "control": "recurrent",
+      "first_full_success_budget": 32768,
+      "mean_attempt_cpu_ns": 147697251,
+      "N48_cpu_ns": 224231653,
+      "N480_cpu_ns": 155350692,
+      "N4800_cpu_ns": 148462595,
+      "per_attempt_work": {
+        "cheap_row_operations": 0,
+        "root_calls": 6484,
+        "policy_scored_features": 30982,
+        "duplicate_descriptor_evaluations": 0,
+        "descriptor_replays": 0
+      }
+    },
+    {
+      "engine": "complete_shortlist",
+      "control": "recurrent",
+      "first_full_success_budget": 131072,
+      "mean_attempt_cpu_ns": 63451172,
+      "N48_cpu_ns": 1323167886,
+      "N480_cpu_ns": 189422843,
+      "N4800_cpu_ns": 76048339,
+      "per_attempt_work": {
+        "cheap_row_operations": 13524,
+        "root_calls": 13275,
+        "policy_scored_features": 879,
+        "duplicate_descriptor_evaluations": 0,
+        "descriptor_replays": 0
+      }
+    }
+  ],
+  "memory_coverage": {
+    "statement": "Memory measurement grid: complete, 960/960 rows at fixed cap 32768 (RSS and tracemalloc).",
+    "accepted_by_config": {
+      "streaming/streaming": {
+        "accepted": 43,
+        "total": 48
+      },
+      "cheap_only/cheap_only": {
+        "accepted": 43,
+        "total": 48
+      },
+      "full_cached/heuristic": {
+        "accepted": 46,
+        "total": 48
+      },
+      "complete_shortlist/heuristic": {
+        "accepted": 43,
+        "total": 48
+      },
+      "full_cached/trained_snn": {
+        "accepted": 48,
+        "total": 48
+      },
+      "complete_shortlist/trained_snn": {
+        "accepted": 43,
+        "total": 48
+      },
+      "full_cached/mlp": {
+        "accepted": 48,
+        "total": 48
+      },
+      "complete_shortlist/mlp": {
+        "accepted": 43,
+        "total": 48
+      },
+      "full_cached/recurrent": {
+        "accepted": 48,
+        "total": 48
+      },
+      "complete_shortlist/recurrent": {
+        "accepted": 43,
+        "total": 48
+      }
+    },
+    "fixed_budget": 32768,
+    "expected_rows": 960,
+    "same_success_memory_comparison_claimed": false
+  },
+  "source_script_sha256": "ae58ef1108b572650c446070ab65b61a0e6eadf0b8433d3fcf714f5642c28933",
+  "input_bundle_sha256": {
+    "aggregate.json": "fa11a73eb53d2cb9d9132893b00e9dcac1d1bfb221ff5b65f76f0fd9bb325672",
+    "training.json": "a9be9994db90f127d1e42f2e0cd7be5c779ccf593b217fa418d30daca945d1b5",
+    "raw.jsonl": "62e3c3938bf11cef22beab1e003eec26766ef2d024f1fd782caf4bffa1af49e3",
+    "memory.jsonl": "287b46c8edadab6ecd341de890599a2dea6747203d8013830ae37be5eaebb636"
+  },
+  "text_report_sha256": "b566899e6fde60dddd52fc8cd11e4f6486072e7a979dd8da9b42dbfd48dfe431"
+}

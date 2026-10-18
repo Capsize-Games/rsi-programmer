@@ -1,0 +1,19 @@
+First full-success cost and work
+Costs use the summary's full-success budget and complete raw cell.
+N costs include production setup and applicable selector charges.
+Work totals cover all attempts at each first full-success cap.
+
+engine,control,budget,mean_attempt_cpu_ns,N48_cpu_ns,N480_cpu_ns,N4800_cpu_ns,cheap_row_ops/root_calls/policy_features/dedup/replays_per_attempt
+streaming,streaming,131072,38994207,38994207,38994207,38994207,0/13385/0/0/0
+cheap_only,cheap_only,131072,44001279,1227183591,162319510,55833102,13524/13269/0/0/0
+full_cached,heuristic,131072,158358094,158358094,158358094,158358094,0/9783/30982/0/0
+complete_shortlist,heuristic,131072,55704105,1238886417,174022336,67535928,13524/13273/879/0/0
+full_cached,trained_snn,32768,231651618,350415016,243527958,232839252,0/6781/30982/0/0
+complete_shortlist,trained_snn,131072,105211069,1407156779,235405640,118230526,13524/13273/879/0/0
+full_cached,mlp,32768,137852661,197806754,143848070,138452202,0/7132/30982/0/0
+complete_shortlist,mlp,131072,57577946,1300714351,181891586,70009310,13524/13275/879/0/0
+full_cached,recurrent,32768,147697251,224231653,155350692,148462595,0/6484/30982/0/0
+complete_shortlist,recurrent,131072,63451172,1323167886,189422843,76048339,13524/13275/879/0/0
+
+Memory coverage: complete at cap 32768 only (RSS and tracemalloc; 960 rows).
+Memory results do not establish a memory curve across root caps.

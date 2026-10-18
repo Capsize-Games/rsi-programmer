@@ -1,0 +1,22 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "artifacts/benchmark-complete-shortlist-report-20261018/report.py",
+    "artifacts/benchmark-complete-shortlist-v1-20261018",
+    "--output",
+    "artifacts/benchmark-complete-shortlist-report-20261018/report.txt"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 0.5672010600101203,
+  "script_sha256": "ffd81baff5c4233917a7b894c811631e5035c2779010377ef2b46e3163ac3607",
+  "bundle_sha256": {
+    "aggregate.json": "fa11a73eb53d2cb9d9132893b00e9dcac1d1bfb221ff5b65f76f0fd9bb325672",
+    "training.json": "a9be9994db90f127d1e42f2e0cd7be5c779ccf593b217fa418d30daca945d1b5",
+    "raw.jsonl": "62e3c3938bf11cef22beab1e003eec26766ef2d024f1fd782caf4bffa1af49e3",
+    "memory.jsonl": "287b46c8edadab6ecd341de890599a2dea6747203d8013830ae37be5eaebb636"
+  },
+  "outputs_sha256": {
+    "report.txt": "b058b4f9e4241008b660c315ac92d3f2def9604a232d500aae53a0a47034d1e5",
+    "report.json": "a4acec5d9593ef66da460703107ef8ee3d9e25af704cb9538d474cc0bd29f034"
+  }
+}

@@ -20,13 +20,19 @@ The metadata-only preflight passed before evaluation measurement. It reads only 
 flock /tmp/rsi-programmer-builder.lock python artifacts/benchmark-complete-shortlist-audit-20261018/audit_window_runner.py
 ```
 
-The main bundle audit and corruption controls remain pending benchmark completion and serial lock availability. Hold the lock for the audit and controls:
+The complete shortlist benchmark is published. The independent auditor passed all 11,808 timed rows and 960 isolated-memory rows. It independently recomputed the cost summaries and found the cost gate unsupported; all three seeds retained full required-task success for the SNN comparison. These results cover only the frozen known-v2 corpus and do not establish transfer to another task distribution, total-memory bounds, or energy efficiency.
+
+The first post-measurement audit attempt was retained and failed because of two auditor assumptions: it expected policy scoring to stop at the execution cap, although the frozen engine scores the full selected quota before cap-limited execution; and it treated the protocol's `none` model markers as absent training records, although `streaming` has an explicit no-fit record while `cheap_only` has none. The corrected auditor now independently checks `scored_descriptors == shortlist_descriptors` for policy engines, permits execution to stop partway through that set, requires the exact explicit no-fit streaming state, and requires the cheap-only record to be absent. The untouched first failure and corrected report are both retained.
+
+All six corruption controls passed against temporary copies: duplicate raw key, reordered rows, wrong accepted graph, forged paired ratio (+0.25), forged selection charge, and forged cheap-counter partition. The source benchmark bundle was not modified by these controls.
+
+The final audit and controls ran serially while holding the builder lock:
 
 ```sh
 flock /tmp/rsi-programmer-builder.lock bash -c '
-  python artifacts/benchmark-complete-shortlist-audit-20261018/complete_shortlist_audit.py artifacts/benchmark-complete-shortlist-v1 --output artifacts/benchmark-complete-shortlist-audit-20261018/main-audit.json &&
-  python artifacts/benchmark-complete-shortlist-audit-20261018/negative_controls.py artifacts/benchmark-complete-shortlist-v1 --output artifacts/benchmark-complete-shortlist-audit-20261018/negative-controls.json
+  python artifacts/benchmark-complete-shortlist-audit-20261018/complete_shortlist_audit.py artifacts/benchmark-complete-shortlist-v1-20261018 --output artifacts/benchmark-complete-shortlist-audit-20261018/main-audit-final-pass.json &&
+  python artifacts/benchmark-complete-shortlist-audit-20261018/negative_controls.py artifacts/benchmark-complete-shortlist-v1-20261018 --output artifacts/benchmark-complete-shortlist-audit-20261018/negative-controls-final.json
 '
 ```
 
-The negative controls operate on temporary copies, refresh the bundle file hashes, and must be rejected by semantic checks. No audit output in this folder currently represents a completed evaluation audit.
+The final main audit exited 0 in 1.602 seconds; the six controls exited 0 in 17.076 seconds. See `main-audit-final-pass.json`, `negative-controls-final.json`, their `.log`, `.exit`, and `.time` receipts, and the retained initial failure files. Final artifact-script formatting check passed (`4 files already formatted`).

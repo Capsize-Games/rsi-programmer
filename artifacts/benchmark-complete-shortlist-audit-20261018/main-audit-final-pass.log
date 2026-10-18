@@ -1,0 +1,26 @@
+{
+  "aggregate_sha256": "fa11a73eb53d2cb9d9132893b00e9dcac1d1bfb221ff5b65f76f0fd9bb325672",
+  "audit_passed": true,
+  "bundle": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-complete-shortlist-v1-20261018",
+  "corpus_sha256": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+  "decision_supported_on_cost": false,
+  "errors": [],
+  "expected_memory_row_count": 960,
+  "expected_row_count": 11808,
+  "memory_mismatch_count": 0,
+  "memory_row_count": 960,
+  "memory_sha256": "287b46c8edadab6ecd341de890599a2dea6747203d8013830ae37be5eaebb636",
+  "protocol_sha256": "189fa147a11040c6a05ef173522a6146285de616996724adff49d17b5f66be0a",
+  "raw_sha256": "62e3c3938bf11cef22beab1e003eec26766ef2d024f1fd782caf4bffa1af49e3",
+  "repeat_mismatch_count": 0,
+  "row_count": 11808,
+  "snn_efficiency_advantage_supported": false,
+  "snn_full_success_all_required": true,
+  "snn_over_comparator_n48_cpu_ratios": {
+    "cheap_only:cheap_only": 1.14665547104433,
+    "complete_shortlist:heuristic": 1.1358238813521264,
+    "complete_shortlist:mlp": 1.081833822975343,
+    "complete_shortlist:recurrent": 1.06347561312398,
+    "streaming:streaming": 36.086303181247814
+  }
+}

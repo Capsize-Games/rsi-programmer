@@ -1,0 +1,54 @@
+{
+  "bundle": "artifacts/benchmark-complete-shortlist-v1-20261018",
+  "commands": [
+    {
+      "command": "flock -x /tmp/rsi-programmer-builder.lock bash -c 'plot_start_ns=$(date +%s%N); .venv/bin/python artifacts/benchmark-complete-shortlist-plots-20261018/plot_costs.py > artifacts/benchmark-complete-shortlist-plots-20261018/plot-command.log 2>&1; plot_rc=$?; plot_end_ns=$(date +%s%N); plot_elapsed_ns=$((plot_end_ns - plot_start_ns)); cat artifacts/benchmark-complete-shortlist-plots-20261018/plot-command.log; printf \"plot_exit_code=%s\\nplot_elapsed_ns=%s\\n\" \"$plot_rc\" \"$plot_elapsed_ns\"; exit \"$plot_rc\"'",
+      "elapsed_ns": 1269256238,
+      "exit_code": 0,
+      "output": "plot-command.log"
+    },
+    {
+      "command": "flock -x /tmp/rsi-programmer-builder.lock bash -c 'check_start_ns=$(date +%s%N); .venv/bin/python -c '''import ast; from pathlib import Path; p=Path(\"artifacts/benchmark-complete-shortlist-plots-20261018/plot_costs.py\"); source=p.read_text(); ast.parse(source, filename=str(p)); bad=[(n,len(line)) for n,line in enumerate(source.splitlines(),1) if len(line)>79]; print(\"ast_parse=passed\"); print(\"lines_over_79=\"+repr(bad)); raise SystemExit(1 if bad else 0)'''; check_rc=$?; check_end_ns=$(date +%s%N); check_elapsed_ns=$((check_end_ns - check_start_ns)); printf \"static_check_exit_code=%s\\nstatic_check_elapsed_ns=%s\\n\" \"$check_rc\" \"$check_elapsed_ns\"; exit \"$check_rc\"'",
+      "elapsed_ns": 24375194,
+      "exit_code": 0,
+      "result": "AST parse passed; zero lines longer than 79 columns."
+    }
+  ],
+  "fixture_sha256": "189fa147a11040c6a05ef173522a6146285de616996724adff49d17b5f66be0a",
+  "input_sha256": {
+    "aggregate.json": "fa11a73eb53d2cb9d9132893b00e9dcac1d1bfb221ff5b65f76f0fd9bb325672",
+    "manifest.json": "3bf3db53ddb821e123fa25b17eafff0c705ab230c1bab03663548b6a054aac6a",
+    "memory.jsonl": "287b46c8edadab6ecd341de890599a2dea6747203d8013830ae37be5eaebb636",
+    "raw.jsonl": "62e3c3938bf11cef22beab1e003eec26766ef2d024f1fd782caf4bffa1af49e3",
+    "training.json": "a9be9994db90f127d1e42f2e0cd7be5c779ccf593b217fa418d30daca945d1b5"
+  },
+  "manifest_checks": {
+    "all_declared_points_present_and_valid": true,
+    "attempts_per_aggregate_point": 288,
+    "configurations": 10,
+    "declared_cap_points": 41,
+    "environment_frozen": true,
+    "grid_valid": true,
+    "infrastructure_valid": true,
+    "memory_rows": 960,
+    "memory_valid": true,
+    "model_states_frozen": true,
+    "n48_amortized_points": 41,
+    "no_row_errors": true,
+    "repeats_behavior_identical": true,
+    "root_cap_valid": true,
+    "shortlist_metrics_valid": true,
+    "source_frozen": true,
+    "timed_rows": 11808
+  },
+  "outputs": {
+    "complete-shortlist-cost-curves.png": "321d6b37d78c15cda751b8a599b7c644ecca45feb92ef613bd04620e6d6ab2a7",
+    "complete-shortlist-cost-curves.svg": "2cc55e07bf5aa32f945504e0fab1c2cf0f5e5aa89327a9b9fe383b4883f4e943",
+    "plot-command.log": "5d6a6bcad7ba326dc6bdc42d9bb945cce7baf528a5b0e542ca44f142a61c3f00"
+  },
+  "protocol_sha256": "189fa147a11040c6a05ef173522a6146285de616996724adff49d17b5f66be0a",
+  "scope_note": "Artifact-only plotting. No runtime, test, script, fixture or measured-data files were edited.",
+  "script_sha256": "6c24e92386142ff341817b8c19d341fb9203e6117285cc1e1e1459a8056a67d2",
+  "status": "complete",
+  "visual_inspection": "PNG opened and inspected: both cost panels, log axes, ten configuration legend entries, five cap markers and footer are visible without clipping."
+}

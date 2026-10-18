@@ -2,7 +2,7 @@
 
 The final runner uses the protocol frozen in code-v81, SHA256
 `189fa147a11040c6a05ef173522a6146285de616996724adff49d17b5f66be0a`.
-The main comparison has not run at this verification checkpoint.
+At the code-v82 verification checkpoint, the main comparison had not run.
 
 `engine-contract` passed 15 tests (0.077 s unittest; 0.929 s CLI). The final
 `focused-verified` run passed 75 tests (15.397 s unittest; 16.429 s CLI).
@@ -47,3 +47,13 @@ It does not establish CI results for this later runner. Full/slow/retry suites
 were not run locally: the changed implementation is an experimental benchmark
 API and reporting path; the historical search/training implementation and
 default remain unchanged. Full CI runs independently on main pushes.
+
+The subsequent measurement completed all 11,808 timed and 960 memory rows
+with exit zero and no source drift. The independent full audit passed, and
+all six corrupted negative controls were rejected. All new configurations
+reach full coverage, but both total-CPU and SNN-efficiency gates fail.
+`publication-check.json` verifies that the same 455 source/dependency files
+were present in both final tests, the complete measurement, and the final
+publication check. It also verifies bundle/audit/plot/report hashes and both
+earlier published snapshots against final bytes. Full CI remains pending in
+the retained before-publication snapshot; no full suite was run locally.

@@ -921,8 +921,12 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
                 sig = search.get("signature_evaluations", -1)
                 scored = search.get("scored_descriptors", -1)
                 shortlist_exec = search.get("shortlist_executions", -1)
+                # Policy scoring covers the complete selected quota, even
+                # when the root budget interrupts execution partway through it.
                 expected_scored = (
-                    0 if engine == "cheap_only" else shortlist_exec
+                    0
+                    if engine == "cheap_only"
+                    else search.get("shortlist_descriptors", -1)
                 )
                 invariants = {
                     "window_size": window,
@@ -1401,6 +1405,24 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
     for seed in training.get("seeds", []):
         seed_id = str(seed.get("seed"))
         for control, digest in expected_weights.get(seed_id, {}).items():
+            if digest == "none":
+                state = seed.get("controls", {}).get(control)
+                if control == "cheap_only":
+                    valid_none = state is None
+                else:
+                    valid_none = (
+                        isinstance(state, dict)
+                        and state.get("weights_after_fit_sha256") == "none"
+                        and state.get("expected_weights_after_fit_sha256")
+                        == "none"
+                        and state.get("fit_performed") is False
+                    )
+                if not valid_none:
+                    errors.append(
+                        f"unexpected model state seed={seed_id} "
+                        f"control={control}"
+                    )
+                continue
             actual = (
                 seed.get("controls", {})
                 .get(control, {})

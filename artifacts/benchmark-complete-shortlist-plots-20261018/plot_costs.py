@@ -12,7 +12,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_BUNDLE = (
-    ROOT / "artifacts/benchmark-complete-shortlist-v1-verified-20261018"
+    ROOT / "artifacts/benchmark-complete-shortlist-v1-20261018"
 )
 PROTOCOL_PATH = ROOT / "fixtures/benchmark_complete_shortlist_v1.json"
 PROTOCOL_SHA256 = (
@@ -21,7 +21,7 @@ PROTOCOL_SHA256 = (
 REQUIRED_CHECKS = (
     "grid_valid", "memory_valid", "repeats_behavior_identical",
     "model_states_frozen", "no_row_errors", "source_frozen",
-    "environment_frozen", "shortlist_peak_valid", "root_cap_valid",
+    "environment_frozen", "shortlist_metrics_valid", "root_cap_valid",
 )
 CONTROL_LABELS = {
     "streaming": "streaming",

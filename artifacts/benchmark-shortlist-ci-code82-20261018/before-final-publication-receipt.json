@@ -1,0 +1,35 @@
+{
+  "source_commit": "6b1559986f3e240219661383a8f3f84bf1fb1557",
+  "captured_utc": "2026-10-18T17:58:12.522609+00:00",
+  "command": "gh api repos/Capsize-Games/rsi-programmer/actions/runs/39149596790/jobs?per_page=100",
+  "exit_code": 0,
+  "snapshot_file": "run-jobs-before-final-publication.json",
+  "snapshot_sha256": "2bf9cf704dfe3bff39ffb988b1b5f04fbc8a80b023a2a3773b5a3025b4a49a95",
+  "jobs": [
+    {
+      "id": 117740330754,
+      "name": "full (3.13)",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 117740330958,
+      "name": "fast (3.13)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 117740331011,
+      "name": "full (3.12)",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 117740331048,
+      "name": "fast (3.12)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "full_ci_pending": true
+}

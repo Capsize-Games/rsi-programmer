@@ -12,7 +12,7 @@ WORK_AXES = {
     "cheap_row_operations": "cheap_candidate_row_operations",
     "root_calls": "signature_evaluations",
     "policy_scored_features": "scored_descriptors",
-    "dedup_signature_evaluations": "duplicate_signature_evaluations",
+    "duplicate_descriptor_evaluations": "duplicate_signature_evaluations",
     "descriptor_replays": "descriptor_replays",
 }
 COUNTS = ("cheap_only", "streaming", "full_cached", "complete_shortlist")
@@ -54,13 +54,23 @@ def point_rows(
     ]
 
 
-def verify_cell(rows: list[dict[str, Any]], expected: int) -> None:
+def verify_cell(
+    rows: list[dict[str, Any]],
+    expected_seeds: set[int],
+    expected_tasks: set[str],
+) -> None:
     """Reject sparse, duplicate, failed, or censored full-success cells."""
     keys = {
         (row.get("seed"), row.get("task_id"), row.get("repeat"))
         for row in rows
     }
-    if len(rows) != expected or len(keys) != expected:
+    expected_keys = {
+        (seed, task_id, repeat)
+        for seed in expected_seeds
+        for task_id in expected_tasks
+        for repeat in (0, 1)
+    }
+    if len(rows) != len(expected_keys) or keys != expected_keys:
         raise ValueError("first-success raw cell is incomplete or duplicated")
     if any(not row.get("accepted") or row.get("censored") for row in rows):
         raise ValueError("summary full success disagrees with raw outcomes")
@@ -79,7 +89,11 @@ def render(run_dir: Path) -> str:
     seeds = training.get("seeds", [])
     if not seeds:
         raise ValueError("training record has no fitted seeds")
-    expected_attempts = len(seeds) * 48 * 2
+    seed_ids = {seed.get("seed") for seed in seeds}
+    task_ids = {row.get("task_id") for row in raw}
+    if (len(seed_ids) != len(seeds) or None in seed_ids
+            or len(task_ids) != 48 or None in task_ids):
+        raise ValueError("raw/training task or seed coverage is incomplete")
     full_success = {
         (row["engine"], row["control"]): row
         for row in aggregate["matched_success_cpu_cost"]
@@ -95,12 +109,13 @@ def render(run_dir: Path) -> str:
     lines = [
         "First full-success cost and work",
         "Costs use the summary's full-success budget and complete raw cell.",
-        "N costs include the frozen production setup and applicable selector charge.",
-        "Work totals cover all seed/task/repeat attempts at the first full-success cap.",
+        "N costs include production setup and applicable selector charges.",
+        "Work totals cover all attempts at each first full-success cap.",
         "",
         ("engine,control,budget,mean_attempt_cpu_ns,N48_cpu_ns,"
          "N480_cpu_ns,N4800_cpu_ns,cheap_row_ops/root_calls/"
-         "policy_features/dedup/replays_per_attempt"),
+         "policy_features/duplicate_descriptor_evaluations/"
+         "replays_per_attempt"),
     ]
     for engine, control in configs:
         point = full_success.get(config_key(engine, control))
@@ -109,7 +124,7 @@ def render(run_dir: Path) -> str:
             continue
         budget = point["budget"]
         rows = point_rows(raw, engine, control, budget)
-        verify_cell(rows, expected_attempts)
+        verify_cell(rows, seed_ids, task_ids)
         work_totals = point.get("work_totals_by_axis")
         if not isinstance(work_totals, dict):
             raise ValueError("full-success summary lacks work totals")
@@ -121,33 +136,74 @@ def render(run_dir: Path) -> str:
                         for key, axis in WORK_AXES.items()}:
             raise ValueError("summary work totals differ from raw rows")
         per_attempt = [
-            round(raw_work[key] / expected_attempts)
+            round(raw_work[key] / len(rows))
             for key in WORK_AXES
         ]
         n_costs = point["training_amortized_cpu_ns_per_task_by_N"]
         mean_attempt = round(point["mean_attempt_cpu_ns"])
+        raw_mean = sum(
+            row["attempt_cpu_ns_including_hashes_and_validation"]
+            for row in rows
+        ) / len(rows)
+        if round(raw_mean) != mean_attempt:
+            raise ValueError("summary mean CPU differs from raw rows")
         lines.append(
             f"{engine},{control},{budget},{mean_attempt},"
             f"{round(n_costs['48'])},{round(n_costs['480'])},"
             f"{round(n_costs['4800'])}," + "/".join(map(str, per_attempt))
         )
-    memory_expected = 48 * 10 * 2
+    configurations = {
+        (engine, control) for engine, control in configs
+    }
+    expected_memory = {
+        (mode, task_id, engine, control, 32768)
+        for mode in ("rss", "tracemalloc")
+        for task_id in task_ids
+        for engine, control in configurations
+    }
     memory_keys = {
         (row.get("memory_mode"), row.get("task_id"), row.get("engine"),
          row.get("control"), row.get("budget"))
         for row in memory
     }
-    memory_complete = (
-        len(memory) == memory_expected
-        and len(memory_keys) == memory_expected
-        and all(row.get("budget") == 32768 for row in memory)
+    memory_complete = len(memory) == 960 and memory_keys == expected_memory
+    accepted_by_config: dict[tuple[str, str], int] = {}
+    for engine, control in configs:
+        rows = [
+            row for row in memory
+            if row.get("engine") == engine and row.get("control") == control
+        ]
+        by_task: dict[str, dict[str, bool]] = {}
+        for row in rows:
+            by_task.setdefault(row["task_id"], {})[
+                row["memory_mode"]
+            ] = bool(row.get("accepted"))
+        valid_tasks = all(
+            set(modes) == {"rss", "tracemalloc"}
+            and len(set(modes.values())) == 1
+            for modes in by_task.values()
+        )
+        if memory_complete and (len(by_task) != 48 or not valid_tasks):
+            raise ValueError("memory mode outcomes do not cover task pairs")
+        accepted_by_config[(engine, control)] = sum(
+            next(iter(modes.values())) for modes in by_task.values()
+            if modes
+        )
+    acceptance_line = "Fixed-cap accepted searches by config: " + "; ".join(
+        f"{engine}/{control} {accepted_by_config.get((engine, control), 0)}/48"
+        for engine, control in configs
     )
     lines.extend([
         "",
-        "Memory coverage: "
-        + ("complete at cap 32768 only (RSS and tracemalloc; 960 rows)."
+        "Memory measurement grid: "
+        + ("complete, 960/960 rows at fixed cap 32768 "
+           "(RSS and tracemalloc)."
            if memory_complete else
-           f"incomplete or mismatched ({len(memory)} rows; expected 960 at cap 32768)."),
+           f"incomplete/mismatched ({len(memory)} rows; "
+           "expected 960 at 32768)."),
+        acceptance_line,
+        "Grid completion is not universal search success; no same-success "
+        "memory-win claim is made.",
         "Memory results do not establish a memory curve across root caps.",
     ])
     return "\n".join(lines) + "\n"

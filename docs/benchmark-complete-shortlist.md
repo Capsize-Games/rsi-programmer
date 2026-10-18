@@ -56,5 +56,48 @@ corpus and environment; they do not establish energy savings or broad transfer.
 CPU work counters can overlap and must not be added as exclusive cost
 categories.
 
-No final evaluation result is stated here until the complete frozen matrix,
-independent audit, and manifest are available.
+The completed matrix contains all 11,808 timed rows and 960 memory rows,
+with zero row errors. The independent auditor recomputed graph acceptance,
+work accounting, ordered matrix completeness, repeat/model/source checks and
+all cost summaries. It passed; all six corrupted negative controls were
+rejected. Two incorrect auditor assumptions about selected-versus-executed
+counts and model-free controls were corrected, with the failed report retained.
+The measured bundle and runtime were not changed for those corrections.
+
+All ten configurations reach full validated coverage. Their first listed
+full-success caps and mean per-task CPU costs are below. "Shortlist" means
+the complete-fallback engine. "Full" means full-layer cached ranking.
+N=48 and N=4,800 include the frozen selection and production charges.
+
+| Engine/control | Cap | Attempt ms | N=48 ms | N=4,800 ms |
+| --- | ---: | ---: | ---: | ---: |
+| Streaming | 131,072 | 38.994 | 38.994 | 38.994 |
+| Cheap-only | 131,072 | 44.001 | 1,227.184 | 55.833 |
+| Full heuristic | 131,072 | 158.358 | 158.358 | 158.358 |
+| Shortlist heuristic | 131,072 | 55.704 | 1,238.886 | 67.536 |
+| Full SNN | 32,768 | 231.652 | 350.415 | 232.839 |
+| Shortlist SNN | 131,072 | 105.211 | 1,407.157 | 118.231 |
+| Full MLP | 32,768 | 137.853 | 197.807 | 138.452 |
+| Shortlist MLP | 131,072 | 57.578 | 1,300.714 | 70.009 |
+| Full recurrent | 32,768 | 147.697 | 224.232 | 148.463 |
+| Shortlist recurrent | 131,072 | 63.451 | 1,323.168 | 76.048 |
+
+The shortlist restores coverage and reduces CPU relative to full-layer
+ranking, but every shortlist configuration is slower than streaming even
+before upfront costs. Both preregistered cost gates fail. These results
+support keeping streaming as the default and retaining this API as an
+experimental comparison; they do not support expanding the SNN architecture.
+The allocation/native-memory observations are at cap 32,768, where shortlist
+coverage can be lower, so they do not establish a memory win at full success.
+
+The known-v2 corpus and three model seeds remain the experiment's scope.
+This is not an independent transfer result or an energy measurement. Final
+local verification passed 75 affected and 374 fast tests; Python 3.12 and
+3.13 CI each passed 374 fast tests on code-v82. Full/slow/retry suites were
+not run locally, and the retained CI snapshot shows full CI still running.
+
+Evidence is in `artifacts/benchmark-complete-shortlist-v1-20261018/`,
+`artifacts/benchmark-complete-shortlist-audit-20261018/` and
+`artifacts/benchmark-shortlist-validation-20261018/`. Earlier code-v83 and
+code-v84 snapshots match the complete memory file and seed-zero raw prefix
+byte-for-byte.

@@ -1,0 +1,38 @@
+{
+  "all_passed": true,
+  "report_type": "complete-shortlist-auditor-negative-controls",
+  "results": [
+    {
+      "control": "duplicate_raw_key",
+      "expected_rejection": "duplicate raw key",
+      "passed": true
+    },
+    {
+      "control": "reordered_raw_rows",
+      "expected_rejection": "raw row order differs",
+      "passed": true
+    },
+    {
+      "control": "wrong_accepted_graph",
+      "expected_rejection": "accepted flag inconsistent",
+      "passed": true
+    },
+    {
+      "control": "forged_paired_ratio_plus_0_25",
+      "expected_rejection": "paired_cost_ratios[",
+      "passed": true
+    },
+    {
+      "control": "forged_selection_charge",
+      "expected_rejection": "training selection total_cpu_ns",
+      "passed": true
+    },
+    {
+      "control": "forged_counter_partition",
+      "expected_rejection": "cheap_residual_arithmetic_operations identity mismatch",
+      "passed": true
+    }
+  ],
+  "source_bundle": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-complete-shortlist-v1-20261018",
+  "source_bundle_modified": false
+}

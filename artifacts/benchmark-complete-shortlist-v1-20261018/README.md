@@ -18,12 +18,15 @@ The published 960-row memory snapshot and 3,936-row seed-zero timing prefix
 match the final files byte-for-byte. Their earlier tagged evidence is in
 `../benchmark-complete-shortlist-progress-20261018/`.
 
-At this data publication checkpoint, the independent main audit and six
-corrupted negative controls are running. The internal aggregate reports that
-all five new configurations reach full validated coverage, but neither the
-preregistered total-CPU gate nor the SNN-efficiency gate passes. Treat these
-conclusions as pending independent verification until the audit report is
-published. No search default changed.
+At code-v85 publication the independent audit was pending. It has now
+passed, independently checking the full matrix, accepted graphs, counters,
+model/source snapshots and all aggregate costs. All six corrupted negative
+controls were rejected. Both the total-CPU gate and SNN-efficiency gate fail,
+although all five new configurations reach full validated coverage. The
+retained failed audit and its two corrected checker assumptions are documented
+in `../benchmark-complete-shortlist-audit-20261018/README.md`; benchmark
+bytes were unchanged. No search default changed. Detailed cost endpoints are
+in `../../docs/benchmark-complete-shortlist.md` and the post-run report.
 
 The corpus contains 24 training and 48 evaluation functions with no shared
 whole polynomial function. These are the known v2 arithmetic fixtures and
