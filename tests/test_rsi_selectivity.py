@@ -86,6 +86,7 @@ class SelectivityTests(unittest.TestCase):
         second = family_report(self.lat, self.policy,
                                self.weights, tasks,
                                recorder, BUDGET, WIDTH)
+        self.assertEqual(first, second)
         self.assertEqual(first["solved"], second["solved"])
         self.assertEqual(first["named_rate"],
                          second["named_rate"])

@@ -13,6 +13,7 @@ import random
 from typing import Any
 
 from rsi_programmer.author import MAX_PASSES, _backtrack
+from rsi_programmer.author import _add_work
 from rsi_programmer.author import _commit, _fresh, _new_ctx
 from rsi_programmer.author import _pack, open_gap
 from rsi_programmer.lattice import BitLattice
@@ -69,11 +70,14 @@ def _lattice_scan(lat: BitLattice, ctx: dict[str, Any],
     lat.reset()
     sigs = [signature(Expr(op, left, right, size), rows)
             for op, left, right in triples]
-    gap = open_gap(ctx["sigs"], target)
+    ctx["signature_evaluations"] += len(triples)
+    ctx["operand_signature_evaluations"] += 2 * len(triples)
+    # Lattice packs are trained with this constant context channel.
+    gap = 1.0
     feats = [encode(op, signature(left, rows),
                     signature(right, rows), target,
                     left.size, right.size, size, bound,
-                    ctx["tried"] + i + 1, budget)
+                    i + 1, len(triples))
              for i, (op, left, right) in enumerate(triples)]
     words, emits = _words_and_emit(lat, feats, gap, rng)
     for idx, (op, _left, _right) in enumerate(triples):
@@ -180,7 +184,7 @@ def lattice_search(lat: BitLattice, rows: Any, target: Any,
                                   task_id, widen, trace,
                                   shuffle)
         again["tried"] = out["tried"] + again["tried"]
-        again["examined"] = out["examined"] + again["examined"]
+        _add_work(again, out)
         again["named"] = out["named"] + again["named"]
         out = again
     out["named_rate"] = out["named"] / max(out["examined"], 1)
@@ -205,6 +209,9 @@ def lattice_runs(lat: BitLattice, tasks: list[dict[str, Any]],
         per.append({"task": str(task["id"]),
                     "solved": bool(out["solved"] and holds),
                     "tried": int(out["tried"]),
+                    "signature_evaluations":
+                    int(out["signature_evaluations"]),
+                    "cost_unit": "candidate_signature_evaluations",
                     "agreed": bool(out["agreed"]),
                     "named_rate": float(out["named_rate"]),
                     "oracle": bool(holds),

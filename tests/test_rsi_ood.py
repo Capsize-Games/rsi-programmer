@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import math
 import unittest
 from typing import Any
 
@@ -95,7 +96,7 @@ class MirrorTests(unittest.TestCase):
         self.assertEqual(_vacuous(healthy), [])
 
     def test_strict_filter_bites_and_freezes(self) -> None:
-        """Strict seed-35 differs, matches file, old files hold."""
+        """Strict content stays frozen; new selection metadata is separate."""
         loose = generate_family(35, 8, 4, 2, "gen_ood2",
                                 mirror=True)
         filed = _load(V2)
@@ -105,11 +106,22 @@ class MirrorTests(unittest.TestCase):
             [t["task"] for t in filed])
         tight = generate_family(35, 8, 4, 2, "gen_ood2",
                                 mirror=True, strict=True)
-        self.assertEqual(tight, {"max_tree_ops": 4,
-                                 "tasks": filed, "version": 1})
+        self.assertEqual(tight["max_tree_ops"], 4)
+        self.assertEqual(tight["version"], 1)
+        self.assertEqual(
+            [{k: v for k, v in task.items()
+              if k != "selection_filter"} for task in tight["tasks"]],
+            filed)
+        for task in tight["tasks"]:
+            self.assertIn("selection_filter", task)
+            self.assertTrue(task["selection_filter"][
+                "enumerator_solution_held_out_confirmed"])
         twin = generate_family(34, 8, 4, 0, "gen_ood_u",
                                mirror=False, consts=False)
-        self.assertEqual(twin["tasks"], _load(TWIN))
+        self.assertEqual(
+            [{k: v for k, v in task.items()
+              if k != "selection_filter"} for task in twin["tasks"]],
+            _load(TWIN))
 
     def test_hard_corpus_plain_and_bounded(self) -> None:
         """New pools are plain-OPS with the intended bounds."""
@@ -261,20 +273,40 @@ class FrozenBenchmarkTests(unittest.TestCase):
         self.assertEqual(both[0], both[1])
         self.assertTrue(all(v == v for v in both[0]))
 
-    def test_overfit_policy_blinder_to_mirror(self) -> None:
-        """Narrow guidance barely notices the reversal."""
-        narrow_sim = guidance_similarity(
-            self.narrow, self.twin, self.plain)
-        broad_sim = guidance_similarity(
-            self.broad, self.twin, self.plain)
-        self.assertEqual(narrow_sim["pairs"], len(self.twin))
-        for sim in (narrow_sim, broad_sim):
-            self.assertGreaterEqual(sim["mean"], 0.0)
-            self.assertLessEqual(sim["mean"], 1.0)
-        self.assertGreater(narrow_sim["mean"],
-                           broad_sim["mean"])
-        print("blindness: narrow=%.4f broad=%.4f"
-              % (narrow_sim["mean"], broad_sim["mean"]))
+    def test_guidance_similarity_matches_fresh_pairwise_cosines(
+            self) -> None:
+        """Report matches independent snapshot-restored pair scores."""
+        triples, total = _probe_layer()
+        for policy in (self.narrow, self.broad):
+            before = weights_hash(policy)
+            snapshot = policy.snapshot()
+            expected: list[float] = []
+            for twin, plain in zip(self.twin, self.plain):
+                vectors: list[list[float]] = []
+                for task in (twin, plain):
+                    fresh = SearchPolicy(seed=0)
+                    fresh.restore(snapshot)
+                    feats = _probe_feats(task, triples, total)
+                    vectors.append(fresh.scores(feats))
+                numerator = sum(a * b for a, b in zip(*vectors))
+                left = math.sqrt(sum(value * value
+                                     for value in vectors[0]))
+                right = math.sqrt(sum(value * value
+                                      for value in vectors[1]))
+                cosine = (numerator / (left * right)
+                          if left and right else 0.0)
+                expected.append(cosine)
+                self.assertGreaterEqual(cosine, -1.0)
+                self.assertLessEqual(cosine, 1.0)
+
+            result = guidance_similarity(policy, self.twin, self.plain)
+            self.assertEqual(result["pairs"], len(expected))
+            expected_per_task = [round(value, 4)
+                                 for value in expected]
+            self.assertEqual(result["per_task"], expected_per_task)
+            mean = sum(expected) / len(expected) if expected else 0.0
+            self.assertEqual(result["mean"], round(mean, 4))
+            self.assertEqual(weights_hash(policy), before)
 
 
 if __name__ == "__main__":

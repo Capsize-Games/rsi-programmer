@@ -100,7 +100,10 @@ def signature(expr: Expr, rows: tuple[tuple[int, int], ...]) -> tuple[int, ...]:
 def enumerate_programs(rows: tuple[tuple[int, int], ...], expected: tuple[int, ...], max_ops: int,
                        root_op: str | None = None, deduplicate: bool = True,
                        consts: tuple[int, ...] = (),
-                       branch: bool = False):
+                       branch: bool = False,
+                       on_candidate: Callable[
+                           [Expr, tuple[int, ...], int], None] | None = None
+                       ) -> tuple[Expr | None, int, int]:
     """Enumerate typed integer expression trees by node count.
 
     Each binary Apply consumes two Int values and returns Int. The output is
@@ -108,6 +111,8 @@ def enumerate_programs(rows: tuple[tuple[int, int], ...], expected: tuple[int, .
     Constant terminals join level zero only when consts is non-empty, and
     Bool comparisons plus ternary select join only when branch is set, so
     frozen families keep their exact historical search order by default.
+    The optional recorder callback observes each generated candidate once,
+    after its signature is computed and before deduplication.
     """
     levels: dict[int, list[Expr]] = {
         0: list(terminals()) + list(const_terms(consts))}
@@ -115,6 +120,7 @@ def enumerate_programs(rows: tuple[tuple[int, int], ...], expected: tuple[int, .
     tried = 0
     for size in range(1, max_ops + 1):
         current: list[Expr] = []
+        current_signatures: dict[int, tuple[int, ...]] = {}
         current_seen: set[tuple[str, tuple[int, ...]]] = set()
         for left_size in range(size):
             right_size = size - left_size - 1
@@ -122,14 +128,17 @@ def enumerate_programs(rows: tuple[tuple[int, int], ...], expected: tuple[int, .
                 for op in OPS:
                     tried += 1
                     expr = Expr(op, left, right, size)
+                    sig = signature(expr, rows)
+                    if on_candidate is not None:
+                        on_candidate(expr, sig, tried)
                     if deduplicate:
-                        sig = signature(expr, rows)
                         key = (op, sig)
                         if key in current_seen:
                             continue
                         current_seen.add(key)
                     # Keep per-layer candidates in deterministic grammar order.
                     current.append(expr)
+                    current_signatures[id(expr)] = sig
         bcurrent: list[Expr] = []
         if branch:
             bseen: set[tuple[str, tuple[int, ...]]] = set()
@@ -141,8 +150,11 @@ def enumerate_programs(rows: tuple[tuple[int, int], ...], expected: tuple[int, .
                     for op in CMP:
                         tried += 1
                         expr = Expr(op, left, right, size)
+                        sig = signature(expr, rows)
+                        if on_candidate is not None:
+                            on_candidate(expr, sig, tried)
                         if deduplicate:
-                            key = (op, signature(expr, rows))
+                            key = (op, sig)
                             if key in bseen:
                                 continue
                             bseen.add(key)
@@ -157,19 +169,23 @@ def enumerate_programs(rows: tuple[tuple[int, int], ...], expected: tuple[int, .
                         tried += 1
                         expr = Expr(SELECT, cond, first, size,
                                     third=second)
+                        sig = signature(expr, rows)
+                        if on_candidate is not None:
+                            on_candidate(expr, sig, tried)
                         if deduplicate:
-                            key = (SELECT, signature(expr, rows))
+                            key = (SELECT, sig)
                             if key in current_seen:
                                 continue
                             current_seen.add(key)
                         current.append(expr)
+                        current_signatures[id(expr)] = sig
         levels[size] = current
         blevels[size] = bcurrent
         for expr in current:
             if (root_op is None or expr.op == root_op
                     or (branch and root_op == SELECT
                         and expr.op == SELECT)):
-                if signature(expr, rows) == expected:
+                if current_signatures[id(expr)] == expected:
                     return expr, tried, _volume(levels, blevels)
     return None, tried, _volume(levels, blevels)
 
@@ -231,8 +247,11 @@ def lower_to_dag(expr: Expr) -> dict:
     return {"input_types": {"x": "Int", "y": "Int"}, "nodes": nodes, "output": output}
 
 
-def validate_graph(graph: dict) -> None:
-    if set(graph) != {"input_types", "nodes", "output"}:
+def validate_graph(graph: dict, *,
+                   require_int_output: bool = True) -> None:
+    """Validate a final Int program, or an explicit intermediate graph."""
+    if not isinstance(graph, dict) or set(graph) != {
+            "input_types", "nodes", "output"}:
         raise ValueError("malformed graph fields")
     if graph["input_types"] != {"x": "Int", "y": "Int"} or not isinstance(graph["nodes"], list):
         raise ValueError("malformed inputs or node table")
@@ -240,6 +259,8 @@ def validate_graph(graph: dict) -> None:
     for index, node in enumerate(graph["nodes"]):
         if not isinstance(node, dict):
             raise ValueError("malformed node")
+        if not isinstance(node.get("op"), str):
+            raise ValueError("operation must be a string")
         if node.get("op") == "const":
             if set(node) != {"op", "type", "args", "value"}:
                 raise ValueError("malformed constant")
@@ -281,6 +302,29 @@ def validate_graph(graph: dict) -> None:
             raise ValueError("unknown output input reference")
     elif type(out) is not int or not 0 <= out < len(types):
         raise ValueError("invalid output reference")
+    elif require_int_output and types[out] != "Int":
+        raise ValueError("program output must be Int")
+
+
+def minimize_graph(graph: dict) -> dict:
+    """Return only output-reachable nodes, preserving exact semantics."""
+    validate_graph(graph)
+    kept: list[dict] = []
+    remap: dict[int, int] = {}
+
+    def visit(ref: int | str) -> int | str:
+        if isinstance(ref, str):
+            return ref
+        if ref not in remap:
+            node = graph["nodes"][ref]
+            args = [visit(arg) for arg in node["args"]]
+            remap[ref] = len(kept)
+            kept.append({**node, "args": args})
+        return remap[ref]
+
+    output = visit(graph["output"])
+    return {"input_types": dict(graph["input_types"]),
+            "nodes": kept, "output": output}
 
 
 def interpret(graph: dict, x: int, y: int) -> int:

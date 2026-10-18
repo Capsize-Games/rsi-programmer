@@ -181,7 +181,8 @@ class AuthoredLoopTests(unittest.TestCase):
         stand-in diagnostic; phase two ranks from that real
         prior promotion plus the lattice wall signals and
         promotes again through the unweakened gate, with
-        autonomy above zero and lineage on every outcome.
+        descriptive outcome-association metadata and lineage
+        on every outcome.
         """
         prop = EditProposer()
         tmp = tempfile.mkdtemp(prefix="rsi-loopA-")
@@ -213,7 +214,15 @@ class AuthoredLoopTests(unittest.TestCase):
                if r["decision"] == "promote"]
         self.assertEqual(won[0]["provenance"]["rule"],
                          "repeat")
-        self.assertGreater(rep["autonomy"]["ratio"], 0.0)
+        self.assertGreater(won[0]["mean_gain"], 0.0)
+        self.assertEqual(rep["outcome_association"]["grouping"],
+                         "promotion decision outcome")
+        self.assertEqual(rep["outcome_association"]["interpretation"],
+                         "descriptive outcome association")
+        self.assertEqual(rep["autonomy"]["alias_for"],
+                         "outcome_association")
+        self.assertEqual(rep["autonomy"]["ratio"],
+                         rep["outcome_association"]["ratio"])
         self.assertTrue(rep["agency"])
         store = LineageStore(tmp + "/second.db")
         try:
@@ -221,9 +230,9 @@ class AuthoredLoopTests(unittest.TestCase):
             self.assertEqual(len(rows), len(rep["records"]))
         finally:
             store.close()
-        print("authored loop promotions=%d autonomy=%.3f"
+        print("authored loop promotions=%d outcome_association=%.3f"
               % (rep["promotions"],
-                 rep["autonomy"]["ratio"]))
+                 rep["outcome_association"]["ratio"]))
 
     def test_real_diagnostics_report_honestly(self) -> None:
         """Lattice-wall diagnostics drive an honest report.
@@ -318,8 +327,9 @@ class AuthoredLoopTests(unittest.TestCase):
         from rsi_programmer.probe import CONSTS
         from rsi_programmer.search import guided_search
         root = Path(__file__).resolve().parent.parent
-        tasks = json.load(
-            open(root / "fixtures" / "rsi_ood_v2.json"))["tasks"]
+        with open(root / "fixtures" / "rsi_ood_v2.json",
+                  encoding="utf-8") as handle:
+            tasks = json.load(handle)["tasks"]
         plain = [t for t in tasks
                  if "branch" not in t.get("features", [])]
         self.assertEqual(len(plain), 4)
@@ -349,8 +359,9 @@ class AuthoredLoopTests(unittest.TestCase):
         held = rep["held"]
         self.assertEqual(len(held), 8)
         root = Path(__file__).resolve().parent.parent
-        tasks = json.load(
-            open(root / "fixtures" / "rsi_ood_v2.json"))["tasks"]
+        with open(root / "fixtures" / "rsi_ood_v2.json",
+                  encoding="utf-8") as handle:
+            tasks = json.load(handle)["tasks"]
         for task, score in zip(tasks, held):
             if "branch" in task.get("features", []):
                 self.assertEqual(score, 0.0)

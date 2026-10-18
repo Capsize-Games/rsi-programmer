@@ -27,19 +27,23 @@ Row = tuple[list[float], int]
 
 
 def split_groups(groups: list[list[Row]], seed: int = 0
-                 ) -> tuple[list[list[Row]], list[Row]]:
-    """Seeded 80/20 split per group; held-out rows pooled."""
-    train: list[list[Row]] = []
-    val: list[Row] = []
-    for group in groups:
-        idx = list(range(len(group)))
-        Random(seed).shuffle(idx)
-        keep = set(idx[:int(len(idx) * (1.0 - VAL_FRAC))])
-        train.append([row for k, row in enumerate(group)
-                      if k in keep])
-        val += [row for k, row in enumerate(group)
-                if k not in keep]
-    return train, val
+                 ) -> tuple[list[list[Row]], list[list[Row]],
+                            list[list[Row]]]:
+    """Seeded train/calibration/evaluation split by whole groups."""
+    order = list(range(len(groups)))
+    Random(seed).shuffle(order)
+    n_hold = int(len(groups) * VAL_FRAC)
+    if len(groups) >= 3:
+        n_hold = max(1, n_hold)
+    cal_ids = set(order[:n_hold])
+    eval_ids = set(order[n_hold:2 * n_hold])
+    train = [group for i, group in enumerate(groups)
+             if i not in cal_ids and i not in eval_ids]
+    calibration = [group for i, group in enumerate(groups)
+                   if i in cal_ids]
+    evaluation = [group for i, group in enumerate(groups)
+                  if i in eval_ids]
+    return train, calibration, evaluation
 
 
 def _word_exact(lat: BitLattice, mat: torch.Tensor,
@@ -74,45 +78,72 @@ def _struct_f1(lat: BitLattice, mat: torch.Tensor,
     return 2.0 * prec * rec / (prec + rec)
 
 
+def _joint_word_emit_accuracy(lat: BitLattice, mat: torch.Tensor,
+                              want: torch.Tensor,
+                              memb: torch.Tensor) -> float:
+    """Accuracy of word-exact AND EMIT as a membership prediction."""
+    lat.reset()
+    with torch.no_grad():
+        out = lat._drive(mat)
+    got = torch.stack(
+        [out["b%d" % i][:, 0] >= lat.thresholds["b%d" % i]
+         for i in range(N_BITS)], dim=1)
+    word_exact = (got == (want > 0.5)).all(dim=1)
+    emit = (out["st"][:, 0] >=
+            out["st"][:, 1] + lat.thresholds["st"])
+    return ((word_exact & emit) == (memb > 0.5)).float().mean().item()
+
+
 def sweep_thresholds(lat: BitLattice,
                      valpack: tuple[Any, Any, Any]
                      ) -> dict[str, Any]:
-    """Coordinate descent on the held-out slice, in place.
+    """Tune thresholds on calibration groups, in place.
 
-    Grids start at the defaults so ties keep 0.5/0.0;
-    every eval is a full held-out drive, no gradients.
+    Each score is a full calibration-set drive with no gradients.
+    Strict improvement wins; ties retain the current threshold,
+    including values outside the search grids.
     """
     mat, want, memb = valpack
     for _ in range(2):
         for i in range(N_BITS):
             key = "b%d" % i
-            best, best_v = lat.thresholds[key], -1.0
+            best = lat.thresholds[key]
+            best_v = _word_exact(lat, mat, want)
             for grid in BIT_GRID:
                 lat.thresholds[key] = grid
                 val = _word_exact(lat, mat, want)
                 if val > best_v:
                     best, best_v = grid, val
             lat.thresholds[key] = best
-    best_m, best_f = lat.thresholds["st"], -1.0
+    best_m = lat.thresholds["st"]
+    best_f = _struct_f1(lat, mat, memb)
     for grid in MARGIN_GRID:
         lat.thresholds["st"] = grid
         val = _struct_f1(lat, mat, memb)
         if val > best_f:
             best_m, best_f = grid, val
     lat.thresholds["st"] = best_m
+    exact = _word_exact(lat, mat, want)
+    f1 = _struct_f1(lat, mat, memb)
+    joint = _joint_word_emit_accuracy(lat, mat, want, memb)
     return {"bit_thresholds": [lat.thresholds["b%d" % i]
                                for i in range(N_BITS)],
             "st_margin": best_m,
-            "val_exact": _word_exact(lat, mat, want),
-            "val_f1": _struct_f1(lat, mat, memb),
+            "calibration_available": True,
+            "calibration_exact": exact,
+            "calibration_f1": f1,
+            "calibration_joint_word_emit_accuracy": joint,
+            "calibration_rows": mat.shape[0],
+            # Preserve the original report fields for existing consumers.
+            "val_exact": exact, "val_f1": f1,
             "val_rows": mat.shape[0]}
 
 
 def refine(lat: BitLattice,
            groups: list[list[Row]]) -> dict[str, Any]:
-    """Learn the decode operating point. No fitting here."""
-    _, val = split_groups(groups)
+    """Tune thresholds on calibration groups. No fitting here."""
     out: dict[str, Any] = {}
-    if val:
+    if groups:
+        val = [row for group in groups for row in group]
         out.update(sweep_thresholds(lat, pack_rows(val)))
     return out

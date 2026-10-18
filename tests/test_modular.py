@@ -11,7 +11,7 @@ import torch
 from rsi_programmer.evolve import guided_search
 from rsi_programmer.mgroups import modular_groups, module_report
 from rsi_programmer.modules import ModularPolicy
-from rsi_programmer.policy import SearchPolicy
+from rsi_programmer.policy import FEATURE_ENCODING, SearchPolicy
 from rsi_programmer.traces import TraceRecorder
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -32,6 +32,7 @@ class ModularPolicyTests(unittest.TestCase):
         snap = first.snapshot()
         second = ModularPolicy(seed=99)
         second.restore(snap)
+        self.assertEqual(snap["feature_encoding"], FEATURE_ENCODING)
         feats = [[float(i == j) for j in range(12)]
                  for i in range(6)]
         before = first.head_rates(feats, gap=0.5)
@@ -47,8 +48,10 @@ class ModularPolicyTests(unittest.TestCase):
         self.assertTrue(loss == loss)
         rep = module_report(policy, groups)
         self.assertGreater(rep["layers"], 0)
-        for key in ("op_accuracy", "op_chance", "operand_top1",
-                    "operand_chance"):
+        for key in ("op_argmax_accuracy", "op_argmax_chance",
+                    "left_operand_top1_match",
+                    "left_operand_top1_chance", "op_accuracy",
+                    "op_chance", "operand_top1", "operand_chance"):
             self.assertIn(key, rep)
             self.assertGreaterEqual(rep[key], 0.0)
             self.assertLessEqual(rep[key], 1.0)
@@ -68,22 +71,41 @@ class ModularPolicyTests(unittest.TestCase):
             self.assertTrue(out["solved"], task["id"])
             self.assertLessEqual(out["tried"], budget)
 
-    def test_feedback_edge_carries_signal(self) -> None:
-        """Priming changes outputs; zeroed feedback changes them."""
+    def test_explicit_continuation_carries_state(self) -> None:
+        """Sequence callers can explicitly continue prior state."""
         policy = ModularPolicy(seed=0)
         drive = [[0.5] * 12 for _ in range(4)]
         fresh = policy.head_rates(drive, gap=0.9)
-        policy.head_rates(drive, gap=0.1)
-        primed = policy.head_rates(drive, gap=0.9)
+        policy.head_rates(drive, gap=0.1, continue_state=True)
+        primed = policy.head_rates(drive, gap=0.9,
+                                   continue_state=True)
         self.assertFalse(_close(fresh, primed))
+
+    def test_delayed_feedback_changes_outputs_within_one_drive(self) -> None:
+        """The feedback edge remains active in a fresh drive."""
+        policy = ModularPolicy(seed=0)
+        torch.manual_seed(100)
+        drive = torch.rand(8, 12).tolist()
+        intact = policy.head_rates(drive, gap=0.9)
+        ablated = ModularPolicy(seed=0)
         with torch.no_grad():
-            for name, param in policy._net.named_parameters():
+            for name, param in ablated._net.named_parameters():
                 if "fb_fc" in name:
                     param.zero_()
-        policy._temporal = None
-        policy.head_rates(drive, gap=0.1)
-        cut = policy.head_rates(drive, gap=0.9)
-        self.assertFalse(_close(primed, cut))
+        cut = ablated.head_rates(drive, gap=0.9)
+        self.assertFalse(_close(intact, cut))
+
+    def test_same_rows_are_independent_of_prior_candidate_batches(
+            self) -> None:
+        """Scoring independent batches never inherits prior state."""
+        policy = ModularPolicy(seed=2)
+        feats = [[float((i + j) % 3) / 2.0 for j in range(12)]
+                 for i in range(5)]
+        other = [[float((i * j) % 5) / 4.0 for j in range(12)]
+                 for i in range(5)]
+        first = policy.scores(feats)
+        policy.scores(other)
+        self.assertEqual(first, policy.scores(feats))
 
 
 def _close(first: dict, second: dict) -> bool:

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for the bit-slice team training loop (lattice v32)."""
+"""Tests for group-split bit-slice training and evaluation."""
 from __future__ import annotations
 
 import tempfile
@@ -30,19 +30,36 @@ class LatticeTrainTests(unittest.TestCase):
         cls.after = weights_hash(cls.lat)
 
     def test_heads_beat_chance_words_beat_third(self) -> None:
-        """Per-head accuracy and word-exact clear chance.
+        """Bit and word-bit accuracy stay above their baselines.
 
         Chance is one in three: training triples name only
         add/sub/mul, so word-exact must beat uniform-opcode
         guessing, and each head must beat a coin flip.
         """
-        acc = self.rep["head_accuracy"]
+        acc = self.rep["bit_accuracy"]
         print("heads=%s exact=%.3f rounds=%d"
               % ([round(a, 3) for a in acc],
-                 self.rep["word_exact"], self.rep["rounds"]))
+                 self.rep["word_bit_exact_accuracy"],
+                 self.rep["evaluation_rows"]))
         for i, rate in enumerate(acc):
             self.assertGreater(rate, 0.5, i)
-        self.assertGreater(self.rep["word_exact"], 1.0 / 3.0)
+        self.assertGreater(self.rep["word_bit_exact_accuracy"], 1.0 / 3.0)
+        self.assertEqual(self.rep["head_accuracy"], acc)
+        self.assertEqual(self.rep["word_exact"],
+                         self.rep["word_bit_exact_accuracy"])
+        self.assertEqual(self.rep["rounds"], self.rep["evaluation_rows"])
+        self.assertGreater(self.rep["calibration_rows"], 0)
+        self.assertIn("st_stop", self.rep["postfit_rates"])
+        self.assertLessEqual(self.rep["initial_calibration"]["cycles"], 3)
+        self.assertEqual(
+            self.rep["postfit_rates_in_band"],
+            self.rep["postfit_max_rate_deviation"] <= 0.05)
+        self.assertEqual(set(self.rep["postfit_rate_drift"]),
+                         set(self.rep["postfit_rates"]))
+        self.assertTrue(self.rep["evaluation_available"])
+        self.assertIn("joint_word_emit_accuracy", self.rep)
+        self.assertGreaterEqual(self.rep["joint_word_emit_accuracy"], 0.0)
+        self.assertLessEqual(self.rep["joint_word_emit_accuracy"], 1.0)
 
     def test_encoder_coadapts_from_donor(self) -> None:
         """Joint training moves shared weights off the donor.
@@ -71,6 +88,8 @@ class LatticeTrainTests(unittest.TestCase):
         intent = _json.loads(rows[0]["intent"])
         self.assertEqual(intent["fixture"], FIXTURE)
         self.assertIn("word_exact", intent)
+        self.assertIn("word_bit_exact_accuracy", intent)
+        self.assertIn("postfit_rates", intent)
 
 
 if __name__ == "__main__":

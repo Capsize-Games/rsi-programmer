@@ -2,14 +2,15 @@
 """Fenced inward promotion gate for trainer self-edits.
 
 One edit at a time: snapshot the base config, run base and trial
-trainers in fenced workdirs, decide on paired held-out scores via
-PromotionGate, then promote or roll back. Every outcome lands in
-lineage; the budget caps attempts and crashes roll back too. The
-proxy may only pre-screen elsewhere — this gate always full-evals.
+trainers in fenced workdirs, decide on paired held-out task scores,
+then promote or roll back. The trainer protocol reports score arrays
+only, so this gate cannot measure safety failures or resource spend;
+those inputs are recorded as zero in its current decision call.
 """
 from __future__ import annotations
 
 import time
+import uuid
 from pathlib import Path
 from typing import Any, Callable
 
@@ -31,8 +32,9 @@ class SelfGate:
 
     def __init__(self, workdir: str, ledger: str,
                  mission: str = "self-gate", budget: int = 1,
-                 min_gain: float = 0.05) -> None:
-        """Bind fence directories, ledger, budget, and gain bar."""
+                 min_gain: float = 0.05,
+                 min_pairs: int = 3) -> None:
+        """Bind fence directories, ledger, budget, and evidence bars."""
         if budget < 0:
             raise ValueError("budget must be non-negative")
         self._root = Path(workdir)
@@ -40,17 +42,20 @@ class SelfGate:
         self._log = mission_ledger(ledger, mission)
         self._mission = mission
         self._budget = budget
-        self._gate = PromotionGate(min_gain=min_gain)
+        self._gate = PromotionGate(min_gain=min_gain,
+                                   min_pairs=min_pairs)
         self._trials = 0
+        self._run_id = uuid.uuid4().hex
 
     def _record(self, kind: str, intent: dict[str, Any]) -> str:
         """Lineage entry; returns its digest for the verdict."""
-        command = "%s-%04d" % (self._mission, self._trials)
+        command = "%s-%s-%04d" % (self._mission, self._run_id,
+                                   self._trials)
         self._trials += 1
-        self._log.record_intent(command, self._mission, 0, 1,
-                                {"kind": kind, **intent})
-        rows = self._log.commands_in(self._mission, "prepared")
-        return str(rows[-1]["digest"])
+        row = self._log.record_intent(
+            command, self._mission, 0, 1,
+            {"kind": kind, **intent})
+        return str(row["digest"])
 
     def propose(self, base: dict[str, Any],
                 edit: dict[str, Any], trainer: Trainer,
@@ -90,8 +95,16 @@ class SelfGate:
                     "config": dict(base), "lineage": digest,
                     "budget_left": self._budget}
         wall = time.perf_counter() - start
-        verdict = self._gate.decide(list(ref), list(got), 0, 0,
-                                    wall)
+        try:
+            verdict = self._gate.decide(list(ref), list(got), 0, 0,
+                                        wall)
+        except (TypeError, ValueError) as exc:
+            digest = self._record(
+                "refuse-invalid-evidence", {"edit": edit,
+                                            "reason": str(exc)})
+            return {"decision": "refuse", "reason": str(exc),
+                    "config": dict(base), "lineage": digest,
+                    "budget_left": self._budget}
         diff = describe(edit, base)
         if verdict["promote"]:
             digest = self._record("promote",
@@ -108,4 +121,5 @@ class SelfGate:
         return {"decision": "refuse",
                 "reason": "; ".join(verdict["reasons"]),
                 "config": dict(base), "lineage": digest,
-                "budget_left": self._budget}
+                "budget_left": self._budget,
+                "mean_gain": verdict["mean_gain"]}

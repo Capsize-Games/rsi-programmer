@@ -4,9 +4,9 @@ BSD-3-Clause software, copyright Capsize LLC (see [LICENSE](LICENSE)).
 
 ## Commands
 
-- `just setup` — create `.venv`, install requirements, pin a local
-  spikeforge source checkout (pass `SPIKEFORGE_DIR=...` when it lives
-  elsewhere).
+- `just setup` — create `.venv`, install requirements, configure a local
+  spikeforge source checkout (pass its absolute checkout root as the
+  positional argument: `just setup /path/to/spikeforge`).
 - `just test` — full unittest suite, run from the repo root.
 - `just train` — canonical training run (seed 0, 50 epochs, writes
   `weights/`).

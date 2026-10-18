@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import random
 import time
 from pathlib import Path
@@ -28,6 +29,17 @@ Scores = dict[str, list[float]]
 Trainer = Callable[[dict[str, Any], int, str], Scores]
 
 
+def _finite_gain(value: Any) -> float | None:
+    """Return a measured finite gain, excluding missing/invalid values."""
+    if value is None or isinstance(value, bool):
+        return None
+    try:
+        gain = float(value)
+    except (TypeError, ValueError, OverflowError):
+        return None
+    return gain if math.isfinite(gain) else None
+
+
 class RsiLoop:
     """Sequential self-edit driver with stop rules."""
 
@@ -35,7 +47,8 @@ class RsiLoop:
                  cycles: int = 3, wall_s: float = 600.0,
                  seed: int = 0, dry_run: bool = False,
                  proposer: EditProposer | None = None,
-                 diagnostics: dict[str, Any] | None = None
+                 diagnostics: dict[str, Any] | None = None,
+                 active_fields: tuple[str, ...] | None = None
                  ) -> None:
         """Bind fence, ledger, trace path, and stop budgets.
 
@@ -55,6 +68,8 @@ class RsiLoop:
         self._dry = dry_run
         self._proposer = proposer
         self._diag = dict(diagnostics) if diagnostics else {}
+        self._active_fields = (set(active_fields)
+                               if active_fields is not None else None)
         self._start = time.perf_counter()
         self._records: list[dict[str, Any]] = []
 
@@ -85,6 +100,9 @@ class RsiLoop:
         if self._proposer is None:
             rng = random.Random(self._seed)
             pool = all_edits(dict(config))
+            if self._active_fields is not None:
+                pool = [edit for edit in pool
+                        if edit["field"] in self._active_fields]
             rng.shuffle(pool)
             prov: list[dict[str, Any]] = [
                 {"rule": "seeded-order",
@@ -92,6 +110,9 @@ class RsiLoop:
                 for _ in pool]
             return pool, prov
         rows = self._proposer.rank(dict(config), self._diag)
+        if self._active_fields is not None:
+            rows = [row for row in rows
+                    if row["edit"]["field"] in self._active_fields]
         pool = [row["edit"] for row in rows]
         prov = [row["provenance"] for row in rows]
         return pool, prov
@@ -128,18 +149,45 @@ class RsiLoop:
                 promoted += 1
             else:
                 misses += 1
-            self._emit({"cycle": cycle, "edit": edit,
-                        "diff": out["reason"],
-                        "proxy": "unproven",
-                        "decision": out["decision"],
-                        "authored": authored,
-                        "provenance": origin,
-                        "lineage": out["lineage"],
-                        "mean_gain": out.get("mean_gain", 0.0),
-                        "wall_s": 0.0})
+            record = {"cycle": cycle, "edit": edit,
+                      "diff": out["reason"],
+                      "proxy": "unproven",
+                      "decision": out["decision"],
+                      "authored": authored,
+                      "provenance": origin,
+                      "lineage": out["lineage"],
+                      "wall_s": 0.0}
+            gain = _finite_gain(out.get("mean_gain"))
+            if gain is not None:
+                record["mean_gain"] = gain
+            self._emit(record)
             done += 1
             if misses >= 2:
                 break
+        promoted_gains: list[float] = []
+        refused_gains: list[float] = []
+        agency_entries: list[dict[str, Any]] = []
+        for record in self._records:
+            gain = _finite_gain(record.get("mean_gain"))
+            if gain is None:
+                continue
+            decision = record["decision"]
+            if decision == "promote":
+                promoted_gains.append(gain)
+            elif decision == "refuse":
+                refused_gains.append(gain)
+            else:
+                continue
+            agency_entries.append(
+                {"generation": record["cycle"],
+                 "weights": [gain],
+                 "fitness": {"correctness":
+                             1.0 if decision == "promote" else 0.0}})
+        association = autonomy_ratio(
+            {"promoted": promoted_gains, "refused": refused_gains})
+        association["grouping"] = "promotion decision outcome"
+        autonomy_alias = dict(association)
+        autonomy_alias["alias_for"] = "outcome_association"
         return {"status": "complete" if done else "stopped",
                 "cycles": done, "config": current,
                 "promotions": promoted,
@@ -147,24 +195,9 @@ class RsiLoop:
                     1 for r in self._records
                     if r["decision"] == "promote"
                     and r["authored"]),
-                "autonomy": autonomy_ratio(
-                    {"promoted": [r["mean_gain"] for r in
-                                  self._records
-                                  if r["decision"] == "promote"
-                                  and "mean_gain" in r],
-                     "refused": [r["mean_gain"] for r in
-                                 self._records
-                                 if r["decision"] == "refuse"
-                                 and "mean_gain" in r]}),
-                "agency": agency_profile(
-                    [{"generation": r["cycle"],
-                      "weights": [r.get("mean_gain", 0.0)],
-                      "fitness": {"correctness": 1.0
-                                  if r["decision"] == "promote"
-                                  else 0.0}}
-                     for r in self._records
-                     if r["decision"] in ("promote",
-                                          "refuse")]),
+                "outcome_association": association,
+                "autonomy": autonomy_alias,
+                "agency": agency_profile(agency_entries),
                 "records": self._records}
 
 
@@ -181,9 +214,12 @@ def main(argv: list[str] | None = None) -> int:
                         default="/tmp/rsi-loop/cycles.jsonl")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
+    from rsi_programmer.loop_trainer import ACTIVE_FIELDS
+    active_fields = ACTIVE_FIELDS
     loop = RsiLoop(args.workdir, args.ledger, args.trace,
                    cycles=args.cycles, wall_s=args.wall_s,
-                   seed=args.seed, dry_run=args.dry_run)
+                   seed=args.seed, dry_run=args.dry_run,
+                   active_fields=active_fields)
     try:
         if args.dry_run:
             report = loop.run(dict(DEFAULT_CONFIG),

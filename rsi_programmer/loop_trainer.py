@@ -1,20 +1,17 @@
 #!/usr/bin/env python3
-"""Default loop trainer: ranker fit on shadow, held on v2.
+"""Default loop trainer: fit on shadow, score shadow and v2.
 
 Builds a SearchPolicy from the ranker-surface config fields
 (hidden, steps, lr), fits briefly on frozen shadow traces,
-runs the author joint pass with the threaded joint fields,
-and scores per-task solve flags on shadow (train) and the
-v2 frontier (held). Held is v2 and not novel on purpose:
-shadow/novel saturate at every epoch count, so no edit can
-ever show a gain there; v2 sits at 2/8 with solvability,
-which gives the gate a hill to price. Held scores are
-cost-aware: a miss scores zero while a solve scores speed,
-so efficiency edits move the needle and any solve still
-beats any miss. Evolve/population fields stay inert until
-those trainers plug in; margin and beta have no
-policy-surface counterpart and are recorded but inert
-here too.
+runs the author joint pass with the configured joint fields,
+then scores per-task results on shadow (train) and v2 (held).
+A score is nonzero only when the independent oracle accepts
+the result on both train and held rows; accepted tasks are
+scored by canonical candidate-signature work. Since guided
+search computes signatures eagerly, this work measure does
+not establish a ranking improvement. Evolve/population fields
+stay inert until those trainers plug in; margin and beta have
+no policy-surface counterpart and are recorded but inert here.
 """
 from __future__ import annotations
 
@@ -33,19 +30,21 @@ SHADOW = str(ROOT / "fixtures" / "rsi_shadow_tasks.json")
 HELD = str(ROOT / "fixtures" / "rsi_ood_v2.json")
 EPOCHS = 5
 BUDGET = 10 ** 9
+ACTIVE_FIELDS = ("hidden", "steps", "lr", "joint_lambda",
+                 "joint_epochs")
 
 
-def _score(out: dict[str, Any]) -> float:
-    """Cost-aware task score: speed when solved, else zero.
+def _score(out: dict[str, Any], held: bool = True) -> float:
+    """Task score: held-correct result weighted by signature work.
 
-    Solved tasks score 1..2 by log search cost against the
-    budget scale, so a miss (0.0) always ranks below any
-    solve and faster solves outrank slower ones. The log
-    base is the search budget, not a tuned constant.
+    A miss scores zero. A held-correct result is scored using
+    log candidate-signature work against the configured scale.
+    Older search outputs fall back to their tried counter.
     """
-    if not out["solved"]:
+    if not out["solved"] or not held:
         return 0.0
-    return 2.0 - math.log10(out["tried"] + 1) / \
+    work = out.get("signature_evaluations", out["tried"])
+    return 2.0 - math.log10(work + 1) / \
         math.log10(BUDGET)
 
 
@@ -61,7 +60,7 @@ def _consts_for(task: dict[str, Any]) -> tuple[int, ...]:
 
 
 def _solves(policy: SearchPolicy, fixture: str) -> list[float]:
-    """Per-task cost-aware scores over one fixture family."""
+    """Per-task cost-aware scores after train and held checks."""
     rec = TraceRecorder(fixture)
     flags: list[float] = []
     for task in rec.load_family()["tasks"]:
@@ -70,19 +69,22 @@ def _solves(policy: SearchPolicy, fixture: str) -> list[float]:
         bound = int(task.get("max_tree_ops", 4))
         out = guided_search(policy, rows, target, bound,
                             BUDGET, str(task["id"]),
+                            oracle=lambda graph: rec.oracle_holds(
+                                task, graph),
                             consts=_consts_for(task))
-        flags.append(_score(out))
+        held = bool(out["solved"] and out.get("graph") is not None
+                    and rec.oracle_holds(task, out["graph"]))
+        flags.append(_score(out, held))
     return flags
 
 
 def train_scores(config: dict[str, Any], seed: int,
                  workdir: str) -> dict[str, list[float]]:
-    """Fit on shadow, score transfer on novel; deterministic.
+    """Fit on shadow traces and score shadow plus v2 tasks.
 
-    The author joint pass threads the joint config fields so
-    joint_lambda/joint_epochs edits move the policy and the
-    gate can price them; the loop EPOCHS constant still caps
-    the ranker fit.
+    The author joint pass receives the joint config fields.
+    Their effect on the gate score is not guaranteed because
+    accepted results use eager signature-work counts.
     """
     _ = workdir
     policy = SearchPolicy(seed=seed,

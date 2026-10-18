@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Bit-slice team training loop (lattice v32).
 
-Every triple targets its own opcode bits (recognition);
-solution membership belongs to the struct gate alone. A
-worst-bit joint term couples the four heads per word. A
-held-out threshold sweep learns the decode operating
-point in the precision pass (lprecision); one lineage
-intent is recorded per run.
+Every triple directly labels its own opcode bits (recognition);
+membership labels apply directly to the struct gate. STOP can
+still affect later outputs through recurrent feedback. Each
+pack combines the mean of six head losses with their maximum;
+the maximum is across pack-aggregate head losses, not per-word
+errors. Thresholds are tuned on a calibration slice and metrics
+are reported on a separate evaluation slice.
 """
 from __future__ import annotations
 
@@ -20,6 +21,9 @@ from rsi_programmer.lineage import mission_ledger
 from rsi_programmer.modules import with_gap
 from rsi_programmer.policy import OP_ORDER
 from rsi_programmer.words import OPCODES, unpack
+
+RATE_TARGET = 0.5
+RATE_TOLERANCE = 0.05
 
 
 def _margins(out: torch.Tensor, want: torch.Tensor) -> torch.Tensor:
@@ -49,59 +53,76 @@ def _head_rate(lat: BitLattice, mat: torch.Tensor, key: str,
     return out[key][:, col].mean().item()
 
 
-def _calibrate(lat: BitLattice, mat: torch.Tensor
-               ) -> dict[str, float]:
-    """Center bit and EMIT heads at 50% firing (max-entropy).
+def _measure_rates(lat: BitLattice,
+                   mat: torch.Tensor) -> dict[str, float]:
+    """Measure every bit and struct channel on one fresh batch."""
+    lat.reset()
+    with torch.no_grad():
+        out = lat._drive(mat)
+    rates = {"b%d" % i: out["b%d" % i][:, 0].mean().item()
+             for i in range(N_BITS)}
+    rates["st_emit"] = out["st"][:, EMIT].mean().item()
+    rates["st_stop"] = out["st"][:, STOP].mean().item()
+    return rates
 
-    Fresh spiking heads land outside the surrogate-gradient
-    band (measured exactly-zero gradients) and can never
-    learn. Centering each head bias to half firing puts all
-    heads where gradients flow; training does the rest. No
-    hand-tuned constants: 50% is the maximum-slope point,
-    found by binary search per head (firing is monotone in
-    bias), deterministic on the training batch. The STOP
-    column stays zeroed on purpose: the linear gate cannot
-    separate membership (measured pos/neg admit 0.55/0.45
-    when centered), so any living STOP only vetoes true
-    solutions. The gate stays permissive and the decoded
-    words decide; a gate with real precision needs its own
-    capacity (follow-up issue).
+
+def _calibrate(lat: BitLattice, mat: torch.Tensor
+               ) -> dict[str, Any]:
+    """Center all channels, stopping when their measured rates converge.
+
+    Bias searches are repeated because struct outputs feed back
+    into the encoder and can shift bit rates. This controls firing
+    rates; it does not establish that any head separates labels.
     """
     state = lat.weights()
-    found: dict[str, float] = {}
     targets = [("b%d" % i, 0, "b%d_fc" % i)
                for i in range(N_BITS)]
-    targets.append(("st", EMIT, "st_fc"))
+    targets += [("st", EMIT, "st_fc"),
+                ("st", STOP, "st_fc")]
+    cycles = 0
     with torch.no_grad():
-        for key, col, prefix in targets:
-            size = state[prefix + ".bias"].numel()
-            lo, hi = -10.0, 10.0
-            for _ in range(12):
-                mid = (lo + hi) / 2.0
-                bias = torch.zeros(size)
-                bias[col] = mid
-                state[prefix + ".bias"] = bias
-                lat._net.load_state_dict(state)
-                rate = _head_rate(lat, mat, key, col)
-                if abs(rate - 0.5) < 0.05:
-                    break
-                if rate < 0.5:
-                    lo = mid
-                else:
-                    hi = mid
-            found[key] = _head_rate(lat, mat, key, col)
+        for cycle in range(1, 4):
+            for key, col, prefix in targets:
+                size = state[prefix + ".bias"].numel()
+                lo, hi = -10.0, 10.0
+                for _ in range(12):
+                    mid = (lo + hi) / 2.0
+                    bias = state[prefix + ".bias"].clone()
+                    bias[col] = mid
+                    state[prefix + ".bias"] = bias
+                    lat._net.load_state_dict(state)
+                    rate = _head_rate(lat, mat, key, col)
+                    if abs(rate - RATE_TARGET) < RATE_TOLERANCE:
+                        break
+                    if rate < RATE_TARGET:
+                        lo = mid
+                    else:
+                        hi = mid
+            cycles = cycle
+            rates = _measure_rates(lat, mat)
+            deviations = {key: abs(value - RATE_TARGET)
+                          for key, value in rates.items()}
+            if all(value <= RATE_TOLERANCE
+                   for value in deviations.values()):
+                break
         lat._net.load_state_dict(state)
-    return found
+    return {"rates": rates, "converged": all(
+                value <= RATE_TOLERANCE for value in deviations.values()),
+            "cycles": cycles, "target": RATE_TARGET,
+            "tolerance": RATE_TOLERANCE,
+            "max_deviation": max(deviations.values(), default=0.0)}
 
 
 def _bit_targets(groups: list[Any]
                  ) -> tuple[list[list[float]], list[int],
                             list[int]]:
-    """Own-opcode bits for every triple; labels stay separate.
+    """Own-opcode bit labels; membership labels stay separate.
 
     Bits recognize opcodes (a linear readout of the op
-    one-hot); solution membership belongs to the struct
-    gate alone. Folding membership into bits demands an
+    one-hot); direct membership targets go to the struct
+    outputs. Those outputs feed back into later encoder
+    states, so STOP can influence later bit rates indirectly.
+    Folding membership into bits demands an
     XOR-like rule no linear head can express, so negatives
     no longer target the reserved word here. Reserved words
     remain a decoder safety boundary only.
@@ -129,10 +150,15 @@ def pack_rows(group: list[Any]) -> tuple[Any, Any, Any]:
                                     dtype=torch.float32)
 
 
+def _pack_objective(terms: torch.Tensor, lam: float) -> torch.Tensor:
+    """Mean plus weighted maximum over per-head pack losses."""
+    return terms.mean() + lam * terms.max()
+
+
 def fit_packs(lat: BitLattice,
               packs: list[tuple[Any, Any, Any]], epochs: int,
               lam: float) -> None:
-    """Margin + joint fitting over packs (house loss)."""
+    """Fit mean-plus-maximum of six pack-aggregate head losses."""
     for _ in range(epochs):
         lat._opt.zero_grad()
         total, count = torch.zeros(()), 0
@@ -146,9 +172,7 @@ def fit_packs(lat: BitLattice,
                                   membership))
             terms.append(_margins(out["st"][:, STOP],
                                   1.0 - membership))
-            joined = torch.stack(terms)
-            total = total + joined.mean() + \
-                lam * joined.max()
+            total = total + _pack_objective(torch.stack(terms), lam)
             count += 1
         loss = total / max(count, 1)
         loss.backward()
@@ -166,23 +190,62 @@ def train_lattice(lat: BitLattice, fixture: str, ledger: str,
     gate gradients) and nothing can learn. Joint training
     follows the house pattern (policy/modular); eval-time
     freezing via weights_hash still guards every benchmark.
-    The precision pass then learns the decode operating
-    point on a held-out slice. Metrics report the final
-    shipped weights.
+    Calibration and evaluation groups are split before either
+    calibration or fitting. Rates are measured again after the
+    final feedback-sensitive calibration. Threshold tuning uses
+    calibration groups; reported bit metrics use evaluation groups.
     """
-    from rsi_programmer.lprecision import refine
+    from rsi_programmer.lprecision import refine, split_groups
     groups = contrastive_groups(fixture)
-    packs = [pack_rows(group) for group in groups]
+    if not groups:
+        raise ValueError("lattice training requires at least one group")
+    train_groups, calibration_groups, eval_groups = split_groups(groups)
+    packs = [pack_rows(group) for group in train_groups]
     full = torch.cat([mat for mat, _, _ in packs])
     calibration = _calibrate(lat, full)
     fit_packs(lat, packs, epochs, lam)
+    postfit_rates = _measure_rates(lat, full)
+    calibration_rates = calibration["rates"]
+    rate_drift = {key: postfit_rates[key] - calibration_rates[key]
+                  for key in calibration_rates}
     report = {"fixture": fixture, "epochs": epochs,
-              "calibration": calibration}
-    report.update(refine(lat, groups))
-    final = _report(lat, full, torch.cat(
-        [want.reshape(-1) for _, want, _ in packs]).reshape(
-        -1, N_BITS), fixture, epochs, sum(
-        mat.shape[0] for mat, _, _ in packs))
+              "train_groups": len(train_groups),
+              "calibration_groups": len(calibration_groups),
+              "evaluation_groups": len(eval_groups),
+              "split_unit": "contrastive_group",
+              "initial_calibration": calibration,
+              "postfit_rates": postfit_rates,
+              "postfit_rate_drift": rate_drift,
+              "postfit_rates_in_band": all(
+                  abs(value - RATE_TARGET) <= RATE_TOLERANCE
+                  for value in postfit_rates.values()),
+              "postfit_max_rate_deviation": max(
+                  (abs(value - RATE_TARGET)
+                   for value in postfit_rates.values()), default=0.0)}
+    if calibration_groups:
+        report.update(refine(lat, calibration_groups))
+        report["calibration_available"] = True
+    else:
+        report.update({"calibration_available": False,
+                       "calibration_exact": None,
+                       "calibration_f1": None,
+                       "calibration_joint_word_emit_accuracy": None,
+                       "calibration_rows": 0,
+                       "val_exact": None, "val_f1": None,
+                       "val_rows": 0})
+    eval_packs = [pack_rows(group) for group in eval_groups]
+    if eval_packs:
+        eval_mat = torch.cat([mat for mat, _, _ in eval_packs])
+        eval_want = torch.cat([want for _, want, _ in eval_packs])
+        eval_memb = torch.cat([memb for _, _, memb in eval_packs])
+        report["evaluation_available"] = True
+    else:
+        eval_mat = torch.empty((0, full.shape[1]))
+        eval_want = torch.empty((0, N_BITS))
+        eval_memb = torch.empty((0,))
+        report["evaluation_available"] = False
+    final = _report(lat, eval_mat, eval_want, fixture, epochs,
+                    eval_mat.shape[0], eval_memb)
     report.update(final)
     store = mission_ledger(ledger, "rsi-lattice")
     store.record_intent("train-seed-%d" % lat._seed,
@@ -193,12 +256,22 @@ def train_lattice(lat: BitLattice, fixture: str, ledger: str,
 
 def _report(lat: BitLattice, mat: torch.Tensor,
             want: torch.Tensor, fixture: str, epochs: int,
-            rounds: int) -> dict[str, Any]:
-    """Per-head and word-exact metrics, no gradients.
+            rounds: int, membership: torch.Tensor | None = None
+            ) -> dict[str, Any]:
+    """Per-bit and word-bit exact accuracy, no gradients.
 
     Bits decode at the learned thresholds, matching the
     author path; the struct emit rate stays raw.
     """
+    if not rounds:
+        return {"fixture": fixture, "epochs": epochs,
+                "evaluation_rows": 0, "bit_accuracy": None,
+                "word_bit_exact_accuracy": None,
+                "rounds": 0, "head_accuracy": None,
+                "word_exact": None, "emit_rate": None,
+                "stop_rate": None,
+                "emit_membership_accuracy": None,
+                "joint_word_emit_accuracy": None}
     lat.reset()
     with torch.no_grad():
         out = lat._drive(mat)
@@ -209,7 +282,24 @@ def _report(lat: BitLattice, mat: torch.Tensor,
     acc = [(got[:, i] == truth[:, i]).float().mean().item()
            for i in range(N_BITS)]
     exact = (got == truth).all(dim=1).float().mean()
+    emit_pred = (out["st"][:, EMIT] >=
+                 out["st"][:, STOP] + lat.thresholds["st"])
+    emit_accuracy: float | None = None
+    joint_accuracy: float | None = None
+    if membership is not None and membership.numel():
+        membership_truth = membership > 0.5
+        emit_accuracy = (emit_pred == membership_truth).float().mean().item()
+        joint = (got == truth).all(dim=1)
+        joint = joint & emit_pred
+        joint_accuracy = (joint == membership_truth).float().mean().item()
+    word_exact = exact.item()
     return {"fixture": fixture, "epochs": epochs,
+            "evaluation_rows": rounds, "bit_accuracy": acc,
+            "word_bit_exact_accuracy": word_exact,
+            # Retained for callers of the original report schema.
             "rounds": rounds, "head_accuracy": acc,
-            "word_exact": exact.item(),
-            "emit_rate": out["st"][:, EMIT].mean().item()}
+            "word_exact": word_exact,
+            "emit_rate": out["st"][:, EMIT].mean().item(),
+            "stop_rate": out["st"][:, STOP].mean().item(),
+            "emit_membership_accuracy": emit_accuracy,
+            "joint_word_emit_accuracy": joint_accuracy}

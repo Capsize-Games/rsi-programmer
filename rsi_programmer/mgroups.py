@@ -19,18 +19,20 @@ from rsi_programmer.traces import TraceRecorder
 
 
 def _layers(rows: Rows, target: Vals,
-            bound: int) -> list[tuple[int, list]]:
+            bound: int) -> list[tuple[int, list, list[Vals]]]:
     """Deduplicated Int layers mirroring the enumerator order."""
     levels: dict[int, list[Expr]] = {0: list(terminals())}
-    out: list[tuple[int, list]] = []
+    out: list[tuple[int, list, list[Vals]]] = []
     for size in range(1, bound + 1):
         triples = layer_triples(levels, size)
+        lower_sigs = [signature(expr, rows)
+                      for level in levels.values() for expr in level]
         exprs: dict[Any, Expr] = {}
         for op, left, right in triples:
             expr = Expr(op, left, right, size)
             exprs.setdefault((op, signature(expr, rows)), expr)
         levels[size] = list(exprs.values())
-        out.append((size, triples))
+        out.append((size, triples, lower_sigs))
         if any(signature(e, rows) == target
                for e in levels[size]):
             break
@@ -47,18 +49,15 @@ def modular_groups(fixture: str,
         target = tuple(c[2] for c in task["train"])
         bound = int(task.get("max_tree_ops", 4))
         want = solution_sigs(rows, target, bound)
-        offset = 0
-        for size, triples in _layers(rows, target, bound):
+        for size, triples, lower_sigs in _layers(rows, target, bound):
             sigs = [signature(Expr(o, l, r, size), rows)
                     for o, l, r in triples]
             lefts = [signature(l, rows) for _, l, _ in triples]
-            gap = open_gap(sigs, target)
-            total = sum(len(t) for _, t in _layers(rows, target,
-                                                   bound))
+            gap = open_gap(lower_sigs, target)
             feats = [encode(o, signature(l, rows),
                             signature(r, rows), target,
                             l.size, r.size, size, bound,
-                            offset + i + 1, total)
+                            i + 1, len(triples))
                      for i, (o, l, r) in enumerate(triples)]
             pos = [i for i, sig in enumerate(sigs)
                    if sig in want]
@@ -73,13 +72,17 @@ def modular_groups(fixture: str,
                            "sigs": [list(s) for s in sigs],
                            "lefts": [list(s) for s in lefts],
                            "want": sorted(map(list, want))})
-            offset += len(triples)
     return groups
 
 
 def module_report(policy: Any,
                   groups: list[dict[str, Any]]) -> dict[str, Any]:
-    """Per-head accuracy against chance with group counts."""
+    """Per-head diagnostics against chance with group counts.
+
+    Opcode argmax is a not-directly-supervised diagnostic: the fit objective
+    ranks each row's own opcode rate against other rows, without a within-row
+    opcode classification loss.
+    """
     op_hits = op_chance = 0.0
     lo_hits = lo_chance = 0.0
     counted = 0
@@ -97,11 +100,23 @@ def module_report(policy: Any,
         lo = rates["lo"]
         top = max(range(n), key=lambda i: lo[i][0])
         lo_hits += float(tuple(group["lefts"][top]) in want)
-        lo_chance += 1.0 / n
+        lo_chance += sum(tuple(sig) in want for sig in group["lefts"]) / n
     if not counted:
-        return {"layers": 0}
+        return {"layers": 0,
+                "op_argmax_role": "not_directly_supervised_diagnostic",
+                "op_argmax_directly_supervised": False}
+    op_accuracy = round(op_hits / counted, 4)
+    op_chance_rate = round(op_chance / counted, 4)
+    operand_match = round(lo_hits / counted, 4)
+    operand_chance_rate = round(lo_chance / counted, 4)
     return {"layers": counted,
-            "op_accuracy": round(op_hits / counted, 4),
-            "op_chance": round(op_chance / counted, 4),
-            "operand_top1": round(lo_hits / counted, 4),
-            "operand_chance": round(lo_chance / counted, 4)}
+            "op_argmax_accuracy": op_accuracy,
+            "op_argmax_chance": op_chance_rate,
+            "op_argmax_role": "not_directly_supervised_diagnostic",
+            "op_argmax_directly_supervised": False,
+            "left_operand_top1_match": operand_match,
+            "left_operand_top1_chance": operand_chance_rate,
+            "op_accuracy": op_accuracy,
+            "op_chance": op_chance_rate,
+            "operand_top1": operand_match,
+            "operand_chance": operand_chance_rate}

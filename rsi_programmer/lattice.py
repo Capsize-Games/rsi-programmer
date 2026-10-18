@@ -18,7 +18,7 @@ from spikeforge.topology.spec import TopologySpec
 from spikeforge.topology.stage import Stage
 
 from rsi_programmer.modules import MOD_DIM, with_gap
-from rsi_programmer.policy import STEPS, _clone
+from rsi_programmer.policy import FEATURE_ENCODING, STEPS, _clone
 from rsi_programmer.words import pack
 
 N_BITS = 4
@@ -167,19 +167,43 @@ class BitLattice:
                 for k, v in self._net.state_dict().items()}
 
     def snapshot(self) -> dict[str, Any]:
-        """Clone weights, spec, and temporal state for turnover."""
+        """Clone weights, locks and options; Adam moments are omitted."""
         weights = {k: v.detach().cpu().tolist()
                    for k, v in self._net.state_dict().items()}
         return {"spec": self._spec.to_dict(),
                 "weights": weights,
                 "temporal": _clone(self._temporal),
+                "feature_encoding": FEATURE_ENCODING,
+                "frozen": [name for name, param in
+                           self._net.named_parameters()
+                           if not param.requires_grad],
+                "optimizer": self._optimizer_options(),
                 "thresholds": dict(self.thresholds),
                 "seed": self._seed, "steps": self._steps,
                 "hidden": self._hidden}
 
-    def restore(self, snap: dict[str, Any]) -> None:
-        """Reload a snapshot; rebind optimizer to the live net."""
-        lr = float(self._opt.param_groups[0]["lr"])
+    def _optimizer_options(self) -> dict[str, Any]:
+        """Capture Adam options while leaving its moments fresh."""
+        keys = ("lr", "betas", "eps", "weight_decay", "amsgrad",
+                "maximize", "foreach", "capturable", "differentiable",
+                "fused")
+        group = self._opt.param_groups[0]
+        return {key: group[key] for key in keys if key in group}
+
+    def restore(self, snap: dict[str, Any], *,
+                optimizer_from_snapshot: bool = False) -> None:
+        """Reload weights and runtime state, resetting Adam moments.
+
+        Recipient optimizer options are retained unless the caller explicitly
+        opts into the donor snapshot's saved options. Legacy untagged snapshots
+        remain loadable, with no verifiable feature-encoding contract.
+        """
+        encoding = snap.get("feature_encoding")
+        if encoding is not None and encoding != FEATURE_ENCODING:
+            raise ValueError("incompatible feature encoding")
+        options = self._optimizer_options()
+        if optimizer_from_snapshot:
+            options.update(snap.get("optimizer", {}))
         spec = TopologySpec.from_dict(snap["spec"])
         spec.validate()
         self._spec = spec
@@ -187,8 +211,10 @@ class BitLattice:
         state = {k: torch.tensor(v)
                  for k, v in snap["weights"].items()}
         self._net.load_state_dict(state)
-        self._opt = torch.optim.Adam(self._net.parameters(),
-                                     lr=lr)
+        frozen = set(snap.get("frozen", []))
+        for name, param in self._net.named_parameters():
+            param.requires_grad_(name not in frozen)
+        self._opt = torch.optim.Adam(self._net.parameters(), **options)
         self._steps = int(snap.get("steps", STEPS))
         self._hidden = int(snap.get("hidden", 16))
         self._temporal = _clone(snap.get("temporal"))

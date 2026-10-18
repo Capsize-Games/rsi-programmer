@@ -8,12 +8,14 @@ import unittest
 from pathlib import Path
 from typing import Any
 
+from rsi_programmer.actions import ActionSpace
 from rsi_programmer.lattice import BitLattice
 from rsi_programmer.lauthor import lattice_runs
 from rsi_programmer.lauthor import lattice_search
 from rsi_programmer.ltrain import train_lattice
 from rsi_programmer.modules import ModularPolicy
 from rsi_programmer.probe import enumerate_programs
+from rsi_programmer.probe import validate_graph
 from rsi_programmer.traces import TraceRecorder
 
 FIXTURE = str(Path(__file__).resolve().parent.parent
@@ -33,6 +35,23 @@ def _load(path: str) -> list[dict[str, Any]]:
     """Task list from one fixture file."""
     with open(path, encoding="utf-8") as handle:
         return json.load(handle)["tasks"]
+
+
+class LatticeAuthorTypeTests(unittest.TestCase):
+    def test_bool_is_intermediate_but_not_a_final_program(self) -> None:
+        """Authoring may use Bool conditions; finished DAGs return Int."""
+        space = ActionSpace()
+        empty = {"input_types": {"x": "Int", "y": "Int"},
+                 "nodes": [], "output": "x"}
+        condition = space.apply(
+            empty, {"kind": "apply", "op": "lt",
+                    "left": "x", "right": "y"})
+        selected = space.apply(
+            condition, {"kind": "apply", "op": "select",
+                        "cond": 0, "left": "x", "right": "y"})
+        validate_graph(selected)
+        with self.assertRaises(ValueError):
+            validate_graph({**condition, "output": 0})
 
 
 class LatticeAuthorTests(unittest.TestCase):

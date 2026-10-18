@@ -24,24 +24,32 @@ Readout = Callable[[dict[str, Tensor]], Tensor]
 
 def autonomy_ratio(histories: dict[str, list[float]]
                    ) -> dict[str, Any]:
-    """Between-history variance over total behavioral variance."""
+    """Describe outcome-group gain variance; this is not causal evidence."""
     groups = {h: [float(v) for v in vals]
               for h, vals in histories.items() if vals}
     flat = [v for vals in groups.values() for v in vals]
+    singleton_groups = sum(1 for vals in groups.values()
+                           if len(vals) == 1)
     if len(groups) < 2 or not flat:
         return {"ratio": 0.0, "between": 0.0, "total": 0.0,
-                "histories": len(groups), "samples": len(flat)}
+                "histories": len(groups), "samples": len(flat),
+                "singleton_groups": singleton_groups,
+                "interpretation": "descriptive outcome association"}
     mean = sum(flat) / len(flat)
     total = sum((v - mean) ** 2 for v in flat)
     between = sum(len(vals) * (sum(vals) / len(vals) - mean) ** 2
                    for vals in groups.values())
     if total <= 0:
         return {"ratio": 0.0, "between": 0.0, "total": 0.0,
-                "histories": len(groups), "samples": len(flat)}
+                "histories": len(groups), "samples": len(flat),
+                "singleton_groups": singleton_groups,
+                "interpretation": "descriptive outcome association"}
     return {"ratio": round(between / total, 4),
             "between": round(between, 4),
             "total": round(total, 4),
-            "histories": len(groups), "samples": len(flat)}
+            "histories": len(groups), "samples": len(flat),
+            "singleton_groups": singleton_groups,
+            "interpretation": "descriptive outcome association"}
 
 
 def _cross_edges(spec: TopologySpec) -> tuple[list[str], list]:
@@ -128,6 +136,8 @@ def _flat(weights: Any) -> list[float]:
 
 def _dist(left: list[float], right: list[float]) -> float:
     """Euclidean distance between two weight vectors."""
+    if len(left) != len(right):
+        raise ValueError("weight vectors must have equal dimensions")
     return math.sqrt(sum((a - b) ** 2 for a, b in
                          zip(left, right)))
 
@@ -150,7 +160,9 @@ def agency_profile(entries: list[dict[str, Any]]
         fits = [float((e.get("fitness", {}) or {}).get(
             "correctness", 0.0)) for e in group]
         spread = max(fits) - min(fits) if fits else 0.0
-        if prev is None:
+        if not divs:
+            direction = "non-informative"
+        elif prev is None:
             direction = "start"
         elif diversity < prev[0] and spread <= prev[1]:
             direction = "converging"
@@ -158,10 +170,13 @@ def agency_profile(entries: list[dict[str, Any]]
             direction = "diverging"
         else:
             direction = "stable"
-        prev = (diversity, spread)
+        if divs:
+            prev = (diversity, spread)
         profile.append({"generation": gen,
                         "diversity": round(diversity, 4),
                         "spread": round(spread, 4),
                         "direction": direction,
-                        "members": len(group)})
+                        "members": len(group),
+                        "singleton": len(group) == 1,
+                        "informative": bool(divs)})
     return profile

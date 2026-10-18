@@ -15,6 +15,15 @@ from rsi_programmer.probe import enumerate_programs
 from rsi_programmer.probe import lower_to_dag
 FIXTURE = str(Path(__file__).resolve().parent.parent
               / "fixtures" / "rsi_shadow_tasks.json")
+
+
+def _measured_entries(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Archive members with a completed fitness evaluation."""
+    return [entry for entry in entries
+            if entry.get("measured", entry.get("fitness") is not None)
+            and isinstance(entry.get("fitness"), dict)]
+
+
 class PolicyLoopTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
@@ -48,7 +57,7 @@ class PolicyLoopTests(unittest.TestCase):
     @classmethod
     def _best_policy(cls) -> SearchPolicy:
         """Live policy restored from the best archive entry."""
-        scored = sorted(cls.result["archive"],
+        scored = sorted(_measured_entries(cls.result["archive"]),
                         key=lambda e: (
                             e["fitness"]["correctness"],
                             e["fitness"]["efficiency"],
@@ -81,18 +90,22 @@ class PolicyLoopTests(unittest.TestCase):
             for key in ("fitness", "weights", "spec",
                         "operator", "generation"):
                 self.assertIn(key, entry)
-    def test_heldout_matches_baseline_at_lower_cost(self) -> None:
-        """Guided search keeps the solve rate for less work."""
+    def test_heldout_matches_baseline_at_equal_signature_work(self) -> None:
+        """Guidance changes scan order, not eager root signature work."""
         solved, cost = 0, 0
         for out in self.held:
-            cost += out["tried"]
+            cost += out["signature_evaluations"]
+            self.assertEqual(out["tried"], out["examined"])
+            self.assertEqual(out["tried_unit"], "candidate_scans")
+            self.assertEqual(out["budget_unit"], "candidate_scans")
+            self.assertLessEqual(out["examined"], self.budget)
             graph = out["graph"]
             if out["solved"] and self.recorder.oracle_holds(
                     out["task"], graph):
                 solved += 1
         rate = solved / len(self.held)
         self.assertGreaterEqual(rate, self.base_rate)
-        self.assertLess(cost, self.base_cost)
+        self.assertEqual(cost, self.base_cost)
     def test_two_generations_show_no_regression(self) -> None:
         """Elite archive fitness never steps back."""
         first = self.result["history"][0]
@@ -208,16 +221,22 @@ class ScreenedLoopTests(unittest.TestCase):
                  [s["skipped"]
                   for s in self.screened["screened"]]))
 
-    def test_skips_carry_parent_fitness(self) -> None:
-        """Skipped kids inherit, evaluated kids measure."""
+    def test_skips_keep_parent_fitness_provisional(self) -> None:
+        """Skipped kids retain parent scores separately as provisional."""
         for res in (self.base, self.screened):
             by_id = {e["policy_id"]: e for e in res["archive"]}
             for entry in res["archive"]:
                 self.assertIn("screen_skipped", entry)
+                self.assertIn("measured", entry)
                 if entry["screen_skipped"]:
                     parent = by_id[entry["parent_id"]]
-                    self.assertEqual(entry["fitness"],
+                    self.assertIsNone(entry["fitness"])
+                    self.assertFalse(entry["measured"])
+                    self.assertEqual(entry["inherited_fitness"],
                                      parent["fitness"])
+                else:
+                    self.assertTrue(entry["measured"])
+                    self.assertIsNotNone(entry["fitness"])
         self.assertFalse(any(e["screen_skipped"]
                              for e in self.base["archive"]))
 
@@ -246,7 +265,7 @@ class RefinableLoopTests(unittest.TestCase):
                      tuple((c[0], c[1]) for c in t["train"]),
                      tuple(c[2] for c in t["train"]),
                      int(t.get("max_tree_ops", 4))) for t in fam]
-        best = max(cls.res["archive"],
+        best = max(_measured_entries(cls.res["archive"]),
                    key=lambda e: (e["fitness"]["correctness"],
                                   e["fitness"]["efficiency"]))
         print("elite: id=%s operator=%s parent=%s corr=%.2f"
@@ -327,7 +346,7 @@ class ProbeLoopTests(unittest.TestCase):
                      tuple((c[0], c[1]) for c in t["train"]),
                      tuple(c[2] for c in t["train"]),
                      int(t.get("max_tree_ops", 4))) for t in fam]
-        best = max(cls.res["archive"],
+        best = max(_measured_entries(cls.res["archive"]),
                    key=lambda e: (e["fitness"]["correctness"],
                                   e["fitness"]["refinability"]))
         print("probe elite: id=%s operator=%s corr=%.2f probe=%.2f"
@@ -363,6 +382,12 @@ class ProbeLoopTests(unittest.TestCase):
     def test_probe_recorded_in_lineage(self) -> None:
         """Every archive fitness carries a probe score."""
         for entry in self.res["archive"]:
+            if entry["screen_skipped"]:
+                self.assertIsNone(entry["fitness"])
+                self.assertFalse(entry["measured"])
+                self.assertIsNotNone(entry["inherited_fitness"])
+                continue
+            self.assertTrue(entry["measured"])
             self.assertIn("refinability", entry["fitness"])
             self.assertGreaterEqual(
                 entry["fitness"]["refinability"], 0.0)

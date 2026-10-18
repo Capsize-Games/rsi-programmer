@@ -5,7 +5,8 @@ One shared TaskEncoder drive fans out to four spiking populations
 connected by additive edges plus a delayed feedback projection, so
 modules converse across steps through spikes and membranes rather
 than one scalar per choice. Combined head rates rank choices; each
-head trains on its own labels and reports its own metric.
+head trains on its own labels. Opcode argmax is a separate diagnostic
+and is not directly supervised by a within-row classification loss.
 """
 from __future__ import annotations
 
@@ -17,7 +18,8 @@ from spikeforge.topology.edge import Edge
 from spikeforge.topology.spec import TopologySpec
 from spikeforge.topology.stage import Stage
 
-from rsi_programmer.policy import DIM, OP_ORDER, STEPS, Triple
+from rsi_programmer.policy import (DIM, FEATURE_ENCODING, OP_ORDER,
+                                   STEPS, Triple)
 from rsi_programmer.policy import _clone
 
 MOD_DIM = DIM + 1
@@ -34,7 +36,12 @@ def with_gap(feats: list[list[float]],
 
 
 class ModularPolicy:
-    """Four-head SNN with rank-compatible choice ordering."""
+    """Four-head SNN; each score drive starts fresh by default.
+
+    Call head_rates(), scores(), or rank() with continue_state=True
+    to explicitly continue a matching-batch temporal sequence. Delayed
+    feedback still evolves within each individual drive.
+    """
 
     def __init__(self, seed: int = 0, hidden: int = MOD_HIDDEN,
                  steps: int = STEPS, lr: float = 0.05) -> None:
@@ -88,7 +95,7 @@ class ModularPolicy:
         return spec
 
     def _state(self, batch: int) -> Any:
-        """Reuse temporal state when the batch shape agrees."""
+        """Return saved state when an explicit continuation can use it."""
         try:
             mem = self._temporal["enc"][0]
         except (KeyError, TypeError, IndexError):
@@ -97,12 +104,14 @@ class ModularPolicy:
             return self._temporal
         return None
 
-    def _drive(self, mat: torch.Tensor) -> dict[str, torch.Tensor]:
+    def _drive(self, mat: torch.Tensor, *,
+               continue_state: bool = False
+               ) -> dict[str, torch.Tensor]:
         """Mean spike rates per head over the step window."""
         acc = {k: torch.zeros(mat.shape[0], n)
                for k, n in (("op", N_OP), ("lo", 1),
                             ("ro", 1), ("st", 2))}
-        state = self._state(mat.shape[0])
+        state = self._state(mat.shape[0]) if continue_state else None
         for _ in range(self._steps):
             outs, state = self._net.step(mat, state)
             for key in acc:
@@ -111,10 +120,13 @@ class ModularPolicy:
         return {k: v / self._steps for k, v in acc.items()}
 
     def head_rates(self, feats: list[list[float]],
-                   gap: float | None = None) -> dict[str, list]:
+                   gap: float | None = None, *,
+                   continue_state: bool = False
+                   ) -> dict[str, list]:
         """Per-head rates without gradients, as plain lists."""
         with torch.no_grad():
-            out = self._drive(with_gap(feats, gap))
+            out = self._drive(with_gap(feats, gap),
+                              continue_state=continue_state)
         return {k: v.tolist() for k, v in out.items()}
 
     @staticmethod
@@ -125,20 +137,24 @@ class ModularPolicy:
         total = mean_op + out["lo"][:, 0] + out["ro"][:, 0]
         return [float(v) for v in total + out["st"][:, EMIT]]
 
-    def scores(self, feats: list[list[float]]) -> list[float]:
+    def scores(self, feats: list[list[float]], *,
+               continue_state: bool = False) -> list[float]:
         """Compat-only ranking; rank() with triples is exact."""
         with torch.no_grad():
-            out = self._drive(with_gap(feats, None))
+            out = self._drive(with_gap(feats, None),
+                              continue_state=continue_state)
         return self._mean_scores(out)
 
     def rank(self, feats: list[list[float]],
              triples: list[Triple] | None = None,
-             gap: float | None = None) -> list[int]:
+             gap: float | None = None, *,
+             continue_state: bool = False) -> list[int]:
         """Descending combined head order, stable on ties."""
         if not feats:
             return []
         with torch.no_grad():
-            out = self._drive(with_gap(feats, gap))
+            out = self._drive(with_gap(feats, gap),
+                              continue_state=continue_state)
         order = sorted(range(len(feats)))
         if triples is None:
             scored = self._mean_scores(out)
@@ -220,17 +236,39 @@ class ModularPolicy:
                 for k, v in self._net.state_dict().items()}
 
     def snapshot(self) -> dict[str, Any]:
-        """Clone weights, spec, and temporal state for turnover."""
+        """Clone weights and runtime state; optimizer moments are omitted."""
         weights = {k: v.detach().cpu().tolist()
                    for k, v in self._net.state_dict().items()}
         return {"spec": self._spec.to_dict(),
                 "weights": weights,
                 "temporal": _clone(self._temporal),
+                "feature_encoding": FEATURE_ENCODING,
+                "optimizer": self._optimizer_options(),
                 "seed": self._seed, "steps": self._steps}
 
-    def restore(self, snap: dict[str, Any]) -> None:
-        """Reload a snapshot; rebind optimizer to the live net."""
-        lr = float(self._opt.param_groups[0]["lr"])
+    def _optimizer_options(self) -> dict[str, Any]:
+        """Capture Adam options while leaving its moments fresh."""
+        keys = ("lr", "betas", "eps", "weight_decay", "amsgrad",
+                "maximize", "foreach", "capturable", "differentiable",
+                "fused")
+        group = self._opt.param_groups[0]
+        return {key: group[key] for key in keys if key in group}
+
+    def restore(self, snap: dict[str, Any], *,
+                optimizer_from_snapshot: bool = False) -> None:
+        """Reload weights and temporal state, resetting Adam moments.
+
+        The recipient's optimizer options are kept by default. Set
+        ``optimizer_from_snapshot`` to opt into the saved donor options.
+        Older snapshots without feature metadata remain loadable, but their
+        feature contract cannot be verified.
+        """
+        encoding = snap.get("feature_encoding")
+        if encoding is not None and encoding != FEATURE_ENCODING:
+            raise ValueError("incompatible feature encoding")
+        options = self._optimizer_options()
+        if optimizer_from_snapshot:
+            options.update(snap.get("optimizer", {}))
         spec = TopologySpec.from_dict(snap["spec"])
         spec.validate()
         self._spec = spec
@@ -238,7 +276,6 @@ class ModularPolicy:
         state = {k: torch.tensor(v)
                  for k, v in snap["weights"].items()}
         self._net.load_state_dict(state)
-        self._opt = torch.optim.Adam(self._net.parameters(),
-                                     lr=lr)
+        self._opt = torch.optim.Adam(self._net.parameters(), **options)
         self._steps = int(snap.get("steps", STEPS))
         self._temporal = _clone(snap.get("temporal"))

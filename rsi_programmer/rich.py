@@ -8,7 +8,7 @@ fitness ordering, and family rollups. No classes live here.
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Callable
 
 import torch
 
@@ -22,6 +22,15 @@ RICH_LR = 1.0
 NEG_CAP = 1500
 SEL_CAP = 750
 COMPS = ("correctness", "efficiency", "hard_benefit", "recovery")
+HeldOracle = Callable[[dict[str, Any]], bool]
+
+
+def _work_cost(result: dict[str, Any]) -> int:
+    """Canonical signature-work cost with old-path fallback."""
+    value = result.get("signature_evaluations")
+    if value is None:
+        value = result["tried"]
+    return int(value)
 
 
 def rich_extra(left_sig: Vals, right_sig: Vals, target: Vals,
@@ -53,12 +62,12 @@ def bonus_for(rich: list[float],
 
 def neg_pair(op: str, left: Expr, right: Expr, size: int,
              rows: Rows, target: Vals, bound: int,
-             k: int) -> tuple[Any, Any]:
+             k: int, total: int = NEG_CAP) -> tuple[Any, Any]:
     """One negative pair in both feature spaces."""
     left_sig = signature_of(left, rows)
     right_sig = signature_of(right, rows)
     feat = encode(op, left_sig, right_sig, target, left.size,
-                  right.size, size, bound, k, NEG_CAP)
+                  right.size, size, bound, k, total)
     extra = rich_extra(left_sig, right_sig, target, left.size,
                        right.size, size, bound)
     return (feat, 0), (extra, 0)
@@ -119,17 +128,16 @@ def fitness_of(policy: SearchPolicy, jobs: list[Any],
                sel: list[Any], rich: list[float], w1cost: int,
                seed: int) -> dict[str, float]:
     """Correctness/efficiency/benefit/recovery fitness."""
-    w1 = [guided_search(policy, r, g, b, m, i)
-          for r, g, b, m, i in jobs]
+    policy.set_rich_bonus(list(rich))
+    w1 = [_run_job(policy, job) for job in jobs]
     noisy = SearchPolicy(seed=seed)
     noisy.restore(policy.snapshot())
     noisy.perturb(SIGMA, seed)
     fixed = list(rich)
-    noisy._bonus = lambda feats: bonus_for(fixed, feats)
-    rec = [guided_search(noisy, r, g, b, m, i)
-           for r, g, b, m, i in jobs]
+    noisy.set_rich_bonus(fixed)
+    rec = [_run_job(noisy, job) for job in jobs]
     solved = sum(r["solved"] for r in w1)
-    cost = sum(r["tried"] for r in w1)
+    cost = sum(_work_cost(r) for r in w1)
     benefit = _pairs_acc(policy, sel, rich)
     recovered = sum(r["solved"] for r in rec) / len(rec)
     return {"correctness": solved / len(w1), "recovery": recovered,
@@ -137,15 +145,45 @@ def fitness_of(policy: SearchPolicy, jobs: list[Any],
             "hard_benefit": benefit}
 
 
+def _run_job(policy: SearchPolicy, job: Any) -> dict[str, Any]:
+    """Run one job; 5-tuples are legacy train-only evaluations."""
+    if len(job) == 5:
+        rows, target, bound, budget, task_id = job
+        oracle = None
+    elif len(job) == 6:
+        rows, target, bound, budget, task_id, oracle = job
+    else:
+        raise ValueError("rich fitness jobs require five or six fields")
+    search_oracle: HeldOracle | None = None
+    if oracle is not None:
+        def safe_oracle(graph: dict[str, Any]) -> bool:
+            try:
+                return bool(oracle(graph))
+            except Exception:
+                return False
+        search_oracle = safe_oracle
+    result = guided_search(policy, rows, target, bound, budget, task_id,
+                           oracle=search_oracle)
+    if result.get("solved") and oracle is not None:
+        graph = result.get("graph")
+        try:
+            holds = graph is not None and bool(oracle(graph))
+        except Exception:
+            holds = False
+        result["oracle_holds"] = holds
+        if not holds:
+            result["solved"] = False
+    return result
+
+
 def _pairs_acc(policy: SearchPolicy, sel: list[Any],
                rich: list[float]) -> float:
     """Top-1 accuracy of the solver over selection negs."""
     hits = 0
+    policy.set_rich_bonus(list(rich))
     for feats in sel:
         vals = policy.scores(feats)
-        scored = [v + b for v, b in zip(
-            vals, bonus_for(rich, feats))]
-        best = max(range(len(feats)), key=scored.__getitem__)
+        best = max(range(len(feats)), key=vals.__getitem__)
         hits += best == len(feats) - 1
     return hits / len(sel)
 
@@ -155,10 +193,19 @@ def rollup(per: list[dict[str, Any]],
     """Solve-rate and cost rollup for one accepted family."""
     rows = [p for p in per if p["family"] == fam]
     solved = sum(1 for p in rows if p["solved"])
-    cost = sum(int(p["tried"]) for p in rows)
-    base = sum(int(p["base_tried"]) for p in rows)
+    tried = sum(int(p["tried"]) for p in rows)
+    cost = sum(_work_cost(p) for p in rows)
+    base = sum(int(p["base_signature_evaluations"])
+               if "base_signature_evaluations" in p
+               else int(p["base_tried"]) for p in rows)
+    baseline_tried = sum(int(p["base_tried"]) for p in rows)
     return {"solve_rate": solved / len(rows), "cost": cost,
-            "baseline_cost": base, "solved": solved}
+            "baseline_cost": base, "cost_tried": tried,
+            "baseline_tried": baseline_tried,
+            "signature_evaluations": cost,
+            "cost_signature_evaluations": cost,
+            "baseline_signature_evaluations": base,
+            "solved": solved}
 
 
 def _neg_layer(levels: dict[int, list[Expr]], size: int,
@@ -166,10 +213,15 @@ def _neg_layer(levels: dict[int, list[Expr]], size: int,
                g12: Group, gx: Group) -> list[Expr]:
     """One layer of capped negatives; returns its members."""
     cur: list[Expr] = []
-    for op, left, right in layer_triples(levels, size):
-        cur.append(Expr(op, left, right, size))
+    triples = layer_triples(levels, size)
+    total = len(triples) or 1
+    for index, (op, left, right) in enumerate(triples):
+        candidate = Expr(op, left, right, size)
+        cur.append(candidate)
+        if signature_of(candidate, rows) == target:
+            continue
         first, second = neg_pair(op, left, right, size, rows,
-                                 target, bound, len(g12))
+                                 target, bound, index + 1, total)
         g12.append(first)
         gx.append(second)
         if len(g12) >= NEG_CAP:
@@ -192,13 +244,29 @@ def hard_neg(rows: Rows, target: Vals,
 
 
 def hard_pos(expr: Expr, rows: Rows, target: Vals,
-               bound: int, tried: int) -> tuple[Any, Any]:
-    """Positive pairs from the solution top triple."""
+             bound: int, _legacy_tried: int = 0) -> tuple[Any, Any]:
+    """Positive pair with ordinal progress inside its own layer."""
     left, right = expr.left, expr.right
     lside, rside = signature_of(left, rows), signature_of(
         right, rows)
+    levels: dict[int, list[Expr]] = {0: list(terminals())}
+    ordinal, total = 1, 1
+    for size in range(1, expr.size + 1):
+        triples = layer_triples(levels, size)
+        if size == expr.size:
+            total = len(triples) or 1
+            for index, (op, lhs, rhs) in enumerate(triples):
+                if op == expr.op and lhs == left and rhs == right:
+                    ordinal = index + 1
+                    break
+        next_level: dict[tuple[str, Vals], Expr] = {}
+        for op, lhs, rhs in triples:
+            candidate = Expr(op, lhs, rhs, size)
+            next_level.setdefault((op, signature_of(candidate, rows)),
+                                  candidate)
+        levels[size] = list(next_level.values())
     feat = encode(expr.op, lside, rside, target, left.size,
-                  right.size, expr.size, bound, tried, tried)
+                  right.size, expr.size, bound, ordinal, total)
     extra = rich_extra(lside, rside, target, left.size,
                        right.size, expr.size, bound)
     return (feat, 1), (extra, 1)

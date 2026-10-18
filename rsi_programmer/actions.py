@@ -112,7 +112,8 @@ class ActionSpace:
             if (set(action) != {"kind", "value"}
                     or action.get("value") not in CONSTS):
                 raise ValueError("constant out of range")
-            validate_graph(self._extended(graph, action))
+            validate_graph(self._extended(graph, action),
+                           require_int_output=False)
             return
         if action.get("op") == SELECT:
             if kind != "apply" or set(action) != {"kind", "op",
@@ -125,7 +126,8 @@ class ActionSpace:
             self._check_ref(action.get("cond"), len(nodes))
             self._check_ref(action.get("left"), len(nodes))
             self._check_ref(action.get("right"), len(nodes))
-            validate_graph(self._extended(graph, action))
+            validate_graph(self._extended(graph, action),
+                           require_int_output=False)
             return
         keys = {"kind", "left", "op", "right"}
         if kind != "apply" or set(action) != keys:
@@ -137,7 +139,8 @@ class ActionSpace:
             raise ValueError("malformed graph")
         self._check_ref(action.get("left"), len(nodes))
         self._check_ref(action.get("right"), len(nodes))
-        validate_graph(self._extended(graph, action))
+        validate_graph(self._extended(graph, action),
+                       require_int_output=False)
 
     def apply(
         self, graph: dict[str, object], action: dict[str, object]

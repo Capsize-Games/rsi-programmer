@@ -140,7 +140,7 @@ class SandboxRunner:
                     "claim_ignored": True}
         try:
             validate_graph(graph)
-        except ValueError as exc:
+        except (ValueError, TypeError, KeyError, IndexError) as exc:
             return {"status": "rejected",
                     "violations": ["verifier: " + str(exc)],
                     "claim_ignored": True}

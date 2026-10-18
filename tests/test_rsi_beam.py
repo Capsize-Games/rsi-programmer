@@ -3,8 +3,9 @@
 
 Beam keeps a ranked beam alive across layers: SNN scores
 order expansion, the validator gates every commit, and
-backtracking revisits deprioritized branches. One scored
-triple costs one tried, exactly like ranked search.
+backtracking revisits deprioritized branches. Beam's legacy
+`tried` counter records commits; candidate-signature work is
+compared separately from the ranked scan counter.
 """
 from __future__ import annotations
 import time
@@ -37,12 +38,12 @@ def _load_tasks() -> list[TaskRow]:
                     int(task.get("max_tree_ops", 4))))
     return out
 def _tag(row: dict[str, Any]) -> str:
-    """Win when beam solves with fewer tried than rank."""
+    """Compare solves, then canonical candidate-signature work."""
     if row["bm_solved"] and (not row["rank_solved"]
-                             or row["bm_tried"] < row["rank_tried"]):
+                             or row["bm_work"] < row["rank_work"]):
         return "win"
     if row["rank_solved"] and (not row["bm_solved"]
-                               or row["bm_tried"] > row["rank_tried"]):
+                               or row["bm_work"] > row["rank_work"]):
         return "loss"
     return "tie"
 def _row(seed: int, width: int, tid: str, ranked: dict[str, Any],
@@ -50,7 +51,9 @@ def _row(seed: int, width: int, tid: str, ranked: dict[str, Any],
     """One beam-vs-rank comparison row for the report."""
     return {"seed": seed, "width": width, "task": tid,
             "rank_tried": ranked["tried"], "rank_solved": ranked["solved"],
+            "rank_work": ranked["signature_evaluations"],
             "bm_tried": beam["tried"], "bm_solved": beam["solved"],
+            "bm_work": beam["signature_evaluations"],
             "bm_path": beam["path"], "bm_log": beam["rejected"],
             "bm_graph": beam["graph"]}
 def _run_seed(seed: int, tasks: list[TaskRow]) -> list[dict[str, Any]]:
@@ -84,10 +87,10 @@ class BeamTests(unittest.TestCase):
         """Every row tagged; beam beats rank at least once."""
         tags = [_tag(r) for r in self.rows]
         for row, tag in zip(self.rows, tags):
-            print("s%d w%d %-12s rank=%4d/%s bm=%3d/%s %s"
+            print("s%d w%d %-12s rank_work=%5d/%s bm_work=%5d/%s %s"
                   % (row["seed"], row["width"], row["task"],
-                     row["rank_tried"], row["rank_solved"],
-                     row["bm_tried"], row["bm_solved"], tag))
+                     row["rank_work"], row["rank_solved"],
+                     row["bm_work"], row["bm_solved"], tag))
         print("wins=%d ties=%d losses=%d wall=%.1fs"
               % (tags.count("win"), tags.count("tie"),
                  tags.count("loss"), self.wall_s))
@@ -95,7 +98,7 @@ class BeamTests(unittest.TestCase):
         self.assertEqual({r["bm_path"] for r in self.rows}, {"beam"})
         self.assertGreaterEqual(tags.count("win"), 1)
     def test_beam_accounting_identical(self) -> None:
-        """One scored triple is one tried, exactly like rank."""
+        """Legacy tried counts beam commit attempts in its edit log."""
         for row in self.rows:
             self.assertEqual(row["bm_tried"], len(row["bm_log"]))
     def test_every_beam_edit_verdict_carrying(self) -> None:
@@ -157,7 +160,7 @@ class BeamTests(unittest.TestCase):
         self.assertTrue(ok)
         validate_graph(graph)
     def test_enumerator_fallback_intact(self) -> None:
-        """Zero budget falls back to ranked enumeration."""
+        """Zero scan budget leaves beam and fallback unsolved."""
         task = self.by_id["twice_product"]
         rows = tuple((c[0], c[1]) for c in task["train"])
         target = tuple(c[2] for c in task["train"])
@@ -170,7 +173,9 @@ class BeamTests(unittest.TestCase):
         self.assertEqual(out["path"], "fallback")
         self.assertEqual(out["solved"], plain["solved"])
         self.assertEqual(out["tried"], plain["tried"])
-        self.assertTrue(out["solved"])
+        self.assertFalse(out["solved"])
+        self.assertEqual(out["tried"], 0)
+        self.assertEqual(out["examined"], 0)
     def test_runs_within_cpu_budget(self) -> None:
         """Whole module stays under 600 wall seconds."""
         print("beam wall=%.1fs" % self.wall_s)

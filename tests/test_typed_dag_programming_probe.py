@@ -101,7 +101,9 @@ class TypedDagProgrammingProbeTests(unittest.TestCase):
             with self.subTest(graph=graph), self.assertRaises(ValueError):
                 validate_graph(graph)
         bool_out = {"input_types": {"x": "Int", "y": "Int"}, "nodes": [{"op": "lt", "type": "Bool", "args": ["x", "y"]}], "output": 0}
-        validate_graph(bool_out)
+        with self.assertRaises(ValueError):
+            validate_graph(bool_out)
+        validate_graph(bool_out, require_int_output=False)
         with self.assertRaises(ValueError):
             interpret(bool_out, 1, 2)
 

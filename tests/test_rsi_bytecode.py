@@ -77,6 +77,11 @@ class BytecodeTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             disassemble("not-bytes")  # type: ignore[arg-type]
 
+    def test_store_underflow_is_a_value_error(self) -> None:
+        """VM stack underflow has the same rejection type for STORE."""
+        with self.assertRaisesRegex(ValueError, "stack underflow"):
+            run_vm(bytes([0x05, 0x00, 0x00]), 0, 0)
+
     def test_all_solved_tasks_verify_binary(self) -> None:
         """Every solved task's binary holds train + held-out."""
         count, sizes = 0, []

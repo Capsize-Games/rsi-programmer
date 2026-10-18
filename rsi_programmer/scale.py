@@ -15,15 +15,15 @@ import json
 import time
 from typing import Any
 
-from rsi_programmer.author import beam_search, refine_author
+from rsi_programmer.author import EXTRA, beam_search, refine_author
 from rsi_programmer.author import train_author
 from rsi_programmer.autonomy import agency_profile, autonomy_ratio
 from rsi_programmer.autonomy import integration_divergence
 from rsi_programmer.lineage import mission_ledger
-from rsi_programmer.ood import weights_hash
+from rsi_programmer.ood import behavior_hash
 from rsi_programmer.policy import Group, SearchPolicy, Task
 from rsi_programmer.pool import founders, make_entry, next_pool, persist_entry
-from rsi_programmer.rich import RICH, bonus_for, family_pairs, fit_rich
+from rsi_programmer.rich import HeldOracle, RICH, family_pairs, fit_rich
 from rsi_programmer.rich import fitkey4, fitness_of, rollup
 from rsi_programmer.traces import TraceRecorder
 from rsi_programmer.probe import enumerate_programs
@@ -34,6 +34,20 @@ EVOLVE_BUDGET_S = 240.0
 GENERATIONS = 3
 EPOCHS = 40
 MISSION = "rsi-scale"
+
+
+def _work_cost(record: dict[str, Any]) -> int:
+    """Canonical signature-work cost with old-record fallback."""
+    value = record.get("signature_evaluations")
+    return int(record["tried"] if value is None else value)
+
+
+def _regression_flags(candidate: dict[str, Any],
+                      baseline: dict[str, Any]) -> dict[str, bool]:
+    """Compare each family with its own baseline solve rate."""
+    return {family: candidate[family]["solve_rate"] <
+            baseline[family]["solve_rate"]
+            for family in ("w1", "hard")}
 
 
 class ScaleUp:
@@ -65,11 +79,16 @@ class ScaleUp:
     def _fam(records: list[dict[str, Any]]) -> dict[str, Any]:
         """Solve-rate, cost, and per-task numbers for one family."""
         solved = sum(1 for r in records if r["solved"])
-        cost = sum(int(r["tried"]) for r in records)
+        tried = sum(int(r["tried"]) for r in records)
+        cost = sum(_work_cost(r) for r in records)
         tasks = {r["task"]: {"solved": bool(r["solved"]),
-                             "tried": int(r["tried"])}
+                             "tried": int(r["tried"]),
+                             "signature_evaluations": _work_cost(r)}
                  for r in records}
         return {"solve_rate": solved / len(records), "cost": cost,
+                "cost_tried": tried,
+                "signature_evaluations": cost,
+                "cost_signature_evaluations": cost,
                 "solved": solved, "tasks": tasks}
 
     def _fast_hard(self) -> list[dict[str, Any]]:
@@ -85,7 +104,9 @@ class ScaleUp:
             ok = graph is not None and self._ha_rec.oracle_holds(
                 task, graph)
             records.append({"task": task["id"], "solved": ok,
-                            "tried": tried, "wall_s": wall})
+                            "tried": tried,
+                            "signature_evaluations": tried,
+                            "wall_s": wall})
             self._exprs[str(task["id"])] = expr
         return records
 
@@ -95,7 +116,7 @@ class ScaleUp:
         w1 = self._fam(shadow["records"])
         hard = self._fam(self._fast_hard())
         self._base = {"w1": w1, "hard": hard}
-        self._w1cost = w1["cost"] or 1
+        self._w1cost = w1["cost_signature_evaluations"] or 1
         return {"w1": w1, "hard": hard}
 
     def surrogate_groups(self) -> tuple[list[Group],
@@ -104,7 +125,8 @@ class ScaleUp:
         w1 = SearchPolicy(self._seed).trace_groups(self._shadow)
         tasks = {t["id"]: t for t in self._ha_tasks}
         tries = {t["id"]: int(self._base["hard"]["tasks"][
-            t["id"]]["tried"]) for t in self._ha_tasks}
+            t["id"]]["signature_evaluations"])
+                 for t in self._ha_tasks}
         more12, morex, sel = family_pairs(tasks, self._exprs,
                                           tries, self._parts)
         self._sel = sel
@@ -112,14 +134,19 @@ class ScaleUp:
 
     def _arm(self, policy: SearchPolicy) -> SearchPolicy:
         """Attach the rich-bonus rank hook to one policy."""
-        rich = list(self._rich)
-        policy._bonus = lambda feats: bonus_for(rich, feats)
+        policy.set_rich_bonus(list(self._rich))
         return policy
 
     def _w1_jobs(self) -> list[Any]:
         """Full guided-search jobs over the W1 family."""
-        return [self._parts(t) + (self._w1cost, str(t["id"]))
-                for t in self._sh_tasks]
+        jobs = []
+        for task in self._sh_tasks:
+            oracle: HeldOracle = (
+                lambda graph, item=task:
+                self._sh_rec.oracle_holds(item, graph))
+            jobs.append(self._parts(task) + (
+                self._w1cost, str(task["id"]), oracle))
+        return jobs
 
     def _score_pop(self, pop: list[Any], gen: int) -> None:
         """Fitness and lineage for one generation in place."""
@@ -177,29 +204,40 @@ class ScaleUp:
         jobs = [(t, self._sh_rec, "w1") for t in self._sh_tasks]
         jobs += [(t, self._ha_rec, "hard") for t in self._ha_tasks]
         weights = self._refine_author()
-        before = weights_hash(self._best)
+        settings = {"author_weights": weights,
+                    "rich_bonus": list(self._rich),
+                    "order": "score", "widen": 6,
+                    "fallback": False}
+        before = behavior_hash(self._best, settings)
         per = []
         for task, rec, fam in jobs:
             rows, target, bound = self._parts(task)
             total = int(self._base[fam]["tasks"][task["id"]][
-                "tried"]) or 1
+                "signature_evaluations"]) or 1
             out = beam_search(self._best, rows, target, bound,
                               total, str(task["id"]), fallback=False,
                               order="score", widen=6,
                               weights=weights)
             ok = out["solved"] and rec.oracle_holds(task, out["graph"])
             base = int(self._base[fam]["tasks"][task["id"]][
-                "tried"])
+                "signature_evaluations"])
             per.append({"task": task["id"], "family": fam,
                         "solved": out["solved"] and ok,
-                        "tried": out["tried"], "base_tried": base,
+                        "tried": out["tried"],
+                        "signature_evaluations": _work_cost(out),
+                        "base_tried": base,
+                        "base_signature_evaluations": base,
                         "oracle": ok, "truncated": False,
                         "path": out.get("path", "beam"),
                         "author_verdict": out["verdict"]})
-        after = weights_hash(self._best)
+        after = behavior_hash(self._best, settings)
         return {"per_task": per, "w1": rollup(per, "w1"),
                 "hard": rollup(per, "hard"),
                 "author_weights": weights,
+                "adaptation": "task_train_rows",
+                "author_bonus": {"features": list(EXTRA),
+                    "exact_flag_source": "external_classical_bonus",
+                    "exact_flag_in_snn_input": False},
                 "weights_hash": [before, after],
                 "weights_unchanged": before == after}
 
@@ -244,12 +282,12 @@ class ScaleUp:
         feats = [[float(x) for x in f]
                  for f, _ in groups[0][:8]]
         wall = time.perf_counter() - start
-        reg = (acc["w1"]["solve_rate"], acc["hard"]["solve_rate"])
-        low = (base["w1"]["solve_rate"], base["hard"]["solve_rate"])
+        regression = _regression_flags(acc, base)
         rep = self._consts(evo)
         rep.update({"baseline": base, "acceptance": acc,
                     "evolution": evo, "wall_s": wall,
-                    "regression": reg < low,
+                    "regression": any(regression.values()),
+                    "regression_by_family": regression,
                     "archive": {"before": before, "after": after},
                     "autonomy": autonomy_ratio(hists),
                     "integration": integration_divergence(

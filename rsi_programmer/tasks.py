@@ -119,9 +119,7 @@ def _size_of(op: str, left: Any, right: Any,
     total = 0
     for part in (left, right, third):
         if isinstance(part, Expr):
-            total += part.size + (0 if part.op in ("input",
-                                                  "const")
-                                  else 1)
+            total += part.size
     return total + (0 if op in ("input", "const") else 1)
 
 
@@ -240,7 +238,7 @@ def generate_task(rng: random.Random, task_id: str, bound: int,
         held_expect = tuple(interpret(graph, x, y)
                             for x, y in held)
         branched = _has_branch(expr)
-        check, _, _ = enumerate_programs(
+        check, check_tried, _ = enumerate_programs(
             train, expect, bound,
             consts=CONSTS if used_const else (), branch=branched)
         if check is None:
@@ -258,5 +256,13 @@ def generate_task(rng: random.Random, task_id: str, bound: int,
                 "task": "f(x, y) = %s" % _formula(expr),
                 "train": [[x, y, e] for (x, y), e in
                            zip(train, expect)],
-                "features": feats}
+                "features": feats,
+                "selection_filter": {
+                    "enumerator_solved_within_bound": True,
+                    "enumerator_candidates_tried": int(check_tried),
+                    "enumerator_solution_held_out_confirmed": True,
+                    "nonconstant_train_outputs": True,
+                    "nonidentity_input_target": True,
+                    "strict_vacuity_filter": bool(strict),
+                    "required_features": feats}}
     raise ValueError("could not shape a non-trivial task")

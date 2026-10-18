@@ -114,6 +114,7 @@ def family_report(lat: BitLattice, policy: SearchPolicy,
                 break
     return {"tasks": len(tasks), "solved": solved,
             "named_rate": named / max(examined, 1),
+            "candidates_examined": examined,
             "examined_tried": examined,
             "echo_overlap": overlap_top / max(overlap_n, 1),
             "shuffle_solves": shuffled,

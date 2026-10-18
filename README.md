@@ -1,108 +1,58 @@
 # rsi-programmer
 
-A spiking neural network that learns to write programs. A small SNN
-search-control policy (linear 12-feature input, hidden-16 leaky
-integrate-and-fire layer, scalar readout; 229 parameters) ranks
-candidate program-construction choices while a typed-DAG enumerator
-builds arithmetic expressions. The policy trains on frozen
-search traces with a pairwise margin loss, plus same-op contrastive
-pairs that force it to use operand features.
+This project studies a spiking neural network (SNN) as a ranking policy
+for arithmetic program synthesis. The SNN ranks candidate operations;
+classical search assembles selected steps into typed program graphs and
+computes their outputs on task rows. A separate interpreter checks
+accepted programs against the frozen training and held-out expectations.
 
-## Measured behaviour
-
-Headline numbers are author-path only: programs the SNN authors
-with no enumerator rescue. Enumerator-backed figures sit in a
-separate column, never the headline.
-
-- Author path, shadow family: beam authors 2 of 4 (solve 0.50,
-  cost 487 vs enumerator baseline 14673) with refined author
-  weights; misses report `no-authored-solution`, never a rescue.
-- Author path, scale acceptance (evolved policy, refined
-  EXTRA weights locked): beam authors 0 of 4 shadow and 0 of
-  4 hard tasks; every verdict carries its path. The same
-  recipe on a fresh policy authors 2 of 4 shadow — the
-  evolved elite sits where refinement sees only ties (see
-  #26); acceptance stays on the evolved product.
-- Enumerator path (debug comparison only): exhaustive search
-  solves 4 of 4 shadow at cost 14673, and guides novel transfer
-  on three brand-new rules (158/122/952 tried vs 939/939/6807).
-- Legacy mixed-path figures (enumerator rescue included, kept
-  for continuity, not comparable): beam wins 11 of 24, retry
-  loop clearing distractor near-misses, operand top-1
-  0.267/0.133/0.200 across seeds (chance 0.060).
-- Known limits: the beam still loses tasks where narrowing drops
-  true paths. Training continues; see `scripts/train.py`.
-- Organization metrics (expression-only, describe the process,
-  never a standing): autonomy ratio 0.000 on a 1-generation
-  elite archive (single lineage, nothing to attribute);
-  partition divergence 0.000000 on the W1 feedforward monolith
-  (no cross edges to sever) vs 0.208 on the driven modular
-  policy (fb_fc severed, seeds 0/1/2: 0.208/0.056/0.069);
-  agency profile converges as fitness spread collapses.
-  See `rsi_programmer/autonomy.py`.
-- Structural OOD (expression-only, v2.4.0 §9.1: no gradient
-  placement): fixpoint beam (scan/backtrack to signature
-  fixpoint, #31) — narrow and broad solve 8/8 mirrored plain
-  and twin (blindness 0.92/0.42); full-IR stays 2/8, the next
-  frontier;
-- Bit-slice lattice author (#36): four 1-bit heads over a
-  co-adapted encoder name opcodes through 4-bit words; the
-  word-gated sweep reproduces the beam strata exactly
-  (shadow 4/4, novel 3/3, twin+plain 16/16, full-IR 2/8)
-  with honest no-authored-solution misses;
-  evolved-policy scale accept still 0/8 with higher tried
-  (width cannot fix bad ranking).
-  Full-IR boundary: 2 solves a side via degenerate branches;
-  v2 fixture rejects them at generation. Enumerator from
-  scratch solves 8/8 plain (mean tried 2935) and 8/8 full-IR
-  (125930). See `rsi_programmer/ood.py`.
+The repository includes a trace-trained `SearchPolicy`, author and beam
+search, a modular policy, a bit-slice lattice, task-family generators,
+and promotion/evaluation loops. The implementation and its limits are
+described in [architecture.md](architecture.md). Historical performance
+figures in earlier reports used older feature encodings and work
+counters; they should not be read as measurements of the current code.
 
 ## Layout
 
-- `rsi_programmer/` — the library: `policy` (SNN),
-  `probe` (typed-DAG synthesiser and independent checker),
-  `author`/`evolve`/`pool` (training operators),
-  `scale`/`headless` (acceptance loops), `sandbox`/`promote`
-  (execution gate), `traces`/`rich`/`actions` (data and features),
-  `lineage` (sqlite record of training runs),
-  `lattice`/`ltrain`/`lauthor` (bit-slice team),
-  `words` (word codec), `bytecode` (stack VM lowering).
-- `fixtures/` — frozen task families: W1 shadow (training), hard,
-  and novel (held-out transfer).
-- `scripts/train.py` — canonical training run; writes weights and a
-  manifest with the full topology spec and provenance into
-  `weights/`.
-- `tests/` — unittest suite; the engine or independent checker
-  decides every acceptance, never the learner's own scores.
+- `rsi_programmer/` — policies, search, typed-DAG validation,
+  training, task fixtures, and evaluation utilities.
+- `fixtures/` — frozen task families used for training and evaluation.
+- `scripts/train.py` — canonical ranker training entry point.
+- `tests/` — unit and integration checks for search, training, and
+  independent acceptance.
 
 ## Run it
 
 ```sh
-just setup          # .venv + requirements + spikeforge source pin
-just test           # full suite from the repo root (~3.7 h)
-just test-fast      # dev lane, ~5 min (145 tests)
-just test-slow      # slow lane, ~2 h 11 min (51 tests)
-just test-retry     # retry distractor lane, ~61 min
-just train          # seed 0, 50 epochs -> weights/rsi-search-policy-w1.*
+just setup          # create .venv and install project dependencies
+just test           # run the full test suite
+just train          # seed 0, 50 epochs; writes weights/
 ```
 
-Lane durations measured code-v34 era on Ryzen 5800X,
-CPU-only torch. One builder at a time; a red lane stays
-red and blocking.
-
 `spikeforge` is a source dependency (Capsize-Games/spikeforge); `just
-setup` pins a local checkout. Torch CPU wheels come from the
-PyTorch index (see `requirements.txt`).
+setup` uses a local checkout. For another location, pass its absolute
+checkout root as a positional argument: `just setup /path/to/spikeforge`.
+Torch CPU wheels come from the PyTorch index (see `requirements.txt`).
 
-## Weights
+## Training output
 
-Released weights ship as GitHub release assets (weights, manifest,
-and license together), reproducible with `python scripts/train.py
---seed 0 --epochs 50` from this repo. Spikeforge hub listing is
-tracked but not yet published: `python scripts/verify_hub.py`
-currently reports GitHub PASS and hub FAIL (`no published model`)
-for both weights generations. Publishing to the hub is a release
-blocker before any hub-distribution claim returns here.
+`scripts/train.py` writes a weight file and a JSON manifest to the
+selected output directory (the default is `weights/`).
+
+For independent first-solver-position measurements, run:
+
+```sh
+.venv/bin/python scripts/measure_ranker.py --out /tmp/ranker-results
+```
+
+This fits shadow final-layer trace groups with three seeds and reports
+untrained, 5-, 40-, and 50-epoch positions on shadow, novel, and plain OOD
+fixtures. It uses the exact expected random position and writes per-task
+data, source/fixture hashes, and signature instrumentation. Signature
+counters measure root vector evaluations; runtime and neural work are
+outside that metric. Its early-stop streaming comparator differs from
+the probe enumerator, which finishes each layer before checking it.
 
 ## License
 

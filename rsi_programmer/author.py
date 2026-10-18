@@ -14,7 +14,9 @@ from rsi_programmer.rich import listwise_loss
 from rsi_programmer.traces import TraceRecorder
 from rsi_programmer.probe import Expr, const_node, const_terms
 from rsi_programmer.probe import enumerate_programs
-from rsi_programmer.probe import signature, terminals
+from rsi_programmer.probe import minimize_graph, signature, terminals
+# Classical author bonus terms appended after SNN scores; encode_author keeps
+# them outside the DIM neural input, including exact_flag.
 EXTRA = ("nodes_per_bound", "open_gap", "exact_flag", "self_apply")
 OPDIMS = tuple(range(len(OP_ORDER) + 3, len(OP_ORDER) + 7))
 TaskRow = tuple[str, Rows, Vals, int]
@@ -33,10 +35,12 @@ def encode_author(triple: Triple, sig: Vals, rows: Rows, target: Vals,
     return feats + [len(nodes) / (float(bound) or 1.0), gap, exact, same]
 def author_scores(policy: SearchPolicy, feats: list[list[float]],
                   weights: list[float]) -> list[float]:
+    """SNN scores over DIM fields plus an explicit classical bonus."""
     base = policy.scores([f[:DIM] for f in feats])
     return [b + sum(w * e for w, e in zip(weights, f[DIM:]))
             for b, f in zip(base, feats)]
 def solution_sigs(rows: Rows, target: Vals, bound: int) -> set[Vals]:
+    """Imitation labels from one canonical solution, not completability."""
     expr, _, _ = enumerate_programs(rows, target, bound)
     assert expr is not None
     found, stack = set(), [expr]
@@ -68,7 +72,7 @@ def _label_layer(size: int, triples: list[Triple], rows: Rows,
         sig = signature(Expr(op, left, right, size), rows)
         feats = encode(op, signature(left, rows), signature(right, rows),
                        target, left.size, right.size, size, bound,
-                       offset + i + 1, budget)
+                       i + 1, len(triples))
         group.append((feats, 1 if sig in want else 0))
     return group
 def _base_groups(fixture: str, budget: int = 10 ** 9) -> list[Group]:
@@ -183,7 +187,9 @@ def _new_ctx(consts: tuple[int, ...] = ()) -> dict[str, Any]:
             refs[id(term)] = term.left
     levels: dict[int, list[Expr]] = {0: terms}
     return {"space": ActionSpace(), "graph": graph, "levels": levels,
-            "refs": refs, "sigs": [], "tried": 0, "log": []}
+            "refs": refs, "sigs": [], "tried": 0, "log": [],
+            "signature_evaluations": 0,
+            "operand_signature_evaluations": 0, "examined": 0}
 def _commit(ctx: dict[str, Any], triple: Triple, sig: Vals,
             task_id: str, size: int, target: Vals) -> bool:
     op, left, right = triple
@@ -201,15 +207,26 @@ def _commit(ctx: dict[str, Any], triple: Triple, sig: Vals,
     return sig == target
 def _score_order(policy: SearchPolicy, ctx: dict[str, Any],
                  rows: Rows, target: Vals, size: int, bound: int,
-                 budget: int, w: list[float]) -> Scored:
-    triples = layer_triples(ctx["levels"], size)
-    if not triples or ctx["tried"] >= budget: \
-        return triples, [], [], []
+                 budget: int, w: list[float],
+                 candidate_limit: int | None = None) -> Scored:
+    if ctx["tried"] >= budget:
+        return [], [], [], []
+    levels = ctx["levels"]
+    width = len(OP_ORDER) * sum(
+        len(levels[left_size]) *
+        len(levels[size - left_size - 1])
+        for left_size in range(size))
+    triples = layer_triples(levels, size, limit=candidate_limit)
+    if not triples:
+        return [], [], [], []
     gap = open_gap(ctx["sigs"], target)
     sigs = [signature(Expr(o, l, r, size), rows) for o, l, r in triples]
-    tried, nodes = ctx["tried"] + 1, ctx["graph"]["nodes"]
-    feats = [encode_author(t, s, rows, target, size, bound, tried,
-                           budget, nodes, gap) for t, s in zip(triples, sigs)]
+    ctx["signature_evaluations"] += len(triples)
+    ctx["operand_signature_evaluations"] += 2 * len(triples)
+    nodes = ctx["graph"]["nodes"]
+    feats = [encode_author(t, s, rows, target, size, bound, i + 1,
+                           width, nodes, gap)
+             for i, (t, s) in enumerate(zip(triples, sigs))]
     scored = author_scores(policy, feats, w)
     order = sorted(range(len(feats)), key=scored.__getitem__, reverse=True)
     return triples, sigs, order, scored
@@ -219,24 +236,51 @@ def _author_step(policy: SearchPolicy, ctx: dict[str, Any],
                  w: list[float]) -> bool:
     triples, sigs, order, _ = _score_order(policy, ctx, rows,
                                             target, size, bound,
-                                            budget, w)
+                                            budget, w,
+                                            max(0, budget - ctx["tried"]))
     ctx["tried"] += len(triples)
     ctx["levels"][size] = []
-    for idx in order[:topk] if ctx["tried"] < budget else []:
+    for idx in order[:topk]:
+        ctx["examined"] += 1
         triple, sig = triples[idx], sigs[idx]
         if _commit(ctx, triple, sig, task_id, size, target): return True
     return False
 def _pack(ctx: dict[str, Any], solved: bool, graph: dict[str, Any] | None,
     verdict: str, path: str = "author") -> dict[str, Any]:
-    return {"solved": solved, "tried": ctx["tried"], "graph": graph,
-            "rejected": ctx["log"], "verdict": verdict, "path": path}
+    unit = "generated_triples" if path == "author" else "committed_nodes"
+    output = minimize_graph(graph) if graph is not None else None
+    return {"solved": solved, "tried": ctx["tried"], "graph": output,
+            "output_nodes": len(output["nodes"]) if output else 0,
+            "rejected": ctx["log"], "verdict": verdict, "path": path,
+            "signature_evaluations": ctx["signature_evaluations"],
+            "operand_signature_evaluations":
+            ctx["operand_signature_evaluations"],
+            "examined": ctx["examined"],
+            "committed_nodes": len(ctx["sigs"]),
+            "tried_unit": unit, "budget_unit": unit,
+            "label_semantics": "canonical_solution_signature_membership"}
+
+
+def _add_work(out: dict[str, Any], previous: dict[str, Any]) -> None:
+    """Include work in discarded retries/fallbacks in the final totals."""
+    for key in ("signature_evaluations", "operand_signature_evaluations",
+                "examined", "committed_nodes"):
+        out[key] = out.get(key, 0) + previous.get(key, 0)
+
+
 def _use_fallback(policy: SearchPolicy, ctx: dict[str, Any], rows: Rows,
     target: Vals, bound: int, budget: int, task_id: str,
-    consts: tuple[int, ...] = ()) -> dict[str, Any]:
+    consts: tuple[int, ...] = (),
+    previous: dict[str, Any] | None = None) -> dict[str, Any]:
     ranked = guided_search(policy, rows, target, bound, budget,
                            task_id, consts=consts)
     ranked["path"] = "fallback"
-    ranked["author_log"], ranked["author_tried"] = ctx["log"], ctx["tried"]
+    ranked["author_log"] = (previous["rejected"] if previous is not None
+                            else ctx["log"])
+    ranked["author_tried"] = (previous["tried"] if previous is not None
+                              else ctx["tried"])
+    _add_work(ranked, previous if previous is not None else
+              _pack(ctx, False, None, ""))
     return ranked
 def author_search(policy: SearchPolicy, rows: Rows, target: Vals,
                   bound: int, budget: int, task_id: str = "",
@@ -291,6 +335,7 @@ def _beam_scan(policy: SearchPolicy, ctx: dict[str, Any], rows: Rows,
     base = len(ctx["levels"][size])
     for idx in order:
         if ctx["tried"] >= budget: return False
+        ctx["examined"] += 1
         if not _fresh(sigs[idx], ctx): continue
         if len(ctx["levels"][size]) - base >= width:
             stash[size].append((scored[idx], triples[idx],
@@ -311,6 +356,7 @@ def _backtrack(ctx: dict[str, Any], task_id: str, bound: int,
                 _, triple, sig = stash[size].pop(idx)
             else:
                 triple, sig = stash[size].pop(0)[1:]
+            ctx["examined"] += 1
             if not _fresh(sig, ctx): continue
             ctx["tried"] += 1
             if _commit(ctx, triple, sig, task_id, size, target): return True
@@ -372,8 +418,10 @@ def beam_search(policy: SearchPolicy, rows: Rows, target: Vals,
             budget - out["tried"], task_id, widen, w, order,
             consts)
         again["tried"] = out["tried"] + again["tried"]
+        again["rejected"] = out["rejected"] + again["rejected"]
+        _add_work(again, out)
         out = again
     if out["solved"] or not fallback:
         return out
     return _use_fallback(policy, ctx, rows, target, bound, budget,
-                         task_id, consts)
+                         task_id, consts, out)

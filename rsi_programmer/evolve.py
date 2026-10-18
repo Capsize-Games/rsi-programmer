@@ -18,13 +18,30 @@ def _dom(a: dict[str, float], b: dict[str, float]) -> bool:
     return all(a[k] >= b[k] for k in COMPS) and any(
         a[k] > b[k] for k in COMPS)
 def _fitkey(entry: dict[str, Any]) -> tuple[float, ...]:
+    if entry.get("screen_skipped", False):
+        return (float("-inf"),) * 4
     fit = entry["fitness"]
     return (fit["correctness"], fit.get("refinability", 0.0),
             fit["efficiency"], fit["recovery"])
+
+def _search_cost(result: dict[str, Any]) -> int:
+    """Canonical candidate-signature work, with legacy stub fallback."""
+    value = result.get("signature_evaluations")
+    if value is None:
+        value = result["tried"]
+    return int(value)
+
+def _baseline_cost(record: dict[str, Any]) -> int:
+    """Read canonical baseline work, accepting older trace records."""
+    value = record.get("signature_evaluations")
+    if value is None:
+        value = record["tried"]
+    return int(value)
 def _front(pop: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    return [e for e in pop if not any(
+    measured = [e for e in pop if not e.get("screen_skipped", False)]
+    return [e for e in measured if not any(
         _dom(o["fitness"], e["fitness"]) for o in pop
-        if o is not e)]
+        if o is not e and not o.get("screen_skipped", False))]
 class PolicyLoop:
     """Evolve the policy; Pareto archive on LineageStore."""
     def __init__(self, fixture: str, ledger: str,
@@ -41,7 +58,7 @@ class PolicyLoop:
         self._tasks = self._recorder.load_family()["tasks"]
         base = self._recorder.record_all()["records"]
         self._base = {r["task"]: r for r in base}
-        self._budget = sum(r["tried"] for r in base)
+        self._budget = sum(_baseline_cost(record) for record in base)
         self._seed = seed
         self._ledger = mission_ledger(ledger, "rsi-w2")
         self._archive: list[dict[str, Any]] = []
@@ -57,23 +74,27 @@ class PolicyLoop:
         rows, target, bound = self._rows(task, "train")
         out = guided_search(noisy, rows, target, bound,
                             self._budget, str(task["id"]))
-        if not out["solved"]:
+        if (not out["solved"] or
+                not self._recorder.oracle_holds(task, out["graph"])):
             return 0.0
-        return max(0.0, 1.0 - (out["tried"] - cost) /
-                   self._budget)
+        baseline = _baseline_cost(self._base[str(task["id"])])
+        return min(1.0, max(0.0, 1.0 -
+                            (_search_cost(out) - cost) /
+                            max(1, baseline)))
     def _score_task(self, policy: SearchPolicy,
                     task: dict[str, Any]) -> dict[str, Any]:
         rows, target, bound = self._rows(task, "train")
         out = guided_search(policy, rows, target, bound,
                             self._budget, str(task["id"]))
+        cost = _search_cost(out)
         if not out["solved"]:
-            return {"solved": False, "cost": out["tried"],
+            return {"solved": False, "cost": cost,
                     "gate": out["verdict"] or "miss", "recovery": 0.0}
         if not self._recorder.oracle_holds(task, out["graph"]):
-            return {"solved": False, "cost": out["tried"],
+            return {"solved": False, "cost": cost,
                     "gate": "oracle", "recovery": 0.0}
-        return {"solved": True, "cost": out["tried"], "gate": "",
-                "recovery": self._recovery(policy, task, out["tried"])}
+        return {"solved": True, "cost": cost, "gate": "",
+                "recovery": self._recovery(policy, task, cost)}
     def evaluate(self, policy: SearchPolicy) -> dict[str, Any]:
         """Gated correctness/refinability/efficiency/recovery.
 
@@ -87,16 +108,23 @@ class PolicyLoop:
         gate = next((p["gate"] for p in parts if p["gate"]),
                     "")
         cost = sum(p["cost"] for p in parts)
+        solved = sum(1 for p in parts if p["solved"])
+        measured = {"correctness": solved / len(parts),
+                    "efficiency": max(0.0, 1.0 - cost /
+                                      max(1, self._budget)),
+                    "recovery": sum(p["recovery"] for p in parts) /
+                                len(parts),
+                    "signature_evaluations": cost}
         if gate or cost > self._budget:
             return {"gates_pass": False, "gate": gate or "over-budget",
                     "correctness": 0.0, "efficiency": 0.0, "recovery": 0.0,
-                    "refinability": 0.0}
-        solved = sum(1 for p in parts if p["solved"])
-        rec = sum(p["recovery"] for p in parts) / len(parts)
+                    "refinability": 0.0, "measured": measured}
         return {"gates_pass": True, "gate": "",
-                "correctness": solved / len(parts), "recovery": rec,
+                "correctness": measured["correctness"],
+                "recovery": measured["recovery"],
                 "refinability": self._probe(policy),
-                "efficiency": max(0.0, 1.0 - cost / self._budget)}
+                "efficiency": measured["efficiency"],
+                "measured": measured}
 
     def _probe_rows(self) -> list[Any]:
         """Fixed probe set: first tasks as author TaskRows."""
@@ -162,11 +190,13 @@ class PolicyLoop:
                                     gen, groups))
         return kids
     def _persist(self, item: dict[str, Any], gen: int,
-                 fitness: dict[str, Any]) -> None:
+                 fitness: dict[str, Any] | None) -> None:
         snap = item["policy"].snapshot()
         entry = {"policy_id": item["id"],
                  "parent_id": item["parent"], "generation": gen,
                  "operator": item["operator"], "fitness": fitness,
+                 "measured": fitness is not None,
+                 "inherited_fitness": item.get("inherited_fitness"),
                  "screen_skipped": bool(item.get("screen_skipped",
                                                 False)),
                  "weights": snap["weights"], "spec": snap["spec"]}
@@ -197,10 +227,11 @@ class PolicyLoop:
                 self._stop_after > 0 and \
                 len(early) >= self._stop_after and all(early)
             if decisive and parents is not None:
-                item["fitness"] = dict(
+                item["inherited_fitness"] = dict(
                     by_id[item["parent"]]["fitness"])
+                item["fitness"] = None
                 item["screen_skipped"] = True
-                self._persist(item, gen, item["fitness"])
+                self._persist(item, gen, None)
                 continue
             fitness = self.evaluate(item["policy"])
             item["fitness"] = fitness
@@ -229,7 +260,9 @@ class PolicyLoop:
         for gen in range(generations + 1):
             screened.append(self._evaluate_pop(pop, parents,
                                                gen))
-            history.append(dict(max(pop, key=_fitkey)["fitness"]))
+            measured = [item for item in pop
+                        if not item.get("screen_skipped", False)]
+            history.append(dict(max(measured, key=_fitkey)["fitness"]))
             parents = pop
             if gen < generations:
                 pop = self._next_pop(pop, gen, groups)

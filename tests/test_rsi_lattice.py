@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for the frozen-encoder bit-slice team (lattice v31)."""
+"""Tests for the shared-encoder bit-slice team (lattice v32)."""
 from __future__ import annotations
 
 import unittest
@@ -8,7 +8,7 @@ import torch
 
 from rsi_programmer.lattice import BitLattice
 from rsi_programmer.modules import ModularPolicy
-from rsi_programmer.policy import encode, layer_triples
+from rsi_programmer.policy import FEATURE_ENCODING, encode, layer_triples
 from rsi_programmer.probe import signature, terminals
 from rsi_programmer.traces import TraceRecorder
 from rsi_programmer.words import unpack
@@ -25,11 +25,12 @@ def _shadow_feats() -> list[list[float]]:
         target = tuple(c[2] for c in task["train"])
         bound = int(task.get("max_tree_ops", 4))
         levels = {0: list(terminals())}
-        for op, left, right in layer_triples(levels, 1):
+        triples = layer_triples(levels, 1)
+        for i, (op, left, right) in enumerate(triples):
             feats.append(encode(op, signature(left, rows),
                                 signature(right, rows), target,
                                 left.size, right.size, 1, bound,
-                                1, 999))
+                                i + 1, len(triples)))
     return feats
 
 
@@ -62,6 +63,13 @@ class LatticeTests(unittest.TestCase):
         print("shadow rows=%d st-worst-diff=%.2e"
               % (len(mine), worst))
         self.assertLess(worst, 1e-6)
+
+    def test_independent_lattice_drives_start_fresh(self) -> None:
+        """A prior same-sized batch cannot change lattice output."""
+        first = self.lat.head_rates(self.feats)
+        self.lat.head_rates([[0.0] * 12 for _ in self.feats])
+        second = self.lat.head_rates(self.feats)
+        self.assertEqual(first, second)
 
     def test_lesion_flips_bit_two_only(self) -> None:
         """Silencing head 2 flips bit 2, nothing else."""
@@ -110,6 +118,7 @@ class LatticeTests(unittest.TestCase):
         self.lat.reset()
         before = self.lat.bits(drive)
         snap = self.lat.snapshot()
+        self.assertEqual(snap["feature_encoding"], FEATURE_ENCODING)
         twin = BitLattice(seed=9)
         twin.restore(snap)
         for key, value in self.lat.weights().items():

@@ -86,6 +86,8 @@ def disassemble(code: bytes) -> list[tuple[str, ...]]:
         pos += 1
         if op not in NAMES:
             raise ValueError("unknown opcode")
+        if prog and prog[-1][0] == "HALT":
+            raise ValueError("trailing bytes after HALT")
         if op in HAS_OPERAND:
             need = HAS_OPERAND[op]
             if pos + need > len(code):
@@ -118,6 +120,8 @@ def run_vm(code: bytes, x: int, y: int) -> int:
         elif name == "FETCH":
             stack.append(slots[int(rest[0])])
         elif name == "STORE":
+            if not stack:
+                raise ValueError("stack underflow")
             slots[int(rest[0])] = stack.pop()
         elif name in ("ADD", "SUB", "MUL"):
             if len(stack) < 2:
@@ -143,10 +147,9 @@ def binary_holds(task: dict[str, Any], code: bytes) -> bool:
     """Binary oracle: VM behavior on train plus held-out."""
     try:
         disassemble(code)
-    except ValueError:
+        rows = list(task["train"]) + list(task["held_out"])
+        return all(run_vm(code, case[0], case[1]) == case[2]
+                   for case in rows)
+    except (KeyError, TypeError, ValueError, IndexError,
+            OverflowError):
         return False
-    rows = list(task["train"]) + list(task["held_out"])
-    for case in rows:
-        if run_vm(code, case[0], case[1]) != case[2]:
-            return False
-    return True

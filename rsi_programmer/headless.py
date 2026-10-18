@@ -29,7 +29,14 @@ Pairs = list[list[int]]
 Claim = dict[str, Any] | None
 Hook = Callable[[str, dict[str, Any] | None], Claim]
 Tasks = list[dict[str, Any]]
-BAD = ("error", "timeout", "execution-mismatch")
+BAD = ("error", "timeout", "execution-mismatch", "oracle-error",
+       "lineage-error")
+
+
+def _work_cost(result: dict[str, Any]) -> int:
+    """Read canonical signature work, supporting legacy results."""
+    value = result.get("signature_evaluations")
+    return int(result["tried"] if value is None else value)
 
 
 class HeadlessLoop:
@@ -76,10 +83,14 @@ class HeadlessLoop:
         report = self._recorder.record_all()
         records = report["records"]
         solved = [1.0 if r["solved"] else 0.0 for r in records]
-        cost = sum(int(r["tried"]) for r in records)
+        cost = sum(_work_cost(r) for r in records)
+        cost_tried = sum(int(r["tried"]) for r in records)
         rate = report["baseline"]["solve_rate"]
+        by_task = {str(r["task"]): r for r in records}
         return {"solve_rate": rate, "cost": cost,
-                "solved": solved, "budget": cost}
+                "cost_tried": cost_tried,
+                "solved": solved, "solved_by_task": by_task,
+                "budget": cost}
 
     def _trained(self) -> tuple[SearchPolicy, list[float]]:
         """Ranker plus refined author weights; given skips both."""
@@ -135,9 +146,30 @@ class HeadlessLoop:
         if graph is None:
             return None, False, "", False
         verdict = self._box.run_candidate(graph, pairs, claim)
-        holds = bool(self._recorder.oracle_holds(task, graph))
-        good = verdict["status"] == "accepted" and holds
-        line = self._box.lineage_hash(graph)
+        accepted = verdict["status"] == "accepted"
+        holds = False
+        line = ""
+        if accepted:
+            try:
+                holds = bool(self._recorder.oracle_holds(task, graph))
+            except Exception:
+                verdict = {**verdict, "status": "oracle-error",
+                           "violations": list(verdict["violations"])
+                           + ["supervisor-oracle-error"]}
+                return verdict, False, "", False
+            if not holds:
+                verdict = {**verdict, "status": "rejected",
+                           "violations": list(verdict["violations"])
+                           + ["held-oracle-mismatch"]}
+            else:
+                try:
+                    line = self._box.lineage_hash(graph)
+                except Exception:
+                    verdict = {**verdict, "status": "lineage-error",
+                               "violations": list(verdict["violations"])
+                               + ["lineage-hash-error"]}
+                    return verdict, True, "", False
+        good = accepted and holds
         return verdict, holds, line, good
 
     def _propose(self, policy: SearchPolicy,
@@ -157,7 +189,9 @@ class HeadlessLoop:
         status = verdict["status"] if verdict else "no-candidate"
         viol = verdict["violations"] if verdict else []
         record = {"gen": gen, "task": str(task["id"]),
-                  "tried": out["tried"], "solved": solved,
+                  "tried": out["tried"],
+                  "signature_evaluations": _work_cost(out),
+                  "solved": solved,
                   "sandbox": status, "violations": list(viol),
                   "lineage": lineage, "oracle_holds": holds,
                   "path": out.get("path", "beam"),
@@ -165,8 +199,21 @@ class HeadlessLoop:
         if self._compare:
             base = guided_search(policy, rows, target, bound,
                                  budget, str(task["id"]))
-            record["fallback_solved"] = base["solved"]
+            fallback_holds = False
+            fallback_error = False
+            if base["solved"]:
+                try:
+                    fallback_holds = bool(self._recorder.oracle_holds(
+                        task, base["graph"]))
+                except Exception:
+                    fallback_error = True
+            record["fallback_train_solved"] = bool(base["solved"])
+            record["fallback_oracle_holds"] = fallback_holds
+            record["fallback_solved"] = bool(base["solved"] and
+                                              fallback_holds)
+            record["fallback_oracle_error"] = fallback_error
             record["fallback_tried"] = base["tried"]
+            record["fallback_signature_evaluations"] = _work_cost(base)
         self._append(record)
         return record
 
@@ -177,7 +224,12 @@ class HeadlessLoop:
         if not ref:
             return {"promote": False,
                     "reasons": ["no decisions completed"]}
-        return self._gate.decide(ref, cand, bad, cost, wall)
+        try:
+            return self._gate.decide(ref, cand, bad, cost, wall)
+        except ValueError as exc:
+            return {"promote": False,
+                    "reasons": ["promotion unavailable: " + str(exc)],
+                    "paired_task_count": len(ref)}
 
     def run(self, hook: Hook | None = None) -> dict[str, Any]:
         """Sweep the family within budgets; budgets stop, not fail."""
@@ -197,17 +249,34 @@ class HeadlessLoop:
                 self._spent += 1
             if self._over(start):
                 break
-        return self._summarize(start, base, tasks, decisions)
+        report = self._summarize(start, base, tasks, decisions)
+        report.update({"author_weights": list(weights),
+                       "author_bonus": {
+                           "features": ["nodes_per_bound", "open_gap",
+                                        "exact_flag", "self_apply"],
+                           "exact_flag_source":
+                           "external_classical_bonus",
+                           "exact_flag_in_snn_input": False}})
+        return report
 
     def _summarize(self, start: float, base: dict[str, Any],
                    tasks: Tasks,
                    decisions: list[dict[str, Any]]) -> dict[str, Any]:
         """Author solve-rate/cost vs baseline plus the gate verdict."""
         wall = time.perf_counter() - start
-        cand = [1.0 if d["solved"] else 0.0 for d in decisions]
-        ref = [base["solved"][i % len(tasks)] for i in range(len(cand))]
+        by_task: dict[str, list[float]] = {}
+        for decision in decisions:
+            by_task.setdefault(decision["task"], []).append(
+                1.0 if decision["solved"] else 0.0)
+        task_ids = [str(t["id"]) for t in tasks
+                    if str(t["id"]) in by_task]
+        cand = [sum(by_task[task_id]) / len(by_task[task_id])
+                for task_id in task_ids]
+        ref = [1.0 if base["solved_by_task"][task_id]["solved"]
+               else 0.0 for task_id in task_ids]
         bad = sum(1 for d in decisions if d["sandbox"] in BAD)
-        cost = sum(int(d["tried"]) for d in decisions)
+        cost = sum(_work_cost(d) for d in decisions)
+        cost_tried = sum(int(d["tried"]) for d in decisions)
         rate = sum(cand) / len(cand) if cand else 0.0
         gate = self._gate_decide(ref, cand, bad, cost, wall)
         done = len(decisions) == len(tasks) * self._max_gens
@@ -228,7 +297,12 @@ class HeadlessLoop:
         return {"status": status, "decisions": decisions,
                 "solve_rate": rate,
                 "baseline_solve_rate": base["solve_rate"],
-                "cost_tried": cost, "baseline_cost": base["cost"],
+                "cost_tried": cost_tried,
+                "baseline_cost": base["cost_tried"],
+                "cost_signature_evaluations": cost,
+                "baseline_signature_evaluations": base["cost"],
+                "paired_task_count": len(task_ids),
+                "adaptation": "family_train_rows",
                 "safety_failures": bad, "gate": gate,
                 "wall_s": wall, "trace": self._trace,
                 "paths": paths, "reject_histogram": hist,

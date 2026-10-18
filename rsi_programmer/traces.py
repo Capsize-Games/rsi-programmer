@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Frozen shadow-trace recorder for the SNN RSI stage 0 dataset.
 
-Runs the untouched probe enumerator in
-scripts/rsi_programmer.probe.py and freezes each
-search-state to enumerator-choice pair. Train/held-out splits and
+Observes the probe enumerator and freezes each search-state to
+enumerator-choice pair without replaying signature computations.
+Train/held-out splits and
 expected outputs come from the frozen family fixture, so oracles
 stay independent of the search that produced the candidate.
 """
@@ -15,9 +15,8 @@ import time
 from pathlib import Path
 from typing import cast
 
-from rsi_programmer.probe import OPS, Expr, enumerate_programs
+from rsi_programmer.probe import Expr, enumerate_programs
 from rsi_programmer.probe import interpret, lower_to_dag
-from rsi_programmer.probe import signature, terminals
 
 FIXTURE = "fixtures/rsi_shadow_tasks.json"
 Rows = tuple[tuple[int, int], ...]
@@ -25,12 +24,13 @@ Vals = tuple[int, ...]
 Pair = dict[str, object]
 Task = dict[str, object]
 Graph = dict[str, object]
-Levels = dict[int, list[Expr]]
-Seen = set[tuple[str, Vals]]
 
 
 class TraceRecorder:
-    """Records probe search traces over a frozen task family."""
+    """Records probe traces over a frozen family.
+
+    Reported enumeration wall time includes the trace-capture callback.
+    """
 
     def __init__(self, fixture: str = FIXTURE) -> None:
         """Bind the frozen family fixture path (no I/O yet)."""
@@ -61,23 +61,38 @@ class TraceRecorder:
         return True
 
     def record_task(self, task: Task) -> dict[str, object]:
-        """Run the probe enumerator; freeze state-choice pairs."""
+        """Enumerate once, capturing choices and candidate signatures.
+
+        ``wall_s`` includes the per-candidate trace-capture callback and is
+        not a pure-enumerator timing.
+        """
         train = cast(list[list[int]], task["train"])
         rows = tuple((case[0], case[1]) for case in train)
         expected = tuple(case[2] for case in train)
         bound = int(cast(int, task.get("max_tree_ops", 4)))
+        pairs: list[Pair] = []
+
+        def record(expr: Expr, sig: Vals, tried: int) -> None:
+            pairs.append({"choice": {"op": expr.op},
+                          "state": {"left": repr(expr.left),
+                                    "right": repr(expr.right),
+                                    "size": expr.size, "tried": tried}})
+
         start = time.perf_counter()
         expr, tried, unique = enumerate_programs(rows, expected,
-                                                 bound)
+                                                 bound,
+                                                 on_candidate=record)
         wall = time.perf_counter() - start
-        pairs = self._replay(rows, expected, bound)
         graph = lower_to_dag(expr) if expr is not None else None
         solved = graph is not None and self.oracle_holds(task,
                                                          graph)
         return {"choice_pairs": pairs, "solved": solved,
                 "split_sha256": self.split_hash(task),
                 "task": task["id"], "tried": tried,
-                "unique": unique, "wall_s": wall}
+                "signature_evaluations": tried,
+                "tried_unit": "candidate_signature_evaluations",
+                "unique": unique, "wall_s": wall,
+                "wall_scope": "enumeration_with_trace_capture"}
 
     def record_all(self) -> dict[str, object]:
         """Record every family task; summarize the baseline."""
@@ -88,10 +103,15 @@ class TraceRecorder:
         tried = [int(item["tried"]) for item in records]
         walls = [float(item["wall_s"]) for item in records]
         return {"baseline": {"candidates_tried": tried,
+                             "signature_evaluations": tried,
+                             "cost_unit":
+                             "candidate_signature_evaluations",
                              "solve_rate": solved / len(records),
                              "solved": solved,
                              "tasks": len(records),
-                             "total_wall_s": sum(walls)},
+                             "total_wall_s": sum(walls),
+                             "wall_scope":
+                             "enumeration_with_trace_capture"},
                 "records": records}
 
     def save(self, path: str) -> str:
@@ -100,50 +120,3 @@ class TraceRecorder:
                           sort_keys=True)
         Path(path).write_text(text, encoding="utf-8")
         return path
-
-    def _cell(self, rows: Rows, left: Expr, right: Expr,
-              size: int, current: list[Expr], seen: Seen,
-              pairs: list[Pair], tried: int) -> int:
-        """Freeze every op decision for one operand pair."""
-        for op in OPS:
-            tried += 1
-            pairs.append({"choice": {"op": op},
-                          "state": {"left": repr(left),
-                                    "right": repr(right),
-                                    "size": size, "tried": tried}})
-            expr = Expr(op, left, right, size)
-            key = (op, signature(expr, rows))
-            if key not in seen:
-                seen.add(key)
-                current.append(expr)
-        return tried
-
-    def _layer(self, rows: Rows, levels: Levels, size: int,
-               current: list[Expr], seen: Seen,
-               pairs: list[Pair], tried: int) -> int:
-        """Freeze one size layer of enumerator op decisions."""
-        for left_size in range(size):
-            right_size = size - left_size - 1
-            for left in levels[left_size]:
-                for right in levels[right_size]:
-                    tried = self._cell(rows, left, right, size,
-                                       current, seen, pairs,
-                                       tried)
-        return tried
-
-    def _replay(self, rows: Rows, expected: Vals,
-                bound: int) -> list[Pair]:
-        """Mirror probe enumeration while freezing decisions."""
-        levels: Levels = {0: list(terminals())}
-        pairs: list[Pair] = []
-        tried = 0
-        for size in range(1, bound + 1):
-            current: list[Expr] = []
-            seen: Seen = set()
-            tried = self._layer(rows, levels, size, current,
-                                seen, pairs, tried)
-            levels[size] = current
-            for expr in current:
-                if signature(expr, rows) == expected:
-                    return pairs
-        return pairs

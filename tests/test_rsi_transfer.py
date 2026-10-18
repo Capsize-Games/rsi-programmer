@@ -4,7 +4,8 @@
 Three brand-new closed-form rules (fixtures/rsi_novel_tasks.json)
 never enter training: the policy trains exactly once on the W1
 shadow fixture, then beam, ranked, and plain enumerator arms run
-on each novel task with identical tried accounting.
+on each novel task. Cross-path work reports use candidate-signature
+evaluations; legacy tried counters retain their path-specific units.
 """
 from __future__ import annotations
 import hashlib
@@ -89,17 +90,18 @@ def _weights_hash(policy: SearchPolicy) -> str:
 
 def _plain(rows: Rows, target: Vals,
            bound: int) -> dict[str, Any]:
-    """Plain probe enumerator arm with tried accounting."""
+    """Plain enumerator; each tried candidate computes one signature."""
     expr, tried, _ = enumerate_programs(rows, target, bound)
     graph = lower_to_dag(expr) if expr is not None else None
     return {"solved": expr is not None, "tried": tried,
+            "signature_evaluations": tried,
             "graph": graph,
             "root": expr.op if expr is not None else ""}
 
 
 def _run_arms(policy: SearchPolicy, weights: list[float],
               task: TaskRow) -> dict[str, Any]:
-    """Ranked, beam, and plain arms with identical tried."""
+    """Run ranked, beam, and enumerator arms on one task."""
     tid, rows, target, bound = task
     ranked = guided_search(policy, rows, target, bound,
                            BUDGET, tid)
@@ -118,19 +120,24 @@ def _oracle_ok(task: dict[str, Any],
 
 
 def _wins(row: dict[str, Any]) -> bool:
-    """A guided arm solves with fewer tried than enumerator."""
-    plain = row["plain"]["tried"]
+    """A solved guided arm uses fewer signatures than enumeration."""
+    plain = row["plain"]["signature_evaluations"]
     rank, beam = row["rank"], row["beam"]
-    return (rank["solved"] and rank["tried"] < plain) or \
-        (beam["solved"] and beam["tried"] < plain)
+    return (rank["solved"] and
+            rank["signature_evaluations"] < plain) or \
+        (beam["solved"] and
+         beam["signature_evaluations"] < plain)
 
 
 def _mode_line(row: dict[str, Any]) -> str:
-    """One per-arm solve/tried comparison line."""
+    """One per-arm solve/signature-work comparison line."""
     r, b, p = row["rank"], row["beam"], row["plain"]
-    return "%-13s rank=%5d/%s beam=%5d/%s enum=%5d/%s" % (
-        row["task"], r["tried"], r["solved"], b["tried"],
-        b["solved"], p["tried"], p["solved"])
+    return ("%-13s rank_work=%7d/%s beam_work=%7d/%s "
+            "enum_work=%7d/%s") % (
+                row["task"], r["signature_evaluations"],
+                r["solved"], b["signature_evaluations"],
+                b["solved"], p["signature_evaluations"],
+                p["solved"])
 
 
 def _spread(policy: SearchPolicy, rows: Rows,
@@ -148,13 +155,12 @@ def _spread(policy: SearchPolicy, rows: Rows,
 
 
 def _diagnose(spread: float, top: str, root: str) -> str:
-    """Name the measured no-transfer failure mode."""
+    """Describe probe scores without inferring transfer behavior."""
     if spread < 1e-6:
-        return "scores-flat on novel signatures"
+        return "probe scores are flat"
     if top != root:
-        return "wrong-op-preference top=%s root=%s" % (top,
-                                                       root)
-    return "operand-blindness on unseen signatures"
+        return "probe top-op differs from found root"
+    return "probe score variation without measured signature-work saving"
 
 
 class TransferTests(unittest.TestCase):
@@ -228,15 +234,16 @@ class TransferTests(unittest.TestCase):
                                                   spread,
                                                   top, root)
 
-    def test_transfer_or_honest_no_transfer(self) -> None:
-        """Solve/tried per arm; win or named failure mode."""
+    def test_transfer_or_honest_no_signature_work_win(self) -> None:
+        """Report solves and work without requiring a work win."""
         for row in self.rows:
             print(_mode_line(row))
             self._check_oracles(row)
         wins = sum(1 for row in self.rows if _wins(row))
-        print("frozen=%s wins=%d" % (self.frozen, wins))
+        print("frozen=%s signature_work_wins=%d"
+              % (self.frozen, wins))
         if not wins:
-            print("NO-TRANSFER: %s" % self._failure())
+            print("NO SIGNATURE-WORK WIN: %s" % self._failure())
         self.assertTrue(all(r["plain"]["solved"]
                             for r in self.rows))
 

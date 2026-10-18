@@ -58,11 +58,14 @@ def _gain(solved: bool, tried: int, plain: int) -> float:
 
 def _task_gain(policy: SearchPolicy,
                task: dict[str, Any]) -> float:
-    """Guided tried saving over the enumerator on one task."""
+    """Guided signature-work saving over the enumerator."""
     rows, target, bound = _parts(task)
     out = guided_search(policy, rows, target, bound, BUDGET,
                         str(task["id"]))
-    return _gain(out["solved"], out["tried"],
+    work = out.get("signature_evaluations")
+    if work is None:
+        work = out["tried"]
+    return _gain(out["solved"], int(work),
                  _plain_tried(rows, target, bound))
 
 
@@ -123,6 +126,9 @@ class ProxyScreen:
         assert 0 < subset_tasks < len(tasks)
         self._shadow = shadow
         self._novel = novel
+        self._shadow_ids = self._task_ids(tasks)
+        if len(self._shadow_ids) != len(set(self._shadow_ids)):
+            raise ValueError("shadow task ids must be unique")
         self._subset = tasks[:subset_tasks]
         self._hold = tasks[subset_tasks:]
         self._epochs = epochs
@@ -137,20 +143,36 @@ class ProxyScreen:
 
     def _groups(self) -> list[Group]:
         """Full W1 trace groups in family order."""
-        return SearchPolicy(seed=0).trace_groups(self._shadow)
+        by_task = self._groups_by_task()
+        return [by_task[task_id] for task_id in self._shadow_ids]
+
+    def _groups_by_task(self) -> dict[str, Group]:
+        """Full W1 trace groups bound to their task identifiers."""
+        return SearchPolicy(seed=0).trace_groups_by_task(self._shadow)
+
+    def _subset_groups(self) -> list[Group]:
+        """Select exactly the configured task groups by ID."""
+        ids = self._task_ids(self._subset)
+        groups = self._groups_by_task()
+        if (len(ids) != len(set(ids))
+                or len(groups) != len(self._shadow_ids)
+                or set(groups) != set(self._shadow_ids)
+                or any(task_id not in groups for task_id in ids)):
+            raise ValueError("proxy tasks and trace groups must match")
+        return [groups[task_id] for task_id in ids]
 
     def screen(self, candidates: list[Candidate]
                ) -> dict[str, Any]:
         """Proxy score per candidate; novel tasks untouched."""
-        sub = self._groups()[:len(self._subset)]
+        sub = self._subset_groups()
         scores: Scores = {}
         start = time.perf_counter()
         for cand in candidates:
             base = int(cand.get("seed", 0))
-            gains = [_mean_gain(_trained(base + k, sub,
+            gains = [_mean_gain(_trained(base + offset, sub,
                                         self._epochs),
                                self._hold)
-                     for k in range(len(self._seeds))]
+                     for offset in self._seeds]
             scores[str(cand["id"])] = round(sum(gains)
                                             / len(gains), 4)
         wall = time.perf_counter() - start
@@ -158,6 +180,7 @@ class ProxyScreen:
                 "train_tasks": self._task_ids(self._subset),
                 "eval_tasks": self._task_ids(self._hold),
                 "epochs": self._epochs,
+                "seed_offsets": list(self._seeds),
                 "seeds": len(self._seeds),
                 "wall_s": round(wall, 3)}
 

@@ -1,13 +1,5 @@
 #!/usr/bin/env python3
-"""SNN-originated program edits vs ranked search (#37).
-
-Measured outcome: greedy top-k commit loses everywhere it
-matters (0 wins / 24 losses under identical tried
-accounting) because pruned true paths never recover without
-backtracking. The authoring mechanism itself is validated:
-SNN-built programs verify clean, every edit verdict-carrying,
-fallback intact. Backtracking is the documented next step.
-"""
+"""SNN-ranked authoring and search contracts (#37)."""
 from __future__ import annotations
 import time
 import unittest
@@ -37,12 +29,12 @@ def _load_tasks() -> list[TaskRow]:
                     int(task.get("max_tree_ops", 4))))
     return out
 def _tag(row: dict[str, Any]) -> str:
-    """Win when author solves with fewer tried than rank."""
+    """Compare solves, then canonical candidate-signature work."""
     if row["au_solved"] and (not row["rank_solved"]
-                             or row["au_tried"] < row["rank_tried"]):
+                             or row["au_work"] < row["rank_work"]):
         return "win"
     if row["rank_solved"] and (not row["au_solved"]
-                               or row["au_tried"] > row["rank_tried"]):
+                               or row["au_work"] > row["rank_work"]):
         return "loss"
     return "tie"
 def _run_seed(seed: int, tasks: list[TaskRow]) -> list[dict[str, Any]]:
@@ -59,8 +51,10 @@ def _run_seed(seed: int, tasks: list[TaskRow]) -> list[dict[str, Any]]:
                                      fallback=False)
             rows.append({"seed": seed, "topk": topk, "task": tid,
                          "rank_tried": ranked["tried"],
+                         "rank_work": ranked["signature_evaluations"],
                          "rank_solved": ranked["solved"],
                          "au_tried": authored["tried"],
+                         "au_work": authored["signature_evaluations"],
                          "au_solved": authored["solved"],
                          "au_log": authored["rejected"],
                          "au_graph": authored["graph"]})
@@ -82,10 +76,10 @@ class AuthorTests(unittest.TestCase):
         """Every row tagged; authoring non-vacuous."""
         tags = [_tag(r) for r in self.rows]
         for row, tag in zip(self.rows, tags):
-            print("s%d k%d %-12s rank=%4d/%s au=%3d/%s %s"
+            print("s%d k%d %-12s rank_work=%5d/%s au_work=%5d/%s %s"
                   % (row["seed"], row["topk"], row["task"],
-                     row["rank_tried"], row["rank_solved"],
-                     row["au_tried"], row["au_solved"], tag))
+                     row["rank_work"], row["rank_solved"],
+                     row["au_work"], row["au_solved"], tag))
         print("wins=%d ties=%d losses=%d wall=%.1fs"
               % (tags.count("win"), tags.count("tie"),
                  tags.count("loss"), self.wall_s))
@@ -134,7 +128,7 @@ class AuthorTests(unittest.TestCase):
         self.assertTrue(ok)
         validate_graph(graph)
     def test_enumerator_fallback_intact(self) -> None:
-        """Zero budget falls back to ranked enumeration."""
+        """Zero scan budget leaves both author and fallback unsolved."""
         task = self.by_id["twice_product"]
         rows = tuple((c[0], c[1]) for c in task["train"])
         target = tuple(c[2] for c in task["train"])
@@ -147,7 +141,9 @@ class AuthorTests(unittest.TestCase):
         self.assertEqual(out["path"], "fallback")
         self.assertEqual(out["solved"], plain["solved"])
         self.assertEqual(out["tried"], plain["tried"])
-        self.assertTrue(out["solved"])
+        self.assertFalse(out["solved"])
+        self.assertEqual(out["tried"], 0)
+        self.assertEqual(out["examined"], 0)
     def test_runs_within_cpu_budget(self) -> None:
         """Whole module stays under 600 wall seconds."""
         print("author wall=%.1fs" % self.wall_s)

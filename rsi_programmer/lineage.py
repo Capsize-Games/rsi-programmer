@@ -7,6 +7,7 @@ import json
 import sqlite3
 import threading
 import time
+import uuid
 from pathlib import Path
 from typing import Any
 
@@ -51,7 +52,9 @@ class LineageStore:
         self._file = Path(path)
         self._file.parent.mkdir(parents=True, exist_ok=True)
         self._lock = threading.Lock()
-        self._conn = sqlite3.connect(str(self._file))
+        self.run_id = uuid.uuid4().hex
+        self._conn = sqlite3.connect(str(self._file),
+                                     check_same_thread=False)
         with self._lock:
             for stmt in _SCHEMA:
                 self._conn.execute(stmt)
@@ -85,20 +88,28 @@ class LineageStore:
 
     def record_intent(self, command_id: str, mission_id: str,
                       term: int, generation: int,
-                      intent: dict[str, Any]) -> None:
+                      intent: dict[str, Any]) -> dict[str, Any]:
         """Append one prepared intent row for later read-back."""
         if not command_id or term < 0 or generation < 1:
             raise LineageError("command identity is invalid")
         doc, digest = _doc(intent)
+        scoped_id = f"{self.run_id}:{command_id}"
         with self._lock:
-            self._conn.execute(
-                "INSERT OR REPLACE INTO commands(command_id,"
-                "mission_id,authority_term,generation,digest,intent,"
-                "receipt,state)VALUES(?, ?, ?, ?, ?, ?, NULL,"
-                "'prepared')",
-                (command_id, mission_id, term, generation,
-                 digest, doc))
-            self._conn.commit()
+            try:
+                self._conn.execute(
+                    "INSERT INTO commands(command_id,"
+                    "mission_id,authority_term,generation,digest,intent,"
+                    "receipt,state)VALUES(?, ?, ?, ?, ?, ?, NULL,"
+                    "'prepared')",
+                    (scoped_id, mission_id, term, generation,
+                     digest, doc))
+                self._conn.commit()
+            except sqlite3.IntegrityError as exc:
+                self._conn.rollback()
+                raise LineageError("command exists already") from exc
+        return {"command_id": scoped_id, "term": term,
+                "generation": generation, "digest": digest,
+                "intent": doc, "receipt": None}
 
     def commands_in(self, mission_id: str,
                     state: str) -> list[dict[str, Any]]:
@@ -109,6 +120,15 @@ class LineageStore:
                 "digest,intent,receipt FROM commands WHERE "
                 "mission_id=? AND state=? ORDER BY command_id",
                 (mission_id, state)).fetchall()
-        return [{"command_id": r[0], "term": r[1],
+        result = [{"command_id": r[0], "term": r[1],
                  "generation": r[2], "digest": r[3],
                  "intent": r[4], "receipt": r[5]} for r in rows]
+        for row in result:
+            try:
+                payload = json.loads(row["intent"])
+                _, digest = _doc(payload)
+            except (TypeError, ValueError) as exc:
+                raise LineageError("stored intent is invalid") from exc
+            if digest != row["digest"]:
+                raise LineageError("stored intent digest mismatch")
+        return result

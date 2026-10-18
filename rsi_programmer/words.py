@@ -47,6 +47,8 @@ def decode(words: list[int]) -> dict[str, Any]:
     live table (x, y, built nodes). The sequence must end in
     stop and the program needs one Int node for output.
     """
+    if not isinstance(words, list):
+        raise ValueError("words must be a list")
     nodes: list[dict[str, Any]] = []
     types: list[str] = []
     refs: list[Any] = ["x", "y"]
@@ -61,12 +63,17 @@ def decode(words: list[int]) -> dict[str, Any]:
             raise ValueError("unknown-token")
         name = ISA[token]
         if name == "stop":
+            if pos != len(words):
+                raise ValueError("trailing-words")
             break
         need = 3 if name == "select" else 1 if name in (
             "input", "const") else 2
         if pos + need > len(words):
             raise ValueError("truncated-word")
         args, pos = words[pos:pos + need], pos + need
+        if any(type(arg) is not int or not 0 <= arg <= 15
+               for arg in args):
+            raise ValueError("word out of range")
         if name == "input":
             # Terminals live in refs already; the word only
             # names x (even) or y (odd) for the author trace.
@@ -100,10 +107,11 @@ def oracle_holds_words(task: dict[str, Any],
     """Whole-word oracle: decode then check train + held-out."""
     try:
         graph = decode(words)
-    except ValueError:
+    except (ValueError, TypeError, KeyError, IndexError):
         return False
     rows = list(task["train"]) + list(task["held_out"])
-    for case in rows:
-        if interpret(graph, case[0], case[1]) != case[2]:
-            return False
-    return True
+    try:
+        return all(interpret(graph, case[0], case[1]) == case[2]
+                   for case in rows)
+    except (ValueError, TypeError, KeyError, IndexError):
+        return False
