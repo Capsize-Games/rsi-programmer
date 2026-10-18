@@ -1,0 +1,5354 @@
+{
+  "family_means_across_seeds": [
+    {
+      "budget": 32,
+      "control": "heuristic",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.75,
+      "seed_fractions": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "heuristic",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "heuristic",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.875,
+      "seed_fractions": [
+        0.875,
+        0.875,
+        0.875
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "heuristic",
+      "family": "skewed",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "heuristic",
+      "family": "balanced",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "heuristic",
+      "family": "skewed",
+      "mean_seed_fraction": 0.875,
+      "seed_fractions": [
+        0.875,
+        0.875,
+        0.875
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "heuristic",
+      "family": "balanced",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "heuristic",
+      "family": "skewed",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "mlp",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.5,
+      "seed_fractions": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "mlp",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "mlp",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.75,
+      "seed_fractions": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "mlp",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "mlp",
+      "family": "balanced",
+      "mean_seed_fraction": 0.7083333333333334,
+      "seed_fractions": [
+        0.75,
+        0.625,
+        0.75
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "mlp",
+      "family": "skewed",
+      "mean_seed_fraction": 0.875,
+      "seed_fractions": [
+        0.875,
+        0.875,
+        0.875
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "mlp",
+      "family": "balanced",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "mlp",
+      "family": "skewed",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "recurrent",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.5833333333333334,
+      "seed_fractions": [
+        0.625,
+        0.5,
+        0.625
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "recurrent",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "recurrent",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.75,
+      "seed_fractions": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "recurrent",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "recurrent",
+      "family": "balanced",
+      "mean_seed_fraction": 0.75,
+      "seed_fractions": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "recurrent",
+      "family": "skewed",
+      "mean_seed_fraction": 0.7916666666666666,
+      "seed_fractions": [
+        0.75,
+        0.75,
+        0.875
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "recurrent",
+      "family": "balanced",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "recurrent",
+      "family": "skewed",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "seeded_random",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.625,
+      "seed_fractions": [
+        0.75,
+        0.625,
+        0.5
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "seeded_random",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "seeded_random",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.75,
+      "seed_fractions": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "seeded_random",
+      "family": "skewed",
+      "mean_seed_fraction": 0.3333333333333333,
+      "seed_fractions": [
+        0.25,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "seeded_random",
+      "family": "balanced",
+      "mean_seed_fraction": 0.9583333333333334,
+      "seed_fractions": [
+        1.0,
+        0.875,
+        1.0
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "seeded_random",
+      "family": "skewed",
+      "mean_seed_fraction": 0.9583333333333334,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        0.875
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "seeded_random",
+      "family": "balanced",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "seeded_random",
+      "family": "skewed",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "streaming",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.625,
+      "seed_fractions": [
+        0.625,
+        0.625,
+        0.625
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "streaming",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "streaming",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.75,
+      "seed_fractions": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "streaming",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "streaming",
+      "family": "balanced",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "streaming",
+      "family": "skewed",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "streaming",
+      "family": "balanced",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "streaming",
+      "family": "skewed",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "trained_snn",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.5,
+      "seed_fractions": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "trained_snn",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "trained_snn",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.75,
+      "seed_fractions": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "trained_snn",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "trained_snn",
+      "family": "balanced",
+      "mean_seed_fraction": 0.7083333333333334,
+      "seed_fractions": [
+        0.75,
+        0.75,
+        0.625
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "trained_snn",
+      "family": "skewed",
+      "mean_seed_fraction": 0.875,
+      "seed_fractions": [
+        0.875,
+        0.875,
+        0.875
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "trained_snn",
+      "family": "balanced",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "trained_snn",
+      "family": "skewed",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.5416666666666666,
+      "seed_fractions": [
+        0.5,
+        0.625,
+        0.5
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 0.7916666666666666,
+      "seed_fractions": [
+        0.75,
+        0.875,
+        0.75
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "mean_seed_fraction": 0.25,
+      "seed_fractions": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "mean_seed_fraction": 0.875,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        0.625
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "mean_seed_fraction": 0.7083333333333334,
+      "seed_fractions": [
+        0.75,
+        0.875,
+        0.5
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "family_seed_rows": [
+    {
+      "budget": 32,
+      "candidate_signatures": 169,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.003846082021482289
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 169,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.003785547014558688
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 169,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.003832764021353796
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 114,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.0032866839901544154
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 114,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.003354942979058251
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 114,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.0033967700437642634
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 201,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.004123448976315558
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 201,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.004173481022007763
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 201,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.0041581750265322626
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 649,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.018753944954369217
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 649,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.018896011024480686
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 649,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.018885864061303437
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 302,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.009363391029182822
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 302,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.009414257045136765
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 302,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.009811126976273954
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 773,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.02143142296699807
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 773,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.02225560089573264
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 773,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.02226517998497002
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1224,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.019428938045166433
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1224,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.02020121895475313
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1224,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.019708628999069333
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 355,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.009175501996651292
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 355,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.009280789992772043
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 355,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.009351341024739668
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1468,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.022584818012546748
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1468,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.023085157910827547
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1468,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.023020127991912887
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1224,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.019730120024178177
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1224,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.01959878599154763
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1224,
+      "control": "heuristic",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.019804396986728534
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 355,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.009207331022480503
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 355,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.00926424699719064
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 355,
+      "control": "heuristic",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.009331022010883316
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1876,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.023332865966949612
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1876,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.02371016694814898
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1876,
+      "control": "heuristic",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.02376570799970068
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 171,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.007743302965536714
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 170,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.007762679015286267
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 172,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.00781501701567322
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 132,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.5,
+      "successes": 4,
+      "tasks": 8,
+      "wall_seconds": 0.007214316981844604
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 134,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.5,
+      "successes": 4,
+      "tasks": 8,
+      "wall_seconds": 0.007227411027997732
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 138,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.5,
+      "successes": 4,
+      "tasks": 8,
+      "wall_seconds": 0.007392899016849697
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 210,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.008164959988789633
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 207,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.00826404703548178
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 208,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.008531719009624794
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 651,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.022217710997210816
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 650,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.022248307010158896
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 652,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.022543767059687525
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 376,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.01299329596804455
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 377,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.01315594298648648
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 399,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.013328421977348626
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 786,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.02514301604242064
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 783,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.025428029999602586
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 784,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.025725975923705846
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1749,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.023841509013436735
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 2019,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.625,
+      "successes": 5,
+      "tasks": 8,
+      "wall_seconds": 0.024416133965132758
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1834,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.024389580969000235
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 688,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.013589243055321276
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 665,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.013636536983540282
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 743,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.014244145044358447
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1801,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.027116457000374794
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 2068,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.028009274043142796
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1854,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.027383717999327928
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1987,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.024498143000528216
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2292,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.025052529061213136
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2225,
+      "control": "mlp",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.02497637490159832
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 688,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.013640627032145858
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 665,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.013724264019401744
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 743,
+      "control": "mlp",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.01411890095914714
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1996,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.02726060597342439
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2355,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.028220828011399135
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2266,
+      "control": "mlp",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.02830933697987348
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 175,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.012352276971796528
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 171,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.012383156979922205
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 169,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.012398626073263586
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 124,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.625,
+      "successes": 5,
+      "tasks": 8,
+      "wall_seconds": 0.011721953022060916
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 132,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.5,
+      "successes": 4,
+      "tasks": 8,
+      "wall_seconds": 0.011836484976811334
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 127,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.625,
+      "successes": 5,
+      "tasks": 8,
+      "wall_seconds": 0.011891928967088461
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 202,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.013024353043874726
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 211,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.013021729013416916
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 205,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.013022461964283139
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 655,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.028346741921268404
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 651,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.02846333396155387
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 649,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.028698073962004855
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 369,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.018036461959127337
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 366,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.018112322984961793
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 321,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.018220096972072497
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 778,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.0317257909628097
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 787,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.032478019973495975
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 781,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.03241272101877257
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1713,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.030123392934910953
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1672,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.030206933966837823
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1762,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.030447440076386556
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 741,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.018769786023767665
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 834,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.01893552503315732
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 755,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.019010215066373348
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 2029,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.03382469096686691
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 2066,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.034716655005468056
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 2112,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.03461155999684706
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1993,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.030600789963500574
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1907,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.030637282965471968
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1803,
+      "control": "recurrent",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.030734740023035556
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 741,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.018831268942449242
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 834,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.019171976018697023
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 755,
+      "control": "recurrent",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.019150264939526096
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2363,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.03444234005291946
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2476,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.035363050032174215
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2259,
+      "control": "recurrent",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.03501733596203849
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 175,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.00514717202167958
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 182,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.005186594993574545
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 183,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.0051938199903815985
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 113,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.00434598300489597
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 123,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.625,
+      "successes": 5,
+      "tasks": 8,
+      "wall_seconds": 0.004376247961772606
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 153,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.5,
+      "successes": 4,
+      "tasks": 8,
+      "wall_seconds": 0.00437613800750114
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 206,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.005668278026860207
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 203,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.005782828957308084
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 198,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.0057189479703083634
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 655,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.030469849007204175
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 662,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.030632709007477388
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 663,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.03089093102607876
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 305,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.014087550953263417
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 335,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.01429579994874075
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 378,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.014650564990006387
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 782,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.03539232900948264
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 776,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.10952513499069028
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 770,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.03617244996712543
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1183,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.03156978799961507
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1870,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.03314348103594966
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1060,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.03203281405149028
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 342,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.01434170501306653
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 644,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.014872471016133204
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 499,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.01479266898240894
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1660,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.03728025502641685
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1343,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.037442466971697286
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1677,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.037674928025808185
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1183,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.03171211900189519
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1899,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0330749700369779
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1060,
+      "control": "seeded_random",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.031847482023295015
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 342,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.014328382007079199
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 644,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.015351954963989556
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 499,
+      "control": "seeded_random",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.014755712007172406
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1660,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.03719035899848677
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1343,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.03728983603650704
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1937,
+      "control": "seeded_random",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.03816698302398436
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 178,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.0006782599666621536
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 178,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.0006570869882125407
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 178,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.0006612049764953554
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 119,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.625,
+      "successes": 5,
+      "tasks": 8,
+      "wall_seconds": 0.0006061239691916853
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 119,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.625,
+      "successes": 5,
+      "tasks": 8,
+      "wall_seconds": 0.0006194380403030664
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 119,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.625,
+      "successes": 5,
+      "tasks": 8,
+      "wall_seconds": 0.0006240660441108048
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 210,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.0006605450180359185
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 210,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.0006691410089842975
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 210,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.00066711800172925
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 658,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.0016280749696306884
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 658,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.0015771669568493962
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 658,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.0015828179602976888
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 315,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.0012122659536544234
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 315,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.0010380710009485483
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 315,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.0010543309908825904
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 786,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.0017664110055193305
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 786,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.0018007250037044287
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 786,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.0019827770011033863
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1161,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.002715597045607865
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1161,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0027237799658905715
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1161,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0027017310494557023
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 548,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0015233769954647869
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 548,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0015252770099323243
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 548,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0015327159781008959
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1570,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.003401369001949206
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1570,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0034639950026758015
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1570,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0034186000120826066
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1161,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0026835339376702905
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1161,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0026805209927260876
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1161,
+      "control": "streaming",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0026571060298010707
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 548,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0015202650101855397
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 548,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0015127670485526323
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 548,
+      "control": "streaming",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0015259029751177877
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1570,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0033654500730335712
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1570,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0034047540393657982
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1570,
+      "control": "streaming",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0033691969292704016
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 173,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 78,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.018793638970237225
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 168,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 78,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.01877775098546408
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 168,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 78,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.018880258983699605
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 136,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 72,
+      "success_fraction": 0.5,
+      "successes": 4,
+      "tasks": 8,
+      "wall_seconds": 0.017205370968440548
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 132,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 72,
+      "success_fraction": 0.5,
+      "successes": 4,
+      "tasks": 8,
+      "wall_seconds": 0.017226862051757053
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 132,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 72,
+      "success_fraction": 0.5,
+      "successes": 4,
+      "tasks": 8,
+      "wall_seconds": 0.017257778032217175
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 211,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 84,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.02002716201241128
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 206,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 84,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.020695894956588745
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 209,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 84,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.0204085290315561
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 653,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 108,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.04469661001348868
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 648,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 108,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.04547602398088202
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 648,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 108,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.04509883697028272
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 369,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 84,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.027696468983776867
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 355,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 84,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.027736432995880023
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 378,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 84,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.028142801951617002
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 787,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 120,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.05123314703814685
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 782,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 120,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.053248418000293896
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 785,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 120,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.05198073000065051
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1765,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 108,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.0468058550322894
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1670,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 108,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.046943696012021974
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1855,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 108,
+      "success_fraction": 0.625,
+      "successes": 5,
+      "tasks": 8,
+      "wall_seconds": 0.04716734300018288
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 621,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.028138167021097615
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 676,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.028519281971966848
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 685,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.028544753993628547
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1893,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 120,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.05372254695976153
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1911,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 120,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.054770376038504764
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 2047,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 120,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.05395975802093744
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1844,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 108,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.047265621047699824
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1916,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 108,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.048048297030618414
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1999,
+      "control": "trained_snn",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 108,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.04759544602711685
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 621,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.02992813099990599
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 676,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.028491566015873104
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 685,
+      "control": "trained_snn",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.028927041974384338
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2103,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 120,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.05435303002013825
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2087,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 120,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.055641045997617766
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2287,
+      "control": "trained_snn",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 120,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.05496377998497337
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 186,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 78,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.019303785025840625
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 180,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 78,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.019437304028542712
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 174,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 78,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.019397615949856117
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 166,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 72,
+      "success_fraction": 0.5,
+      "successes": 4,
+      "tasks": 8,
+      "wall_seconds": 0.017570141004398465
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 144,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 72,
+      "success_fraction": 0.625,
+      "successes": 5,
+      "tasks": 8,
+      "wall_seconds": 0.017748954007402062
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 154,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 72,
+      "success_fraction": 0.5,
+      "successes": 4,
+      "tasks": 8,
+      "wall_seconds": 0.017867498012492433
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 210,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 84,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.020431650016689673
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 197,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 84,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.020695275045000017
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 201,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 84,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.020854006957961246
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 666,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 108,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.046118839003611356
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 660,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 108,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.04633403796469793
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 654,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 108,
+      "success_fraction": 0.375,
+      "successes": 3,
+      "tasks": 8,
+      "wall_seconds": 0.046893203019862995
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 411,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 84,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.028097830072510988
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 399,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 84,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.028319042990915477
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 396,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 84,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.02852921499288641
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 786,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 120,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.05215839299489744
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 773,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 120,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.056828365981345996
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 777,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 120,
+      "success_fraction": 0.25,
+      "successes": 2,
+      "tasks": 8,
+      "wall_seconds": 0.055157493945444
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1539,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 108,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0468312680022791
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1126,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 108,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.048399028019048274
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 2217,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 108,
+      "success_fraction": 0.625,
+      "successes": 5,
+      "tasks": 8,
+      "wall_seconds": 0.048107557027833536
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 803,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.028879118035547435
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 537,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.028652826964389533
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 573,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.029426616005366668
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1818,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 120,
+      "success_fraction": 0.75,
+      "successes": 6,
+      "tasks": 8,
+      "wall_seconds": 0.05420460907043889
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 1476,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 120,
+      "success_fraction": 0.875,
+      "successes": 7,
+      "tasks": 8,
+      "wall_seconds": 0.05542001998401247
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 2505,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 120,
+      "success_fraction": 0.5,
+      "successes": 4,
+      "tasks": 8,
+      "wall_seconds": 0.05599134098156355
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1539,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 0,
+      "snn_steps": 108,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.04739242105279118
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1126,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 1,
+      "snn_steps": 108,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.04707797599257901
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2628,
+      "control": "untrained_snn",
+      "family": "balanced",
+      "seed": 2,
+      "snn_steps": 108,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.04915550796431489
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 803,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 0,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.028935617971001193
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 537,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 1,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.02899795409757644
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 573,
+      "control": "untrained_snn",
+      "family": "repeated_subtree",
+      "seed": 2,
+      "snn_steps": 84,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.02915529700112529
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1996,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 0,
+      "snn_steps": 120,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.05427417700411752
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 1639,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 1,
+      "snn_steps": 120,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.0558151000586804
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 2868,
+      "control": "untrained_snn",
+      "family": "skewed",
+      "seed": 2,
+      "snn_steps": 120,
+      "success_fraction": 1.0,
+      "successes": 8,
+      "tasks": 8,
+      "wall_seconds": 0.05666907498380169
+    }
+  ],
+  "matched_success_budgets": [
+    {
+      "control": "streaming",
+      "lowest_budget": 32,
+      "target": 0.25,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "streaming",
+      "lowest_budget": 512,
+      "target": 0.5,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "streaming",
+      "lowest_budget": 512,
+      "target": 0.75,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "streaming",
+      "lowest_budget": 512,
+      "target": 1.0,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "heuristic",
+      "lowest_budget": 32,
+      "target": 0.25,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "heuristic",
+      "lowest_budget": 128,
+      "target": 0.5,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "heuristic",
+      "lowest_budget": 512,
+      "target": 0.75,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "heuristic",
+      "lowest_budget": 2048,
+      "target": 1.0,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "seeded_random",
+      "lowest_budget": 32,
+      "target": 0.25,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "seeded_random",
+      "lowest_budget": 512,
+      "target": 0.5,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "seeded_random",
+      "lowest_budget": 512,
+      "target": 0.75,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "seeded_random",
+      "lowest_budget": 2048,
+      "target": 1.0,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "untrained_snn",
+      "lowest_budget": 32,
+      "target": 0.25,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "untrained_snn",
+      "lowest_budget": 512,
+      "target": 0.5,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "untrained_snn",
+      "lowest_budget": 512,
+      "target": 0.75,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "untrained_snn",
+      "lowest_budget": 2048,
+      "target": 1.0,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "trained_snn",
+      "lowest_budget": 32,
+      "target": 0.25,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "trained_snn",
+      "lowest_budget": 512,
+      "target": 0.5,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "trained_snn",
+      "lowest_budget": 512,
+      "target": 0.75,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "trained_snn",
+      "lowest_budget": 2048,
+      "target": 1.0,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "mlp",
+      "lowest_budget": 32,
+      "target": 0.25,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "mlp",
+      "lowest_budget": 512,
+      "target": 0.5,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "mlp",
+      "lowest_budget": 512,
+      "target": 0.75,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "mlp",
+      "lowest_budget": 2048,
+      "target": 1.0,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "recurrent",
+      "lowest_budget": 32,
+      "target": 0.25,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "recurrent",
+      "lowest_budget": 512,
+      "target": 0.5,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "recurrent",
+      "lowest_budget": 512,
+      "target": 0.75,
+      "unreached_censored_at": null
+    },
+    {
+      "control": "recurrent",
+      "lowest_budget": 2048,
+      "target": 1.0,
+      "unreached_censored_at": null
+    }
+  ],
+  "overall_means_across_seeds": [
+    {
+      "budget": 32,
+      "control": "heuristic",
+      "mean_seed_fraction": 0.4583333333333333,
+      "seed_fractions": [
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "heuristic",
+      "mean_seed_fraction": 0.5416666666666666,
+      "seed_fractions": [
+        0.5416666666666666,
+        0.5416666666666666,
+        0.5416666666666666
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "heuristic",
+      "mean_seed_fraction": 0.9583333333333334,
+      "seed_fractions": [
+        0.9583333333333334,
+        0.9583333333333334,
+        0.9583333333333334
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "heuristic",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "mlp",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "mlp",
+      "mean_seed_fraction": 0.4583333333333333,
+      "seed_fractions": [
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "mlp",
+      "mean_seed_fraction": 0.8611111111111112,
+      "seed_fractions": [
+        0.875,
+        0.8333333333333334,
+        0.875
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "mlp",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "recurrent",
+      "mean_seed_fraction": 0.40277777777777785,
+      "seed_fractions": [
+        0.4166666666666667,
+        0.375,
+        0.4166666666666667
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "recurrent",
+      "mean_seed_fraction": 0.4583333333333333,
+      "seed_fractions": [
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "recurrent",
+      "mean_seed_fraction": 0.8472222222222223,
+      "seed_fractions": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.875
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "recurrent",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "seeded_random",
+      "mean_seed_fraction": 0.4166666666666667,
+      "seed_fractions": [
+        0.4583333333333333,
+        0.4166666666666667,
+        0.375
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "seeded_random",
+      "mean_seed_fraction": 0.4861111111111111,
+      "seed_fractions": [
+        0.4583333333333333,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "seeded_random",
+      "mean_seed_fraction": 0.9722222222222223,
+      "seed_fractions": [
+        1.0,
+        0.9583333333333334,
+        0.9583333333333334
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "seeded_random",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "streaming",
+      "mean_seed_fraction": 0.4166666666666667,
+      "seed_fractions": [
+        0.4166666666666667,
+        0.4166666666666667,
+        0.4166666666666667
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "streaming",
+      "mean_seed_fraction": 0.4583333333333333,
+      "seed_fractions": [
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "streaming",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "streaming",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "trained_snn",
+      "mean_seed_fraction": 0.375,
+      "seed_fractions": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "trained_snn",
+      "mean_seed_fraction": 0.4583333333333333,
+      "seed_fractions": [
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "trained_snn",
+      "mean_seed_fraction": 0.8611111111111112,
+      "seed_fractions": [
+        0.875,
+        0.875,
+        0.8333333333333334
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "trained_snn",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "budget": 32,
+      "control": "untrained_snn",
+      "mean_seed_fraction": 0.3888888888888889,
+      "seed_fractions": [
+        0.375,
+        0.4166666666666667,
+        0.375
+      ]
+    },
+    {
+      "budget": 128,
+      "control": "untrained_snn",
+      "mean_seed_fraction": 0.47222222222222215,
+      "seed_fractions": [
+        0.4583333333333333,
+        0.5,
+        0.4583333333333333
+      ]
+    },
+    {
+      "budget": 512,
+      "control": "untrained_snn",
+      "mean_seed_fraction": 0.8611111111111112,
+      "seed_fractions": [
+        0.9166666666666666,
+        0.9583333333333334,
+        0.7083333333333334
+      ]
+    },
+    {
+      "budget": 2048,
+      "control": "untrained_snn",
+      "mean_seed_fraction": 1.0,
+      "seed_fractions": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "overall_seed_rows": [
+    {
+      "budget": 32,
+      "candidate_signatures": 484,
+      "control": "heuristic",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.011256214987952262
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 484,
+      "control": "heuristic",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.011313971015624702
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 484,
+      "control": "heuristic",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.011387709091650322
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1724,
+      "control": "heuristic",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.5416666666666666,
+      "successes": 13,
+      "tasks": 24,
+      "wall_seconds": 0.04954875895055011
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1724,
+      "control": "heuristic",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.5416666666666666,
+      "successes": 13,
+      "tasks": 24,
+      "wall_seconds": 0.05056586896535009
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1724,
+      "control": "heuristic",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.5416666666666666,
+      "successes": 13,
+      "tasks": 24,
+      "wall_seconds": 0.05096217102254741
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 3047,
+      "control": "heuristic",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.9583333333333334,
+      "successes": 23,
+      "tasks": 24,
+      "wall_seconds": 0.05118925805436447
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 3047,
+      "control": "heuristic",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.9583333333333334,
+      "successes": 23,
+      "tasks": 24,
+      "wall_seconds": 0.05256716685835272
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 3047,
+      "control": "heuristic",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.9583333333333334,
+      "successes": 23,
+      "tasks": 24,
+      "wall_seconds": 0.05208009801572189
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 3455,
+      "control": "heuristic",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.05227031701360829
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 3455,
+      "control": "heuristic",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.05257319993688725
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 3455,
+      "control": "heuristic",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.05290112699731253
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 513,
+      "control": "mlp",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 9,
+      "tasks": 24,
+      "wall_seconds": 0.02312257993617095
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 511,
+      "control": "mlp",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 9,
+      "tasks": 24,
+      "wall_seconds": 0.02325413707876578
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 518,
+      "control": "mlp",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 9,
+      "tasks": 24,
+      "wall_seconds": 0.02373963504214771
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1813,
+      "control": "mlp",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.060354023007676005
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1810,
+      "control": "mlp",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.06083227999624796
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1835,
+      "control": "mlp",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.061598164960742
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 4238,
+      "control": "mlp",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 21,
+      "tasks": 24,
+      "wall_seconds": 0.0645472090691328
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 4752,
+      "control": "mlp",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.8333333333333334,
+      "successes": 20,
+      "tasks": 24,
+      "wall_seconds": 0.06606194499181584
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 4431,
+      "control": "mlp",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 21,
+      "tasks": 24,
+      "wall_seconds": 0.06601744401268661
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 4671,
+      "control": "mlp",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.06539937600609846
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 5312,
+      "control": "mlp",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.06699762109201401
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 5234,
+      "control": "mlp",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.06740461284061894
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 501,
+      "control": "recurrent",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.4166666666666667,
+      "successes": 10,
+      "tasks": 24,
+      "wall_seconds": 0.03709858303773217
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 514,
+      "control": "recurrent",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 9,
+      "tasks": 24,
+      "wall_seconds": 0.037241370970150456
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 501,
+      "control": "recurrent",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.4166666666666667,
+      "successes": 10,
+      "tasks": 24,
+      "wall_seconds": 0.037313017004635185
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1802,
+      "control": "recurrent",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.07810899484320544
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1804,
+      "control": "recurrent",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.07905367692001164
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1751,
+      "control": "recurrent",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.07933089195284992
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 4483,
+      "control": "recurrent",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.8333333333333334,
+      "successes": 20,
+      "tasks": 24,
+      "wall_seconds": 0.08271786992554553
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 4572,
+      "control": "recurrent",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.8333333333333334,
+      "successes": 20,
+      "tasks": 24,
+      "wall_seconds": 0.0838591140054632
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 4629,
+      "control": "recurrent",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.875,
+      "successes": 21,
+      "tasks": 24,
+      "wall_seconds": 0.08406921513960697
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 5097,
+      "control": "recurrent",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.08387439895886928
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 5217,
+      "control": "recurrent",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.0851723090163432
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 4817,
+      "control": "recurrent",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.08490234092460014
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 494,
+      "control": "seeded_random",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.015161433053435758
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 508,
+      "control": "seeded_random",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.4166666666666667,
+      "successes": 10,
+      "tasks": 24,
+      "wall_seconds": 0.015345671912655234
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 534,
+      "control": "seeded_random",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.375,
+      "successes": 9,
+      "tasks": 24,
+      "wall_seconds": 0.015288905968191102
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1742,
+      "control": "seeded_random",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.07994972896995023
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1773,
+      "control": "seeded_random",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.5,
+      "successes": 12,
+      "tasks": 24,
+      "wall_seconds": 0.15445364394690841
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1811,
+      "control": "seeded_random",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.5,
+      "successes": 12,
+      "tasks": 24,
+      "wall_seconds": 0.08171394598321058
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 3185,
+      "control": "seeded_random",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.08319174803909846
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 3857,
+      "control": "seeded_random",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.9583333333333334,
+      "successes": 23,
+      "tasks": 24,
+      "wall_seconds": 0.08545841902378015
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 3236,
+      "control": "seeded_random",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.9583333333333334,
+      "successes": 23,
+      "tasks": 24,
+      "wall_seconds": 0.0845004110597074
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 3185,
+      "control": "seeded_random",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.08323086000746116
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 3886,
+      "control": "seeded_random",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.0857167610374745
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 3496,
+      "control": "seeded_random",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.08477017705445178
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 507,
+      "control": "streaming",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.4166666666666667,
+      "successes": 10,
+      "tasks": 24,
+      "wall_seconds": 0.0019449289538897574
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 507,
+      "control": "streaming",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.4166666666666667,
+      "successes": 10,
+      "tasks": 24,
+      "wall_seconds": 0.0019456660374999046
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 507,
+      "control": "streaming",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.4166666666666667,
+      "successes": 10,
+      "tasks": 24,
+      "wall_seconds": 0.0019523890223354101
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1759,
+      "control": "streaming",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.004606751928804442
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1759,
+      "control": "streaming",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.004415962961502373
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1759,
+      "control": "streaming",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.0046199259522836655
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 3279,
+      "control": "streaming",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.007640343043021858
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 3279,
+      "control": "streaming",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.007713051978498697
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 3279,
+      "control": "streaming",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.007653047039639205
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 3279,
+      "control": "streaming",
+      "seed": 0,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.0075692490208894014
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 3279,
+      "control": "streaming",
+      "seed": 1,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.007598042080644518
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 3279,
+      "control": "streaming",
+      "seed": 2,
+      "snn_steps": 0,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.00755220593418926
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 520,
+      "control": "trained_snn",
+      "seed": 0,
+      "snn_steps": 234,
+      "success_fraction": 0.375,
+      "successes": 9,
+      "tasks": 24,
+      "wall_seconds": 0.056026171951089054
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 506,
+      "control": "trained_snn",
+      "seed": 1,
+      "snn_steps": 234,
+      "success_fraction": 0.375,
+      "successes": 9,
+      "tasks": 24,
+      "wall_seconds": 0.05670050799380988
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 509,
+      "control": "trained_snn",
+      "seed": 2,
+      "snn_steps": 234,
+      "success_fraction": 0.375,
+      "successes": 9,
+      "tasks": 24,
+      "wall_seconds": 0.05654656604747288
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1809,
+      "control": "trained_snn",
+      "seed": 0,
+      "snn_steps": 312,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.1236262260354124
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1785,
+      "control": "trained_snn",
+      "seed": 1,
+      "snn_steps": 312,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.12646087497705594
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1811,
+      "control": "trained_snn",
+      "seed": 2,
+      "snn_steps": 312,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.12522236892255023
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 4279,
+      "control": "trained_snn",
+      "seed": 0,
+      "snn_steps": 312,
+      "success_fraction": 0.875,
+      "successes": 21,
+      "tasks": 24,
+      "wall_seconds": 0.12866656901314855
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 4257,
+      "control": "trained_snn",
+      "seed": 1,
+      "snn_steps": 312,
+      "success_fraction": 0.875,
+      "successes": 21,
+      "tasks": 24,
+      "wall_seconds": 0.13023335402249359
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 4587,
+      "control": "trained_snn",
+      "seed": 2,
+      "snn_steps": 312,
+      "success_fraction": 0.8333333333333334,
+      "successes": 20,
+      "tasks": 24,
+      "wall_seconds": 0.12967185501474887
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 4568,
+      "control": "trained_snn",
+      "seed": 0,
+      "snn_steps": 312,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.13154678206774406
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 4679,
+      "control": "trained_snn",
+      "seed": 1,
+      "snn_steps": 312,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.13218090904410928
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 4971,
+      "control": "trained_snn",
+      "seed": 2,
+      "snn_steps": 312,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.13148626798647456
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 562,
+      "control": "untrained_snn",
+      "seed": 0,
+      "snn_steps": 234,
+      "success_fraction": 0.375,
+      "successes": 9,
+      "tasks": 24,
+      "wall_seconds": 0.05730557604692876
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 521,
+      "control": "untrained_snn",
+      "seed": 1,
+      "snn_steps": 234,
+      "success_fraction": 0.4166666666666667,
+      "successes": 10,
+      "tasks": 24,
+      "wall_seconds": 0.05788153308094479
+    },
+    {
+      "budget": 32,
+      "candidate_signatures": 529,
+      "control": "untrained_snn",
+      "seed": 2,
+      "snn_steps": 234,
+      "success_fraction": 0.375,
+      "successes": 9,
+      "tasks": 24,
+      "wall_seconds": 0.0581191209203098
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1863,
+      "control": "untrained_snn",
+      "seed": 0,
+      "snn_steps": 312,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.12637506207101978
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1832,
+      "control": "untrained_snn",
+      "seed": 1,
+      "snn_steps": 312,
+      "success_fraction": 0.5,
+      "successes": 12,
+      "tasks": 24,
+      "wall_seconds": 0.1314814469369594
+    },
+    {
+      "budget": 128,
+      "candidate_signatures": 1827,
+      "control": "untrained_snn",
+      "seed": 2,
+      "snn_steps": 312,
+      "success_fraction": 0.4583333333333333,
+      "successes": 11,
+      "tasks": 24,
+      "wall_seconds": 0.1305799119581934
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 4160,
+      "control": "untrained_snn",
+      "seed": 0,
+      "snn_steps": 312,
+      "success_fraction": 0.9166666666666666,
+      "successes": 22,
+      "tasks": 24,
+      "wall_seconds": 0.12991499510826543
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 3139,
+      "control": "untrained_snn",
+      "seed": 1,
+      "snn_steps": 312,
+      "success_fraction": 0.9583333333333334,
+      "successes": 23,
+      "tasks": 24,
+      "wall_seconds": 0.13247187496745028
+    },
+    {
+      "budget": 512,
+      "candidate_signatures": 5295,
+      "control": "untrained_snn",
+      "seed": 2,
+      "snn_steps": 312,
+      "success_fraction": 0.7083333333333334,
+      "successes": 17,
+      "tasks": 24,
+      "wall_seconds": 0.13352551401476376
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 4338,
+      "control": "untrained_snn",
+      "seed": 0,
+      "snn_steps": 312,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.1306022160279099
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 3302,
+      "control": "untrained_snn",
+      "seed": 1,
+      "snn_steps": 312,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.13189103014883585
+    },
+    {
+      "budget": 2048,
+      "candidate_signatures": 6069,
+      "control": "untrained_snn",
+      "seed": 2,
+      "snn_steps": 312,
+      "success_fraction": 1.0,
+      "successes": 24,
+      "tasks": 24,
+      "wall_seconds": 0.13497987994924188
+    }
+  ],
+  "trained_snn_advantage": {
+    "checks": [
+      {
+        "best_other_mean_fraction": 1.0,
+        "budget": 512,
+        "families_where_trained_snn_is_higher": 0,
+        "overall_margin": -0.13888888888888884,
+        "trained_snn_mean_fraction": 0.8611111111111112
+      },
+      {
+        "best_other_mean_fraction": 1.0,
+        "budget": 2048,
+        "families_where_trained_snn_is_higher": 0,
+        "overall_margin": 0.0,
+        "trained_snn_mean_fraction": 1.0
+      }
+    ],
+    "infrastructure_valid": true,
+    "rule_would_pass": false,
+    "scope": "This corpus, these seven controls, the listed candidate-scan budgets, bound three, and the recorded software/hardware environment only.",
+    "supported_by_frozen_rule": false
+  }
+}

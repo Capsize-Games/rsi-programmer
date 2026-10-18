@@ -86,6 +86,48 @@ open and no performance advantage is claimed.
 [fast provenance](../artifacts/pre-eval-benchmark-validation-20261018/fast.json),
 and [generator check](../artifacts/pre-eval-benchmark-validation-20261018/generator.log).
 
+## code-v63: complete measurement and independent audit
+
+The first fixed benchmark completes all **2,016 attempts** on the
+`code-v62` runtime without execution errors. All 32 independent audit
+checks pass, including re-execution of every returned graph (1,406),
+complete matrix coverage, exact summaries, budgets, frozen weights and
+source/dependency hashes. The initial verifier failure from an incorrect
+streaming descriptor-count assumption is retained and explained in the
+[result report](benchmark-pre-eval.md#version-1-result).
+
+There is **no supported trained-SNN advantage** under the frozen rule.
+At budget 512, streaming accepts 72/72 repeated task-seed attempts;
+trained SNN, untrained SNN and MLP each accept 62/72. Every control accepts
+72/72 by budget 2048. At matched full acceptance the trained SNN uses
+more candidate signature evaluations and recorded search time than
+streaming. This result covers 24 evaluation tasks and three seeds in the
+small arithmetic DSL, not general SNN capability or broad transfer.
+
+#72 and #73 are complete implementation/evaluation tasks. The next
+benchmark follow-up is [#79](https://github.com/Capsize-Games/rsi-programmer/issues/79):
+semantic separation and workloads that remain discriminating at the
+declared budgets. Exact polynomial expansion finds 19 distinct functions
+among the 24 evaluation tasks and one function shared with training.
+Do not promote the controller, decomposition or memory experiments on
+this result; #74–#76 remain conditional and #77–#78 remain deferred.
+
+Local validation remains **302 fast tests OK in 222.978s**, plus the
+32 focused checks and exact corpus regeneration. Slow, retry and local
+full discovery were not rerun for the additive path. Current code-v62 CI
+fast jobs pass on Python 3.12 and 3.13; both full jobs remain running at
+the recorded observation and are not credited as passing.
+The older code-v53 full Python 3.13 job finished with one live hub
+verification failure in 337 tests; its Python 3.12 sibling was cancelled.
+The venv fix is present, but [#44](https://github.com/Capsize-Games/rsi-programmer/issues/44)
+remains open for a completely green full-CI cycle. No cause for that hub
+failure is established by the assertion alone.
+
+[Complete raw measurement](../artifacts/benchmark-pre-eval-v1-20261018/),
+[final independent audit](../artifacts/benchmark-pre-eval-v1-audit-20261018/audit.json),
+[measurement log](../artifacts/pre-eval-benchmark-validation-20261018/benchmark.log),
+and [dated CI status](../artifacts/pre-eval-benchmark-validation-20261018/ci-observation.json).
+
 ## Conditional experiments
 
 - [#74: episode state and structured actions](https://github.com/Capsize-Games/rsi-programmer/issues/74)

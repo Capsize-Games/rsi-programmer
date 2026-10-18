@@ -84,5 +84,66 @@ that claim. Wall time is reported as descriptive cost and is not a standalone
 efficiency result. Conclusions apply only to this frozen corpus, these
 controls, budgets, and recorded environment.
 
+## Version 1 result
+
+The first complete run used the published `code-v62` runtime (`5cf0998`)
+and the unchanged `code-v61` inputs. It completed all 2,016 attempts in
+14.095s stage wall time with no execution errors or source/dependency
+changes. The independently checked accepted counts are:
+
+| Control | Budget 32 | Budget 128 | Budget 512 | Budget 2048 |
+| --- | ---: | ---: | ---: | ---: |
+| Streaming | 30/72 | 33/72 | 72/72 | 72/72 |
+| Heuristic | 33/72 | 39/72 | 69/72 | 72/72 |
+| Seeded random | 30/72 | 35/72 | 70/72 | 72/72 |
+| Untrained SNN | 28/72 | 34/72 | 62/72 | 72/72 |
+| Trained SNN | 27/72 | 33/72 | 62/72 | 72/72 |
+| MLP | 27/72 | 33/72 | 62/72 | 72/72 |
+| Recurrent | 29/72 | 33/72 | 61/72 | 72/72 |
+
+Each cell represents 24 fixed tasks repeated across three seeds, not 72
+independent tasks. Streaming and the heuristic repeat identical outcomes
+across seeds. All returned graphs passed observed and held checks; the
+remaining attempts exhausted their candidate budgets. The trained SNN
+does not pass the frozen advantage criterion. Equal aggregate counts do
+not imply identical per-task behavior.
+
+At budget 512, streaming uses 9,837 candidate signature evaluations for
+72 accepted attempts; trained SNN uses 13,123 for 62. At matched full
+acceptance, streaming uses 9,837 evaluations at budget 512, while trained
+SNN uses 14,218 at budget 2048. Their recorded aggregate search times at those
+matched-success settings are 0.0195s and 0.3504s, respectively. These are
+small-workload timings from this environment, not general runtime or
+energy claims. Training, descriptor scoring and validation costs remain
+available separately in the raw bundle. Neural controls still score all
+descriptors in each reached layer; moving root execution after selection
+has not made descriptor scoring free.
+
+The independent audit imports the program interpreter, not the benchmark
+runner or its aggregation helpers. It verifies all 2,016 unique matrix
+keys, re-executes all 1,406 returned graphs, reproduces acceptance and
+summaries, checks budgets and frozen state, and validates input/output
+and current source hashes. All 32 final audit checks pass. Its first
+report incorrectly required streaming descriptor generation to equal
+executed candidate signatures: a partial-budget stop can pull one unused
+descriptor.
+The corrected check permits exactly that documented lookahead. The
+initial failed report is preserved; no measurement or runtime was changed
+to obtain the final audit pass.
+
+Exact polynomial expansion finds 12 distinct training functions and 19
+distinct evaluation functions among 24 evaluation tasks, with one
+function shared between splits. Five evaluation tasks duplicate another
+evaluation function. This is a limitation of version 1's declared syntax
+separation, not evidence of semantic transfer. All seven controls also
+saturate at budget 2048. A separate, more discriminating protocol is
+tracked in [#79](https://github.com/Capsize-Games/rsi-programmer/issues/79);
+version 1 and its negative result remain frozen.
+
+[Raw run and manifests](../artifacts/benchmark-pre-eval-v1-20261018/),
+[independent audit](../artifacts/benchmark-pre-eval-v1-audit-20261018/audit.json),
+[audit source](../artifacts/benchmark-pre-eval-v1-audit-20261018/audit.py),
+and [stage logs and source bindings](../artifacts/pre-eval-benchmark-validation-20261018/).
+
 [corpus]: ../fixtures/benchmark_pre_eval_corpus_v1.json
 [generator]: ../scripts/generate_benchmark_pre_eval_corpus.js
