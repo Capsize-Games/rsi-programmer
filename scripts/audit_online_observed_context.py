@@ -68,7 +68,11 @@ def _protocol_payload() -> dict[str, Any]:
             or context.get("normalization") != "v / (1 + abs(v))"
             or context.get("flattening") != "row-major triples, then rows"
             or context.get("held_rows_or_outputs_available") is not False
-            or context.get("policy_receives_metadata") is not False
+            or context.get("answer_metadata_available_as_choice_features")
+            is not False
+            or context.get("episode_id_semantics") != (
+                "Opaque string for boundary validation only; never encoded "
+                "or used in choices/updates.")
             or context.get("trainable") is not False):
         raise ValueError("observed-context information contract changed")
     capacity = protocol.get("capacity_diagnostic", {})

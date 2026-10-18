@@ -16,6 +16,7 @@ from scripts.audit_online_observed_context import (
     _normalized_context,
     _projection,
     _projection_digest,
+    _protocol_payload,
     _validate_context_row,
 )
 
@@ -67,6 +68,19 @@ class ObservedContextAuditTests(unittest.TestCase):
                          inspect_policy(policy))
         self.assertEqual(_validate_context_row(
             row, self.task, policy, before), (context, current))
+
+    def test_final_protocol_digest_and_metadata_guards_load(self) -> None:
+        protocol = _protocol_payload()
+        self.assertEqual(protocol["name"], "online-observed-context-v1")
+        self.assertEqual(len(protocol["orders"]), 6)
+        metadata_guard = protocol["context"][
+            "answer_metadata_available_as_choice_features"]
+        self.assertIs(metadata_guard, False)
+        self.assertEqual(
+            protocol["context"]["episode_id_semantics"],
+            "Opaque string for boundary validation only; never encoded "
+            "or used in choices/updates.",
+        )
 
     def test_learned_context_diagnostics_match_modes_and_seeds(self) -> None:
         observed = tuple(tuple(row) for row in self.task["observed"])
