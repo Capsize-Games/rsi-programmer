@@ -1,0 +1,13 @@
+{
+  "command": "flock /tmp/rsi-programmer-builder.lock python artifacts/benchmark-complete-shortlist-audit-20261018/audit_window_runner.py",
+  "exit_code": 1,
+  "duration_seconds": 0.131,
+  "steps_completed": [
+    "Ruff format --line-length 79",
+    "AST and 79-column checks passed for all five scripts",
+    "independent train-only selector audit exited 0; pinned output and script hashes refreshed"
+  ],
+  "failed_step": "Metadata-only preflight compared the selector report's three selected parameters to the whole method object; corrected to compare the three pinned parameter keys.",
+  "evaluation_bundle_read": false,
+  "evaluation_measurement_started_or_inferred": false
+}

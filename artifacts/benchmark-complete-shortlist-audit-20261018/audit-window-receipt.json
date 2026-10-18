@@ -1,0 +1,103 @@
+{
+  "completed_utc": "2026-10-18T17:25:56Z",
+  "evaluation_bundle_read": false,
+  "evaluation_measurement_started_or_inferred": false,
+  "final_sha256": {
+    "audit_window_runner.py": "9f16489e8801fc58e45e4ae85d35e1fb9339b3e408bbc76d4ee3b566376abd98",
+    "complete_shortlist_audit.py": "7972aed4acb779b0d8cb399f1d01a99fc211b2ceef9e10c94bf13c6b720951ee",
+    "metadata_preflight.py": "d329002959ef2ef498d8adc8a96eabc9c53f7e3541ec413666611cc2add2f752",
+    "negative_controls.py": "0417abfaf5080d6dbce020d1c3227e3d7e568ebe7f3b2c8809816508852ccb0a",
+    "selection-audit.json": "37a1c12abde26147e592aacd56cb865bfb3e7cf1eef8e2e70a35fb07a0261b9b",
+    "selection-audit.sha256": "fb1224b2983686617bd27daff3f515ad0c67b102723af9ae916975faf65f00f6",
+    "selection_audit.py": "1bdeb496444ade0aa93135982c20e48fe32a8493928aa2b01e05297255126f75"
+  },
+  "lock": "/tmp/rsi-programmer-builder.lock",
+  "steps": [
+    {
+      "command": "uv tool run --from ruff ruff format --line-length 79 artifacts/benchmark-complete-shortlist-audit-20261018/complete_shortlist_audit.py artifacts/benchmark-complete-shortlist-audit-20261018/metadata_preflight.py artifacts/benchmark-complete-shortlist-audit-20261018/negative_controls.py artifacts/benchmark-complete-shortlist-audit-20261018/selection_audit.py artifacts/benchmark-complete-shortlist-audit-20261018/audit_window_runner.py",
+      "duration_seconds": 0.026649,
+      "exit_code": 0,
+      "label": "ruff format",
+      "stderr": "",
+      "stdout": "5 files left unchanged\n"
+    },
+    {
+      "details": {
+        "audit_window_runner.py": {
+          "ast": "pass",
+          "violations": [],
+          "width_pass": true
+        },
+        "complete_shortlist_audit.py": {
+          "ast": "pass",
+          "violations": [],
+          "width_pass": true
+        },
+        "metadata_preflight.py": {
+          "ast": "pass",
+          "violations": [],
+          "width_pass": true
+        },
+        "negative_controls.py": {
+          "ast": "pass",
+          "violations": [],
+          "width_pass": true
+        },
+        "selection_audit.py": {
+          "ast": "pass",
+          "violations": [],
+          "width_pass": true
+        }
+      },
+      "exit_code": 0,
+      "label": "AST and 79-column check after format"
+    },
+    {
+      "command": "/usr/bin/python /home/joe/Projects/rsi-programmer/artifacts/benchmark-complete-shortlist-audit-20261018/selection_audit.py --output /home/joe/Projects/rsi-programmer/artifacts/benchmark-complete-shortlist-audit-20261018/selection-audit.json",
+      "duration_seconds": 0.158164,
+      "exit_code": 0,
+      "label": "independent train-only selector audit",
+      "stderr": "",
+      "stdout": "{\n  \"errors\": [],\n  \"expected_raw_rows\": 528,\n  \"external_selection_charge_cpu_ns\": 56792751000,\n  \"external_selection_charge_wall_ns\": 55770510319,\n  \"main_protocol_sha256\": \"189fa147a11040c6a05ef173522a6146285de616996724adff49d17b5f66be0a\",\n  \"methods\": [\n    {\n      \"controls\": {\n        \"cheap_only\": {\n          \"accepted\": 48,\n          \"attempts\": 48,\n          \"coverage_fraction\": 1.0,\n          \"mean_attempt_cpu_ns\": 52646041.145833336,\n          \"streaming_accepted\": 48\n        },\n        \"heuristic\": {\n          \"accepted\": 48,\n          \"attempts\": 48,\n          \"coverage_fraction\": 1.0,\n          \"mean_attempt_cpu_ns\": 68659166.85416667,\n          \"streaming_accepted\": 48\n        },\n        \"mlp\": {\n          \"accepted\": 48,\n          \"attempts\": 48,\n          \"coverage_fraction\": 1.0,\n          \"mean_attempt_cpu_ns\": 81959148.70833333,\n          \"streaming_accepted\": 48\n        },\n        \"recurrent\": {\n          \"accepted\": 48,\n          \"attempts\": 48,\n          \"coverage_fraction\": 1.0,\n          \"mean_attempt_cpu_ns\": 97135952.79166667,\n          \"streaming_accepted\": 48\n        },\n        \"trained_snn\": {\n          \"accepted\": 48,\n          \"attempts\": 48,\n          \"coverage_fraction\": 1.0,\n          \"mean_attempt_cpu_ns\": 260618446.1875,\n          \"streaming_accepted\": 48\n        }\n      },\n      \"eligible\": true,\n      \"mean_attempt_cpu_ns_across_five_controls\": 112203751.1375,\n      \"shortlist_size\": 4,\n      \"window_size\": 64\n    },\n    {\n      \"controls\": {\n        \"cheap_only\": {\n          \"accepted\": 48,\n          \"attempts\": 48,\n          \"coverage_fraction\": 1.0,\n          \"mean_attempt_cpu_ns\": 52303062.416666664,\n          \"streaming_accepted\": 48\n        },\n        \"heuristic\": {\n          \"accepted\": 48,\n          \"attempts\": 48,\n          \"coverage_fraction\": 1.0,\n          \"mean_attempt_cpu_ns\": 65043303.645833336,\n          \"streaming_accepted\": 48\n        },\n        \"mlp\": {\n          \"accepted\": 48,\n          \"attempts\": 48,\n          \"coverage_fraction\": 1.0,\n          \"mean_attempt_cpu_ns\": 63228489,\n          \"streaming_accepted\": 48\n        },\n        \"recurrent\": {\n          \"accepted\": 48,\n          \"attempts\": 48,\n          \"coverage_fraction\": 1.0,\n          \"mean_attempt_cpu_ns\": 71562982.6875,\n          \"streaming_accepted\": 48\n        },\n        \"trained_snn\": {\n          \"accepted\": 48,\n          \"attempts\": 48,\n          \"coverage_fraction\": 1.0,\n          \"mean_attempt_cpu_ns\": 123804983.125,\n          \"streaming_accepted\": 48\n        }\n      },\n      \"eligible\": true,\n      \"mean_attempt_cpu_ns_across_five_controls\": 75188564.175,\n      \"shortlist_size\": 16,\n      \"window_size\": 256\n    }\n  ],\n  \"passed\": true,\n  \"raw_rows\": 528,\n  \"report_type\": \"independent-train-only-shortlist-selection-audit\",\n  \"selected\": {\n    \"cheap_row_index\": 0,\n    \"shortlist_size\": 16,\n    \"window_size\": 256\n  },\n  \"selection_protocol_sha256\": \"64eb64fb2b029be4736f9170df8fa4d2956c954d85e8133952f7981a416ac616\",\n  \"streaming_accepted\": 48\n}\n"
+    },
+    {
+      "details": {
+        "audit_window_runner.py": {
+          "ast": "pass",
+          "violations": [],
+          "width_pass": true
+        },
+        "complete_shortlist_audit.py": {
+          "ast": "pass",
+          "violations": [],
+          "width_pass": true
+        },
+        "metadata_preflight.py": {
+          "ast": "pass",
+          "violations": [],
+          "width_pass": true
+        },
+        "negative_controls.py": {
+          "ast": "pass",
+          "violations": [],
+          "width_pass": true
+        },
+        "selection_audit.py": {
+          "ast": "pass",
+          "violations": [],
+          "width_pass": true
+        }
+      },
+      "exit_code": 0,
+      "label": "final independent AST and 79-column check"
+    },
+    {
+      "command": "/usr/bin/python /home/joe/Projects/rsi-programmer/artifacts/benchmark-complete-shortlist-audit-20261018/metadata_preflight.py --output /home/joe/Projects/rsi-programmer/artifacts/benchmark-complete-shortlist-audit-20261018/metadata-preflight.json",
+      "duration_seconds": 0.029246,
+      "exit_code": 0,
+      "label": "metadata-only preflight",
+      "stderr": "",
+      "stdout": "{\n  \"corpus_sha256\": \"a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921\",\n  \"evaluation_bundle_read\": false,\n  \"evaluation_measurement_started_or_inferred\": false,\n  \"expected_memory_rows\": 960,\n  \"expected_timed_rows\": 11808,\n  \"main_protocol_sha256\": \"189fa147a11040c6a05ef173522a6146285de616996724adff49d17b5f66be0a\",\n  \"preflight_passed\": true,\n  \"selected\": {\n    \"api\": \"rsi_programmer.shortlist_pre_eval.shortlist_pre_evaluation_search\",\n    \"caps\": \"The active descriptor and cheap-score block is limited by window_size; policy feature vectors are limited by shortlist_size. Retained and pending layers are additional storage. These parameters do not bound total search memory.\",\n    \"cheap_row_index\": 0,\n    \"cheap_score\": \"Absolute residual on observed row 0 using the descriptor operator; stable ties use original global grammar ordinal.\",\n    \"execution\": \"Execute shortlisted entries first, then every remaining descriptor in original grammar order exactly once. Complete layers are retained canonically in original generation order; interrupted layers are discarded. No permanent pruning, replay, or duplicate root evaluation.\",\n    \"feature_handling\": \"For the four ranked policy controls, build the unchanged 12 features only for selected entries, using original global ordinal and full layer width. Cheap-only builds no full features.\",\n    \"name\": \"cheap-single-row-shortlist-with-complete-fallback\",\n    \"retention\": \"Within complete layers, deduplicate by (operator, observed-row signature), keeping the canonical earliest generation-order representative.\",\n    \"shortlist_size\": 16,\n    \"window_size\": 256\n  },\n  \"selection_manifest_sha256\": \"922d906513e041f09941d35e3538e4df9e6055200fc601d94121d222e1616f39\",\n  \"selection_protocol_sha256\": \"64eb64fb2b029be4736f9170df8fa4d2956c954d85e8133952f7981a416ac616\",\n  \"selection_receipt_sha256\": \"ec893207349cb5e181914e54d81dc2c7b4de35aa4eaf4f571783e77770ea4173\",\n  \"selector_audit_report\": \"artifacts/benchmark-complete-shortlist-audit-20261018/selection-audit.json\"\n}\n"
+    }
+  ]
+}

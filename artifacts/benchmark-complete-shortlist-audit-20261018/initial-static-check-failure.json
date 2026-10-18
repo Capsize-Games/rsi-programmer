@@ -1,0 +1,29 @@
+{
+  "command": "flock /tmp/rsi-programmer-builder.lock bash -c '<optional ruff format if present; AST parse and 79-column checks for complete_shortlist_audit.py, metadata_preflight.py, negative_controls.py, selection_audit.py; run metadata preflight only if widths pass>'",
+  "exit_code": 1,
+  "duration_seconds": null,
+  "duration_note": "The wrapper did not persist elapsed time; no duration is claimed.",
+  "ast_parse": {
+    "complete_shortlist_audit.py": "pass",
+    "metadata_preflight.py": "pass",
+    "negative_controls.py": "pass",
+    "selection_audit.py": "pass"
+  },
+  "metadata_preflight": "not run because the 79-column gate failed",
+  "evaluation_bundle_read": false,
+  "evaluation_measurement_started_or_inferred": false,
+  "line_width_gate": "failed",
+  "formatter": "No ruff or black executable was found in PATH or .venv/bin; retry authorized using uv tool run --from ruff ruff.",
+  "pre_format_sha256": {
+    "complete_shortlist_audit.py": "e65fe899d57dc4c5f38f8f480f22d327235f170ad916aff92f8e95fe92d68ff7",
+    "metadata_preflight.py": "89b772e66e8942ec39382edf733f5aa8523ce325a71e2d6e60c9020e3f788162",
+    "negative_controls.py": "3136b183faced15e2bdbe0ccde3ce9ae3b20b750a300c5e4ae54e391467ba23e",
+    "selection_audit.py": "72ec98de45506e94c733118187c17eb0412f34b2aedc97da67837777268e8cb3"
+  },
+  "reported_max_width_violations_first_30": {
+    "complete_shortlist_audit.py": [[34, 514], [249, 81], [327, 82], [329, 83], [392, 98], [394, 99], [473, 82], [474, 86], [492, 80], [511, 81], [520, 94], [549, 80], [597, 87], [601, 88], [603, 106], [605, 100], [606, 80], [625, 83], [748, 84], [749, 89], [750, 91], [751, 84], [752, 91], [753, 92], [755, 88], [756, 95], [757, 80], [761, 88], [763, 95], [764, 80]],
+    "metadata_preflight.py": [[18, 84], [20, 94], [22, 82], [23, 96], [24, 94], [25, 93], [26, 93], [27, 102], [28, 92], [56, 81], [80, 89]],
+    "negative_controls.py": [[20, 87], [45, 84], [113, 81], [114, 82], [115, 92], [116, 117]],
+    "selection_audit.py": [[14, 81], [26, 80], [275, 83], [288, 83], [302, 83], [329, 87], [335, 80], [342, 85], [363, 80], [365, 83], [394, 87], [399, 81], [402, 84], [437, 83], [441, 82], [442, 85], [444, 93], [446, 101], [452, 84], [454, 80], [455, 85], [464, 83], [475, 89], [480, 80], [501, 84], [516, 87], [518, 95], [538, 81]]
+  }
+}

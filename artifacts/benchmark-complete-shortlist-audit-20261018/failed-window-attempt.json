@@ -1,0 +1,10 @@
+{
+  "command": "flock /tmp/rsi-programmer-builder.lock bash -c '<inline Python orchestrator: format audit scripts; AST/79-width check; selector audit; metadata preflight>'",
+  "exit_code": 1,
+  "duration_seconds": 0.1,
+  "failure": "The shell wrapper quoting corrupted the embedded inline Python before any formatter, selector audit, or preflight step ran.",
+  "stdout_prefix": "",
+  "stderr_prefix": "=: line 37: warning: here-document at line 3 delimited by end-of-file (wanted `PY')\n  File \"<stdin>\", line 34\n    s, count = re.subn(rSELECTION_REPORT_SHA256\n                      ^\nSyntaxError: '(' was never closed\n",
+  "evaluation_bundle_read": false,
+  "evaluation_measurement_started_or_inferred": false
+}

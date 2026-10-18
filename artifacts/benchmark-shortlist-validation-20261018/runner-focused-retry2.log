@@ -1,0 +1,14 @@
+E......
+======================================================================
+ERROR: test_actual_startup_builds_exact_groups_and_fits_seed_zero (tests.test_benchmark_shortlist.BenchmarkShortlistTests.test_actual_startup_builds_exact_groups_and_fits_seed_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/joe/Projects/rsi-programmer/tests/test_benchmark_shortlist.py", line 123, in test_actual_startup_builds_exact_groups_and_fits_seed_zero
+    observed["trained_weight_hashes"][name],
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'seeded_random'
+
+----------------------------------------------------------------------
+Ran 7 tests in 7.636s
+
+FAILED (errors=1)

@@ -1,0 +1,105 @@
+{
+  "errors": [],
+  "expected_raw_rows": 528,
+  "external_selection_charge_cpu_ns": 56792751000,
+  "external_selection_charge_wall_ns": 55770510319,
+  "main_protocol_sha256": "189fa147a11040c6a05ef173522a6146285de616996724adff49d17b5f66be0a",
+  "methods": [
+    {
+      "controls": {
+        "cheap_only": {
+          "accepted": 48,
+          "attempts": 48,
+          "coverage_fraction": 1.0,
+          "mean_attempt_cpu_ns": 52646041.145833336,
+          "streaming_accepted": 48
+        },
+        "heuristic": {
+          "accepted": 48,
+          "attempts": 48,
+          "coverage_fraction": 1.0,
+          "mean_attempt_cpu_ns": 68659166.85416667,
+          "streaming_accepted": 48
+        },
+        "mlp": {
+          "accepted": 48,
+          "attempts": 48,
+          "coverage_fraction": 1.0,
+          "mean_attempt_cpu_ns": 81959148.70833333,
+          "streaming_accepted": 48
+        },
+        "recurrent": {
+          "accepted": 48,
+          "attempts": 48,
+          "coverage_fraction": 1.0,
+          "mean_attempt_cpu_ns": 97135952.79166667,
+          "streaming_accepted": 48
+        },
+        "trained_snn": {
+          "accepted": 48,
+          "attempts": 48,
+          "coverage_fraction": 1.0,
+          "mean_attempt_cpu_ns": 260618446.1875,
+          "streaming_accepted": 48
+        }
+      },
+      "eligible": true,
+      "mean_attempt_cpu_ns_across_five_controls": 112203751.1375,
+      "shortlist_size": 4,
+      "window_size": 64
+    },
+    {
+      "controls": {
+        "cheap_only": {
+          "accepted": 48,
+          "attempts": 48,
+          "coverage_fraction": 1.0,
+          "mean_attempt_cpu_ns": 52303062.416666664,
+          "streaming_accepted": 48
+        },
+        "heuristic": {
+          "accepted": 48,
+          "attempts": 48,
+          "coverage_fraction": 1.0,
+          "mean_attempt_cpu_ns": 65043303.645833336,
+          "streaming_accepted": 48
+        },
+        "mlp": {
+          "accepted": 48,
+          "attempts": 48,
+          "coverage_fraction": 1.0,
+          "mean_attempt_cpu_ns": 63228489,
+          "streaming_accepted": 48
+        },
+        "recurrent": {
+          "accepted": 48,
+          "attempts": 48,
+          "coverage_fraction": 1.0,
+          "mean_attempt_cpu_ns": 71562982.6875,
+          "streaming_accepted": 48
+        },
+        "trained_snn": {
+          "accepted": 48,
+          "attempts": 48,
+          "coverage_fraction": 1.0,
+          "mean_attempt_cpu_ns": 123804983.125,
+          "streaming_accepted": 48
+        }
+      },
+      "eligible": true,
+      "mean_attempt_cpu_ns_across_five_controls": 75188564.175,
+      "shortlist_size": 16,
+      "window_size": 256
+    }
+  ],
+  "passed": true,
+  "raw_rows": 528,
+  "report_type": "independent-train-only-shortlist-selection-audit",
+  "selected": {
+    "cheap_row_index": 0,
+    "shortlist_size": 16,
+    "window_size": 256
+  },
+  "selection_protocol_sha256": "64eb64fb2b029be4736f9170df8fa4d2956c954d85e8133952f7981a416ac616",
+  "streaming_accepted": 48
+}

@@ -1,0 +1,16 @@
+{
+  "command": "flock /tmp/rsi-programmer-builder.lock python artifacts/benchmark-complete-shortlist-audit-20261018/audit_window_runner.py",
+  "exit_code": 1,
+  "duration_seconds": 0.099,
+  "steps_completed": [
+    "Ruff format --line-length 79",
+    "AST and 79-column check after formatting: all five scripts passed",
+    "independent train-only selector audit: exit 0; 528 rows; selected 256/16; coverage 48/48 for all controls"
+  ],
+  "failed_step": "The audit-window wrapper did not recognize Ruff's parenthesized multiline SELECTION_REPORT_SHA256 assignment while updating the preflight report pin.",
+  "metadata_preflight": "not run",
+  "evaluation_bundle_read": false,
+  "evaluation_measurement_started_or_inferred": false,
+  "selection_audit_script_sha256": "72ec98de45506e94c733118187c17eb0412f34b2aedc97da67837777268e8cb3",
+  "selection_audit_report_sha256": "37a1c12abde26147e592aacd56cb865bfb3e7cf1eef8e2e70a35fb07a0261b9b"
+}

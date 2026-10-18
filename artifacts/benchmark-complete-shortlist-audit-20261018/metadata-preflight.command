@@ -1,0 +1,1 @@
+flock /tmp/rsi-programmer-builder.lock python artifacts/benchmark-complete-shortlist-audit-20261018/metadata_preflight.py --output artifacts/benchmark-complete-shortlist-audit-20261018/metadata-preflight.json

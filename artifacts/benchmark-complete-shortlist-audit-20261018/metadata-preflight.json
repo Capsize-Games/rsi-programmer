@@ -1,0 +1,25 @@
+{
+  "corpus_sha256": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+  "evaluation_bundle_read": false,
+  "evaluation_measurement_started_or_inferred": false,
+  "expected_memory_rows": 960,
+  "expected_timed_rows": 11808,
+  "main_protocol_sha256": "189fa147a11040c6a05ef173522a6146285de616996724adff49d17b5f66be0a",
+  "preflight_passed": true,
+  "selected": {
+    "api": "rsi_programmer.shortlist_pre_eval.shortlist_pre_evaluation_search",
+    "caps": "The active descriptor and cheap-score block is limited by window_size; policy feature vectors are limited by shortlist_size. Retained and pending layers are additional storage. These parameters do not bound total search memory.",
+    "cheap_row_index": 0,
+    "cheap_score": "Absolute residual on observed row 0 using the descriptor operator; stable ties use original global grammar ordinal.",
+    "execution": "Execute shortlisted entries first, then every remaining descriptor in original grammar order exactly once. Complete layers are retained canonically in original generation order; interrupted layers are discarded. No permanent pruning, replay, or duplicate root evaluation.",
+    "feature_handling": "For the four ranked policy controls, build the unchanged 12 features only for selected entries, using original global ordinal and full layer width. Cheap-only builds no full features.",
+    "name": "cheap-single-row-shortlist-with-complete-fallback",
+    "retention": "Within complete layers, deduplicate by (operator, observed-row signature), keeping the canonical earliest generation-order representative.",
+    "shortlist_size": 16,
+    "window_size": 256
+  },
+  "selection_manifest_sha256": "922d906513e041f09941d35e3538e4df9e6055200fc601d94121d222e1616f39",
+  "selection_protocol_sha256": "64eb64fb2b029be4736f9170df8fa4d2956c954d85e8133952f7981a416ac616",
+  "selection_receipt_sha256": "ec893207349cb5e181914e54d81dc2c7b4de35aa4eaf4f571783e77770ea4173",
+  "selector_audit_report": "artifacts/benchmark-complete-shortlist-audit-20261018/selection-audit.json"
+}

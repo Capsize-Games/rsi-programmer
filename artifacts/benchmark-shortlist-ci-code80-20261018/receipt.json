@@ -1,0 +1,124 @@
+{
+  "artifact": "code-v80 fast CI evidence",
+  "fast_jobs": [
+    {
+      "api_json_sha256": "4fea3b378182962da6d964424043514e7636b0069d63102460bccd1add4f66fd",
+      "completed_at": "2026-10-18T17:11:41Z",
+      "conclusion": "success",
+      "deterministic_gzip_sha256": "eca475916073661bb65c7b2a3655c4e70ca6bf9e4454b8dbf49f6548351589a5",
+      "gzip_bytes": 24441,
+      "head_sha": "f61ca3ed33f07c1edcbaf3974be55ab2e95ba4b0",
+      "job_id": 117735225196,
+      "log_success_marker": true,
+      "name": "fast (3.12)",
+      "raw_log_bytes": 112715,
+      "raw_log_sha256": "41433a9e69cdc3c52f4757d8115cde328048231df1a4da841def079cebd9d5f8",
+      "started_at": "2026-10-18T17:03:54Z",
+      "status": "completed",
+      "test_command": "just test-fast",
+      "test_count": 367,
+      "test_exit_status": 0,
+      "test_step_completed_at": "2026-10-18T17:11:39Z",
+      "test_step_started_at": "2026-10-18T17:04:08Z",
+      "unittest_reported_seconds": 443.901
+    },
+    {
+      "api_json_sha256": "6fa169a888e7ed2f5b67d0c85c678f2475103058e6b6f8a6edc209040f0e5bfc",
+      "completed_at": "2026-10-18T17:12:02Z",
+      "conclusion": "success",
+      "deterministic_gzip_sha256": "94cd11b2872348d561f4ce48b5ed7fac19c811f7b14ec137c60dbbbafde9c13e",
+      "gzip_bytes": 24475,
+      "head_sha": "f61ca3ed33f07c1edcbaf3974be55ab2e95ba4b0",
+      "job_id": 117735225454,
+      "log_success_marker": true,
+      "name": "fast (3.13)",
+      "raw_log_bytes": 112716,
+      "raw_log_sha256": "2b8a20584e0aa3ac9f66b7b52f092fb5bc20d11d92893d3da3f6841c522ddf16",
+      "started_at": "2026-10-18T17:03:55Z",
+      "status": "completed",
+      "test_command": "just test-fast",
+      "test_count": 367,
+      "test_exit_status": 0,
+      "test_step_completed_at": "2026-10-18T17:11:58Z",
+      "test_step_started_at": "2026-10-18T17:04:11Z",
+      "unittest_reported_seconds": 459.066
+    }
+  ],
+  "files_sha256": {
+    "README.md": "9ef16e35a747deee61428088e80e5c26d5b3df6627e6c86cb089dc54b9760b76",
+    "job-117735225196.json": "4fea3b378182962da6d964424043514e7636b0069d63102460bccd1add4f66fd",
+    "job-117735225196.log.gz": "eca475916073661bb65c7b2a3655c4e70ca6bf9e4454b8dbf49f6548351589a5",
+    "job-117735225454.json": "6fa169a888e7ed2f5b67d0c85c678f2475103058e6b6f8a6edc209040f0e5bfc",
+    "job-117735225454.log.gz": "94cd11b2872348d561f4ce48b5ed7fac19c811f7b14ec137c60dbbbafde9c13e",
+    "run-jobs-snapshot.json": "fec4e478ac33e11d654928432435f15e107c4535ae0c5abf95bb6ce085363ed0",
+    "run-snapshot.json": "4f47a3f905804c5c97e10073c745a1f8f4a7201fdcd284479ab00bcffd528a58"
+  },
+  "full_ci_snapshot": {
+    "captured_at": "job-list API snapshot retained in run-jobs-snapshot.json",
+    "claim": "Full CI is reported pending based on this API snapshot; no full-job completion is claimed.",
+    "full_jobs": [
+      {
+        "conclusion": null,
+        "job_id": 117735225430,
+        "name": "full (3.12)",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": null,
+        "job_id": 117735225465,
+        "name": "full (3.13)",
+        "status": "in_progress"
+      }
+    ],
+    "run_conclusion": null,
+    "run_status": "in_progress"
+  },
+  "head_sha": "f61ca3ed33f07c1edcbaf3974be55ab2e95ba4b0",
+  "repository": "Capsize-Games/rsi-programmer",
+  "retrieval_commands": [
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/actions/jobs/117735225196",
+      "exit_status": 0,
+      "output": "job-117735225196.json"
+    },
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/actions/jobs/117735225196/logs",
+      "exit_status": 0,
+      "output": "job-117735225196.log",
+      "retained_storage": "job-117735225196.log.gz"
+    },
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/actions/jobs/117735225454",
+      "exit_status": 0,
+      "output": "job-117735225454.json"
+    },
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/actions/jobs/117735225454/logs",
+      "exit_status": 0,
+      "output": "job-117735225454.log",
+      "retained_storage": "job-117735225454.log.gz"
+    },
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/actions/runs/39147846343",
+      "exit_status": 0,
+      "output": "run-snapshot.json"
+    },
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/actions/runs/39147846343/jobs?per_page=100",
+      "exit_status": 0,
+      "output": "run-jobs-snapshot.json"
+    },
+    {
+      "command": "gzip -n -c <raw-log> > <raw-log>.gz",
+      "exit_status": 0,
+      "note": "gzip -n omits filename/timestamp; only compressed storage retained after verifying byte-exact decompression; raw digests remain in fast_jobs."
+    },
+    {
+      "command": "gh run view 39147846343 --job 117735225196 --log",
+      "exit_status": 1,
+      "note": "GitHub CLI reported the overall run was still in progress and provided no log; retrieved the completed job log from the job logs API endpoint instead."
+    }
+  ],
+  "source_revision_scope": "Code-v80 CI only; do not interpret as CI for later uncommitted runner/protocol changes.",
+  "workflow_run_id": 39147846343
+}

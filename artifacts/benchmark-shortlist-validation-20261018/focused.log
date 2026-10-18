@@ -1,0 +1,129 @@
+test_budget_equal_to_one_layer_leaves_later_work_pending (tests.test_pre_eval.PreEvaluationSearchTests.test_budget_equal_to_one_layer_leaves_later_work_pending) ... ok
+test_budget_stops_without_expanding_future_layers (tests.test_pre_eval.PreEvaluationSearchTests.test_budget_stops_without_expanding_future_layers) ... ok
+test_candidate_work_uses_cached_operands (tests.test_pre_eval.PreEvaluationSearchTests.test_candidate_work_uses_cached_operands) ... ok
+test_constant_terminal_is_a_valid_result (tests.test_pre_eval.PreEvaluationSearchTests.test_constant_terminal_is_a_valid_result) ... ok
+test_inputs_must_be_aligned_and_empty_rows_are_rejected (tests.test_pre_eval.PreEvaluationSearchTests.test_inputs_must_be_aligned_and_empty_rows_are_rejected) ... ok
+test_malformed_policy_orders_are_rejected (tests.test_pre_eval.PreEvaluationSearchTests.test_malformed_policy_orders_are_rejected) ... ok
+test_oracle_rejection_retries_equivalent_train_matches (tests.test_pre_eval.PreEvaluationSearchTests.test_oracle_rejection_retries_equivalent_train_matches) ... ok
+test_policy_ranks_full_layer_before_candidate_evaluation (tests.test_pre_eval.PreEvaluationSearchTests.test_policy_ranks_full_layer_before_candidate_evaluation) ... ok
+test_zero_budget_does_not_rank_or_evaluate_candidates (tests.test_pre_eval.PreEvaluationSearchTests.test_zero_budget_does_not_rank_or_evaluate_candidates) ... ok
+test_completed_layer_retention_ignores_execution_order (tests.test_pre_eval_contract.PreEvaluationContractTests.test_completed_layer_retention_ignores_execution_order) ... ok
+test_secondary_signature_cap_stops_actual_execution (tests.test_pre_eval_contract.PreEvaluationContractTests.test_secondary_signature_cap_stops_actual_execution) ... ok
+test_selection_changes_executed_work_before_first_solution (tests.test_pre_eval_contract.PreEvaluationContractTests.test_selection_changes_executed_work_before_first_solution) ... ok
+test_cached_features_match_reference_encoding (tests.test_pre_eval_features.PreEvaluationFeatureStatisticsTests.test_cached_features_match_reference_encoding) ... ok
+test_empty_target_is_rejected (tests.test_pre_eval_features.PreEvaluationFeatureStatisticsTests.test_empty_target_is_rejected) ... ok
+test_gap_matches_reference_and_reuses_hit_statistics (tests.test_pre_eval_features.PreEvaluationFeatureStatisticsTests.test_gap_matches_reference_and_reuses_hit_statistics) ... ok
+test_reference_features_match_for_all_ops_sizes_and_signatures (tests.test_pre_eval_features.PreEvaluationFeatureStatisticsTests.test_reference_features_match_for_all_ops_sizes_and_signatures) ... ok
+test_repeated_operand_signatures_are_cached (tests.test_pre_eval_features.PreEvaluationFeatureStatisticsTests.test_repeated_operand_signatures_are_cached) ... ok
+test_actual_scans_match_retained_operand_cache_misses (tests.test_pre_eval_feature_contract.PreEvaluationFeatureContractTests.test_actual_scans_match_retained_operand_cache_misses) ... ok
+test_features_gap_graph_and_work_equal_reference (tests.test_pre_eval_feature_contract.PreEvaluationFeatureContractTests.test_features_gap_graph_and_work_equal_reference) ... ok
+test_stream_zero_cap_and_terminal_do_no_feature_scan (tests.test_pre_eval_feature_contract.PreEvaluationFeatureContractTests.test_stream_zero_cap_and_terminal_do_no_feature_scan) ... ok
+test_engine_order_is_balanced_and_second_repeat_reverses (tests.test_benchmark_total_work.TotalWorkAccountingTests.test_engine_order_is_balanced_and_second_repeat_reverses) ... ok
+test_matched_success_cost_reports_censoring_at_frozen_points (tests.test_benchmark_total_work.TotalWorkAccountingTests.test_matched_success_cost_reports_censoring_at_frozen_points) ... ok
+test_work_vector_preserves_distinct_units (tests.test_benchmark_total_work.TotalWorkAccountingTests.test_work_vector_preserves_distinct_units) ... ok
+test_amortization_averages_seeds_and_charges_full_setup (tests.test_total_work_contract.TotalWorkContractTests.test_amortization_averages_seeds_and_charges_full_setup) ... ok
+test_attempt_timers_include_initial_and_final_hashes (tests.test_total_work_contract.TotalWorkContractTests.test_attempt_timers_include_initial_and_final_hashes) ... ok
+test_baseline_source_drift_is_rejected_before_import (tests.test_total_work_contract.TotalWorkContractTests.test_baseline_source_drift_is_rejected_before_import) ... ok
+test_published_inputs_pass_every_guard_before_group_generation (tests.test_total_work_contract.TotalWorkContractTests.test_published_inputs_pass_every_guard_before_group_generation) ... ok
+test_source_manifest_covers_feature_and_model_dependencies (tests.test_total_work_contract.TotalWorkContractTests.test_source_manifest_covers_feature_and_model_dependencies) ... ok
+test_wrong_function_cannot_be_accepted_by_matching_rows (tests.test_total_work_contract.TotalWorkContractTests.test_wrong_function_cannot_be_accepted_by_matching_rows) ... ok
+test_bad_window_and_policy_contracts (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_bad_window_and_policy_contracts) ... ok
+test_cap_truncation_discards_partial_layer (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_cap_truncation_discards_partial_layer) ... ok
+test_completed_layer_retention_enables_next_layer (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_completed_layer_retention_enables_next_layer) ... ok
+test_does_not_materialize_complete_layer (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_does_not_materialize_complete_layer) ... ok
+test_exact_cap_on_last_bound_finishes_naturally (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_exact_cap_on_last_bound_finishes_naturally) ... ok
+test_exact_layer_cap_marks_next_layer_stop (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_exact_layer_cap_marks_next_layer_stop) ... ok
+test_features_match_global_ordinal_reference_and_gap (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_features_match_global_ordinal_reference_and_gap) ... ok
+test_full_layer_retention_preserves_generation_order (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_full_layer_retention_preserves_generation_order) ... ok
+test_full_width_matches_existing_policy_mode (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_full_width_matches_existing_policy_mode) ... ok
+test_global_ordinals_and_full_layer_denominator (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_global_ordinals_and_full_layer_denominator) ... ok
+test_oracle_rejection_retries_candidate_and_checks_alternative (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_oracle_rejection_retries_candidate_and_checks_alternative) ... ok
+test_streaming_delegates_to_historical_implementation (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_streaming_delegates_to_historical_implementation) ... ok
+test_window_scoring_and_root_cap_execution (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_window_scoring_and_root_cap_execution) ... ok
+test_cli_preflight_does_not_create_measurement_output (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_cli_preflight_does_not_create_measurement_output) ... ok
+test_engine_pair_order_is_counterbalanced (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_engine_pair_order_is_counterbalanced) ... ok
+test_existing_output_is_preserved_on_rejection (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_existing_output_is_preserved_on_rejection) ... {"infrastructure_valid": false, "run_error": "ValueError: use a new output directory"}
+ok
+test_fresh_memory_child_keeps_instrumented_results_separate (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_fresh_memory_child_keeps_instrumented_results_separate) ... {"preflight_valid": true, "timed_cells": 10656, "memory_cells": 864}
+ok
+test_full_setup_charge_and_censoring_are_not_erased (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_full_setup_charge_and_censoring_are_not_erased) ... ok
+test_learned_policy_can_score_in_isolated_memory_child (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_learned_policy_can_score_in_isolated_memory_child) ... ok
+test_model_builder_rejects_wrong_post_fit_hash (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_model_builder_rejects_wrong_post_fit_hash) ... ok
+test_protocol_corruption_rejected_before_loading_training_inputs (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_protocol_corruption_rejected_before_loading_training_inputs) ... ok
+test_real_frozen_preflight_and_complete_asymmetric_grid (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_real_frozen_preflight_and_complete_asymmetric_grid) ... ok
+test_real_training_startup_stops_before_any_evaluation (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_real_training_startup_stops_before_any_evaluation) ... ok
+test_unavailable_peak_counters_remain_null_in_summary (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_unavailable_peak_counters_remain_null_in_summary) ... ok
+test_cap_discards_interrupted_layer_and_counts_prefetch (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_cap_discards_interrupted_layer_and_counts_prefetch) ... ok
+test_cheap_only_avoids_feature_statistics_and_policy (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_cheap_only_avoids_feature_statistics_and_policy) ... ok
+test_completed_layer_retention_uses_generation_order (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_completed_layer_retention_uses_generation_order) ... ok
+test_exact_block_cap_does_not_generate_or_score_next_block (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_exact_block_cap_does_not_generate_or_score_next_block) ... ok
+test_execution_ledger_contains_each_descriptor_once (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_execution_ledger_contains_each_descriptor_once) ... ok
+test_fallback_candidate_can_solve_after_shortlist_misses (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_fallback_candidate_can_solve_after_shortlist_misses) ... ok
+test_invalid_options_and_policy_permutation_are_rejected (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_invalid_options_and_policy_permutation_are_rejected) ... ok
+test_oracle_rejection_continues_to_fallback_solution (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_oracle_rejection_continues_to_fallback_solution) ... ok
+test_policy_features_keep_global_coordinates (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_policy_features_keep_global_coordinates) ... ok
+test_policy_scored_tail_at_cap_is_counted_as_unexecuted (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_policy_scored_tail_at_cap_is_counted_as_unexecuted) ... ok
+test_retained_representatives_match_streaming (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_retained_representatives_match_streaming) ... ok
+test_shortlist_and_fallback_execute_each_descriptor_once (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_shortlist_and_fallback_execute_each_descriptor_once) ... ok
+test_streaming_delegates_to_historical_implementation (tests.test_shortlist_pre_eval.ShortlistPreEvaluationTests.test_streaming_delegates_to_historical_implementation) ... ok
+test_completed_layers_match_streaming_generation_order (tests.test_shortlist_contract.ShortlistContractTests.test_completed_layers_match_streaming_generation_order) ... ok
+test_unshortlisted_operand_is_retained_and_used_later (tests.test_shortlist_contract.ShortlistContractTests.test_unshortlisted_operand_is_retained_and_used_later) ... ok
+test_actual_startup_builds_exact_groups_and_fits_seed_zero (tests.test_benchmark_shortlist.BenchmarkShortlistTests.test_actual_startup_builds_exact_groups_and_fits_seed_zero) ... ERROR
+test_final_protocol_preflight_has_complete_declared_matrix (tests.test_benchmark_shortlist.BenchmarkShortlistTests.test_final_protocol_preflight_has_complete_declared_matrix) ... ok
+test_metric_guard_rejects_bad_counter_partitions (tests.test_benchmark_shortlist.BenchmarkShortlistTests.test_metric_guard_rejects_bad_counter_partitions) ... ERROR
+test_protocol_rejects_corrupt_selection_receipt_and_bundle (tests.test_benchmark_shortlist.BenchmarkShortlistTests.test_protocol_rejects_corrupt_selection_receipt_and_bundle) ... ok
+test_real_cheap_only_attempt_passes_metric_guard_and_memory_fork (tests.test_benchmark_shortlist.BenchmarkShortlistTests.test_real_cheap_only_attempt_passes_metric_guard_and_memory_fork) ... ok
+test_summary_charges_selection_only_to_new_methods (tests.test_benchmark_shortlist.BenchmarkShortlistTests.test_summary_charges_selection_only_to_new_methods) ... ok
+test_summary_sparse_or_censored_cells_cannot_support_decisions (tests.test_benchmark_shortlist.BenchmarkShortlistTests.test_summary_sparse_or_censored_cells_cannot_support_decisions) ... ok
+
+======================================================================
+ERROR: test_actual_startup_builds_exact_groups_and_fits_seed_zero (tests.test_benchmark_shortlist.BenchmarkShortlistTests.test_actual_startup_builds_exact_groups_and_fits_seed_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/joe/Projects/rsi-programmer/tests/test_benchmark_shortlist.py", line 108, in test_actual_startup_builds_exact_groups_and_fits_seed_zero
+    benchmark.run(output)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "/home/joe/Projects/rsi-programmer/rsi_programmer/benchmark_shortlist.py", line 646, in run
+    models, fitted, construction = work._make_models_with_cpu(
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        seed,
+        ^^^^^
+    ...<4 lines>...
+        ],
+        ^^
+    )
+    ^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/mock.py", line 1234, in _execute_mock_call
+    result = effect(*args, **kwargs)
+  File "/home/joe/Projects/rsi-programmer/tests/test_benchmark_shortlist.py", line 93, in portable_fit
+    name: work._weights_hash(model)
+          ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'rsi_programmer.benchmark_total_work' has no attribute '_weights_hash'
+
+======================================================================
+ERROR: test_metric_guard_rejects_bad_counter_partitions (tests.test_benchmark_shortlist.BenchmarkShortlistTests.test_metric_guard_rejects_bad_counter_partitions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/joe/Projects/rsi-programmer/tests/test_benchmark_shortlist.py", line 164, in test_metric_guard_rejects_bad_counter_partitions
+    ranked = benchmark.attempt("complete_shortlist", fn, RankFirst(),
+                               task, 1)
+  File "/home/joe/Projects/rsi-programmer/rsi_programmer/benchmark_shortlist.py", line 337, in attempt
+    row = work._attempt(engine, fn, policy, task, budget, task["id"])
+  File "/home/joe/Projects/rsi-programmer/rsi_programmer/benchmark_total_work.py", line 338, in _attempt
+    state_before = "none" if policy is None else v1._state_hash(policy)
+                                                 ~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/joe/Projects/rsi-programmer/scripts/benchmark_pre_eval.py", line 348, in _state_hash
+    policy._net.parameters()
+    ^^^^^^^^^^^
+AttributeError: 'RankFirst' object has no attribute '_net'
+
+----------------------------------------------------------------------
+Ran 75 tests in 14.994s
+
+FAILED (errors=2)

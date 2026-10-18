@@ -1,0 +1,14 @@
+{
+  "command": "flock /tmp/rsi-programmer-builder.lock python artifacts/benchmark-complete-shortlist-audit-20261018/audit_window_runner.py",
+  "exit_code": 1,
+  "duration_seconds": 0.094,
+  "steps_completed": [
+    "Ruff format --line-length 79",
+    "AST and 79-column check after formatting: all five scripts passed",
+    "independent train-only selector audit: exit 0; 528 rows; selected 256/16"
+  ],
+  "failed_step": "The wrapper replaced the parenthesized report hash with a single long assignment; final 79-column check correctly rejected line 46 of metadata_preflight.py.",
+  "metadata_preflight": "not run",
+  "evaluation_bundle_read": false,
+  "evaluation_measurement_started_or_inferred": false
+}
