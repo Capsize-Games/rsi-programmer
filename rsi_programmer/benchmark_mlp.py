@@ -1,6 +1,7 @@
 """Feed-forward neural control for the frozen search benchmark."""
 from __future__ import annotations
 
+import math
 from typing import Any
 
 import torch
@@ -22,9 +23,12 @@ from rsi_programmer.benchmark_policy import (
 class MLPControl:
     """Train a 12 -> 16 ReLU -> 1 ranking function."""
 
-    def __init__(self, seed: int = 0) -> None:
+    def __init__(self, seed: int = 0, lr: float = 0.05) -> None:
         """Initialize reproducibly while restoring the caller's torch RNG."""
+        if not math.isfinite(lr) or lr <= 0.0:
+            raise ValueError("lr must be finite and positive")
         self._seed = seed
+        self._lr = float(lr)
         self._steps = 1
         with torch.random.fork_rng(devices=[]):
             torch.manual_seed(seed)
@@ -33,7 +37,7 @@ class MLPControl:
                 nn.ReLU(),
                 nn.Linear(HIDDEN, 1),
             )
-        self._opt = torch.optim.Adam(self._net.parameters(), lr=0.05)
+        self._opt = torch.optim.Adam(self._net.parameters(), lr=self._lr)
 
     def _forward(self, mat: torch.Tensor) -> torch.Tensor:
         """Score rows without carrying state between ranking drives."""
@@ -75,13 +79,15 @@ class MLPControl:
             ),
             "simulation_steps": 1,
             "state_semantics": "stateless_per_candidate_batch",
-            "fit_mode": "adam_margin_lr_0.05",
+            "fit_mode": f"adam_margin_lr_{self._lr:g}",
+            "learning_rate": self._lr,
             "seed": self._seed,
             "feature_encoding": "layer-ordinal-v1",
             "feature_dimension": 12,
             "capacity_note": (
-                "parameter count differs from the spikeforge SNN; "
-                "this is not an energy comparison"
+                "225 parameters, matching the SNN count; activation and "
+                "temporal dynamics differ, so count does not establish "
+                "equivalent capacity or energy"
             ),
         }
 

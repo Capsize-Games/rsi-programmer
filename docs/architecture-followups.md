@@ -49,6 +49,43 @@ remains in progress; no new performance result is claimed here.
 [fast log](../artifacts/pre-eval-validation-20261018/fast.log),
 and [fast input manifest](../artifacts/pre-eval-validation-20261018/fast.json).
 
+## code-v62: frozen benchmark runner verified
+
+The protocol, corpus and generator were published in `code-v61`
+(`f5c9b85`) before solver measurements. Their hashes remain unchanged.
+There are 12 training tasks, 24 evaluation tasks, three training seeds,
+four candidate-evaluation budgets and seven controls: 2,016 evaluation
+attempts in the complete matrix. Every sampled task is retained; the
+generator first enumerates larger syntax pools and samples from them.
+
+The runner accepts only the pinned inputs. It records actual fitting
+forward/update work, separate setup and fit costs, independent observed
+and held-out checks, returned graphs, all failures, state and weight
+hashes, and source/dependency provenance. Missing combinations, source or
+environment drift, evaluation-time state changes and execution errors
+invalidate the run. Held-out answers never guide search or retries.
+
+Sequential validation on the complete benchmark implementation passed:
+
+- Focused checks: **32 tests in 0.550s; OK**.
+- Complete `just test-fast`: **302 tests in 222.978s; OK**.
+- Corpus regeneration in a temporary directory reproduces the exact
+  frozen bytes using Node.js v22.23.3; published inputs were untouched.
+
+No tests were skipped or excluded from these commands. The manifests
+cover all runtime/test Python, scripts, JSON fixtures, requirements,
+justfile and the full imported SpikeForge Python source tree, unchanged
+before and after each command. Slow, retry and full discovery were not
+rerun; the preceding eager paths remain unchanged. Full measurement and
+its independent result audit are pending at this checkpoint; #73 stays
+open and no performance advantage is claimed.
+
+[Protocol and usage](benchmark-pre-eval.md),
+[focused log](../artifacts/pre-eval-benchmark-validation-20261018/focused.log),
+[fast log](../artifacts/pre-eval-benchmark-validation-20261018/fast.log),
+[fast provenance](../artifacts/pre-eval-benchmark-validation-20261018/fast.json),
+and [generator check](../artifacts/pre-eval-benchmark-validation-20261018/generator.log).
+
 ## Conditional experiments
 
 - [#74: episode state and structured actions](https://github.com/Capsize-Games/rsi-programmer/issues/74)

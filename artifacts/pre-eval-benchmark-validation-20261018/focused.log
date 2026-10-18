@@ -1,0 +1,47 @@
+test_budget_equal_to_one_layer_leaves_later_work_pending (tests.test_pre_eval.PreEvaluationSearchTests.test_budget_equal_to_one_layer_leaves_later_work_pending) ... ok
+test_budget_stops_without_expanding_future_layers (tests.test_pre_eval.PreEvaluationSearchTests.test_budget_stops_without_expanding_future_layers) ... ok
+test_candidate_work_uses_cached_operands (tests.test_pre_eval.PreEvaluationSearchTests.test_candidate_work_uses_cached_operands) ... ok
+test_constant_terminal_is_a_valid_result (tests.test_pre_eval.PreEvaluationSearchTests.test_constant_terminal_is_a_valid_result) ... ok
+test_inputs_must_be_aligned_and_empty_rows_are_rejected (tests.test_pre_eval.PreEvaluationSearchTests.test_inputs_must_be_aligned_and_empty_rows_are_rejected) ... ok
+test_malformed_policy_orders_are_rejected (tests.test_pre_eval.PreEvaluationSearchTests.test_malformed_policy_orders_are_rejected) ... ok
+test_oracle_rejection_retries_equivalent_train_matches (tests.test_pre_eval.PreEvaluationSearchTests.test_oracle_rejection_retries_equivalent_train_matches) ... ok
+test_policy_ranks_full_layer_before_candidate_evaluation (tests.test_pre_eval.PreEvaluationSearchTests.test_policy_ranks_full_layer_before_candidate_evaluation) ... ok
+test_zero_budget_does_not_rank_or_evaluate_candidates (tests.test_pre_eval.PreEvaluationSearchTests.test_zero_budget_does_not_rank_or_evaluate_candidates) ... ok
+test_completed_layer_retention_ignores_execution_order (tests.test_pre_eval_contract.PreEvaluationContractTests.test_completed_layer_retention_ignores_execution_order) ... ok
+test_secondary_signature_cap_stops_actual_execution (tests.test_pre_eval_contract.PreEvaluationContractTests.test_secondary_signature_cap_stops_actual_execution) ... ok
+test_selection_changes_executed_work_before_first_solution (tests.test_pre_eval_contract.PreEvaluationContractTests.test_selection_changes_executed_work_before_first_solution) ... ok
+test_heuristic_prefers_operand_agreement_and_simplicity (tests.test_benchmark_policy.BenchmarkPolicyTests.test_heuristic_prefers_operand_agreement_and_simplicity) ... ok
+test_ineligible_training_data_is_not_reported_as_a_fit (tests.test_benchmark_policy.BenchmarkPolicyTests.test_ineligible_training_data_is_not_reported_as_a_fit) ... ok
+test_neural_fit_changes_weights_from_a_repeatable_seed (tests.test_benchmark_policy.BenchmarkPolicyTests.test_neural_fit_changes_weights_from_a_repeatable_seed) ... ok
+test_neural_initialization_preserves_torch_rng (tests.test_benchmark_policy.BenchmarkPolicyTests.test_neural_initialization_preserves_torch_rng) ... ok
+test_neural_learning_rate_is_explicit_in_optimizer_and_metadata (tests.test_benchmark_policy.BenchmarkPolicyTests.test_neural_learning_rate_is_explicit_in_optimizer_and_metadata) ... ok
+test_neural_scores_have_fresh_state_and_batch_order_independence (tests.test_benchmark_policy.BenchmarkPolicyTests.test_neural_scores_have_fresh_state_and_batch_order_independence) ... ok
+test_seeded_random_repeats_without_global_rng_changes (tests.test_benchmark_policy.BenchmarkPolicyTests.test_seeded_random_repeats_without_global_rng_changes) ... ok
+test_counts_actual_updates_batches_rows_and_margin_pairs (tests.test_benchmark_fit_work.BenchmarkFitWorkTests.test_counts_actual_updates_batches_rows_and_margin_pairs) ... ok
+test_instrumentation_preserves_loss_and_fit_weights (tests.test_benchmark_fit_work.BenchmarkFitWorkTests.test_instrumentation_preserves_loss_and_fit_weights) ... ok
+test_wrappers_are_restored_when_fit_raises (tests.test_benchmark_fit_work.BenchmarkFitWorkTests.test_wrappers_are_restored_when_fit_raises) ... ok
+test_changed_input_bytes_are_rejected (tests.test_frozen_benchmark.FrozenInputsTests.test_changed_input_bytes_are_rejected)
+Reject altered protocol and corpus bytes before a run. ... ok
+test_corpus_has_disjoint_fixed_partitions (tests.test_frozen_benchmark.FrozenInputsTests.test_corpus_has_disjoint_fixed_partitions)
+Validate fixed sizes, families, witnesses, and global rows. ... ok
+test_protocol_pins_complete_run_matrix (tests.test_frozen_benchmark.FrozenInputsTests.test_protocol_pins_complete_run_matrix)
+Keep every seed, control, budget, and fit choice present. ... ok
+test_training_labels_and_work_counts_are_deterministic (tests.test_frozen_benchmark.FrozenInputsTests.test_training_labels_and_work_counts_are_deterministic)
+Group setup is fixed by train rows, not elapsed-time values. ... ok
+test_witness_mutations_and_structure_leakage_are_rejected (tests.test_frozen_benchmark.FrozenInputsTests.test_witness_mutations_and_structure_leakage_are_rejected)
+Catch changed outputs and repeated generating structures. ... ok
+test_graph_checks_cover_train_and_held_rows (tests.test_frozen_benchmark_eval.FrozenEvaluationTests.test_graph_checks_cover_train_and_held_rows)
+Both independent checks and search verdict govern acceptance. ... ok
+test_search_receives_only_training_rows_and_targets (tests.test_frozen_benchmark_eval.FrozenEvaluationTests.test_search_receives_only_training_rows_and_targets)
+The search call has no held-out rows or oracle callback. ... ok
+test_seeded_random_rank_is_reproducible (tests.test_frozen_benchmark_eval.FrozenEvaluationTests.test_seeded_random_rank_is_reproducible)
+Stable pseudo-random ordering does not use shared RNG state. ... ok
+test_small_runner_keeps_errors_and_detects_mutation (tests.test_frozen_benchmark_eval.FrozenEvaluationTests.test_small_runner_keeps_errors_and_detects_mutation)
+A fake full matrix retains search errors and flags drift. ... ok
+test_tiny_runner_detects_missing_grid_rows (tests.test_frozen_benchmark_eval.FrozenEvaluationTests.test_tiny_runner_detects_missing_grid_rows)
+Run accounting rejects an omitted matrix combination. ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.550s
+
+OK

@@ -1,6 +1,7 @@
 """Nonspiking recurrent neural control for the frozen benchmark."""
 from __future__ import annotations
 
+import math
 from typing import Any
 
 import torch
@@ -27,17 +28,20 @@ class RecurrentControl(nn.Module):
     from zero state; it does not remember prior candidates or task episodes.
     """
 
-    def __init__(self, seed: int = 0) -> None:
+    def __init__(self, seed: int = 0, lr: float = 0.05) -> None:
         """Initialize reproducibly while restoring the caller's torch RNG."""
         super().__init__()
+        if not math.isfinite(lr) or lr <= 0.0:
+            raise ValueError("lr must be finite and positive")
         self._seed = seed
+        self._lr = float(lr)
         self._steps = STEPS
         with torch.random.fork_rng(devices=[]):
             torch.manual_seed(seed)
             self._input = nn.Linear(DIM, HIDDEN)
             self._recurrent = nn.Linear(HIDDEN, HIDDEN)
             self._readout = nn.Linear(HIDDEN, 1)
-        self._opt = torch.optim.Adam(self.parameters(), lr=0.05)
+        self._opt = torch.optim.Adam(self.parameters(), lr=self._lr)
 
     def _forward(self, mat: torch.Tensor) -> torch.Tensor:
         """Return a mean readout with fresh zero state on every call."""
@@ -90,7 +94,8 @@ class RecurrentControl(nn.Module):
                 "fresh_zero_state_per_candidate_drive; recurrence is within "
                 "candidate only and carries no task-episode memory"
             ),
-            "fit_mode": "adam_margin_lr_0.05",
+            "fit_mode": f"adam_margin_lr_{self._lr:g}",
+            "learning_rate": self._lr,
             "seed": self._seed,
             "feature_encoding": "layer-ordinal-v1",
             "feature_dimension": 12,

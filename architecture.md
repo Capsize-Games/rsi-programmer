@@ -36,7 +36,7 @@ detail:
 ```mermaid
 flowchart TD
     subgraph DATA["Data (classical)"]
-        FIX["Frozen fixtures<br/>fixtures/*.json<br/>8 train + 8 held rows per task"]
+        FIX["Frozen fixtures<br/>fixtures/*.json<br/>task-specific train/held splits"]
         GEN["Task generator<br/>tasks.py / families.py"]
         ENUM["Enumerator<br/>probe.enumerate_programs"]
         TR["Trace replay<br/>traces.py / policy.replay_layers"]

@@ -60,6 +60,15 @@ class BenchmarkPolicyTests(unittest.TestCase):
         RecurrentControl(seed=4)
         self.assertTrue(torch.equal(before, torch.random.get_rng_state()))
 
+    def test_neural_learning_rate_is_explicit_in_optimizer_and_metadata(self):
+        for policy_type in (MLPControl, RecurrentControl):
+            with self.subTest(policy=policy_type.__name__):
+                policy = policy_type(seed=2, lr=0.01)
+                self.assertEqual(policy._opt.param_groups[0]["lr"], 0.01)
+                self.assertEqual(policy.metadata()["learning_rate"], 0.01)
+                self.assertEqual(policy.metadata()["fit_mode"],
+                                 "adam_margin_lr_0.01")
+
     def test_neural_fit_changes_weights_from_a_repeatable_seed(self) -> None:
         groups = [[(_features(1.0, 1.0), 1),
                    (_features(0.0, 0.0), 0)]]
@@ -67,6 +76,10 @@ class BenchmarkPolicyTests(unittest.TestCase):
             with self.subTest(policy=policy_type.__name__):
                 first = policy_type(seed=8)
                 second = policy_type(seed=8)
+                if policy_type is MLPControl:
+                    self.assertEqual(
+                        first.metadata()["trainable_parameters"], 225,
+                    )
                 initial = first.weights()
                 self.assertEqual(first.fingerprint(), second.fingerprint())
                 loss = first.fit(groups, epochs=2)

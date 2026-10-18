@@ -72,6 +72,20 @@ counters measure root vector evaluations; runtime and neural work are
 outside that metric. Its early-stop streaming comparator differs from
 the probe enumerator, which finishes each layer before checking it.
 
+The [frozen pre-evaluation benchmark](docs/benchmark-pre-eval.md) compares
+streaming, heuristic, random and neural controls on a separately generated
+corpus. Its protocol and corpus were published in `code-v61` before any
+solver measurements. Run the complete fixed matrix into a new directory:
+
+```sh
+flock /tmp/rsi-programmer-builder.lock .venv/bin/python \
+  scripts/benchmark_pre_eval.py --output /tmp/pre-eval-results
+```
+
+The runner preserves all task/seed/budget attempts, independently checks
+returned programs, and rejects changed frozen inputs. Candidate work,
+policy overhead, validation and training costs are reported separately.
+
 ## License
 
 BSD-3-Clause, copyright Capsize LLC; see [LICENSE](LICENSE).
