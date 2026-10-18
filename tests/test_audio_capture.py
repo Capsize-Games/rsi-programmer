@@ -7,26 +7,20 @@ import struct
 import subprocess
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from rsi_programmer.audio_capture import PulseCapture, list_sources
 
 
-class FakeProcess:
-    def __init__(self, raw: bytes) -> None:
-        self.stdout = tempfile.TemporaryFile()
-        self.stdout.write(raw)
-        self.stdout.seek(0)
-        self.terminated = False
-
-    def poll(self) -> int | None:
-        return None if not self.terminated else 0
-
-    def terminate(self) -> None:
-        self.terminated = True
-
-    def wait(self, timeout: float | None = None) -> int:
-        return 0
+def fake_process(raw: bytes) -> MagicMock:
+    """Create a byte-stream process double without launching a command."""
+    process = MagicMock()
+    process.stdout = tempfile.TemporaryFile()
+    process.stdout.write(raw)
+    process.stdout.seek(0)
+    process.poll.return_value = None
+    process.wait.return_value = 0
+    return process
 
 
 def pcm_bytes(values: list[int]) -> bytes:
@@ -35,7 +29,7 @@ def pcm_bytes(values: list[int]) -> bytes:
 
 class AudioCaptureTests(unittest.TestCase):
     def test_reads_exact_frame_and_uses_explicit_source(self) -> None:
-        process = FakeProcess(pcm_bytes([1000, -1000, 2000, -2000]))
+        process = fake_process(pcm_bytes([1000, -1000, 2000, -2000]))
         with patch("rsi_programmer.audio_capture.subprocess.Popen",
                    return_value=process) as popen:
             capture = PulseCapture("alsa_input.usb-mic", 20, 0.2)
@@ -47,7 +41,7 @@ class AudioCaptureTests(unittest.TestCase):
         self.assertEqual(len(samples), 4)
         self.assertAlmostEqual(samples[0], 1000 / 32768.0)
         self.assertGreater(timestamp, 0.0)
-        self.assertTrue(process.terminated)
+        process.terminate.assert_called_once()
 
     def test_requires_source(self) -> None:
         with self.assertRaises(ValueError):
@@ -55,7 +49,7 @@ class AudioCaptureTests(unittest.TestCase):
 
     def test_returns_silent_and_clipped_frames(self) -> None:
         for raw in (pcm_bytes([0] * 4), pcm_bytes([32767] * 4)):
-            process = FakeProcess(raw)
+            process = fake_process(raw)
             with patch("rsi_programmer.audio_capture.subprocess.Popen",
                        return_value=process):
                 with PulseCapture("mic", 20, 0.2) as capture:
