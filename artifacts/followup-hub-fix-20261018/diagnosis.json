@@ -1,0 +1,25 @@
+{
+  "observed_at_utc": "2026-10-18T10:38:59Z",
+  "scope": "Read-only GitHub release metadata for Capsize-Games/rsi-programmer; no release, repository, or local project data was changed.",
+  "repository": "Capsize-Games/rsi-programmer",
+  "asset": "rsi-search-policy-w2.pt",
+  "matching_tag": "weights-v3",
+  "matching_release_ordinal_newest_first": 52,
+  "release_count_at_observation": 55,
+  "newer_releases_before_match": 51,
+  "commands": [
+    {
+      "command": "gh api repos/Capsize-Games/rsi-programmer/releases --paginate --jq '.[].tag_name' | nl -ba | tail -20",
+      "relevant_output": "Ranks 51-55: code-v10, weights-v3, weights-v2, weights-v1, code-v1. The complete paginated result had 55 numbered entries; weights-v3 was rank 52."
+    },
+    {
+      "command": "gh api --paginate repos/Capsize-Games/rsi-programmer/releases --jq '.[] | {tag_name, assets: [.assets[].name]}' | python -c 'import json,sys; [print(row[\"tag_name\"], row[\"assets\"]) for line in sys.stdin if (row:=json.loads(line)) and any(\"rsi-search-policy-w2.pt\" == n for n in row[\"assets\"])]'",
+      "relevant_output": "weights-v3 ['rsi-search-policy-w2.manifest.json', 'rsi-search-policy-w2.pt']"
+    },
+    {
+      "command": "gh release list --repo Capsize-Games/rsi-programmer --limit 50 --json tagName --jq '.[].tagName' | tail -4",
+      "relevant_output": "The first 50 entries ended at code-v3; the matching weights-v3 release was outside this result."
+    }
+  ],
+  "conclusion": "The prior --limit 50 lookup could not find the matching model asset. Paginated REST metadata included the release and asset name."
+}

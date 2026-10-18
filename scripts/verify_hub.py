@@ -36,19 +36,23 @@ def local_sha256(path: str) -> str:
 def _release_with_asset(repo: str, asset: str) -> str:
     """Tag of the newest release carrying one asset name."""
     out = subprocess.run(
-        ["gh", "release", "list", "--repo", repo, "--limit", "50",
-         "--json", "tagName"],
+        ["gh", "api", "--paginate", "repos/%s/releases" % repo,
+         "--jq", ".[] | {tag_name, assets: [.assets[].name]}"],
         capture_output=True, text=True, timeout=TIMEOUT_S)
     if out.returncode != 0:
         raise ValueError("release list failed")
-    for row in json.loads(out.stdout or "[]"):
-        tag = str(row.get("tagName", ""))
-        view = subprocess.run(
-            ["gh", "release", "view", tag, "--repo", repo,
-             "--json", "assets", "--jq",
-             ".assets[].name"],
-            capture_output=True, text=True, timeout=TIMEOUT_S)
-        if view.returncode == 0 and asset in view.stdout.split():
+    try:
+        rows = [json.loads(line) for line in out.stdout.splitlines()
+                if line.strip()]
+    except ValueError as exc:
+        raise ValueError("release list returned invalid JSON") from exc
+    for row in rows:
+        if (not isinstance(row, dict)
+                or not isinstance(row.get("tag_name"), str)
+                or not isinstance(row.get("assets"), list)):
+            raise ValueError("release list returned invalid data")
+        tag = row["tag_name"]
+        if asset in row["assets"]:
             return tag
     raise ValueError("asset missing: " + asset)
 

@@ -1,8 +1,9 @@
 # Audit progress
 
-The [audit follow-up](audit-followup.md) records code-v52's rich-surrogate
-caller repair and complete green fast lane. #66 remains open pending
-new-source slow/retry integration. Unknown hard-task labels are omitted
-with reported reasons; hard fitting and selection cover one complete
-task, while search acceptance still covers all eight tasks. The earlier
-failed slow and fast attempts remain published with their failures.
+The [audit follow-up](audit-followup.md) records code-v53's paginated hub
+asset lookup fix, complete fast lane, unchanged original live checks,
+and independently audited fresh measurements on the repaired runtime.
+The new complete slow/retry lanes run sequentially; #66 remains open
+pending integration. Prior failed and interrupted runs remain visible.
+Hard surrogate fitting and selection cover one complete task; search
+acceptance still covers all four shadow and four hard tasks.

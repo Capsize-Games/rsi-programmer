@@ -1,0 +1,107 @@
+.venv/bin/python -m unittest tests.test_hub_verify tests.test_rsi_author tests.test_rsi_baseline tests.test_rsi_beam tests.test_rsi_evolve tests.test_rsi_loop tests.test_rsi_operands tests.test_rsi_scale tests.test_rsi_transfer -v
+test_missing_hub_listing_recorded (tests.test_hub_verify.HubVerifyTests.test_missing_hub_listing_recorded)
+Unpublished models report hub FAIL with the reason. ... FAIL
+test_wrong_checksum_fails (tests.test_hub_verify.HubVerifyTests.test_wrong_checksum_fails)
+Corrupted local weights fail against real assets. ... ok
+test_enumerator_fallback_intact (tests.test_rsi_author.AuthorTests.test_enumerator_fallback_intact)
+Zero scan budget leaves both author and fallback unsolved. ... ok
+test_every_authored_edit_verdict_carrying (tests.test_rsi_author.AuthorTests.test_every_authored_edit_verdict_carrying)
+Each emitted edit names its validator verdict. ... ok
+test_honest_report_complete (tests.test_rsi_author.AuthorTests.test_honest_report_complete)
+Every row tagged; authoring non-vacuous. ... ok
+test_malformed_edits_rejected_pre_execution (tests.test_rsi_author.AuthorTests.test_malformed_edits_rejected_pre_execution)
+Validator gate rejects malformed edits pre-execution. ... ok
+test_runs_within_cpu_budget (tests.test_rsi_author.AuthorTests.test_runs_within_cpu_budget)
+Whole module stays under 600 wall seconds. ... ok
+test_solved_graphs_pass_frozen_oracle (tests.test_rsi_author.AuthorTests.test_solved_graphs_pass_frozen_oracle)
+Authored solutions validate and meet expectations. ... ok
+test_enumerator_baseline_per_family (tests.test_rsi_baseline.GeneratedBaselineTests.test_enumerator_baseline_per_family)
+Every generated task solves within its bound. ... Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+    ~~~~^^^^^^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/main.py", line 104, in __init__
+    self.runTests()
+    ~~~~~~~~~~~~~^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/main.py", line 270, in runTests
+    self.result = testRunner.run(self.test)
+                  ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/runner.py", line 240, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/case.py", line 707, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(testMethod)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/case.py", line 606, in _callTestMethod
+    if method() is not None:
+       ~~~~~~^^
+  File "<workspace>/tests/test_rsi_baseline.py", line 42, in test_enumerator_baseline_per_family
+    expr, tried, _ = enumerate_programs(
+                     ~~~~~~~~~~~~~~~~~~^
+        rows, target, bound, **_flags(task))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>/rsi_programmer/probe.py", line 131, in enumerate_programs
+    sig = signature(expr, rows)
+  File "<workspace>/rsi_programmer/probe.py", line 95, in signature
+    right = signature(expr.right, rows)  # type: ignore[arg-type]
+  File "<workspace>/rsi_programmer/probe.py", line 95, in signature
+    right = signature(expr.right, rows)  # type: ignore[arg-type]
+  File "<workspace>/rsi_programmer/probe.py", line 97, in signature
+    return tuple(fn(a, b) for a, b in zip(left, right))
+  File "<workspace>/rsi_programmer/probe.py", line 97, in <genexpr>
+    return tuple(fn(a, b) for a, b in zip(left, right))
+                 ~~^^^^^^
+  File "<workspace>/rsi_programmer/probe.py", line 23, in <lambda>
+    "sub": lambda a, b: a - b,
+
+KeyboardInterrupt
+s0 k3 square_plus  rank_work= 6807/True au_work=  201/True win
+s0 k3 diff_squares rank_work=  939/True au_work=  111/True win
+s0 k3 square_minus rank_work= 6807/True au_work=  201/True win
+s0 k3 twice_product rank_work=  120/True au_work=  201/False loss
+s0 k6 square_plus  rank_work= 6807/True au_work=  552/False loss
+s0 k6 diff_squares rank_work=  939/True au_work=  264/True win
+s0 k6 square_minus rank_work= 6807/True au_work=  552/True win
+s0 k6 twice_product rank_work=  120/True au_work=  552/False loss
+s1 k3 square_plus  rank_work= 6807/True au_work=  201/True win
+s1 k3 diff_squares rank_work=  939/True au_work=  111/True win
+s1 k3 square_minus rank_work= 6807/True au_work=  201/True win
+s1 k3 twice_product rank_work=  120/True au_work=  201/False loss
+s1 k6 square_plus  rank_work= 6807/True au_work=  552/True win
+s1 k6 diff_squares rank_work=  939/True au_work=  264/True win
+s1 k6 square_minus rank_work= 6807/True au_work=  552/False loss
+s1 k6 twice_product rank_work=  120/True au_work=  552/False loss
+s2 k3 square_plus  rank_work= 6807/True au_work=  201/True win
+s2 k3 diff_squares rank_work=  939/True au_work=  111/True win
+s2 k3 square_minus rank_work= 6807/True au_work=  201/False loss
+s2 k3 twice_product rank_work=  120/True au_work=  201/False loss
+s2 k6 square_plus  rank_work= 6807/True au_work=  552/False loss
+s2 k6 diff_squares rank_work=  939/True au_work=  264/True win
+s2 k6 square_minus rank_work= 6807/True au_work=  552/False loss
+s2 k6 twice_product rank_work=  120/True au_work=  552/False loss
+wins=13 ties=0 losses=11 wall=35.6s
+author wall=35.6s
+error: recipe `test-slow` was terminated on line 33 by signal 2

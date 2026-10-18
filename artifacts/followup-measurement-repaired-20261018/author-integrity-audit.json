@@ -1,0 +1,865 @@
+{
+  "checks": {
+    "acceptance_recomputed_from_hit_counts": true,
+    "all_counters_and_wall_times_finite_nonnegative": true,
+    "all_hit_counts_in_range": true,
+    "all_row_weights_match_fit_and_named_ablation": true,
+    "expected_420_row_grid": true,
+    "fixture_hash_start_finish_equal": true,
+    "fixture_hashes_recomputed_match": true,
+    "neural_flag_matches_variant": true,
+    "path_budget_units_consistent": true,
+    "six_unique_training_fits": true,
+    "solved_train_matches_train_rows": true,
+    "source_hash_recomputed_matches": true,
+    "source_hash_start_finish_equal": true,
+    "spikeforge_hash_start_finish_equal": true,
+    "unique_complete_row_keys": true
+  },
+  "comparison_to_previous_source_measurement": {
+    "changed_row_wall_times": 420,
+    "current_raw_sha256": "9a402a934d721836c8b4373cc8796fef93afaa3175578e619d9c460c81c61d89",
+    "current_source_sha256": "be32ad32db829f524a4b6b69ead71065be67274f53f577dc1342e00ac4eb5016",
+    "current_total_wall_s": 71.25369712599786,
+    "interpretation": "The source hash and raw wall timings differ. All 420 keyed rows match on outcomes, hits, counters, weights, verdicts and units; the six training records match on all fields except wall_s.",
+    "previous_raw_sha256": "ddcde31990aecbd8e9f86ae14729e1730c9f46a90ae23fec91ac6a4af16da4e4",
+    "previous_source_sha256": "bc875146ae472731d075a475dc20354e44433909285f23df53a3dd3887125170",
+    "previous_total_wall_s": 70.29631051901379,
+    "same_result_keys": true,
+    "same_row_outcomes_counters_weights_and_units_ignoring_wall": true,
+    "same_training_records_ignoring_wall": true
+  },
+  "coverage": {
+    "duplicate_training_fits": 0,
+    "expected_result_keys": 420,
+    "expected_training_fit_count": 6,
+    "full_vs_ablation_pairs_per_variant": {
+      "no_both": 84,
+      "no_exact_flag": 84,
+      "no_neural": 84,
+      "no_open_gap": 84
+    },
+    "missing_result_keys": 0,
+    "missing_training_fits": 0,
+    "result_rows": 420,
+    "supervision_pairs_by_variant": {
+      "full": 42,
+      "no_both": 42,
+      "no_exact_flag": 42,
+      "no_neural": 42,
+      "no_open_gap": 42
+    },
+    "training_fit_count": 6,
+    "unexpected_result_keys": 0,
+    "unique_result_keys": 420
+  },
+  "failures": {
+    "bad_acceptance": [],
+    "bad_budget_units": [],
+    "bad_hit_counts": [],
+    "bad_neural_flags": [],
+    "bad_numeric": [],
+    "bad_solved_train": [],
+    "bad_weights": [],
+    "duplicate_keys": []
+  },
+  "fitted_bonus_activity": {
+    "by_fit": [
+      {
+        "nonzero": {
+          "exact_flag": true,
+          "nodes_per_bound": true,
+          "open_gap": true,
+          "self_apply": true
+        },
+        "seed": 0,
+        "supervision": "canonical",
+        "weights": {
+          "exact_flag": 0.06694689143859696,
+          "nodes_per_bound": -0.11788417512306718,
+          "open_gap": -0.11481606807908017,
+          "self_apply": -0.22939100946319113
+        }
+      },
+      {
+        "nonzero": {
+          "exact_flag": false,
+          "nodes_per_bound": false,
+          "open_gap": false,
+          "self_apply": false
+        },
+        "seed": 0,
+        "supervision": "reachability",
+        "weights": {
+          "exact_flag": 0.0,
+          "nodes_per_bound": 0.0,
+          "open_gap": 0.0,
+          "self_apply": 0.0
+        }
+      },
+      {
+        "nonzero": {
+          "exact_flag": false,
+          "nodes_per_bound": false,
+          "open_gap": false,
+          "self_apply": false
+        },
+        "seed": 1,
+        "supervision": "canonical",
+        "weights": {
+          "exact_flag": 0.0,
+          "nodes_per_bound": 0.0,
+          "open_gap": 0.0,
+          "self_apply": 0.0
+        }
+      },
+      {
+        "nonzero": {
+          "exact_flag": false,
+          "nodes_per_bound": false,
+          "open_gap": false,
+          "self_apply": false
+        },
+        "seed": 1,
+        "supervision": "reachability",
+        "weights": {
+          "exact_flag": 0.0,
+          "nodes_per_bound": 0.0,
+          "open_gap": 0.0,
+          "self_apply": 0.0
+        }
+      },
+      {
+        "nonzero": {
+          "exact_flag": false,
+          "nodes_per_bound": false,
+          "open_gap": false,
+          "self_apply": false
+        },
+        "seed": 2,
+        "supervision": "canonical",
+        "weights": {
+          "exact_flag": 0.0,
+          "nodes_per_bound": 0.0,
+          "open_gap": 0.0,
+          "self_apply": 0.0
+        }
+      },
+      {
+        "nonzero": {
+          "exact_flag": false,
+          "nodes_per_bound": false,
+          "open_gap": false,
+          "self_apply": false
+        },
+        "seed": 2,
+        "supervision": "reachability",
+        "weights": {
+          "exact_flag": 0.0,
+          "nodes_per_bound": 0.0,
+          "open_gap": 0.0,
+          "self_apply": 0.0
+        }
+      }
+    ],
+    "channels": {
+      "exact_flag": {
+        "active_fits": [
+          {
+            "seed": 0,
+            "supervision": "canonical",
+            "weight": 0.06694689143859696
+          }
+        ],
+        "fit_count": 6,
+        "nonzero_fits": 1,
+        "null_pairs_due_to_zero_fit_weight": 70
+      },
+      "open_gap": {
+        "active_fits": [
+          {
+            "seed": 0,
+            "supervision": "canonical",
+            "weight": -0.11481606807908017
+          }
+        ],
+        "fit_count": 6,
+        "nonzero_fits": 1,
+        "null_pairs_due_to_zero_fit_weight": 70
+      }
+    }
+  },
+  "full_acceptance_by_mode_family_path": [
+    {
+      "accepted": 0,
+      "family": "novel",
+      "held_correct": 0,
+      "held_count": 72,
+      "held_hits": 0,
+      "path": "author",
+      "supervision": "canonical",
+      "tasks_repeated_across_seeds": 9,
+      "train_correct": 0,
+      "train_count": 72,
+      "train_hits": 0
+    },
+    {
+      "accepted": 6,
+      "family": "novel",
+      "held_correct": 6,
+      "held_count": 72,
+      "held_hits": 48,
+      "path": "beam",
+      "supervision": "canonical",
+      "tasks_repeated_across_seeds": 9,
+      "train_correct": 6,
+      "train_count": 72,
+      "train_hits": 48
+    },
+    {
+      "accepted": 6,
+      "family": "shadow",
+      "held_correct": 6,
+      "held_count": 96,
+      "held_hits": 48,
+      "path": "author",
+      "supervision": "canonical",
+      "tasks_repeated_across_seeds": 12,
+      "train_correct": 6,
+      "train_count": 96,
+      "train_hits": 48
+    },
+    {
+      "accepted": 8,
+      "family": "shadow",
+      "held_correct": 8,
+      "held_count": 96,
+      "held_hits": 64,
+      "path": "beam",
+      "supervision": "canonical",
+      "tasks_repeated_across_seeds": 12,
+      "train_correct": 8,
+      "train_count": 96,
+      "train_hits": 64
+    },
+    {
+      "accepted": 0,
+      "family": "novel",
+      "held_correct": 0,
+      "held_count": 72,
+      "held_hits": 0,
+      "path": "author",
+      "supervision": "reachability",
+      "tasks_repeated_across_seeds": 9,
+      "train_correct": 0,
+      "train_count": 72,
+      "train_hits": 0
+    },
+    {
+      "accepted": 1,
+      "family": "novel",
+      "held_correct": 1,
+      "held_count": 72,
+      "held_hits": 8,
+      "path": "beam",
+      "supervision": "reachability",
+      "tasks_repeated_across_seeds": 9,
+      "train_correct": 1,
+      "train_count": 72,
+      "train_hits": 8
+    },
+    {
+      "accepted": 9,
+      "family": "shadow",
+      "held_correct": 9,
+      "held_count": 96,
+      "held_hits": 72,
+      "path": "author",
+      "supervision": "reachability",
+      "tasks_repeated_across_seeds": 12,
+      "train_correct": 9,
+      "train_count": 96,
+      "train_hits": 72
+    },
+    {
+      "accepted": 10,
+      "family": "shadow",
+      "held_correct": 10,
+      "held_count": 96,
+      "held_hits": 80,
+      "path": "beam",
+      "supervision": "reachability",
+      "tasks_repeated_across_seeds": 12,
+      "train_correct": 10,
+      "train_count": 96,
+      "train_hits": 80
+    }
+  ],
+  "full_vs_both_bonus_ablation": {
+    "accepted": {
+      "baseline_true": 40,
+      "baseline_wins": 1,
+      "comparison_true": 39,
+      "ties": 83
+    },
+    "accepted_by_supervision_family_path": [
+      {
+        "baseline_accepted": 0,
+        "comparison_accepted": 0,
+        "family": "novel",
+        "pairs": 9,
+        "path": "author",
+        "supervision": "canonical",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 6,
+        "comparison_accepted": 6,
+        "family": "novel",
+        "pairs": 9,
+        "path": "beam",
+        "supervision": "canonical",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 6,
+        "baseline_wins": 1,
+        "comparison_accepted": 5,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "author",
+        "supervision": "canonical",
+        "ties": 11
+      },
+      {
+        "baseline_accepted": 8,
+        "comparison_accepted": 8,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "beam",
+        "supervision": "canonical",
+        "ties": 12
+      },
+      {
+        "baseline_accepted": 0,
+        "comparison_accepted": 0,
+        "family": "novel",
+        "pairs": 9,
+        "path": "author",
+        "supervision": "reachability",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 1,
+        "comparison_accepted": 1,
+        "family": "novel",
+        "pairs": 9,
+        "path": "beam",
+        "supervision": "reachability",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 9,
+        "comparison_accepted": 9,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "author",
+        "supervision": "reachability",
+        "ties": 12
+      },
+      {
+        "baseline_accepted": 10,
+        "comparison_accepted": 10,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "beam",
+        "supervision": "reachability",
+        "ties": 12
+      }
+    ],
+    "pairs": 84
+  },
+  "full_vs_exact_flag_ablation": {
+    "accepted": {
+      "baseline_true": 40,
+      "baseline_wins": 1,
+      "comparison_true": 39,
+      "ties": 83
+    },
+    "accepted_by_supervision_family_path": [
+      {
+        "baseline_accepted": 0,
+        "comparison_accepted": 0,
+        "family": "novel",
+        "pairs": 9,
+        "path": "author",
+        "supervision": "canonical",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 6,
+        "comparison_accepted": 6,
+        "family": "novel",
+        "pairs": 9,
+        "path": "beam",
+        "supervision": "canonical",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 6,
+        "baseline_wins": 1,
+        "comparison_accepted": 5,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "author",
+        "supervision": "canonical",
+        "ties": 11
+      },
+      {
+        "baseline_accepted": 8,
+        "comparison_accepted": 8,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "beam",
+        "supervision": "canonical",
+        "ties": 12
+      },
+      {
+        "baseline_accepted": 0,
+        "comparison_accepted": 0,
+        "family": "novel",
+        "pairs": 9,
+        "path": "author",
+        "supervision": "reachability",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 1,
+        "comparison_accepted": 1,
+        "family": "novel",
+        "pairs": 9,
+        "path": "beam",
+        "supervision": "reachability",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 9,
+        "comparison_accepted": 9,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "author",
+        "supervision": "reachability",
+        "ties": 12
+      },
+      {
+        "baseline_accepted": 10,
+        "comparison_accepted": 10,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "beam",
+        "supervision": "reachability",
+        "ties": 12
+      }
+    ],
+    "pairs": 84
+  },
+  "full_vs_no_neural": {
+    "accepted": {
+      "baseline_true": 40,
+      "baseline_wins": 29,
+      "comparison_true": 14,
+      "comparison_wins": 3,
+      "ties": 52
+    },
+    "accepted_by_family_path": [
+      {
+        "family": "novel",
+        "outcomes": {
+          "baseline_true": 0,
+          "comparison_true": 1,
+          "comparison_wins": 1,
+          "ties": 17
+        },
+        "pairs": 18,
+        "path": "author"
+      },
+      {
+        "family": "novel",
+        "outcomes": {
+          "baseline_true": 7,
+          "baseline_wins": 5,
+          "comparison_true": 3,
+          "comparison_wins": 1,
+          "ties": 12
+        },
+        "pairs": 18,
+        "path": "beam"
+      },
+      {
+        "family": "shadow",
+        "outcomes": {
+          "baseline_true": 15,
+          "baseline_wins": 14,
+          "comparison_true": 1,
+          "ties": 10
+        },
+        "pairs": 24,
+        "path": "author"
+      },
+      {
+        "family": "shadow",
+        "outcomes": {
+          "baseline_true": 18,
+          "baseline_wins": 10,
+          "comparison_true": 9,
+          "comparison_wins": 1,
+          "ties": 13
+        },
+        "pairs": 24,
+        "path": "beam"
+      }
+    ],
+    "accepted_by_supervision_family_path": [
+      {
+        "baseline_accepted": 0,
+        "comparison_accepted": 1,
+        "comparison_wins": 1,
+        "family": "novel",
+        "pairs": 9,
+        "path": "author",
+        "supervision": "canonical",
+        "ties": 8
+      },
+      {
+        "baseline_accepted": 6,
+        "baseline_wins": 4,
+        "comparison_accepted": 3,
+        "comparison_wins": 1,
+        "family": "novel",
+        "pairs": 9,
+        "path": "beam",
+        "supervision": "canonical",
+        "ties": 4
+      },
+      {
+        "baseline_accepted": 6,
+        "baseline_wins": 5,
+        "comparison_accepted": 1,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "author",
+        "supervision": "canonical",
+        "ties": 7
+      },
+      {
+        "baseline_accepted": 8,
+        "baseline_wins": 3,
+        "comparison_accepted": 6,
+        "comparison_wins": 1,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "beam",
+        "supervision": "canonical",
+        "ties": 8
+      },
+      {
+        "baseline_accepted": 0,
+        "comparison_accepted": 0,
+        "family": "novel",
+        "pairs": 9,
+        "path": "author",
+        "supervision": "reachability",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 1,
+        "baseline_wins": 1,
+        "comparison_accepted": 0,
+        "family": "novel",
+        "pairs": 9,
+        "path": "beam",
+        "supervision": "reachability",
+        "ties": 8
+      },
+      {
+        "baseline_accepted": 9,
+        "baseline_wins": 9,
+        "comparison_accepted": 0,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "author",
+        "supervision": "reachability",
+        "ties": 3
+      },
+      {
+        "baseline_accepted": 10,
+        "baseline_wins": 7,
+        "comparison_accepted": 3,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "beam",
+        "supervision": "reachability",
+        "ties": 5
+      }
+    ],
+    "pairs": 84
+  },
+  "full_vs_open_gap_ablation": {
+    "accepted": {
+      "baseline_true": 40,
+      "comparison_true": 40,
+      "ties": 84
+    },
+    "accepted_by_supervision_family_path": [
+      {
+        "baseline_accepted": 0,
+        "comparison_accepted": 0,
+        "family": "novel",
+        "pairs": 9,
+        "path": "author",
+        "supervision": "canonical",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 6,
+        "comparison_accepted": 6,
+        "family": "novel",
+        "pairs": 9,
+        "path": "beam",
+        "supervision": "canonical",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 6,
+        "comparison_accepted": 6,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "author",
+        "supervision": "canonical",
+        "ties": 12
+      },
+      {
+        "baseline_accepted": 8,
+        "comparison_accepted": 8,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "beam",
+        "supervision": "canonical",
+        "ties": 12
+      },
+      {
+        "baseline_accepted": 0,
+        "comparison_accepted": 0,
+        "family": "novel",
+        "pairs": 9,
+        "path": "author",
+        "supervision": "reachability",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 1,
+        "comparison_accepted": 1,
+        "family": "novel",
+        "pairs": 9,
+        "path": "beam",
+        "supervision": "reachability",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 9,
+        "comparison_accepted": 9,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "author",
+        "supervision": "reachability",
+        "ties": 12
+      },
+      {
+        "baseline_accepted": 10,
+        "comparison_accepted": 10,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "beam",
+        "supervision": "reachability",
+        "ties": 12
+      }
+    ],
+    "pairs": 84
+  },
+  "limits": [
+    "Raw rows contain hit counts and result bits, not returned graph bodies; this audit independently recomputes acceptance from serialized hit counts but cannot reconstruct graph execution from the raw artifact alone.",
+    "Shadow held-out rows are seen-task evaluation; shadow train rows are used for fitting and selection.",
+    "Novel tasks are task-unseen and were not used for fitting or bonus selection.",
+    "Canonical versus reachability results are end-to-end comparisons with weights fit/refined separately by mode.",
+    "No-neural retains the fitted classical bonuses and is a conditional neural-ordering comparison, not a factorial.",
+    "Open-gap is an additive common offset per compared author/beam layer; that ablation cannot change ranking in these paths.",
+    "Author and beam have different budget units; work comparisons are descriptive, not equal-work claims.",
+    "Three seeds and seven fixture tasks do not establish broad generalization.",
+    "Source and fixture hashes are independently reproduced; SpikeForge hashes and clean commit are the measurement's recorded dependency provenance."
+  ],
+  "measurement_config": {
+    "beam_width": 3,
+    "bonus_fields": [
+      "nodes_per_bound",
+      "open_gap",
+      "exact_flag",
+      "self_apply"
+    ],
+    "budget": 128,
+    "epochs": 100,
+    "eval_fixtures": [
+      "fixtures/rsi_shadow_tasks.json",
+      "fixtures/rsi_novel_tasks.json"
+    ],
+    "rounds": 12,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "supervision_modes": [
+      "canonical",
+      "reachability"
+    ],
+    "topk": 3,
+    "train_fixture": "fixtures/rsi_shadow_tasks.json",
+    "variants": [
+      "full",
+      "no_exact_flag",
+      "no_open_gap",
+      "no_both",
+      "no_neural"
+    ]
+  },
+  "measurement_schema": "author-ablation-v1",
+  "measurement_scope": {
+    "budget_units": {
+      "author": "generated_triples",
+      "beam": "committed_nodes"
+    },
+    "equal_work_claim": false,
+    "evaluation": "fixture train rows for search; frozen held-out rows for correctness",
+    "fallback": false,
+    "novel_eval": "task-unseen held-out evaluation",
+    "paired": "same seeds, tasks, and path-specific budgets",
+    "selection": "weights tuned only on shadow tasks",
+    "shadow_eval": "seen-task held-out evaluation; shadow train rows are used for fitting and selection",
+    "training": "shadow train rows only",
+    "work_cost": "signature_evaluations are reported as canonical work and may be ranker-invariant"
+  },
+  "provenance_recomputed": {
+    "fixture_sha256": {
+      "fixtures/rsi_novel_tasks.json": "0267aaa6a5a11f2d036f6f07a5104663dde5793afd08f11f4b665bd1025181c8",
+      "fixtures/rsi_shadow_tasks.json": "da7b2603f9a17a6f85e3f46cc358f717a1653c119ad6ae373db9f78a22b6156d"
+    },
+    "source_file_count": 35,
+    "source_sha256": "be32ad32db829f524a4b6b69ead71065be67274f53f577dc1342e00ac4eb5016",
+    "spikeforge_recorded": {
+      "content_sha256": "9e9bba1834c842ad08bbe4cf43459aee43977e8e6d7aed737c59d69fa94e4b20",
+      "git_commit": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6",
+      "git_dirty": false,
+      "package": "spikeforge",
+      "python_file_count": 290
+    }
+  },
+  "raw_bytes": 343355,
+  "raw_path": "artifacts/author-ablation-v1.json",
+  "raw_sha256": "9a402a934d721836c8b4373cc8796fef93afaa3175578e619d9c460c81c61d89",
+  "reachability_vs_canonical_full_variant": {
+    "accepted": {
+      "baseline_true": 20,
+      "baseline_wins": 9,
+      "comparison_true": 20,
+      "comparison_wins": 9,
+      "ties": 24
+    },
+    "accepted_by_family_path": [
+      {
+        "family": "novel",
+        "outcomes": {
+          "baseline_true": 0,
+          "comparison_true": 0,
+          "ties": 9
+        },
+        "pairs": 9,
+        "path": "author"
+      },
+      {
+        "family": "novel",
+        "outcomes": {
+          "baseline_true": 6,
+          "baseline_wins": 5,
+          "comparison_true": 1,
+          "ties": 4
+        },
+        "pairs": 9,
+        "path": "beam"
+      },
+      {
+        "family": "shadow",
+        "outcomes": {
+          "baseline_true": 6,
+          "baseline_wins": 3,
+          "comparison_true": 9,
+          "comparison_wins": 6,
+          "ties": 3
+        },
+        "pairs": 12,
+        "path": "author"
+      },
+      {
+        "family": "shadow",
+        "outcomes": {
+          "baseline_true": 8,
+          "baseline_wins": 1,
+          "comparison_true": 10,
+          "comparison_wins": 3,
+          "ties": 8
+        },
+        "pairs": 12,
+        "path": "beam"
+      }
+    ],
+    "accepted_by_supervision_family_path": [
+      {
+        "baseline_accepted": 0,
+        "comparison_accepted": 0,
+        "family": "novel",
+        "pairs": 9,
+        "path": "author",
+        "ties": 9
+      },
+      {
+        "baseline_accepted": 6,
+        "baseline_wins": 5,
+        "comparison_accepted": 1,
+        "family": "novel",
+        "pairs": 9,
+        "path": "beam",
+        "ties": 4
+      },
+      {
+        "baseline_accepted": 6,
+        "baseline_wins": 3,
+        "comparison_accepted": 9,
+        "comparison_wins": 6,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "author",
+        "ties": 3
+      },
+      {
+        "baseline_accepted": 8,
+        "baseline_wins": 1,
+        "comparison_accepted": 10,
+        "comparison_wins": 3,
+        "family": "shadow",
+        "pairs": 12,
+        "path": "beam",
+        "ties": 8
+      }
+    ],
+    "pairs": 42
+  },
+  "schema": "author-ablation-integrity-audit-v1"
+}

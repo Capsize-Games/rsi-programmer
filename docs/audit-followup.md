@@ -1,5 +1,71 @@
 # Audit follow-up
 
+## code-v53: paginated asset lookup and fresh measurement audit
+
+The restarted slow lane immediately reported a hub-verification failure.
+The isolated original test reproduced it: **1 test in 18.385s, one
+failure** (`github=FAIL`). The weights asset was on release 52, beyond
+`gh release list --limit 50`. Lookup now paginates all release records
+and asset names in one API traversal, preserving newest matching-asset
+selection and failing on API or malformed-data errors. Byte comparison,
+corruption detection and the original live assertions are unchanged.
+
+Four lookup regressions plus both original live checks passed:
+**6 tests in 3.015s; OK**. The fresh complete `just test-fast` passed:
+**Ran 270 tests in 222.641s; OK**, with no exclusions. Its 105 input files have
+SHA-256 `476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73` before/after. The prior red slow attempt was
+interrupted after **73.898s** once the failure was visible; it is not a
+complete lane or a pass, and retry did not run. The new complete
+slow/retry lanes are queued sequentially on the passing source.
+#66 stays open pending those integration results.
+
+Fresh measurements on the repaired rich runtime completed before that
+unrelated hub lookup amendment: **420 author/beam rows in 72.235s stage
+wall** and **180 ranker rows in 13.228s stage wall**. The native author
+artifact records 71.254s measured wall; the stage timer also covers
+startup and work outside the native timer. These measurements retain their original 104-input hash
+`9fc2dbdc1c651ddbbfdc3e88677741d2760dc1789867dc636046f613b2742ef9`.
+Every measured implementation file, both measurement scripts and all
+fixtures are byte-identical in the new 105-input gate. The manifests
+record these separate scopes rather than assigning the gate hash to
+an earlier measurement.
+
+Independent data audits find complete coverage, source/fixture hashes,
+paired rows, score variants and summaries consistent. Author outcomes,
+hit counts, work counters, weights and verdicts reproduce code-v48.
+Full versus no-neural remains **29 wins, 3 losses, 52 ties** in 84
+paired settings. Reachability versus canonical still changes shadow
+author 6/12 to 9/12, shadow beam 8/12 to 10/12, novel author 0/9 to
+0/9, and novel beam 6/9 to 1/9. Modes are separately fitted; the novel
+regression remains. Seventy of 84 named-bonus pairs have zero fitted
+weights. The gap bonus additionally supplies a common within-layer
+offset, so its author/beam ablation has no candidate-specific signal.
+
+The measurement script executes train and held-out checks when each
+graph is available. Raw rows serialize hit counts and outcome bits,
+without graph bodies; the later independent audit verifies acceptance
+arithmetic and does not re-execute all returned programs. Conditional
+neural-ordering effects are supported on these selected tasks. A unique
+benefit from spiking dynamics and broad transfer remain unestablished.
+
+Epoch-50 ranker means also reproduce: trained/probe/random positions
+are **17.25/640.75/912.60 shadow**, **390.11/828/521.43 novel**, and
+**831.125/482.5/830.29 plain OOD**. All four checkpoints and three seeds
+are retained. Guided root-candidate signature counts remain invariant
+across four rankers: **46,836 versus 15,297** streaming early-stop calls.
+Family-total ratios are **3.209x, 2.371x and 3.325x** respectively.
+These counts exclude operand/recursive/neural/validation work and do
+not establish elapsed-time gains. External before/after observations
+bracket ranker measurement with unchanged clean SpikeForge sources;
+that dependency evidence is separate from its native manifest.
+
+[Hub fix logs and manifest](../artifacts/followup-hub-fix-20261018/manifest.json),
+[raw author data](../artifacts/followup-measurement-repaired-20261018/author-ablation-v1.json),
+[paired analysis](../artifacts/followup-measurement-repaired-20261018/author-analysis.json),
+[author integrity audit](../artifacts/followup-measurement-repaired-20261018/author-integrity-audit.json),
+[ranker integrity audit](../artifacts/followup-measurement-repaired-20261018/ranker-integrity-audit.json),
+and [measurement/source manifest](../artifacts/followup-measurement-repaired-20261018/manifest.json).
+
 ## code-v52: rich-surrogate caller repair; fast verified
 
 Capped reachability evidence no longer produces positive-only rich

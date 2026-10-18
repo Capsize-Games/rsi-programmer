@@ -1,0 +1,165 @@
+{
+  "measurement_source": {
+    "sha256": "9fc2dbdc1c651ddbbfdc3e88677741d2760dc1789867dc636046f613b2742ef9",
+    "files": 104
+  },
+  "measurement_fast": {
+    "base_commit": "eb040b503d7f8717c7530465534fb1f38558a7b3",
+    "patch_files": {
+      "justfile": "4582e2aa4de38a4255db5acd58c066f70be5080532eb10cde7976cce54143c31",
+      "rsi_programmer/rich.py": "46719573bbf71967a1f7074ce4577891d597b650e03c99ae0cbf786c52331501",
+      "rsi_programmer/scale.py": "924000ef8592fb05a0d70b57436cfa35eb087f47813304cf6d17efcf565ea836",
+      "tests/test_measurement_provenance.py": "ec2f84da203ea26edd20c4db3d8163ee52755a23073fe1b4ece1c45ee9f0419f",
+      "tests/test_review_protocol.py": "2a2e70661b8c51f3b5f40f7c490e9002a77ec6f288de78c6e49065c10f804c01",
+      "tests/test_rich_amendments.py": "ea15b4bbd84c8524b296d2314bf56b0bd622fe70c27be8f51fb7546b15512e67",
+      "tests/test_scale_amendments.py": "2ba5d83baed94d73afcf34879418bd86f95085ee65de5c05db21006f1169d16e"
+    },
+    "source": {
+      "sha256": "9fc2dbdc1c651ddbbfdc3e88677741d2760dc1789867dc636046f613b2742ef9",
+      "files": 104
+    },
+    "command": [
+      "just",
+      "test-fast"
+    ],
+    "status": "passed",
+    "started_at": 1792319402.4764247,
+    "exit_code": 0,
+    "wall_seconds": 225.5494463443756,
+    "source_after": {
+      "sha256": "9fc2dbdc1c651ddbbfdc3e88677741d2760dc1789867dc636046f613b2742ef9",
+      "files": 104
+    }
+  },
+  "stages": [
+    {
+      "name": "author-ablation",
+      "command": [
+        ".venv/bin/python",
+        "scripts/measure_author_ablation.py",
+        "--seeds",
+        "0",
+        "1",
+        "2",
+        "--epochs",
+        "100",
+        "--rounds",
+        "12",
+        "--budget",
+        "128",
+        "--topk",
+        "3",
+        "--width",
+        "3",
+        "--output",
+        "artifacts/author-ablation-v1.json"
+      ],
+      "source_start": {
+        "sha256": "9fc2dbdc1c651ddbbfdc3e88677741d2760dc1789867dc636046f613b2742ef9",
+        "files": 104
+      },
+      "status": "passed",
+      "started_at_unix": 1792319631.9277472,
+      "exit_code": 0,
+      "wall_seconds": 72.23536205291748,
+      "source_finish": {
+        "sha256": "9fc2dbdc1c651ddbbfdc3e88677741d2760dc1789867dc636046f613b2742ef9",
+        "files": 104
+      }
+    },
+    {
+      "name": "ranker",
+      "command": [
+        ".venv/bin/python",
+        "scripts/measure_ranker.py",
+        "--out",
+        "artifacts/ranker-v52"
+      ],
+      "source_start": {
+        "sha256": "9fc2dbdc1c651ddbbfdc3e88677741d2760dc1789867dc636046f613b2742ef9",
+        "files": 104
+      },
+      "status": "passed",
+      "started_at_unix": 1792319704.1704414,
+      "exit_code": 0,
+      "wall_seconds": 13.228461980819702,
+      "source_finish": {
+        "sha256": "9fc2dbdc1c651ddbbfdc3e88677741d2760dc1789867dc636046f613b2742ef9",
+        "files": 104
+      }
+    }
+  ],
+  "base_commit": "eb040b503d7f8717c7530465534fb1f38558a7b3",
+  "source_checkpoint": "code-v52,13d67c840a3687269ea93eeeff32ed38bb8d3fc9",
+  "new_validation_source": {
+    "sha256": "476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73",
+    "files": 105
+  },
+  "all_measured_implementation_scripts_and_fixtures_byte_identical_to_new_validation": true,
+  "measured_input_files": {
+    "rsi_programmer/__init__.py": "0e898ba1f3b9fb6f2c9d0ebad9d323077ee85a1e524b3ab6e200c30fe0a57379",
+    "rsi_programmer/actions.py": "ca32d8c6f621f1c15d9edd273d5e80e6901ff98e0a740909433fef896e7161e9",
+    "rsi_programmer/author.py": "24361254d788c923b0ff19509ba74efc5de94d2a4df4556c1d570fe3fdaa2ed3",
+    "rsi_programmer/autonomy.py": "6d7de4be1e8319c61c737eac975974f4b1f7db4df707857cc38ca4b5d3848859",
+    "rsi_programmer/bytecode.py": "74d4e7ca5a3da8de4990e001c43ecfed7c3b4721585796ceffc0a122c4b8e757",
+    "rsi_programmer/decoder.py": "70069451adbecaae1bef4ded27261a980c5d7b651f50859c3f6aa2b1503fee14",
+    "rsi_programmer/edits.py": "9ba828de61f22c0517a3ac273172699b6fb4a4244326482b7aaa2443b4193415",
+    "rsi_programmer/evolve.py": "43aabb164e398393f05e0b23f78b9d30adf717baa3c00cbd4437bad0c5a114a7",
+    "rsi_programmer/families.py": "d3492ac4e7154625c8b0415cbf7fc9cdc78a486a37963464d7c6fe00311ea636",
+    "rsi_programmer/headless.py": "d73c0536ae56e0d4abed4ca1da94ad4467f9bd597d6ea3385363659e4dc33b54",
+    "rsi_programmer/lattice.py": "47f7e8152f501583352a243152c18bdcc23fbd509db24239a5661e519a988558",
+    "rsi_programmer/lauthor.py": "40441fe96c119b8df6c82dda04e9c6fd89194f00770054ee43f012cd936a2257",
+    "rsi_programmer/lineage.py": "b3709d2aa7ae77abcee7f82abaa48c71b82692008254deb7322d309f7473231f",
+    "rsi_programmer/loop_trainer.py": "748d6fe56b28bcd06ca50cefbe999e9b81b95e080baed096a10769bfe798d4ec",
+    "rsi_programmer/lprecision.py": "d1dd5c288366b4a3a50308a0b48a8744f6df8bbf91a00ed88b5d02774907b275",
+    "rsi_programmer/ltrain.py": "d8def3f1727bbd3ffcd3151adb5bbdb37aa48faf33062492de905a01c7671c25",
+    "rsi_programmer/mgroups.py": "930b5b9e69dc6fad971b615c33599184f3fdc876f8e90cc2a33fb07b7451f6d6",
+    "rsi_programmer/modules.py": "9ff3a3707b31740bcff7db7175d87c4ce0714cdba4b018054c2c68c7b12d304b",
+    "rsi_programmer/ood.py": "1e8294c1850ba2ff5bcde20bfa9c115e3eb1ecad05ffaa9fcfff5fadb7090522",
+    "rsi_programmer/policy.py": "7c64bdbd4fa57847586344e7f1b639d086dd90c335a6eb4ea03428f3690223c8",
+    "rsi_programmer/pool.py": "cf8b1de50c564b805011ed090b7a5c0dd475193567a1ed3fa32ccbac17a53563",
+    "rsi_programmer/probe.py": "cdcd5475abcf35dbbaee4505569ba8db26f2e091f0aadc7e1bd2690bec262914",
+    "rsi_programmer/promote.py": "45bfad2170c3b78a5e67f605d1d36d71af274060946094242d31467654cf00c5",
+    "rsi_programmer/proposer.py": "35621f5c7c3bf7a78c8e96a3c9eb2e83d09ac1bd92b719a7776c9f6bb5111406",
+    "rsi_programmer/proxy.py": "3c42b0807e170deeebe76a2c8d45730f068e07132de9a9b6768838504bf0ee66",
+    "rsi_programmer/rich.py": "46719573bbf71967a1f7074ce4577891d597b650e03c99ae0cbf786c52331501",
+    "rsi_programmer/sandbox.py": "9fa2af4cc766f61bc3503934db4960039e87012a80ca78a6a9a8dc53eecb9798",
+    "rsi_programmer/scale.py": "924000ef8592fb05a0d70b57436cfa35eb087f47813304cf6d17efcf565ea836",
+    "rsi_programmer/search.py": "92694dd1a4eabcc72aadceab0132a69425acd4348a3ed37aa20a6a561f4ad96e",
+    "rsi_programmer/selectivity.py": "01eb482919f904fd594c6818371ca5616545b5c3f2f45691d269658976e3142a",
+    "rsi_programmer/self_gate.py": "fd710304902466d46921e62e6e5151fddde9c05dfcccfc80f4e9fd1988d0ba90",
+    "rsi_programmer/tasks.py": "f4060c9406a9d9236882c567f69d8d947029a56a3eeac4a2d2a638643be43166",
+    "rsi_programmer/traces.py": "3e9c5ba60bf9f7f7c7186bfa5db246f0bfdf9e5771ab8e307681e953f689b332",
+    "rsi_programmer/words.py": "93fe070725d11557ffdc11b503bf5f525d13021f3e49c59c933698d9659ca21c",
+    "scripts/measure_author_ablation.py": "41d5482aeb7952fec2d6470fa82cbb36d91a10dfbc49692ed1d317a24780b1b7",
+    "scripts/measure_ranker.py": "d62365e86a4d8f9496d3a2c17735bb5850926a8f398d17716070150c669e2c15",
+    "fixtures/rsi_branch_tasks.json": "d2237862eb447545d2f605f4ff911ecf3ef986bab73a61e9af18a0f7e5abfc1e",
+    "fixtures/rsi_const_tasks.json": "4c6b0ef7265a36b08244f700d0b3b1bfbb65e84b7c4822ee9f4ad570acd1d030",
+    "fixtures/rsi_gen_novel.json": "fd7e267e3805610fe1375f383442a15e6c14b8a71c0670e02b1db97a75634c4f",
+    "fixtures/rsi_gen_train.json": "286d1390442e14ee63fd19cee20cbba133e0f1edfc7b2cbeb0e67ddb380dd7c5",
+    "fixtures/rsi_hard_tasks.json": "a0eea149103b7c06bc3fcb55281ba44abb31229228e408dd18b8401c8ecb6ec8",
+    "fixtures/rsi_novel_tasks.json": "0267aaa6a5a11f2d036f6f07a5104663dde5793afd08f11f4b665bd1025181c8",
+    "fixtures/rsi_ood_plain.json": "944217d3b212c4d50c8866218314ea4391d03d8eb00bcceb7e1fe6d9150320ca",
+    "fixtures/rsi_ood_tasks.json": "bc0a24603752116248bce44a761a9f4094758f84cebae21f665c76196dbbf8ea",
+    "fixtures/rsi_ood_twin.json": "ed69b8b1fb9ad385c6ab03c7fe0e6de6b1b696bda0505648fbaf33363c8811ec",
+    "fixtures/rsi_ood_v2.json": "257ddcd9d5b13fab06f2a0c543da69c7f6f68f01ce530501cda8a16b309d0f97",
+    "fixtures/rsi_plain_hard.json": "461b63daa4d6103562021e85771280be1c8c6b7adfa24d72d0fd7e949060d376",
+    "fixtures/rsi_plain_more.json": "f43ed91d43cf5b670a3621c4d044a89cfd23cd963bb2d3258df65c92c32c096f",
+    "fixtures/rsi_plain_train.json": "5b2d371f97cdb52fa1278d9d6774f34d9e0adb81517167978d8f529d1fee7f7b",
+    "fixtures/rsi_shadow_tasks.json": "da7b2603f9a17a6f85e3f46cc358f717a1653c119ad6ae373db9f78a22b6156d"
+  },
+  "scope": "New gate adds only hub lookup script/tests/lane entry. Measured implementations, both scripts and all fixtures are byte-identical; measurements retain original104-input provenance, not the105-input gate hash.",
+  "outputs_sha256": {
+    "analyze_author_ablation.py": "3de884d69081e0155f7c1967d0694cee91b1113e7c2f53c4be56b2f0a5c585f2",
+    "author-ablation-v1.json": "9a402a934d721836c8b4373cc8796fef93afaa3175578e619d9c460c81c61d89",
+    "author-ablation.log": "337a250bd63da996cce13f590fe2156257534e503cb75ee3c959ae6d1357632a",
+    "author-analysis.json": "41bc6c298ec0d623e5dd50bd989ad026ce4c2bfc13213b07e77477e1dd432bed",
+    "author-integrity-audit.json": "59f7830178100f1572c5ccfb145b67f47e949423b9912e5a283d2018077a0862",
+    "ranker/positions.csv": "e83e5f29ebc43134b3f95227880060780d27f739c8edbfdf2f8cf028198c3b67",
+    "ranker/summary.json": "21c048a4dacbfe8eecb41bbb3ff7e5f8b5d02e6c5323b0976cf86ca6f02cc3c9",
+    "ranker/work.json": "3df685c5c3dc5d8112f10750204617a3bcd1200028e91f2a77cecc4b4bcc86d9",
+    "ranker-dependency-bracket.json": "95f6f939a4bea3e1e59b7a9af56853b8a19a0fce4f27e9b3c66db6d8731d3b55",
+    "ranker-integrity-audit.json": "5e0dcf37d02fc6cc7b7021de15d83e98a21cb2ca7deda5994490b52b17ff8252",
+    "ranker.log": "21752187acefa02601d0010b9dda41dc1e331f43512b83d9a63b8a5ba442b377"
+  }
+}

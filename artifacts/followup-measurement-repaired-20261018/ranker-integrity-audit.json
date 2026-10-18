@@ -1,0 +1,285 @@
+{
+  "audit": "independent-data-integrity-check",
+  "artifact_directory": "<workspace>/artifacts/ranker-v52",
+  "source": {
+    "manifest_sha256": "17fe8d57bd637779544d7c6c3db2cd294b057f0cb8d9d04385e2b25b711fd9ed",
+    "recomputed_sha256": "17fe8d57bd637779544d7c6c3db2cd294b057f0cb8d9d04385e2b25b711fd9ed",
+    "python_sources_hashed": 35,
+    "feature_encoding": "layer-ordinal-v1",
+    "torch_version": "2.8.0+cpu",
+    "torch_threads": 1
+  },
+  "raw_artifact_sha256": {
+    "manifest.json": "7baa97bc209bceb5dd2842030b2ba226855c275a9366516b4d283a7f3fe06d4b",
+    "positions.csv": "e83e5f29ebc43134b3f95227880060780d27f739c8edbfdf2f8cf028198c3b67",
+    "summary.json": "21c048a4dacbfe8eecb41bbb3ff7e5f8b5d02e6c5323b0976cf86ca6f02cc3c9",
+    "work.json": "3df685c5c3dc5d8112f10750204617a3bcd1200028e91f2a77cecc4b4bcc86d9"
+  },
+  "fixture_sha256_recomputed": {
+    "fixtures/rsi_shadow_tasks.json": "da7b2603f9a17a6f85e3f46cc358f717a1653c119ad6ae373db9f78a22b6156d",
+    "fixtures/rsi_novel_tasks.json": "0267aaa6a5a11f2d036f6f07a5104663dde5793afd08f11f4b665bd1025181c8",
+    "fixtures/rsi_ood_plain.json": "944217d3b212c4d50c8866218314ea4391d03d8eb00bcceb7e1fe6d9150320ca"
+  },
+  "fixture_hashes_match_manifest": true,
+  "coverage": {
+    "fixtures/rsi_shadow_tasks.json": {
+      "rows": 48,
+      "tasks": 4,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "epochs": [
+        0,
+        5,
+        40,
+        50
+      ]
+    },
+    "fixtures/rsi_novel_tasks.json": {
+      "rows": 36,
+      "tasks": 3,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "epochs": [
+        0,
+        5,
+        40,
+        50
+      ]
+    },
+    "fixtures/rsi_ood_plain.json": {
+      "rows": 96,
+      "tasks": 8,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "epochs": [
+        0,
+        5,
+        40,
+        50
+      ]
+    }
+  },
+  "overlap": {
+    "training_fixture": "fixtures/rsi_shadow_tasks.json",
+    "label": "final-layer train-output equality",
+    "training_rows_overlap_with_eval_fixture_tasks": {
+      "fixtures/rsi_shadow_tasks.json": 4,
+      "fixtures/rsi_novel_tasks.json": 0,
+      "fixtures/rsi_ood_plain.json": 0
+    },
+    "training_rows_overlap_with_eval_fixture_tasks_recomputed": {
+      "fixtures/rsi_shadow_tasks.json": 4,
+      "fixtures/rsi_novel_tasks.json": 0,
+      "fixtures/rsi_ood_plain.json": 0
+    },
+    "recomputed_matches_manifest": true
+  },
+  "integrity_checks": {
+    "source_hash_matches_manifest": true,
+    "fixture_hashes_match_manifest": true,
+    "artifact_row_hashes_recorded": true,
+    "position_rows_180": true,
+    "position_keys_unique": true,
+    "position_rows_valid_and_exact_random_expectation": true,
+    "summary_12_entries_match_csv_means": true,
+    "work_15_tasks": true,
+    "four_guided_rankers_equal_eager_work_per_task": true,
+    "fixture_overlap_matches_manifest": true,
+    "fixture_overlap_recomputed_from_train_tables": true
+  },
+  "summary_recomputed_from_positions_csv": [
+    {
+      "fixture": "fixtures/rsi_shadow_tasks.json",
+      "epochs": 0,
+      "tasks": 4,
+      "position": 848.5833333333334,
+      "probe_position": 640.75,
+      "random_expected": 912.5958333333333
+    },
+    {
+      "fixture": "fixtures/rsi_shadow_tasks.json",
+      "epochs": 5,
+      "tasks": 4,
+      "position": 125.41666666666667,
+      "probe_position": 640.75,
+      "random_expected": 912.5958333333333
+    },
+    {
+      "fixture": "fixtures/rsi_shadow_tasks.json",
+      "epochs": 40,
+      "tasks": 4,
+      "position": 20.916666666666668,
+      "probe_position": 640.75,
+      "random_expected": 912.5958333333333
+    },
+    {
+      "fixture": "fixtures/rsi_shadow_tasks.json",
+      "epochs": 50,
+      "tasks": 4,
+      "position": 17.25,
+      "probe_position": 640.75,
+      "random_expected": 912.5958333333333
+    },
+    {
+      "fixture": "fixtures/rsi_novel_tasks.json",
+      "epochs": 0,
+      "tasks": 3,
+      "position": 700.8888888888889,
+      "probe_position": 828.0,
+      "random_expected": 521.4253968253968
+    },
+    {
+      "fixture": "fixtures/rsi_novel_tasks.json",
+      "epochs": 5,
+      "tasks": 3,
+      "position": 166.11111111111111,
+      "probe_position": 828.0,
+      "random_expected": 521.4253968253968
+    },
+    {
+      "fixture": "fixtures/rsi_novel_tasks.json",
+      "epochs": 40,
+      "tasks": 3,
+      "position": 350.55555555555554,
+      "probe_position": 828.0,
+      "random_expected": 521.4253968253968
+    },
+    {
+      "fixture": "fixtures/rsi_novel_tasks.json",
+      "epochs": 50,
+      "tasks": 3,
+      "position": 390.1111111111111,
+      "probe_position": 828.0,
+      "random_expected": 521.4253968253968
+    },
+    {
+      "fixture": "fixtures/rsi_ood_plain.json",
+      "epochs": 0,
+      "tasks": 8,
+      "position": 894.7083333333334,
+      "probe_position": 482.5,
+      "random_expected": 830.2874999999999
+    },
+    {
+      "fixture": "fixtures/rsi_ood_plain.json",
+      "epochs": 5,
+      "tasks": 8,
+      "position": 483.0833333333333,
+      "probe_position": 482.5,
+      "random_expected": 830.2874999999999
+    },
+    {
+      "fixture": "fixtures/rsi_ood_plain.json",
+      "epochs": 40,
+      "tasks": 8,
+      "position": 801.4583333333334,
+      "probe_position": 482.5,
+      "random_expected": 830.2874999999999
+    },
+    {
+      "fixture": "fixtures/rsi_ood_plain.json",
+      "epochs": 50,
+      "tasks": 8,
+      "position": 831.125,
+      "probe_position": 482.5,
+      "random_expected": 830.2874999999999
+    }
+  ],
+  "epoch_50_summary": {
+    "fixtures/rsi_shadow_tasks.json": {
+      "fixture": "fixtures/rsi_shadow_tasks.json",
+      "epochs": 50,
+      "tasks": 4,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "position": 17.25,
+      "probe_position": 640.75,
+      "random_expected": 912.5958333333333
+    },
+    "fixtures/rsi_novel_tasks.json": {
+      "fixture": "fixtures/rsi_novel_tasks.json",
+      "epochs": 50,
+      "tasks": 3,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "position": 390.1111111111111,
+      "probe_position": 828.0,
+      "random_expected": 521.4253968253968
+    },
+    "fixtures/rsi_ood_plain.json": {
+      "fixture": "fixtures/rsi_ood_plain.json",
+      "epochs": 50,
+      "tasks": 8,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "position": 831.125,
+      "probe_position": 482.5,
+      "random_expected": 830.2874999999999
+    }
+  },
+  "signature_work": {
+    "unit": "root vectors; excludes recursive calls",
+    "guided_rankers": [
+      "probe_order",
+      "trained_last_seed_last_epoch",
+      "uniform_permutation_seed0",
+      "untrained_seed0"
+    ],
+    "work_rows": 15,
+    "per_task_invariance_verified": true,
+    "family_totals": {
+      "fixtures/rsi_shadow_tasks.json": {
+        "tasks": 4,
+        "guided_eager_candidate_signatures_total": 14673,
+        "streaming_early_stop_candidate_signatures_total": 4573,
+        "guided_to_streaming_ratio_of_family_totals": 3.208615788322764,
+        "all_four_guided_rankers_match_eager_per_task": true
+      },
+      "fixtures/rsi_novel_tasks.json": {
+        "tasks": 3,
+        "guided_eager_candidate_signatures_total": 8685,
+        "streaming_early_stop_candidate_signatures_total": 3663,
+        "guided_to_streaming_ratio_of_family_totals": 2.371007371007371,
+        "all_four_guided_rankers_match_eager_per_task": true
+      },
+      "fixtures/rsi_ood_plain.json": {
+        "tasks": 8,
+        "guided_eager_candidate_signatures_total": 23478,
+        "streaming_early_stop_candidate_signatures_total": 7061,
+        "guided_to_streaming_ratio_of_family_totals": 3.325024784024926,
+        "all_four_guided_rankers_match_eager_per_task": true
+      }
+    },
+    "comparison_scope": "Guided eager root-candidate signature calls are invariant to ranking order. The streaming comparator counts root candidate signatures until first train solution. Counts exclude recursive calls, operand signatures, neural scoring and graph validation; these are work-count comparisons, not wall-time speedup or equal-cost comparisons.",
+    "all_family_totals": {
+      "guided_eager_candidate_signatures_total": 46836,
+      "streaming_early_stop_candidate_signatures_total": 15297,
+      "guided_to_streaming_ratio_of_total_counts": 3.0617768189841144
+    }
+  },
+  "interpretation_limits": [
+    "Position rows are task-seed-checkpoint observations; summaries average all rows equally within each family and checkpoint.",
+    "The shadow family has complete training-row overlap with its four evaluation tasks; novel and plain-OOD families have no train-table overlap.",
+    "Results describe these 15 fixed tasks, three seeds, and four checkpoints only. They do not justify a global transfer or universal ranker-performance verdict.",
+    "The signature-work ratio is a ratio of family totals, not a mean of per-task ratios and not an elapsed-time comparison."
+  ],
+  "all_integrity_checks_pass": true
+}

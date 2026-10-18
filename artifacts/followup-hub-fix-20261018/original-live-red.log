@@ -1,0 +1,20 @@
+test_missing_hub_listing_recorded (tests.test_hub_verify.HubVerifyTests.test_missing_hub_listing_recorded)
+Unpublished models report hub FAIL with the reason. ... FAIL
+
+======================================================================
+FAIL: test_missing_hub_listing_recorded (tests.test_hub_verify.HubVerifyTests.test_missing_hub_listing_recorded)
+Unpublished models report hub FAIL with the reason.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/tests/test_hub_verify.py", line 41, in test_missing_hub_listing_recorded
+    self.assertEqual(res["github"], "PASS")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'FAIL' != 'PASS'
+- FAIL
++ PASS
+
+
+----------------------------------------------------------------------
+Ran 1 test in 18.385s
+
+FAILED (failures=1)
