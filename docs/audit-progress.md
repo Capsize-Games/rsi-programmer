@@ -1,9 +1,8 @@
 # Audit progress
 
-The [audit follow-up](audit-followup.md) records code-v53's paginated hub
-asset lookup fix, complete fast lane, unchanged original live checks,
-and independently audited fresh measurements on the repaired runtime.
-The new complete slow/retry lanes run sequentially; #66 remains open
-pending integration. Prior failed and interrupted runs remain visible.
-Hard surrogate fitting and selection cover one complete task; search
-acceptance still covers all four shadow and four hard tasks.
+The [audit follow-up](audit-followup.md) records code-v54's completed
+Python 3.12/3.13 CI fast matrix on the code-v53 runtime, alongside the
+local complete green fast gate. Local slow is running and retry remains
+queued; #66 stays open pending those integration results. Partial logs
+are dated and not counted as complete gates. Prior failures and the
+fresh three-seed measurement limits remain in the report.

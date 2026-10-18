@@ -1,0 +1,22 @@
+{
+  "snapshot_at": "2026-10-18T10:52:16.804566+00:00",
+  "source": {
+    "sha256": "476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73",
+    "files": 105
+  },
+  "input_manifest": "../followup-hub-fix-20261018/manifest.json",
+  "input_manifest_sha256": "75180da774c64628ccd8402ddc39672ff1d348ea1b0fddf29684b7465c932ec0",
+  "partial_slow": {
+    "observed_at": "2026-10-18T10:52:16.804566+00:00",
+    "elapsed_seconds": 607.991464138031,
+    "reported_passes": 47,
+    "reported_failures": 0,
+    "status": "partial running slow lane; not a completed gate",
+    "retry": "queued sequentially; not started"
+  },
+  "full_ci": "in progress at fast-job observation; not credited as passed",
+  "outputs_sha256": {
+    "ci-fast.json": "23b1aba556f92d76cb497e490d1a757e4c32a5ceab680f6e6f2cae891f35f519",
+    "slow-partial.log": "39a3ab35bccb9e56f35e33e5d76b64b29f7beca6ce1e233ceb3347f2b0100c84"
+  }
+}

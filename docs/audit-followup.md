@@ -1,5 +1,26 @@
 # Audit follow-up
 
+## code-v54: current CI fast matrix verified
+
+Both code-v53 CI fast jobs passed: Python 3.12 **Ran 270 tests in 435.346s; OK**;
+Python 3.13 **Ran 270 tests in 421.410s; OK**. The linked job evidence identifies
+commit `f192e9a`. Runtime/test/fixture inputs in this evidence-only
+checkpoint are unchanged: 105 files, SHA-256
+`476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73`. The automatic full CI jobs remain
+in progress at this observation and are not credited as passes.
+The superseded code-v52 full jobs were cancelled after the current
+hub-fix CI run started; their completed fast passes remain historical.
+
+At **2026-10-18T10:52:16.804566+00:00**, the local complete slow lane has
+**47 reported passes and zero reported failures**.
+This is a partial running log, not a completed gate. Retry remains
+queued behind it under the shared builder lock. #66 remains open.
+This checkpoint changes evidence and documentation only.
+
+[CI fast jobs](../artifacts/followup-ci-20261018/ci-fast.json),
+[partial slow log](../artifacts/followup-ci-20261018/slow-partial.log),
+and [dated source/progress manifest](../artifacts/followup-ci-20261018/manifest.json).
+
 ## code-v53: paginated asset lookup and fresh measurement audit
 
 The restarted slow lane immediately reported a hub-verification failure.
@@ -15,8 +36,8 @@ Four lookup regressions plus both original live checks passed:
 **Ran 270 tests in 222.641s; OK**, with no exclusions. Its 105 input files have
 SHA-256 `476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73` before/after. The prior red slow attempt was
 interrupted after **73.898s** once the failure was visible; it is not a
-complete lane or a pass, and retry did not run. The new complete
-slow/retry lanes are queued sequentially on the passing source.
+complete lane or a pass, and retry did not run. At that checkpoint, the complete slow lane is running on the
+passing source; retry remains queued sequentially behind it.
 #66 stays open pending those integration results.
 
 Fresh measurements on the repaired rich runtime completed before that
