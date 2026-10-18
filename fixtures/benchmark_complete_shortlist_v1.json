@@ -1,0 +1,288 @@
+{
+  "protocol_id": "benchmark-complete-shortlist-v1",
+  "schema_version": 1,
+  "status": "frozen-before-evaluation-measurement",
+  "purpose": "Compare complete-fallback shortlist execution ordering against frozen full-layer and streaming search, with training-only parameter selection pinned separately.",
+  "baseline_source": {
+    "path": "benchmarks/reference/pre_eval_code_v71.py",
+    "sha256": "89980386cc53fc01394505f77139054ac5a92ae7b96ec513a2acd7d49989ad14",
+    "git_ref": "code-v71",
+    "helper_sha256": {
+      "rsi_programmer/pre_eval_features.py": "14efc4a6093cc7ea98b35343f9442683e52296a5266adca6b1427a060432de0b"
+    }
+  },
+  "corpus": {
+    "path": "fixtures/benchmark_pre_eval_corpus_v2.json",
+    "sha256": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+    "generator_source": {
+      "scripts/generate_benchmark_pre_eval_v2.py": "30cf448a5762710958df1ca96d7631b442e32638dd9236f63e297018d3076b31",
+      "rsi_programmer/benchmark_v2_corpus.py": "13c49ca629ce51e766ffdd3615a925a601ede4c9cff9a713710d159698f6526f"
+    },
+    "reproduction_command": ".venv/bin/python scripts/generate_benchmark_pre_eval_v2.py --output /tmp/benchmark_pre_eval_corpus_v2.json",
+    "counts": {
+      "train_tasks": 24,
+      "eval_tasks": 48,
+      "train_per_family": 8,
+      "tasks_per_eval_family": 16
+    },
+    "families": [
+      "balanced",
+      "repeated_subtree",
+      "skewed"
+    ],
+    "family_definitions": {
+      "balanced": "Root children have equal tree-operation counts.",
+      "repeated_subtree": "At least one nonleaf syntactic subtree occurs twice anywhere in the tree; terminals alone do not qualify.",
+      "skewed": "Root children differ in tree-operation count by at least two."
+    },
+    "selection": "Enumerate all ordered add/sub/mul trees with four or five operators and x/y leaves. Reserve canonical polynomial functions across entire family pools in repeated_subtree, balanced, skewed order. Within each family, sort syntax keys by SHA256(seed:key), keep the first witness for each globally unreserved function satisfying the algebraic floor, then sort those representatives by SHA256(82074:family:key). Select the first eight four-operation witnesses when available and fill the 24-function family quota with five-operation witnesses. Sort all 72 selections by SHA256(82074:split:family:key); the first eight per family enter training, the next sixteen evaluation. These syntax families and selection rules differ from v1.",
+    "generation_seeds": {
+      "repeated_subtree": 82071,
+      "balanced": 82072,
+      "skewed": 82073,
+      "split": 82074,
+      "inputs": 82075
+    },
+    "difficulty_floor": "Require degree>=2 and (degree>=5 or degree==4 and coefficient L1>1 or degree==3 and L1>2 or degree==2 and L1>4). Every arithmetic tree with at most three operators is outside this floor. This proves a four-operation minimum tree representation, not a minimum DAG size. Selected witnesses contain 16 four-operation and 56 five-operation trees.",
+    "dsl": {
+      "operators": [
+        "add",
+        "sub",
+        "mul"
+      ],
+      "terminals": [
+        "x",
+        "y"
+      ],
+      "witness_tree_ops": [
+        4,
+        5
+      ],
+      "max_tree_ops": 5
+    },
+    "rows_per_task": {
+      "observed": 12,
+      "held": 12
+    },
+    "input_rule": "Sort all 4225 integer coordinate pairs in [-32,32]^2 by SHA256(82075:x:y). In global selection order allocate the next 24 unused coordinates to each task, first twelve observed and next twelve held. All 1728 coordinate pairs are distinct; all splits use the same signed grid distribution.",
+    "split_guarantees": [
+      "72 globally distinct canonical integer polynomial functions; no shared training/evaluation function",
+      "zero exact function overlap with v1",
+      "unique witness syntax and task IDs",
+      "globally disjoint observed and held coordinate pairs",
+      "selection uses syntax, exact algebra, fixed seeds and quotas only; no solver, ranker or runtime outcome filtering"
+    ],
+    "limitations": [
+      "Exact disjointness applies to whole integer polynomial functions, not operators, subexpressions, algebraic motifs or input distributions.",
+      "Family reservation order affects the sampled function population. Syntax family membership may overlap before reservation.",
+      "This is a two-input arithmetic DSL with no constants, branches or other task domains.",
+      "The algebraic filter favors high degree or coefficient norm; it is a declared task distribution, not an unbiased sample of programs.",
+      "Differences from v1 include corpus size, difficulty, rows, sampling and budgets; a v1/v2 difference alone cannot identify its cause."
+    ]
+  },
+  "feature_encoding": {
+    "name": "layer-ordinal-v1",
+    "dimensions": 12,
+    "definition": "Operator one-hot (3); left/right/root tree sizes divided by common bound (3); operand hit and inside fractions against observed targets (4); original generation ordinal divided by full layer width and its complement (2). No candidate output, exact-match flag, witness, canonical function, held row or evaluation-task feature participates in fitting. Evaluation ranking uses its own task's observed inputs and targets."
+  },
+  "controls": [
+    "streaming",
+    "cheap_only",
+    "heuristic",
+    "trained_snn",
+    "mlp",
+    "recurrent"
+  ],
+  "control_definitions": {
+    "streaming": "Historical streaming search with lazy descriptors and no ranking features.",
+    "cheap_only": "Selected-row absolute residual ordering with complete grammar-order fallback. Performs cheap row arithmetic only; no full feature construction or policy inference.",
+    "heuristic": "2*(left_hit+right_hit)+0.5*(left_inside+right_inside)-0.05*(left_size+right_size).",
+    "trained_snn": "SearchPolicy: 12 inputs, hidden=16, six ticks, 225 parameters, Adam lr=0.05 and forty epochs, fresh temporal state per candidate drive.",
+    "mlp": "12-to-16 ReLU-to-1, 225 parameters, same capped groups, margin loss, Adam lr=0.05 and forty epochs; one scoring step.",
+    "recurrent": "12-to-16 input and 16-to-16 tanh recurrence, six ticks from zero per drive, averaged readout to 1; 497 parameters, same groups/loss/optimizer/epochs. Recurrence is within a candidate, not persistent episode memory.",
+    "capacity_limit": "Equal parameter count does not establish equal capacity, compute or energy."
+  },
+  "training": {
+    "task_split": "train",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "epochs": 40,
+    "positive_cap": 16,
+    "negative_cap": 256,
+    "sampling_seed": 82078,
+    "selection_charge": "Selection used seed 0 only and its whole external CLI CPU/wall receipt is charged once to every standalone complete_shortlist and cheap_only method. Production training groups, initialization, fitting and setup are charged independently below."
+  },
+  "model_reference": {
+    "path": "artifacts/benchmark-pre-eval-v2-20261018/training.json",
+    "sha256": "47b02c532f5a11faa4808f5ae9646ba976ab8a56d80a0aadfcaf062239d82b6b",
+    "expected_weights_after_fit": {
+      "0": {
+        "heuristic": "81c1e0e19df714ce681de3c273898a034ae5c61ac7d3bd0fc21bb50e46b90c49",
+        "mlp": "35efcb5acb5f5936890504e109a13f3ddc0aabf069476f2545b8d322298b0deb",
+        "recurrent": "1bd48509e59d7c4152ca4f95607f4b4f5def252a1f5d57a4b92821b60daf7316",
+        "seeded_random": "cb5d4de4c08c802821db4a34678a7f8274bf1e53e475d1a602e9f69679781ca8",
+        "streaming": "none",
+        "trained_snn": "f4893eae9c00c213e3184e599c06ac627863233f69b767d4d4a5de673a3ad791",
+        "untrained_snn": "4752bdfe65bcd4c7b861fcde3282db6a9322dcbadcff5df2199446c80858f71e",
+        "cheap_only": "none"
+      },
+      "1": {
+        "heuristic": "81c1e0e19df714ce681de3c273898a034ae5c61ac7d3bd0fc21bb50e46b90c49",
+        "mlp": "b2eefd8d59cedacffb9bd76c52e8b8bfc28b0b6942f36adbf30d2e63c03c2b7d",
+        "recurrent": "2d0dbc8b18b0dba831ec83adcd80a494832102ca2d7df523f5d1e504f9822256",
+        "seeded_random": "76faa335cee1dcb7e2e014b229d7f526702dd451e07d4772fc15b14c37c2b827",
+        "streaming": "none",
+        "trained_snn": "85a7d0c2c2fae3d3b68937106fd23ab148453c7f5f6630de88141567eb8e9d06",
+        "untrained_snn": "ad4934ec5bd9e99b54fa685879c8c3684d1e7bea948a64e8a34d1a7e0fecd12a",
+        "cheap_only": "none"
+      },
+      "2": {
+        "heuristic": "81c1e0e19df714ce681de3c273898a034ae5c61ac7d3bd0fc21bb50e46b90c49",
+        "mlp": "dc579f635e3d1be8ff7e67b88079b02127ade11ddb17620dee30ab0a93ea7ace",
+        "recurrent": "47137fd41336d2f9c5c750324807aa404b02ef575a454e16e2d38e3541262599",
+        "seeded_random": "f124c8f97c5c09bcf783a0f8c38c4a2e9398f823d0e0044e3ba00c157ecf9d36",
+        "streaming": "none",
+        "trained_snn": "ff7bb4dc6b7bb44a71ca98e68728184761e2d2819c5e36460f42a569907019aa",
+        "untrained_snn": "8ea64eb028c2f476a07577dd5897a5f26e0e9bcce0a9c0f8f423b6309f66014d",
+        "cheap_only": "none"
+      }
+    }
+  },
+  "selection_evidence": {
+    "path": "artifacts/benchmark-shortlist-selection-run-20261018/manifest.json",
+    "sha256": "922d906513e041f09941d35e3538e4df9e6055200fc601d94121d222e1616f39",
+    "execution_path": "artifacts/benchmark-shortlist-validation-20261018/selection.json",
+    "execution_sha256": "ec893207349cb5e181914e54d81dc2c7b4de35aa4eaf4f571783e77770ea4173",
+    "files_sha256": {
+      "raw.jsonl": "28871b37b493083b26c6282c472816c8b49e6d825a0fbef77f153db4f9727080",
+      "selection.json": "f362c7953fda1a03b11249953efd3de15b2b02f74c50506ae1c1a7a5f8ccc8c7",
+      "training.json": "77920d372c1898e86082b1c696b03d788cb34d194ebe7742c7132f9c2383bea3"
+    },
+    "selected": {
+      "window_size": 256,
+      "shortlist_size": 16,
+      "cheap_row_index": 0
+    },
+    "actual_attempts": 528,
+    "eligible_pairs": [
+      {
+        "window_size": 64,
+        "shortlist_size": 4
+      },
+      {
+        "window_size": 256,
+        "shortlist_size": 16
+      }
+    ],
+    "coverage_fraction_each_control_both_pairs": 1.0,
+    "mean_attempt_cpu_ns_across_five_controls": 75188564.175,
+    "execution_charge_cpu_ns": 56792751000,
+    "execution_charge_wall_ns": 55770510319,
+    "charge_source": "External observer receipt; child_total_cpu_seconds and cli_wall_seconds rounded to integer nanoseconds. Internal manifest totals exclude final output writes.",
+    "status": "complete",
+    "child_total_cpu_seconds": 56.792750999999996,
+    "cli_wall_seconds": 55.77051031900919
+  },
+  "method": {
+    "name": "cheap-single-row-shortlist-with-complete-fallback",
+    "api": "rsi_programmer.shortlist_pre_eval.shortlist_pre_evaluation_search",
+    "window_size": 256,
+    "shortlist_size": 16,
+    "cheap_row_index": 0,
+    "cheap_score": "Absolute residual on observed row 0 using the descriptor operator; stable ties use original global grammar ordinal.",
+    "feature_handling": "For the four ranked policy controls, build the unchanged 12 features only for selected entries, using original global ordinal and full layer width. Cheap-only builds no full features.",
+    "execution": "Execute shortlisted entries first, then every remaining descriptor in original grammar order exactly once. Complete layers are retained canonically in original generation order; interrupted layers are discarded. No permanent pruning, replay, or duplicate root evaluation.",
+    "retention": "Within complete layers, deduplicate by (operator, observed-row signature), keeping the canonical earliest generation-order representative.",
+    "caps": "The active descriptor and cheap-score block is limited by window_size; policy feature vectors are limited by shortlist_size. Retained and pending layers are additional storage. These parameters do not bound total search memory."
+  },
+  "evaluation": {
+    "task_split": "eval",
+    "task_count": 48,
+    "tree_bound": 5,
+    "streaming_budgets": [
+      2048,
+      8192,
+      32768,
+      131072,
+      524288
+    ],
+    "ranked_budgets": [
+      2048,
+      8192,
+      32768,
+      131072
+    ],
+    "ranked_controls": [
+      "heuristic",
+      "trained_snn",
+      "mlp",
+      "recurrent"
+    ],
+    "ranked_engines": [
+      "full_cached",
+      "complete_shortlist"
+    ],
+    "budget_unit": "candidate_signature_evaluations",
+    "repeats": 2,
+    "repeat_order": "Deterministic per-task hash schedule counterbalances full_cached and complete_shortlist; streaming and cheap_only use one engine.",
+    "engine_order_seed": 82082,
+    "run_matrix": "3 seeds × 48 evaluation tasks × 2 repeats × (5 streaming caps + 4 cheap-only caps + 4 policy controls × 2 engines × 4 caps) = 11,808 timed rows.",
+    "memory": "For seed 0, task, configuration and cap 32768, run separate isolated RSS and tracemalloc children; 10 configurations × 48 tasks × 2 modes = 960 rows. Instrumented timings are excluded from cost curves.",
+    "acceptance": "One search attempt per declared cell using twelve observed rows, tree bound five and no oracle. Independently validate returned graphs on observed and held rows and require exact integer polynomial equality. Held rows and exact functions are post-search checks only.",
+    "resource_limits": "Serial single builder, PyTorch intra-op threads=1, tree bound five, exact candidate-signature caps. Retain all failures and censoring; no task removal, retries, or outcome-dependent timeouts.",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "matrix_rows": 11808
+  },
+  "amortization": {
+    "task_counts": [
+      48,
+      480,
+      4800
+    ]
+  },
+  "aggregation": {
+    "matched_success_targets": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "repeats": "Retain repeat-specific points and aggregate paired mean across both repeats; publish all rows and work counters.",
+    "cost": "Report mean attempt process CPU/wall including hashes and independent validation. Report production fit/setup separately; include selection receipt once for standalone shortlist methods at each N. Do not charge selection to streaming/full_cached.",
+    "work": "Publish descriptor generation, cheap row operations, feature construction, policy inference, signature evaluation, retention, validation and all other counted axes separately. Cumulative or overlapping counters are not exclusive CPU partitions.",
+    "memory": "Report RSS and traced allocation separately; memory instrumentation does not supply timing data."
+  },
+  "decision_rule": {
+    "new_method_gate": "All five new configurations (complete_shortlist for heuristic, trained_snn, mlp and recurrent, plus cheap_only) must reach 100% accepted coverage at some declared cap. A new configuration supports lower cost only when it reaches 100% coverage and its first-full-success N=48 amortized CPU is at most 90% of streaming at streaming's first-full-success cap.",
+    "minimum_cpu_reduction": 0.1,
+    "overall_decision": "The overall cost decision is supported only when all five new configurations reach full coverage and at least one has N=48 amortized CPU at or below 90% of streaming.",
+    "trained_snn_cost_gate": "SNN efficiency is supported only when shortlist SNN and every comparator (shortlist MLP, recurrent, heuristic, cheap_only and streaming) reach full coverage, and SNN N=48 amortized CPU is at most 90% of each comparator.",
+    "claim_scope": "Known v2 corpus and frozen controls, budgets, bound, and environment. This is a bounded cost comparison, not independent transfer evidence or an energy claim.",
+    "wall_time": "Descriptive only; not a standalone efficiency decision."
+  },
+  "provenance": {
+    "freeze": "Selection script/protocol were published before selector execution. This final protocol pins the completed selection manifest, raw outputs, model training output and external command receipt before any evaluation measurement.",
+    "integrity": "Runner rejects pinned input hashes or source drift. It records runtime/test/script/fixture/dependency snapshots and environment, requires complete unique matrices and frozen model state/weight hashes, and retains failures with nonzero exit.",
+    "preservation": "All prior frozen fixtures, sources and evidence remain unchanged."
+  },
+  "memory": {
+    "seeds": [
+      0
+    ],
+    "budget": 32768,
+    "modes": [
+      "rss",
+      "tracemalloc"
+    ],
+    "rows_per_mode": 480,
+    "matrix_rows": 960,
+    "schedule": "For each evaluation task, run streaming, cheap_only, then each ranked control in protocol order; within each ranked control run full_cached then complete_shortlist. Each configuration is measured once in each mode."
+  }
+}

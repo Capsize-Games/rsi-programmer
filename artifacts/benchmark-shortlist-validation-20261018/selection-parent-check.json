@@ -1,0 +1,25 @@
+{
+  "scope": "Parent independent JSON arithmetic and selection-rule check; no search/model imports",
+  "row_count": 528,
+  "streaming_accepted": 48,
+  "parameter_results": [
+    {
+      "window_size": 64,
+      "shortlist_size": 4,
+      "eligible": true,
+      "mean_cpu_ns": 112203751.1375
+    },
+    {
+      "window_size": 256,
+      "shortlist_size": 16,
+      "eligible": true,
+      "mean_cpu_ns": 75188564.175
+    }
+  ],
+  "selected": {
+    "shortlist_size": 16,
+    "window_size": 256
+  },
+  "all_checks_passed": true,
+  "raw_sha256": "28871b37b493083b26c6282c472816c8b49e6d825a0fbef77f153db4f9727080"
+}

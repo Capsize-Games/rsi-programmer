@@ -1,41 +1,60 @@
-# Complete fallback shortlist experiment
+# Complete-fallback shortlist benchmark
 
-Issue #82 replaces permanent pruning with execution order changes. Each
-lazy grammar-order block computes one observed-row arithmetic result and its
-absolute residual for each descriptor. A stable heap selection chooses K
-entries. Policy controls build the unchanged twelve features only for those
-entries, using each original global ordinal and the full layer width. The
-selected entries execute first, followed by every remaining descriptor in
-original order. Cheap-only mode omits feature statistics and policy inference.
+This experiment compares three execution paths over the frozen v2 arithmetic
+corpus: historical streaming, full-layer cached ranking, and a cheap single-row
+shortlist with complete fallback. The shortlist changes execution order. It does
+not permanently prune candidates.
 
-A completed block is deduplicated in generation order into pending operands;
-only a completely traversed layer is installed. The retained representatives
-and next-layer grammar therefore match streaming after completed layers.
-An accepted graph or a root cap can stop earlier and change the returned
-program or success at a particular cap. Every executed descriptor receives
-one full-vector evaluation. The selected-row arithmetic is additional work
-and has separate counters. Terminal acceptance and oracle rejection continue
-through the existing checker contract. The historical default is unchanged.
+For each grammar-order block, the engine computes the absolute residual on
+observed row zero and uses stable original-ordinal ties to select a shortlist.
+The four policy-ranked controls build the unchanged twelve-feature vectors only
+for selected candidates. Cheap-only mode performs no full feature assembly or
+policy inference. The selected candidates execute first, followed by every
+remaining candidate in grammar order, exactly once. Search stops on an
+accepted graph or a declared execution cap. A complete layer is
+retained in canonical generation order; an interrupted layer is discarded.
+Heap and feature counts are bounded by the selected parameters, while retained
+and pending layers are additional memory. Total search memory is not bounded
+by the heap size.
 
-Active descriptor/cheap-score blocks are bounded by the window; policy
-features are bounded by K. Retained and pending operand layers are additional
-storage. This is not a claim of bounded total search memory. Process CPU
-covers heap internals and other operations outside the named work axes.
+The training-only selection recipe was frozen before it ran. It used seed zero,
+all 24 training functions, two repeats, root cap 131,072, and the five shortlist
+controls plus streaming. Both preregistered settings (64/4 and 256/16) had
+100% independently validated training coverage for every control. The 256/16
+setting had the lower mean attempt CPU across the five shortlist controls
+(75.189 ms versus 112.204 ms), so the final comparison uses window 256,
+shortlist size 16, and observed row zero. This is engineering parameter
+selection on the known training split; it does not use evaluation functions or
+establish independent generalization.
 
-Code-v80 freezes the train-only selection recipe before its execution: 64/4
-and 256/16, observed row zero, 24 training functions, seed zero, two repeats,
-all five shortlist controls plus streaming, and root cap 131,072. Eligibility
-requires each control to match streaming coverage; the lowest mean attempt
-CPU across controls wins, with smaller-window tie breaking. No evaluation
-function participates in this choice. The full CLI selection cost, including
-discarded configuration work, is charged to every standalone new method.
+The final protocol is [benchmark_complete_shortlist_v1.json](../fixtures/benchmark_complete_shortlist_v1.json).
+It pins the selection manifest, raw selection rows, training output, and the
+external command receipt. That receipt is the authoritative selection setup
+charge because it includes imports and final artifact writes. Its full CPU and
+wall totals are charged once per standalone shortlist method at N=48, 480, and
+4,800. Normal production model group generation, initialization, fitting, and
+setup are charged separately. Streaming and full-cached baselines receive no
+selection charge.
 
-Fifteen focused engine/independent contract tests pass. They check actual
-expression identities and canonical retained order, fallback operands,
-cap tails and prefetch, global feature coordinates, oracle rejection,
-streaming delegation, and invalid inputs. The exact-block cap check caught
-and fixed avoidable prefetch/scoring after the root budget was exhausted.
-Earlier test-reference failures and the passing runs are retained. The fast
-suite is extended with the new tests; its complete rerun and the final frozen
-total-work protocol are pending at this checkpoint. No evaluation cost or
-coverage result is claimed yet.
+The evaluation matrix contains 11,808 timed rows and 960 separate memory rows.
+It runs three model seeds over all 48 evaluation tasks and two repeats. Streaming
+uses caps 2,048, 8,192, 32,768, 131,072, and 524,288; ranked configurations use
+the first four caps. Each policy is paired across full-cached and complete-
+shortlist engines, and cheap-only has its own configuration. Search uses only
+the twelve observed rows. Returned graphs are checked after search against
+observed rows, held rows, and exact integer polynomials. Memory instrumentation
+does not supply timing data.
+
+The overall cost decision requires all five new configurations (four ranked
+controls and cheap-only) to reach full coverage. At least one must also have
+N=48 selection- and production-amortized CPU at or below 90% of streaming at
+streaming's first full-success cap. A per-configuration improvement requires
+that configuration to reach full coverage and meet the same 90% threshold.
+SNN efficiency requires SNN and every comparator to reach full coverage, with
+SNN CPU at or below 90% of each comparator. These rules describe this frozen
+corpus and environment; they do not establish energy savings or broad transfer.
+CPU work counters can overlap and must not be added as exclusive cost
+categories.
+
+No final evaluation result is stated here until the complete frozen matrix,
+independent audit, and manifest are available.
