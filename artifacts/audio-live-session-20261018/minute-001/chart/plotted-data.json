@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "arms": {
+      "adaptive_ann": {
+        "color": "#009E73",
+        "label": "Adaptive ANN"
+      },
+      "adaptive_snn": {
+        "color": "#0072B2",
+        "label": "Adaptive SNN"
+      },
+      "ema": {
+        "color": "#CC79A7",
+        "label": "EMA"
+      },
+      "fixed_snn": {
+        "color": "#D55E00",
+        "label": "Fixed SNN"
+      },
+      "persistence": {
+        "color": "#666666",
+        "label": "Persistence"
+      }
+    },
+    "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+    "git_head": "aa5057289f58720b6f76d7ff8fca6bf8bb15020c",
+    "monitor_frames": 410.0,
+    "protocol": {
+      "block_frames": 300,
+      "calibration_frames": 150,
+      "cooldown_frames": 25,
+      "ema_alpha": 0.03921056084767682,
+      "fit_frames": 150,
+      "frame_seconds": 0.2,
+      "probe_frames": 100,
+      "sample_rate": 16000,
+      "seed": 0,
+      "version": 1,
+      "warmup_frames": 25
+    },
+    "protocol_sha256": "ef7019083c0fcb24f3477a8384a5b3deccd260fd1ad9f7ef1d133c433b065561",
+    "reference_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+    "source_status_sha256": "468fe2db5cdf494f98e71f2335f11ef4df42c122a409d91797007c042762914a",
+    "timestamps": {}
+  },
+  "panels": [
+    {
+      "key": "live",
+      "label": "Live next-feature MSE",
+      "series": {
+        "adaptive_ann": [
+          {
+            "minute": 0.5,
+            "mse": 0.011834975644578192
+          }
+        ],
+        "adaptive_snn": [
+          {
+            "minute": 0.5,
+            "mse": 0.0118872052357931
+          }
+        ],
+        "ema": [
+          {
+            "minute": 0.5,
+            "mse": 0.01189392361813794
+          }
+        ],
+        "fixed_snn": [
+          {
+            "minute": 0.5,
+            "mse": 0.011968181354113825
+          }
+        ],
+        "persistence": [
+          {
+            "minute": 0.5,
+            "mse": 0.02231494053810097
+          }
+        ]
+      },
+      "x": "minute"
+    },
+    {
+      "key": "sealed_probe",
+      "label": "Sealed 20-second probe MSE",
+      "series": {
+        "adaptive_ann": [
+          {
+            "minute": 0.0,
+            "mse": 0.01172095379694145
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.011599109266353956
+          }
+        ],
+        "adaptive_snn": [
+          {
+            "minute": 0.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.011675486225190894
+          }
+        ],
+        "ema": [
+          {
+            "minute": 0.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.012129598112054886
+          }
+        ],
+        "fixed_snn": [
+          {
+            "minute": 0.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.011705402417500838
+          }
+        ],
+        "persistence": [
+          {
+            "minute": 0.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.02227037955939562
+          }
+        ]
+      },
+      "x": "minute"
+    }
+  ],
+  "schema_version": 1,
+  "units": {
+    "x": "minutes of sample clock",
+    "y": "MSE"
+  }
+}

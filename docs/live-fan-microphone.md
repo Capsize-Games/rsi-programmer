@@ -77,8 +77,8 @@ forecasts, not independent neural-network replay or audio attribution.
 To plot a saved aggregate status with an isolated plotting dependency:
 
 ```sh
-uv run --isolated --no-project --with matplotlib --python .venv/bin/python \
-  -m scripts.plot_audio_progress /path/to/status.json \
+uv run --no-project --with matplotlib --python .venv/bin/python \
+  python -m scripts.plot_audio_progress /path/to/status.json \
   --output-dir /new/output/directory
 ```
 
