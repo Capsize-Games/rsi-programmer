@@ -1,0 +1,93 @@
+{
+  "protocol_id": "benchmark-shortlist-selection-v1",
+  "schema_version": 1,
+  "status": "frozen-before-training-or-selection",
+  "purpose": "Choose one shortlist window/quota from two engineering candidates using only the 24 frozen v2 training functions. This is a parameter-selection exercise, not evaluation evidence or a transfer claim.",
+  "design_base_revision": "ca7d68855362022a9d8c84fe7c4d70c8ac124738",
+  "selection_script": {
+    "path": "scripts/select_shortlist_method.py",
+    "sha256": "75c54033cbd794c5e9b134d77b28e683a63ddf19a0e56ef7e33a0d65497fcc2e"
+  },
+  "inputs": {
+    "v2_protocol": {
+      "path": "fixtures/benchmark_pre_eval_v2.json",
+      "sha256": "cf83dc077dc7960d4e576d898d842484655ac2c61d0e36128da6cda5ae8e7015"
+    },
+    "corpus": {
+      "path": "fixtures/benchmark_pre_eval_corpus_v2.json",
+      "sha256": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+      "train_tasks": 24,
+      "families": ["balanced", "repeated_subtree", "skewed"],
+      "rows_per_training_task": 12
+    },
+    "model_reference": {
+      "path": "artifacts/benchmark-pre-eval-v2-20261018/training.json",
+      "sha256": "47b02c532f5a11faa4808f5ae9646ba976ab8a56d80a0aadfcaf062239d82b6b"
+    }
+  },
+  "training": {
+    "task_split": "train",
+    "task_count": 24,
+    "rows_used": "Only each training task's 12 observed rows and their targets. Do not read or pass held-out rows, evaluation tasks, or evaluation targets to generation, fitting, search, validation, or selection.",
+    "groups": {
+      "builder": "rsi_programmer.benchmark_v2_training.build_training_groups",
+      "positive_cap": 16,
+      "negative_cap": 256,
+      "sampling_seed": 82078,
+      "sampling_recipe": "sha256-v1:seed:task-id:class:original-ordinal"
+    },
+    "models": {
+      "seed": 0,
+      "epochs": 40,
+      "optimizer": "Adam",
+      "learning_rate": 0.05,
+      "loss": "Sum of per-group mean softplus(1 - (positive score - negative score)).",
+      "optimizer_updates": "The exact existing fit implementation performs one summed-loss Adam optimizer update per epoch for each trainable model, for 40 updates per model. The heuristic is fixed and receives no training updates.",
+      "training_recipe": "Construct the fixed heuristic, trained SNN, MLP, and recurrent controls with the frozen v2 model constructors. Fit only the trained SNN, MLP, and recurrent models once from the 24 training groups, using the exact v2 recipe. Freeze all model weights before selection searches. Verify seed-0 fitted pure weight hashes against the frozen v2 training reference.",
+      "evaluation_fits": 0
+    }
+  },
+  "method": {
+    "name": "cheap-single-row-shortlist-with-complete-fallback",
+    "engine_api": "rsi_programmer.shortlist_pre_eval.shortlist_pre_evaluation_search",
+    "candidate_parameters": [
+      {"window_size": 64, "shortlist_size": 4},
+      {"window_size": 256, "shortlist_size": 16}
+    ],
+    "cheap_row_index": 0,
+    "cheap_score": "Absolute residual on observed training row 0, with the declared add/subtract/multiply operator; stable ties use original global grammar ordinal.",
+    "expensive_score": "For shortlist descriptors only, build the unchanged layer-ordinal-v1 12-feature vector using the original full-layer ordinal and full-layer width; rank those shortlist entries with the selected control. Then execute every remaining descriptor in original grammar order, exactly once.",
+    "cheap_only": "Use the same cheap residual ordering and complete grammar-order fallback, but perform no cached gap, 12-feature assembly, or policy inference.",
+    "retention": "A fully traversed layer retains/deduplicates all generated candidates by (operator, observed-row signature), choosing the canonical original generation-order representative. An interrupted layer is discarded. Do not permanently prune candidates, replay descriptors, or evaluate a root more than once.",
+    "root_signature_cap": 131072,
+    "tree_bound": 5,
+    "controls": ["cheap_only", "heuristic", "trained_snn", "mlp", "recurrent"],
+    "streaming_reference": "Historical streaming search, without model training, at the same tree bound and root-signature cap. Repeat it with the same 24 tasks and two repeats.",
+    "controls_excluded_from_selection": ["full_cached", "seeded_random", "untrained_snn"]
+  },
+  "runs": {
+    "task_order": "Frozen corpus training order.",
+    "repeats": 2,
+    "repeat_order": "Use the script's predeclared deterministic per-task schedule; repeat 1 reverses repeat 0's method/control order.",
+    "expected_search_attempts": 528,
+    "attempts_per_shortlist_method_control": 48,
+    "streaming_attempts": 48,
+    "measurement": "Serial, uninstrumented process CPU and wall time for each complete search plus independent observed-row and exact-polynomial checks. Record all raw attempts, counters, outcomes, errors, and repeat behavior. Exclude profiler and memory instrumentation.",
+    "validation": "A returned graph counts as covered only if it passes independent graph validation, matches all 12 observed rows for that training task, and its exact integer polynomial equals the task generator's exact polynomial. Do not inspect any held-out row or evaluate any evaluation function.",
+    "repeated_behavior": "For each task/control/method, the two repeats must have identical search outcome, graph, validation status, and deterministic work counters. Timing fields are excluded from this equality check.",
+    "cost_capture": "Record group generation, model initialization, fitting, frozen model state/weight fingerprints and hashes, and every attempt's process CPU/wall time. The internal run() timer includes protocol/corpus loading and per-attempt raw-log I/O but excludes imports and final JSON writes. The command-level execution receipt is authoritative for complete CLI CPU/wall totals, including imports and all artifact I/O."
+  },
+  "selection_rule": {
+    "coverage_denominator": "48 attempts (24 tasks times two repeats) for each shortlist control and the streaming reference.",
+    "eligibility": "A shortlist parameter pair is eligible only if each of its five controls has at least as many independently validated covered attempts as streaming at root cap 131072.",
+    "objective": "Among eligible parameter pairs, choose the lower mean per-attempt process CPU time across all five controls, 24 training tasks, and both repeats. This includes cheap-only, heuristic, trained SNN, MLP, and recurrent runs.",
+    "tie_break": "Choose the smaller window size when mean process CPU times are exactly equal.",
+    "no_eligible_pair": "Record no selection and stop. Do not alter candidate values, controls, cap, rows, repetitions, criteria, or training recipe; ask the owner to preregister a new protocol before any further method-selection run.",
+    "scope": "Training-only engineering parameter selection on this known v2 training split. It does not establish held-out or independent generalization and must not be described as evaluation performance."
+  },
+  "downstream_cost_accounting": {
+    "selection_setup_charge": "Charge the complete command-level execution receipt CPU and wall totals once per standalone shortlist method, including cheap-only and all policy controls, at N=48, N=480, and N=4800 independent deployment attempts. Divide the complete charge by N for per-attempt amortization. Do not charge the selection process to streaming or full-cached baselines.",
+    "production_fit_charge": "The final benchmark still separately charges its normal model group generation, initialization, fit, and setup costs. Do not treat selection fitting as free or subtract it from the selection charge."
+  },
+  "failure_policy": "Any incomplete task/control/repeat matrix, search exception, non-frozen model, model-weight hash mismatch, non-identical repeat behavior, source drift, invalid training group, or validation exception makes selection invalid. A returned candidate that fails observed-row or exact-polynomial validation is an unaccepted attempt in the fixed coverage denominator, not an infrastructure failure. Preserve partial logs and failure reports; do not select from an incomplete matrix."
+}

@@ -1,0 +1,13 @@
+{
+  "command": "flock /tmp/rsi-programmer-builder.lock .venv/bin/python -m unittest tests.test_shortlist_pre_eval tests.test_shortlist_contract -v",
+  "exit_code": 0,
+  "elapsed_wall_seconds_from_exec": 0.823,
+  "result": "14 tests passed",
+  "log": "contract-tests.log",
+  "source_hashes": "contract-tests.sha256",
+  "retained_failures": [
+    "contract-tests-retry-2.log",
+    "original root failure: /tmp/rsi-82-engine-contract.log"
+  ],
+  "runtime_or_fixture_changes_during_test": false
+}
