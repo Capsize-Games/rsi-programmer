@@ -1,0 +1,3747 @@
+{
+  "observed_at_utc": "2026-10-18T21:18:58.574600+00:00",
+  "reason": "Owner requested a pause after verified publication and issue updates",
+  "scopes": [
+    {
+      "tag": "code-v87",
+      "source_commit": "59ef1abe06a5a9d0d8e9813252f05c902fdfc729",
+      "run": {
+        "id": 39154146448,
+        "name": "CI",
+        "node_id": "WFR_kwLOVLAot88AAAAJHcTckA",
+        "head_branch": "main",
+        "head_sha": "59ef1abe06a5a9d0d8e9813252f05c902fdfc729",
+        "path": ".github/workflows/ci.yml",
+        "display_title": "Provide read-only GitHub token to full CI asset verification",
+        "run_number": 74,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "workflow_id": 385672793,
+        "check_suite_id": 106102202373,
+        "check_suite_node_id": "CS_kwDOVLAot88AAAAYtC8gBQ",
+        "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39154146448",
+        "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39154146448",
+        "pull_requests": [],
+        "created_at": "2026-10-18T18:26:16Z",
+        "updated_at": "2026-10-18T20:54:44Z",
+        "actor": {
+          "login": "w4ffl35",
+          "id": 25737761,
+          "node_id": "MDQ6VXNlcjI1NzM3NzYx",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25737761?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/w4ffl35",
+          "html_url": "https://github.com/w4ffl35",
+          "followers_url": "https://api.github.com/users/w4ffl35/followers",
+          "following_url": "https://api.github.com/users/w4ffl35/following{/other_user}",
+          "gists_url": "https://api.github.com/users/w4ffl35/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/w4ffl35/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/w4ffl35/subscriptions",
+          "organizations_url": "https://api.github.com/users/w4ffl35/orgs",
+          "repos_url": "https://api.github.com/users/w4ffl35/repos",
+          "events_url": "https://api.github.com/users/w4ffl35/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/w4ffl35/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "run_attempt": 1,
+        "referenced_workflows": [],
+        "run_started_at": "2026-10-18T18:26:16Z",
+        "triggering_actor": {
+          "login": "w4ffl35",
+          "id": 25737761,
+          "node_id": "MDQ6VXNlcjI1NzM3NzYx",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25737761?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/w4ffl35",
+          "html_url": "https://github.com/w4ffl35",
+          "followers_url": "https://api.github.com/users/w4ffl35/followers",
+          "following_url": "https://api.github.com/users/w4ffl35/following{/other_user}",
+          "gists_url": "https://api.github.com/users/w4ffl35/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/w4ffl35/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/w4ffl35/subscriptions",
+          "organizations_url": "https://api.github.com/users/w4ffl35/orgs",
+          "repos_url": "https://api.github.com/users/w4ffl35/repos",
+          "events_url": "https://api.github.com/users/w4ffl35/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/w4ffl35/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "jobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39154146448/jobs",
+        "logs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39154146448/logs",
+        "check_suite_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-suites/106102202373",
+        "artifacts_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39154146448/artifacts",
+        "cancel_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39154146448/cancel",
+        "rerun_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39154146448/rerun",
+        "previous_attempt_url": null,
+        "workflow_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/workflows/385672793",
+        "head_commit": {
+          "id": "59ef1abe06a5a9d0d8e9813252f05c902fdfc729",
+          "tree_id": "3d53397928d9062cf6f23a693395740080c2ad9f",
+          "message": "Provide read-only GitHub token to full CI asset verification",
+          "timestamp": "2026-10-18T18:26:11Z",
+          "author": {
+            "name": "w4ffl35",
+            "email": "25737761+w4ffl35@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "w4ffl35",
+            "email": "25737761+w4ffl35@users.noreply.github.com"
+          }
+        },
+        "repository": {
+          "id": 1420830903,
+          "node_id": "R_kgDOVLAotw",
+          "name": "rsi-programmer",
+          "full_name": "Capsize-Games/rsi-programmer",
+          "private": false,
+          "owner": {
+            "login": "Capsize-Games",
+            "id": 83726625,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjgzNzI2NjI1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/83726625?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Capsize-Games",
+            "html_url": "https://github.com/Capsize-Games",
+            "followers_url": "https://api.github.com/users/Capsize-Games/followers",
+            "following_url": "https://api.github.com/users/Capsize-Games/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Capsize-Games/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Capsize-Games/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Capsize-Games/subscriptions",
+            "organizations_url": "https://api.github.com/users/Capsize-Games/orgs",
+            "repos_url": "https://api.github.com/users/Capsize-Games/repos",
+            "events_url": "https://api.github.com/users/Capsize-Games/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Capsize-Games/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/Capsize-Games/rsi-programmer",
+          "description": "Spiking-neural-network system that learns to write programs: typed-DAG synthesis guided by a trained SNN search policy.",
+          "fork": false,
+          "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer",
+          "forks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/forks",
+          "keys_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/teams",
+          "hooks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/hooks",
+          "issue_events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/events",
+          "assignees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/tags",
+          "blobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/languages",
+          "stargazers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/stargazers",
+          "contributors_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contributors",
+          "subscribers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscribers",
+          "subscription_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscription",
+          "commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/merges",
+          "archive_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/downloads",
+          "issues_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/labels{/name}",
+          "releases_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/deployments"
+        },
+        "head_repository": {
+          "id": 1420830903,
+          "node_id": "R_kgDOVLAotw",
+          "name": "rsi-programmer",
+          "full_name": "Capsize-Games/rsi-programmer",
+          "private": false,
+          "owner": {
+            "login": "Capsize-Games",
+            "id": 83726625,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjgzNzI2NjI1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/83726625?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Capsize-Games",
+            "html_url": "https://github.com/Capsize-Games",
+            "followers_url": "https://api.github.com/users/Capsize-Games/followers",
+            "following_url": "https://api.github.com/users/Capsize-Games/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Capsize-Games/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Capsize-Games/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Capsize-Games/subscriptions",
+            "organizations_url": "https://api.github.com/users/Capsize-Games/orgs",
+            "repos_url": "https://api.github.com/users/Capsize-Games/repos",
+            "events_url": "https://api.github.com/users/Capsize-Games/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Capsize-Games/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/Capsize-Games/rsi-programmer",
+          "description": "Spiking-neural-network system that learns to write programs: typed-DAG synthesis guided by a trained SNN search policy.",
+          "fork": false,
+          "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer",
+          "forks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/forks",
+          "keys_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/teams",
+          "hooks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/hooks",
+          "issue_events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/events",
+          "assignees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/tags",
+          "blobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/languages",
+          "stargazers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/stargazers",
+          "contributors_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contributors",
+          "subscribers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscribers",
+          "subscription_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscription",
+          "commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/merges",
+          "archive_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/downloads",
+          "issues_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/labels{/name}",
+          "releases_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/deployments"
+        }
+      },
+      "jobs": {
+        "total_count": 4,
+        "jobs": [
+          {
+            "id": 117753752743,
+            "run_id": 39154146448,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39154146448",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbaquspw",
+            "head_sha": "59ef1abe06a5a9d0d8e9813252f05c902fdfc729",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117753752743",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39154146448/job/117753752743",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T18:26:17Z",
+            "started_at": "2026-10-18T18:26:20Z",
+            "completed_at": "2026-10-18T18:32:41Z",
+            "name": "fast (3.12)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T18:26:20Z",
+                "completed_at": "2026-10-18T18:26:22Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T18:26:22Z",
+                "completed_at": "2026-10-18T18:26:33Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T18:26:33Z",
+                "completed_at": "2026-10-18T18:26:35Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T18:26:35Z",
+                "completed_at": "2026-10-18T18:26:35Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T18:26:35Z",
+                "completed_at": "2026-10-18T18:26:36Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T18:26:36Z",
+                "completed_at": "2026-10-18T18:26:39Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T18:26:39Z",
+                "completed_at": "2026-10-18T18:26:42Z"
+              },
+              {
+                "name": "Run just test-fast",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T18:26:42Z",
+                "completed_at": "2026-10-18T18:32:38Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T18:32:38Z",
+                "completed_at": "2026-10-18T18:32:38Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T18:32:38Z",
+                "completed_at": "2026-10-18T18:32:38Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T18:32:38Z",
+                "completed_at": "2026-10-18T18:32:38Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T18:32:38Z",
+                "completed_at": "2026-10-18T18:32:38Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T18:32:38Z",
+                "completed_at": "2026-10-18T18:32:38Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117753752743",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024091,
+            "runner_name": "GitHub Actions 1000024091",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117753752836,
+            "run_id": 39154146448,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39154146448",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbaqutBA",
+            "head_sha": "59ef1abe06a5a9d0d8e9813252f05c902fdfc729",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117753752836",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39154146448/job/117753752836",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T18:26:17Z",
+            "started_at": "2026-10-18T18:26:19Z",
+            "completed_at": "2026-10-18T20:54:43Z",
+            "name": "full (3.12)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T18:26:20Z",
+                "completed_at": "2026-10-18T18:26:21Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T18:26:21Z",
+                "completed_at": "2026-10-18T18:26:32Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T18:26:32Z",
+                "completed_at": "2026-10-18T18:26:34Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T18:26:34Z",
+                "completed_at": "2026-10-18T18:26:34Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T18:26:34Z",
+                "completed_at": "2026-10-18T18:26:34Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T18:26:34Z",
+                "completed_at": "2026-10-18T18:26:36Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T18:26:36Z",
+                "completed_at": "2026-10-18T18:26:39Z"
+              },
+              {
+                "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T18:26:39Z",
+                "completed_at": "2026-10-18T20:54:40Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T20:54:40Z",
+                "completed_at": "2026-10-18T20:54:41Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T20:54:41Z",
+                "completed_at": "2026-10-18T20:54:41Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T20:54:41Z",
+                "completed_at": "2026-10-18T20:54:41Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T20:54:41Z",
+                "completed_at": "2026-10-18T20:54:41Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T20:54:41Z",
+                "completed_at": "2026-10-18T20:54:41Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117753752836",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024092,
+            "runner_name": "GitHub Actions 1000024092",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117753752861,
+            "run_id": 39154146448,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39154146448",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbaqutHQ",
+            "head_sha": "59ef1abe06a5a9d0d8e9813252f05c902fdfc729",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117753752861",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39154146448/job/117753752861",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T18:26:17Z",
+            "started_at": "2026-10-18T18:26:19Z",
+            "completed_at": "2026-10-18T18:30:52Z",
+            "name": "fast (3.13)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T18:26:20Z",
+                "completed_at": "2026-10-18T18:26:22Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T18:26:22Z",
+                "completed_at": "2026-10-18T18:26:34Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T18:26:34Z",
+                "completed_at": "2026-10-18T18:26:35Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T18:26:35Z",
+                "completed_at": "2026-10-18T18:26:36Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T18:26:36Z",
+                "completed_at": "2026-10-18T18:26:37Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T18:26:37Z",
+                "completed_at": "2026-10-18T18:26:39Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T18:26:39Z",
+                "completed_at": "2026-10-18T18:26:43Z"
+              },
+              {
+                "name": "Run just test-fast",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T18:26:43Z",
+                "completed_at": "2026-10-18T18:30:49Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T18:30:49Z",
+                "completed_at": "2026-10-18T18:30:49Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T18:30:49Z",
+                "completed_at": "2026-10-18T18:30:49Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T18:30:49Z",
+                "completed_at": "2026-10-18T18:30:49Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T18:30:49Z",
+                "completed_at": "2026-10-18T18:30:49Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T18:30:49Z",
+                "completed_at": "2026-10-18T18:30:50Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117753752861",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024090,
+            "runner_name": "GitHub Actions 1000024090",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117753752870,
+            "run_id": 39154146448,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39154146448",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbaqutJg",
+            "head_sha": "59ef1abe06a5a9d0d8e9813252f05c902fdfc729",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117753752870",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39154146448/job/117753752870",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T18:26:17Z",
+            "started_at": "2026-10-18T18:26:19Z",
+            "completed_at": "2026-10-18T20:05:21Z",
+            "name": "full (3.13)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T18:26:20Z",
+                "completed_at": "2026-10-18T18:26:22Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T18:26:22Z",
+                "completed_at": "2026-10-18T18:26:33Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T18:26:33Z",
+                "completed_at": "2026-10-18T18:26:35Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T18:26:35Z",
+                "completed_at": "2026-10-18T18:26:35Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T18:26:35Z",
+                "completed_at": "2026-10-18T18:26:36Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T18:26:36Z",
+                "completed_at": "2026-10-18T18:26:38Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T18:26:38Z",
+                "completed_at": "2026-10-18T18:26:41Z"
+              },
+              {
+                "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T18:26:41Z",
+                "completed_at": "2026-10-18T20:05:18Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T20:05:18Z",
+                "completed_at": "2026-10-18T20:05:18Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T20:05:18Z",
+                "completed_at": "2026-10-18T20:05:18Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T20:05:18Z",
+                "completed_at": "2026-10-18T20:05:18Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T20:05:18Z",
+                "completed_at": "2026-10-18T20:05:18Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T20:05:18Z",
+                "completed_at": "2026-10-18T20:05:19Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117753752870",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024089,
+            "runner_name": "GitHub Actions 1000024089",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          }
+        ]
+      }
+    },
+    {
+      "tag": "code-v90",
+      "source_commit": "5cdb9b5782a37bf0c32bb15d22098399f3ce12df",
+      "run": {
+        "id": 39160627937,
+        "name": "CI",
+        "node_id": "WFR_kwLOVLAot88AAAAJHifC4Q",
+        "head_branch": "main",
+        "head_sha": "5cdb9b5782a37bf0c32bb15d22098399f3ce12df",
+        "path": ".github/workflows/ci.yml",
+        "display_title": "Learn online from executed graph outcomes with isolated evaluation",
+        "run_number": 75,
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "workflow_id": 385672793,
+        "check_suite_id": 106119228396,
+        "check_suite_node_id": "CS_kwDOVLAot88AAAAYtTLr7A",
+        "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39160627937",
+        "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39160627937",
+        "pull_requests": [],
+        "created_at": "2026-10-18T19:50:58Z",
+        "updated_at": "2026-10-18T19:51:10Z",
+        "actor": {
+          "login": "w4ffl35",
+          "id": 25737761,
+          "node_id": "MDQ6VXNlcjI1NzM3NzYx",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25737761?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/w4ffl35",
+          "html_url": "https://github.com/w4ffl35",
+          "followers_url": "https://api.github.com/users/w4ffl35/followers",
+          "following_url": "https://api.github.com/users/w4ffl35/following{/other_user}",
+          "gists_url": "https://api.github.com/users/w4ffl35/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/w4ffl35/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/w4ffl35/subscriptions",
+          "organizations_url": "https://api.github.com/users/w4ffl35/orgs",
+          "repos_url": "https://api.github.com/users/w4ffl35/repos",
+          "events_url": "https://api.github.com/users/w4ffl35/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/w4ffl35/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "run_attempt": 1,
+        "referenced_workflows": [],
+        "run_started_at": "2026-10-18T19:50:58Z",
+        "triggering_actor": {
+          "login": "w4ffl35",
+          "id": 25737761,
+          "node_id": "MDQ6VXNlcjI1NzM3NzYx",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25737761?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/w4ffl35",
+          "html_url": "https://github.com/w4ffl35",
+          "followers_url": "https://api.github.com/users/w4ffl35/followers",
+          "following_url": "https://api.github.com/users/w4ffl35/following{/other_user}",
+          "gists_url": "https://api.github.com/users/w4ffl35/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/w4ffl35/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/w4ffl35/subscriptions",
+          "organizations_url": "https://api.github.com/users/w4ffl35/orgs",
+          "repos_url": "https://api.github.com/users/w4ffl35/repos",
+          "events_url": "https://api.github.com/users/w4ffl35/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/w4ffl35/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "jobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39160627937/jobs",
+        "logs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39160627937/logs",
+        "check_suite_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-suites/106119228396",
+        "artifacts_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39160627937/artifacts",
+        "cancel_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39160627937/cancel",
+        "rerun_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39160627937/rerun",
+        "previous_attempt_url": null,
+        "workflow_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/workflows/385672793",
+        "head_commit": {
+          "id": "5cdb9b5782a37bf0c32bb15d22098399f3ce12df",
+          "tree_id": "9067811ac651d619a62fa232ce30e334e41ccf29",
+          "message": "Learn online from executed graph outcomes with isolated evaluation",
+          "timestamp": "2026-10-18T19:50:51Z",
+          "author": {
+            "name": "w4ffl35",
+            "email": "25737761+w4ffl35@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "w4ffl35",
+            "email": "25737761+w4ffl35@users.noreply.github.com"
+          }
+        },
+        "repository": {
+          "id": 1420830903,
+          "node_id": "R_kgDOVLAotw",
+          "name": "rsi-programmer",
+          "full_name": "Capsize-Games/rsi-programmer",
+          "private": false,
+          "owner": {
+            "login": "Capsize-Games",
+            "id": 83726625,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjgzNzI2NjI1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/83726625?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Capsize-Games",
+            "html_url": "https://github.com/Capsize-Games",
+            "followers_url": "https://api.github.com/users/Capsize-Games/followers",
+            "following_url": "https://api.github.com/users/Capsize-Games/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Capsize-Games/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Capsize-Games/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Capsize-Games/subscriptions",
+            "organizations_url": "https://api.github.com/users/Capsize-Games/orgs",
+            "repos_url": "https://api.github.com/users/Capsize-Games/repos",
+            "events_url": "https://api.github.com/users/Capsize-Games/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Capsize-Games/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/Capsize-Games/rsi-programmer",
+          "description": "Spiking-neural-network system that learns to write programs: typed-DAG synthesis guided by a trained SNN search policy.",
+          "fork": false,
+          "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer",
+          "forks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/forks",
+          "keys_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/teams",
+          "hooks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/hooks",
+          "issue_events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/events",
+          "assignees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/tags",
+          "blobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/languages",
+          "stargazers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/stargazers",
+          "contributors_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contributors",
+          "subscribers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscribers",
+          "subscription_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscription",
+          "commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/merges",
+          "archive_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/downloads",
+          "issues_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/labels{/name}",
+          "releases_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/deployments"
+        },
+        "head_repository": {
+          "id": 1420830903,
+          "node_id": "R_kgDOVLAotw",
+          "name": "rsi-programmer",
+          "full_name": "Capsize-Games/rsi-programmer",
+          "private": false,
+          "owner": {
+            "login": "Capsize-Games",
+            "id": 83726625,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjgzNzI2NjI1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/83726625?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Capsize-Games",
+            "html_url": "https://github.com/Capsize-Games",
+            "followers_url": "https://api.github.com/users/Capsize-Games/followers",
+            "following_url": "https://api.github.com/users/Capsize-Games/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Capsize-Games/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Capsize-Games/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Capsize-Games/subscriptions",
+            "organizations_url": "https://api.github.com/users/Capsize-Games/orgs",
+            "repos_url": "https://api.github.com/users/Capsize-Games/repos",
+            "events_url": "https://api.github.com/users/Capsize-Games/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Capsize-Games/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/Capsize-Games/rsi-programmer",
+          "description": "Spiking-neural-network system that learns to write programs: typed-DAG synthesis guided by a trained SNN search policy.",
+          "fork": false,
+          "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer",
+          "forks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/forks",
+          "keys_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/teams",
+          "hooks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/hooks",
+          "issue_events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/events",
+          "assignees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/tags",
+          "blobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/languages",
+          "stargazers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/stargazers",
+          "contributors_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contributors",
+          "subscribers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscribers",
+          "subscription_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscription",
+          "commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/merges",
+          "archive_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/downloads",
+          "issues_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/labels{/name}",
+          "releases_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/deployments"
+        }
+      },
+      "jobs": {
+        "total_count": 4,
+        "jobs": [
+          {
+            "id": 117772980037,
+            "run_id": 39160627937,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39160627937",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAba9EPRQ",
+            "head_sha": "5cdb9b5782a37bf0c32bb15d22098399f3ce12df",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117772980037",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39160627937/job/117772980037",
+            "status": "in_progress",
+            "conclusion": null,
+            "created_at": "2026-10-18T19:50:58Z",
+            "started_at": "2026-10-18T19:51:01Z",
+            "completed_at": null,
+            "name": "full (3.13)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T19:51:02Z",
+                "completed_at": "2026-10-18T19:51:03Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T19:51:03Z",
+                "completed_at": "2026-10-18T19:51:14Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T19:51:14Z",
+                "completed_at": "2026-10-18T19:51:16Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T19:51:16Z",
+                "completed_at": "2026-10-18T19:51:16Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T19:51:16Z",
+                "completed_at": "2026-10-18T19:51:17Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T19:51:17Z",
+                "completed_at": "2026-10-18T19:51:19Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T19:51:19Z",
+                "completed_at": "2026-10-18T19:51:22Z"
+              },
+              {
+                "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+                "status": "in_progress",
+                "conclusion": null,
+                "number": 8,
+                "started_at": "2026-10-18T19:51:22Z",
+                "completed_at": null
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 13,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 14,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 15,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 16,
+                "started_at": null,
+                "completed_at": null
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117772980037",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024093,
+            "runner_name": "GitHub Actions 1000024093",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117772980160,
+            "run_id": 39160627937,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39160627937",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAba9EPwA",
+            "head_sha": "5cdb9b5782a37bf0c32bb15d22098399f3ce12df",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117772980160",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39160627937/job/117772980160",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T19:50:58Z",
+            "started_at": "2026-10-18T19:51:01Z",
+            "completed_at": "2026-10-18T19:59:21Z",
+            "name": "fast (3.13)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T19:51:02Z",
+                "completed_at": "2026-10-18T19:51:03Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T19:51:03Z",
+                "completed_at": "2026-10-18T19:51:14Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T19:51:14Z",
+                "completed_at": "2026-10-18T19:51:15Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T19:51:15Z",
+                "completed_at": "2026-10-18T19:51:16Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T19:51:16Z",
+                "completed_at": "2026-10-18T19:51:17Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T19:51:17Z",
+                "completed_at": "2026-10-18T19:51:19Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T19:51:19Z",
+                "completed_at": "2026-10-18T19:51:21Z"
+              },
+              {
+                "name": "Run just test-fast",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T19:51:21Z",
+                "completed_at": "2026-10-18T19:59:18Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T19:59:18Z",
+                "completed_at": "2026-10-18T19:59:18Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T19:59:18Z",
+                "completed_at": "2026-10-18T19:59:19Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T19:59:19Z",
+                "completed_at": "2026-10-18T19:59:19Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T19:59:19Z",
+                "completed_at": "2026-10-18T19:59:19Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T19:59:19Z",
+                "completed_at": "2026-10-18T19:59:19Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117772980160",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024094,
+            "runner_name": "GitHub Actions 1000024094",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117772980205,
+            "run_id": 39160627937,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39160627937",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAba9EP7Q",
+            "head_sha": "5cdb9b5782a37bf0c32bb15d22098399f3ce12df",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117772980205",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39160627937/job/117772980205",
+            "status": "in_progress",
+            "conclusion": null,
+            "created_at": "2026-10-18T19:50:58Z",
+            "started_at": "2026-10-18T19:51:01Z",
+            "completed_at": null,
+            "name": "full (3.12)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T19:51:02Z",
+                "completed_at": "2026-10-18T19:51:03Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T19:51:03Z",
+                "completed_at": "2026-10-18T19:51:15Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T19:51:15Z",
+                "completed_at": "2026-10-18T19:51:17Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T19:51:17Z",
+                "completed_at": "2026-10-18T19:51:17Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T19:51:17Z",
+                "completed_at": "2026-10-18T19:51:18Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T19:51:18Z",
+                "completed_at": "2026-10-18T19:51:21Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T19:51:21Z",
+                "completed_at": "2026-10-18T19:51:24Z"
+              },
+              {
+                "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+                "status": "in_progress",
+                "conclusion": null,
+                "number": 8,
+                "started_at": "2026-10-18T19:51:24Z",
+                "completed_at": null
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 13,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 14,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 15,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 16,
+                "started_at": null,
+                "completed_at": null
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117772980205",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024095,
+            "runner_name": "GitHub Actions 1000024095",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117772980247,
+            "run_id": 39160627937,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39160627937",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAba9EQFw",
+            "head_sha": "5cdb9b5782a37bf0c32bb15d22098399f3ce12df",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117772980247",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39160627937/job/117772980247",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T19:50:58Z",
+            "started_at": "2026-10-18T19:51:01Z",
+            "completed_at": "2026-10-18T19:59:11Z",
+            "name": "fast (3.12)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T19:51:02Z",
+                "completed_at": "2026-10-18T19:51:03Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T19:51:03Z",
+                "completed_at": "2026-10-18T19:51:15Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T19:51:15Z",
+                "completed_at": "2026-10-18T19:51:16Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T19:51:16Z",
+                "completed_at": "2026-10-18T19:51:16Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T19:51:16Z",
+                "completed_at": "2026-10-18T19:51:17Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T19:51:17Z",
+                "completed_at": "2026-10-18T19:51:19Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T19:51:19Z",
+                "completed_at": "2026-10-18T19:51:21Z"
+              },
+              {
+                "name": "Run just test-fast",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T19:51:21Z",
+                "completed_at": "2026-10-18T19:59:08Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T19:59:08Z",
+                "completed_at": "2026-10-18T19:59:08Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T19:59:08Z",
+                "completed_at": "2026-10-18T19:59:08Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T19:59:08Z",
+                "completed_at": "2026-10-18T19:59:09Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T19:59:09Z",
+                "completed_at": "2026-10-18T19:59:09Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T19:59:09Z",
+                "completed_at": "2026-10-18T19:59:09Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117772980247",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024096,
+            "runner_name": "GitHub Actions 1000024096",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          }
+        ]
+      }
+    },
+    {
+      "tag": "code-v95",
+      "source_commit": "f4b97fdf3d097d542762a2e2ba817e1d733e6fdf",
+      "run": {
+        "id": 39164398208,
+        "name": "CI",
+        "node_id": "WFR_kwLOVLAot88AAAAJHmFKgA",
+        "head_branch": "main",
+        "head_sha": "f4b97fdf3d097d542762a2e2ba817e1d733e6fdf",
+        "path": ".github/workflows/ci.yml",
+        "display_title": "Verify counterbalanced replay auditor with all 420 fast tests",
+        "run_number": 76,
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "workflow_id": 385672793,
+        "check_suite_id": 106129027769,
+        "check_suite_node_id": "CS_kwDOVLAot88AAAAYtchyuQ",
+        "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39164398208",
+        "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39164398208",
+        "pull_requests": [],
+        "created_at": "2026-10-18T20:40:43Z",
+        "updated_at": "2026-10-18T20:40:52Z",
+        "actor": {
+          "login": "w4ffl35",
+          "id": 25737761,
+          "node_id": "MDQ6VXNlcjI1NzM3NzYx",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25737761?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/w4ffl35",
+          "html_url": "https://github.com/w4ffl35",
+          "followers_url": "https://api.github.com/users/w4ffl35/followers",
+          "following_url": "https://api.github.com/users/w4ffl35/following{/other_user}",
+          "gists_url": "https://api.github.com/users/w4ffl35/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/w4ffl35/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/w4ffl35/subscriptions",
+          "organizations_url": "https://api.github.com/users/w4ffl35/orgs",
+          "repos_url": "https://api.github.com/users/w4ffl35/repos",
+          "events_url": "https://api.github.com/users/w4ffl35/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/w4ffl35/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "run_attempt": 1,
+        "referenced_workflows": [],
+        "run_started_at": "2026-10-18T20:40:43Z",
+        "triggering_actor": {
+          "login": "w4ffl35",
+          "id": 25737761,
+          "node_id": "MDQ6VXNlcjI1NzM3NzYx",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25737761?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/w4ffl35",
+          "html_url": "https://github.com/w4ffl35",
+          "followers_url": "https://api.github.com/users/w4ffl35/followers",
+          "following_url": "https://api.github.com/users/w4ffl35/following{/other_user}",
+          "gists_url": "https://api.github.com/users/w4ffl35/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/w4ffl35/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/w4ffl35/subscriptions",
+          "organizations_url": "https://api.github.com/users/w4ffl35/orgs",
+          "repos_url": "https://api.github.com/users/w4ffl35/repos",
+          "events_url": "https://api.github.com/users/w4ffl35/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/w4ffl35/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "jobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39164398208/jobs",
+        "logs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39164398208/logs",
+        "check_suite_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-suites/106129027769",
+        "artifacts_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39164398208/artifacts",
+        "cancel_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39164398208/cancel",
+        "rerun_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39164398208/rerun",
+        "previous_attempt_url": null,
+        "workflow_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/workflows/385672793",
+        "head_commit": {
+          "id": "f4b97fdf3d097d542762a2e2ba817e1d733e6fdf",
+          "tree_id": "be0d238beedf8977a8c73db00c8bd04b19a0c1a2",
+          "message": "Verify counterbalanced replay auditor with all 420 fast tests",
+          "timestamp": "2026-10-18T20:40:37Z",
+          "author": {
+            "name": "w4ffl35",
+            "email": "25737761+w4ffl35@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "w4ffl35",
+            "email": "25737761+w4ffl35@users.noreply.github.com"
+          }
+        },
+        "repository": {
+          "id": 1420830903,
+          "node_id": "R_kgDOVLAotw",
+          "name": "rsi-programmer",
+          "full_name": "Capsize-Games/rsi-programmer",
+          "private": false,
+          "owner": {
+            "login": "Capsize-Games",
+            "id": 83726625,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjgzNzI2NjI1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/83726625?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Capsize-Games",
+            "html_url": "https://github.com/Capsize-Games",
+            "followers_url": "https://api.github.com/users/Capsize-Games/followers",
+            "following_url": "https://api.github.com/users/Capsize-Games/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Capsize-Games/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Capsize-Games/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Capsize-Games/subscriptions",
+            "organizations_url": "https://api.github.com/users/Capsize-Games/orgs",
+            "repos_url": "https://api.github.com/users/Capsize-Games/repos",
+            "events_url": "https://api.github.com/users/Capsize-Games/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Capsize-Games/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/Capsize-Games/rsi-programmer",
+          "description": "Spiking-neural-network system that learns to write programs: typed-DAG synthesis guided by a trained SNN search policy.",
+          "fork": false,
+          "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer",
+          "forks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/forks",
+          "keys_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/teams",
+          "hooks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/hooks",
+          "issue_events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/events",
+          "assignees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/tags",
+          "blobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/languages",
+          "stargazers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/stargazers",
+          "contributors_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contributors",
+          "subscribers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscribers",
+          "subscription_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscription",
+          "commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/merges",
+          "archive_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/downloads",
+          "issues_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/labels{/name}",
+          "releases_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/deployments"
+        },
+        "head_repository": {
+          "id": 1420830903,
+          "node_id": "R_kgDOVLAotw",
+          "name": "rsi-programmer",
+          "full_name": "Capsize-Games/rsi-programmer",
+          "private": false,
+          "owner": {
+            "login": "Capsize-Games",
+            "id": 83726625,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjgzNzI2NjI1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/83726625?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Capsize-Games",
+            "html_url": "https://github.com/Capsize-Games",
+            "followers_url": "https://api.github.com/users/Capsize-Games/followers",
+            "following_url": "https://api.github.com/users/Capsize-Games/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Capsize-Games/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Capsize-Games/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Capsize-Games/subscriptions",
+            "organizations_url": "https://api.github.com/users/Capsize-Games/orgs",
+            "repos_url": "https://api.github.com/users/Capsize-Games/repos",
+            "events_url": "https://api.github.com/users/Capsize-Games/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Capsize-Games/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/Capsize-Games/rsi-programmer",
+          "description": "Spiking-neural-network system that learns to write programs: typed-DAG synthesis guided by a trained SNN search policy.",
+          "fork": false,
+          "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer",
+          "forks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/forks",
+          "keys_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/teams",
+          "hooks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/hooks",
+          "issue_events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/events",
+          "assignees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/tags",
+          "blobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/languages",
+          "stargazers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/stargazers",
+          "contributors_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contributors",
+          "subscribers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscribers",
+          "subscription_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscription",
+          "commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/merges",
+          "archive_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/downloads",
+          "issues_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/labels{/name}",
+          "releases_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/deployments"
+        }
+      },
+      "jobs": {
+        "total_count": 4,
+        "jobs": [
+          {
+            "id": 117784202588,
+            "run_id": 39164398208,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39164398208",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbHxNXA",
+            "head_sha": "f4b97fdf3d097d542762a2e2ba817e1d733e6fdf",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117784202588",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39164398208/job/117784202588",
+            "status": "in_progress",
+            "conclusion": null,
+            "created_at": "2026-10-18T20:40:44Z",
+            "started_at": "2026-10-18T20:40:52Z",
+            "completed_at": null,
+            "name": "full (3.12)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T20:40:53Z",
+                "completed_at": "2026-10-18T20:40:54Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T20:40:54Z",
+                "completed_at": "2026-10-18T20:41:07Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T20:41:07Z",
+                "completed_at": "2026-10-18T20:41:09Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T20:41:09Z",
+                "completed_at": "2026-10-18T20:41:09Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T20:41:09Z",
+                "completed_at": "2026-10-18T20:41:10Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T20:41:10Z",
+                "completed_at": "2026-10-18T20:41:13Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T20:41:13Z",
+                "completed_at": "2026-10-18T20:41:16Z"
+              },
+              {
+                "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+                "status": "in_progress",
+                "conclusion": null,
+                "number": 8,
+                "started_at": "2026-10-18T20:41:16Z",
+                "completed_at": null
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 13,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 14,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 15,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 16,
+                "started_at": null,
+                "completed_at": null
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117784202588",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024097,
+            "runner_name": "GitHub Actions 1000024097",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117784202760,
+            "run_id": 39164398208,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39164398208",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbHxOCA",
+            "head_sha": "f4b97fdf3d097d542762a2e2ba817e1d733e6fdf",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117784202760",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39164398208/job/117784202760",
+            "status": "in_progress",
+            "conclusion": null,
+            "created_at": "2026-10-18T20:40:44Z",
+            "started_at": "2026-10-18T20:40:46Z",
+            "completed_at": null,
+            "name": "full (3.13)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T20:40:47Z",
+                "completed_at": "2026-10-18T20:40:49Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T20:40:49Z",
+                "completed_at": "2026-10-18T20:41:00Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T20:41:00Z",
+                "completed_at": "2026-10-18T20:41:02Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T20:41:02Z",
+                "completed_at": "2026-10-18T20:41:02Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T20:41:02Z",
+                "completed_at": "2026-10-18T20:41:03Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T20:41:03Z",
+                "completed_at": "2026-10-18T20:41:05Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T20:41:05Z",
+                "completed_at": "2026-10-18T20:41:09Z"
+              },
+              {
+                "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+                "status": "in_progress",
+                "conclusion": null,
+                "number": 8,
+                "started_at": "2026-10-18T20:41:09Z",
+                "completed_at": null
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 13,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 14,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 15,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 16,
+                "started_at": null,
+                "completed_at": null
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117784202760",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024098,
+            "runner_name": "GitHub Actions 1000024098",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117784202813,
+            "run_id": 39164398208,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39164398208",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbHxOPQ",
+            "head_sha": "f4b97fdf3d097d542762a2e2ba817e1d733e6fdf",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117784202813",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39164398208/job/117784202813",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T20:40:44Z",
+            "started_at": "2026-10-18T20:40:47Z",
+            "completed_at": "2026-10-18T20:49:21Z",
+            "name": "fast (3.13)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T20:40:48Z",
+                "completed_at": "2026-10-18T20:40:49Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T20:40:50Z",
+                "completed_at": "2026-10-18T20:41:02Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T20:41:02Z",
+                "completed_at": "2026-10-18T20:41:03Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T20:41:03Z",
+                "completed_at": "2026-10-18T20:41:03Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T20:41:03Z",
+                "completed_at": "2026-10-18T20:41:04Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T20:41:04Z",
+                "completed_at": "2026-10-18T20:41:08Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T20:41:08Z",
+                "completed_at": "2026-10-18T20:41:11Z"
+              },
+              {
+                "name": "Run just test-fast",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T20:41:11Z",
+                "completed_at": "2026-10-18T20:49:16Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T20:49:16Z",
+                "completed_at": "2026-10-18T20:49:16Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T20:49:16Z",
+                "completed_at": "2026-10-18T20:49:16Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T20:49:16Z",
+                "completed_at": "2026-10-18T20:49:17Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T20:49:17Z",
+                "completed_at": "2026-10-18T20:49:17Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T20:49:17Z",
+                "completed_at": "2026-10-18T20:49:17Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117784202813",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024099,
+            "runner_name": "GitHub Actions 1000024099",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117784202817,
+            "run_id": 39164398208,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39164398208",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbHxOQQ",
+            "head_sha": "f4b97fdf3d097d542762a2e2ba817e1d733e6fdf",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117784202817",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39164398208/job/117784202817",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T20:40:44Z",
+            "started_at": "2026-10-18T20:40:47Z",
+            "completed_at": "2026-10-18T20:48:54Z",
+            "name": "fast (3.12)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T20:40:47Z",
+                "completed_at": "2026-10-18T20:40:48Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T20:40:48Z",
+                "completed_at": "2026-10-18T20:41:00Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T20:41:00Z",
+                "completed_at": "2026-10-18T20:41:01Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T20:41:01Z",
+                "completed_at": "2026-10-18T20:41:01Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T20:41:01Z",
+                "completed_at": "2026-10-18T20:41:02Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T20:41:02Z",
+                "completed_at": "2026-10-18T20:41:03Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T20:41:03Z",
+                "completed_at": "2026-10-18T20:41:06Z"
+              },
+              {
+                "name": "Run just test-fast",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T20:41:06Z",
+                "completed_at": "2026-10-18T20:48:51Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T20:48:51Z",
+                "completed_at": "2026-10-18T20:48:52Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T20:48:52Z",
+                "completed_at": "2026-10-18T20:48:52Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T20:48:52Z",
+                "completed_at": "2026-10-18T20:48:52Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T20:48:52Z",
+                "completed_at": "2026-10-18T20:48:52Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T20:48:52Z",
+                "completed_at": "2026-10-18T20:48:52Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117784202817",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024100,
+            "runner_name": "GitHub Actions 1000024100",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          }
+        ]
+      }
+    },
+    {
+      "tag": "code-v97",
+      "source_commit": "ff9a0f38fe7e0ce0af34aac11cbb899cd95a1a47",
+      "run": {
+        "id": 39165989858,
+        "name": "CI",
+        "node_id": "WFR_kwLOVLAot88AAAAJHnmT4g",
+        "head_branch": "main",
+        "head_sha": "ff9a0f38fe7e0ce0af34aac11cbb899cd95a1a47",
+        "path": ".github/workflows/ci.yml",
+        "display_title": "Add observed-example context and freeze its counterbalanced comparison",
+        "run_number": 77,
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "workflow_id": 385672793,
+        "check_suite_id": 106133187021,
+        "check_suite_node_id": "CS_kwDOVLAot88AAAAYtgfpzQ",
+        "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39165989858",
+        "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39165989858",
+        "pull_requests": [],
+        "created_at": "2026-10-18T21:01:55Z",
+        "updated_at": "2026-10-18T21:01:58Z",
+        "actor": {
+          "login": "w4ffl35",
+          "id": 25737761,
+          "node_id": "MDQ6VXNlcjI1NzM3NzYx",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25737761?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/w4ffl35",
+          "html_url": "https://github.com/w4ffl35",
+          "followers_url": "https://api.github.com/users/w4ffl35/followers",
+          "following_url": "https://api.github.com/users/w4ffl35/following{/other_user}",
+          "gists_url": "https://api.github.com/users/w4ffl35/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/w4ffl35/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/w4ffl35/subscriptions",
+          "organizations_url": "https://api.github.com/users/w4ffl35/orgs",
+          "repos_url": "https://api.github.com/users/w4ffl35/repos",
+          "events_url": "https://api.github.com/users/w4ffl35/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/w4ffl35/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "run_attempt": 1,
+        "referenced_workflows": [],
+        "run_started_at": "2026-10-18T21:01:55Z",
+        "triggering_actor": {
+          "login": "w4ffl35",
+          "id": 25737761,
+          "node_id": "MDQ6VXNlcjI1NzM3NzYx",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25737761?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/w4ffl35",
+          "html_url": "https://github.com/w4ffl35",
+          "followers_url": "https://api.github.com/users/w4ffl35/followers",
+          "following_url": "https://api.github.com/users/w4ffl35/following{/other_user}",
+          "gists_url": "https://api.github.com/users/w4ffl35/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/w4ffl35/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/w4ffl35/subscriptions",
+          "organizations_url": "https://api.github.com/users/w4ffl35/orgs",
+          "repos_url": "https://api.github.com/users/w4ffl35/repos",
+          "events_url": "https://api.github.com/users/w4ffl35/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/w4ffl35/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "jobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39165989858/jobs",
+        "logs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39165989858/logs",
+        "check_suite_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-suites/106133187021",
+        "artifacts_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39165989858/artifacts",
+        "cancel_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39165989858/cancel",
+        "rerun_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39165989858/rerun",
+        "previous_attempt_url": null,
+        "workflow_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/workflows/385672793",
+        "head_commit": {
+          "id": "ff9a0f38fe7e0ce0af34aac11cbb899cd95a1a47",
+          "tree_id": "8f07630f6953d79f3ccfb6760c30ec4b1eb1e86e",
+          "message": "Add observed-example context and freeze its counterbalanced comparison",
+          "timestamp": "2026-10-18T21:01:49Z",
+          "author": {
+            "name": "w4ffl35",
+            "email": "25737761+w4ffl35@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "w4ffl35",
+            "email": "25737761+w4ffl35@users.noreply.github.com"
+          }
+        },
+        "repository": {
+          "id": 1420830903,
+          "node_id": "R_kgDOVLAotw",
+          "name": "rsi-programmer",
+          "full_name": "Capsize-Games/rsi-programmer",
+          "private": false,
+          "owner": {
+            "login": "Capsize-Games",
+            "id": 83726625,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjgzNzI2NjI1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/83726625?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Capsize-Games",
+            "html_url": "https://github.com/Capsize-Games",
+            "followers_url": "https://api.github.com/users/Capsize-Games/followers",
+            "following_url": "https://api.github.com/users/Capsize-Games/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Capsize-Games/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Capsize-Games/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Capsize-Games/subscriptions",
+            "organizations_url": "https://api.github.com/users/Capsize-Games/orgs",
+            "repos_url": "https://api.github.com/users/Capsize-Games/repos",
+            "events_url": "https://api.github.com/users/Capsize-Games/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Capsize-Games/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/Capsize-Games/rsi-programmer",
+          "description": "Spiking-neural-network system that learns to write programs: typed-DAG synthesis guided by a trained SNN search policy.",
+          "fork": false,
+          "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer",
+          "forks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/forks",
+          "keys_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/teams",
+          "hooks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/hooks",
+          "issue_events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/events",
+          "assignees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/tags",
+          "blobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/languages",
+          "stargazers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/stargazers",
+          "contributors_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contributors",
+          "subscribers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscribers",
+          "subscription_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscription",
+          "commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/merges",
+          "archive_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/downloads",
+          "issues_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/labels{/name}",
+          "releases_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/deployments"
+        },
+        "head_repository": {
+          "id": 1420830903,
+          "node_id": "R_kgDOVLAotw",
+          "name": "rsi-programmer",
+          "full_name": "Capsize-Games/rsi-programmer",
+          "private": false,
+          "owner": {
+            "login": "Capsize-Games",
+            "id": 83726625,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjgzNzI2NjI1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/83726625?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Capsize-Games",
+            "html_url": "https://github.com/Capsize-Games",
+            "followers_url": "https://api.github.com/users/Capsize-Games/followers",
+            "following_url": "https://api.github.com/users/Capsize-Games/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Capsize-Games/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Capsize-Games/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Capsize-Games/subscriptions",
+            "organizations_url": "https://api.github.com/users/Capsize-Games/orgs",
+            "repos_url": "https://api.github.com/users/Capsize-Games/repos",
+            "events_url": "https://api.github.com/users/Capsize-Games/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Capsize-Games/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/Capsize-Games/rsi-programmer",
+          "description": "Spiking-neural-network system that learns to write programs: typed-DAG synthesis guided by a trained SNN search policy.",
+          "fork": false,
+          "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer",
+          "forks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/forks",
+          "keys_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/teams",
+          "hooks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/hooks",
+          "issue_events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/events",
+          "assignees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/tags",
+          "blobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/languages",
+          "stargazers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/stargazers",
+          "contributors_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contributors",
+          "subscribers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscribers",
+          "subscription_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscription",
+          "commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/merges",
+          "archive_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/downloads",
+          "issues_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/labels{/name}",
+          "releases_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/deployments"
+        }
+      },
+      "jobs": {
+        "total_count": 4,
+        "jobs": [
+          {
+            "id": 117788922007,
+            "run_id": 39165989858,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39165989858",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbMRQlw",
+            "head_sha": "ff9a0f38fe7e0ce0af34aac11cbb899cd95a1a47",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117788922007",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39165989858/job/117788922007",
+            "status": "in_progress",
+            "conclusion": null,
+            "created_at": "2026-10-18T21:01:55Z",
+            "started_at": "2026-10-18T21:01:58Z",
+            "completed_at": null,
+            "name": "full (3.12)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T21:01:59Z",
+                "completed_at": "2026-10-18T21:02:00Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T21:02:00Z",
+                "completed_at": "2026-10-18T21:02:07Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T21:02:07Z",
+                "completed_at": "2026-10-18T21:02:08Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T21:02:08Z",
+                "completed_at": "2026-10-18T21:02:08Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T21:02:08Z",
+                "completed_at": "2026-10-18T21:02:09Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T21:02:09Z",
+                "completed_at": "2026-10-18T21:02:11Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T21:02:11Z",
+                "completed_at": "2026-10-18T21:02:13Z"
+              },
+              {
+                "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+                "status": "in_progress",
+                "conclusion": null,
+                "number": 8,
+                "started_at": "2026-10-18T21:02:13Z",
+                "completed_at": null
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 13,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 14,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 15,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 16,
+                "started_at": null,
+                "completed_at": null
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117788922007",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024101,
+            "runner_name": "GitHub Actions 1000024101",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117788922236,
+            "run_id": 39165989858,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39165989858",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbMRRfA",
+            "head_sha": "ff9a0f38fe7e0ce0af34aac11cbb899cd95a1a47",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117788922236",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39165989858/job/117788922236",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T21:01:55Z",
+            "started_at": "2026-10-18T21:01:58Z",
+            "completed_at": "2026-10-18T21:10:05Z",
+            "name": "fast (3.13)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T21:01:58Z",
+                "completed_at": "2026-10-18T21:02:00Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T21:02:00Z",
+                "completed_at": "2026-10-18T21:02:07Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T21:02:07Z",
+                "completed_at": "2026-10-18T21:02:08Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T21:02:08Z",
+                "completed_at": "2026-10-18T21:02:08Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T21:02:08Z",
+                "completed_at": "2026-10-18T21:02:09Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T21:02:09Z",
+                "completed_at": "2026-10-18T21:02:11Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T21:02:11Z",
+                "completed_at": "2026-10-18T21:02:13Z"
+              },
+              {
+                "name": "Run just test-fast",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T21:02:13Z",
+                "completed_at": "2026-10-18T21:10:02Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T21:10:02Z",
+                "completed_at": "2026-10-18T21:10:03Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T21:10:03Z",
+                "completed_at": "2026-10-18T21:10:03Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T21:10:03Z",
+                "completed_at": "2026-10-18T21:10:03Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T21:10:03Z",
+                "completed_at": "2026-10-18T21:10:03Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T21:10:03Z",
+                "completed_at": "2026-10-18T21:10:03Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117788922236",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024103,
+            "runner_name": "GitHub Actions 1000024103",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117788922254,
+            "run_id": 39165989858,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39165989858",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbMRRjg",
+            "head_sha": "ff9a0f38fe7e0ce0af34aac11cbb899cd95a1a47",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117788922254",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39165989858/job/117788922254",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T21:01:55Z",
+            "started_at": "2026-10-18T21:01:58Z",
+            "completed_at": "2026-10-18T21:06:25Z",
+            "name": "fast (3.12)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T21:01:58Z",
+                "completed_at": "2026-10-18T21:02:00Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T21:02:00Z",
+                "completed_at": "2026-10-18T21:02:07Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T21:02:07Z",
+                "completed_at": "2026-10-18T21:02:08Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T21:02:08Z",
+                "completed_at": "2026-10-18T21:02:08Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T21:02:08Z",
+                "completed_at": "2026-10-18T21:02:09Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T21:02:09Z",
+                "completed_at": "2026-10-18T21:02:11Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T21:02:11Z",
+                "completed_at": "2026-10-18T21:02:15Z"
+              },
+              {
+                "name": "Run just test-fast",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T21:02:15Z",
+                "completed_at": "2026-10-18T21:06:22Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T21:06:22Z",
+                "completed_at": "2026-10-18T21:06:22Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T21:06:22Z",
+                "completed_at": "2026-10-18T21:06:22Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T21:06:22Z",
+                "completed_at": "2026-10-18T21:06:22Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T21:06:22Z",
+                "completed_at": "2026-10-18T21:06:23Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T21:06:23Z",
+                "completed_at": "2026-10-18T21:06:23Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117788922254",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024102,
+            "runner_name": "GitHub Actions 1000024102",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117788922310,
+            "run_id": 39165989858,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39165989858",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbMRRxg",
+            "head_sha": "ff9a0f38fe7e0ce0af34aac11cbb899cd95a1a47",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117788922310",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39165989858/job/117788922310",
+            "status": "in_progress",
+            "conclusion": null,
+            "created_at": "2026-10-18T21:01:55Z",
+            "started_at": "2026-10-18T21:01:58Z",
+            "completed_at": null,
+            "name": "full (3.13)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T21:01:58Z",
+                "completed_at": "2026-10-18T21:02:01Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T21:02:01Z",
+                "completed_at": "2026-10-18T21:02:08Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T21:02:08Z",
+                "completed_at": "2026-10-18T21:02:10Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T21:02:10Z",
+                "completed_at": "2026-10-18T21:02:10Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T21:02:10Z",
+                "completed_at": "2026-10-18T21:02:11Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T21:02:11Z",
+                "completed_at": "2026-10-18T21:02:13Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T21:02:13Z",
+                "completed_at": "2026-10-18T21:02:16Z"
+              },
+              {
+                "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+                "status": "in_progress",
+                "conclusion": null,
+                "number": 8,
+                "started_at": "2026-10-18T21:02:16Z",
+                "completed_at": null
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 13,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 14,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 15,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 16,
+                "started_at": null,
+                "completed_at": null
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117788922310",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024104,
+            "runner_name": "GitHub Actions 1000024104",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          }
+        ]
+      }
+    },
+    {
+      "tag": "code-v98",
+      "source_commit": "be79fe93f6ede786bb6445249c4acddb99b4befc",
+      "run": {
+        "id": 39166387866,
+        "name": "CI",
+        "node_id": "WFR_kwLOVLAot88AAAAJHn-mmg",
+        "head_branch": "main",
+        "head_sha": "be79fe93f6ede786bb6445249c4acddb99b4befc",
+        "path": ".github/workflows/ci.yml",
+        "display_title": "Validate the frozen observed-context metadata contract in replay",
+        "run_number": 78,
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "workflow_id": 385672793,
+        "check_suite_id": 106134207326,
+        "check_suite_node_id": "CS_kwDOVLAot88AAAAYthd7Xg",
+        "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39166387866",
+        "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39166387866",
+        "pull_requests": [],
+        "created_at": "2026-10-18T21:06:58Z",
+        "updated_at": "2026-10-18T21:07:02Z",
+        "actor": {
+          "login": "w4ffl35",
+          "id": 25737761,
+          "node_id": "MDQ6VXNlcjI1NzM3NzYx",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25737761?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/w4ffl35",
+          "html_url": "https://github.com/w4ffl35",
+          "followers_url": "https://api.github.com/users/w4ffl35/followers",
+          "following_url": "https://api.github.com/users/w4ffl35/following{/other_user}",
+          "gists_url": "https://api.github.com/users/w4ffl35/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/w4ffl35/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/w4ffl35/subscriptions",
+          "organizations_url": "https://api.github.com/users/w4ffl35/orgs",
+          "repos_url": "https://api.github.com/users/w4ffl35/repos",
+          "events_url": "https://api.github.com/users/w4ffl35/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/w4ffl35/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "run_attempt": 1,
+        "referenced_workflows": [],
+        "run_started_at": "2026-10-18T21:06:58Z",
+        "triggering_actor": {
+          "login": "w4ffl35",
+          "id": 25737761,
+          "node_id": "MDQ6VXNlcjI1NzM3NzYx",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25737761?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/w4ffl35",
+          "html_url": "https://github.com/w4ffl35",
+          "followers_url": "https://api.github.com/users/w4ffl35/followers",
+          "following_url": "https://api.github.com/users/w4ffl35/following{/other_user}",
+          "gists_url": "https://api.github.com/users/w4ffl35/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/w4ffl35/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/w4ffl35/subscriptions",
+          "organizations_url": "https://api.github.com/users/w4ffl35/orgs",
+          "repos_url": "https://api.github.com/users/w4ffl35/repos",
+          "events_url": "https://api.github.com/users/w4ffl35/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/w4ffl35/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "jobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39166387866/jobs",
+        "logs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39166387866/logs",
+        "check_suite_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-suites/106134207326",
+        "artifacts_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39166387866/artifacts",
+        "cancel_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39166387866/cancel",
+        "rerun_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39166387866/rerun",
+        "previous_attempt_url": null,
+        "workflow_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/workflows/385672793",
+        "head_commit": {
+          "id": "be79fe93f6ede786bb6445249c4acddb99b4befc",
+          "tree_id": "63fbee049053cbd5993c5e0058eff6e5b36c694e",
+          "message": "Validate the frozen observed-context metadata contract in replay",
+          "timestamp": "2026-10-18T21:06:53Z",
+          "author": {
+            "name": "w4ffl35",
+            "email": "25737761+w4ffl35@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "w4ffl35",
+            "email": "25737761+w4ffl35@users.noreply.github.com"
+          }
+        },
+        "repository": {
+          "id": 1420830903,
+          "node_id": "R_kgDOVLAotw",
+          "name": "rsi-programmer",
+          "full_name": "Capsize-Games/rsi-programmer",
+          "private": false,
+          "owner": {
+            "login": "Capsize-Games",
+            "id": 83726625,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjgzNzI2NjI1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/83726625?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Capsize-Games",
+            "html_url": "https://github.com/Capsize-Games",
+            "followers_url": "https://api.github.com/users/Capsize-Games/followers",
+            "following_url": "https://api.github.com/users/Capsize-Games/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Capsize-Games/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Capsize-Games/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Capsize-Games/subscriptions",
+            "organizations_url": "https://api.github.com/users/Capsize-Games/orgs",
+            "repos_url": "https://api.github.com/users/Capsize-Games/repos",
+            "events_url": "https://api.github.com/users/Capsize-Games/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Capsize-Games/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/Capsize-Games/rsi-programmer",
+          "description": "Spiking-neural-network system that learns to write programs: typed-DAG synthesis guided by a trained SNN search policy.",
+          "fork": false,
+          "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer",
+          "forks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/forks",
+          "keys_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/teams",
+          "hooks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/hooks",
+          "issue_events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/events",
+          "assignees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/tags",
+          "blobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/languages",
+          "stargazers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/stargazers",
+          "contributors_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contributors",
+          "subscribers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscribers",
+          "subscription_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscription",
+          "commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/merges",
+          "archive_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/downloads",
+          "issues_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/labels{/name}",
+          "releases_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/deployments"
+        },
+        "head_repository": {
+          "id": 1420830903,
+          "node_id": "R_kgDOVLAotw",
+          "name": "rsi-programmer",
+          "full_name": "Capsize-Games/rsi-programmer",
+          "private": false,
+          "owner": {
+            "login": "Capsize-Games",
+            "id": 83726625,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjgzNzI2NjI1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/83726625?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Capsize-Games",
+            "html_url": "https://github.com/Capsize-Games",
+            "followers_url": "https://api.github.com/users/Capsize-Games/followers",
+            "following_url": "https://api.github.com/users/Capsize-Games/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Capsize-Games/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Capsize-Games/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Capsize-Games/subscriptions",
+            "organizations_url": "https://api.github.com/users/Capsize-Games/orgs",
+            "repos_url": "https://api.github.com/users/Capsize-Games/repos",
+            "events_url": "https://api.github.com/users/Capsize-Games/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Capsize-Games/received_events",
+            "type": "Organization",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/Capsize-Games/rsi-programmer",
+          "description": "Spiking-neural-network system that learns to write programs: typed-DAG synthesis guided by a trained SNN search policy.",
+          "fork": false,
+          "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer",
+          "forks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/forks",
+          "keys_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/teams",
+          "hooks_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/hooks",
+          "issue_events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/events",
+          "assignees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/tags",
+          "blobs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/languages",
+          "stargazers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/stargazers",
+          "contributors_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contributors",
+          "subscribers_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscribers",
+          "subscription_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/subscription",
+          "commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/merges",
+          "archive_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/downloads",
+          "issues_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/labels{/name}",
+          "releases_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/deployments"
+        }
+      },
+      "jobs": {
+        "total_count": 4,
+        "jobs": [
+          {
+            "id": 117790100910,
+            "run_id": 39166387866,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39166387866",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbNZNrg",
+            "head_sha": "be79fe93f6ede786bb6445249c4acddb99b4befc",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117790100910",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39166387866/job/117790100910",
+            "status": "in_progress",
+            "conclusion": null,
+            "created_at": "2026-10-18T21:06:59Z",
+            "started_at": "2026-10-18T21:07:02Z",
+            "completed_at": null,
+            "name": "full (3.12)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T21:07:02Z",
+                "completed_at": "2026-10-18T21:07:04Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T21:07:04Z",
+                "completed_at": "2026-10-18T21:07:11Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T21:07:11Z",
+                "completed_at": "2026-10-18T21:07:12Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T21:07:12Z",
+                "completed_at": "2026-10-18T21:07:13Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T21:07:13Z",
+                "completed_at": "2026-10-18T21:07:14Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T21:07:14Z",
+                "completed_at": "2026-10-18T21:07:16Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T21:07:16Z",
+                "completed_at": "2026-10-18T21:07:20Z"
+              },
+              {
+                "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+                "status": "in_progress",
+                "conclusion": null,
+                "number": 8,
+                "started_at": "2026-10-18T21:07:20Z",
+                "completed_at": null
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 13,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 14,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 15,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 16,
+                "started_at": null,
+                "completed_at": null
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117790100910",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024105,
+            "runner_name": "GitHub Actions 1000024105",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117790101102,
+            "run_id": 39166387866,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39166387866",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbNZObg",
+            "head_sha": "be79fe93f6ede786bb6445249c4acddb99b4befc",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117790101102",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39166387866/job/117790101102",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T21:06:59Z",
+            "started_at": "2026-10-18T21:07:01Z",
+            "completed_at": "2026-10-18T21:11:34Z",
+            "name": "fast (3.12)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T21:07:02Z",
+                "completed_at": "2026-10-18T21:07:04Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T21:07:04Z",
+                "completed_at": "2026-10-18T21:07:11Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T21:07:11Z",
+                "completed_at": "2026-10-18T21:07:13Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T21:07:13Z",
+                "completed_at": "2026-10-18T21:07:13Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T21:07:13Z",
+                "completed_at": "2026-10-18T21:07:14Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T21:07:14Z",
+                "completed_at": "2026-10-18T21:07:16Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.12 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T21:07:16Z",
+                "completed_at": "2026-10-18T21:07:19Z"
+              },
+              {
+                "name": "Run just test-fast",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T21:07:19Z",
+                "completed_at": "2026-10-18T21:11:31Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T21:11:31Z",
+                "completed_at": "2026-10-18T21:11:31Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T21:11:31Z",
+                "completed_at": "2026-10-18T21:11:31Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T21:11:31Z",
+                "completed_at": "2026-10-18T21:11:31Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T21:11:31Z",
+                "completed_at": "2026-10-18T21:11:31Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T21:11:31Z",
+                "completed_at": "2026-10-18T21:11:31Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117790101102",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024106,
+            "runner_name": "GitHub Actions 1000024106",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117790101112,
+            "run_id": 39166387866,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39166387866",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbNZOeA",
+            "head_sha": "be79fe93f6ede786bb6445249c4acddb99b4befc",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117790101112",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39166387866/job/117790101112",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-18T21:06:59Z",
+            "started_at": "2026-10-18T21:07:01Z",
+            "completed_at": "2026-10-18T21:15:13Z",
+            "name": "fast (3.13)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T21:07:02Z",
+                "completed_at": "2026-10-18T21:07:03Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T21:07:03Z",
+                "completed_at": "2026-10-18T21:07:11Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T21:07:11Z",
+                "completed_at": "2026-10-18T21:07:12Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T21:07:12Z",
+                "completed_at": "2026-10-18T21:07:12Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T21:07:12Z",
+                "completed_at": "2026-10-18T21:07:13Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T21:07:13Z",
+                "completed_at": "2026-10-18T21:07:15Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T21:07:15Z",
+                "completed_at": "2026-10-18T21:07:17Z"
+              },
+              {
+                "name": "Run just test-fast",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-18T21:07:17Z",
+                "completed_at": "2026-10-18T21:15:11Z"
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-18T21:15:11Z",
+                "completed_at": "2026-10-18T21:15:11Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-18T21:15:11Z",
+                "completed_at": "2026-10-18T21:15:11Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-18T21:15:11Z",
+                "completed_at": "2026-10-18T21:15:11Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-18T21:15:11Z",
+                "completed_at": "2026-10-18T21:15:11Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-18T21:15:11Z",
+                "completed_at": "2026-10-18T21:15:11Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117790101112",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024107,
+            "runner_name": "GitHub Actions 1000024107",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          },
+          {
+            "id": 117790101217,
+            "run_id": 39166387866,
+            "workflow_name": "CI",
+            "head_branch": "main",
+            "run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/runs/39166387866",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVLAot88AAAAbbNZO4Q",
+            "head_sha": "be79fe93f6ede786bb6445249c4acddb99b4befc",
+            "url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/actions/jobs/117790101217",
+            "html_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39166387866/job/117790101217",
+            "status": "in_progress",
+            "conclusion": null,
+            "created_at": "2026-10-18T21:06:59Z",
+            "started_at": "2026-10-18T21:07:01Z",
+            "completed_at": null,
+            "name": "full (3.13)",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-18T21:07:02Z",
+                "completed_at": "2026-10-18T21:07:04Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-18T21:07:04Z",
+                "completed_at": "2026-10-18T21:07:11Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-18T21:07:11Z",
+                "completed_at": "2026-10-18T21:07:12Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-18T21:07:12Z",
+                "completed_at": "2026-10-18T21:07:12Z"
+              },
+              {
+                "name": "Run extractions/setup-just@v2",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-18T21:07:12Z",
+                "completed_at": "2026-10-18T21:07:14Z"
+              },
+              {
+                "name": "Run astral-sh/setup-uv@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-18T21:07:14Z",
+                "completed_at": "2026-10-18T21:07:16Z"
+              },
+              {
+                "name": "Run UV_PYTHON=3.13 just setup \"${GITHUB_WORKSPACE}/vendor/spikeforge\"",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-18T21:07:16Z",
+                "completed_at": "2026-10-18T21:07:23Z"
+              },
+              {
+                "name": "Run .venv/bin/python -m unittest discover -s tests -t .",
+                "status": "in_progress",
+                "conclusion": null,
+                "number": 8,
+                "started_at": "2026-10-18T21:07:23Z",
+                "completed_at": null
+              },
+              {
+                "name": "Post Run astral-sh/setup-uv@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 13,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "pending",
+                "conclusion": null,
+                "number": 14,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 15,
+                "started_at": null,
+                "completed_at": null
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "pending",
+                "conclusion": null,
+                "number": 16,
+                "started_at": null,
+                "completed_at": null
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/Capsize-Games/rsi-programmer/check-runs/117790101217",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000024108,
+            "runner_name": "GitHub Actions 1000024108",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          }
+        ]
+      }
+    }
+  ]
+}

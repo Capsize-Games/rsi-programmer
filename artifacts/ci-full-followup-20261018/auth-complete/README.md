@@ -1,0 +1,7 @@
+# Authentication source full CI completion
+
+GitHub Actions run [39154146448](https://github.com/Capsize-Games/rsi-programmer/actions/runs/39154146448) completed successfully for source commit `59ef1abe06a5a9d0d8e9813252f05c902fdfc729` (code-v87). All four matrix jobs passed: fast and full on Python 3.12 and 3.13. The two fast jobs each ran 374 tests; both full jobs ran 441 tests. Full-suite unittest times were 8,875.001 seconds (3.12) and 5,910.417 seconds (3.13).
+
+The new Python 3.12 full log came from `gh api repos/Capsize-Games/rsi-programmer/actions/jobs/117753752836/logs`, returned 46,993 bytes, and is preserved as `full-312.log.gz`. Gzip decompression was byte-identical to the fetched response. Its footer reports `Ran 441 tests in 8875.001s` and `OK`; the checkout log identifies source commit `59ef1abe06a5a9d0d8e9813252f05c902fdfc729` and Spikeforge commit `2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6`. The log also contains expected stdout from a test that exercises an invalid-output-directory failure; unittest itself completed with `OK`.
+
+Fast logs and the Python 3.13 full log were reused from earlier code-v87 evidence in `../code87/`; those files were not rewritten. `acceptance-matrix.json` combines exact run/job metadata, all four results and log hashes, and the frozen source tree digest plus 162 source-input Git blob hashes from the existing source proof. Earlier checkpoint JSONs remain unchanged. No local tests were run and no source, workflow, tags, or issues were changed for this evidence collection.
