@@ -19,6 +19,29 @@ from scripts.benchmark_bounded_candidates import main
 
 
 class BoundedBenchmarkTests(unittest.TestCase):
+    def test_real_training_startup_stops_before_any_evaluation(self) -> None:
+        class StartupComplete(Exception):
+            pass
+
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / "startup"
+            with patch.object(run, "measure_memory",
+                              side_effect=StartupComplete) as memory:
+                with self.assertRaises(StartupComplete):
+                    run.run(output)
+            memory.assert_called_once()
+            checkpoint = json.loads((output / "training.json").read_text())
+            self.assertEqual(len(checkpoint["training_groups"]["groups"]), 24)
+            seed = checkpoint["seeds"][0]
+            self.assertEqual(seed["seed"], 0)
+            expected = run.load_protocol()["model_reference"][
+                "expected_weights_after_fit"]["0"]
+            for control in ("trained_snn", "mlp", "recurrent"):
+                self.assertEqual(seed["controls"][control][
+                    "weights_after_fit_sha256"], expected[control])
+            self.assertFalse((output / "memory.jsonl").exists())
+            self.assertFalse((output / "raw.jsonl").exists())
+
     def test_real_frozen_preflight_and_complete_asymmetric_grid(self) -> None:
         protocol = run.load_protocol()
         _, corpus = load_frozen_inputs()

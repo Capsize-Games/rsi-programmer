@@ -1,5 +1,9 @@
 # Bounded experiment validation
 
+The latest startup amendment and its 51 focused/350 fast passing tests are
+recorded in [startup-fix.md](startup-fix.md). The earlier results below remain
+as historical evidence.
+
 The focused search/feature/benchmark contracts passed 50 tests in 0.647 s.
 `just test-fast` then passed 349 tests in 219.946 s (CLI wall 223.272 s).
 Both commands returned zero and all captured runtime/test/fixture/dependency

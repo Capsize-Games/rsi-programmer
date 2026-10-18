@@ -34,6 +34,17 @@ python artifacts/benchmark-bounded-audit-20261018/bounded_audit.py \
 
 `auditor-preflight.json` records the frozen protocol hash and reconciled matrix
 sizes. `auditor-validation.json` records syntax, formatting, and numeric
-comparison checks. No complete benchmark bundle is available at this
-checkpoint; the positive result audit and corrupted-bundle controls are
-pending.
+comparison checks. `negative_controls.py` tests rejection of duplicate raw
+keys, a paired ratio changed by 0.25, an incorrect accepted graph, and a
+forged training charge. It makes temporary copies and refreshes bundle file
+hashes after mutation, so the auditor must reject the corrupted content. Run
+it after the completed bundle exists:
+
+```sh
+python artifacts/benchmark-bounded-audit-20261018/negative_controls.py \
+  artifacts/benchmark-bounded-v1-<run>/ \
+  --output artifacts/benchmark-bounded-audit-20261018/negative-controls.json
+```
+
+No complete benchmark bundle is available at this checkpoint, so the positive
+result audit and the four bundle-level negative controls remain pending.

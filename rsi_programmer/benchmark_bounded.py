@@ -240,7 +240,12 @@ def run(output: Path, protocol_path: Path = PROTOCOL_PATH) -> dict[str, Any]:
     cpu_start, wall_start = time.process_time_ns(), time.perf_counter_ns()
     child_start = resource.getrusage(resource.RUSAGE_CHILDREN)
     started = time.process_time_ns(), time.perf_counter_ns()
-    groups, group_setup = build_training_groups(corpus, protocol)
+    groups, group_setup = build_training_groups(
+        corpus["splits"]["train"],
+        positive_cap=protocol["training"]["positive_cap"],
+        negative_cap=protocol["training"]["negative_cap"],
+        sampling_seed=protocol["training"]["sampling_seed"],
+    )
     group_cpu = time.process_time_ns() - started[0]
     group_wall = time.perf_counter_ns() - started[1]
     if any(g.get("status") != "ok" for g in group_setup["groups"]):

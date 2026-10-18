@@ -4,6 +4,19 @@
     "uv tool run --from ruff ruff format --check --line-length 79 artifacts/benchmark-bounded-audit-20261018/bounded_audit.py",
     "python -B inline validation: AST parse; <=79 columns; close(0.2,0.6)=False; close(True,1)=False; close(1.0,1.0+1e-12)=True; independently enumerate expected_rows against frozen protocol/corpus"
   ],
+  "negative_control_harness": {
+    "bundle_execution": "pending completed benchmark bundle",
+    "controls": [
+      "duplicate raw key",
+      "paired ratio +0.25",
+      "wrong accepted graph",
+      "forged training charge"
+    ],
+    "format": "passed",
+    "path": "artifacts/benchmark-bounded-audit-20261018/negative_controls.py",
+    "sha256": "2450fa8fdb100850f419c155e6c2ac725bc85e5e3c6a6bf9d894f648355897d1",
+    "syntax": "passed"
+  },
   "report_type": "bounded-candidate-auditor-validation",
   "results": {
     "benchmark_bundle_available": false,
