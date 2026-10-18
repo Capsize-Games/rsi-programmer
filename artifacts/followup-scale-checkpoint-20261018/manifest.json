@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-10-18T11:10:02.676668+00:00",
+  "source": {
+    "sha256": "476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73",
+    "files": 105
+  },
+  "source_input_manifest": "../followup-hub-fix-20261018/manifest.json",
+  "source_input_manifest_sha256": "75180da774c64628ccd8402ddc39672ff1d348ea1b0fddf29684b7465c932ec0",
+  "reported_passes": 57,
+  "reported_failures": 0,
+  "slow_status": "running; partial snapshot, not a completed gate",
+  "retry_status": "queued; not started",
+  "completed_scale_checks": [
+    "test_author_weighted_acceptance_locks_weights",
+    "test_baselines_shape"
+  ],
+  "pending": [
+    "remaining complete slow lane",
+    "complete retry lane"
+  ],
+  "log_sha256": "5fa2c6d699b7e4748985b8fadbc661ea3ed709800e1bca2f8c5743c3dfc72a00"
+}

@@ -1,5 +1,24 @@
 # Audit follow-up
 
+## code-v55: first scale acceptance checks verified
+
+The current slow lane passed the original author-weighted acceptance
+weight-locking check and the scale baseline checks. At **2026-10-18T11:10:02.676668+00:00**,
+it has **57 reported passes and zero reported failures**. The next
+scale evolution-and-acceptance check is running. This remains a partial
+lane snapshot; complete slow and retry results are still pending.
+#66 stays open until those complete integration gates pass.
+
+The checkpoint changes evidence and documentation only. All 105
+validation inputs still match code-v53 and the frozen gate source:
+`476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73`. Local fast and both CI fast jobs
+remain completed passes. Hard-surrogate fitting/selection still has
+one-task coverage; search acceptance still covers all eight tasks.
+No quality improvement is inferred from these contract checks.
+
+[Partial slow log](../artifacts/followup-scale-checkpoint-20261018/slow-partial.log)
+and [dated source/progress manifest](../artifacts/followup-scale-checkpoint-20261018/manifest.json).
+
 ## code-v54: current CI fast matrix verified
 
 Both code-v53 CI fast jobs passed: Python 3.12 **Ran 270 tests in 435.346s; OK**;

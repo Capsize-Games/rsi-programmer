@@ -1,8 +1,7 @@
 # Audit progress
 
-The [audit follow-up](audit-followup.md) records code-v54's completed
-Python 3.12/3.13 CI fast matrix on the code-v53 runtime, alongside the
-local complete green fast gate. Local slow is running and retry remains
-queued; #66 stays open pending those integration results. Partial logs
-are dated and not counted as complete gates. Prior failures and the
-fresh three-seed measurement limits remain in the report.
+The [audit follow-up](audit-followup.md) records code-v55's first scale
+acceptance checks and dated partial slow result. Full slow is still
+running; retry remains queued and #66 stays open. Local fast and the
+current Python 3.12/3.13 CI fast matrix are green. All gate inputs remain
+unchanged; earlier failures and research limits remain published.
