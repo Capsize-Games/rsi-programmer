@@ -1,0 +1,285 @@
+{
+  "protocol_id": "benchmark-bounded-candidates-v1",
+  "schema_version": 1,
+  "status": "frozen-before-measurement",
+  "baseline_revision": "01f20de2c8adee9f4f3e53ba003f44ddae5af7e5",
+  "corpus": {
+    "path": "fixtures/benchmark_pre_eval_corpus_v2.json",
+    "sha256": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+    "generator_source": {
+      "scripts/generate_benchmark_pre_eval_v2.py": "30cf448a5762710958df1ca96d7631b442e32638dd9236f63e297018d3076b31",
+      "rsi_programmer/benchmark_v2_corpus.py": "13c49ca629ce51e766ffdd3615a925a601ede4c9cff9a713710d159698f6526f"
+    },
+    "reproduction_command": ".venv/bin/python scripts/generate_benchmark_pre_eval_v2.py --output /tmp/benchmark_pre_eval_corpus_v2.json",
+    "counts": {
+      "train_tasks": 24,
+      "eval_tasks": 48,
+      "train_per_family": 8,
+      "tasks_per_eval_family": 16
+    },
+    "families": [
+      "balanced",
+      "repeated_subtree",
+      "skewed"
+    ],
+    "family_definitions": {
+      "balanced": "Root children have equal tree-operation counts.",
+      "repeated_subtree": "At least one nonleaf syntactic subtree occurs twice anywhere in the tree; terminals alone do not qualify.",
+      "skewed": "Root children differ in tree-operation count by at least two."
+    },
+    "selection": "Enumerate all ordered add/sub/mul trees with four or five operators and x/y leaves. Reserve canonical polynomial functions across entire family pools in repeated_subtree, balanced, skewed order. Within each family, sort syntax keys by SHA256(seed:key), keep the first witness for each globally unreserved function satisfying the algebraic floor, then sort those representatives by SHA256(82074:family:key). Select the first eight four-operation witnesses when available and fill the 24-function family quota with five-operation witnesses. Sort all 72 selections by SHA256(82074:split:family:key); the first eight per family enter training, the next sixteen evaluation. These syntax families and selection rules differ from v1.",
+    "generation_seeds": {
+      "repeated_subtree": 82071,
+      "balanced": 82072,
+      "skewed": 82073,
+      "split": 82074,
+      "inputs": 82075
+    },
+    "difficulty_floor": "Require degree>=2 and (degree>=5 or degree==4 and coefficient L1>1 or degree==3 and L1>2 or degree==2 and L1>4). Every arithmetic tree with at most three operators is outside this floor. This proves a four-operation minimum tree representation, not a minimum DAG size. Selected witnesses contain 16 four-operation and 56 five-operation trees.",
+    "dsl": {
+      "operators": [
+        "add",
+        "sub",
+        "mul"
+      ],
+      "terminals": [
+        "x",
+        "y"
+      ],
+      "witness_tree_ops": [
+        4,
+        5
+      ],
+      "max_tree_ops": 5
+    },
+    "rows_per_task": {
+      "observed": 12,
+      "held": 12
+    },
+    "input_rule": "Sort all 4225 integer coordinate pairs in [-32,32]^2 by SHA256(82075:x:y). In global selection order allocate the next 24 unused coordinates to each task, first twelve observed and next twelve held. All 1728 coordinate pairs are distinct; all splits use the same signed grid distribution.",
+    "split_guarantees": [
+      "72 globally distinct canonical integer polynomial functions; no shared training/evaluation function",
+      "zero exact function overlap with v1",
+      "unique witness syntax and task IDs",
+      "globally disjoint observed and held coordinate pairs",
+      "selection uses syntax, exact algebra, fixed seeds and quotas only; no solver, ranker or runtime outcome filtering"
+    ],
+    "limitations": [
+      "Exact disjointness applies to whole integer polynomial functions, not operators, subexpressions, algebraic motifs or input distributions.",
+      "Family reservation order affects the sampled function population. Syntax family membership may overlap before reservation.",
+      "This is a two-input arithmetic DSL with no constants, branches or other task domains.",
+      "The algebraic filter favors high degree or coefficient norm; it is a declared task distribution, not an unbiased sample of programs.",
+      "Differences from v1 include corpus size, difficulty, rows, sampling and budgets; a v1/v2 difference alone cannot identify its cause."
+    ]
+  },
+  "corpus_protocol": {
+    "path": "fixtures/benchmark_pre_eval_v2.json",
+    "sha256": "cf83dc077dc7960d4e576d898d842484655ac2c61d0e36128da6cda5ae8e7015"
+  },
+  "training": {
+    "task_split": "train",
+    "training_task_count": 24,
+    "training_rows_only": true,
+    "label_rule": "Enumerate complete cached-vector layers in fixed probe order from observed rows of training tasks only. At the first layer containing a target-signature match, label every descriptor by exact equality to those observed targets. Record all generation work and pool counts. Failure to build any group invalidates the benchmark; never silently remove a task.",
+    "positive_cap": 16,
+    "negative_cap": 256,
+    "sampling_seed": 82078,
+    "sampling_rule": "Within each task and label class sort original zero-based generation ordinals by SHA256(sha256-v1:seed:task-id:class:original-ordinal:82078:task_id:label:ordinal), retaining up to the class cap. Restore generation order after selection. Features retain the original full-layer ordinal and width denominator. Use the same selected groups for all learned controls and all seeds.",
+    "epochs": 40,
+    "optimizer": "Adam",
+    "learning_rate": 0.05,
+    "loss": "Sum of per-group mean softplus(1 - (positive score - negative score)); one optimizer update per epoch for eligible groups.",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "policy_seed_rule": "Initialize each model independently with the listed seed; fit exactly once, then freeze the instance for all evaluation tasks and budgets. No early stopping, hyperparameter search or evaluation-based selection.",
+    "cost_accounting": "Retain group pools, sampling indices and hashes, selected feature vectors and labels, setup time and row work; record actual forward batches/rows/ticks and optimizer updates, final losses, parameter counts, model state and pure weight hashes."
+  },
+  "feature_encoding": {
+    "name": "layer-ordinal-v1",
+    "dimensions": 12,
+    "definition": "Operator one-hot (3); left/right/root tree sizes divided by common bound (3); operand hit and inside fractions against observed targets (4); original generation ordinal divided by full layer width and its complement (2). No candidate output, exact-match flag, witness, canonical function, held row or evaluation-task feature participates in fitting. Evaluation ranking uses its own task's observed inputs and targets."
+  },
+  "controls": [
+    "streaming",
+    "heuristic",
+    "trained_snn",
+    "mlp",
+    "recurrent"
+  ],
+  "model_reference": {
+    "path": "artifacts/benchmark-pre-eval-v2-20261018/training.json",
+    "sha256": "47b02c532f5a11faa4808f5ae9646ba976ab8a56d80a0aadfcaf062239d82b6b",
+    "expected_weights_after_fit": {
+      "0": {
+        "heuristic": "81c1e0e19df714ce681de3c273898a034ae5c61ac7d3bd0fc21bb50e46b90c49",
+        "mlp": "35efcb5acb5f5936890504e109a13f3ddc0aabf069476f2545b8d322298b0deb",
+        "recurrent": "1bd48509e59d7c4152ca4f95607f4b4f5def252a1f5d57a4b92821b60daf7316",
+        "seeded_random": "cb5d4de4c08c802821db4a34678a7f8274bf1e53e475d1a602e9f69679781ca8",
+        "streaming": "none",
+        "trained_snn": "f4893eae9c00c213e3184e599c06ac627863233f69b767d4d4a5de673a3ad791",
+        "untrained_snn": "4752bdfe65bcd4c7b861fcde3282db6a9322dcbadcff5df2199446c80858f71e"
+      },
+      "1": {
+        "heuristic": "81c1e0e19df714ce681de3c273898a034ae5c61ac7d3bd0fc21bb50e46b90c49",
+        "mlp": "b2eefd8d59cedacffb9bd76c52e8b8bfc28b0b6942f36adbf30d2e63c03c2b7d",
+        "recurrent": "2d0dbc8b18b0dba831ec83adcd80a494832102ca2d7df523f5d1e504f9822256",
+        "seeded_random": "76faa335cee1dcb7e2e014b229d7f526702dd451e07d4772fc15b14c37c2b827",
+        "streaming": "none",
+        "trained_snn": "85a7d0c2c2fae3d3b68937106fd23ab148453c7f5f6630de88141567eb8e9d06",
+        "untrained_snn": "ad4934ec5bd9e99b54fa685879c8c3684d1e7bea948a64e8a34d1a7e0fecd12a"
+      },
+      "2": {
+        "heuristic": "81c1e0e19df714ce681de3c273898a034ae5c61ac7d3bd0fc21bb50e46b90c49",
+        "mlp": "dc579f635e3d1be8ff7e67b88079b02127ade11ddb17620dee30ab0a93ea7ace",
+        "recurrent": "47137fd41336d2f9c5c750324807aa404b02ef575a454e16e2d38e3541262599",
+        "seeded_random": "f124c8f97c5c09bcf783a0f8c38c4a2e9398f823d0e0044e3ba00c157ecf9d36",
+        "streaming": "none",
+        "trained_snn": "ff7bb4dc6b7bb44a71ca98e68728184761e2d2819c5e36460f42a569907019aa",
+        "untrained_snn": "8ea64eb028c2f476a07577dd5897a5f26e0e9bcce0a9c0f8f423b6309f66014d"
+      }
+    }
+  },
+  "baseline_source": {
+    "path": "benchmarks/reference/pre_eval_code_v71.py",
+    "sha256": "89980386cc53fc01394505f77139054ac5a92ae7b96ec513a2acd7d49989ad14",
+    "original_path": "rsi_programmer/pre_eval.py",
+    "git_ref": "code-v71",
+    "helper_sha256": {
+      "rsi_programmer/pre_eval_features.py": "14efc4a6093cc7ea98b35343f9442683e52296a5266adca6b1427a060432de0b"
+    }
+  },
+  "method": {
+    "name": "grammar-window-shortlist",
+    "engine": "bounded",
+    "window_size": 256,
+    "candidates_per_window": 64,
+    "selection": "Fixed engineering choice of 256 active candidates and one-quarter execution quota. No evaluation outcome or timing used to select these parameters. This is one declared point, no parameter sweep or fallback quota.",
+    "enumeration": "Generate the current layer lazily in original left-size/left/right/operator grammar order. Its width is the exact product-sum over the currently retained prior layers. Encode each descriptor with its one-based global ordinal divided by this full current-layer width; never normalize by block length. Gap uses all retained prior operand vectors once per layer.",
+    "execution": "Score every descriptor in each block of up to 256, stable ties in generation order. Execute only the first min(64, block length, remaining root cap) ranked candidates; accept and return immediately on observed signature match, subject to normal graph/oracle checks. Full block can be scored even if fewer than 64 root calls remain. Count scored-but-unexecuted candidates and pruning separately.",
+    "retention": "Unselected candidates are permanently pruned. At a fully traversed grammar layer, retain only actually executed selected candidates in original global generation order, deduplicated by (operator, observed signature) with one alternative. Install no partial layer if the root cap interrupts traversal. Consequently future operand pools, layer widths, reachability, returned graph and success may differ from full cached and streaming. No exhaustiveness or cross-engine equivalence claim.",
+    "bounds": "Active descriptor and feature blocks must each peak at <=256, excluding retained expression/vector sets and pending retained next-layer members. Measure those costs separately in isolated memory passes. Root-signature cap does not bound descriptor/scoring cost; report scan amplification and absolute work axes."
+  },
+  "evaluation": {
+    "task_split": "eval",
+    "task_count": 48,
+    "tree_bound": 5,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "ranked_controls": [
+      "heuristic",
+      "trained_snn",
+      "mlp",
+      "recurrent"
+    ],
+    "ranked_engines": [
+      "full_cached",
+      "bounded"
+    ],
+    "ranked_budgets": [
+      2048,
+      8192,
+      32768,
+      131072
+    ],
+    "streaming_budgets": [
+      2048,
+      8192,
+      32768,
+      131072,
+      524288
+    ],
+    "streaming_engine": "streaming",
+    "repeats": 2,
+    "engine_order_seed": 81081,
+    "matrix_rows": 10656,
+    "schedule": "Seed ascending, task frozen corpus order, controls listed order. Streaming loops its five budgets ascending then repeat0,1 once per cell. Each ranked control loops four budgets ascending, repeat0,1, then adjacent engine pair. First engine index is first SHA256 byte of UTF8 81081:seed:task_id:budget:control modulo2 in [full_cached,bounded]; repeat1 reverses it.",
+    "warmup": "After fitting and before timed evaluation for each seed, rank one fixed 16-row batch for each non-streaming control using valid 12-dimensional features with all values 0.0. Warmup is excluded from attempt timing, included in whole-run time, and must leave model weights/state unchanged. No evaluation target is used for warmup.",
+    "search_contract": "Exactly one search attempt per cell using only twelve observed rows, common bound five, oracle=None. Independently validate any returned graph on observed and held rows, then canonicalize the returned graph polynomial and require equality to the frozen expected polynomial. Accepted requires search solved and all three checks. Held rows, witnesses and canonical functions are post-search verification only; never feedback or retry.",
+    "alternatives_per_signature": 1,
+    "signature_budget": null,
+    "oracle": null,
+    "timing": "Use time.process_time_ns and time.perf_counter_ns. Search-only timers enclose the engine call, including descriptors, features, ranking/sorting, candidate execution and its graph validation. Attempt timers start before policy-state/weight hashing and end after post-search exact/observed/held validation and final hashes; exclude JSON/report I/O. The same wrapper surrounds both engines. Record whole-run CPU/wall including setup, training, warmup and report I/O separately.",
+    "resources": "Single /tmp/rsi-programmer-builder.lock, CPU-only Torch intra-op=1. No concurrent tests/training/profile. No outcome-dependent retry, timeout, task removal, quota adjustment or cap extension after freeze. Preserve failures. Existing v1/v2/total-work-v1 inputs, scripts and raw bundles unchanged."
+  },
+  "memory": {
+    "seeds": [
+      0
+    ],
+    "budget": 32768,
+    "modes": [
+      "rss",
+      "tracemalloc"
+    ],
+    "rows_per_mode": 432,
+    "matrix_rows": 864,
+    "schedule": "After seed0 fit/warmup and before any timed evaluation: mode listed order, tasks frozen order, controls listed order; streaming once, ranked full_cached then bounded. Each cell in a fresh forked child from the same parent before raw timing rows exist. No training in child.",
+    "measurement": "RSS pass has no tracemalloc and records Linux ru_maxrss KiB before/after attempt, plus peak-minus-initial KiB. The separate tracemalloc pass records traced current/peak Python bytes and its instrumented RSS, explicitly not the uninstrumented memory figure. Tracemalloc excludes some native Torch allocations; child RSS includes inherited process/model pages and allocator overhead. Neither pass supplies performance timings. Compare each memory-cell graph/behavior fingerprint and counters with the corresponding seed0 timed repeat0 cell. Native RSS is an isolated per-child highwater, not a per-cell cumulative parent highwater.",
+    "source_rule": "Same frozen source/corpus/model weights and bounded params as timing. Child errors invalidate run. Warm caches and inherited initialization order are fixed and stated; parent model state must remain unchanged."
+  },
+  "work_ledger": {
+    "rule": "Report a vector of work units and actual CPU/wall time; never add unrelated counts into a scalar total or treat signature count as all compute.",
+    "counts": [
+      "candidate signature evaluations",
+      "generated and scored descriptors",
+      "operand vector lookups and builds",
+      "feature vectors",
+      "policy batches/ticks/row steps",
+      "SNN-only steps",
+      "candidate row operations",
+      "graph validation calls and node-row operations",
+      "observed/held/exact post-check work",
+      "target-range elements scanned",
+      "operand feature-stat elements scanned",
+      "feature-cache lookups/hits/misses",
+      "pruned descriptors",
+      "active descriptor/feature peaks",
+      "policy candidate scan amplification",
+      "completed-layer retained members"
+    ],
+    "limits": "The ledger is not a count of all machine instructions, allocations or floating-point operations. CPU/wall timing covers work absent from individual counters. No energy claim."
+  },
+  "aggregation": {
+    "matched_success_targets": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "matched_success": "For each engine/control/repeat and pooled, choose first ascending declared cap reaching target across all48tasks/3seeds, retain all failures in mean CPU/wall, report achieved coverage/overshoot/work and training-amortized cost. Censor at engine-specific maximum cap if unreached; no interpolation. Repeats must agree but are not independent tasks.",
+    "ratios": "At each ranked budget/control report bounded/full_cached CPU and wall ratios and generated/scored/root ratios per repeat and pooled; these compare different search outcomes, not equivalent work. Report independent streaming cost curve across its larger cap sweep.",
+    "determinism": "Within engine/seed/control/task/budget all deterministic counters, validation flags, graph and behavior fingerprint must match across repeats. Cross-engine graph/success identity is not required. All accepted graphs must equal the exact frozen function and pass observed/held rows."
+  },
+  "amortization": {
+    "task_counts": [
+      48,
+      480,
+      4800
+    ],
+    "rule": "Report per-attempt CPU/wall plus (full training-group generation cost + that control/seed model construction and fit cost)/N for each N, average across seeds, learned controls only. Charge each learned control the full common supervision setup as a counterfactual standalone system; never divide it by the number of controls. Streaming, fixed heuristic, random and untrained SNN incur no training charge; report model-construction costs separately for those. Fixed task costs extrapolated to 480/4800 are accounting scenarios, not measured generalization or repeated independent tasks.",
+    "setup": "Measure actual group-generation CPU/wall once, per-control construction and fit CPU/wall for each seed, and record fit work. Separate shared experiment setup/provenance/report I/O from production search and training costs."
+  },
+  "decision_rule": {
+    "target": 1.0,
+    "minimum_cpu_reduction": 0.2,
+    "amortization_task_count": 48,
+    "required_controls": [
+      "trained_snn",
+      "mlp",
+      "recurrent"
+    ],
+    "per_control": "A bounded full-success cost improvement requires both full_cached and bounded to reach100% within frozen caps and bounded mean attempt CPU plus full setup/fit charge at N48 <=80% of full_cached at its first100% cap. Censoring is failure to establish improvement, never an estimated cost. Report all controls/thresholds even when rule fails.",
+    "overall": "Support the bounded method only if infrastructure/independent audits pass and each of the three required learned controls passes its full-success cost rule. Keep existing default engine unchanged: this is an experimental API, no automatic production promotion.",
+    "snn_claim": "Within bounded engine only: no SNN advantage unless bounded trained SNN, bounded MLP, bounded recurrent and streaming all reach100%, and bounded trained SNN has at least10% lower N48 total CPU than each bounded ANN and streaming at its own first100% cap. Otherwise no efficiency advantage established. No claims beyond known v2 functions, frozen models, source/hardware and schedule. No new generalization experiment."
+  },
+  "provenance": {
+    "freeze": "Push/tag protocol+immutable cached baseline and descriptive profile evidence before any bounded evaluation/performance measurement. Tests/training-only contract checks may precede measurement. Never retune this protocol using evaluation results.",
+    "integrity": "Complete unique10656 timed cells+864 memory cells; exact corpus/protocol/baseline/helper/model hashes; before/after all runtime/test/fixture/script and active dependency hashes/environment; frozen fit and post-eval states. Independent auditor imports no production search/training; graphs/grid/order/counters/aggregates/amortization/decision and deliberate corrupted controls checked. Preserve first failures.",
+    "stages": "Publish profile/freeze, verified implementation/tests, complete auditable results with commits/push/tags and issue evidence."
+  }
+}

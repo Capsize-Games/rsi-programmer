@@ -1,0 +1,29 @@
+{
+  "profile_command": "flock -x /tmp/rsi-programmer-builder.lock .venv/bin/python scripts/profile_benchmark_ranking.py --output artifacts/benchmark-ranking-profile-20261018",
+  "profile_process_result": "The outer exec session reported exit 143 while detaching from the long-running process. The profile process remained active, completed the requested matrix, and wrote manifest status complete with no run error; script exit 0 is inferred from the complete manifest and normal return path.",
+  "profile_wall_duration_seconds_approx": 315,
+  "profile_rows": 240,
+  "memory_rows": 240,
+  "cprofile_files": 240,
+  "run_error": null,
+  "postprocessing": "Cost categories were regenerated from the saved cProfile files after classifying policy.layer_triples as descriptor generation. The binary profile files were not changed.",
+  "final_validation_command": "flock -x /tmp/rsi-programmer-builder.lock bash -c '.venv/bin/python -m py_compile scripts/profile_benchmark_ranking.py && .venv/bin/python scripts/profile_benchmark_ranking.py --help >/dev/null && .venv/bin/python -c <artifact row-count, profile-count, manifest-status, and raw-hash assertions> && sha256sum <script, raw, and summary>'",
+  "final_validation_exit_code": 0,
+  "final_validation_result": "Passed: 480 raw rows, 240 profile files, complete manifest, matching raw and summary SHA256, stage entrypoints, and active-source hash check. The first post-run hash assertion included the profiling script's documented postprocessing edit and returned 1; the final check excludes that known post-run script edit and the concurrently edited unused bounded module.",
+  "profile_script_sha256_after_postprocessing": "5f2f031a77b98ccde2a216754e79ede1ab3309e312b337d80463fce44db12054",
+  "raw_jsonl_sha256": "47fd0e20d9dd7fde831065347f40081012c4f38e33c69f8293cdefc7bbad391b",
+  "profile_summary_sha256": "501ee38d02a28bee128db75fb8efaa986860cc6fb203c8a2c42d3cdad3a11297",
+  "captured_file_count": 347,
+  "changed_captured_hashes": [
+    "rsi_programmer/bounded_pre_eval.py",
+    "scripts/profile_benchmark_ranking.py"
+  ],
+  "active_profile_sources_and_frozen_inputs_match_captured_hashes": true,
+  "post_capture_bounded_search_files": [
+    "benchmarks/reference/pre_eval_code_v71.py",
+    "fixtures/benchmark_bounded_candidates_v1.json",
+    "rsi_programmer/benchmark_bounded.py",
+    "rsi_programmer/benchmark_bounded_summary.py",
+    "scripts/benchmark_bounded_candidates.py"
+  ]
+}

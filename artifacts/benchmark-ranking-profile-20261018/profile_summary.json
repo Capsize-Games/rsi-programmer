@@ -1,0 +1,185 @@
+{
+  "controls": {
+    "heuristic": {
+      "cost_categories": {
+        "descriptor_generation": {
+          "cumulative_cpu_s_sum_overlapping": 2.4423569870000006,
+          "own_cpu_s_sum": 1.9811991949999999
+        },
+        "feature_assembly": {
+          "cumulative_cpu_s_sum_overlapping": 5.389508577000001,
+          "own_cpu_s_sum": 2.9622111540000002
+        },
+        "model_inference": {
+          "cumulative_cpu_s_sum_overlapping": 4.048714673999998,
+          "own_cpu_s_sum": 0.21486668099999998
+        },
+        "retention": {
+          "cumulative_cpu_s_sum_overlapping": 0.23380398399999996,
+          "own_cpu_s_sum": 0.23380398399999996
+        },
+        "sorting": {
+          "cumulative_cpu_s_sum_overlapping": 0.205449464,
+          "own_cpu_s_sum": 0.146779869
+        }
+      },
+      "profiled_cpu_s_median": 0.278412874,
+      "profiled_cpu_s_sum": 11.423091437000002,
+      "task_count": 48,
+      "tracemalloc_peak_bytes_max": 34176659,
+      "tracemalloc_peak_bytes_median": 28920027
+    },
+    "mlp": {
+      "cost_categories": {
+        "descriptor_generation": {
+          "cumulative_cpu_s_sum_overlapping": 2.3199236909999996,
+          "own_cpu_s_sum": 1.9284727089999998
+        },
+        "feature_assembly": {
+          "cumulative_cpu_s_sum_overlapping": 5.576337390999997,
+          "own_cpu_s_sum": 3.075572004
+        },
+        "model_inference": {
+          "cumulative_cpu_s_sum_overlapping": 2.897809607,
+          "own_cpu_s_sum": 0.07297913899999998
+        },
+        "retention": {
+          "cumulative_cpu_s_sum_overlapping": 0.23462704399999998,
+          "own_cpu_s_sum": 0.23462704399999998
+        },
+        "sorting": {
+          "cumulative_cpu_s_sum_overlapping": 0.27087207799999996,
+          "own_cpu_s_sum": 0.21200631999999997
+        }
+      },
+      "profiled_cpu_s_median": 0.28028708900000004,
+      "profiled_cpu_s_sum": 11.078505774000002,
+      "task_count": 48,
+      "tracemalloc_peak_bytes_max": 33342220,
+      "tracemalloc_peak_bytes_median": 28900997
+    },
+    "recurrent": {
+      "cost_categories": {
+        "descriptor_generation": {
+          "cumulative_cpu_s_sum_overlapping": 1.9578313790000006,
+          "own_cpu_s_sum": 1.6132133489999998
+        },
+        "feature_assembly": {
+          "cumulative_cpu_s_sum_overlapping": 5.5570958159999995,
+          "own_cpu_s_sum": 3.075680350000001
+        },
+        "model_inference": {
+          "cumulative_cpu_s_sum_overlapping": 4.258628861,
+          "own_cpu_s_sum": 0.11186957900000001
+        },
+        "retention": {
+          "cumulative_cpu_s_sum_overlapping": 0.23591055600000002,
+          "own_cpu_s_sum": 0.23591055600000002
+        },
+        "sorting": {
+          "cumulative_cpu_s_sum_overlapping": 0.27358890199999997,
+          "own_cpu_s_sum": 0.21437401
+        }
+      },
+      "profiled_cpu_s_median": 0.2960189640000001,
+      "profiled_cpu_s_sum": 11.131639916000001,
+      "task_count": 48,
+      "tracemalloc_peak_bytes_max": 29224972,
+      "tracemalloc_peak_bytes_median": 28920372
+    },
+    "streaming": {
+      "cost_categories": {
+        "descriptor_generation": {
+          "cumulative_cpu_s_sum_overlapping": 1.85267137,
+          "own_cpu_s_sum": 1.368609789
+        },
+        "retention": {
+          "cumulative_cpu_s_sum_overlapping": 0.06673045500000001,
+          "own_cpu_s_sum": 0.06673045500000001
+        }
+      },
+      "profiled_cpu_s_median": 0.07709518999999998,
+      "profiled_cpu_s_sum": 4.892795975,
+      "task_count": 48,
+      "tracemalloc_peak_bytes_max": 16918652,
+      "tracemalloc_peak_bytes_median": 3897848
+    },
+    "trained_snn": {
+      "cost_categories": {
+        "descriptor_generation": {
+          "cumulative_cpu_s_sum_overlapping": 2.076503622000001,
+          "own_cpu_s_sum": 1.7289860849999998
+        },
+        "feature_assembly": {
+          "cumulative_cpu_s_sum_overlapping": 5.719601894999999,
+          "own_cpu_s_sum": 3.139721330000001
+        },
+        "model_inference": {
+          "cumulative_cpu_s_sum_overlapping": 21.821799949,
+          "own_cpu_s_sum": 1.615039285
+        },
+        "retention": {
+          "cumulative_cpu_s_sum_overlapping": 0.235917824,
+          "own_cpu_s_sum": 0.235917824
+        },
+        "sorting": {
+          "cumulative_cpu_s_sum_overlapping": 0.24276494799999998,
+          "own_cpu_s_sum": 0.17894666600000003
+        }
+      },
+      "profiled_cpu_s_median": 0.4132021009999998,
+      "profiled_cpu_s_sum": 15.389269416000001,
+      "task_count": 48,
+      "tracemalloc_peak_bytes_max": 30122409,
+      "tracemalloc_peak_bytes_median": 28929847
+    }
+  },
+  "interpretation": "Descriptive profiling only. Cumulative category totals can overlap and must not be added. Own CPU is the additive cProfile attribution. Memory peaks come from separate tracemalloc runs; traced timings are not compared with cProfile timings or treated as performance.",
+  "stage_entrypoints": {
+    "heuristic": {
+      "feature_encode_cumulative_cpu_s_median_inclusive": 0.088205506,
+      "feature_encode_cumulative_cpu_s_sum_inclusive": 3.256954882,
+      "feature_encode_function": "FeatureStatistics.encode",
+      "interpretation": "Each entrypoint is counted once per task. Rank includes its policy call; encode is reported as a separate feature stage. These inclusive entrypoint totals overlap nested calls and are not additive with each other or with category totals.",
+      "rank_cumulative_cpu_s_median_inclusive": 0.050258370000000004,
+      "rank_cumulative_cpu_s_sum_inclusive": 1.628565306,
+      "rank_entrypoint_function": "pre_eval._rank"
+    },
+    "mlp": {
+      "feature_encode_cumulative_cpu_s_median_inclusive": 0.09099623800000001,
+      "feature_encode_cumulative_cpu_s_sum_inclusive": 3.3679059070000004,
+      "feature_encode_function": "FeatureStatistics.encode",
+      "interpretation": "Each entrypoint is counted once per task. Rank includes its policy call; encode is reported as a separate feature stage. These inclusive entrypoint totals overlap nested calls and are not additive with each other or with category totals.",
+      "rank_cumulative_cpu_s_median_inclusive": 0.047401432,
+      "rank_cumulative_cpu_s_sum_inclusive": 1.536695021,
+      "rank_entrypoint_function": "pre_eval._rank"
+    },
+    "recurrent": {
+      "feature_encode_cumulative_cpu_s_median_inclusive": 0.091789092,
+      "feature_encode_cumulative_cpu_s_sum_inclusive": 3.367140452,
+      "feature_encode_function": "FeatureStatistics.encode",
+      "interpretation": "Each entrypoint is counted once per task. Rank includes its policy call; encode is reported as a separate feature stage. These inclusive entrypoint totals overlap nested calls and are not additive with each other or with category totals.",
+      "rank_cumulative_cpu_s_median_inclusive": 0.060814798,
+      "rank_cumulative_cpu_s_sum_inclusive": 1.982422767,
+      "rank_entrypoint_function": "pre_eval._rank"
+    },
+    "streaming": {
+      "feature_encode_cumulative_cpu_s_median_inclusive": 0,
+      "feature_encode_cumulative_cpu_s_sum_inclusive": 0,
+      "feature_encode_function": "FeatureStatistics.encode",
+      "interpretation": "Each entrypoint is counted once per task. Rank includes its policy call; encode is reported as a separate feature stage. These inclusive entrypoint totals overlap nested calls and are not additive with each other or with category totals.",
+      "rank_cumulative_cpu_s_median_inclusive": 0,
+      "rank_cumulative_cpu_s_sum_inclusive": 0,
+      "rank_entrypoint_function": "pre_eval._rank"
+    },
+    "trained_snn": {
+      "feature_encode_cumulative_cpu_s_median_inclusive": 0.09014691000000001,
+      "feature_encode_cumulative_cpu_s_sum_inclusive": 3.4366363640000004,
+      "feature_encode_function": "FeatureStatistics.encode",
+      "interpretation": "Each entrypoint is counted once per task. Rank includes its policy call; encode is reported as a separate feature stage. These inclusive entrypoint totals overlap nested calls and are not additive with each other or with category totals.",
+      "rank_cumulative_cpu_s_median_inclusive": 0.187885398,
+      "rank_cumulative_cpu_s_sum_inclusive": 6.102299733000001,
+      "rank_entrypoint_function": "pre_eval._rank"
+    }
+  }
+}
