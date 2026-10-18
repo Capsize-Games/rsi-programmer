@@ -31,6 +31,10 @@ test-fast:
         tests.test_pre_eval_contract tests.test_benchmark_policy \
         tests.test_benchmark_fit_work tests.test_frozen_benchmark \
         tests.test_frozen_benchmark_eval \
+        tests.test_benchmark_v2_corpus tests.test_benchmark_v2_runner \
+        tests.test_benchmark_v2_runner_training \
+        tests.test_benchmark_v2_runner_acceptance \
+        tests.test_benchmark_v2_runner_provenance \
         tests.test_hub_release_lookup tests.test_rich_amendments tests.test_scale_amendments tests.test_measurement_provenance tests.test_search_amendments tests.test_objective_amendments tests.test_supervision_amendments tests.test_generator_amendments tests.test_review_search tests.test_review_search_edges tests.test_review_acceptance tests.test_review_integrity tests.test_review_lattice tests.test_review_protocol tests.test_rsi_actions tests.test_rsi_sandbox tests.test_rsi_headless tests.test_proxy tests.test_rsi_hard tests.test_typed_dag_programming_probe tests.test_rsi_decoder tests.test_modular tests.test_rsi_tasks tests.test_edits tests.test_self_gate tests.test_autonomy tests.test_rsi_ood tests.test_gains tests.test_rsi_words tests.test_rsi_lattice tests.test_rsi_lattice_train tests.test_rsi_lattice_author tests.test_rsi_bytecode tests.test_rsi_selectivity tests.test_rsi_proposer -v
 
 test-slow:
