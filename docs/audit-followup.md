@@ -1,5 +1,24 @@
 # Audit follow-up
 
+## code-v56: scale evolution and eight-task acceptance verified
+
+The original `test_evolve_and_accept_author_paths` passed on the
+repaired source. It requires eight per-task beam records, valid family
+rollups, measured evolution history and archive growth. This verifies
+that omitting unknown surrogate evidence has retained the full search
+acceptance scope; it does not require or establish improved solve rates.
+
+At **2026-10-18T11:25:28.873171+00:00**, the running slow lane has **58 reported passes
+and no failures**. The complete scale-report check is running; its
+remaining fidelity assertion and transfer checks still follow. Retry is
+queued. This is a partial lane snapshot, so #66 remains open. All 105
+validation inputs remain unchanged from code-v53:
+`476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73`. This checkpoint changes only evidence
+and documentation.
+
+[Partial slow log](../artifacts/followup-scale-evolve-checkpoint-20261018/slow-partial.log)
+and [dated source/progress manifest](../artifacts/followup-scale-evolve-checkpoint-20261018/manifest.json).
+
 ## code-v55: first scale acceptance checks verified
 
 The current slow lane passed the original author-weighted acceptance
