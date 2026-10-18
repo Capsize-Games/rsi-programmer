@@ -1,0 +1,20 @@
+test_budget_equal_to_one_layer_leaves_later_work_pending (tests.test_pre_eval.PreEvaluationSearchTests.test_budget_equal_to_one_layer_leaves_later_work_pending) ... ok
+test_budget_stops_without_expanding_future_layers (tests.test_pre_eval.PreEvaluationSearchTests.test_budget_stops_without_expanding_future_layers) ... ok
+test_candidate_work_uses_cached_operands (tests.test_pre_eval.PreEvaluationSearchTests.test_candidate_work_uses_cached_operands) ... ok
+test_constant_terminal_is_a_valid_result (tests.test_pre_eval.PreEvaluationSearchTests.test_constant_terminal_is_a_valid_result) ... ok
+test_inputs_must_be_aligned_and_empty_rows_are_rejected (tests.test_pre_eval.PreEvaluationSearchTests.test_inputs_must_be_aligned_and_empty_rows_are_rejected) ... ok
+test_malformed_policy_orders_are_rejected (tests.test_pre_eval.PreEvaluationSearchTests.test_malformed_policy_orders_are_rejected) ... ok
+test_oracle_rejection_retries_equivalent_train_matches (tests.test_pre_eval.PreEvaluationSearchTests.test_oracle_rejection_retries_equivalent_train_matches) ... ok
+test_policy_ranks_full_layer_before_candidate_evaluation (tests.test_pre_eval.PreEvaluationSearchTests.test_policy_ranks_full_layer_before_candidate_evaluation) ... ok
+test_zero_budget_does_not_rank_or_evaluate_candidates (tests.test_pre_eval.PreEvaluationSearchTests.test_zero_budget_does_not_rank_or_evaluate_candidates) ... ok
+test_heuristic_prefers_operand_agreement_and_simplicity (tests.test_benchmark_policy.BenchmarkPolicyTests.test_heuristic_prefers_operand_agreement_and_simplicity) ... ok
+test_ineligible_training_data_is_not_reported_as_a_fit (tests.test_benchmark_policy.BenchmarkPolicyTests.test_ineligible_training_data_is_not_reported_as_a_fit) ... ok
+test_neural_fit_changes_weights_from_a_repeatable_seed (tests.test_benchmark_policy.BenchmarkPolicyTests.test_neural_fit_changes_weights_from_a_repeatable_seed) ... ok
+test_neural_initialization_preserves_torch_rng (tests.test_benchmark_policy.BenchmarkPolicyTests.test_neural_initialization_preserves_torch_rng) ... ok
+test_neural_scores_have_fresh_state_and_batch_order_independence (tests.test_benchmark_policy.BenchmarkPolicyTests.test_neural_scores_have_fresh_state_and_batch_order_independence) ... ok
+test_seeded_random_repeats_without_global_rng_changes (tests.test_benchmark_policy.BenchmarkPolicyTests.test_seeded_random_repeats_without_global_rng_changes) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.442s
+
+OK

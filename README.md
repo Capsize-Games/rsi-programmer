@@ -14,6 +14,8 @@ figures in earlier reports used older feature encodings and work
 counters; they should not be read as measurements of the current code.
 
 The [audit follow-up](docs/audit-followup.md) records subsequent fixes.
+The [architecture follow-ups](docs/architecture-followups.md) track the
+pre-evaluation search experiment and its evaluation gates.
 The [code-v45 amendments and validation](docs/audit-amendments.md) retain
 that release's exact test results and three-seed measurement.
 The [historical adversarial
@@ -41,6 +43,15 @@ just train          # seed 0, 50 epochs; writes weights/
 setup` uses a local checkout. For another location, pass its absolute
 checkout root as a positional argument: `just setup /path/to/spikeforge`.
 Torch CPU wheels come from the PyTorch index (see `requirements.txt`).
+
+For lazy evaluation, import `pre_evaluation_search` from
+`rsi_programmer.pre_eval`. It accepts the same training-row specification
+and ranking interface as guided search, but `budget` limits candidate
+signature evaluations. Pass `policy=None` for streaming generation order.
+Policies rank candidate descriptors using cached operand results before
+the candidates are executed. Descriptor scoring still has a cost, which
+the result reports separately. A returned training match requires an
+independent held-out check before it counts as an accepted solution.
 
 ## Training output
 
