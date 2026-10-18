@@ -1,0 +1,37 @@
+{
+  "base_commit": "239c8929158963e1ce0c2810d4842409938f91fe",
+  "patch_files": {
+    "justfile": "5345d9a0071713b766b944152c2a8987857046af0b45d23f4803d4a094cc6c5c",
+    "rsi_programmer/families.py": "d3492ac4e7154625c8b0415cbf7fc9cdc78a486a37963464d7c6fe00311ea636",
+    "rsi_programmer/tasks.py": "f4060c9406a9d9236882c567f69d8d947029a56a3eeac4a2d2a638643be43166",
+    "scripts/make_tasks.py": "42d3d3b5c978da8416abaa5f4b004cb9be3c29381cedb05bdd2cfa65ef961d73",
+    "tests/test_generator_amendments.py": "92f9dd5a23af0de28f401b1eed0cb6dcc98e7f649596ad38caada6ecbcd0c213",
+    "tests/test_review_protocol.py": "5eaf90265503a9896d33279193fb970bd681ee977546201f381badf4384eb101",
+    "tests/test_rsi_ood.py": "78d00ad14124119411e1a8458c15088abd3fdd26fbb790d5ce9bd01d049c9597"
+  },
+  "source": {
+    "sha256": "57497514ca691d6c49afe10a7cd87ea8f2918c69345dd1ea9f17f9579c7f79aa",
+    "files": 97
+  },
+  "command": [
+    "just",
+    "test-fast"
+  ],
+  "status": "passed",
+  "started_at": 1792312618.3531873,
+  "exit_code": 0,
+  "wall_seconds": 220.97434616088867,
+  "source_after": {
+    "sha256": "57497514ca691d6c49afe10a7cd87ea8f2918c69345dd1ea9f17f9579c7f79aa",
+    "files": 97
+  },
+  "test_summary": "Ran 226 tests in 217.545s",
+  "log_sha256": {
+    "fast.log": "21d7575e153e9fd2f2034ec0400bd1e2268429cd830fb85416c1b0304615151b",
+    "first-fast-failure.log": "89238b4e7d907eac18c99f8d192a52b7c5386bdc877be9ca1f9ceb3117d43713",
+    "focused.log": "17d0aff3f68eb89fc79e9bbb9087ee598848e4484b9a78c13fba93646b5e5724",
+    "red.log": "f6a07b33426328d94fcc8af8ffd9fb59da02ce26e70460340bb33cfcc7cfaa7d"
+  },
+  "normalization": "Repository/home paths replaced; trailing whitespace removed; LF line endings.",
+  "scope": "Generator/task-family/CLI change only. Complete fast lane; no new slow or retry lane run for this checkpoint."
+}

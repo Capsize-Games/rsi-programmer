@@ -96,31 +96,35 @@ class MirrorTests(unittest.TestCase):
         self.assertEqual(_vacuous(healthy), [])
 
     def test_strict_filter_bites_and_freezes(self) -> None:
-        """Strict content stays frozen; new selection metadata is separate."""
+        """Explicit legacy selection reproduces the historical fixtures."""
         loose = generate_family(35, 8, 4, 2, "gen_ood2",
-                                mirror=True)
+                                mirror=True, search_filter=True)
         filed = _load(V2)
         self.assertEqual(len(loose["tasks"]), len(filed))
         self.assertNotEqual(
             [t["task"] for t in loose["tasks"]],
             [t["task"] for t in filed])
         tight = generate_family(35, 8, 4, 2, "gen_ood2",
-                                mirror=True, strict=True)
+                                mirror=True, strict=True,
+                                search_filter=True)
         self.assertEqual(tight["max_tree_ops"], 4)
         self.assertEqual(tight["version"], 1)
         self.assertEqual(
             [{k: v for k, v in task.items()
-              if k != "selection_filter"} for task in tight["tasks"]],
+              if k not in {"selection_filter", "generator_witness"}}
+             for task in tight["tasks"]],
             filed)
         for task in tight["tasks"]:
             self.assertIn("selection_filter", task)
             self.assertTrue(task["selection_filter"][
                 "enumerator_solution_held_out_confirmed"])
         twin = generate_family(34, 8, 4, 0, "gen_ood_u",
-                               mirror=False, consts=False)
+                               mirror=False, consts=False,
+                               search_filter=True)
         self.assertEqual(
             [{k: v for k, v in task.items()
-              if k != "selection_filter"} for task in twin["tasks"]],
+              if k not in {"selection_filter", "generator_witness"}}
+             for task in twin["tasks"]],
             _load(TWIN))
 
     def test_hard_corpus_plain_and_bounded(self) -> None:

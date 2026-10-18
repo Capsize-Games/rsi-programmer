@@ -1,0 +1,33 @@
+test_default_accepts_generator_witness_without_search (tests.test_generator_amendments.GeneratorAmendmentTests.test_default_accepts_generator_witness_without_search) ... ok
+test_family_records_acceptance_mode_and_frozen_witness (tests.test_generator_amendments.GeneratorAmendmentTests.test_family_records_acceptance_mode_and_frozen_witness) ... ok
+test_legacy_filter_is_explicit_and_recorded (tests.test_generator_amendments.GeneratorAmendmentTests.test_legacy_filter_is_explicit_and_recorded) ... ok
+test_branch_tasks_require_branch (tests.test_rsi_tasks.TaskGeneratorTests.test_branch_tasks_require_branch)
+A fresh branch task fails bare and const-only search. ... ok
+test_curriculum_loop_closed (tests.test_rsi_tasks.TaskGeneratorTests.test_curriculum_loop_closed)
+Gate failures become family parameters and fresh tasks. ... ok
+test_frozen_splits_and_counts (tests.test_rsi_tasks.TaskGeneratorTests.test_frozen_splits_and_counts)
+24+12 tasks, matching hashes, disjoint rows. ... ok
+test_safety_report_yields_no_tasks (tests.test_rsi_tasks.TaskGeneratorTests.test_safety_report_yields_no_tasks)
+Safety failures are a gate issue, never a data order. ... ok
+test_same_seed_byte_identical (tests.test_rsi_tasks.TaskGeneratorTests.test_same_seed_byte_identical)
+Determinism: one seed always yields the same bytes. ... ok
+test_behavior_hash_covers_call_settings_and_policy_steps (tests.test_review_protocol.ProtocolReviewTests.test_behavior_hash_covers_call_settings_and_policy_steps) ... ok
+test_exact_flag_is_external_and_can_be_ablated (tests.test_review_protocol.ProtocolReviewTests.test_exact_flag_is_external_and_can_be_ablated) ... ok
+test_fallback_requires_held_out_oracle (tests.test_review_protocol.ProtocolReviewTests.test_fallback_requires_held_out_oracle) ... ok
+test_generated_task_discloses_selection_filter (tests.test_review_protocol.ProtocolReviewTests.test_generated_task_discloses_selection_filter) ... ok
+test_headless_insufficient_pairs_refuses_without_crashing (tests.test_review_protocol.ProtocolReviewTests.test_headless_insufficient_pairs_refuses_without_crashing) ... ok
+test_headless_pairs_one_average_per_task (tests.test_review_protocol.ProtocolReviewTests.test_headless_pairs_one_average_per_task) ... ok
+test_headless_reports_oracle_exception (tests.test_review_protocol.ProtocolReviewTests.test_headless_reports_oracle_exception) ... ok
+test_headless_skips_oracle_for_rejected_graph (tests.test_review_protocol.ProtocolReviewTests.test_headless_skips_oracle_for_rejected_graph) ... ok
+test_recovery_requires_held_out_oracle (tests.test_review_protocol.ProtocolReviewTests.test_recovery_requires_held_out_oracle) ... ok
+test_rich_fitness_does_not_credit_held_failure (tests.test_review_protocol.ProtocolReviewTests.test_rich_fitness_does_not_credit_held_failure) ... ok
+test_rich_negative_groups_skip_exact_train_solvers (tests.test_review_protocol.ProtocolReviewTests.test_rich_negative_groups_skip_exact_train_solvers) ... ok
+test_rich_rollup_uses_canonical_cost_with_legacy_aliases (tests.test_review_protocol.ProtocolReviewTests.test_rich_rollup_uses_canonical_cost_with_legacy_aliases) ... ok
+test_scale_family_cost_uses_canonical_counter (tests.test_review_protocol.ProtocolReviewTests.test_scale_family_cost_uses_canonical_counter) ... ok
+test_scale_flags_each_family_regression (tests.test_review_protocol.ProtocolReviewTests.test_scale_flags_each_family_regression) ... ok
+test_training_ordinals_are_local_not_answer_positions (tests.test_review_protocol.ProtocolReviewTests.test_training_ordinals_are_local_not_answer_positions) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 11.187s
+
+OK

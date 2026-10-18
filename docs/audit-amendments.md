@@ -1,5 +1,8 @@
 # Audit amendments and validation
 
+This report describes code-v45. See the [audit follow-up](audit-followup.md)
+for subsequent fixes and validation.
+
 Final evidence is published as [code-v45](https://github.com/Capsize-Games/rsi-programmer/releases/tag/code-v45).
 The validated runtime/test inputs are unchanged from implementation
 commit [`0fcf868`](https://github.com/Capsize-Games/rsi-programmer/commit/0fcf8689b9e26a872230b89741902aecd98eba48).

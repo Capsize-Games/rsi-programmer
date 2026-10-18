@@ -276,7 +276,8 @@ class ProtocolReviewTests(unittest.TestCase):
         self.assertEqual(fitness["recovery"], 0.0)
 
     def test_generated_task_discloses_selection_filter(self) -> None:
-        task = generate_task(random.Random(8), "tiny", 2, False, False)
+        task = generate_task(random.Random(8), "tiny", 2, False, False,
+                             search_filter=True)
         select = task["selection_filter"]
         self.assertTrue(select["enumerator_solved_within_bound"])
         self.assertTrue(select["enumerator_solution_held_out_confirmed"])

@@ -15,8 +15,15 @@ tasks, seed 56), and fixtures/rsi_plain_more.json (12
 plain tasks, seed 57) with per-family bounds. Same seeds
 always yield byte-identical files; verify with the
 split-hash test.
+
+New generation accepts the generating expression's semantics. Use
+--legacy-search-filter to restore the older enumerator-held-confirmation
+selection rule. Previously committed fixtures are historical samples;
+this script overwrites them only when explicitly run.
 """
 from __future__ import annotations
+
+import argparse
 
 from rsi_programmer.families import generate_family, write_family
 
@@ -40,14 +47,20 @@ SPECS = (("fixtures/rsi_gen_train.json", 7, 24, "gen_train",
           False, False, 0, False, 4))
 
 
-def main() -> int:
-    """Generate all families with their frozen seeds."""
+def main(argv: list[str] | None = None) -> int:
+    """Generate families; evaluated-search filtering is explicit opt-in."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--legacy-search-filter", action="store_true",
+        help="retain only enumerator-held-correct tasks (biased sample)")
+    args = parser.parse_args(argv)
     for path, seed, count, prefix, mirror, consts, every, \
             strict, bound in SPECS:
         family = generate_family(seed, count, bound, every,
                                  prefix, mirror=mirror,
                                  consts=consts,
-                                 strict=bool(strict))
+                                 strict=bool(strict),
+                                 search_filter=args.legacy_search_filter)
         write_family(path, family)
         print("wrote %s tasks=%d seed=%d bound=%d mirror=%s "
               "consts=%s strict=%s"

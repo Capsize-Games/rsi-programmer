@@ -21,8 +21,9 @@ def generate_family(seed: int, count: int, bound: int,
                     start: int = 0,
                     mirror: bool = False,
                     consts: bool = True,
-                    strict: bool = False) -> dict[str, Any]:
-    """Count frozen tasks; every branch_every-th needs select."""
+                    strict: bool = False,
+                    search_filter: bool = False) -> dict[str, Any]:
+    """Freeze generating programs; search filtering is legacy opt-in."""
     rng = random.Random(seed)
     seen: set[tuple] = set()
     tasks: list[dict[str, Any]] = []
@@ -32,7 +33,8 @@ def generate_family(seed: int, count: int, bound: int,
             (len(tasks) % branch_every) == 1
         task = generate_task(rng, "%s_%02d" % (prefix, index),
                              bound, need_branch, consts,
-                             mirror=mirror, strict=strict)
+                             mirror=mirror, strict=strict,
+                             search_filter=search_filter)
         key = (tuple(tuple(c) for c in task["train"]),
                tuple(tuple(c) for c in task["held_out"]))
         index += 1
@@ -41,7 +43,9 @@ def generate_family(seed: int, count: int, bound: int,
         seen.add(key)
         task["split_sha256"] = TraceRecorder.split_hash(task)
         tasks.append(task)
-    return {"max_tree_ops": bound, "tasks": tasks, "version": 1}
+    return {"max_tree_ops": bound, "tasks": tasks, "version": 1,
+            "generation_acceptance": "legacy_search_filter"
+            if search_filter else "generating_expression"}
 
 
 def write_family(path: str, family: dict[str, Any]) -> None:

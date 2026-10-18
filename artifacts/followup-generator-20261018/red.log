@@ -1,0 +1,69 @@
+test_default_accepts_generator_witness_without_search (tests.test_generator_amendments.GeneratorAmendmentTests.test_default_accepts_generator_witness_without_search) ... FAIL
+test_family_records_acceptance_mode_and_frozen_witness (tests.test_generator_amendments.GeneratorAmendmentTests.test_family_records_acceptance_mode_and_frozen_witness) ... FAIL
+test_legacy_filter_is_explicit_and_recorded (tests.test_generator_amendments.GeneratorAmendmentTests.test_legacy_filter_is_explicit_and_recorded) ... ERROR
+
+======================================================================
+ERROR: test_legacy_filter_is_explicit_and_recorded (tests.test_generator_amendments.GeneratorAmendmentTests.test_legacy_filter_is_explicit_and_recorded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "{repository}/tests/test_generator_amendments.py", line 37, in test_legacy_filter_is_explicit_and_recorded
+    task = tasks.generate_task(random.Random(0), "legacy",
+                               1, False, False, search_filter=True)
+TypeError: generate_task() got an unexpected keyword argument 'search_filter'
+
+======================================================================
+FAIL: test_default_accepts_generator_witness_without_search (tests.test_generator_amendments.GeneratorAmendmentTests.test_default_accepts_generator_witness_without_search)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "{repository}/tests/test_generator_amendments.py", line 22, in test_default_accepts_generator_witness_without_search
+    task = tasks.generate_task(random.Random(0), "ambiguous",
+                               1, False, False)
+  File "{repository}/rsi_programmer/tasks.py", line 241, in generate_task
+    check, check_tried, _ = enumerate_programs(
+                            ~~~~~~~~~~~~~~~~~~^
+        train, expect, bound,
+        ^^^^^^^^^^^^^^^^^^^^^
+        consts=CONSTS if used_const else (), branch=branched)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/mock.py", line 1228, in _execute_mock_call
+    raise effect
+AssertionError: search filter
+
+======================================================================
+FAIL: test_family_records_acceptance_mode_and_frozen_witness (tests.test_generator_amendments.GeneratorAmendmentTests.test_family_records_acceptance_mode_and_frozen_witness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "{repository}/tests/test_generator_amendments.py", line 48, in test_family_records_acceptance_mode_and_frozen_witness
+    family = families.generate_family(34, 4, 2, 0, "independent",
+                                       consts=False)
+  File "{repository}/rsi_programmer/families.py", line 33, in generate_family
+    task = generate_task(rng, "%s_%02d" % (prefix, index),
+                         bound, need_branch, consts,
+                         mirror=mirror, strict=strict)
+  File "{repository}/rsi_programmer/tasks.py", line 241, in generate_task
+    check, check_tried, _ = enumerate_programs(
+                            ~~~~~~~~~~~~~~~~~~^
+        train, expect, bound,
+        ^^^^^^^^^^^^^^^^^^^^^
+        consts=CONSTS if used_const else (), branch=branched)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/mock.py", line 1228, in _execute_mock_call
+    raise effect
+AssertionError: search filter
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.003s
+
+FAILED (failures=2, errors=1)

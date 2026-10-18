@@ -13,8 +13,9 @@ described in [architecture.md](architecture.md). Historical performance
 figures in earlier reports used older feature encodings and work
 counters; they should not be read as measurements of the current code.
 
-The [audit amendments and validation](docs/audit-amendments.md) record
-completed fixes, exact test results, and the three-seed measurement.
+The [audit follow-up](docs/audit-followup.md) records subsequent fixes.
+The [code-v45 amendments and validation](docs/audit-amendments.md) retain
+that release's exact test results and three-seed measurement.
 The [historical adversarial
 review](docs/audit-review-5c6701b.md) includes reproductions for issues
 #51–#71 and the baseline measurement at `5c6701b`.

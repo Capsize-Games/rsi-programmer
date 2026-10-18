@@ -199,8 +199,14 @@ def _rows(rng: random.Random, count: int,
 def generate_task(rng: random.Random, task_id: str, bound: int,
                   branch: bool, consts: bool,
                   mirror: bool = False,
-                  strict: bool = False) -> dict[str, Any]:
-    """One frozen task requiring the requested IR features."""
+                  strict: bool = False,
+                  search_filter: bool = False) -> dict[str, Any]:
+    """Freeze a generating expression without testing the search.
+
+    ``search_filter=True`` explicitly restores the legacy, biased
+    enumerator-and-held-confirmation selection rule. The default accepts
+    the generating program's own semantics and records its witness.
+    """
 
     if branch and bound < 4:
         raise ValueError("select needs bound 4 or more")
@@ -238,15 +244,17 @@ def generate_task(rng: random.Random, task_id: str, bound: int,
         held_expect = tuple(interpret(graph, x, y)
                             for x, y in held)
         branched = _has_branch(expr)
-        check, check_tried, _ = enumerate_programs(
-            train, expect, bound,
-            consts=CONSTS if used_const else (), branch=branched)
-        if check is None:
-            continue
-        confirm = lower_to_dag(check)
-        if any(interpret(confirm, x, y) != e
-               for (x, y), e in zip(held, held_expect)):
-            continue
+        check_tried = None
+        if search_filter:
+            check, check_tried, _ = enumerate_programs(
+                train, expect, bound,
+                consts=CONSTS if used_const else (), branch=branched)
+            if check is None:
+                continue
+            confirm = lower_to_dag(check)
+            if any(interpret(confirm, x, y) != e
+                   for (x, y), e in zip(held, held_expect)):
+                continue
         feats = sorted((["branch"] if branched else []) +
                         (["const"] if used_const else []))
         return {"held_out": [[x, y, e] for (x, y), e in
@@ -257,10 +265,14 @@ def generate_task(rng: random.Random, task_id: str, bound: int,
                 "train": [[x, y, e] for (x, y), e in
                            zip(train, expect)],
                 "features": feats,
+                "generator_witness": graph,
                 "selection_filter": {
-                    "enumerator_solved_within_bound": True,
-                    "enumerator_candidates_tried": int(check_tried),
-                    "enumerator_solution_held_out_confirmed": True,
+                    "enumerator_filter_applied": bool(search_filter),
+                    "enumerator_solved_within_bound":
+                        True if search_filter else None,
+                    "enumerator_candidates_tried": check_tried,
+                    "enumerator_solution_held_out_confirmed":
+                        True if search_filter else None,
                     "nonconstant_train_outputs": True,
                     "nonidentity_input_target": True,
                     "strict_vacuity_filter": bool(strict),
