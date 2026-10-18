@@ -27,7 +27,10 @@ test:
 # interference is covered by those full runs, not by
 # re-running 3.7 h per release.
 test-fast:
-    .venv/bin/python -m unittest tests.test_online_plastic_encoder \
+    .venv/bin/python -m unittest tests.test_sensing_data \
+        tests.test_sensing_predictor tests.test_sensing_baseline \
+        tests.test_sensing_benchmark tests.test_sensing_audit \
+        tests.test_online_plastic_encoder \
         tests.test_online_plastic_benchmark tests.test_audit_plastic_encoder \
         tests.test_plastic_control_comparison \
         tests.test_online_observed_context \

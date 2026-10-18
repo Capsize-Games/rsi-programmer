@@ -1324,3 +1324,75 @@ diagnostic are specified in
 [benchmark-online-plastic-encoder.md](docs/benchmark-online-plastic-encoder.md).
 Those probes do not establish retention of full programs. No physical
 sensor interface, chip implementation or device-energy result is implied.
+
+## 12. Additive timed sensing predictor
+
+The first sensing pilot is a separate execution path from graph search.
+`sensing_predictor.SensingPredictor` consumes a timestamp and one normalized
+RMS value. It predicts the next value and learns when that actual value
+arrives. Configuration IDs, speed IDs, event indices and future values are
+excluded from its API. Python currently executes the complete path; chip
+placement, fixed-point precision and energy are unmeasured.
+
+```mermaid
+flowchart TD
+    RAW["Recorded x-axis acceleration"] --> RMS["10-sample causal RMS"]
+    FIT["Training-only median and MAD"] --> NORM
+    RMS --> NORM["Fixed bounded normalization"]
+    NORM --> VALUE["Timestamp and current feature"]
+    SAVED["Previous forecast and eligibility"] --> ERROR
+    VALUE --> ERROR["Score previous forecast before updates"]
+    CAL["Calibration-only fixed threshold"] --> ALARM
+    ERROR --> ALARM["Threshold and cooldown: change alarm"]
+    ERROR --> UPDATE["Next-observation learning signal"]
+    UPDATE --> INPUT["Learned incoming weights and biases"]
+    UPDATE --> HEAD["Learned sigmoid readout"]
+    VALUE --> INPUT
+    INPUT --> LIF["12 LIF units: 0.2, 1 and 5 second time scales"]
+    LIF --> FILTER["Filtered spikes and local eligibility"]
+    FILTER --> HEAD
+    HEAD --> SAVED
+    FILTER --> SAVED
+    LABEL["Join labels: evaluator only"] --> METRIC
+    ALARM --> METRIC["Recall, false alarms and delay"]
+```
+
+At each feature, `a = exp(-dt/tau)`,
+`u = a*m + (1-a)*(w*x+b)`, `s = 1[u >= 1]`, and `m = u-s`.
+There is at most one spike per feature per unit. Filtered activity is
+`r = q*r + (1-q)*s`, where `q = exp(-dt/0.2)`. The next forecast is
+`p = sigmoid(sum(v*r)+c)`. Real nominal elapsed seconds determine decay;
+the first window uses `dt = 0.2` seconds. Timestamps are inferred from the
+dataset's stated sampling period, not measured timestamp fields.
+
+When the next target `y` arrives, the saved forecast supplies
+`delta = (p-y)*p*(1-p)`, the derivative of half squared prediction error.
+Readout updates are `dv = -0.01*delta*r`, `dc = -0.01*delta`. Input updates
+are `dw = -0.001*delta*v_old*e_rw` and
+`db = -0.001*delta*v_old*e_rb`, using the pre-update readout and saved
+eligibility. Each update is clipped to +/-0.01 and each parameter to +/-2.
+
+The incoming-weight eligibility carries between feature windows:
+`e_u = a*e_m + (1-a)*x`, `e_s = psi(u)*e_u`,
+`e_m = e_u-e_s`, `e_r = q*e_r + (1-q)*e_s`, with
+`psi(u) = max(0,1-abs(u-1))`. Bias eligibility uses input 1. This is a
+local online surrogate rule, not full-network recurrent backpropagation.
+The continuous control replaces spikes by `tanh(u)`, retains `m = u`,
+and uses the corresponding `1-tanh(u)^2` derivative without spike reset.
+
+The alarm sees absolute error before the target updates any parameters.
+Its calibration quantile, warmup and refractory rules are frozen in
+[benchmark-sensing-fan.md](docs/benchmark-sensing-fan.md). Learning and
+temporal state persist across synthetic joins within a stream. Each stream
+starts from a fresh trained copy; transient state clears only at session
+boundaries. The readout-only control freezes incoming parameters, and the
+frozen control disables both learning paths after full SNN training.
+Persistence, EMA and normalized LMS provide cheap forecasting controls.
+No alarm or event label is supplied as a supervised learning target.
+
+`sensing_benchmark` records predictions, pre/post parameter hashes, alarms
+and work counters. `scripts.audit_sensing` separately reconstructs source
+slices, normalization, training, calibration, updates, alarms and metrics
+without importing the production predictor or detector. The fixed
+comparison uses stitched physical-fan recordings at held operating speeds;
+it cannot establish detection of actual physical transitions or faults.

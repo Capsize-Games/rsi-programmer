@@ -107,3 +107,21 @@ Keep preprocessing, model/detector processing, provenance/compression and
 whole-process costs identifiable. CPU is software evidence only. All
 model/test/benchmark execution uses the shared builder lock. Preserve the
 existing graph benchmarks, historical conclusions and independent checks.
+
+## Execution
+
+The runtime entry point and the independent replay checker run from the
+repository root. Use a new output directory; the runner refuses to replace
+an existing measurement.
+
+```sh
+flock /tmp/rsi-programmer-builder.lock .venv/bin/python \
+  -m scripts.benchmark_sensing --output artifacts/sensing-fan-v1-20261018
+flock /tmp/rsi-programmer-builder.lock .venv/bin/python \
+  -m scripts.audit_sensing --bundle artifacts/sensing-fan-v1-20261018 \
+  --output artifacts/sensing-fan-validation-20261018/independent-audit.json
+```
+
+The manifest binds the complete source-file matrix and exact output hashes.
+Replay requires those source bytes. Boundary snapshots are hashed; learned
+parameter arrays are not included in the published measurement files.
