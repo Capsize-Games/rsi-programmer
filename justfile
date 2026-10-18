@@ -27,7 +27,10 @@ test:
 # interference is covered by those full runs, not by
 # re-running 3.7 h per release.
 test-fast:
-    .venv/bin/python -m unittest tests.test_pre_eval \
+    .venv/bin/python -m unittest tests.test_online_spiking \
+        tests.test_online_graph tests.test_online_corpus \
+        tests.test_online_audit tests.test_online_benchmark \
+        tests.test_pre_eval \
         tests.test_pre_eval_contract tests.test_benchmark_policy \
         tests.test_pre_eval_features tests.test_pre_eval_feature_contract \
         tests.test_benchmark_total_work tests.test_total_work_contract \
