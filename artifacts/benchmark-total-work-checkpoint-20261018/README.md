@@ -18,3 +18,8 @@ sources. The final before/after source manifests must still match.
 
 Decompress with `gzip -dc seed0.raw.jsonl.gz`. The final bundle will contain
 all three seeds and can be checked against this seed-0 prefix hash.
+
+The receipt's `measured_runtime_revision` is the annotated `code-v69` tag
+object. It resolves to executable commit
+`eef8df202f56d936582bad36369164b13272dae7` with
+`git rev-parse 'code-v69^{commit}'`. The original receipt is retained.

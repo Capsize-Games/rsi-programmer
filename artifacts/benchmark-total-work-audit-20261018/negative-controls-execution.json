@@ -1,0 +1,17 @@
+{
+  "command": [
+    "flock",
+    "/tmp/rsi-programmer-builder.lock",
+    "python",
+    "artifacts/benchmark-total-work-audit-20261018/negative_controls.py",
+    "artifacts/benchmark-total-work-v1-verified-20261018",
+    "artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018"
+  ],
+  "exit_code": 0,
+  "receipt": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/negative-control-results.json",
+  "reports_retained": true,
+  "stdout_stderr_log": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/negative-controls-run.log",
+  "temporary_bundle_copies_retained": false,
+  "wall_seconds": 15.385191638,
+  "working_directory": "/home/joe/Projects/rsi-programmer"
+}

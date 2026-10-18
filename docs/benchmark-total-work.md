@@ -25,9 +25,9 @@ The runner records process CPU and wall time for search and for each attempt,
 including model hash checks and post-search observed/held/exact verification.
 Attempt timing excludes report I/O. Its internal run timer covers setup,
 training, raw and summary writes but excludes final manifest serialization.
-The external validation wrapper additionally records child process CPU and
-wall time through CLI exit, including that final I/O. These timing boundaries
-are kept separate in the evidence.
+The external validation wrapper records child process CPU through CLI exit,
+including that final I/O. Its stage wall time also includes the observer's
+post-run provenance hashes. These timing boundaries remain separate.
 
 Counts remain a work vector: descriptors, root signatures, feature vectors,
 operand reads, policy batches and ticks, row operations, verification and
@@ -70,3 +70,8 @@ Use a new output directory. The runner rejects changed protocol, corpus,
 reference implementation and model-reference bytes. Raw attempts and
 training checkpoints are retained on failure. Existing v1/v2 benchmark
 inputs, sources and results remain unchanged.
+
+The completed comparison and independent audit are recorded in
+[the result bundle][results].
+
+[results]: ../artifacts/benchmark-total-work-v1-verified-20261018/README.md

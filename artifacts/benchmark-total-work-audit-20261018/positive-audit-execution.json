@@ -1,0 +1,48 @@
+{
+  "audit": "independent positive audit",
+  "builder_lock": "/tmp/rsi-programmer-builder.lock",
+  "bundle": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-v1-verified-20261018",
+  "bundle_member_sha256": {
+    "aggregate.json": "803015f57cbdee5bec6c2e9e7c0ff7d15a51c96a1cff0d33e4992478b3a6c265",
+    "manifest.json": "46ce2a5a8b5b21314115282179264384b1f70caf397269672438bb38ccb4dd47",
+    "raw.jsonl": "bd134def172d853990227b5beaa42847b94ff497d45a6e888f61da593881e41e",
+    "training.json": "bd9978e24d2ac6e290e5bafb09ea7032b6a8793c0083a3235a82c248e2ba6676"
+  },
+  "final_attempt": {
+    "command": [
+      "flock",
+      "/tmp/rsi-programmer-builder.lock",
+      "python",
+      "artifacts/benchmark-total-work-audit-20261018/total_work_audit.py",
+      "artifacts/benchmark-total-work-v1-verified-20261018",
+      "--output",
+      "artifacts/benchmark-total-work-audit-20261018/positive-audit-report-v3.json"
+    ],
+    "exit_code": 0,
+    "report": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/positive-audit-report-v3.json",
+    "stdout_stderr_log": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/positive-audit-run4.log",
+    "wall_seconds": 2.034381381,
+    "working_directory": "/home/joe/Projects/rsi-programmer"
+  },
+  "preserved_attempts": [
+    {
+      "command": "flock /tmp/rsi-programmer-builder.lock /usr/bin/time ...",
+      "exit_code": 69,
+      "log": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/positive-audit.log",
+      "result": "failed before auditor launch: /usr/bin/time unavailable"
+    },
+    {
+      "command": "flock /tmp/rsi-programmer-builder.lock python total_work_audit.py <bundle> --output positive-audit-report.json",
+      "exit_code": 1,
+      "log": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/positive-audit-run2.log",
+      "report": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/positive-audit-report.json",
+      "result": "first report preserved; auditor assumptions rejected task-seeded random weights and omitted non-gate controls from optimization_gate comparison"
+    },
+    {
+      "command": "flock /tmp/rsi-programmer-builder.lock python total_work_audit.py <bundle> --output positive-audit-report-v2.json",
+      "exit_code": 0,
+      "report": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/positive-audit-report-v2.json",
+      "result": "valid positive audit; 16,128 rows; zero mismatches"
+    }
+  ]
+}

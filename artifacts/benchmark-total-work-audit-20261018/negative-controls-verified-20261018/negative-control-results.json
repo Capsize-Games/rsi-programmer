@@ -1,0 +1,86 @@
+{
+  "cases": {
+    "duplicate_row_key": {
+      "command": [
+        "/usr/bin/python",
+        "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/total_work_audit.py",
+        "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/.negative-controls-rhepuh__/duplicate-row-key",
+        "--output",
+        "artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/duplicate_row_key-audit.json"
+      ],
+      "elapsed_wall_ns": 2141258740,
+      "errors": [
+        "duplicate row key at line 16129"
+      ],
+      "exit_code": 1,
+      "expected_reason": "duplicate row key at line",
+      "rejected_for_expected_reason": true,
+      "report": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/duplicate_row_key-audit.json"
+    },
+    "forged_cpu_aggregate_ratio": {
+      "command": [
+        "/usr/bin/python",
+        "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/total_work_audit.py",
+        "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/.negative-controls-rhepuh__/forged-cpu-aggregate-ratio",
+        "--output",
+        "artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/forged_cpu_aggregate_ratio-audit.json"
+      ],
+      "elapsed_wall_ns": 2136434353,
+      "errors": [
+        "aggregate paired CPU ratios differ from raw rows"
+      ],
+      "exit_code": 1,
+      "expected_reason": "aggregate paired CPU ratios differ",
+      "rejected_for_expected_reason": true,
+      "report": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/forged_cpu_aggregate_ratio-audit.json"
+    },
+    "uncharged_training_cost": {
+      "command": [
+        "/usr/bin/python",
+        "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/total_work_audit.py",
+        "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/.negative-controls-rhepuh__/uncharged-training-cost",
+        "--output",
+        "artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/uncharged_training_cost-audit.json"
+      ],
+      "elapsed_wall_ns": 2124342575,
+      "errors": [
+        "aggregate points, matched-success costs, or amortization differ from raw-row recalculation"
+      ],
+      "exit_code": 1,
+      "expected_reason": "training_amortization",
+      "rejected_for_expected_reason": true,
+      "report": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/uncharged_training_cost-audit.json"
+    },
+    "wrong_accepted_graph": {
+      "command": [
+        "/usr/bin/python",
+        "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/total_work_audit.py",
+        "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/.negative-controls-rhepuh__/wrong-accepted-graph",
+        "--output",
+        "artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/wrong_accepted_graph-audit.json"
+      ],
+      "elapsed_wall_ns": 2182306525,
+      "errors": [
+        "returned graph has wrong exact polynomial at line 29",
+        "returned graph fails train rows at line 29",
+        "returned graph fails held_out rows at line 29"
+      ],
+      "exit_code": 1,
+      "expected_reason": "returned graph has wrong exact polynomial",
+      "rejected_for_expected_reason": true,
+      "report": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-total-work-audit-20261018/negative-controls-verified-20261018/wrong_accepted_graph-audit.json"
+    }
+  },
+  "source_bundle_after_sha256": {
+    "aggregate.json": "803015f57cbdee5bec6c2e9e7c0ff7d15a51c96a1cff0d33e4992478b3a6c265",
+    "manifest.json": "46ce2a5a8b5b21314115282179264384b1f70caf397269672438bb38ccb4dd47",
+    "raw.jsonl": "bd134def172d853990227b5beaa42847b94ff497d45a6e888f61da593881e41e",
+    "training.json": "bd9978e24d2ac6e290e5bafb09ea7032b6a8793c0083a3235a82c248e2ba6676"
+  },
+  "source_bundle_before_sha256": {
+    "aggregate.json": "803015f57cbdee5bec6c2e9e7c0ff7d15a51c96a1cff0d33e4992478b3a6c265",
+    "manifest.json": "46ce2a5a8b5b21314115282179264384b1f70caf397269672438bb38ccb4dd47",
+    "raw.jsonl": "bd134def172d853990227b5beaa42847b94ff497d45a6e888f61da593881e41e",
+    "training.json": "bd9978e24d2ac6e290e5bafb09ea7032b6a8793c0083a3235a82c248e2ba6676"
+  }
+}
