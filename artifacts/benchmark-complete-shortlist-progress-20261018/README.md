@@ -14,3 +14,9 @@ The snapshot will be compared byte-for-byte with the final memory file.
 Code-v82 passed all 374 fast tests on both Python 3.12 and 3.13 in CI.
 The retained CI snapshots show full CI still running. Local verification
 passed 75 affected and 374 fast tests; full/slow/retry were not run locally.
+
+Seed zero subsequently completed all 3,936 scheduled timed rows with zero
+recorded row errors and unique timed keys. `seed0-timed-prefix.jsonl.gz`
+preserves its exact byte prefix, with hashes in the companion receipt.
+Seeds one and two, the final matrix/audit and all cost decisions remain
+pending at that checkpoint. The prefix will be compared to final raw data.
