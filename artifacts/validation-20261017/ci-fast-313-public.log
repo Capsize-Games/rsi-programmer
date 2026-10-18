@@ -1,0 +1,464 @@
+2026-10-18T02:43:46.1384005Z ##[group]Run UV_PYTHON=3.13 just setup "${GITHUB_WORKSPACE}/vendor/spikeforge"
+2026-10-18T02:43:46.1384510Z UV_PYTHON=3.13 just setup "${GITHUB_WORKSPACE}/vendor/spikeforge"
+2026-10-18T02:43:46.1667271Z shell: <USR_BIN>/bash -e {0}
+2026-10-18T02:43:46.1667512Z env:
+2026-10-18T02:43:46.1667754Z   pythonLocation: <TOOLCACHE>/Python/3.13.16/x64
+2026-10-18T02:43:46.1668126Z   PKG_CONFIG_PATH: <TOOLCACHE>/Python/3.13.16/x64/lib/pkgconfig
+2026-10-18T02:43:46.1668465Z   Python_ROOT_DIR: <TOOLCACHE>/Python/3.13.16/x64
+2026-10-18T02:43:46.1668777Z   Python2_ROOT_DIR: <TOOLCACHE>/Python/3.13.16/x64
+2026-10-18T02:43:46.1669092Z   Python3_ROOT_DIR: <TOOLCACHE>/Python/3.13.16/x64
+2026-10-18T02:43:46.1669418Z   LD_LIBRARY_PATH: <TOOLCACHE>/Python/3.13.16/x64/lib
+2026-10-18T02:43:46.1669717Z   UV_CACHE_DIR: <RUNNER_TEMP>/setup-uv-cache
+2026-10-18T02:43:46.1669967Z ##[endgroup]
+2026-10-18T02:43:46.1790126Z uv venv .venv
+2026-10-18T02:43:46.1855715Z Using CPython 3.13.16 interpreter at: <TOOLCACHE>/Python/3.13.16/x64/bin/python3.13
+2026-10-18T02:43:46.1856357Z Creating virtual environment at: .venv
+2026-10-18T02:43:46.1860872Z Activate with: .venv/bin/activate
+2026-10-18T02:43:46.1866601Z uv pip install --python .venv/bin/python -r requirements.txt
+2026-10-18T02:43:46.7014417Z Resolved 16 packages in 508ms
+2026-10-18T02:43:46.7061220Z Downloading setuptools (1.2MiB)
+2026-10-18T02:43:46.7213152Z Downloading torch (175.4MiB)
+2026-10-18T02:43:46.7246554Z Downloading numpy (15.9MiB)
+2026-10-18T02:43:46.7249879Z Downloading h5py (5.2MiB)
+2026-10-18T02:43:46.7251877Z Downloading sympy (6.0MiB)
+2026-10-18T02:43:46.7256353Z Downloading networkx (2.0MiB)
+2026-10-18T02:43:46.7295638Z  Downloaded setuptools
+2026-10-18T02:43:46.8877249Z  Downloaded networkx
+2026-10-18T02:43:46.9096834Z  Downloaded h5py
+2026-10-18T02:43:46.9704114Z  Downloaded sympy
+2026-10-18T02:43:47.0053870Z  Downloaded numpy
+2026-10-18T02:43:48.4461242Z  Downloaded torch
+2026-10-18T02:43:48.4477504Z Prepared 16 packages in 1.74s
+2026-10-18T02:43:48.6982756Z Installed 16 packages in 250ms
+2026-10-18T02:43:48.6983067Z  + filelock==3.32.3
+2026-10-18T02:43:48.6983428Z  + fsspec==2026.7.0
+2026-10-18T02:43:48.6983704Z  + h5py==3.16.0
+2026-10-18T02:43:48.6984060Z  + jinja2==3.1.6
+2026-10-18T02:43:48.6984365Z  + markupsafe==3.0.3
+2026-10-18T02:43:48.6984704Z  + mpmath==1.3.0
+2026-10-18T02:43:48.6985016Z  + networkx==3.6.1
+2026-10-18T02:43:48.6985339Z  + nir==1.0.8
+2026-10-18T02:43:48.6985632Z  + nirtorch==2.6
+2026-10-18T02:43:48.6985919Z  + numpy==2.5.2
+2026-10-18T02:43:48.6986188Z  + safetensors==0.8.0
+2026-10-18T02:43:48.6986529Z  + setuptools==78.1.0
+2026-10-18T02:43:48.6986869Z  + snntorch==1.0.0
+2026-10-18T02:43:48.6987216Z  + sympy==1.14.0
+2026-10-18T02:43:48.6987571Z  + torch==2.8.0+cpu
+2026-10-18T02:43:48.6987986Z  + typing-extensions==4.16.0
+2026-10-18T02:43:48.7020731Z SITE=$(.venv/bin/python -c "import site; print(site.getsitepackages()[0])"); echo "<REPO>/vendor/spikeforge" > "$SITE/spikeforge-src.pth"
+2026-10-18T02:43:48.9150929Z spikeforge source pinned via spikeforge-src.pth
+2026-10-18T02:43:48.9187336Z ##[group]Run just test-fast
+2026-10-18T02:43:48.9187609Z just test-fast
+2026-10-18T02:43:48.9243675Z shell: <USR_BIN>/bash -e {0}
+2026-10-18T02:43:48.9243889Z env:
+2026-10-18T02:43:48.9244111Z   pythonLocation: <TOOLCACHE>/Python/3.13.16/x64
+2026-10-18T02:43:48.9244465Z   PKG_CONFIG_PATH: <TOOLCACHE>/Python/3.13.16/x64/lib/pkgconfig
+2026-10-18T02:43:48.9244797Z   Python_ROOT_DIR: <TOOLCACHE>/Python/3.13.16/x64
+2026-10-18T02:43:48.9245100Z   Python2_ROOT_DIR: <TOOLCACHE>/Python/3.13.16/x64
+2026-10-18T02:43:48.9245568Z   Python3_ROOT_DIR: <TOOLCACHE>/Python/3.13.16/x64
+2026-10-18T02:43:48.9245878Z   LD_LIBRARY_PATH: <TOOLCACHE>/Python/3.13.16/x64/lib
+2026-10-18T02:43:48.9246179Z   UV_CACHE_DIR: <RUNNER_TEMP>/setup-uv-cache
+2026-10-18T02:43:48.9246416Z ##[endgroup]
+2026-10-18T02:43:48.9427204Z .venv/bin/python -m unittest tests.test_review_search tests.test_review_search_edges tests.test_review_acceptance tests.test_review_integrity tests.test_review_lattice tests.test_review_protocol tests.test_rsi_actions tests.test_rsi_sandbox tests.test_rsi_headless tests.test_proxy tests.test_rsi_hard tests.test_typed_dag_programming_probe tests.test_rsi_decoder tests.test_modular tests.test_rsi_tasks tests.test_edits tests.test_self_gate tests.test_autonomy tests.test_rsi_ood tests.test_gains tests.test_rsi_words tests.test_rsi_lattice tests.test_rsi_lattice_train tests.test_rsi_lattice_author tests.test_rsi_bytecode tests.test_rsi_selectivity tests.test_rsi_proposer -v
+2026-10-18T02:43:53.4996068Z test_beam_reports_signature_work_and_fallback_attempts (tests.test_review_search.SearchReviewTests.test_beam_reports_signature_work_and_fallback_attempts) ... ok
+2026-10-18T02:43:56.4517742Z test_bonus_roundtrip_and_rank_use_one_score_contract (tests.test_review_search.SearchReviewTests.test_bonus_roundtrip_and_rank_use_one_score_contract) ... ok
+2026-10-18T02:43:56.4521830Z test_bool_intermediates_and_int_final_output (tests.test_review_search.SearchReviewTests.test_bool_intermediates_and_int_final_output) ... ok
+2026-10-18T02:43:56.4524942Z test_grammar_miss_is_not_budget_exhaustion (tests.test_review_search.SearchReviewTests.test_grammar_miss_is_not_budget_exhaustion) ... ok
+2026-10-18T02:43:56.4966777Z test_restore_training_moves_all_live_networks (tests.test_review_search.SearchReviewTests.test_restore_training_moves_all_live_networks) ... ok
+2026-10-18T02:43:56.4973330Z test_training_and_scoring_share_layer_ordinals (tests.test_review_search.SearchReviewTests.test_training_and_scoring_share_layer_ordinals) ... ok
+2026-10-18T02:43:56.4978719Z test_work_scan_budget_and_minimal_graph (tests.test_review_search.SearchReviewTests.test_work_scan_budget_and_minimal_graph) ... ok
+2026-10-18T02:43:56.4981006Z test_author_budget_bounds_huge_layer_materialization (tests.test_review_search_edges.SearchEdgeTests.test_author_budget_bounds_huge_layer_materialization) ... ok
+2026-10-18T02:43:56.4982489Z test_author_tiny_budget_keeps_full_layer_ordinal (tests.test_review_search_edges.SearchEdgeTests.test_author_tiny_budget_keeps_full_layer_ordinal) ... ok
+2026-10-18T02:43:56.4985612Z test_guided_search_tiny_budget_can_solve_first_candidate (tests.test_review_search_edges.SearchEdgeTests.test_guided_search_tiny_budget_can_solve_first_candidate) ... ok
+2026-10-18T02:43:56.5021438Z test_ranker_restore_has_explicit_donor_optimizer_opt_in (tests.test_review_search_edges.SearchEdgeTests.test_ranker_restore_has_explicit_donor_optimizer_opt_in) ... ok
+2026-10-18T02:43:56.5049951Z test_score_backtrack_matches_legacy_order_and_mutation (tests.test_review_search_edges.SearchEdgeTests.test_score_backtrack_matches_legacy_order_and_mutation) ... ok
+2026-10-18T02:43:56.5051522Z test_score_backtrack_zero_budget_skips_ordering (tests.test_review_search_edges.SearchEdgeTests.test_score_backtrack_zero_budget_skips_ordering) ... ok
+2026-10-18T02:43:56.6171529Z test_trace_signature_evaluations_match_candidate_callback (tests.test_review_search_edges.SearchEdgeTests.test_trace_signature_evaluations_match_candidate_callback) ... ok
+2026-10-18T02:43:56.6183269Z test_widen_fallback_reports_discarded_author_work (tests.test_review_search_edges.SearchEdgeTests.test_widen_fallback_reports_discarded_author_work) ... ok
+2026-10-18T02:43:56.6719283Z test_default_active_fields_are_trainer_surface_only (tests.test_review_acceptance.AcceptanceReviewTests.test_default_active_fields_are_trainer_surface_only) ... ok
+2026-10-18T02:43:56.6728174Z test_default_scores_require_held_out_oracle (tests.test_review_acceptance.AcceptanceReviewTests.test_default_scores_require_held_out_oracle) ... ok
+2026-10-18T02:43:56.6762253Z test_default_trainer_consumes_active_fields (tests.test_review_acceptance.AcceptanceReviewTests.test_default_trainer_consumes_active_fields) ... ok
+2026-10-18T02:43:56.6775633Z test_default_trainer_ignores_unsupported_fields (tests.test_review_acceptance.AcceptanceReviewTests.test_default_trainer_ignores_unsupported_fields) ... ok
+2026-10-18T02:43:56.6796292Z test_gate_rejects_inadequate_and_nonfinite_evidence (tests.test_review_acceptance.AcceptanceReviewTests.test_gate_rejects_inadequate_and_nonfinite_evidence) ... ok
+2026-10-18T02:43:56.7235129Z test_loop_excludes_unmeasured_gains_from_summaries (tests.test_review_acceptance.AcceptanceReviewTests.test_loop_excludes_unmeasured_gains_from_summaries) ... ok
+2026-10-18T02:43:56.7333764Z test_loop_preserves_finite_negative_refusal_gain (tests.test_review_acceptance.AcceptanceReviewTests.test_loop_preserves_finite_negative_refusal_gain) ... ok
+2026-10-18T02:43:56.7420731Z test_self_gate_records_nonfinite_refusal_and_finite_gain (tests.test_review_acceptance.AcceptanceReviewTests.test_self_gate_records_nonfinite_refusal_and_finite_gain) ... ok
+2026-10-18T02:43:56.7422025Z test_summary_marks_singletons_and_checks_dimensions (tests.test_review_acceptance.AcceptanceReviewTests.test_summary_marks_singletons_and_checks_dimensions) ... ok
+2026-10-18T02:43:56.7423464Z test_bytecode_vm_errors_and_trailing_material_reject (tests.test_review_integrity.IntegrityReviewTests.test_bytecode_vm_errors_and_trailing_material_reject) ... ok
+2026-10-18T02:43:56.7461219Z test_concurrent_duplicate_intent_is_inserted_once (tests.test_review_integrity.IntegrityReviewTests.test_concurrent_duplicate_intent_is_inserted_once) ... ok
+2026-10-18T02:43:56.7462189Z test_evolution_cost_prefers_canonical_signature_counter (tests.test_review_integrity.IntegrityReviewTests.test_evolution_cost_prefers_canonical_signature_counter) ... ok
+2026-10-18T02:43:56.7511670Z test_lineage_appends_run_scoped_records_and_checks_digest (tests.test_review_integrity.IntegrityReviewTests.test_lineage_appends_run_scoped_records_and_checks_digest) ... ok
+2026-10-18T02:43:57.0055096Z test_policy_repeated_run_uses_new_logical_run_ids (tests.test_review_integrity.IntegrityReviewTests.test_policy_repeated_run_uses_new_logical_run_ids) ... ok
+2026-10-18T02:43:57.0056568Z test_proxy_rejects_trace_group_count_mismatch (tests.test_review_integrity.IntegrityReviewTests.test_proxy_rejects_trace_group_count_mismatch) ... ok
+2026-10-18T02:43:57.0057784Z test_proxy_subsets_trace_groups_by_task_id (tests.test_review_integrity.IntegrityReviewTests.test_proxy_subsets_trace_groups_by_task_id) ... ok
+2026-10-18T02:43:57.0058636Z test_proxy_uses_configured_seed_offsets (tests.test_review_integrity.IntegrityReviewTests.test_proxy_uses_configured_seed_offsets) ... ok
+2026-10-18T02:43:57.0059443Z test_rebuilt_expression_size_counts_each_operation_once (tests.test_review_integrity.IntegrityReviewTests.test_rebuilt_expression_size_counts_each_operation_once) ... ok
+2026-10-18T02:43:57.0254736Z test_scale_repeated_evolve_uses_new_logical_run_ids (tests.test_review_integrity.IntegrityReviewTests.test_scale_repeated_evolve_uses_new_logical_run_ids) ... ok
+2026-10-18T02:43:57.0256094Z test_skipped_child_has_no_measured_fitness_in_archive (tests.test_review_integrity.IntegrityReviewTests.test_skipped_child_has_no_measured_fitness_in_archive) ... ok
+2026-10-18T02:43:57.0265480Z test_trace_groups_bind_records_by_task_id (tests.test_review_integrity.IntegrityReviewTests.test_trace_groups_bind_records_by_task_id) ... ok
+2026-10-18T02:43:57.0266753Z test_unmeasured_entries_never_win_evolution_selection (tests.test_review_integrity.IntegrityReviewTests.test_unmeasured_entries_never_win_evolution_selection) ... ok
+2026-10-18T02:43:57.0267615Z test_word_decoder_checks_operands_and_stop_boundary (tests.test_review_integrity.IntegrityReviewTests.test_word_decoder_checks_operands_and_stop_boundary) ... ok
+2026-10-18T02:43:57.2197715Z test_calibration_reports_both_struct_channels_afterwards (tests.test_review_lattice.ReviewLatticeTests.test_calibration_reports_both_struct_channels_afterwards) ... ok
+2026-10-18T02:43:57.2226559Z test_calibration_sweep_reports_joint_word_emit_accuracy (tests.test_review_lattice.ReviewLatticeTests.test_calibration_sweep_reports_joint_word_emit_accuracy) ... ok
+2026-10-18T02:43:57.2228644Z test_constant_bit_target_uses_squared_error (tests.test_review_lattice.ReviewLatticeTests.test_constant_bit_target_uses_squared_error) ... ok
+2026-10-18T02:43:57.2250158Z test_joint_word_and_emit_metric_matches_membership (tests.test_review_lattice.ReviewLatticeTests.test_joint_word_and_emit_metric_matches_membership) ... ok
+2026-10-18T02:43:57.2292812Z test_lattice_restore_keeps_recipient_adam_options_and_freezes (tests.test_review_lattice.ReviewLatticeTests.test_lattice_restore_keeps_recipient_adam_options_and_freezes) ... ok
+2026-10-18T02:43:57.2333014Z test_lattice_snapshot_optimizer_is_explicit_opt_in (tests.test_review_lattice.ReviewLatticeTests.test_lattice_snapshot_optimizer_is_explicit_opt_in) ... ok
+2026-10-18T02:43:57.2408425Z test_legacy_untagged_snapshots_remain_loadable (tests.test_review_lattice.ReviewLatticeTests.test_legacy_untagged_snapshots_remain_loadable) ... ok
+2026-10-18T02:43:57.2429245Z test_missing_calibration_reports_joint_metric_unavailable (tests.test_review_lattice.ReviewLatticeTests.test_missing_calibration_reports_joint_metric_unavailable) ... ok
+2026-10-18T02:43:57.2573842Z test_modular_continuation_is_explicit (tests.test_review_lattice.ReviewLatticeTests.test_modular_continuation_is_explicit) ... ok
+2026-10-18T02:43:57.2672144Z test_modular_independent_drives_start_fresh (tests.test_review_lattice.ReviewLatticeTests.test_modular_independent_drives_start_fresh) ... ok
+2026-10-18T02:43:57.2733399Z test_modular_restore_uses_recipient_or_explicit_donor_options (tests.test_review_lattice.ReviewLatticeTests.test_modular_restore_uses_recipient_or_explicit_donor_options) ... ok
+2026-10-18T02:43:57.2734404Z test_module_opcode_argmax_is_labeled_as_diagnostic (tests.test_review_lattice.ReviewLatticeTests.test_module_opcode_argmax_is_labeled_as_diagnostic) ... ok
+2026-10-18T02:43:57.2735356Z test_pack_loss_is_mean_plus_max_of_head_losses (tests.test_review_lattice.ReviewLatticeTests.test_pack_loss_is_mean_plus_max_of_head_losses) ... ok
+2026-10-18T02:43:57.2786796Z test_restore_rejects_tagged_incompatible_feature_encoding (tests.test_review_lattice.ReviewLatticeTests.test_restore_rejects_tagged_incompatible_feature_encoding) ... ok
+2026-10-18T02:43:57.2800205Z test_small_split_has_no_phantom_evaluation_group (tests.test_review_lattice.ReviewLatticeTests.test_small_split_has_no_phantom_evaluation_group) ... ok
+2026-10-18T02:43:57.2801259Z test_split_keeps_validation_groups_untouched (tests.test_review_lattice.ReviewLatticeTests.test_split_keeps_validation_groups_untouched) ... ok
+2026-10-18T02:43:57.2856390Z test_threshold_sweep_keeps_current_values_on_ties (tests.test_review_lattice.ReviewLatticeTests.test_threshold_sweep_keeps_current_values_on_ties) ... ok
+2026-10-18T02:43:57.2871440Z test_behavior_hash_covers_call_settings_and_policy_steps (tests.test_review_protocol.ProtocolReviewTests.test_behavior_hash_covers_call_settings_and_policy_steps) ... ok
+2026-10-18T02:43:57.2872513Z test_exact_flag_is_external_and_can_be_ablated (tests.test_review_protocol.ProtocolReviewTests.test_exact_flag_is_external_and_can_be_ablated) ... ok
+2026-10-18T02:43:57.2883743Z test_fallback_requires_held_out_oracle (tests.test_review_protocol.ProtocolReviewTests.test_fallback_requires_held_out_oracle) ... ok
+2026-10-18T02:43:57.2893643Z test_generated_task_discloses_selection_filter (tests.test_review_protocol.ProtocolReviewTests.test_generated_task_discloses_selection_filter) ... ok
+2026-10-18T02:43:57.2894672Z test_headless_insufficient_pairs_refuses_without_crashing (tests.test_review_protocol.ProtocolReviewTests.test_headless_insufficient_pairs_refuses_without_crashing) ... ok
+2026-10-18T02:43:57.2895736Z test_headless_pairs_one_average_per_task (tests.test_review_protocol.ProtocolReviewTests.test_headless_pairs_one_average_per_task) ... ok
+2026-10-18T02:43:57.2896622Z test_headless_reports_oracle_exception (tests.test_review_protocol.ProtocolReviewTests.test_headless_reports_oracle_exception) ... ok
+2026-10-18T02:43:57.2897419Z test_headless_skips_oracle_for_rejected_graph (tests.test_review_protocol.ProtocolReviewTests.test_headless_skips_oracle_for_rejected_graph) ... ok
+2026-10-18T02:43:57.2903016Z test_recovery_requires_held_out_oracle (tests.test_review_protocol.ProtocolReviewTests.test_recovery_requires_held_out_oracle) ... ok
+2026-10-18T02:43:57.2905960Z test_rich_fitness_does_not_credit_held_failure (tests.test_review_protocol.ProtocolReviewTests.test_rich_fitness_does_not_credit_held_failure) ... ok
+2026-10-18T02:43:57.3155554Z test_rich_negative_groups_skip_exact_train_solvers (tests.test_review_protocol.ProtocolReviewTests.test_rich_negative_groups_skip_exact_train_solvers) ... ok
+2026-10-18T02:43:57.3157122Z test_rich_rollup_uses_canonical_cost_with_legacy_aliases (tests.test_review_protocol.ProtocolReviewTests.test_rich_rollup_uses_canonical_cost_with_legacy_aliases) ... ok
+2026-10-18T02:43:57.3158624Z test_scale_family_cost_uses_canonical_counter (tests.test_review_protocol.ProtocolReviewTests.test_scale_family_cost_uses_canonical_counter) ... ok
+2026-10-18T02:43:57.3159861Z test_scale_flags_each_family_regression (tests.test_review_protocol.ProtocolReviewTests.test_scale_flags_each_family_regression) ... ok
+2026-10-18T02:43:57.3161387Z test_training_ordinals_are_local_not_answer_positions (tests.test_review_protocol.ProtocolReviewTests.test_training_ordinals_are_local_not_answer_positions) ... ok
+2026-10-18T02:43:57.3181926Z test_apply_builds_valid_graph (tests.test_rsi_actions.ActionSpaceTests.test_apply_builds_valid_graph) ... ok
+2026-10-18T02:43:57.3182982Z test_apply_covers_full_cross_product (tests.test_rsi_actions.ActionSpaceTests.test_apply_covers_full_cross_product) ... ok
+2026-10-18T02:43:57.3184046Z test_branch_actions_build_typed_graph (tests.test_rsi_actions.ActionSpaceTests.test_branch_actions_build_typed_graph) ... ok
+2026-10-18T02:43:57.3185026Z test_branch_mistyped_edits_rejected (tests.test_rsi_actions.ActionSpaceTests.test_branch_mistyped_edits_rejected) ... ok
+2026-10-18T02:43:57.3185648Z test_const_actions_cover_ir_range (tests.test_rsi_actions.ActionSpaceTests.test_const_actions_cover_ir_range) ... ok
+2026-10-18T02:43:57.3186254Z test_const_out_of_range_rejected (tests.test_rsi_actions.ActionSpaceTests.test_const_out_of_range_rejected) ... ok
+2026-10-18T02:43:57.3186849Z test_forward_reference_rejected (tests.test_rsi_actions.ActionSpaceTests.test_forward_reference_rejected) ... ok
+2026-10-18T02:43:57.3187404Z test_grammar_matches_probe (tests.test_rsi_actions.ActionSpaceTests.test_grammar_matches_probe) ... ok
+2026-10-18T02:43:57.3187980Z test_typecheck_rejects_bad_edits (tests.test_rsi_actions.ActionSpaceTests.test_typecheck_rejects_bad_edits) ... ok
+2026-10-18T02:43:57.3188583Z test_branch_fixture_splits_match (tests.test_rsi_actions.TraceRecorderTests.test_branch_fixture_splits_match) ... ok
+2026-10-18T02:43:57.3189167Z test_const_fixture_splits_match (tests.test_rsi_actions.TraceRecorderTests.test_const_fixture_splits_match) ... ok
+2026-10-18T02:43:57.3189730Z test_family_loads_with_ids (tests.test_rsi_actions.TraceRecorderTests.test_family_loads_with_ids) ... ok
+2026-10-18T02:43:57.3190700Z test_oracle_uses_frozen_expectations (tests.test_rsi_actions.TraceRecorderTests.test_oracle_uses_frozen_expectations) ... ok
+2026-10-18T02:43:57.5469687Z test_record_all_summarizes_family (tests.test_rsi_actions.TraceRecorderTests.test_record_all_summarizes_family) ... ok
+2026-10-18T02:43:57.7516276Z test_record_task_reports_baseline (tests.test_rsi_actions.TraceRecorderTests.test_record_task_reports_baseline) ... ok
+2026-10-18T02:43:57.7518371Z test_split_hash_stable (tests.test_rsi_actions.TraceRecorderTests.test_split_hash_stable) ... ok
+2026-10-18T02:43:57.7521863Z test_ancestor_tampering_is_detected (tests.test_rsi_sandbox.RsiSandboxTests.test_ancestor_tampering_is_detected) ... ok
+2026-10-18T02:43:57.7523666Z test_curriculum_clusters_failures_into_next_tasks (tests.test_rsi_sandbox.RsiSandboxTests.test_curriculum_clusters_failures_into_next_tasks) ... ok
+2026-10-18T02:43:58.8927112Z test_evaluator_runs_supervisor_side_and_ignores_claims (tests.test_rsi_sandbox.RsiSandboxTests.test_evaluator_runs_supervisor_side_and_ignores_claims) ... ok
+2026-10-18T02:44:00.0590120Z test_forged_completion_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_forged_completion_is_rejected) ... ok
+2026-10-18T02:44:00.0592851Z test_hidden_oracle_read_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_hidden_oracle_read_is_rejected) ... ok
+2026-10-18T02:44:00.0594898Z test_lineage_hash_is_stable_and_content_bound (tests.test_rsi_sandbox.RsiSandboxTests.test_lineage_hash_is_stable_and_content_bound) ... ok
+2026-10-18T02:44:00.0608880Z test_oversize_submissions_are_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_oversize_submissions_are_rejected) ... ok
+2026-10-18T02:44:00.1012389Z test_promotion_needs_gain_bound_safety_and_budget (tests.test_rsi_sandbox.RsiSandboxTests.test_promotion_needs_gain_bound_safety_and_budget) ... ok
+2026-10-18T02:44:00.1014788Z test_tool_and_network_addition_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_tool_and_network_addition_is_rejected) ... ok
+2026-10-18T02:44:00.1016420Z test_verifier_edit_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_verifier_edit_is_rejected) ... ok
+2026-10-18T02:44:01.5043680Z test_wall_cap_times_out_and_valid_run_reports_cost (tests.test_rsi_sandbox.RsiSandboxTests.test_wall_cap_times_out_and_valid_run_reports_cost) ... ok
+2026-10-18T02:44:09.1965682Z test_budget_exhaustion_stops_cleanly (tests.test_rsi_headless.HeadlessLoopTests.test_budget_exhaustion_stops_cleanly)
+2026-10-18T02:44:13.1136597Z One-candidate budget stops the loop without failing. ... ok
+2026-10-18T02:44:13.1137123Z test_every_decision_traceable (tests.test_rsi_headless.HeadlessLoopTests.test_every_decision_traceable)
+2026-10-18T02:44:13.1141358Z Decisions match JSONL records; no oracle files leak. ... ok
+2026-10-18T02:44:13.1141974Z test_fallback_debug_column_labelled (tests.test_rsi_headless.HeadlessLoopTests.test_fallback_debug_column_labelled)
+2026-10-18T02:44:21.2266656Z Compare flag adds the enumerator column, never headline. ... ok
+2026-10-18T02:44:21.2267331Z test_hands_off_author_only_honest_rate (tests.test_rsi_headless.HeadlessLoopTests.test_hands_off_author_only_honest_rate)
+2026-10-18T02:44:21.2267949Z Author path 4/4 with no rescue, zero bad executions. ... ok
+2026-10-18T02:44:21.2268363Z test_no_silent_rescue (tests.test_rsi_headless.HeadlessLoopTests.test_no_silent_rescue)
+2026-10-18T02:44:21.7685106Z Beam-solved task needs no fallback; verdict clean. ... ok
+2026-10-18T02:44:21.7685986Z test_tampered_candidate_rejected_loop_continues (tests.test_rsi_headless.HeadlessLoopTests.test_tampered_candidate_rejected_loop_continues)
+2026-10-18T02:44:29.3237619Z Forged mid-run claim is rejected; the loop finishes. ... ok
+2026-10-18T02:44:32.1414402Z test_full_eval_uses_novel_tasks (tests.test_proxy.ProxyScreenTests.test_full_eval_uses_novel_tasks)
+2026-10-18T02:44:33.2812552Z The full protocol evaluates on the novel family. ... ok
+2026-10-18T02:44:33.2813401Z test_inverted_ranking_unproven_selects_nothing (tests.test_proxy.ProxyScreenTests.test_inverted_ranking_unproven_selects_nothing)
+2026-10-18T02:44:33.2814244Z Discordant ranks leave the proxy judging nothing. ... ok
+2026-10-18T02:44:33.2815633Z test_perfect_agreement_proven_selects (tests.test_proxy.ProxyScreenTests.test_perfect_agreement_proven_selects)
+2026-10-18T02:44:33.2816495Z Concordant ranks prove the proxy; top proxy wins. ... ok
+2026-10-18T02:44:33.2817128Z test_report_command_keys (tests.test_proxy.ProxyScreenTests.test_report_command_keys)
+2026-10-18T02:44:38.6041122Z The CLI replay prints fidelity plus both walls. ... ok
+2026-10-18T02:44:38.6041724Z test_report_within_custom_budget (tests.test_proxy.ProxyScreenTests.test_report_within_custom_budget)
+2026-10-18T02:44:41.3753973Z Historical gains give fidelity without full eval. ... ok
+2026-10-18T02:44:41.3755254Z test_screen_runs_within_budget (tests.test_proxy.ProxyScreenTests.test_screen_runs_within_budget)
+2026-10-18T02:44:41.3755925Z Few epochs and few seeds stay far under budget. ... ok
+2026-10-18T02:44:41.3756622Z test_screen_scores_every_candidate (tests.test_proxy.ProxyScreenTests.test_screen_scores_every_candidate)
+2026-10-18T02:44:41.3757330Z One finite proxy score per candidate seed. ... ok
+2026-10-18T02:44:41.3757975Z test_screen_touches_no_novel_task (tests.test_proxy.ProxyScreenTests.test_screen_touches_no_novel_task)
+2026-10-18T02:44:41.3758665Z Train and eval slices stay inside the W1 family. ... ok
+2026-10-18T02:44:41.3759301Z test_small_sample_never_proven (tests.test_proxy.ProxyScreenTests.test_small_sample_never_proven)
+2026-10-18T02:44:41.3759986Z Perfect agreement on one pair still proves nothing. ... ok
+2026-10-18T02:44:41.3760808Z test_ties_are_counted_not_hidden (tests.test_proxy.ProxyScreenTests.test_ties_are_counted_not_hidden)
+2026-10-18T02:44:41.3761488Z A flat proxy scores half agreement, never proven. ... ok
+2026-10-18T02:45:48.9133026Z test_baseline_solve_rate_and_cost (tests.test_rsi_hard.HardFamilyTests.test_baseline_solve_rate_and_cost) ... ok
+2026-10-18T02:45:48.9133805Z test_digest_stable (tests.test_rsi_hard.HardFamilyTests.test_digest_stable) ... ok
+2026-10-18T02:45:48.9136483Z test_enumerator_clearly_expensive (tests.test_rsi_hard.HardFamilyTests.test_enumerator_clearly_expensive) ... ok
+2026-10-18T02:45:48.9137427Z test_expectations_recomputed (tests.test_rsi_hard.HardFamilyTests.test_expectations_recomputed) ... ok
+2026-10-18T02:45:48.9138148Z test_ids_bounds_and_depths (tests.test_rsi_hard.HardFamilyTests.test_ids_bounds_and_depths) ... ok
+2026-10-18T02:45:48.9138996Z test_near_miss_passes_train_fails_held_out (tests.test_rsi_hard.HardFamilyTests.test_near_miss_passes_train_fails_held_out) ... ok
+2026-10-18T02:47:26.9282461Z test_branch_tasks_need_select_to_solve (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_branch_tasks_need_select_to_solve) ... ok
+2026-10-18T02:47:26.9284463Z test_const_graph_renders_and_runs (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_const_graph_renders_and_runs) ... ok
+2026-10-18T02:47:26.9302698Z test_const_task_needs_consts_to_solve (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_const_task_needs_consts_to_solve) ... ok
+2026-10-18T02:47:26.9303844Z test_const_terminals_cover_ir_range (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_const_terminals_cover_ir_range) ... ok
+2026-10-18T02:47:26.9957602Z test_enumerator_assembles_dag_that_matches_held_out_oracle (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_enumerator_assembles_dag_that_matches_held_out_oracle) ... ok
+2026-10-18T02:47:26.9958967Z test_independent_oracle_rejects_valid_but_wrong_graph (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_independent_oracle_rejects_valid_but_wrong_graph) ... ok
+2026-10-18T02:47:26.9960013Z test_select_graph_runs_and_renders (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_select_graph_runs_and_renders) ... ok
+2026-10-18T02:47:26.9961165Z test_validator_rejects_bad_branch_types (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_validator_rejects_bad_branch_types) ... ok
+2026-10-18T02:47:26.9962464Z test_validator_rejects_bad_constants (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_validator_rejects_bad_constants) ... ok
+2026-10-18T02:47:26.9963453Z test_validator_rejects_unknown_operation_cycle_and_malformed_arity (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_validator_rejects_unknown_operation_cycle_and_malformed_arity) ... ok
+2026-10-18T02:47:26.9964371Z test_decoded_edits_author_valid_program (tests.test_rsi_decoder.SpikeDecoderTests.test_decoded_edits_author_valid_program)
+2026-10-18T02:47:26.9968075Z Decoded const+add commits graph for x+3 via emit_edit. ... ok
+2026-10-18T02:47:26.9968877Z test_malformed_populations_reject (tests.test_rsi_decoder.SpikeDecoderTests.test_malformed_populations_reject)
+2026-10-18T02:47:26.9969558Z Wrong shapes and missing populations are unknown. ... ok
+2026-10-18T02:47:26.9970043Z test_random_spikes_validate_or_reject (tests.test_rsi_decoder.SpikeDecoderTests.test_random_spikes_validate_or_reject)
+2026-10-18T02:47:27.0202152Z Fuzz: every output typechecks or carries a reason. ... ok
+2026-10-18T02:47:27.0202941Z test_round_trip_every_op_and_terminal (tests.test_rsi_decoder.SpikeDecoderTests.test_round_trip_every_op_and_terminal)
+2026-10-18T02:47:27.0213560Z Hand-built spikes decode to each exact alphabet action. ... ok
+2026-10-18T02:47:27.0214102Z test_tie_and_threshold_reject (tests.test_rsi_decoder.SpikeDecoderTests.test_tie_and_threshold_reject)
+2026-10-18T02:47:27.0216855Z Ambiguous or quiet populations never guess. ... ok
+2026-10-18T02:47:27.0217760Z test_delayed_feedback_changes_outputs_within_one_drive (tests.test_modular.ModularPolicyTests.test_delayed_feedback_changes_outputs_within_one_drive)
+2026-10-18T02:47:27.0312627Z The feedback edge remains active in a fresh drive. ... ok
+2026-10-18T02:47:27.0313245Z test_explicit_continuation_carries_state (tests.test_modular.ModularPolicyTests.test_explicit_continuation_carries_state)
+2026-10-18T02:47:27.0408600Z Sequence callers can explicitly continue prior state. ... ok
+2026-10-18T02:47:27.0409209Z test_guided_search_solves_shadow_family (tests.test_modular.ModularPolicyTests.test_guided_search_solves_shadow_family)
+2026-10-18T02:47:27.8055723Z Factored ranker solves the same tasks via search. ... ok
+2026-10-18T02:47:27.8056559Z test_per_module_metrics_reported (tests.test_modular.ModularPolicyTests.test_per_module_metrics_reported)
+2026-10-18T02:47:28.9027631Z Op and operand heads measured against chance. ... ok
+2026-10-18T02:47:28.9028604Z test_same_rows_are_independent_of_prior_candidate_batches (tests.test_modular.ModularPolicyTests.test_same_rows_are_independent_of_prior_candidate_batches)
+2026-10-18T02:47:28.9130221Z Scoring independent batches never inherits prior state. ... ok
+2026-10-18T02:47:28.9131087Z test_snapshot_round_trips_scores (tests.test_modular.ModularPolicyTests.test_snapshot_round_trips_scores)
+2026-10-18T02:47:28.9226968Z Restore reproduces identical combined rankings. ... ok
+2026-10-18T02:47:28.9227836Z test_old_policy_ignores_new_rank_args (tests.test_modular.SharedRankPathTests.test_old_policy_ignores_new_rank_args)
+2026-10-18T02:47:28.9261543Z Extended rank signature leaves monolith behavior. ... ok
+2026-10-18T02:47:28.9262291Z test_branch_tasks_require_branch (tests.test_rsi_tasks.TaskGeneratorTests.test_branch_tasks_require_branch)
+2026-10-18T02:47:51.6301003Z A fresh branch task fails bare and const-only search. ... ok
+2026-10-18T02:47:51.6301749Z test_curriculum_loop_closed (tests.test_rsi_tasks.TaskGeneratorTests.test_curriculum_loop_closed)
+2026-10-18T02:48:01.4083712Z Gate failures become family parameters and fresh tasks. ... ok
+2026-10-18T02:48:01.4084515Z test_frozen_splits_and_counts (tests.test_rsi_tasks.TaskGeneratorTests.test_frozen_splits_and_counts)
+2026-10-18T02:48:01.4095211Z 24+12 tasks, matching hashes, disjoint rows. ... ok
+2026-10-18T02:48:01.4095796Z test_safety_report_yields_no_tasks (tests.test_rsi_tasks.TaskGeneratorTests.test_safety_report_yields_no_tasks)
+2026-10-18T02:48:01.4096706Z Safety failures are a gate issue, never a data order. ... ok
+2026-10-18T02:48:01.4097353Z test_same_seed_byte_identical (tests.test_rsi_tasks.TaskGeneratorTests.test_same_seed_byte_identical)
+2026-10-18T02:49:30.1554127Z Determinism: one seed always yields the same bytes. ... ok
+2026-10-18T02:49:30.1554959Z test_all_edits_lists_nontrivial_only (tests.test_edits.EditOperatorTests.test_all_edits_lists_nontrivial_only)
+2026-10-18T02:49:30.1555722Z Enumeration skips current values and stays valid. ... ok
+2026-10-18T02:49:30.1556440Z test_every_operator_round_trips (tests.test_edits.EditOperatorTests.test_every_operator_round_trips)
+2026-10-18T02:49:30.1559319Z Apply then invert restores the config exactly. ... ok
+2026-10-18T02:49:30.1559937Z test_gate_modules_unnameable (tests.test_edits.EditOperatorTests.test_gate_modules_unnameable)
+2026-10-18T02:49:30.1575338Z No operator, field, or import can touch the judge. ... ok
+2026-10-18T02:49:30.1576169Z test_malformed_and_foreign_edits_rejected (tests.test_edits.EditOperatorTests.test_malformed_and_foreign_edits_rejected)
+2026-10-18T02:49:30.1576940Z Unknown fields, ops, and values all raise. ... ok
+2026-10-18T02:49:30.1577652Z test_beneficial_edit_promotes_with_lineage (tests.test_self_gate.SelfGateTests.test_beneficial_edit_promotes_with_lineage)
+2026-10-18T02:49:30.1673389Z Uniform gain clears bootstrap and gain bars. ... ok
+2026-10-18T02:49:30.1673974Z test_budget_exactness (tests.test_self_gate.SelfGateTests.test_budget_exactness)
+2026-10-18T02:49:30.1802364Z Zero budget runs nothing; N attempts then exhausted. ... ok
+2026-10-18T02:49:30.1803070Z test_crash_rolls_back_and_records (tests.test_self_gate.SelfGateTests.test_crash_rolls_back_and_records)
+2026-10-18T02:49:30.1841348Z Trainer exceptions become recorded rollbacks. ... ok
+2026-10-18T02:49:30.1842043Z test_harmful_edit_refused_base_intact (tests.test_self_gate.SelfGateTests.test_harmful_edit_refused_base_intact)
+2026-10-18T02:49:30.1924748Z Red team: uniform loss refuses with logged reason. ... ok
+2026-10-18T02:49:30.1925447Z test_judge_files_untouched_by_trial (tests.test_self_gate.SelfGateTests.test_judge_files_untouched_by_trial)
+2026-10-18T02:49:30.2009700Z Gate and sandbox bytes identical after a full trial. ... ok
+2026-10-18T02:49:30.2010374Z test_malformed_edit_never_trains (tests.test_self_gate.SelfGateTests.test_malformed_edit_never_trains)
+2026-10-18T02:49:30.2045120Z Bad edits refuse before any trainer call. ... ok
+2026-10-18T02:49:30.2045761Z test_real_trainer_protocol_holds (tests.test_self_gate.SelfGateTests.test_real_trainer_protocol_holds)
+2026-10-18T02:49:33.0238661Z Smallest real training loop obeys the fence. ... ok
+2026-10-18T02:49:33.0241938Z test_empty_archive_empty_profile (tests.test_autonomy.AgencyProfileTests.test_empty_archive_empty_profile)
+2026-10-18T02:49:33.0242603Z No entries, no profile. ... ok
+2026-10-18T02:49:33.0243245Z test_shrinking_diversity_converges (tests.test_autonomy.AgencyProfileTests.test_shrinking_diversity_converges)
+2026-10-18T02:49:33.0243987Z Collapsing spread with rising fitness converges. ... ok
+2026-10-18T02:49:33.0244699Z test_degenerate_inputs_score_zero (tests.test_autonomy.AutonomyRatioTests.test_degenerate_inputs_score_zero)
+2026-10-18T02:49:33.0245414Z One history, empty input, or flat lines score zero. ... ok
+2026-10-18T02:49:33.0246096Z test_full_separation_scores_one (tests.test_autonomy.AutonomyRatioTests.test_full_separation_scores_one)
+2026-10-18T02:49:33.0246719Z Disjoint histories own all the variance. ... ok
+2026-10-18T02:49:33.0247116Z test_partial_variance_fraction (tests.test_autonomy.AutonomyRatioTests.test_partial_variance_fraction)
+2026-10-18T02:49:33.0247521Z Between over total on a mixed population. ... ok
+2026-10-18T02:49:33.0247921Z test_shared_spread_scores_zero (tests.test_autonomy.AutonomyRatioTests.test_shared_spread_scores_zero)
+2026-10-18T02:49:33.0248332Z Identical spreads leave nothing to history. ... ok
+2026-10-18T02:49:33.0248754Z test_chain_reports_no_integration (tests.test_autonomy.DivergenceTests.test_chain_reports_no_integration)
+2026-10-18T02:49:33.0278405Z Feedforward monolith has nothing to sever. ... ok
+2026-10-18T02:49:33.0279022Z test_driven_feedback_moves_outputs (tests.test_autonomy.DivergenceTests.test_driven_feedback_moves_outputs)
+2026-10-18T02:49:33.0428453Z Strong drive makes the cut bite: positive number. ... ok
+2026-10-18T02:49:33.0429218Z test_feedback_edge_lists_and_measures (tests.test_autonomy.DivergenceTests.test_feedback_edge_lists_and_measures)
+2026-10-18T02:49:33.0701525Z Modular feedback severs and reports a number. ... ok
+2026-10-18T02:49:41.9452386Z test_contrast_training_separates_guidance (tests.test_rsi_ood.FrozenBenchmarkTests.test_contrast_training_separates_guidance)
+2026-10-18T02:49:43.7187822Z Mirror penalty pushes broad guidance off baseline. ... ok
+2026-10-18T02:49:43.7188475Z test_expanded_training_keeps_discipline (tests.test_rsi_ood.FrozenBenchmarkTests.test_expanded_training_keeps_discipline)
+2026-10-18T02:49:45.0059795Z Wide training runs frozen with caveat attached. ... ok
+2026-10-18T02:49:45.0060902Z test_guidance_similarity_matches_fresh_pairwise_cosines (tests.test_rsi_ood.FrozenBenchmarkTests.test_guidance_similarity_matches_fresh_pairwise_cosines)
+2026-10-18T02:49:45.1094224Z Report matches independent snapshot-restored pair scores. ... ok
+2026-10-18T02:49:45.1095101Z test_refined_bench_keeps_discipline (tests.test_rsi_ood.FrozenBenchmarkTests.test_refined_bench_keeps_discipline)
+2026-10-18T02:49:48.4233898Z Refine-then-lock bench reports its refined flag. ... ok
+2026-10-18T02:49:48.4234669Z test_refinement_sees_train_rows_only (tests.test_rsi_ood.FrozenBenchmarkTests.test_refinement_sees_train_rows_only)
+2026-10-18T02:49:48.4235467Z No task's held-out rows train that same task. ... ok
+2026-10-18T02:49:48.4235947Z test_tamper_aborts (tests.test_rsi_ood.FrozenBenchmarkTests.test_tamper_aborts)
+2026-10-18T02:49:48.4252003Z A moved weight fails the frozen check. ... ok
+2026-10-18T02:49:48.4252583Z test_weights_locked_through_eval (tests.test_rsi_ood.FrozenBenchmarkTests.test_weights_locked_through_eval)
+2026-10-18T02:49:50.1996469Z Frozen run leaves every weight byte untouched. ... ok
+2026-10-18T02:49:50.1997339Z test_widened_bench_superset_within_budget (tests.test_rsi_ood.FrozenBenchmarkTests.test_widened_bench_superset_within_budget)
+2026-10-18T02:49:54.8075397Z Production schedule only adds solves in budget. ... ok
+2026-10-18T02:49:54.8076125Z test_wider_net_trains_and_scores (tests.test_rsi_ood.FrozenBenchmarkTests.test_wider_net_trains_and_scores)
+2026-10-18T02:49:54.8977573Z Hidden-64 policy fits, scores finite, deterministic. ... ok
+2026-10-18T02:49:54.8978422Z test_hard_corpus_plain_and_bounded (tests.test_rsi_ood.MirrorTests.test_hard_corpus_plain_and_bounded)
+2026-10-18T02:49:54.8982385Z New pools are plain-OPS with the intended bounds. ... ok
+2026-10-18T02:49:54.8983188Z test_inverts_comparison_and_swaps_roles (tests.test_rsi_ood.MirrorTests.test_inverts_comparison_and_swaps_roles)
+2026-10-18T02:49:54.8983977Z lt(x, y) mirrors to lt(y, x). ... ok
+2026-10-18T02:49:54.8984656Z test_names_degenerate_v1_patterns (tests.test_rsi_ood.MirrorTests.test_names_degenerate_v1_patterns)
+2026-10-18T02:49:54.8985424Z Constant and out-of-range conditions are flagged. ... ok
+2026-10-18T02:49:54.8986149Z test_preserves_consts_and_involutes (tests.test_rsi_ood.MirrorTests.test_preserves_consts_and_involutes)
+2026-10-18T02:49:54.8986857Z Consts survive; mirroring twice restores roles. ... ok
+2026-10-18T02:49:54.8987576Z test_splits_verify_and_no_leakage (tests.test_rsi_ood.MirrorTests.test_splits_verify_and_no_leakage)
+2026-10-18T02:49:54.9006680Z Split hashes hold; held-out never trains its task. ... ok
+2026-10-18T02:49:54.9007426Z test_strict_filter_bites_and_freezes (tests.test_rsi_ood.MirrorTests.test_strict_filter_bites_and_freezes)
+2026-10-18T02:50:03.4756114Z Strict content stays frozen; new selection metadata is separate. ... ok
+2026-10-18T02:50:03.4756962Z test_twin_rows_align_oracles_differ (tests.test_rsi_ood.MirrorTests.test_twin_rows_align_oracles_differ)
+2026-10-18T02:50:03.4758498Z Same rows, flipped outputs: memorized answers fail. ... ok
+2026-10-18T02:50:03.4759632Z test_check_passes_offline (tests.test_gains.GainsTests.test_check_passes_offline)
+2026-10-18T02:50:03.5159404Z CSV validates without matplotlib or network. ... ok
+2026-10-18T02:50:03.5159885Z test_decode_each_family_validates (tests.test_rsi_words.CodecTests.test_decode_each_family_validates)
+2026-10-18T02:50:03.5160775Z One word program per op family passes validation. ... ok
+2026-10-18T02:50:03.5173190Z test_decode_rejects_truncated_missing_or_typeless (tests.test_rsi_words.CodecTests.test_decode_rejects_truncated_missing_or_typeless)
+2026-10-18T02:50:03.5173982Z Truncated, stopless, and outputless fail loudly. ... ok
+2026-10-18T02:50:03.5174415Z test_decode_rejects_type_mismatch (tests.test_rsi_words.CodecTests.test_decode_rejects_type_mismatch)
+2026-10-18T02:50:03.5174817Z Bool node as Int operand fails validation. ... ok
+2026-10-18T02:50:03.5175203Z test_isa_covers_sixteen_with_stop (tests.test_rsi_words.CodecTests.test_isa_covers_sixteen_with_stop)
+2026-10-18T02:50:03.5175614Z ISA v0 names every codepoint 0-8; rest reserved. ... ok
+2026-10-18T02:50:03.5175976Z test_pack_rejects_bad_bits (tests.test_rsi_words.CodecTests.test_pack_rejects_bad_bits)
+2026-10-18T02:50:03.5176350Z Wrong length, non-binary, or range fail loudly. ... ok
+2026-10-18T02:50:03.5176768Z test_pack_unpack_round_trip_all_words (tests.test_rsi_words.CodecTests.test_pack_unpack_round_trip_all_words)
+2026-10-18T02:50:03.5177193Z All 16 codepoints pack and unpack losslessly. ... ok
+2026-10-18T02:50:03.5177584Z test_corrupted_words_fail_oracle (tests.test_rsi_words.OracleTests.test_corrupted_words_fail_oracle)
+2026-10-18T02:50:03.6555994Z Truncated and reserved-token edits do not verify. ... ok
+2026-10-18T02:50:03.6556658Z test_fixtures_load_unchanged (tests.test_rsi_words.OracleTests.test_fixtures_load_unchanged)
+2026-10-18T02:50:03.6560898Z Codec work writes no fixtures; all still parse. ... ok
+2026-10-18T02:50:03.6561670Z test_word_programs_hold_on_all_shadow (tests.test_rsi_words.OracleTests.test_word_programs_hold_on_all_shadow)
+2026-10-18T02:50:03.7956147Z Encoded solutions verify train + held-out. ... ok
+2026-10-18T02:50:03.7996652Z test_encoder_freeze_api (tests.test_rsi_lattice.LatticeTests.test_encoder_freeze_api)
+2026-10-18T02:50:03.7997557Z Freeze locks shared stages, never the heads. ... ok
+2026-10-18T02:50:03.7998392Z test_encoder_transfer_count_and_bytes (tests.test_rsi_lattice.LatticeTests.test_encoder_transfer_count_and_bytes)
+2026-10-18T02:50:03.8005422Z Fourteen stage keys land identical in the donee. ... ok
+2026-10-18T02:50:03.8006233Z test_independent_lattice_drives_start_fresh (tests.test_rsi_lattice.LatticeTests.test_independent_lattice_drives_start_fresh)
+2026-10-18T02:50:03.8118634Z A prior same-sized batch cannot change lattice output. ... ok
+2026-10-18T02:50:03.8119350Z test_lesion_flips_bit_two_only (tests.test_rsi_lattice.LatticeTests.test_lesion_flips_bit_two_only)
+2026-10-18T02:50:03.8192204Z Silencing head 2 flips bit 2, nothing else. ... ok
+2026-10-18T02:50:03.8192891Z test_snapshot_restore_round_trips (tests.test_rsi_lattice.LatticeTests.test_snapshot_restore_round_trips)
+2026-10-18T02:50:03.8333271Z Snapshots reload weights and reproduce words. ... ok
+2026-10-18T02:50:03.8333895Z test_struct_gate_steers_commit (tests.test_rsi_lattice.LatticeTests.test_struct_gate_steers_commit)
+2026-10-18T02:50:03.8409822Z Biased struct weights force commit or reject. ... ok
+2026-10-18T02:50:03.8410688Z test_struct_parity_on_shadow_family (tests.test_rsi_lattice.LatticeTests.test_struct_parity_on_shadow_family)
+2026-10-18T02:50:03.8498951Z Shared struct gate matches the donor on shadow. ... ok
+2026-10-18T02:50:06.2327300Z test_encoder_coadapts_from_donor (tests.test_rsi_lattice_train.LatticeTrainTests.test_encoder_coadapts_from_donor)
+2026-10-18T02:50:06.2348415Z Joint training moves shared weights off the donor. ... ok
+2026-10-18T02:50:06.2349249Z test_heads_beat_chance_words_beat_third (tests.test_rsi_lattice_train.LatticeTrainTests.test_heads_beat_chance_words_beat_third)
+2026-10-18T02:50:06.2350373Z Bit and word-bit accuracy stay above their baselines. ... ok
+2026-10-18T02:50:06.2351380Z test_lineage_records_training_run (tests.test_rsi_lattice_train.LatticeTrainTests.test_lineage_records_training_run)
+2026-10-18T02:50:06.2355295Z One prepared intent names the fixture and metrics. ... ok
+2026-10-18T02:50:22.1096577Z test_full_ir_boundary_reported (tests.test_rsi_lattice_author.LatticeAuthorTests.test_full_ir_boundary_reported)
+2026-10-18T02:50:22.1097410Z Full-IR boundary: real misses carry real verdicts. ... ok
+2026-10-18T02:50:22.1121575Z test_novel_miss_stays_missed (tests.test_rsi_lattice_author.LatticeAuthorTests.test_novel_miss_stays_missed)
+2026-10-18T02:50:22.2689991Z A capability miss never resolves by another path. ... ok
+2026-10-18T02:50:22.2690906Z test_novel_transfer_reported (tests.test_rsi_lattice_author.LatticeAuthorTests.test_novel_transfer_reported)
+2026-10-18T02:50:22.2691631Z Novel-family word-exact solves with reject tally. ... ok
+2026-10-18T02:50:22.2692375Z test_ood_headline_reported (tests.test_rsi_lattice_author.LatticeAuthorTests.test_ood_headline_reported)
+2026-10-18T02:50:22.2693086Z Author-only OOD numbers with path=lattice. ... ok
+2026-10-18T02:50:22.2693780Z test_shadow_authors_cleanly (tests.test_rsi_lattice_author.LatticeAuthorTests.test_shadow_authors_cleanly)
+2026-10-18T02:50:22.2694514Z Shadow solves come from agreement, oracle-checked. ... ok
+2026-10-18T02:50:22.2711669Z test_zero_budget_never_falls_back (tests.test_rsi_lattice_author.LatticeAuthorTests.test_zero_budget_never_falls_back)
+2026-10-18T02:50:22.3367047Z Zero budget stays unsolved; no hidden rescue path. ... ok
+2026-10-18T02:50:22.3368409Z test_bool_is_intermediate_but_not_a_final_program (tests.test_rsi_lattice_author.LatticeAuthorTypeTests.test_bool_is_intermediate_but_not_a_final_program)
+2026-10-18T02:50:22.3369375Z Authoring may use Bool conditions; finished DAGs return Int. ... ok
+2026-10-18T02:50:22.3370145Z test_all_solved_tasks_verify_binary (tests.test_rsi_bytecode.BytecodeTests.test_all_solved_tasks_verify_binary)
+2026-10-18T02:50:23.2371795Z Every solved task's binary holds train + held-out. ... ok
+2026-10-18T02:50:23.2372575Z test_corrupted_binaries_fail_oracle (tests.test_rsi_bytecode.BytecodeTests.test_corrupted_binaries_fail_oracle)
+2026-10-18T02:50:23.3295102Z Truncated, foreign, and behavior-flipped fail. ... ok
+2026-10-18T02:50:23.3295783Z test_decoder_rejects_junk (tests.test_rsi_bytecode.BytecodeTests.test_decoder_rejects_junk)
+2026-10-18T02:50:23.3296400Z Bad opcodes, truncations, and missing HALT fail. ... ok
+2026-10-18T02:50:23.3297061Z test_disassemble_round_trips (tests.test_rsi_bytecode.BytecodeTests.test_disassemble_round_trips)
+2026-10-18T02:50:23.3297744Z Decode names every instruction and operand. ... ok
+2026-10-18T02:50:23.3298357Z test_known_program_byte_exact (tests.test_rsi_bytecode.BytecodeTests.test_known_program_byte_exact)
+2026-10-18T02:50:23.3298975Z x + y assembles to five exact bytes. ... ok
+2026-10-18T02:50:23.3299651Z test_store_underflow_is_a_value_error (tests.test_rsi_bytecode.BytecodeTests.test_store_underflow_is_a_value_error)
+2026-10-18T02:50:23.3300403Z VM stack underflow has the same rejection type for STORE. ... ok
+2026-10-18T02:50:53.4617900Z test_family_report_is_deterministic (tests.test_rsi_selectivity.SelectivityTests.test_family_report_is_deterministic)
+2026-10-18T02:50:56.2975381Z Same inputs reproduce the same report exactly. ... ok
+2026-10-18T02:50:56.2976193Z test_report_covers_all_families (tests.test_rsi_selectivity.SelectivityTests.test_report_covers_all_families)
+2026-10-18T02:50:56.2976928Z Every family reports solves, rates, and tallies. ... ok
+2026-10-18T02:50:56.2977749Z test_capacity_fields_lead_on_reject_wall (tests.test_rsi_proposer.ProposerTests.test_capacity_fields_lead_on_reject_wall)
+2026-10-18T02:50:56.2978521Z A no-solution reject wall ranks capacity first. ... ok
+2026-10-18T02:50:56.2979300Z test_coupling_fields_lead_on_agreed_wrong (tests.test_rsi_proposer.ProposerTests.test_coupling_fields_lead_on_agreed_wrong)
+2026-10-18T02:50:56.2980773Z Agreed-but-wrong commits rank coupling first. ... ok
+2026-10-18T02:50:56.2981596Z test_every_proposal_validates_with_provenance (tests.test_rsi_proposer.ProposerTests.test_every_proposal_validates_with_provenance)
+2026-10-18T02:50:56.2982354Z All proposals validate; each names its signal. ... ok
+2026-10-18T02:50:56.2983042Z test_fenced_edit_refused_before_gate (tests.test_rsi_proposer.ProposerTests.test_fenced_edit_refused_before_gate)
+2026-10-18T02:50:56.3958429Z A fenced proposal never spends budget or trains. ... ok
+2026-10-18T02:50:56.3959230Z test_suspect_field_beats_seeded_order (tests.test_rsi_proposer.ProposerTests.test_suspect_field_beats_seeded_order)
+2026-10-18T02:50:56.4955456Z Suspect diagnostics reach promotion in fewer trials. ... ok
+2026-10-18T02:50:56.4955809Z
+2026-10-18T02:50:56.4955997Z ----------------------------------------------------------------------
+2026-10-18T02:50:56.4956438Z Ran 222 tests in 422.996s
+2026-10-18T02:50:56.4956619Z
+2026-10-18T02:50:56.4956721Z OK
+2026-10-18T02:50:56.5025805Z solve=4/4 wall=0.22s
+2026-10-18T02:50:56.5026179Z task=square_plus solved=True tried=6807 wall=0.201s
+2026-10-18T02:50:56.5026619Z solve=1.00 base=1.00 cost=1277 base=14673 wall=7.7s
+2026-10-18T02:50:56.5026977Z task=deep_shift_square solved=True tried=314169 wall=7.91s
+2026-10-18T02:50:56.5027277Z task=sub_square_diff solved=True tried=46821 wall=0.95s
+2026-10-18T02:50:56.5027560Z task=mixed_depth7 solved=True tried=2061216 wall=58.68s
+2026-10-18T02:50:56.5027838Z task=distractor_cube solved=False tried=12 wall=0.00s
+2026-10-18T02:50:56.5028105Z deep_shift_square tried=314169 ratio=46.2x
+2026-10-18T02:50:56.5028354Z mixed_depth7 tried=2061216 ratio=302.8x
+2026-10-18T02:50:56.5029233Z modular={'layers': 10, 'op_argmax_accuracy': 0.3333, 'op_argmax_chance': 0.3333, 'op_argmax_role': 'not_directly_supervised_diagnostic', 'op_argmax_directly_supervised': False, 'left_operand_top1_match': 0.0, 'left_operand_top1_chance': 0.0243, 'op_accuracy': 0.3333, 'op_chance': 0.3333, 'operand_top1': 0.0, 'operand_chance': 0.0243}
+2026-10-18T02:50:56.5030138Z contrast blindness: 0.5199 (baseline 0.9446)
+2026-10-18T02:50:56.5030418Z ood-wide: narrow=0.500 broad=1.000 gap=+0.500 enum_tried=3873
+2026-10-18T02:50:56.5031313Z v2.4.0 section 9.1: behavioral adaptation alone is neither the definition of intelligence nor sufficient demonstration of it. This report measures expression only and places nothing on any gradient.
+2026-10-18T02:50:56.5031946Z wide: narrow=0.500 wide=1.000 blindness=0.4580
+2026-10-18T02:50:56.5032228Z ood-ref: narrow=1.000 broad=1.000 gap=+0.000 enum_tried=3873
+2026-10-18T02:50:56.5032872Z v2.4.0 section 9.1: behavioral adaptation alone is neither the definition of intelligence nor sufficient demonstration of it. This report measures expression only and places nothing on any gradient.
+2026-10-18T02:50:56.5033478Z refined: narrow=1.000 broad=1.000
+2026-10-18T02:50:56.5033733Z ood-test: narrow=0.500 broad=0.500 gap=+0.000 enum_tried=3873
+2026-10-18T02:50:56.5034369Z v2.4.0 section 9.1: behavioral adaptation alone is neither the definition of intelligence nor sufficient demonstration of it. This report measures expression only and places nothing on any gradient.
+2026-10-18T02:50:56.5034976Z ood-test: narrow=0.500 broad=0.500 gap=+0.000
+2026-10-18T02:50:56.5035247Z ood-w0: narrow=0.500 broad=0.500 gap=+0.000 enum_tried=3873
+2026-10-18T02:50:56.5035870Z v2.4.0 section 9.1: behavioral adaptation alone is neither the definition of intelligence nor sufficient demonstration of it. This report measures expression only and places nothing on any gradient.
+2026-10-18T02:50:56.5036486Z ood-w6: narrow=1.000 broad=1.000 gap=+0.000 enum_tried=3873
+2026-10-18T02:50:56.5037123Z v2.4.0 section 9.1: behavioral adaptation alone is neither the definition of intelligence nor sufficient demonstration of it. This report measures expression only and places nothing on any gradient.
+2026-10-18T02:50:56.5037718Z widen: base=0.500/0.500 wide=1.000/1.000
+2026-10-18T02:50:56.5037946Z shadow rows=48 st-worst-diff=0.00e+00
+2026-10-18T02:50:56.5038540Z moved=6/32
+2026-10-18T02:50:56.5038798Z heads=[1.0, 1.0, 1.0, 1.0] exact=1.000 rounds=550
+2026-10-18T02:50:56.5039307Z lattice full-ir: 2/8 solved=['gen_ood_05', 'gen_ood_07'] rejects={'no-authored-solution': 6, 'solved': 2}
+2026-10-18T02:50:56.5039804Z lattice novel misses=1
+2026-10-18T02:50:56.5040270Z lattice novel: solved=['prod_plus_sum', 'scaled_mix'] rejects={'solved': 2, 'no-authored-solution': 1}
+2026-10-18T02:50:56.5041711Z lattice ood: 14/16 solved=['gen_ood_u_00', 'gen_ood_u_01', 'gen_ood_u_03', 'gen_ood_u_04', 'gen_ood_u_05', 'gen_ood_u_06', 'gen_ood_u_07', 'gen_ood_p_00', 'gen_ood_p_01', 'gen_ood_p_03', 'gen_ood_p_04', 'gen_ood_p_05', 'gen_ood_p_06', 'gen_ood_p_07'] rejects={'solved': 14, 'no-authored-solution': 2}
+2026-10-18T02:50:56.5043012Z lattice shadow: 3/4 named-rate=0.546
+2026-10-18T02:50:56.5043352Z binaries=25 biggest-value=150
+2026-10-18T02:50:56.5043632Z   diff_squares   20 bytes
+2026-10-18T02:50:56.5043882Z   gen_ood_05     8 bytes
+2026-10-18T02:50:56.5044139Z   gen_ood_07     14 bytes
+2026-10-18T02:50:56.5044403Z   gen_ood_p_00   20 bytes
+2026-10-18T02:50:56.5044670Z   gen_ood_p_01   26 bytes
+2026-10-18T02:50:56.5044955Z   gen_ood_p_02   26 bytes
+2026-10-18T02:50:56.5045233Z   gen_ood_p_03   20 bytes
+2026-10-18T02:50:56.5045499Z   gen_ood_p_04   14 bytes
+2026-10-18T02:50:56.5045778Z   gen_ood_p_05   14 bytes
+2026-10-18T02:50:56.5046048Z   gen_ood_p_06   20 bytes
+2026-10-18T02:50:56.5046319Z   gen_ood_p_07   26 bytes
+2026-10-18T02:50:56.5046591Z   gen_ood_u_00   20 bytes
+2026-10-18T02:50:56.5046840Z   gen_ood_u_01   26 bytes
+2026-10-18T02:50:56.5047013Z   gen_ood_u_02   26 bytes
+2026-10-18T02:50:56.5047196Z   gen_ood_u_03   20 bytes
+2026-10-18T02:50:56.5047436Z   gen_ood_u_04   14 bytes
+2026-10-18T02:50:56.5047643Z   gen_ood_u_05   14 bytes
+2026-10-18T02:50:56.5047815Z   gen_ood_u_06   20 bytes
+2026-10-18T02:50:56.5047988Z   gen_ood_u_07   26 bytes
+2026-10-18T02:50:56.5048172Z   prod_plus_sum  20 bytes
+2026-10-18T02:50:56.5048353Z   scaled_mix     26 bytes
+2026-10-18T02:50:56.5048533Z   square_minus   21 bytes
+2026-10-18T02:50:56.5048709Z   square_plus    21 bytes
+2026-10-18T02:50:56.5048898Z   sum_squares    20 bytes
+2026-10-18T02:50:56.5049085Z   twice_product  14 bytes
+2026-10-18T02:50:56.5049471Z selectivity rsi_shadow_tasks: solved=3/4 named=0.647 echo=0.126 shuffle=0/4 per-op={'add': 0.803, 'sub': 0.547, 'mul': 0.768}
+2026-10-18T02:50:56.5050048Z selectivity rsi_novel_tasks: solved=2/3 named=0.608 echo=0.135 shuffle=0/3 per-op={'add': 0.77, 'sub': 0.49, 'mul': 0.691}
+2026-10-18T02:50:56.5050784Z selectivity rsi_ood_twin: solved=7/8 named=0.694 echo=0.114 shuffle=0/8 per-op={'add': 0.797, 'sub': 0.55, 'mul': 0.757}
+2026-10-18T02:50:56.5051352Z selectivity rsi_ood_plain: solved=7/8 named=0.681 echo=0.150 shuffle=0/8 per-op={'add': 0.826, 'sub': 0.517, 'mul': 0.814}
+2026-10-18T02:50:56.5051900Z selectivity rsi_ood_tasks: solved=2/8 named=0.634 echo=0.132 shuffle=1/8 per-op={'add': 0.787, 'sub': 0.557, 'mul': 0.715}
+2026-10-18T02:50:56.5052634Z proposer trials=2 seeded trials=14

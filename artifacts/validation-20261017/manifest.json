@@ -1,0 +1,151 @@
+{
+  "status": "passed",
+  "source_inputs": {
+    "sha256": "2a6b6ebbaabbd95e3ed77f467cc359ebf798fb9907794612db423b5a25b79d94",
+    "files": 96
+  },
+  "source_after": {
+    "sha256": "2a6b6ebbaabbd95e3ed77f467cc359ebf798fb9907794612db423b5a25b79d94",
+    "files": 96
+  },
+  "diagnostics": "One 5-second py-spy sample during interrupted attempt 3; final local lanes ran without that profiler",
+  "source_scope": [
+    "rsi_programmer/*.py",
+    "scripts/*.py",
+    "tests/*.py",
+    "fixtures/*.json",
+    "justfile",
+    "requirements.txt"
+  ],
+  "hash_method": "sorted relative path bytes then file bytes",
+  "lanes": [
+    {
+      "stage": "fast",
+      "exit_code": 0,
+      "wall_seconds": 279.83405017852783
+    },
+    {
+      "stage": "slow",
+      "exit_code": 0,
+      "wall_seconds": 14218.683878183365
+    },
+    {
+      "stage": "retry",
+      "exit_code": 0,
+      "wall_seconds": 663.353536605835
+    },
+    {
+      "stage": "measurement",
+      "exit_code": 0,
+      "wall_seconds": 13.42410945892334
+    }
+  ],
+  "environment": {
+    "python": "3.13.5 (main, Jul 11 2025, 22:43:46) [Clang 20.1.4 ]",
+    "platform": "Linux-6.12.111+deb13-amd64-x86_64-with-glibc2.41",
+    "cpu": "AMD Ryzen 7 5800X 8-Core Processor",
+    "spikeforge_commit": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6",
+    "spikeforge_status": "",
+    "logical_cpus": 16,
+    "torch_version": "2.8.0+cpu"
+  },
+  "ci_fast_matrix": {
+    "status": "fast_jobs_passed",
+    "validation_scope": "Python 3.12 and 3.13 fast jobs only; full workflow status is reported separately and is not counted as a pass",
+    "run_id": 39091107647,
+    "workflow_run_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39091107647",
+    "workflow_status": "in_progress",
+    "workflow_conclusion": null,
+    "repository_commit": "0fcf8689b9e26a872230b89741902aecd98eba48",
+    "source_inputs": {
+      "sha256": "2a6b6ebbaabbd95e3ed77f467cc359ebf798fb9907794612db423b5a25b79d94",
+      "files": 96,
+      "scope": [
+        "rsi_programmer/*.py",
+        "scripts/*.py",
+        "tests/*.py",
+        "fixtures/*.json",
+        "justfile",
+        "requirements.txt"
+      ],
+      "hash_method": "sorted relative path bytes then file bytes"
+    },
+    "file_sha256": {
+      "workflow": "e1ccebd9c738c0136e46069d35b7a68942b30e02a214a0127b072f69c2f44be6",
+      "justfile": "9ab4a6b3891aea52b297e16c9faa24bcaf2af285b584e28076c272ff162a48e3",
+      "requirements": "83836c10253073571cb302a8be96d58d7054a02b29a467f96d40061084d18b27"
+    },
+    "spikeforge": {
+      "repository": "Capsize-Games/spikeforge",
+      "commit": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6"
+    },
+    "jobs": [
+      {
+        "python": "3.12",
+        "job_id": 117567864300,
+        "job_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39091107647/job/117567864300",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T02:43:35Z",
+        "completed_at": "2026-10-18T02:49:25Z",
+        "test_step_started_at": "2026-10-18T02:43:46Z",
+        "test_step_completed_at": "2026-10-18T02:49:23Z",
+        "tests_run": 222,
+        "test_seconds": 329.066,
+        "spikeforge_commit": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6",
+        "raw_log": "ci-fast-312.log",
+        "public_log": "ci-fast-312-public.log",
+        "public_log_sha256": "54e6a7887a91fbef641f4b9d942e5c0af15b132d0638eec2000eb835380a2168",
+        "excluded_sections": [
+          "checkout",
+          "post-job cleanup"
+        ],
+        "sanitization": {
+          "runner_paths_replaced": true,
+          "response_headers_excluded": true,
+          "secret_and_signed_url_patterns_absent": true,
+          "trailing_whitespace_removed": true
+        }
+      },
+      {
+        "python": "3.13",
+        "job_id": 117567864202,
+        "job_url": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/39091107647/job/117567864202",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-18T02:43:35Z",
+        "completed_at": "2026-10-18T02:51:03Z",
+        "test_step_started_at": "2026-10-18T02:43:48Z",
+        "test_step_completed_at": "2026-10-18T02:51:00Z",
+        "tests_run": 222,
+        "test_seconds": 422.996,
+        "spikeforge_commit": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6",
+        "raw_log": "ci-fast-313.log",
+        "public_log": "ci-fast-313-public.log",
+        "public_log_sha256": "30beff7ed72eff18b2bf9e2806960cfc9fa4e33a6dc85127ba3bf5eda85ae226",
+        "excluded_sections": [
+          "checkout",
+          "post-job cleanup"
+        ],
+        "sanitization": {
+          "runner_paths_replaced": true,
+          "response_headers_excluded": true,
+          "secret_and_signed_url_patterns_absent": true,
+          "trailing_whitespace_removed": true
+        }
+      }
+    ]
+  },
+  "log_sha256": {
+    "repeat-run-integrity-confirmed.log": "607130cfae822ef3c52be60a62f6620753db3af8aa93303aaf684689ae53cd30",
+    "slow-final.log": "fb8b8985d3b439230271a80b3c78e087b79a2bc8fbbf751abd507a2fcdf1fde9",
+    "slow-attempt-3.log": "6e7372324d3a6c23c05a8fdd302f0ae118679d3dc4d43b2cf29419e7676bb42d",
+    "slow-attempt-1.log": "3d20e97147dbd66d4b6515476fefa526cafcab33a3a9bc4cb29bacc854e57999",
+    "repeat-run-red-confirmed.log": "8c83815d3e68fb7173df3aa8280823608d603c82a9a0957c354471a45f8a4760",
+    "fast-final.log": "76ef12fc9f1569a8fec33766f497760600b873a6e17b53e256687cb82abd1497",
+    "ci-fast-312-public.log": "54e6a7887a91fbef641f4b9d942e5c0af15b132d0638eec2000eb835380a2168",
+    "ci-fast-313-public.log": "30beff7ed72eff18b2bf9e2806960cfc9fa4e33a6dc85127ba3bf5eda85ae226",
+    "retry-final.log": "e54fb7ae748356c4b2010de3caf21f72009cfdfeef0d867fa59fbe488ba349be",
+    "slow-attempt-2.log": "8a324ba609d6587ea51407c40fd593edeec3976d9765431ae8c549af19e61378"
+  }
+}

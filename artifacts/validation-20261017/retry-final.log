@@ -1,0 +1,13 @@
+.venv/bin/python -m unittest tests.test_rsi_retry -v
+distractor tried=1077037 solved=True
+test_hook_never_changes_rankings (tests.test_rsi_retry.RetryTests.test_hook_never_changes_rankings)
+Post-hoc filter never leaks into search behavior. ... ok
+test_near_miss_exclusion_logged (tests.test_rsi_retry.RetryTests.test_near_miss_exclusion_logged)
+Each oracle veto names its signature class. ... ok
+test_retry_solves_distractor_with_true_rule (tests.test_rsi_retry.RetryTests.test_retry_solves_distractor_with_true_rule)
+Retry passes the near-miss to the true 7-op rule. ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 662.235s
+
+OK

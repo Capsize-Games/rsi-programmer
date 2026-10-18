@@ -1,0 +1,84 @@
+EE
+======================================================================
+ERROR: test_scale_repeated_evolve_uses_new_logical_run_ids (tests.test_review_integrity.IntegrityReviewTests.test_scale_repeated_evolve_uses_new_logical_run_ids)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/rsi_programmer/lineage.py", line 99, in record_intent
+    self._conn.execute(
+    ~~~~~~~~~~~~~~~~~~^
+        "INSERT INTO commands(command_id,"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        (scoped_id, mission_id, term, generation,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         digest, doc))
+         ^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: commands.command_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<REPO>/tests/test_review_integrity.py", line 56, in test_scale_repeated_evolve_uses_new_logical_run_ids
+    loop.evolve([])
+    ~~~~~~~~~~~^^^^
+  File "<REPO>/rsi_programmer/scale.py", line 181, in evolve
+    self._score_pop(pop, gen)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "<REPO>/rsi_programmer/scale.py", line 159, in _score_pop
+    persist_entry(self._ledger, MISSION, item, gen, fit,
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  self._rich, self._archive)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO>/rsi_programmer/pool.py", line 49, in persist_entry
+    ledger.record_intent("rsi-scale-g%d-%s" % (gen, item["id"]),
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         mission, 0, gen + 1, entry)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO>/rsi_programmer/lineage.py", line 109, in record_intent
+    raise LineageError("command exists already") from exc
+rsi_programmer.lineage.LineageError: command exists already
+
+======================================================================
+ERROR: test_policy_repeated_run_uses_new_logical_run_ids (tests.test_review_integrity.IntegrityReviewTests.test_policy_repeated_run_uses_new_logical_run_ids)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/rsi_programmer/lineage.py", line 99, in record_intent
+    self._conn.execute(
+    ~~~~~~~~~~~~~~~~~~^
+        "INSERT INTO commands(command_id,"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        (scoped_id, mission_id, term, generation,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         digest, doc))
+         ^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: commands.command_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<REPO>/tests/test_review_integrity.py", line 90, in test_policy_repeated_run_uses_new_logical_run_ids
+    loop.run(0)
+    ~~~~~~~~^^^
+  File "<REPO>/rsi_programmer/evolve.py", line 261, in run
+    screened.append(self._evaluate_pop(pop, parents,
+                    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+                                       gen))
+                                       ^^^^
+  File "<REPO>/rsi_programmer/evolve.py", line 239, in _evaluate_pop
+    self._persist(item, gen, fitness)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<REPO>/rsi_programmer/evolve.py", line 204, in _persist
+    self._ledger.record_intent(cmd, "rsi-w2", 0, gen + 1,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               entry)
+                               ^^^^^^
+  File "<REPO>/rsi_programmer/lineage.py", line 109, in record_intent
+    raise LineageError("command exists already") from exc
+rsi_programmer.lineage.LineageError: command exists already
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.695s
+
+FAILED (errors=2)
+exit=1

@@ -1,0 +1,100 @@
+{
+  "source_sha256": "0da3421684649a88bcf013841f8a75fda08771708188e6834550ea8e5afdaa60",
+  "feature_encoding": "layer-ordinal-v1",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "epochs": [
+    5,
+    40,
+    50
+  ],
+  "training_fixture": "fixtures/rsi_shadow_tasks.json",
+  "torch_threads": 1,
+  "training_labels": "final-layer train-output equality",
+  "torch_version": "2.8.0+cpu",
+  "random_position_baseline": "exact expectation (N+1)/(K+1)",
+  "signature_unit": "root vectors; excludes recursive calls",
+  "streaming_comparator": "early-stop plain arithmetic search",
+  "train_table_overlap_with_shadow": {
+    "fixtures/rsi_shadow_tasks.json": 4,
+    "fixtures/rsi_novel_tasks.json": 0,
+    "fixtures/rsi_ood_plain.json": 0
+  },
+  "fixtures_sha256": {
+    "fixtures/rsi_shadow_tasks.json": "da7b2603f9a17a6f85e3f46cc358f717a1653c119ad6ae373db9f78a22b6156d",
+    "fixtures/rsi_novel_tasks.json": "0267aaa6a5a11f2d036f6f07a5104663dde5793afd08f11f4b665bd1025181c8",
+    "fixtures/rsi_ood_plain.json": "944217d3b212c4d50c8866218314ea4391d03d8eb00bcceb7e1fe6d9150320ca"
+  },
+  "publication_attestation": {
+    "stage_started_at": 1792306272.2224846,
+    "validation_lanes_end_at": 1792306272.2042437,
+    "output_mtime": {
+      "positions.csv": 1792306285.3606982,
+      "summary.json": 1792306285.3606982,
+      "work.json": 1792306285.3646982,
+      "manifest.json": 1792306285.3646982
+    },
+    "measurement_source_sha256": "0da3421684649a88bcf013841f8a75fda08771708188e6834550ea8e5afdaa60",
+    "fixture_sha256": {
+      "fixtures/rsi_shadow_tasks.json": "da7b2603f9a17a6f85e3f46cc358f717a1653c119ad6ae373db9f78a22b6156d",
+      "fixtures/rsi_novel_tasks.json": "0267aaa6a5a11f2d036f6f07a5104663dde5793afd08f11f4b665bd1025181c8",
+      "fixtures/rsi_ood_plain.json": "944217d3b212c4d50c8866218314ea4391d03d8eb00bcceb7e1fe6d9150320ca"
+    },
+    "training_fixture": "fixtures/rsi_shadow_tasks.json",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "epochs": [
+      0,
+      5,
+      40,
+      50
+    ],
+    "task_ids": {
+      "fixtures/rsi_shadow_tasks.json": [
+        "square_plus",
+        "diff_squares",
+        "square_minus",
+        "twice_product"
+      ],
+      "fixtures/rsi_novel_tasks.json": [
+        "prod_plus_sum",
+        "sum_squares",
+        "scaled_mix"
+      ],
+      "fixtures/rsi_ood_plain.json": [
+        "gen_ood_p_00",
+        "gen_ood_p_01",
+        "gen_ood_p_02",
+        "gen_ood_p_03",
+        "gen_ood_p_04",
+        "gen_ood_p_05",
+        "gen_ood_p_06",
+        "gen_ood_p_07"
+      ]
+    },
+    "position_key_count": 180,
+    "summary_key_count": 12,
+    "work_key_count": 15,
+    "input_sha256": {
+      "positions.csv": "e83e5f29ebc43134b3f95227880060780d27f739c8edbfdf2f8cf028198c3b67",
+      "summary.json": "21c048a4dacbfe8eecb41bbb3ff7e5f8b5d02e6c5323b0976cf86ca6f02cc3c9",
+      "work.json": "3df685c5c3dc5d8112f10750204617a3bcd1200028e91f2a77cecc4b4bcc86d9",
+      "manifest.json": "a49801d445e6bb6250e3139337597b6743d2ad1fa8d6aecdc99f819096b3b9e6"
+    },
+    "validation_source": {
+      "sha256": "2a6b6ebbaabbd95e3ed77f467cc359ebf798fb9907794612db423b5a25b79d94",
+      "files": 96
+    },
+    "published_sha256": {
+      "positions.csv": "3788da3da2dd56fbe303372e36bcc41d7fe923c0171ef3a346df66c44270b066",
+      "summary.json": "21c048a4dacbfe8eecb41bbb3ff7e5f8b5d02e6c5323b0976cf86ca6f02cc3c9",
+      "work.json": "3df685c5c3dc5d8112f10750204617a3bcd1200028e91f2a77cecc4b4bcc86d9"
+    }
+  }
+}
