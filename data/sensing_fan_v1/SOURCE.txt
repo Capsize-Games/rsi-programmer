@@ -1,0 +1,28 @@
+Dataset: Accelerometer (UCI Machine Learning Repository, dataset 846)
+Official record: https://archive.ics.uci.edu/dataset/846/accelerometer
+Official archive:
+https://archive.ics.uci.edu/static/public/846/accelerometer.zip
+Citation: Scalabrini Sampaio, G., Rabello de Aguiar Vallim Filho, A.,
+Santos de Silva, L., & Augusto da Silva, L. (2019). Accelerometer [Dataset].
+UCI Machine Learning Repository. https://doi.org/10.24432/C5Q61V.
+Related paper: https://pmc.ncbi.nlm.nih.gov/articles/PMC6806350/.
+The paper describes the physical fan rig and extrapolates failure time from
+the measured data; this project does not use its failure-time labels.
+License stated by UCI: Creative Commons Attribution 4.0 International
+(CC BY 4.0), https://creativecommons.org/licenses/by/4.0/.
+
+Reproducible official download command (run from the repository root):
+curl --fail --location --silent --show-error \
+  https://archive.ics.uci.edu/static/public/846/accelerometer.zip \
+  --output data/sensing_fan_v1/accelerometer.zip
+
+The official UCI record describes vibration recordings from one cooler fan
+with three blade-weight configurations and 17 fan-speed settings. It states
+that measurements were collected every 20 ms for one minute per setting.
+The CSV itself has no timestamp column. Treat 50 Hz as the nominal rate from
+the UCI description, not as timestamps measured in the file.
+
+Downloaded from the official archive on 2026-10-18. Archive SHA-256:
+00557d031124defb8cebc6ae62cb1833e4cadde546c6c2b1997a8925d92816b0
+Extracted CSV SHA-256:
+296a94eaf40643e1188012a4ee37d0b2c397bbc04decd39cfbe9952b8c841674
