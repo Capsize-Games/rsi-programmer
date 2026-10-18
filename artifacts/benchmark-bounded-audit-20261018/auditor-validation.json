@@ -1,0 +1,24 @@
+{
+  "auditor_sha256": "3b686b9460d9a191a749cc9db2455df367496a97806b944cc700b9bec8129934",
+  "commands": [
+    "uv tool run --from ruff ruff format --check --line-length 79 artifacts/benchmark-bounded-audit-20261018/bounded_audit.py",
+    "python -B inline validation: AST parse; <=79 columns; close(0.2,0.6)=False; close(True,1)=False; close(1.0,1.0+1e-12)=True; independently enumerate expected_rows against frozen protocol/corpus"
+  ],
+  "report_type": "bounded-candidate-auditor-validation",
+  "results": {
+    "benchmark_bundle_available": false,
+    "bool_int_negative_control": "passed",
+    "corpus_sha256": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+    "eval_task_count": 48,
+    "format_check": "passed",
+    "memory_rows_protocol": 864,
+    "negative bundle controls": "pending bundle",
+    "positive_result_audit": "pending bundle",
+    "protocol_sha256": "c235994867676059311cc05ac876060da0aa1517a6e3fa53cd73b80fabd3472d",
+    "small_float_tolerance_positive_control": "passed",
+    "strict_float_ratio_negative_control": "passed",
+    "syntax_and_line_length": "passed",
+    "timed_rows_independent": 10656,
+    "timed_rows_protocol": 10656
+  }
+}
