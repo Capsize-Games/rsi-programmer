@@ -1240,13 +1240,16 @@ from `(2, 3, 4, 5)`. The policy selects among three root-operation lanes;
 Python emits the next graph in that lane and executes it on observed rows.
 Each lane contains 144 graphs, for 432 total. The policy does not construct
 an arbitrary graph or receive an LLM-generated action or learning signal.
+The graph shows the plastic mode; fixed-encoder controls freeze both
+incoming projections.
 
 ```mermaid
 flowchart TD
-    OBS["Six observed input/target triples"] --> CONTEXT["Context projection"]
-    HISTORY["Bias, previous action, error, progress"] --> ENCODER
-    CONTEXT --> ENCODER["16 LIF units; six ticks per choice"]
-    ENCODER --> HEAD["Three-action softmax readout"]
+    OBS["Six observed input/target triples"] --> CONTEXT["Learned context projection"]
+    HISTORY["Bias, previous action, error, progress"] --> ENCODER["Learned history projection"]
+    CONTEXT --> SPIKES["16 LIF units; six ticks; fixed decay and threshold"]
+    ENCODER --> SPIKES
+    SPIKES --> HEAD["Learned three-action softmax readout"]
     HEAD --> HOST["Python emits next graph in selected lane"]
     HOST --> EXEC["Execute on observed rows"]
     EXEC --> HISTORY

@@ -83,10 +83,6 @@ def _pooled_rows(
     for order_index, order in enumerate(orders):
         if order.get("matrix_complete") is not True:
             raise ValueError(f"order {order_index} matrix is incomplete")
-        if order.get("tasks") != EXPECTED_TASKS_PER_ORDER:
-            raise ValueError(
-                f"order {order_index} has an unexpected task count"
-            )
         entries = order.get("pooled")
         if isinstance(entries, dict):
             entries = list(entries.values())
@@ -108,6 +104,11 @@ def _pooled_rows(
                 raise ValueError(
                     f"{budget}/{arm} must contain 144 attempts per order"
                 )
+            seeds = row.get("seed_metrics", {})
+            if (set(seeds) != {"0", "1", "2"}
+                    or any(seed.get("tasks") != 48
+                           for seed in seeds.values())):
+                raise ValueError("expected three seeds of 48 tasks each")
             totals[int(budget)][str(arm)]["attempts"] += float(attempts)
             for metric in (
                 "accepted",
@@ -246,9 +247,7 @@ def _bar_color(arm: str) -> str:
 
 
 def _plot(metrics: dict[str, Any], output_path: Path) -> None:
-    figure, axes = plt.subplots(
-        2, 2, figsize=(12.5, 9), constrained_layout=True
-    )
+    figure, axes = plt.subplots(2, 2, figsize=(12.5, 9.8))
     figure.suptitle(
         "Online plastic-encoder validation\n"
         "48 known functions × 6 orders × 3 seeds; 864 repeated attempts "
@@ -257,8 +256,8 @@ def _plot(metrics: dict[str, Any], output_path: Path) -> None:
         fontsize=12,
     )
     panels = (
-        (144, "accepted", "Primary accepted searches", "percent"),
-        (144, "first_lane", "Primary first-lane accuracy", "percent"),
+        (144, "accepted", "Budget 144: accepted searches", "percent"),
+        (144, "first_lane", "Budget 144: first-lane accuracy", "percent"),
         (144, "search_cpu", "Primary search-only CPU vs streaming", "ratio"),
         (
             432,
@@ -305,11 +304,19 @@ def _plot(metrics: dict[str, Any], output_path: Path) -> None:
         axis.set_axisbelow(True)
         axis.set_xlabel("Percent of attempts" if fmt == "percent" else "Ratio")
         max_value = max(values) if values else 0.0
-        axis.set_xlim(0, max(max_value * 1.24, reference * 1.18, 0.05))
-        for bar, value in zip(bars, values):
-            text = f"{value:.1f}%" if fmt == "percent" else f"{value:.2f}×"
+        padding = 1.45 if fmt == "percent" else 1.24
+        axis.set_xlim(0, max(max_value * padding, reference * 1.18, 0.05))
+        for arm, bar, value in zip(ARMS, bars, values):
+            if fmt == "percent":
+                key = ("accepted" if measure == "accepted"
+                       else "first_lane_correct")
+                text = f"{int(rows[arm][key])}/864 ({value:.1f}%)"
+            else:
+                text = f"{value:.2f}×"
+            label_value = (max(value, reference)
+                           if measure == "candidate_ratio" else value)
             axis.text(
-                value + max(max_value, 1.0) * 0.018,
+                label_value + max(max_value, 1.0) * 0.018,
                 bar.get_y() + bar.get_height() / 2,
                 text,
                 va="center",
@@ -320,22 +327,32 @@ def _plot(metrics: dict[str, Any], output_path: Path) -> None:
         Patch(facecolor=PLASTIC_COLOR, label="Plastic-encoder SNN"),
         Patch(facecolor=ANN_COLOR, label="Plastic nonspiking control"),
         Line2D(
-            [0], [0], color="#333333", linestyle="--", label="Reference line"
+            [0], [0], color="#333333", linestyle="--",
+            label="Dashed: readout SNN (top), streaming (bottom)"
         ),
     ]
-    figure.legend(handles=legend, loc="lower center", ncol=4, frameon=False)
+    figure.legend(
+        handles=legend, loc="lower center", bbox_to_anchor=(0.5, 0.035),
+        ncol=2, frameon=False, fontsize=9,
+    )
     figure.text(
         0.5,
         0.008,
-        "Repeated runs use the same 48 functions; orders and seeds are not "
-        "independent tasks. CPU panel excludes retention probes but includes "
-        "search diagnostics. Retention and encoder capacity are not causal "
-        "evidence.",
+        "The same 48 functions repeat across orders and seeds; attempts "
+        "are not independent tasks.\nCPU excludes retention probes and "
+        "includes search diagnostics; it does not measure device energy.",
         ha="center",
-        fontsize=9,
+        fontsize=8.5,
     )
+    figure.tight_layout(rect=(0, 0.11, 1, 1))
     figure.savefig(output_path.with_suffix(".png"), dpi=110)
-    figure.savefig(output_path.with_suffix(".svg"))
+    svg_path = output_path.with_suffix(".svg")
+    figure.savefig(svg_path)
+    svg_path.write_text(
+        "\n".join(line.rstrip() for line in
+                  svg_path.read_text(encoding="utf-8").splitlines()) + "\n",
+        encoding="utf-8",
+    )
     plt.close(figure)
 
 

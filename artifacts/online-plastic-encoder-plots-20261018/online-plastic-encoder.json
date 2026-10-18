@@ -1,0 +1,310 @@
+{
+  "budgets": {
+    "144": {
+      "arms": {
+        "episode_reset_snn": {
+          "accepted": 425.0,
+          "accepted_rate": 0.49189814814814814,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 0.9751000746319289,
+          "candidate_evaluations": 86232.0,
+          "first_lane_correct": 266.0,
+          "first_lane_rate": 0.30787037037037035,
+          "retention_probe_cpu_seconds": 2.3430451210000562,
+          "search_only_cpu_ratio_vs_streaming": 4.89444437559076,
+          "search_only_cpu_seconds": 9.678965350001985,
+          "total_cpu_ratio_vs_streaming": 6.079271844182922,
+          "total_cpu_seconds": 12.02201047100204
+        },
+        "frozen_snn": {
+          "accepted": 395.0,
+          "accepted_rate": 0.45717592592592593,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 0.9963927901033539,
+          "candidate_evaluations": 88115.0,
+          "first_lane_correct": 286.0,
+          "first_lane_rate": 0.33101851851851855,
+          "retention_probe_cpu_seconds": 2.2866621079998706,
+          "search_only_cpu_ratio_vs_streaming": 4.3469536300005895,
+          "search_only_cpu_seconds": 8.596279850000892,
+          "total_cpu_ratio_vs_streaming": 5.503269422925107,
+          "total_cpu_seconds": 10.882941958000762
+        },
+        "grammar_streaming": {
+          "accepted": 414.0,
+          "accepted_rate": 0.4791666666666667,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 1.0,
+          "candidate_evaluations": 88434.0,
+          "first_lane_correct": 288.0,
+          "first_lane_rate": 0.3333333333333333,
+          "retention_probe_cpu_seconds": 0.0,
+          "search_only_cpu_ratio_vs_streaming": 1.0,
+          "search_only_cpu_seconds": 1.977541189000382,
+          "total_cpu_ratio_vs_streaming": 1.0,
+          "total_cpu_seconds": 1.977541189000382
+        },
+        "online_nonspiking": {
+          "accepted": 364.0,
+          "accepted_rate": 0.4212962962962963,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 1.0684804486962027,
+          "candidate_evaluations": 94490.0,
+          "first_lane_correct": 306.0,
+          "first_lane_rate": 0.3541666666666667,
+          "retention_probe_cpu_seconds": 2.364691600000059,
+          "search_only_cpu_ratio_vs_streaming": 5.374481816670659,
+          "search_only_cpu_seconds": 10.628259161999829,
+          "total_cpu_ratio_vs_streaming": 6.570255443613609,
+          "total_cpu_seconds": 12.99295076199989
+        },
+        "persistent_snn": {
+          "accepted": 390.0,
+          "accepted_rate": 0.4513888888888889,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 1.0306103987154263,
+          "candidate_evaluations": 91141.0,
+          "first_lane_correct": 290.0,
+          "first_lane_rate": 0.33564814814814814,
+          "retention_probe_cpu_seconds": 2.3592183570000813,
+          "search_only_cpu_ratio_vs_streaming": 5.090140691374278,
+          "search_only_cpu_seconds": 10.065962874999515,
+          "total_cpu_ratio_vs_streaming": 6.283146617178853,
+          "total_cpu_seconds": 12.425181231999597
+        },
+        "plastic_nonspiking": {
+          "accepted": 375.0,
+          "accepted_rate": 0.4340277777777778,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 1.0550693172309293,
+          "candidate_evaluations": 93304.0,
+          "first_lane_correct": 305.0,
+          "first_lane_rate": 0.35300925925925924,
+          "retention_probe_cpu_seconds": 3.619811407999995,
+          "search_only_cpu_ratio_vs_streaming": 17.121374133863167,
+          "search_only_cpu_seconds": 33.85822256200015,
+          "total_cpu_ratio_vs_streaming": 18.95183482319513,
+          "total_cpu_seconds": 37.47803397000015
+        },
+        "plastic_snn": {
+          "accepted": 391.0,
+          "accepted_rate": 0.4525462962962963,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 1.0290386050614018,
+          "candidate_evaluations": 91002.0,
+          "first_lane_correct": 294.0,
+          "first_lane_rate": 0.3402777777777778,
+          "retention_probe_cpu_seconds": 3.4169197170001704,
+          "search_only_cpu_ratio_vs_streaming": 15.763421040933771,
+          "search_only_cpu_seconds": 31.17281438800181,
+          "total_cpu_ratio_vs_streaming": 17.49128377067412,
+          "total_cpu_seconds": 34.58973410500198
+        },
+        "reset_plastic_snn": {
+          "accepted": 425.0,
+          "accepted_rate": 0.49189814814814814,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 0.9751000746319289,
+          "candidate_evaluations": 86232.0,
+          "first_lane_correct": 266.0,
+          "first_lane_rate": 0.30787037037037035,
+          "retention_probe_cpu_seconds": 3.2914346669999865,
+          "search_only_cpu_ratio_vs_streaming": 14.587802464727448,
+          "search_only_cpu_seconds": 28.84798023099982,
+          "total_cpu_ratio_vs_streaming": 16.252210106554497,
+          "total_cpu_seconds": 32.139414897999806
+        }
+      },
+      "attempts_per_arm": 864,
+      "plastic_snn_comparisons": {
+        "persistent_snn": {
+          "accepted_delta_count": 1.0,
+          "accepted_delta_percentage_points": 0.11574074074074074,
+          "candidate_evaluation_delta": -139.0,
+          "first_lane_delta_count": 4.0,
+          "first_lane_delta_percentage_points": 0.46296296296296297,
+          "search_only_cpu_delta_seconds": 21.106851513002297,
+          "search_only_cpu_ratio": 3.0968537014401925,
+          "total_cpu_delta_seconds": 22.164552873002386,
+          "total_cpu_ratio": 2.7838414151996576
+        },
+        "plastic_nonspiking": {
+          "accepted_delta_count": 16.0,
+          "accepted_delta_percentage_points": 1.8518518518518519,
+          "candidate_evaluation_delta": -2302.0,
+          "first_lane_delta_count": -11.0,
+          "first_lane_delta_percentage_points": -1.2731481481481481,
+          "search_only_cpu_delta_seconds": -2.68540817399834,
+          "search_only_cpu_ratio": 0.920686676062782,
+          "total_cpu_delta_seconds": -2.8882998649981673,
+          "total_cpu_ratio": 0.9229335277482765
+        }
+      }
+    },
+    "432": {
+      "arms": {
+        "episode_reset_snn": {
+          "accepted": 864.0,
+          "accepted_rate": 1.0,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 0.8633794969754855,
+          "candidate_evaluations": 130170.0,
+          "first_lane_correct": 303.0,
+          "first_lane_rate": 0.3506944444444444,
+          "retention_probe_cpu_seconds": 2.3446389379998465,
+          "search_only_cpu_ratio_vs_streaming": 4.166328119185928,
+          "search_only_cpu_seconds": 14.289547284999507,
+          "total_cpu_ratio_vs_streaming": 4.849942158308185,
+          "total_cpu_seconds": 16.634186222999354
+        },
+        "frozen_snn": {
+          "accepted": 864.0,
+          "accepted_rate": 1.0,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 1.003329619017298,
+          "candidate_evaluations": 151270.0,
+          "first_lane_correct": 284.0,
+          "first_lane_rate": 0.3287037037037037,
+          "retention_probe_cpu_seconds": 2.274144740999901,
+          "search_only_cpu_ratio_vs_streaming": 4.318949212624806,
+          "search_only_cpu_seconds": 14.81300253600103,
+          "total_cpu_ratio_vs_streaming": 4.982009629624365,
+          "total_cpu_seconds": 17.08714727700093
+        },
+        "grammar_streaming": {
+          "accepted": 864.0,
+          "accepted_rate": 1.0,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 1.0,
+          "candidate_evaluations": 150768.0,
+          "first_lane_correct": 288.0,
+          "first_lane_rate": 0.3333333333333333,
+          "retention_probe_cpu_seconds": 0.0,
+          "search_only_cpu_ratio_vs_streaming": 1.0,
+          "search_only_cpu_seconds": 3.4297700219999925,
+          "total_cpu_ratio_vs_streaming": 1.0,
+          "total_cpu_seconds": 3.4297700219999925
+        },
+        "online_nonspiking": {
+          "accepted": 864.0,
+          "accepted_rate": 1.0,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 0.988512151119601,
+          "candidate_evaluations": 149036.0,
+          "first_lane_correct": 282.0,
+          "first_lane_rate": 0.3263888888888889,
+          "retention_probe_cpu_seconds": 2.3748377470000577,
+          "search_only_cpu_ratio_vs_streaming": 4.915508596162466,
+          "search_only_cpu_seconds": 16.859064026001292,
+          "total_cpu_ratio_vs_streaming": 5.607927543137582,
+          "total_cpu_seconds": 19.23390177300135
+        },
+        "persistent_snn": {
+          "accepted": 864.0,
+          "accepted_rate": 1.0,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 0.9732768226679401,
+          "candidate_evaluations": 146739.0,
+          "first_lane_correct": 275.0,
+          "first_lane_rate": 0.31828703703703703,
+          "retention_probe_cpu_seconds": 2.3602898809999644,
+          "search_only_cpu_ratio_vs_streaming": 4.7290779101694715,
+          "search_only_cpu_seconds": 16.219649648001628,
+          "total_cpu_ratio_vs_streaming": 5.417255212396755,
+          "total_cpu_seconds": 18.579939529001592
+        },
+        "plastic_nonspiking": {
+          "accepted": 864.0,
+          "accepted_rate": 1.0,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 0.9789477873288761,
+          "candidate_evaluations": 147594.0,
+          "first_lane_correct": 294.0,
+          "first_lane_rate": 0.3402777777777778,
+          "retention_probe_cpu_seconds": 3.632287401000184,
+          "search_only_cpu_ratio_vs_streaming": 15.37805405105328,
+          "search_only_cpu_seconds": 52.74318878099808,
+          "total_cpu_ratio_vs_streaming": 16.437100977728,
+          "total_cpu_seconds": 56.375476181998266
+        },
+        "plastic_snn": {
+          "accepted": 864.0,
+          "accepted_rate": 1.0,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 0.966703809827019,
+          "candidate_evaluations": 145748.0,
+          "first_lane_correct": 283.0,
+          "first_lane_rate": 0.3275462962962963,
+          "retention_probe_cpu_seconds": 3.409373225000124,
+          "search_only_cpu_ratio_vs_streaming": 14.342628360345664,
+          "search_only_cpu_seconds": 49.191916787000466,
+          "total_cpu_ratio_vs_streaming": 15.33668137355966,
+          "total_cpu_seconds": 52.60129001200059
+        },
+        "reset_plastic_snn": {
+          "accepted": 864.0,
+          "accepted_rate": 1.0,
+          "attempts": 864.0,
+          "candidate_evaluation_ratio_vs_streaming": 0.8574233259047013,
+          "candidate_evaluations": 129272.0,
+          "first_lane_correct": 297.0,
+          "first_lane_rate": 0.34375,
+          "retention_probe_cpu_seconds": 3.2832194709997395,
+          "search_only_cpu_ratio_vs_streaming": 12.453955359401368,
+          "search_only_cpu_seconds": 42.714202747000954,
+          "total_cpu_ratio_vs_streaming": 13.411226386303984,
+          "total_cpu_seconds": 45.99742221800069
+        }
+      },
+      "attempts_per_arm": 864,
+      "plastic_snn_comparisons": {
+        "persistent_snn": {
+          "accepted_delta_count": 0.0,
+          "accepted_delta_percentage_points": 0.0,
+          "candidate_evaluation_delta": -991.0,
+          "first_lane_delta_count": 8.0,
+          "first_lane_delta_percentage_points": 0.9259259259259259,
+          "search_only_cpu_delta_seconds": 32.97226713899884,
+          "search_only_cpu_ratio": 3.032859393054846,
+          "total_cpu_delta_seconds": 34.021350482999,
+          "total_cpu_ratio": 2.8310797206791105
+        },
+        "plastic_nonspiking": {
+          "accepted_delta_count": 0.0,
+          "accepted_delta_percentage_points": 0.0,
+          "candidate_evaluation_delta": -1846.0,
+          "first_lane_delta_count": -11.0,
+          "first_lane_delta_percentage_points": -1.2731481481481481,
+          "search_only_cpu_delta_seconds": -3.5512719939976165,
+          "search_only_cpu_ratio": 0.9326686141646968,
+          "total_cpu_delta_seconds": -3.7741861699976766,
+          "total_cpu_ratio": 0.9330526955051629
+        }
+      }
+    }
+  },
+  "git_head": "29bcb3dd822bffd1a89b936f7fc6f54c1ee19442",
+  "outputs": {
+    "png": {
+      "path": "artifacts/online-plastic-encoder-plots-20261018/online-plastic-encoder.png",
+      "sha256": "c173fd9ab6de44fff41629d258f720d326045b81ebb423478a1dd72262eacf26"
+    },
+    "svg": {
+      "path": "artifacts/online-plastic-encoder-plots-20261018/online-plastic-encoder.svg",
+      "sha256": "10394e204f41e549470bdb60274248c34a84054595f34a4c24a79b06ead8fb6c"
+    }
+  },
+  "protocol_sha256": "8fd37e1cd6904ab28dae47d48baf95beab68e0819b5a554d920c3d63aa1ebbf9",
+  "scope": {
+    "attempts_per_arm_budget": 864,
+    "capacity_claim": false,
+    "cpu_panel_excludes": "retention probes; includes search diagnostics",
+    "independent_task_claim": false,
+    "known_functions": 48,
+    "model_seeds": 3,
+    "orders": 6,
+    "retention_claim": false
+  },
+  "source_summary": "artifacts/online-plastic-encoder-v1-20261018/summary.json",
+  "source_summary_sha256": "ab28cfe7a176d2717629feb7d797be3b8e51fed44271e8833b255a7cd939f1ff"
+}

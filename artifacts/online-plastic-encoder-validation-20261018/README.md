@@ -21,3 +21,51 @@ flock /tmp/rsi-programmer-builder.lock env PYTHONPATH=. .venv/bin/python \
 ```
 
 Slow/retry and local full discovery were not rerun for this additive mode. Existing tests and real hub checks remain intact. New source CI needs its own verdict; older source passes cannot verify this checkpoint. Frozen historical results are preserved, and no performance gain is claimed by software tests.
+
+## Completed measurement and replay
+
+The code-v102 runtime completed all 13,824 episodes in 442.107 seconds
+wall / 442.028 seconds process CPU. Independent replay passed all episodes
+and all 1,008 retention groups (48,384 cold probes). `audit-main.json`
+records the frozen-input and raw-row hashes; its error log is empty.
+`control-equivalence.json` verifies all 8,640 legacy-control rows against
+the earlier context-conditioned bundle, excluding timing and the new
+model/plasticity fields listed in that receipt.
+
+`final-source-proof.json` binds all 202 measurement inputs to the final
+fast receipt, current checkout and archived code-v102 source. Runtime,
+tests, scripts, fixtures, dependencies and workflow are unchanged in the
+evidence publication. The result is in
+[online-plastic-encoder-result.md](../../docs/online-plastic-encoder-result.md).
+None of the three principal gates passes in any order; the auxiliary
+coverage comparison with reset plastic SNN passes in two orders only.
+
+`ci-evidence-snapshot.json` retains the measured source's current CI state.
+Both fast jobs passed: Python 3.12 ran 465 tests in 457.131 seconds and
+Python 3.13 ran 465 in 486.895 seconds. Exact completed job logs are gzip
+compressed; raw and compressed hashes are in `ci-fast-log-receipt.json`.
+Both full jobs were still in progress at this snapshot. These CI results
+belong to code-v102, not to earlier runtime or auditor scopes.
+
+`retention-code-counts.json` independently recounts unique rounded cold
+rate vectors at the primary budget's initial and final boundaries.
+The retained Luna analysis notes describe preferences and code counts;
+their pre-audit status statements are historical, not the final verdict.
+
+The plot helper originally expected a nonexistent order-level task count.
+It was corrected to validate each pooled arm's 144 tasks and three
+48-task seed records. Initial figure layout also needed footer spacing.
+These were downstream plot corrections only; source and measurements did
+not change. The final PNG/SVG were inspected, and the helper's aggregates
+match the independently reviewed summary counts and ratios.
+
+The plot was generated with isolated uv tooling, without adding a project
+dependency. Reproduce it in a new output directory:
+
+```sh
+flock /tmp/rsi-programmer-builder.lock uv run --isolated --no-project \
+  --with matplotlib --python .venv/bin/python \
+  artifacts/online-plastic-encoder-validation-20261018/plot-results.py \
+  --bundle artifacts/online-plastic-encoder-v1-20261018 \
+  --output /tmp/rsi-plastic-plot-fresh
+```

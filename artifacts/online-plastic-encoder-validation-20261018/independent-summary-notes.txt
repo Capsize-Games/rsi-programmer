@@ -1,0 +1,59 @@
+Independent summary/manifest analysis (no raw replay; no full-audit claim)
+manifest git_head=29bcb3dd822bffd1a89b936f7fc6f54c1ee19442 protocol_sha256=8fd37e1cd6904ab28dae47d48baf95beab68e0819b5a554d920c3d63aa1ebbf9
+manifest rows episodes=13824 retention=1008 wall=442.107s process_cpu=442.028s peak_RSS_KiB=354964
+One 48-task stream repeated over six orders, three seeds, and two budgets; task repetitions are not independent.
+summary all_order_gates={'plastic_snn_coverage_vs_reset_plastic_snn': False, 'plastic_snn_vs_persistent_snn': False, 'plastic_snn_vs_plastic_nonspiking': False, 'streaming_deployment': False}
+
+BUDGET 144 (expected 864 attempts per arm)
+persistent_snn          accepted 390/864 (45.14%) | first 290/864 (33.56%) | candidates 91141 | searchCPU 10.065963s | probeCPU 2.359218s | totalCPU 12.425181s
+frozen_snn              accepted 395/864 (45.72%) | first 286/864 (33.10%) | candidates 88115 | searchCPU 8.596280s | probeCPU 2.286662s | totalCPU 10.882942s
+episode_reset_snn       accepted 425/864 (49.19%) | first 266/864 (30.79%) | candidates 86232 | searchCPU 9.678965s | probeCPU 2.343045s | totalCPU 12.022010s
+online_nonspiking       accepted 364/864 (42.13%) | first 306/864 (35.42%) | candidates 94490 | searchCPU 10.628259s | probeCPU 2.364692s | totalCPU 12.992951s
+grammar_streaming       accepted 414/864 (47.92%) | first 288/864 (33.33%) | candidates 88434 | searchCPU 1.977541s | probeCPU 0.000000s | totalCPU 1.977541s
+plastic_snn             accepted 391/864 (45.25%) | first 294/864 (34.03%) | candidates 91002 | searchCPU 31.172814s | probeCPU 3.416920s | totalCPU 34.589734s
+reset_plastic_snn       accepted 425/864 (49.19%) | first 266/864 (30.79%) | candidates 86232 | searchCPU 28.847980s | probeCPU 3.291435s | totalCPU 32.139415s
+plastic_nonspiking      accepted 375/864 (43.40%) | first 305/864 (35.30%) | candidates 93304 | searchCPU 33.858223s | probeCPU 3.619811s | totalCPU 37.478034s
+plastic_snn vs persistent_snn: accepted +1 (+0.12 pp), first-lane +4 (+0.46 pp), candidates -139, searchCPU ratio 3.097x, totalCPU ratio 2.784x
+plastic_snn vs plastic_nonspiking: accepted +16 (+1.85 pp), first-lane -11 (-1.27 pp), candidates -2302, searchCPU ratio 0.921x, totalCPU ratio 0.923x
+plastic_snn vs streaming: accepted -23 (-2.66 pp), full candidate ratio 1.029x, totalCPU ratio 17.491x
+
+BUDGET 432 (expected 864 attempts per arm)
+persistent_snn          accepted 864/864 (100.00%) | first 275/864 (31.83%) | candidates 146739 | searchCPU 16.219650s | probeCPU 2.360290s | totalCPU 18.579940s
+frozen_snn              accepted 864/864 (100.00%) | first 284/864 (32.87%) | candidates 151270 | searchCPU 14.813003s | probeCPU 2.274145s | totalCPU 17.087147s
+episode_reset_snn       accepted 864/864 (100.00%) | first 303/864 (35.07%) | candidates 130170 | searchCPU 14.289547s | probeCPU 2.344639s | totalCPU 16.634186s
+online_nonspiking       accepted 864/864 (100.00%) | first 282/864 (32.64%) | candidates 149036 | searchCPU 16.859064s | probeCPU 2.374838s | totalCPU 19.233902s
+grammar_streaming       accepted 864/864 (100.00%) | first 288/864 (33.33%) | candidates 150768 | searchCPU 3.429770s | probeCPU 0.000000s | totalCPU 3.429770s
+plastic_snn             accepted 864/864 (100.00%) | first 283/864 (32.75%) | candidates 145748 | searchCPU 49.191917s | probeCPU 3.409373s | totalCPU 52.601290s
+reset_plastic_snn       accepted 864/864 (100.00%) | first 297/864 (34.38%) | candidates 129272 | searchCPU 42.714203s | probeCPU 3.283219s | totalCPU 45.997422s
+plastic_nonspiking      accepted 864/864 (100.00%) | first 294/864 (34.03%) | candidates 147594 | searchCPU 52.743189s | probeCPU 3.632287s | totalCPU 56.375476s
+plastic_snn vs persistent_snn: accepted +0 (+0.00 pp), first-lane +8 (+0.93 pp), candidates -991, searchCPU ratio 3.033x, totalCPU ratio 2.831x
+plastic_snn vs plastic_nonspiking: accepted +0 (+0.00 pp), first-lane -11 (-1.27 pp), candidates -1846, searchCPU ratio 0.933x, totalCPU ratio 0.933x
+plastic_snn vs streaming: accepted +0 (+0.00 pp), full candidate ratio 0.967x, totalCPU ratio 15.337x
+
+ORDER GATES (true count of six; flags copied from summary)
+plastic_snn_coverage_vs_reset_plastic_snn: 2/6
+plastic_snn_vs_persistent_snn: 0/6
+plastic_snn_vs_plastic_nonspiking: 0/6
+streaming_deployment: 0/6
+order 0-1-2 phases=[0, 1, 2] gates={'plastic_snn_coverage_vs_reset_plastic_snn': False, 'plastic_snn_vs_persistent_snn': False, 'plastic_snn_vs_plastic_nonspiking': False, 'streaming_deployment': False}
+order 0-2-1 phases=[0, 2, 1] gates={'plastic_snn_coverage_vs_reset_plastic_snn': False, 'plastic_snn_vs_persistent_snn': False, 'plastic_snn_vs_plastic_nonspiking': False, 'streaming_deployment': False}
+order 1-0-2 phases=[1, 0, 2] gates={'plastic_snn_coverage_vs_reset_plastic_snn': False, 'plastic_snn_vs_persistent_snn': False, 'plastic_snn_vs_plastic_nonspiking': False, 'streaming_deployment': False}
+order 1-2-0 phases=[1, 2, 0] gates={'plastic_snn_coverage_vs_reset_plastic_snn': True, 'plastic_snn_vs_persistent_snn': False, 'plastic_snn_vs_plastic_nonspiking': False, 'streaming_deployment': False}
+order 2-0-1 phases=[2, 0, 1] gates={'plastic_snn_coverage_vs_reset_plastic_snn': False, 'plastic_snn_vs_persistent_snn': False, 'plastic_snn_vs_plastic_nonspiking': False, 'streaming_deployment': False}
+order 2-1-0 phases=[2, 1, 0] gates={'plastic_snn_coverage_vs_reset_plastic_snn': True, 'plastic_snn_vs_persistent_snn': False, 'plastic_snn_vs_plastic_nonspiking': False, 'streaming_deployment': False}
+
+PER-ORDER / PER-SEED PLASTIC SNN DIFFERENCES (first-lane; acceptance)
+order 0-1-2 budget 144: s0: firstΔ fixed +5, ANN +5; accΔ fixed -1, ANN +3, reset -2 | s1: firstΔ fixed -1, ANN +4; accΔ fixed +1, ANN +10, reset +2 | s2: firstΔ fixed -1, ANN -1; accΔ fixed -1, ANN +1, reset -9
+order 0-1-2 budget 432: s0: firstΔ fixed +0, ANN +3; accΔ fixed +0, ANN +0, reset +0 | s1: firstΔ fixed +1, ANN -2; accΔ fixed +0, ANN +0, reset +0 | s2: firstΔ fixed +2, ANN +1; accΔ fixed +0, ANN +0, reset +0
+order 0-2-1 budget 144: s0: firstΔ fixed +4, ANN +2; accΔ fixed +0, ANN +4, reset -3 | s1: firstΔ fixed +1, ANN +1; accΔ fixed +3, ANN +7, reset -1 | s2: firstΔ fixed -2, ANN -3; accΔ fixed -3, ANN +1, reset -7
+order 0-2-1 budget 432: s0: firstΔ fixed +2, ANN +3; accΔ fixed +0, ANN +0, reset +0 | s1: firstΔ fixed +4, ANN +0; accΔ fixed +0, ANN +0, reset +0 | s2: firstΔ fixed -1, ANN +0; accΔ fixed +0, ANN +0, reset +0
+order 1-0-2 budget 144: s0: firstΔ fixed -1, ANN +1; accΔ fixed -2, ANN +2, reset -3 | s1: firstΔ fixed +1, ANN -6; accΔ fixed +0, ANN -6, reset -2 | s2: firstΔ fixed -1, ANN -1; accΔ fixed +0, ANN -1, reset -4
+order 1-0-2 budget 432: s0: firstΔ fixed -2, ANN -9; accΔ fixed +0, ANN +0, reset +0 | s1: firstΔ fixed +1, ANN -1; accΔ fixed +0, ANN +0, reset +0 | s2: firstΔ fixed -1, ANN +2; accΔ fixed +0, ANN +0, reset +0
+order 1-2-0 budget 144: s0: firstΔ fixed +3, ANN -1; accΔ fixed +0, ANN -4, reset +0 | s1: firstΔ fixed +1, ANN -9; accΔ fixed +0, ANN -2, reset -3 | s2: firstΔ fixed +0, ANN +2; accΔ fixed +2, ANN +5, reset +6
+order 1-2-0 budget 432: s0: firstΔ fixed -4, ANN -6; accΔ fixed +0, ANN +0, reset +0 | s1: firstΔ fixed +4, ANN -1; accΔ fixed +0, ANN +0, reset +0 | s2: firstΔ fixed +2, ANN +0; accΔ fixed +0, ANN +0, reset +0
+order 2-0-1 budget 144: s0: firstΔ fixed -1, ANN +5; accΔ fixed +0, ANN -1, reset -2 | s1: firstΔ fixed -1, ANN -1; accΔ fixed +2, ANN +0, reset -3 | s2: firstΔ fixed +2, ANN +0; accΔ fixed +0, ANN -1, reset -4
+order 2-0-1 budget 432: s0: firstΔ fixed +0, ANN +0; accΔ fixed +0, ANN +0, reset +0 | s1: firstΔ fixed +1, ANN -2; accΔ fixed +0, ANN +0, reset +0 | s2: firstΔ fixed -1, ANN -1; accΔ fixed +0, ANN +0, reset +0
+order 2-1-0 budget 144: s0: firstΔ fixed -2, ANN -2; accΔ fixed -1, ANN +0, reset +0 | s1: firstΔ fixed -1, ANN -4; accΔ fixed +0, ANN -3, reset -1 | s2: firstΔ fixed -2, ANN -3; accΔ fixed +1, ANN +1, reset +2
+order 2-1-0 budget 432: s0: firstΔ fixed +1, ANN +3; accΔ fixed +0, ANN +0, reset +0 | s1: firstΔ fixed +2, ANN +0; accΔ fixed +0, ANN +0, reset +0 | s2: firstΔ fixed -3, ANN -1; accΔ fixed +0, ANN +0, reset +0
+
+LIMITATIONS: the 864 attempts per arm/budget are the same 48-task corpus repeated over six orderings and three seeds, not 864 independent tasks. Aggregate and order results are descriptive. This script reads summary/manifest only; independent raw replay/audit status remains pending. CPU is host process CPU, not chip energy. Retention-probe CPU is reported separately and included in total CPU.

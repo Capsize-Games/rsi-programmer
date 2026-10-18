@@ -1,0 +1,49 @@
+Frozen online plastic-encoder retention notes (descriptive only)
+
+Source bundle: artifacts/online-plastic-encoder-v1-20261018
+Source HEAD: 29bcb3dd822bffd1a89b936f7fc6f54c1ee19442
+Manifest source_unchanged: True; episodes: 13824; retention groups: 1008 (48 contexts per group).
+Protocol/corpus/schedule SHA256: 8fd37e1cd6904ab28dae47d48baf95beab68e0819b5a554d920c3d63aa1ebbf9 / a4f9af2dfc0d8c4539d700b032dcc223c82aa272f02497902024d9f371096140 / 0ffbd7eadac93aa63b8df68d9ba250cd4da5a55a178e8339f9505d81638af3f1.
+Summary SHA256: ab28cfe7a176d2717629feb7d797be3b8e51fed44271e8833b255a7cd939f1ff
+Retention compressed SHA256: 6701d19c1f62649319c20ad82f63882d0598e2fcf5a13bdc7283ab1f888a8c71
+Retention rows SHA256 pinned by manifest: 6701d19c1f62649319c20ad82f63882d0598e2fcf5a13bdc7283ab1f888a8c71.
+
+Root-lane preference: primary budget 144 only. For each early phase endpoint (16 or 32 completed tasks), the summary averages cold root-action probability across that phase's 16 task contexts. ‘Final’ is the cold probe after all 48 tasks in that order. Values below average the 36 early-phase/order/seed records per arm equally. Delta is final minus phase-end. This measures preference for each task's known root on its observed context, not retention of complete programs or held-out performance. The phase ending at 48 tasks is excluded because its final probe is identical by definition.
+
+arm | phase-end mean | final mean | final-minus-end | order delta direction (+ / - / tie)
+---|---:|---:|---:|---:
+episode_reset_snn | 0.380507 | 0.313959 | -0.066548 | 0 / 6 / 0
+frozen_snn | 0.333333 | 0.333333 | +0.000000 | 0 / 0 / 6
+online_nonspiking | 0.527032 | 0.331738 | -0.195294 | 1 / 5 / 0
+persistent_snn | 0.524915 | 0.317547 | -0.207368 | 0 / 6 / 0
+plastic_nonspiking | 0.561393 | 0.331700 | -0.229692 | 1 / 5 / 0
+plastic_snn | 0.524062 | 0.321198 | -0.202864 | 0 / 6 / 0
+reset_plastic_snn | 0.380538 | 0.313959 | -0.066579 | 0 / 6 / 0
+
+Per-order final-minus-phase-end deltas (within each order, averaged over its two eligible phases and three seeds):
+episode_reset_snn: 0-1-2 -0.075167, 0-2-1 -0.083355, 1-0-2 -0.067904, 1-2-0 -0.058547, 2-0-1 -0.062653, 2-1-0 -0.051664
+frozen_snn: 0-1-2 +0.000000, 0-2-1 +0.000000, 1-0-2 +0.000000, 1-2-0 +0.000000, 2-0-1 +0.000000, 2-1-0 +0.000000
+online_nonspiking: 0-1-2 +0.004900, 0-2-1 -0.002095, 1-0-2 -0.191847, 1-2-0 -0.280431, 2-0-1 -0.275601, 2-1-0 -0.426690
+persistent_snn: 0-1-2 -0.163248, 0-2-1 -0.061595, 1-0-2 -0.132996, 1-2-0 -0.315220, 2-0-1 -0.237836, 2-1-0 -0.333311
+plastic_nonspiking: 0-1-2 +0.001408, 0-2-1 -0.000513, 1-0-2 -0.271486, 1-2-0 -0.392854, 2-0-1 -0.276864, 2-1-0 -0.437845
+plastic_snn: 0-1-2 -0.135429, 0-2-1 -0.022445, 1-0-2 -0.144986, 1-2-0 -0.342436, 2-0-1 -0.237180, 2-1-0 -0.334707
+reset_plastic_snn: 0-1-2 -0.075194, 0-2-1 -0.083382, 1-0-2 -0.067977, 1-2-0 -0.058547, 2-0-1 -0.062711, 2-1-0 -0.051664
+
+Cold-code distinctness: number of unique hidden-rate vectors across 48 task contexts per retention probe; vectors are rounded to 12 decimals by the frozen runner. Means below are over the six phase orders, with each order equally weighted. These are code-count summaries, not similarity measures or evidence of useful representation.
+
+arm | seed 0 initial→final (delta) | seed 1 initial→final (delta) | seed 2 initial→final (delta) | all 18 cells initial→final (delta)
+---|---:|---:|---:|---:
+persistent_snn | 10.000→10.000 (+0.000) | 6.000→6.000 (+0.000) | 8.000→8.000 (+0.000) | 8.000→8.000 (+0.000)
+frozen_snn | 10.000→10.000 (+0.000) | 6.000→6.000 (+0.000) | 8.000→8.000 (+0.000) | 8.000→8.000 (+0.000)
+episode_reset_snn | 10.000→10.000 (+0.000) | 6.000→6.000 (+0.000) | 8.000→8.000 (+0.000) | 8.000→8.000 (+0.000)
+online_nonspiking | 48.000→48.000 (+0.000) | 48.000→48.000 (+0.000) | 48.000→48.000 (+0.000) | 48.000→48.000 (+0.000)
+plastic_snn | 10.000→8.833 (-1.167) | 6.000→5.833 (-0.167) | 8.000→8.667 (+0.667) | 8.000→7.778 (-0.222)
+reset_plastic_snn | 10.000→10.000 (+0.000) | 6.000→6.000 (+0.000) | 8.000→8.000 (+0.000) | 8.000→8.000 (+0.000)
+plastic_nonspiking | 48.000→48.000 (+0.000) | 48.000→48.000 (+0.000) | 48.000→48.000 (+0.000) | 48.000→48.000 (+0.000)
+
+Matched final distinct-code-count plastic-minus-control, averaged across six orders within each seed:
+plastic_snn − persistent_snn and plastic_snn − frozen_snn: seed 0 −1.167; seed 1 −0.167; seed 2 +0.667 (same values for both controls).
+reset_plastic_snn − episode_reset_snn: 0.000 for seeds 0, 1, and 2.
+plastic_nonspiking − online_nonspiking: 0.000 for seeds 0, 1, and 2; both controls already produce 48 unique codes initially and finally.
+
+Interpretation limits: no inference about causal learning benefit, correctness, transfer, or deployment follows from these preference/code-count probes. Root preference can move as later tasks update the policy; unique-code count can remain unchanged despite changed rates, or change without encoding useful structure. These measurements are secondary descriptive diagnostics, not statistical evidence.

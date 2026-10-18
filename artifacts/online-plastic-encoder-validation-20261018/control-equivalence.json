@@ -1,0 +1,86 @@
+{
+  "compared_fields": {
+    "attempts": [
+      "action",
+      "features",
+      "graph",
+      "predictions",
+      "error",
+      "reward",
+      "observed_exact"
+    ],
+    "identity": [
+      "order_id",
+      "phase_sequence",
+      "stream_index",
+      "phase_position",
+      "phase_ordinal",
+      "arm",
+      "seed",
+      "budget",
+      "task_id",
+      "phase",
+      "root"
+    ],
+    "legacy_readout_hash_mapping": {
+      "weight_after": "readout_hash_after",
+      "weight_before": "readout_hash_before"
+    },
+    "row_outcomes": [
+      "graph",
+      "observed_solved",
+      "accepted",
+      "held_correct",
+      "polynomial_correct",
+      "held_rows_executed",
+      "candidate_evaluations",
+      "generated_candidates",
+      "interpreter_rows",
+      "node_row_operations",
+      "graph_validation_calls",
+      "decision_calls",
+      "feedback_calls",
+      "budget_exhausted",
+      "grammar_exhausted",
+      "first_lane_correct",
+      "rng_draw_offset_before",
+      "rng_draw_offset_after"
+    ]
+  },
+  "control_arms": [
+    "persistent_snn",
+    "frozen_snn",
+    "episode_reset_snn",
+    "online_nonspiking",
+    "grammar_streaming"
+  ],
+  "excluded_fields": [
+    "CPU and wall timings",
+    "new plastic-encoder hashes",
+    "additional plasticity and context work counters",
+    "new-only plastic controls and retention rows"
+  ],
+  "frozen_fixture_sha256": {
+    "corpus": "a4f9af2dfc0d8c4539d700b032dcc223c82aa272f02497902024d9f371096140",
+    "schedule": "0ffbd7eadac93aa63b8df68d9ba250cd4da5a55a178e8339f9505d81638af3f1"
+  },
+  "input_bundles": {
+    "new": {
+      "declared_episode_rows": 13824,
+      "manifest_sha256": "83cee2593b595f9894eba37925eff18058e9786fef466183e751971db92d262f",
+      "path": "/home/joe/Projects/rsi-programmer/artifacts/online-plastic-encoder-v1-20261018",
+      "raw_sha256": "537b0f9d130c009266e76e86d95b1a5d0ca6fd034a83060df23202ae4a3b6566",
+      "source_head": "29bcb3dd822bffd1a89b936f7fc6f54c1ee19442"
+    },
+    "old": {
+      "declared_episode_rows": 8640,
+      "manifest_sha256": "34f3a564cfee8839bec5dbeee8795d5e5eb58974a003d51f6616ded616144c6e",
+      "path": "/home/joe/Projects/rsi-programmer/artifacts/online-observed-context-v1-20261018",
+      "raw_sha256": "8984424d2f8a5b8bfd3990152899b693c844b8c169379f27360beeab3fc82d86",
+      "source_head": "ff9a0f38fe7e0ce0af34aac11cbb899cd95a1a47"
+    }
+  },
+  "matched_control_rows": 8640,
+  "schema_version": 1,
+  "verification_status": "exact_control_equivalence"
+}

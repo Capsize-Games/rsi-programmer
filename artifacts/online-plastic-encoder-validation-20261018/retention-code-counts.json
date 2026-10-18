@@ -1,0 +1,1873 @@
+{
+  "budget": 144,
+  "by_arm_seed_boundary": {
+    "episode_reset_snn": {
+      "0": {
+        "0": 10,
+        "48": 10
+      },
+      "1": {
+        "0": 6,
+        "48": 6
+      },
+      "2": {
+        "0": 8,
+        "48": 8
+      }
+    },
+    "frozen_snn": {
+      "0": {
+        "0": 10,
+        "48": 10
+      },
+      "1": {
+        "0": 6,
+        "48": 6
+      },
+      "2": {
+        "0": 8,
+        "48": 8
+      }
+    },
+    "online_nonspiking": {
+      "0": {
+        "0": 48,
+        "48": 48
+      },
+      "1": {
+        "0": 48,
+        "48": 48
+      },
+      "2": {
+        "0": 48,
+        "48": 48
+      }
+    },
+    "persistent_snn": {
+      "0": {
+        "0": 10,
+        "48": 10
+      },
+      "1": {
+        "0": 6,
+        "48": 6
+      },
+      "2": {
+        "0": 8,
+        "48": 8
+      }
+    },
+    "plastic_nonspiking": {
+      "0": {
+        "0": 48,
+        "48": 48
+      },
+      "1": {
+        "0": 48,
+        "48": 48
+      },
+      "2": {
+        "0": 48,
+        "48": 48
+      }
+    },
+    "plastic_snn": {
+      "0": {
+        "0": 10,
+        "48": 8.833333333333334
+      },
+      "1": {
+        "0": 6,
+        "48": 5.833333333333333
+      },
+      "2": {
+        "0": 8,
+        "48": 8.666666666666666
+      }
+    },
+    "reset_plastic_snn": {
+      "0": {
+        "0": 10,
+        "48": 10
+      },
+      "1": {
+        "0": 6,
+        "48": 6
+      },
+      "2": {
+        "0": 8,
+        "48": 8
+      }
+    }
+  },
+  "contexts_per_group": 48,
+  "interpretation": "distinct cold rate vectors; not usefulness or causal representation evidence",
+  "orders": 6,
+  "round_decimal_places": 12,
+  "rows": [
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 5,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 9,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-1-2",
+      "seed": 2
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 9,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 9,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "0-2-1",
+      "seed": 2
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-0-2",
+      "seed": 2
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "1-2-0",
+      "seed": 2
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 9,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-0-1",
+      "seed": 2
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 10,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 10,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 0
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 6,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 6,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 1
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "persistent_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "frozen_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "episode_reset_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "online_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 9,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 8,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "reset_plastic_snn",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 8,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 0,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 2
+    },
+    {
+      "arm": "plastic_nonspiking",
+      "completed_tasks": 48,
+      "distinct_rate_codes": 48,
+      "order_id": "2-1-0",
+      "seed": 2
+    }
+  ]
+}
