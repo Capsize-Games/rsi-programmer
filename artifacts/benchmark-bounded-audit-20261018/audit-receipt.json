@@ -1,0 +1,62 @@
+{
+  "artifact_sha256": {
+    "artifacts/benchmark-bounded-audit-20261018/bounded_audit.py": "56d26318d1dac80816132a9a08802cc4ab4c1e271a5e05e06e0b8af0f44d8bbf",
+    "artifacts/benchmark-bounded-audit-20261018/final-audit-v2.json": "96304de3c8f06123201b57196c5e3b55817e8c9d0e60ecbcceb9dc3e10df9922",
+    "artifacts/benchmark-bounded-audit-20261018/negative-controls-final.json": "93b712c399cfa57e47972d6405da6cf2b64d0d9b4c09712bb5337cb617c6bd36",
+    "artifacts/benchmark-bounded-audit-20261018/negative_controls.py": "93205061ecabc43f2f6dc54ebbcaed150e703c1df2fdb485633d5a8821e550d0",
+    "artifacts/benchmark-bounded-v1-verified-20261018/aggregate.json": "cd1087248b01f7e4667e1618230b8bc25916ef73e3be63cdba2fef1194f92765",
+    "artifacts/benchmark-bounded-v1-verified-20261018/manifest.json": "ce7f22f79945cdb7a4a183f30cea8b7f6c744b3a4501e6661831c63d52882905",
+    "artifacts/benchmark-bounded-v1-verified-20261018/memory.jsonl": "6579e4d108e8bb7f9412f6aa53c2b421446e48d3c4cbac0e37fd9b3621930b46",
+    "artifacts/benchmark-bounded-v1-verified-20261018/raw.jsonl": "9961e1a6950cc21c9dd9476713fd4b325171b951e9477e9dff6afd9864abff38",
+    "artifacts/benchmark-bounded-v1-verified-20261018/training.json": "6c4ffd0ed01d38a10adaef505f4a1265c6cb48c4e35ea56c097b34cce8a3cc03"
+  },
+  "builder_lock_free_confirmed_by_parent": true,
+  "commands": [
+    {
+      "command": "python -B /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-audit-20261018/bounded_audit.py /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-v1-verified-20261018 --output /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-audit-20261018/final-audit-v2.json",
+      "exit_code": 0,
+      "name": "positive_audit",
+      "result_json": "final-audit-v2.json",
+      "stderr_log": "positive_audit.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_log": "positive_audit.stdout.log",
+      "stdout_sha256": "96304de3c8f06123201b57196c5e3b55817e8c9d0e60ecbcceb9dc3e10df9922",
+      "wall_seconds": 1.1791893969930243
+    },
+    {
+      "command": "python -B /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-audit-20261018/negative_controls.py /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-v1-verified-20261018 --output /home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-audit-20261018/negative-controls-final.json",
+      "exit_code": 0,
+      "name": "negative_controls",
+      "result_json": "negative-controls-final.json",
+      "stderr_log": "negative_controls.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_log": "negative_controls.stdout.log",
+      "stdout_sha256": "93b712c399cfa57e47972d6405da6cf2b64d0d9b4c09712bb5337cb617c6bd36",
+      "wall_seconds": 9.19467192099546
+    }
+  ],
+  "corpus_sha256": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+  "memory_rows": 864,
+  "negative_controls_passed": 5,
+  "positive_audit_passed": true,
+  "preserved_prior_failures": [
+    {
+      "errors": [
+        "source snapshot input hashes differ from frozen inputs",
+        "before/after git state differs"
+      ],
+      "exit_code": 1,
+      "report": "final-audit.json",
+      "wall_seconds": 1.01769991
+    },
+    {
+      "command": "python -B artifacts/benchmark-bounded-audit-20261018/negative_controls.py artifacts/benchmark-bounded-v1-verified-20261018/ --output artifacts/benchmark-bounded-audit-20261018/negative-controls-final.json",
+      "exit_code": 1,
+      "reason": "expected error substring was too specific; auditor rejected forged ratio as aggregate paired_cost_ratios[0].bounded_over_full_cached_cpu_ratio differs; expectation then corrected",
+      "wall_seconds": 6.1577
+    }
+  ],
+  "protocol_sha256": "c235994867676059311cc05ac876060da0aa1517a6e3fa53cd73b80fabd3472d",
+  "report_type": "bounded-independent-audit-receipt",
+  "timed_rows": 10656
+}

@@ -1,0 +1,136 @@
+--- a/rsi_programmer/benchmark_bounded.py
++++ b/rsi_programmer/benchmark_bounded.py
+@@ -117,11 +117,12 @@
+     """Use the same timed hash/search/independent verification wrapper."""
+     row = work._attempt(engine, fn, policy, task, budget, task["id"])
+     for key in EXTRA_COUNTS:
+-        row["work"][key] = row["search"].get(key, 0)
++        row["work"][key] = row["search"].get(key)
+     row["work"]["scored_unexecuted_descriptors"] = (
+         row["work"]["scored_descriptors"] - row["root_calls"]
+         if engine != "streaming"
+-        else 0
++        and row["work"]["scored_descriptors"] is not None
++        else None
+     )
+     return row
+ 
+--- a/rsi_programmer/benchmark_bounded_summary.py
++++ b/rsi_programmer/benchmark_bounded_summary.py
+@@ -57,9 +57,15 @@
+                 ]
+                 if not rows:
+                     continue
++                def total_if_available(key: str) -> int | float | None:
++                    values = [r["work"].get(key) for r in rows]
++                    if any(value is None for value in values):
++                        return None
++                    return sum(value for value in values if value is not None)
++
+                 work = {
+-                    k: sum(r["work"].get(k) or 0 for r in rows)
+-                    for k in rows[0]["work"]
++                    key: total_if_available(key)
++                    for key in rows[0]["work"]
+                 }
+                 cpu = sum(
+                     r["attempt_cpu_ns_including_hashes_and_validation"]
+--- a/tests/test_benchmark_bounded.py
++++ b/tests/test_benchmark_bounded.py
+@@ -178,6 +178,96 @@
+         self.assertEqual(mlp["amortized_cpu_ns_per_task"], 127.5)
+         self.assertEqual(summary["points"][0]["scan_amplification"], 4)
+ 
++    def test_unavailable_peak_counters_remain_null_in_summary(self) -> None:
++        task = {"id": "sample"}
++        attempt_row = {
++            "work": {"scored_descriptors": 12},
++            "search": {},
++            "root_calls": 3,
++        }
++        for engine in ("full_cached", "streaming"):
++            with patch.object(run.work, "_attempt", return_value=attempt_row):
++                attempted = run.attempt(engine, lambda: None, None, task, 8)
++            self.assertIsNone(attempted["work"]["peak_live_descriptors"])
++            self.assertIsNone(attempted["work"]["peak_live_features"])
++            if engine == "full_cached":
++                self.assertEqual(
++                    attempted["work"]["scored_unexecuted_descriptors"], 9
++                )
++            else:
++                self.assertIsNone(
++                    attempted["work"]["scored_unexecuted_descriptors"]
++                )
++
++        protocol = run.load_protocol()
++        controls = protocol["evaluation"]["ranked_controls"]
++        training = {
++            "training_group_cpu_ns": 0,
++            "training_group_wall_ns": 0,
++            "seeds": [{
++                "control_construction": {
++                    name: {"cpu_ns": 0, "wall_ns": 0} for name in controls
++                },
++                "controls": {
++                    name: {"fit_cpu_ns": 0, "fit_wall_ns": 0}
++                    for name in controls
++                },
++            }],
++        }
++        streaming_budget = protocol["evaluation"]["streaming_budgets"][0]
++        ranked_budget = protocol["evaluation"]["ranked_budgets"][0]
++        records = [
++            {
++                "engine": "streaming", "control": "streaming",
++                "budget": streaming_budget, "repeat": 0,
++                "accepted": False, "censored": True,
++                "work": {
++                    "signature_evaluations": 1,
++                    "peak_live_descriptors": None,
++                    "peak_live_features": None,
++                },
++                "attempt_cpu_ns_including_hashes_and_validation": 1,
++                "attempt_wall_ns_including_hashes_and_validation": 1,
++            },
++            {
++                "engine": "bounded", "control": controls[0],
++                "budget": ranked_budget, "repeat": 0,
++                "accepted": False, "censored": True,
++                "work": {
++                    "signature_evaluations": 1,
++                    "peak_live_descriptors": 7,
++                    "peak_live_features": 6,
++                },
++                "attempt_cpu_ns_including_hashes_and_validation": 1,
++                "attempt_wall_ns_including_hashes_and_validation": 1,
++            },
++        ]
++        summary = summarize(records, training, protocol)
++        stream_point = next(
++            point for point in summary["points"]
++            if point["engine"] == "streaming"
++            and point["budget"] == streaming_budget
++            and point["repeat"] == 0
++        )
++        bounded_point = next(
++            point for point in summary["points"]
++            if point["engine"] == "bounded"
++            and point["budget"] == ranked_budget
++            and point["repeat"] == 0
++        )
++        self.assertIsNone(
++            stream_point["work_totals_by_axis"]["peak_live_descriptors"]
++        )
++        self.assertIsNone(
++            stream_point["work_totals_by_axis"]["peak_live_features"]
++        )
++        self.assertEqual(
++            bounded_point["work_totals_by_axis"]["peak_live_descriptors"], 7
++        )
++        self.assertEqual(
++            bounded_point["work_totals_by_axis"]["peak_live_features"], 6
++        )
++
+     def test_fresh_memory_child_keeps_instrumented_results_separate(
+         self,
+     ) -> None:

@@ -111,7 +111,7 @@ CONTROLS = {
     ),
     "forged_ratio_plus_0_25": (
         mutate_forged_ratio,
-        "paired_cost_ratios differs",
+        "aggregate paired_cost_ratios[",
     ),
     "wrong_accepted_graph": (
         mutate_wrong_accepted_graph,

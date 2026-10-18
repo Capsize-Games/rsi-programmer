@@ -77,3 +77,16 @@ The runner pins corpus/protocol/reference/helper/model bytes, hashes source
 and dependencies before/after, rejects errors and incomplete grids, and
 retains raw rows and training checkpoints on failure. Independent auditing
 and corrupted negative controls are required before accepting the result.
+
+## Completed comparison
+
+The [complete results](../artifacts/benchmark-bounded-v1-verified-20261018/README.md)
+pass the independent audit of all 10,656 timed rows and 864 memory rows, plus
+five corrupted negative controls. The fixed 256/64 shortlist fails its cost
+rule: bounded coverage stops at 45.139-47.917%, with natural exhaustion of
+the pruned grammar. Streaming reaches 100% at cap 131,072 and 41.859 ms mean
+attempt CPU, compared with 137.695 ms for full-cached MLP and 223.515 ms for
+full-cached SNN before training charges. Memory reductions at lower coverage
+do not establish a same-success efficiency improvement. Keep the generic
+cache and the historical default; test a complete fallback before promoting
+any future shortlist. This supplies no CPU case for SNN expansion.

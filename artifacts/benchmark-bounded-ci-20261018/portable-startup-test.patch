@@ -1,0 +1,100 @@
+--- a/tests/test_benchmark_bounded.py
++++ b/tests/test_benchmark_bounded.py
+@@ -25,23 +25,91 @@
+ 
+         with tempfile.TemporaryDirectory() as tmp:
+             output = Path(tmp) / "startup"
+-            with patch.object(run, "measure_memory",
+-                              side_effect=StartupComplete) as memory:
++            protocol = run.load_protocol()
++            _, corpus = load_frozen_inputs()
++            frozen_tasks = corpus["splits"]["train"]
++            self.assertEqual(len(frozen_tasks), 24)
++            original_group_builder = run.build_training_groups
++            group_calls = []
++
++            def build_groups_spy(tasks, **kwargs):
++                built_groups = original_group_builder(tasks, **kwargs)
++                group_calls.append((tasks, kwargs, built_groups))
++                return built_groups
++
++            original_fit = run.work._make_models_with_cpu
++            fit_calls = []
++
++            def fit_spy(seed, groups, epochs, expected_weights):
++                pinned = protocol["model_reference"][
++                    "expected_weights_after_fit"
++                ][str(seed)]
++                fit_calls.append({
++                    "seed": seed,
++                    "groups": groups,
++                    "epochs": epochs,
++                    "expected_weights": dict(expected_weights),
++                })
++                self.assertEqual(expected_weights, pinned)
++                portable_expected = dict(expected_weights)
++                for name in ("trained_snn", "untrained_snn", "mlp",
++                             "recurrent"):
++                    portable_expected[name] = None
++                return original_fit(seed, groups, epochs, portable_expected)
++
++            with patch.object(
++                run, "build_training_groups", side_effect=build_groups_spy
++            ), patch.object(
++                run.work, "_make_models_with_cpu", side_effect=fit_spy
++            ), patch.object(
++                run, "measure_memory", side_effect=StartupComplete
++            ) as memory:
+                 with self.assertRaises(StartupComplete):
+                     run.run(output)
++            self.assertEqual(len(group_calls), 1)
++            actual_tasks, caps, built_groups = group_calls[0]
++            self.assertEqual(actual_tasks, frozen_tasks)
++            self.assertEqual(
++                [task["id"] for task in actual_tasks],
++                [task["id"] for task in frozen_tasks],
++            )
++            self.assertEqual(caps, {
++                "positive_cap": protocol["training"]["positive_cap"],
++                "negative_cap": protocol["training"]["negative_cap"],
++                "sampling_seed": protocol["training"]["sampling_seed"],
++            })
+             memory.assert_called_once()
+             checkpoint = json.loads((output / "training.json").read_text())
+             self.assertEqual(len(checkpoint["training_groups"]["groups"]), 24)
+             seed = checkpoint["seeds"][0]
+             self.assertEqual(seed["seed"], 0)
+-            expected = run.load_protocol()["model_reference"][
+-                "expected_weights_after_fit"]["0"]
++            self.assertEqual(len(fit_calls), 1)
++            self.assertEqual(fit_calls[0]["seed"], 0)
++            self.assertIs(fit_calls[0]["groups"], built_groups[0])
++            self.assertEqual(fit_calls[0]["epochs"], 40)
+             for control in ("trained_snn", "mlp", "recurrent"):
+-                self.assertEqual(seed["controls"][control][
+-                    "weights_after_fit_sha256"], expected[control])
++                record = seed["controls"][control]
++                self.assertTrue(record["fit_performed"])
++                self.assertTrue(record["fit_changed_weights"])
++                self.assertEqual(record["fit_work"]["optimizer_updates"], 40)
++            self.assertEqual(seed["controls"]["untrained_snn"][
++                "weights_before_fit_sha256"],
++                seed["controls"]["untrained_snn"][
++                    "weights_after_fit_sha256"])
+             self.assertFalse((output / "memory.jsonl").exists())
+             self.assertFalse((output / "raw.jsonl").exists())
+ 
++    def test_model_builder_rejects_wrong_post_fit_hash(self) -> None:
++        with self.assertRaisesRegex(
++            ValueError, "trained_snn post-fit weights differ"
++        ):
++            run.work._make_models_with_cpu(
++                seed=0,
++                groups=[],
++                epochs=0,
++                expected_weights={"trained_snn": "deliberately-wrong"},
++            )
++
+     def test_real_frozen_preflight_and_complete_asymmetric_grid(self) -> None:
+         protocol = run.load_protocol()
+         _, corpus = load_frozen_inputs()

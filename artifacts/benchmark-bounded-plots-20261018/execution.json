@@ -1,0 +1,29 @@
+{
+  "command": "flock -x /tmp/rsi-programmer-builder.lock bash -c 'plot_start_ns=$(date +%s%N); .venv/bin/python artifacts/benchmark-bounded-plots-20261018/plot_costs.py; plot_rc=$?; plot_end_ns=$(date +%s%N); plot_elapsed_ns=$((plot_end_ns - plot_start_ns)); printf \"plot_exit_code=%s\\nplot_elapsed_ns=%s\\n\" \"$plot_rc\" \"$plot_elapsed_ns\"; sha256sum artifacts/benchmark-bounded-plots-20261018/bounded-cost-curves.png artifacts/benchmark-bounded-plots-20261018/bounded-cost-curves.svg; exit \"$plot_rc\"'",
+  "exit_code": 0,
+  "elapsed_ns": 1322440890,
+  "bundle": "artifacts/benchmark-bounded-v1-verified-20261018",
+  "validated_before_plotting": {
+    "manifest_infrastructure_valid": true,
+    "required_checks_passed": true,
+    "protocol_hash_matches_fixture": true,
+    "timed_rows": 10656,
+    "memory_rows": 864,
+    "configurations": 9,
+    "declared_cap_points": 37,
+    "attempts_per_aggregate_point": 288,
+    "n48_amortized_points": 37,
+    "all_declared_points_present_and_valid": true
+  },
+  "outputs": {
+    "png": {
+      "path": "bounded-cost-curves.png",
+      "sha256": "be97c0c508a267a2846bb465612e46a714b421beef646719b80a1440a33c0b15"
+    },
+    "svg": {
+      "path": "bounded-cost-curves.svg",
+      "sha256": "a80ec4bc34c6eeb17a27fb43aa2d0de555557f2b895e477bb6e9a98f6ce35306"
+    }
+  },
+  "visual_inspection": "PNG opened successfully; both cost panels, legends, log axes, measured cap markers, and footer rendered without clipping."
+}

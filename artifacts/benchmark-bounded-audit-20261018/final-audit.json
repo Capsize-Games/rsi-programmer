@@ -1,0 +1,27 @@
+{
+  "aggregate_sha256": "cd1087248b01f7e4667e1618230b8bc25916ef73e3be63cdba2fef1194f92765",
+  "audit_passed": false,
+  "bundle": "/home/joe/Projects/rsi-programmer/artifacts/benchmark-bounded-v1-verified-20261018",
+  "corpus_sha256": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+  "decision_supported_on_cost": false,
+  "errors": [
+    "source snapshot input hashes differ from frozen inputs",
+    "before/after git state differs"
+  ],
+  "expected_memory_row_count": 864,
+  "expected_row_count": 10656,
+  "memory_mismatch_count": 0,
+  "memory_row_count": 864,
+  "memory_sha256": "6579e4d108e8bb7f9412f6aa53c2b421446e48d3c4cbac0e37fd9b3621930b46",
+  "protocol_sha256": "c235994867676059311cc05ac876060da0aa1517a6e3fa53cd73b80fabd3472d",
+  "raw_sha256": "9961e1a6950cc21c9dd9476713fd4b325171b951e9477e9dff6afd9864abff38",
+  "repeat_mismatch_count": 0,
+  "row_count": 10656,
+  "snn_efficiency_advantage_supported": false,
+  "snn_full_success_all_required": false,
+  "snn_over_comparator_n48_cpu_ratios": {
+    "bounded_mlp": null,
+    "bounded_recurrent": null,
+    "streaming": null
+  }
+}

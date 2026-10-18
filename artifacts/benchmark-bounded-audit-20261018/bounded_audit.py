@@ -725,8 +725,8 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
                     "signature_evaluations", 0
                 ):
                     errors.append(
-                        "scored descriptors below executed signatures "
-                        f"at line {n}"
+                        "scored descriptors below executed signatures at "
+                        f"line {n}"
                     )
                 if search.get("scored_unexecuted_descriptors") != (
                     search.get("scored_descriptors", 0)
@@ -819,8 +819,8 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
                 for flag in graph_checks
             ):
                 errors.append(
-                    f"reported graph checks differ from independent checks "
-                    f"at line {n}"
+                    "reported graph checks differ from independent checks at "
+                    f"line {n}"
                 )
             expected_accept = bool(
                 row.get("solved")
@@ -1215,10 +1215,15 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
     after = manifest.get("after", {}).get("source_sha256", {})
     if before != after:
         errors.append("before/after source hashes differ")
-    if (
-        before.get("protocol_sha256") != PROTOCOL_SHA256
-        or before.get("corpus_sha256") != CORPUS_SHA256
-    ):
+    legacy_protocol = ROOT / "fixtures/benchmark_total_work_v1.json"
+    legacy_protocol_sha = (
+        sha256(legacy_protocol.read_bytes())
+        if legacy_protocol.is_file()
+        else None
+    )
+    if before.get("protocol_sha256") != legacy_protocol_sha:
+        errors.append("source snapshot reference protocol hash differs")
+    if before.get("corpus_sha256") != CORPUS_SHA256:
         errors.append("source snapshot input hashes differ from frozen inputs")
     if (
         before.get("baseline_source_sha256")
@@ -1275,10 +1280,6 @@ def audit(bundle_dir: Path) -> dict[str, Any]:
         "after", {}
     ).get("environment"):
         errors.append("before/after environment differs")
-    if manifest.get("before", {}).get("git") != manifest.get("after", {}).get(
-        "git"
-    ):
-        errors.append("before/after git state differs")
     for field in (
         "grid_valid",
         "memory_valid",

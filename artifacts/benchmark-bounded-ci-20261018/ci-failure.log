@@ -1,0 +1,940 @@
+﻿2026-10-18T15:51:21.7801055Z Current runner version: '2.337.0'
+2026-10-18T15:51:21.7819534Z ##[group]Runner Image Provisioner
+2026-10-18T15:51:21.7820340Z Hosted Compute Agent
+2026-10-18T15:51:21.7820889Z Version: 20261012.601
+2026-10-18T15:51:21.7821479Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-18T15:51:21.7822118Z Build Date: 2026-10-12T17:48:21Z
+2026-10-18T15:51:21.7822732Z Worker ID: {4513324f-18dc-4c5e-b825-eeb63b6c8a95}
+2026-10-18T15:51:21.7823386Z Region: westus3
+2026-10-18T15:51:21.7823871Z Cloud: Azure
+2026-10-18T15:51:21.7824384Z ##[endgroup]
+2026-10-18T15:51:21.7825541Z ##[group]Operating System
+2026-10-18T15:51:21.7826087Z Ubuntu
+2026-10-18T15:51:21.7826553Z 24.04.5
+2026-10-18T15:51:21.7827203Z LTS
+2026-10-18T15:51:21.7827710Z ##[endgroup]
+2026-10-18T15:51:21.7828580Z ##[group]Runner Image
+2026-10-18T15:51:21.7829122Z Image: ubuntu-24.04
+2026-10-18T15:51:21.7829650Z Version: 20261012.334.1
+2026-10-18T15:51:21.7831051Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-18T15:51:21.7832391Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-18T15:51:21.7833219Z ##[endgroup]
+2026-10-18T15:51:21.7836094Z ##[group]GITHUB_TOKEN Permissions
+2026-10-18T15:51:21.7838572Z Actions: write
+2026-10-18T15:51:21.7839279Z ArtifactMetadata: write
+2026-10-18T15:51:21.7839979Z Attestations: write
+2026-10-18T15:51:21.7840524Z Checks: write
+2026-10-18T15:51:21.7841033Z CodeQuality: write
+2026-10-18T15:51:21.7841585Z Contents: write
+2026-10-18T15:51:21.7842105Z CopilotRequests: write
+2026-10-18T15:51:21.7842629Z Deployments: write
+2026-10-18T15:51:21.7843159Z Discussions: write
+2026-10-18T15:51:21.7843642Z Drives: write
+2026-10-18T15:51:21.7844129Z Issues: write
+2026-10-18T15:51:21.7844723Z Metadata: read
+2026-10-18T15:51:21.7845180Z Models: read
+2026-10-18T15:51:21.7845660Z Packages: write
+2026-10-18T15:51:21.7846122Z Pages: write
+2026-10-18T15:51:21.7846756Z PullRequests: write
+2026-10-18T15:51:21.7847310Z RepositoryProjects: write
+2026-10-18T15:51:21.7847844Z SecurityEvents: write
+2026-10-18T15:51:21.7848345Z Statuses: write
+2026-10-18T15:51:21.7848833Z VulnerabilityAlerts: read
+2026-10-18T15:51:21.7849393Z ##[endgroup]
+2026-10-18T15:51:21.7851253Z Secret source: Actions
+2026-10-18T15:51:21.7851990Z Cache mode: write
+2026-10-18T15:51:21.7852661Z Prepare workflow directory
+2026-10-18T15:51:21.8159708Z Prepare all required actions
+2026-10-18T15:51:21.8223370Z Getting action download info
+2026-10-18T15:51:22.1532391Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-18T15:51:22.2789700Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-18T15:51:22.4319144Z Download action repository 'extractions/setup-just@v2' (SHA:dd310ad5a97d8e7b41793f8ef055398d51ad4de6)
+2026-10-18T15:51:22.8753770Z Download action repository 'astral-sh/setup-uv@v5' (SHA:d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86)
+2026-10-18T15:51:23.8685303Z Complete job name: fast (3.13)
+2026-10-18T15:51:23.9390846Z ##[group]Run actions/checkout@v4
+2026-10-18T15:51:23.9392105Z with:
+2026-10-18T15:51:23.9393379Z   repository: Capsize-Games/rsi-programmer
+2026-10-18T15:51:23.9402175Z   token: ***
+2026-10-18T15:51:23.9403070Z   ssh-strict: true
+2026-10-18T15:51:23.9403941Z   ssh-user: git
+2026-10-18T15:51:23.9404820Z   persist-credentials: true
+2026-10-18T15:51:23.9406007Z   clean: true
+2026-10-18T15:51:23.9407590Z   sparse-checkout-cone-mode: true
+2026-10-18T15:51:23.9408636Z   fetch-depth: 1
+2026-10-18T15:51:23.9409560Z   fetch-tags: false
+2026-10-18T15:51:23.9410507Z   show-progress: true
+2026-10-18T15:51:23.9411442Z   lfs: false
+2026-10-18T15:51:23.9412311Z   submodules: false
+2026-10-18T15:51:23.9413258Z   set-safe-directory: true
+2026-10-18T15:51:23.9414330Z   allow-unsafe-pr-checkout: false
+2026-10-18T15:51:23.9415925Z ##[endgroup]
+2026-10-18T15:51:24.0403480Z Syncing repository: Capsize-Games/rsi-programmer
+2026-10-18T15:51:24.0407509Z ##[group]Getting Git version info
+2026-10-18T15:51:24.0410171Z Working directory is '/home/runner/work/rsi-programmer/rsi-programmer'
+2026-10-18T15:51:24.0412848Z [command]/usr/bin/git version
+2026-10-18T15:51:24.0464365Z git version 2.55.0
+2026-10-18T15:51:24.0484072Z ##[endgroup]
+2026-10-18T15:51:24.0494872Z Temporarily overriding HOME='/home/runner/work/_temp/bfcacc99-bcf1-41ea-b152-10217d31b20b' before making global git config changes
+2026-10-18T15:51:24.0506509Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T15:51:24.0510471Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/rsi-programmer/rsi-programmer
+2026-10-18T15:51:24.0549398Z Deleting the contents of '/home/runner/work/rsi-programmer/rsi-programmer'
+2026-10-18T15:51:24.0555558Z ##[group]Initializing the repository
+2026-10-18T15:51:24.0559275Z [command]/usr/bin/git init /home/runner/work/rsi-programmer/rsi-programmer
+2026-10-18T15:51:24.0651408Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-18T15:51:24.0654722Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-18T15:51:24.0658080Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-18T15:51:24.0659824Z hint: call:
+2026-10-18T15:51:24.0660981Z hint:
+2026-10-18T15:51:24.0662227Z hint: 	git config --global init.defaultBranch <name>
+2026-10-18T15:51:24.0663879Z hint:
+2026-10-18T15:51:24.0665489Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-18T15:51:24.0667795Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-18T15:51:24.0669243Z hint:
+2026-10-18T15:51:24.0670178Z hint: 	git branch -m <name>
+2026-10-18T15:51:24.0671820Z hint:
+2026-10-18T15:51:24.0673472Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-18T15:51:24.0677115Z Initialized empty Git repository in /home/runner/work/rsi-programmer/rsi-programmer/.git/
+2026-10-18T15:51:24.0682899Z [command]/usr/bin/git remote add origin https://github.com/Capsize-Games/rsi-programmer
+2026-10-18T15:51:24.0719994Z ##[endgroup]
+2026-10-18T15:51:24.0721979Z ##[group]Disabling automatic garbage collection
+2026-10-18T15:51:24.0725500Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-18T15:51:24.0751259Z ##[endgroup]
+2026-10-18T15:51:24.0753009Z ##[group]Setting up auth
+2026-10-18T15:51:24.0757228Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T15:51:24.0785294Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T15:51:24.1121686Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T15:51:24.1153672Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T15:51:24.1331168Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T15:51:24.1357157Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T15:51:24.1523274Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-18T15:51:24.1557835Z ##[endgroup]
+2026-10-18T15:51:24.1560447Z ##[group]Fetching the repository
+2026-10-18T15:51:24.1569466Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +785e8b0d006624333fe9446e16d2e78a81697d47:refs/remotes/origin/main
+2026-10-18T15:51:27.4501246Z From https://github.com/Capsize-Games/rsi-programmer
+2026-10-18T15:51:27.4501944Z  * [new ref]         785e8b0d006624333fe9446e16d2e78a81697d47 -> origin/main
+2026-10-18T15:51:27.4504364Z ##[endgroup]
+2026-10-18T15:51:27.4505323Z ##[group]Determining the checkout info
+2026-10-18T15:51:27.4507086Z ##[endgroup]
+2026-10-18T15:51:27.4513183Z [command]/usr/bin/git sparse-checkout disable
+2026-10-18T15:51:27.4557671Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-18T15:51:27.4585007Z ##[group]Checking out the ref
+2026-10-18T15:51:27.4585496Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-18T15:51:27.6958039Z Switched to a new branch 'main'
+2026-10-18T15:51:27.6960801Z branch 'main' set up to track 'origin/main'.
+2026-10-18T15:51:27.6976958Z ##[endgroup]
+2026-10-18T15:51:27.7019130Z [command]/usr/bin/git log -1 --format=%H
+2026-10-18T15:51:27.7042018Z 785e8b0d006624333fe9446e16d2e78a81697d47
+2026-10-18T15:51:27.7278652Z ##[group]Run actions/checkout@v4
+2026-10-18T15:51:27.7278972Z with:
+2026-10-18T15:51:27.7279208Z   repository: Capsize-Games/spikeforge
+2026-10-18T15:51:27.7279490Z   path: vendor/spikeforge
+2026-10-18T15:51:27.7281747Z   token: ***
+2026-10-18T15:51:27.7281989Z   ssh-strict: true
+2026-10-18T15:51:27.7282206Z   ssh-user: git
+2026-10-18T15:51:27.7282437Z   persist-credentials: true
+2026-10-18T15:51:27.7282680Z   clean: true
+2026-10-18T15:51:27.7282907Z   sparse-checkout-cone-mode: true
+2026-10-18T15:51:27.7283161Z   fetch-depth: 1
+2026-10-18T15:51:27.7283391Z   fetch-tags: false
+2026-10-18T15:51:27.7283607Z   show-progress: true
+2026-10-18T15:51:27.7283821Z   lfs: false
+2026-10-18T15:51:27.7284028Z   submodules: false
+2026-10-18T15:51:27.7284273Z   set-safe-directory: true
+2026-10-18T15:51:27.7284559Z   allow-unsafe-pr-checkout: false
+2026-10-18T15:51:27.7284820Z ##[endgroup]
+2026-10-18T15:51:27.8080910Z Syncing repository: Capsize-Games/spikeforge
+2026-10-18T15:51:27.8086983Z ##[group]Getting Git version info
+2026-10-18T15:51:27.8087741Z Working directory is '/home/runner/work/rsi-programmer/rsi-programmer/vendor/spikeforge'
+2026-10-18T15:51:27.8126819Z [command]/usr/bin/git version
+2026-10-18T15:51:27.8167969Z git version 2.55.0
+2026-10-18T15:51:27.8189370Z ##[endgroup]
+2026-10-18T15:51:27.8202174Z Temporarily overriding HOME='/home/runner/work/_temp/21bdf7a4-0f69-4cd5-9ce3-2dcaa771daea' before making global git config changes
+2026-10-18T15:51:27.8203112Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T15:51:27.8207697Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/rsi-programmer/rsi-programmer/vendor/spikeforge
+2026-10-18T15:51:27.8235629Z ##[group]Initializing the repository
+2026-10-18T15:51:27.8240929Z [command]/usr/bin/git init /home/runner/work/rsi-programmer/rsi-programmer/vendor/spikeforge
+2026-10-18T15:51:27.8276750Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-18T15:51:27.8277855Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-18T15:51:27.8278797Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-18T15:51:27.8279509Z hint: call:
+2026-10-18T15:51:27.8279953Z hint:
+2026-10-18T15:51:27.8280473Z hint: 	git config --global init.defaultBranch <name>
+2026-10-18T15:51:27.8281063Z hint:
+2026-10-18T15:51:27.8281637Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-18T15:51:27.8282443Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-18T15:51:27.8283096Z hint:
+2026-10-18T15:51:27.8283582Z hint: 	git branch -m <name>
+2026-10-18T15:51:27.8284088Z hint:
+2026-10-18T15:51:27.8284770Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-18T15:51:27.8286162Z Initialized empty Git repository in /home/runner/work/rsi-programmer/rsi-programmer/vendor/spikeforge/.git/
+2026-10-18T15:51:27.8288909Z [command]/usr/bin/git remote add origin https://github.com/Capsize-Games/spikeforge
+2026-10-18T15:51:27.8324757Z ##[endgroup]
+2026-10-18T15:51:27.8325204Z ##[group]Disabling automatic garbage collection
+2026-10-18T15:51:27.8331612Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-18T15:51:27.8359785Z ##[endgroup]
+2026-10-18T15:51:27.8360188Z ##[group]Setting up auth
+2026-10-18T15:51:27.8368601Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T15:51:27.8397023Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T15:51:27.8596489Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T15:51:27.8626990Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T15:51:27.8838882Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T15:51:27.8864744Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T15:51:27.9052625Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-18T15:51:27.9093909Z ##[endgroup]
+2026-10-18T15:51:27.9094622Z ##[group]Determining the default branch
+2026-10-18T15:51:27.9097427Z Retrieving the default branch name
+2026-10-18T15:51:28.3563037Z Default branch 'main'
+2026-10-18T15:51:28.3563904Z ##[endgroup]
+2026-10-18T15:51:28.3564547Z ##[group]Fetching the repository
+2026-10-18T15:51:28.3582253Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+2026-10-18T15:51:29.6437915Z From https://github.com/Capsize-Games/spikeforge
+2026-10-18T15:51:29.6438329Z  * [new branch]      main       -> origin/main
+2026-10-18T15:51:29.6441450Z ##[endgroup]
+2026-10-18T15:51:29.6441825Z ##[group]Determining the checkout info
+2026-10-18T15:51:29.6445155Z ##[endgroup]
+2026-10-18T15:51:29.6450785Z [command]/usr/bin/git sparse-checkout disable
+2026-10-18T15:51:29.6490416Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-18T15:51:29.6516042Z ##[group]Checking out the ref
+2026-10-18T15:51:29.6520704Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-18T15:51:29.7161978Z Switched to a new branch 'main'
+2026-10-18T15:51:29.7162725Z branch 'main' set up to track 'origin/main'.
+2026-10-18T15:51:29.7166251Z ##[endgroup]
+2026-10-18T15:51:29.7198892Z [command]/usr/bin/git log -1 --format=%H
+2026-10-18T15:51:29.7221171Z 2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6
+2026-10-18T15:51:29.7418723Z ##[group]Run actions/setup-python@v5
+2026-10-18T15:51:29.7419010Z with:
+2026-10-18T15:51:29.7419230Z   python-version: 3.13
+2026-10-18T15:51:29.7419474Z   check-latest: false
+2026-10-18T15:51:29.7422108Z   token: ***
+2026-10-18T15:51:29.7422337Z   update-environment: true
+2026-10-18T15:51:29.7422590Z   allow-prereleases: false
+2026-10-18T15:51:29.7422847Z   freethreaded: false
+2026-10-18T15:51:29.7423070Z ##[endgroup]
+2026-10-18T15:51:29.8638524Z ##[group]Installed versions
+2026-10-18T15:51:29.8717312Z (node:2201) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-18T15:51:29.8718223Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T15:51:29.8718768Z Successfully set up CPython (3.13.16)
+2026-10-18T15:51:29.8719355Z ##[endgroup]
+2026-10-18T15:51:29.8837707Z ##[group]Run extractions/setup-just@v2
+2026-10-18T15:51:29.8837961Z with:
+2026-10-18T15:51:29.8840126Z   github-token: ***
+2026-10-18T15:51:29.8840330Z env:
+2026-10-18T15:51:29.8840569Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:29.8840986Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+2026-10-18T15:51:29.8841349Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:29.8841679Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:29.8842128Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:29.8842454Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+2026-10-18T15:51:29.8842732Z ##[endgroup]
+2026-10-18T15:51:29.9809391Z (node:2209) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-18T15:51:29.9810473Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T15:51:30.9046931Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/b55f3ff3-3cc4-4746-a886-932f5e4026f7 -f /home/runner/work/_temp/83a683ec-ddab-48e0-8128-67ae4f0f3a9b
+2026-10-18T15:51:31.0138906Z Successfully setup just v1.59.0
+2026-10-18T15:51:31.0259907Z ##[group]Run astral-sh/setup-uv@v5
+2026-10-18T15:51:31.0260206Z with:
+2026-10-18T15:51:31.0262744Z   github-token: ***
+2026-10-18T15:51:31.0263234Z   enable-cache: auto
+2026-10-18T15:51:31.0263690Z   cache-dependency-glob: **/uv.lock
+**/requirements*.txt
+
+2026-10-18T15:51:31.0264068Z   prune-cache: true
+2026-10-18T15:51:31.0264323Z   ignore-nothing-to-cache: false
+2026-10-18T15:51:31.0264611Z   ignore-empty-workdir: false
+2026-10-18T15:51:31.0264871Z env:
+2026-10-18T15:51:31.0265150Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:31.0265588Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+2026-10-18T15:51:31.0266020Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:31.0266415Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:31.0267025Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:31.0267450Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+2026-10-18T15:51:31.0267798Z ##[endgroup]
+2026-10-18T15:51:31.1847236Z (node:2224) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-18T15:51:31.1848169Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T15:51:31.5669421Z Downloading uv from "https://github.com/astral-sh/uv/releases/download/0.13.1/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-10-18T15:51:32.0233549Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/453715b5-7dfd-4d4f-a038-833ebb7e290c -f /home/runner/work/_temp/e77b119b-53d8-4ede-bc75-6eb4b5449fd3
+2026-10-18T15:51:32.4583450Z Added /home/runner/.local/bin to the path
+2026-10-18T15:51:32.4585725Z Added /opt/hostedtoolcache/uv/0.13.1/x86_64 to the path
+2026-10-18T15:51:32.4594116Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-10-18T15:51:32.4594643Z Successfully installed uv version 0.13.1
+2026-10-18T15:51:32.4595216Z Searching files using cache dependency glob: **/uv.lock,**/requirements*.txt
+2026-10-18T15:51:32.5136221Z /home/runner/work/rsi-programmer/rsi-programmer/requirements.txt
+2026-10-18T15:51:32.5917645Z /home/runner/work/rsi-programmer/rsi-programmer/vendor/spikeforge/requirements.txt
+2026-10-18T15:51:32.6454064Z Found 2 files to hash.
+2026-10-18T15:51:33.1092791Z Trying to restore uv cache from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-3.13.16-880005ffa215e9f6297afd351d6290f14f8b2d97df61f9ce80f7c9a2108be641
+2026-10-18T15:51:33.3081405Z Cache hit for: setup-uv-1-x86_64-unknown-linux-gnu-3.13.16-880005ffa215e9f6297afd351d6290f14f8b2d97df61f9ce80f7c9a2108be641
+2026-10-18T15:51:33.3176144Z (node:2224) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-18T15:51:34.0807103Z Received 909813 of 909813 (100.0%), 1.7 MBs/sec
+2026-10-18T15:51:34.0807703Z Cache Size: ~1 MB (909813 B)
+2026-10-18T15:51:34.0833264Z [command]/usr/bin/tar -xf /home/runner/work/_temp/6d1d9580-70bf-48d8-8502-75d21fb86da2/cache.tzst -P -C /home/runner/work/rsi-programmer/rsi-programmer --use-compress-program unzstd
+2026-10-18T15:51:34.0945690Z Cache restored successfully
+2026-10-18T15:51:34.0951585Z uv cache restored from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-3.13.16-880005ffa215e9f6297afd351d6290f14f8b2d97df61f9ce80f7c9a2108be641
+2026-10-18T15:51:34.1054977Z ##[group]Run UV_PYTHON=3.13 just setup "${GITHUB_WORKSPACE}/vendor/spikeforge"
+2026-10-18T15:51:34.1055456Z [36;1mUV_PYTHON=3.13 just setup "${GITHUB_WORKSPACE}/vendor/spikeforge"[0m
+2026-10-18T15:51:34.1229026Z shell: /usr/bin/bash -e {0}
+2026-10-18T15:51:34.1229312Z env:
+2026-10-18T15:51:34.1229620Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:34.1230050Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+2026-10-18T15:51:34.1230471Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:34.1230855Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:34.1231240Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:34.1231647Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+2026-10-18T15:51:34.1232024Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-10-18T15:51:34.1232332Z ##[endgroup]
+2026-10-18T15:51:34.1337266Z uv venv .venv
+2026-10-18T15:51:34.1412153Z Using CPython 3.13.16 interpreter at: /opt/hostedtoolcache/Python/3.13.16/x64/bin/python3.13
+2026-10-18T15:51:34.1412869Z Creating virtual environment at: .venv
+2026-10-18T15:51:34.1416095Z Activate with: .venv/bin/activate
+2026-10-18T15:51:34.1422897Z uv pip install --python .venv/bin/python -r requirements.txt
+2026-10-18T15:51:34.5469800Z Resolved 16 packages in 397ms
+2026-10-18T15:51:34.5514662Z Downloading setuptools (1.2MiB)
+2026-10-18T15:51:34.5531011Z Downloading sympy (6.0MiB)
+2026-10-18T15:51:34.5572823Z Downloading networkx (2.0MiB)
+2026-10-18T15:51:34.5634118Z Downloading h5py (5.2MiB)
+2026-10-18T15:51:34.5634748Z Downloading numpy (15.9MiB)
+2026-10-18T15:51:34.5697841Z Downloading torch (175.4MiB)
+2026-10-18T15:51:34.6092458Z  Downloaded setuptools
+2026-10-18T15:51:34.6687725Z  Downloaded networkx
+2026-10-18T15:51:34.6928374Z  Downloaded h5py
+2026-10-18T15:51:34.7774673Z  Downloaded sympy
+2026-10-18T15:51:34.8477559Z  Downloaded numpy
+2026-10-18T15:51:36.5821521Z  Downloaded torch
+2026-10-18T15:51:36.5877517Z Prepared 16 packages in 2.04s
+2026-10-18T15:51:36.7751097Z Installed 16 packages in 187ms
+2026-10-18T15:51:36.7751500Z  + filelock==3.32.3
+2026-10-18T15:51:36.7751789Z  + fsspec==2026.7.0
+2026-10-18T15:51:36.7752077Z  + h5py==3.16.0
+2026-10-18T15:51:36.7752383Z  + jinja2==3.1.6
+2026-10-18T15:51:36.7752676Z  + markupsafe==3.0.3
+2026-10-18T15:51:36.7752957Z  + mpmath==1.3.0
+2026-10-18T15:51:36.7753216Z  + networkx==3.6.1
+2026-10-18T15:51:36.7753485Z  + nir==1.0.8
+2026-10-18T15:51:36.7753738Z  + nirtorch==2.6
+2026-10-18T15:51:36.7753992Z  + numpy==2.5.2
+2026-10-18T15:51:36.7754269Z  + safetensors==0.8.0
+2026-10-18T15:51:36.7754617Z  + setuptools==78.1.0
+2026-10-18T15:51:36.7754900Z  + snntorch==1.0.0
+2026-10-18T15:51:36.7755275Z  + sympy==1.14.0
+2026-10-18T15:51:36.7755486Z  + torch==2.8.0+cpu
+2026-10-18T15:51:36.7755724Z  + typing-extensions==4.16.0
+2026-10-18T15:51:36.7786249Z SITE=$(.venv/bin/python -c "import site; print(site.getsitepackages()[0])"); echo "/home/runner/work/rsi-programmer/rsi-programmer/vendor/spikeforge" > "$SITE/spikeforge-src.pth"
+2026-10-18T15:51:36.8108633Z spikeforge source pinned via spikeforge-src.pth
+2026-10-18T15:51:36.8146239Z ##[group]Run just test-fast
+2026-10-18T15:51:36.8146783Z [36;1mjust test-fast[0m
+2026-10-18T15:51:36.8184817Z shell: /usr/bin/bash -e {0}
+2026-10-18T15:51:36.8185090Z env:
+2026-10-18T15:51:36.8185381Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:36.8185804Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+2026-10-18T15:51:36.8186208Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:36.8186649Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:36.8187166Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+2026-10-18T15:51:36.8187525Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+2026-10-18T15:51:36.8187880Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-10-18T15:51:36.8188187Z ##[endgroup]
+2026-10-18T15:51:36.8289863Z .venv/bin/python -m unittest tests.test_pre_eval tests.test_pre_eval_contract tests.test_benchmark_policy tests.test_pre_eval_features tests.test_pre_eval_feature_contract tests.test_benchmark_total_work tests.test_total_work_contract tests.test_bounded_pre_eval tests.test_benchmark_bounded tests.test_benchmark_fit_work tests.test_frozen_benchmark tests.test_frozen_benchmark_eval tests.test_benchmark_v2_corpus tests.test_benchmark_v2_runner tests.test_benchmark_v2_runner_training tests.test_benchmark_v2_runner_acceptance tests.test_benchmark_v2_runner_provenance tests.test_hub_release_lookup tests.test_rich_amendments tests.test_scale_amendments tests.test_measurement_provenance tests.test_search_amendments tests.test_objective_amendments tests.test_supervision_amendments tests.test_generator_amendments tests.test_review_search tests.test_review_search_edges tests.test_review_acceptance tests.test_review_integrity tests.test_review_lattice tests.test_review_protocol tests.test_rsi_actions tests.test_rsi_sandbox tests.test_rsi_headless tests.test_proxy tests.test_rsi_hard tests.test_typed_dag_programming_probe tests.test_rsi_decoder tests.test_modular tests.test_rsi_tasks tests.test_edits tests.test_self_gate tests.test_autonomy tests.test_rsi_ood tests.test_gains tests.test_rsi_words tests.test_rsi_lattice tests.test_rsi_lattice_train tests.test_rsi_lattice_author tests.test_rsi_bytecode tests.test_rsi_selectivity tests.test_rsi_proposer -v
+2026-10-18T15:51:41.3925750Z test_budget_equal_to_one_layer_leaves_later_work_pending (tests.test_pre_eval.PreEvaluationSearchTests.test_budget_equal_to_one_layer_leaves_later_work_pending) ... ok
+2026-10-18T15:51:41.3927373Z test_budget_stops_without_expanding_future_layers (tests.test_pre_eval.PreEvaluationSearchTests.test_budget_stops_without_expanding_future_layers) ... ok
+2026-10-18T15:51:41.3933139Z test_candidate_work_uses_cached_operands (tests.test_pre_eval.PreEvaluationSearchTests.test_candidate_work_uses_cached_operands) ... ok
+2026-10-18T15:51:41.3934365Z test_constant_terminal_is_a_valid_result (tests.test_pre_eval.PreEvaluationSearchTests.test_constant_terminal_is_a_valid_result) ... ok
+2026-10-18T15:51:41.3935608Z test_inputs_must_be_aligned_and_empty_rows_are_rejected (tests.test_pre_eval.PreEvaluationSearchTests.test_inputs_must_be_aligned_and_empty_rows_are_rejected) ... ok
+2026-10-18T15:51:41.3937762Z test_malformed_policy_orders_are_rejected (tests.test_pre_eval.PreEvaluationSearchTests.test_malformed_policy_orders_are_rejected) ... ok
+2026-10-18T15:51:41.3940235Z test_oracle_rejection_retries_equivalent_train_matches (tests.test_pre_eval.PreEvaluationSearchTests.test_oracle_rejection_retries_equivalent_train_matches) ... ok
+2026-10-18T15:51:41.3941815Z test_policy_ranks_full_layer_before_candidate_evaluation (tests.test_pre_eval.PreEvaluationSearchTests.test_policy_ranks_full_layer_before_candidate_evaluation) ... ok
+2026-10-18T15:51:41.3943120Z test_zero_budget_does_not_rank_or_evaluate_candidates (tests.test_pre_eval.PreEvaluationSearchTests.test_zero_budget_does_not_rank_or_evaluate_candidates) ... ok
+2026-10-18T15:51:41.3958705Z test_completed_layer_retention_ignores_execution_order (tests.test_pre_eval_contract.PreEvaluationContractTests.test_completed_layer_retention_ignores_execution_order) ... ok
+2026-10-18T15:51:41.3959830Z test_secondary_signature_cap_stops_actual_execution (tests.test_pre_eval_contract.PreEvaluationContractTests.test_secondary_signature_cap_stops_actual_execution) ... ok
+2026-10-18T15:51:41.3966947Z test_selection_changes_executed_work_before_first_solution (tests.test_pre_eval_contract.PreEvaluationContractTests.test_selection_changes_executed_work_before_first_solution) ... ok
+2026-10-18T15:51:41.3976800Z test_heuristic_prefers_operand_agreement_and_simplicity (tests.test_benchmark_policy.BenchmarkPolicyTests.test_heuristic_prefers_operand_agreement_and_simplicity) ... ok
+2026-10-18T15:51:44.4886268Z test_ineligible_training_data_is_not_reported_as_a_fit (tests.test_benchmark_policy.BenchmarkPolicyTests.test_ineligible_training_data_is_not_reported_as_a_fit) ... ok
+2026-10-18T15:51:44.5048275Z test_neural_fit_changes_weights_from_a_repeatable_seed (tests.test_benchmark_policy.BenchmarkPolicyTests.test_neural_fit_changes_weights_from_a_repeatable_seed) ... ok
+2026-10-18T15:51:44.5065614Z test_neural_initialization_preserves_torch_rng (tests.test_benchmark_policy.BenchmarkPolicyTests.test_neural_initialization_preserves_torch_rng) ... ok
+2026-10-18T15:51:44.5080500Z test_neural_learning_rate_is_explicit_in_optimizer_and_metadata (tests.test_benchmark_policy.BenchmarkPolicyTests.test_neural_learning_rate_is_explicit_in_optimizer_and_metadata) ... ok
+2026-10-18T15:51:44.5107691Z test_neural_scores_have_fresh_state_and_batch_order_independence (tests.test_benchmark_policy.BenchmarkPolicyTests.test_neural_scores_have_fresh_state_and_batch_order_independence) ... ok
+2026-10-18T15:51:44.5113950Z test_seeded_random_repeats_without_global_rng_changes (tests.test_benchmark_policy.BenchmarkPolicyTests.test_seeded_random_repeats_without_global_rng_changes) ... ok
+2026-10-18T15:51:44.5115103Z test_cached_features_match_reference_encoding (tests.test_pre_eval_features.PreEvaluationFeatureStatisticsTests.test_cached_features_match_reference_encoding) ... ok
+2026-10-18T15:51:44.5116157Z test_empty_target_is_rejected (tests.test_pre_eval_features.PreEvaluationFeatureStatisticsTests.test_empty_target_is_rejected) ... ok
+2026-10-18T15:51:44.5117637Z test_gap_matches_reference_and_reuses_hit_statistics (tests.test_pre_eval_features.PreEvaluationFeatureStatisticsTests.test_gap_matches_reference_and_reuses_hit_statistics) ... ok
+2026-10-18T15:51:44.5121686Z test_reference_features_match_for_all_ops_sizes_and_signatures (tests.test_pre_eval_features.PreEvaluationFeatureStatisticsTests.test_reference_features_match_for_all_ops_sizes_and_signatures) ... ok
+2026-10-18T15:51:44.5123668Z test_repeated_operand_signatures_are_cached (tests.test_pre_eval_features.PreEvaluationFeatureStatisticsTests.test_repeated_operand_signatures_are_cached) ... ok
+2026-10-18T15:51:44.5164557Z test_actual_scans_match_retained_operand_cache_misses (tests.test_pre_eval_feature_contract.PreEvaluationFeatureContractTests.test_actual_scans_match_retained_operand_cache_misses) ... ok
+2026-10-18T15:51:44.5364545Z test_features_gap_graph_and_work_equal_reference (tests.test_pre_eval_feature_contract.PreEvaluationFeatureContractTests.test_features_gap_graph_and_work_equal_reference) ... ok
+2026-10-18T15:51:44.5366817Z test_stream_zero_cap_and_terminal_do_no_feature_scan (tests.test_pre_eval_feature_contract.PreEvaluationFeatureContractTests.test_stream_zero_cap_and_terminal_do_no_feature_scan) ... ok
+2026-10-18T15:51:44.5370779Z test_engine_order_is_balanced_and_second_repeat_reverses (tests.test_benchmark_total_work.TotalWorkAccountingTests.test_engine_order_is_balanced_and_second_repeat_reverses) ... ok
+2026-10-18T15:51:44.5445285Z test_matched_success_cost_reports_censoring_at_frozen_points (tests.test_benchmark_total_work.TotalWorkAccountingTests.test_matched_success_cost_reports_censoring_at_frozen_points) ... ok
+2026-10-18T15:51:44.5447530Z test_work_vector_preserves_distinct_units (tests.test_benchmark_total_work.TotalWorkAccountingTests.test_work_vector_preserves_distinct_units) ... ok
+2026-10-18T15:51:44.5456124Z test_amortization_averages_seeds_and_charges_full_setup (tests.test_total_work_contract.TotalWorkContractTests.test_amortization_averages_seeds_and_charges_full_setup) ... ok
+2026-10-18T15:51:44.5458217Z test_attempt_timers_include_initial_and_final_hashes (tests.test_total_work_contract.TotalWorkContractTests.test_attempt_timers_include_initial_and_final_hashes) ... ok
+2026-10-18T15:51:44.5462181Z test_baseline_source_drift_is_rejected_before_import (tests.test_total_work_contract.TotalWorkContractTests.test_baseline_source_drift_is_rejected_before_import) ... ok
+2026-10-18T15:51:44.9830165Z test_published_inputs_pass_every_guard_before_group_generation (tests.test_total_work_contract.TotalWorkContractTests.test_published_inputs_pass_every_guard_before_group_generation) ... ok
+2026-10-18T15:51:45.0216927Z test_source_manifest_covers_feature_and_model_dependencies (tests.test_total_work_contract.TotalWorkContractTests.test_source_manifest_covers_feature_and_model_dependencies) ... ok
+2026-10-18T15:51:45.0219312Z test_wrong_function_cannot_be_accepted_by_matching_rows (tests.test_total_work_contract.TotalWorkContractTests.test_wrong_function_cannot_be_accepted_by_matching_rows) ... ok
+2026-10-18T15:51:45.0222973Z test_bad_window_and_policy_contracts (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_bad_window_and_policy_contracts) ... ok
+2026-10-18T15:51:45.0225648Z test_cap_truncation_discards_partial_layer (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_cap_truncation_discards_partial_layer) ... ok
+2026-10-18T15:51:45.0228546Z test_completed_layer_retention_enables_next_layer (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_completed_layer_retention_enables_next_layer) ... ok
+2026-10-18T15:51:45.0231477Z test_does_not_materialize_complete_layer (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_does_not_materialize_complete_layer) ... ok
+2026-10-18T15:51:45.0233540Z test_exact_cap_on_last_bound_finishes_naturally (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_exact_cap_on_last_bound_finishes_naturally) ... ok
+2026-10-18T15:51:45.0236474Z test_exact_layer_cap_marks_next_layer_stop (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_exact_layer_cap_marks_next_layer_stop) ... ok
+2026-10-18T15:51:45.0239633Z test_features_match_global_ordinal_reference_and_gap (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_features_match_global_ordinal_reference_and_gap) ... ok
+2026-10-18T15:51:45.0248514Z test_full_layer_retention_preserves_generation_order (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_full_layer_retention_preserves_generation_order) ... ok
+2026-10-18T15:51:45.0251266Z test_full_width_matches_existing_policy_mode (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_full_width_matches_existing_policy_mode) ... ok
+2026-10-18T15:51:45.0253458Z test_global_ordinals_and_full_layer_denominator (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_global_ordinals_and_full_layer_denominator) ... ok
+2026-10-18T15:51:45.0255865Z test_oracle_rejection_retries_candidate_and_checks_alternative (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_oracle_rejection_retries_candidate_and_checks_alternative) ... ok
+2026-10-18T15:51:45.0258422Z test_streaming_delegates_to_historical_implementation (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_streaming_delegates_to_historical_implementation) ... ok
+2026-10-18T15:51:45.0260259Z test_window_scoring_and_root_cap_execution (tests.test_bounded_pre_eval.BoundedPreEvaluationTests.test_window_scoring_and_root_cap_execution) ... ok
+2026-10-18T15:51:45.0515544Z test_cli_preflight_does_not_create_measurement_output (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_cli_preflight_does_not_create_measurement_output) ... ok
+2026-10-18T15:51:45.0517117Z test_engine_pair_order_is_counterbalanced (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_engine_pair_order_is_counterbalanced) ... ok
+2026-10-18T15:51:45.0728428Z test_existing_output_is_preserved_on_rejection (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_existing_output_is_preserved_on_rejection) ... {"infrastructure_valid": false, "run_error": "ValueError: use a new output directory"}
+2026-10-18T15:51:45.0732065Z ok
+2026-10-18T15:51:45.2008901Z {"preflight_valid": true, "timed_cells": 10656, "memory_cells": 864}
+2026-10-18T15:51:45.2185529Z test_fresh_memory_child_keeps_instrumented_results_separate (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_fresh_memory_child_keeps_instrumented_results_separate) ... ok
+2026-10-18T15:51:45.2362744Z test_full_setup_charge_and_censoring_are_not_erased (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_full_setup_charge_and_censoring_are_not_erased) ... ok
+2026-10-18T15:51:45.2690453Z test_learned_policy_can_score_in_isolated_memory_child (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_learned_policy_can_score_in_isolated_memory_child) ... ok
+2026-10-18T15:51:45.2700630Z test_protocol_corruption_rejected_before_loading_training_inputs (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_protocol_corruption_rejected_before_loading_training_inputs) ... ok
+2026-10-18T15:51:45.2982913Z test_real_frozen_preflight_and_complete_asymmetric_grid (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_real_frozen_preflight_and_complete_asymmetric_grid) ... ok
+2026-10-18T15:51:52.6287810Z test_real_training_startup_stops_before_any_evaluation (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_real_training_startup_stops_before_any_evaluation) ... ERROR
+2026-10-18T15:51:52.6316936Z test_counts_actual_updates_batches_rows_and_margin_pairs (tests.test_benchmark_fit_work.BenchmarkFitWorkTests.test_counts_actual_updates_batches_rows_and_margin_pairs) ... ok
+2026-10-18T15:51:52.6360012Z test_instrumentation_preserves_loss_and_fit_weights (tests.test_benchmark_fit_work.BenchmarkFitWorkTests.test_instrumentation_preserves_loss_and_fit_weights) ... ok
+2026-10-18T15:51:52.6381649Z test_wrappers_are_restored_when_fit_raises (tests.test_benchmark_fit_work.BenchmarkFitWorkTests.test_wrappers_are_restored_when_fit_raises) ... ok
+2026-10-18T15:51:52.6398268Z test_changed_input_bytes_are_rejected (tests.test_frozen_benchmark.FrozenInputsTests.test_changed_input_bytes_are_rejected)
+2026-10-18T15:51:52.6399506Z Reject altered protocol and corpus bytes before a run. ... ok
+2026-10-18T15:51:52.6400599Z test_corpus_has_disjoint_fixed_partitions (tests.test_frozen_benchmark.FrozenInputsTests.test_corpus_has_disjoint_fixed_partitions)
+2026-10-18T15:51:52.6401714Z Validate fixed sizes, families, witnesses, and global rows. ... ok
+2026-10-18T15:51:52.6402751Z test_protocol_pins_complete_run_matrix (tests.test_frozen_benchmark.FrozenInputsTests.test_protocol_pins_complete_run_matrix)
+2026-10-18T15:51:52.6403756Z Keep every seed, control, budget, and fit choice present. ... ok
+2026-10-18T15:51:52.6404941Z test_training_labels_and_work_counts_are_deterministic (tests.test_frozen_benchmark.FrozenInputsTests.test_training_labels_and_work_counts_are_deterministic)
+2026-10-18T15:51:52.7911464Z Group setup is fixed by train rows, not elapsed-time values. ... ok
+2026-10-18T15:51:52.7912702Z test_witness_mutations_and_structure_leakage_are_rejected (tests.test_frozen_benchmark.FrozenInputsTests.test_witness_mutations_and_structure_leakage_are_rejected)
+2026-10-18T15:51:52.7944708Z Catch changed outputs and repeated generating structures. ... ok
+2026-10-18T15:51:52.7945849Z test_graph_checks_cover_train_and_held_rows (tests.test_frozen_benchmark_eval.FrozenEvaluationTests.test_graph_checks_cover_train_and_held_rows)
+2026-10-18T15:51:52.7947125Z Both independent checks and search verdict govern acceptance. ... ok
+2026-10-18T15:51:52.7948043Z test_search_receives_only_training_rows_and_targets (tests.test_frozen_benchmark_eval.FrozenEvaluationTests.test_search_receives_only_training_rows_and_targets)
+2026-10-18T15:51:52.7948885Z The search call has no held-out rows or oracle callback. ... ok
+2026-10-18T15:51:52.7950192Z test_seeded_random_rank_is_reproducible (tests.test_frozen_benchmark_eval.FrozenEvaluationTests.test_seeded_random_rank_is_reproducible)
+2026-10-18T15:51:52.7953093Z Stable pseudo-random ordering does not use shared RNG state. ... ok
+2026-10-18T15:51:52.7954337Z test_small_runner_keeps_errors_and_detects_mutation (tests.test_frozen_benchmark_eval.FrozenEvaluationTests.test_small_runner_keeps_errors_and_detects_mutation)
+2026-10-18T15:51:52.7981515Z A fake full matrix retains search errors and flags drift. ... ok
+2026-10-18T15:51:52.7982709Z test_tiny_runner_detects_missing_grid_rows (tests.test_frozen_benchmark_eval.FrozenEvaluationTests.test_tiny_runner_detects_missing_grid_rows)
+2026-10-18T15:51:52.7984062Z Run accounting rejects an omitted matrix combination. ... ok
+2026-10-18T15:51:52.8048030Z test_canonical_functions_are_unique_and_difficult (tests.test_benchmark_v2_corpus.BenchmarkV2CorpusTests.test_canonical_functions_are_unique_and_difficult) ... ok
+2026-10-18T15:51:52.8065722Z test_corpus_shape_and_balanced_family_counts (tests.test_benchmark_v2_corpus.BenchmarkV2CorpusTests.test_corpus_shape_and_balanced_family_counts) ... ok
+2026-10-18T15:51:52.8070601Z test_caps_keep_original_layer_ordinal_and_denom (tests.test_benchmark_v2_runner_training.TrainingGroupTests.test_caps_keep_original_layer_ordinal_and_denom) ... ok
+2026-10-18T15:51:52.8074310Z test_training_builder_never_reads_held_out_rows (tests.test_benchmark_v2_runner_training.TrainingGroupTests.test_training_builder_never_reads_held_out_rows) ... ok
+2026-10-18T15:51:52.8075973Z test_equivalent_dag_is_accepted_by_exact_polynomial (tests.test_benchmark_v2_runner_acceptance.ExactAcceptanceTests.test_equivalent_dag_is_accepted_by_exact_polynomial) ... ok
+2026-10-18T15:51:52.8077796Z test_matching_rows_do_not_override_exact_polynomial (tests.test_benchmark_v2_runner_acceptance.ExactAcceptanceTests.test_matching_rows_do_not_override_exact_polynomial) ... ok
+2026-10-18T15:51:52.8152111Z test_frozen_inputs_validate_as_a_complete_corpus (tests.test_benchmark_v2_runner_provenance.ProvenanceAndGridTests.test_frozen_inputs_validate_as_a_complete_corpus) ... ok
+2026-10-18T15:51:52.8185244Z test_generator_byte_drift_is_rejected (tests.test_benchmark_v2_runner_provenance.ProvenanceAndGridTests.test_generator_byte_drift_is_rejected) ... ok
+2026-10-18T15:51:52.8186367Z test_grid_rejects_duplicate_and_missing_cells (tests.test_benchmark_v2_runner_provenance.ProvenanceAndGridTests.test_grid_rejects_duplicate_and_missing_cells) ... ok
+2026-10-18T15:51:52.8192578Z test_finds_asset_beyond_first_fifty_releases (tests.test_hub_release_lookup.HubReleaseLookupTests.test_finds_asset_beyond_first_fifty_releases) ... ok
+2026-10-18T15:51:52.8195760Z test_malformed_release_json_fails_closed (tests.test_hub_release_lookup.HubReleaseLookupTests.test_malformed_release_json_fails_closed) ... ok
+2026-10-18T15:51:52.8198881Z test_missing_asset_reports_missing (tests.test_hub_release_lookup.HubReleaseLookupTests.test_missing_asset_reports_missing) ... ok
+2026-10-18T15:51:52.8201733Z test_release_api_error_fails_closed (tests.test_hub_release_lookup.HubReleaseLookupTests.test_release_api_error_fails_closed) ... ok
+2026-10-18T15:51:52.8205744Z test_complete_negatives_have_disjoint_train_and_selection_sets (tests.test_rich_amendments.RichAmendmentTests.test_complete_negatives_have_disjoint_train_and_selection_sets) ... ok
+2026-10-18T15:51:52.8218681Z test_empty_or_positive_only_selection_is_rejected (tests.test_rich_amendments.RichAmendmentTests.test_empty_or_positive_only_selection_is_rejected) ... ok
+2026-10-18T15:51:52.8222559Z test_truncated_and_single_negative_pools_are_omitted (tests.test_rich_amendments.RichAmendmentTests.test_truncated_and_single_negative_pools_are_omitted) ... ok
+2026-10-18T15:51:52.8224593Z test_positive_only_or_empty_selection_fails_early (tests.test_scale_amendments.ScaleAmendmentTests.test_positive_only_or_empty_selection_fails_early) ... ok
+2026-10-18T15:51:52.8228486Z test_prepare_rejects_positive_only_rich_fit (tests.test_scale_amendments.ScaleAmendmentTests.test_prepare_rejects_positive_only_rich_fit) ... ok
+2026-10-18T15:51:52.8229617Z test_surrogate_evidence_flows_to_report (tests.test_scale_amendments.ScaleAmendmentTests.test_surrogate_evidence_flows_to_report) ... ok
+2026-10-18T15:51:52.8230702Z test_valid_training_without_selection_fails (tests.test_scale_amendments.ScaleAmendmentTests.test_valid_training_without_selection_fails) ... ok
+2026-10-18T15:51:52.8245075Z test_measure_refuses_dependency_source_changed_during_run (tests.test_measurement_provenance.MeasurementProvenanceTests.test_measure_refuses_dependency_source_changed_during_run) ... ok
+2026-10-18T15:51:52.8255469Z test_measure_refuses_fixture_changed_after_loading (tests.test_measurement_provenance.MeasurementProvenanceTests.test_measure_refuses_fixture_changed_after_loading) ... ok
+2026-10-18T15:51:52.8274011Z test_raw_rows_use_portable_fixture_reference (tests.test_measurement_provenance.MeasurementProvenanceTests.test_raw_rows_use_portable_fixture_reference) ... ok
+2026-10-18T15:51:52.8276232Z test_train_fit_held_out_near_miss_is_not_accepted (tests.test_measurement_provenance.MeasurementProvenanceTests.test_train_fit_held_out_near_miss_is_not_accepted) ... ok
+2026-10-18T15:51:52.8289647Z test_branch_miss_excludes_bool_candidates_from_examined (tests.test_search_amendments.EnumerationReportTests.test_branch_miss_excludes_bool_candidates_from_examined) ... ok
+2026-10-18T15:51:52.8290942Z test_report_separates_signature_work_from_match_position (tests.test_search_amendments.EnumerationReportTests.test_report_separates_signature_work_from_match_position) ... ok
+2026-10-18T15:51:52.8324206Z test_select_root_and_no_dedup_callback_counters (tests.test_search_amendments.EnumerationReportTests.test_select_root_and_no_dedup_callback_counters) ... ok
+2026-10-18T15:51:52.8327136Z test_alternative_cap_reports_truncation (tests.test_search_amendments.LowerLayerAlternativeTests.test_alternative_cap_reports_truncation) ... ok
+2026-10-18T15:51:52.8328606Z test_alternative_expansion_has_signature_work_budget (tests.test_search_amendments.LowerLayerAlternativeTests.test_alternative_expansion_has_signature_work_budget) ... ok
+2026-10-18T15:51:52.8330139Z test_alternative_limits_require_integer_values (tests.test_search_amendments.LowerLayerAlternativeTests.test_alternative_limits_require_integer_values) ... ok
+2026-10-18T15:51:52.8469545Z test_capped_alternatives_recover_held_correct_candidate (tests.test_search_amendments.LowerLayerAlternativeTests.test_capped_alternatives_recover_held_correct_candidate) ... ok
+2026-10-18T15:51:52.8471121Z test_signature_cap_keeps_complete_layer_feature_denominator (tests.test_search_amendments.LowerLayerAlternativeTests.test_signature_cap_keeps_complete_layer_feature_denominator) ... ok
+2026-10-18T15:51:52.8472351Z test_zero_signature_budget_is_valid_and_does_no_work (tests.test_search_amendments.LowerLayerAlternativeTests.test_zero_signature_budget_is_valid_and_does_no_work) ... ok
+2026-10-18T15:51:52.8475347Z test_constant_rate_target_keeps_squared_error (tests.test_objective_amendments.LatticeMarginTests.test_constant_rate_target_keeps_squared_error) ... ok
+2026-10-18T15:51:52.8476985Z test_discrete_threshold_grid_covers_every_rate_cut (tests.test_objective_amendments.LatticeMarginTests.test_discrete_threshold_grid_covers_every_rate_cut) ... ok
+2026-10-18T15:51:52.8480822Z test_mixed_rate_hinge_pushes_reversed_pairs_toward_order (tests.test_objective_amendments.LatticeMarginTests.test_mixed_rate_hinge_pushes_reversed_pairs_toward_order) ... ok
+2026-10-18T15:51:52.8482156Z test_nonpositive_step_count_is_rejected (tests.test_objective_amendments.LatticeMarginTests.test_nonpositive_step_count_is_rejected) ... ok
+2026-10-18T15:51:52.8483059Z test_one_step_margin_has_interior_zero_loss_and_gradient (tests.test_objective_amendments.LatticeMarginTests.test_one_step_margin_has_interior_zero_loss_and_gradient)
+2026-10-18T15:51:52.8485619Z A one-spike gap is enough; the objective need not saturate. ... ok
+2026-10-18T15:51:54.1467600Z test_opcode_stratification_is_disjoint_and_reported (tests.test_objective_amendments.LatticeMarginTests.test_opcode_stratification_is_disjoint_and_reported) ... ok
+2026-10-18T15:51:54.1469210Z test_sparse_opcode_strata_do_not_claim_complete_coverage (tests.test_objective_amendments.LatticeMarginTests.test_sparse_opcode_strata_do_not_claim_complete_coverage) ... ok
+2026-10-18T15:51:54.1470335Z test_bisect_preference_matches_pair_loop_with_ties (tests.test_objective_amendments.ModularObjectiveMetricTests.test_bisect_preference_matches_pair_loop_with_ties)
+2026-10-18T15:51:54.1471411Z The optimized statistic keeps the exact pairwise definition. ... ok
+2026-10-18T15:51:55.8417851Z test_modular_labels_match_exact_size_reachability (tests.test_objective_amendments.ModularObjectiveMetricTests.test_modular_labels_match_exact_size_reachability) ... ok
+2026-10-18T15:51:55.8419713Z test_objective_metrics_survive_empty_choice_diagnostics (tests.test_objective_amendments.ModularObjectiveMetricTests.test_objective_metrics_survive_empty_choice_diagnostics)
+2026-10-18T15:51:55.8421093Z Ranking output does not depend on opcode diagnostic labels. ... ok
+2026-10-18T15:51:55.8421948Z test_pairwise_metrics_match_the_five_ranked_row_scores (tests.test_objective_amendments.ModularObjectiveMetricTests.test_pairwise_metrics_match_the_five_ranked_row_scores)
+2026-10-18T15:51:55.8422737Z Objective metrics compare positives/negatives per head. ... ok
+2026-10-18T15:51:55.8424163Z test_truncated_modular_task_is_skipped_and_reported (tests.test_objective_amendments.ModularObjectiveMetricTests.test_truncated_modular_task_is_skipped_and_reported) ... ok
+2026-10-18T15:51:55.8428147Z test_bonus_ablations_change_only_named_channels (tests.test_supervision_amendments.SupervisionAmendmentTests.test_bonus_ablations_change_only_named_channels)
+2026-10-18T15:51:55.8429439Z Exact and gap controls zero only their named author weights. ... ok
+2026-10-18T15:51:55.8430698Z test_evidence_cap_and_bound_require_positive_integers (tests.test_supervision_amendments.SupervisionAmendmentTests.test_evidence_cap_and_bound_require_positive_integers)
+2026-10-18T15:51:55.8432010Z Reject booleans and floats rather than treating them as counts. ... ok
+2026-10-18T15:51:55.8432999Z test_later_within_bound_solution_adds_completing_intermediate (tests.test_supervision_amendments.SupervisionAmendmentTests.test_later_within_bound_solution_adds_completing_intermediate)
+2026-10-18T15:51:55.8438343Z Longer train solutions contribute labels beyond canonical tree. ... ok
+2026-10-18T15:51:55.8439489Z test_reachability_labels_alternative_train_intermediates (tests.test_supervision_amendments.SupervisionAmendmentTests.test_reachability_labels_alternative_train_intermediates)
+2026-10-18T15:51:55.8454564Z Reachability includes both y*y and x+y for train target five. ... ok
+2026-10-18T15:51:55.8455699Z test_rich_negatives_exclude_longer_solution_intermediate (tests.test_supervision_amendments.SupervisionAmendmentTests.test_rich_negatives_exclude_longer_solution_intermediate)
+2026-10-18T15:51:55.9522681Z Rich negatives omit x*y because it completes a longer train path. ... ok
+2026-10-18T15:51:55.9523823Z test_size_specific_labels_match_tiny_tree_completion (tests.test_supervision_amendments.SupervisionAmendmentTests.test_size_specific_labels_match_tiny_tree_completion)
+2026-10-18T15:51:55.9543939Z A signature at one size does not label another size as positive. ... ok
+2026-10-18T15:51:55.9564693Z test_training_manifest_identifies_actual_supervision (tests.test_supervision_amendments.SupervisionAmendmentTests.test_training_manifest_identifies_actual_supervision) ... ok
+2026-10-18T15:51:55.9566134Z test_truncated_graph_returns_no_negative_label_universe (tests.test_supervision_amendments.SupervisionAmendmentTests.test_truncated_graph_returns_no_negative_label_universe)
+2026-10-18T15:51:55.9567393Z An interrupted layer is surfaced instead of mislabeled negative. ... ok
+2026-10-18T15:51:55.9579773Z test_cli_defaults_to_independent_acceptance (tests.test_generator_amendments.GeneratorAmendmentTests.test_cli_defaults_to_independent_acceptance) ... ok
+2026-10-18T15:51:55.9588267Z test_default_accepts_generator_witness_without_search (tests.test_generator_amendments.GeneratorAmendmentTests.test_default_accepts_generator_witness_without_search) ... ok
+2026-10-18T15:51:55.9603090Z test_family_records_acceptance_mode_and_frozen_witness (tests.test_generator_amendments.GeneratorAmendmentTests.test_family_records_acceptance_mode_and_frozen_witness) ... ok
+2026-10-18T15:51:55.9609686Z test_legacy_filter_is_explicit_and_recorded (tests.test_generator_amendments.GeneratorAmendmentTests.test_legacy_filter_is_explicit_and_recorded) ... ok
+2026-10-18T15:51:55.9613447Z test_beam_reports_signature_work_and_fallback_attempts (tests.test_review_search.SearchReviewTests.test_beam_reports_signature_work_and_fallback_attempts) ... ok
+2026-10-18T15:51:55.9685053Z test_bonus_roundtrip_and_rank_use_one_score_contract (tests.test_review_search.SearchReviewTests.test_bonus_roundtrip_and_rank_use_one_score_contract) ... ok
+2026-10-18T15:51:55.9690279Z test_bool_intermediates_and_int_final_output (tests.test_review_search.SearchReviewTests.test_bool_intermediates_and_int_final_output) ... ok
+2026-10-18T15:51:55.9691837Z test_grammar_miss_is_not_budget_exhaustion (tests.test_review_search.SearchReviewTests.test_grammar_miss_is_not_budget_exhaustion) ... ok
+2026-10-18T15:51:56.0132437Z test_restore_training_moves_all_live_networks (tests.test_review_search.SearchReviewTests.test_restore_training_moves_all_live_networks) ... ok
+2026-10-18T15:51:56.0139664Z test_training_and_scoring_share_layer_ordinals (tests.test_review_search.SearchReviewTests.test_training_and_scoring_share_layer_ordinals) ... ok
+2026-10-18T15:51:56.0143892Z test_work_scan_budget_and_minimal_graph (tests.test_review_search.SearchReviewTests.test_work_scan_budget_and_minimal_graph) ... ok
+2026-10-18T15:51:56.0145911Z test_author_budget_bounds_huge_layer_materialization (tests.test_review_search_edges.SearchEdgeTests.test_author_budget_bounds_huge_layer_materialization) ... ok
+2026-10-18T15:51:56.0147392Z test_author_tiny_budget_keeps_full_layer_ordinal (tests.test_review_search_edges.SearchEdgeTests.test_author_tiny_budget_keeps_full_layer_ordinal) ... ok
+2026-10-18T15:51:56.0150197Z test_guided_search_tiny_budget_can_solve_first_candidate (tests.test_review_search_edges.SearchEdgeTests.test_guided_search_tiny_budget_can_solve_first_candidate) ... ok
+2026-10-18T15:51:56.0185567Z test_ranker_restore_has_explicit_donor_optimizer_opt_in (tests.test_review_search_edges.SearchEdgeTests.test_ranker_restore_has_explicit_donor_optimizer_opt_in) ... ok
+2026-10-18T15:51:56.0217733Z test_score_backtrack_matches_legacy_order_and_mutation (tests.test_review_search_edges.SearchEdgeTests.test_score_backtrack_matches_legacy_order_and_mutation) ... ok
+2026-10-18T15:51:56.0219475Z test_score_backtrack_zero_budget_skips_ordering (tests.test_review_search_edges.SearchEdgeTests.test_score_backtrack_zero_budget_skips_ordering) ... ok
+2026-10-18T15:51:56.1446367Z test_trace_signature_evaluations_match_candidate_callback (tests.test_review_search_edges.SearchEdgeTests.test_trace_signature_evaluations_match_candidate_callback) ... ok
+2026-10-18T15:51:56.1458391Z test_widen_fallback_reports_discarded_author_work (tests.test_review_search_edges.SearchEdgeTests.test_widen_fallback_reports_discarded_author_work) ... ok
+2026-10-18T15:51:56.1715935Z test_default_active_fields_are_trainer_surface_only (tests.test_review_acceptance.AcceptanceReviewTests.test_default_active_fields_are_trainer_surface_only) ... ok
+2026-10-18T15:51:56.1721029Z test_default_scores_require_held_out_oracle (tests.test_review_acceptance.AcceptanceReviewTests.test_default_scores_require_held_out_oracle) ... ok
+2026-10-18T15:51:56.1754144Z test_default_trainer_consumes_active_fields (tests.test_review_acceptance.AcceptanceReviewTests.test_default_trainer_consumes_active_fields) ... ok
+2026-10-18T15:51:56.1768217Z test_default_trainer_ignores_unsupported_fields (tests.test_review_acceptance.AcceptanceReviewTests.test_default_trainer_ignores_unsupported_fields) ... ok
+2026-10-18T15:51:56.1788028Z test_gate_rejects_inadequate_and_nonfinite_evidence (tests.test_review_acceptance.AcceptanceReviewTests.test_gate_rejects_inadequate_and_nonfinite_evidence) ... ok
+2026-10-18T15:51:56.1939882Z test_loop_excludes_unmeasured_gains_from_summaries (tests.test_review_acceptance.AcceptanceReviewTests.test_loop_excludes_unmeasured_gains_from_summaries) ... ok
+2026-10-18T15:51:56.2017600Z test_loop_preserves_finite_negative_refusal_gain (tests.test_review_acceptance.AcceptanceReviewTests.test_loop_preserves_finite_negative_refusal_gain) ... ok
+2026-10-18T15:51:56.2129206Z test_self_gate_records_nonfinite_refusal_and_finite_gain (tests.test_review_acceptance.AcceptanceReviewTests.test_self_gate_records_nonfinite_refusal_and_finite_gain) ... ok
+2026-10-18T15:51:56.2130741Z test_summary_marks_singletons_and_checks_dimensions (tests.test_review_acceptance.AcceptanceReviewTests.test_summary_marks_singletons_and_checks_dimensions) ... ok
+2026-10-18T15:51:56.2132374Z test_bytecode_vm_errors_and_trailing_material_reject (tests.test_review_integrity.IntegrityReviewTests.test_bytecode_vm_errors_and_trailing_material_reject) ... ok
+2026-10-18T15:51:56.2177890Z test_concurrent_duplicate_intent_is_inserted_once (tests.test_review_integrity.IntegrityReviewTests.test_concurrent_duplicate_intent_is_inserted_once) ... ok
+2026-10-18T15:51:56.2179056Z test_evolution_cost_prefers_canonical_signature_counter (tests.test_review_integrity.IntegrityReviewTests.test_evolution_cost_prefers_canonical_signature_counter) ... ok
+2026-10-18T15:51:56.2238918Z test_lineage_appends_run_scoped_records_and_checks_digest (tests.test_review_integrity.IntegrityReviewTests.test_lineage_appends_run_scoped_records_and_checks_digest) ... ok
+2026-10-18T15:51:56.4967326Z test_policy_repeated_run_uses_new_logical_run_ids (tests.test_review_integrity.IntegrityReviewTests.test_policy_repeated_run_uses_new_logical_run_ids) ... ok
+2026-10-18T15:51:56.4969074Z test_proxy_rejects_trace_group_count_mismatch (tests.test_review_integrity.IntegrityReviewTests.test_proxy_rejects_trace_group_count_mismatch) ... ok
+2026-10-18T15:51:56.4971124Z test_proxy_subsets_trace_groups_by_task_id (tests.test_review_integrity.IntegrityReviewTests.test_proxy_subsets_trace_groups_by_task_id) ... ok
+2026-10-18T15:51:56.4972080Z test_proxy_uses_configured_seed_offsets (tests.test_review_integrity.IntegrityReviewTests.test_proxy_uses_configured_seed_offsets) ... ok
+2026-10-18T15:51:56.4973052Z test_rebuilt_expression_size_counts_each_operation_once (tests.test_review_integrity.IntegrityReviewTests.test_rebuilt_expression_size_counts_each_operation_once) ... ok
+2026-10-18T15:51:56.5194312Z test_scale_repeated_evolve_uses_new_logical_run_ids (tests.test_review_integrity.IntegrityReviewTests.test_scale_repeated_evolve_uses_new_logical_run_ids) ... ok
+2026-10-18T15:51:56.5195570Z test_skipped_child_has_no_measured_fitness_in_archive (tests.test_review_integrity.IntegrityReviewTests.test_skipped_child_has_no_measured_fitness_in_archive) ... ok
+2026-10-18T15:51:56.5205175Z test_trace_groups_bind_records_by_task_id (tests.test_review_integrity.IntegrityReviewTests.test_trace_groups_bind_records_by_task_id) ... ok
+2026-10-18T15:51:56.5206264Z test_unmeasured_entries_never_win_evolution_selection (tests.test_review_integrity.IntegrityReviewTests.test_unmeasured_entries_never_win_evolution_selection) ... ok
+2026-10-18T15:51:56.5207844Z test_word_decoder_checks_operands_and_stop_boundary (tests.test_review_integrity.IntegrityReviewTests.test_word_decoder_checks_operands_and_stop_boundary) ... ok
+2026-10-18T15:51:56.7062852Z test_calibration_reports_both_struct_channels_afterwards (tests.test_review_lattice.ReviewLatticeTests.test_calibration_reports_both_struct_channels_afterwards) ... ok
+2026-10-18T15:51:56.7090339Z test_calibration_sweep_reports_joint_word_emit_accuracy (tests.test_review_lattice.ReviewLatticeTests.test_calibration_sweep_reports_joint_word_emit_accuracy) ... ok
+2026-10-18T15:51:56.7092708Z test_constant_bit_target_uses_squared_error (tests.test_review_lattice.ReviewLatticeTests.test_constant_bit_target_uses_squared_error) ... ok
+2026-10-18T15:51:56.7113414Z test_joint_word_and_emit_metric_matches_membership (tests.test_review_lattice.ReviewLatticeTests.test_joint_word_and_emit_metric_matches_membership) ... ok
+2026-10-18T15:51:56.7162742Z test_lattice_restore_keeps_recipient_adam_options_and_freezes (tests.test_review_lattice.ReviewLatticeTests.test_lattice_restore_keeps_recipient_adam_options_and_freezes) ... ok
+2026-10-18T15:51:56.7207335Z test_lattice_snapshot_optimizer_is_explicit_opt_in (tests.test_review_lattice.ReviewLatticeTests.test_lattice_snapshot_optimizer_is_explicit_opt_in) ... ok
+2026-10-18T15:51:56.7291520Z test_legacy_untagged_snapshots_remain_loadable (tests.test_review_lattice.ReviewLatticeTests.test_legacy_untagged_snapshots_remain_loadable) ... ok
+2026-10-18T15:51:56.7316137Z test_missing_calibration_reports_joint_metric_unavailable (tests.test_review_lattice.ReviewLatticeTests.test_missing_calibration_reports_joint_metric_unavailable) ... ok
+2026-10-18T15:51:56.7457717Z test_modular_continuation_is_explicit (tests.test_review_lattice.ReviewLatticeTests.test_modular_continuation_is_explicit) ... ok
+2026-10-18T15:51:56.7557330Z test_modular_independent_drives_start_fresh (tests.test_review_lattice.ReviewLatticeTests.test_modular_independent_drives_start_fresh) ... ok
+2026-10-18T15:51:56.7622608Z test_modular_restore_uses_recipient_or_explicit_donor_options (tests.test_review_lattice.ReviewLatticeTests.test_modular_restore_uses_recipient_or_explicit_donor_options) ... ok
+2026-10-18T15:51:56.7624262Z test_module_opcode_argmax_is_labeled_as_diagnostic (tests.test_review_lattice.ReviewLatticeTests.test_module_opcode_argmax_is_labeled_as_diagnostic) ... ok
+2026-10-18T15:51:56.7626020Z test_pack_loss_is_mean_plus_max_of_head_losses (tests.test_review_lattice.ReviewLatticeTests.test_pack_loss_is_mean_plus_max_of_head_losses) ... ok
+2026-10-18T15:51:56.7685878Z test_restore_rejects_tagged_incompatible_feature_encoding (tests.test_review_lattice.ReviewLatticeTests.test_restore_rejects_tagged_incompatible_feature_encoding) ... ok
+2026-10-18T15:51:56.7700851Z test_small_split_has_no_phantom_evaluation_group (tests.test_review_lattice.ReviewLatticeTests.test_small_split_has_no_phantom_evaluation_group) ... ok
+2026-10-18T15:51:56.7702321Z test_split_keeps_validation_groups_untouched (tests.test_review_lattice.ReviewLatticeTests.test_split_keeps_validation_groups_untouched) ... ok
+2026-10-18T15:51:56.7761102Z test_threshold_sweep_keeps_current_values_on_ties (tests.test_review_lattice.ReviewLatticeTests.test_threshold_sweep_keeps_current_values_on_ties) ... ok
+2026-10-18T15:51:56.7779020Z test_behavior_hash_covers_call_settings_and_policy_steps (tests.test_review_protocol.ProtocolReviewTests.test_behavior_hash_covers_call_settings_and_policy_steps) ... ok
+2026-10-18T15:51:56.7780681Z test_exact_flag_is_external_and_can_be_ablated (tests.test_review_protocol.ProtocolReviewTests.test_exact_flag_is_external_and_can_be_ablated) ... ok
+2026-10-18T15:51:56.7792732Z test_fallback_requires_held_out_oracle (tests.test_review_protocol.ProtocolReviewTests.test_fallback_requires_held_out_oracle) ... ok
+2026-10-18T15:51:56.7807722Z test_generated_task_discloses_selection_filter (tests.test_review_protocol.ProtocolReviewTests.test_generated_task_discloses_selection_filter) ... ok
+2026-10-18T15:51:56.7809434Z test_headless_insufficient_pairs_refuses_without_crashing (tests.test_review_protocol.ProtocolReviewTests.test_headless_insufficient_pairs_refuses_without_crashing) ... ok
+2026-10-18T15:51:56.7811181Z test_headless_pairs_one_average_per_task (tests.test_review_protocol.ProtocolReviewTests.test_headless_pairs_one_average_per_task) ... ok
+2026-10-18T15:51:56.7812621Z test_headless_reports_oracle_exception (tests.test_review_protocol.ProtocolReviewTests.test_headless_reports_oracle_exception) ... ok
+2026-10-18T15:51:56.7813900Z test_headless_skips_oracle_for_rejected_graph (tests.test_review_protocol.ProtocolReviewTests.test_headless_skips_oracle_for_rejected_graph) ... ok
+2026-10-18T15:51:56.7815523Z test_recovery_requires_held_out_oracle (tests.test_review_protocol.ProtocolReviewTests.test_recovery_requires_held_out_oracle) ... ok
+2026-10-18T15:51:56.7818957Z test_rich_fitness_does_not_credit_held_failure (tests.test_review_protocol.ProtocolReviewTests.test_rich_fitness_does_not_credit_held_failure) ... ok
+2026-10-18T15:51:56.8116951Z test_rich_negative_groups_skip_exact_train_solvers (tests.test_review_protocol.ProtocolReviewTests.test_rich_negative_groups_skip_exact_train_solvers) ... ok
+2026-10-18T15:51:56.8118928Z test_rich_rollup_uses_canonical_cost_with_legacy_aliases (tests.test_review_protocol.ProtocolReviewTests.test_rich_rollup_uses_canonical_cost_with_legacy_aliases) ... ok
+2026-10-18T15:51:56.8120891Z test_scale_family_cost_uses_canonical_counter (tests.test_review_protocol.ProtocolReviewTests.test_scale_family_cost_uses_canonical_counter) ... ok
+2026-10-18T15:51:56.8122467Z test_scale_flags_each_family_regression (tests.test_review_protocol.ProtocolReviewTests.test_scale_flags_each_family_regression) ... ok
+2026-10-18T15:51:56.8124087Z test_training_ordinals_are_local_not_answer_positions (tests.test_review_protocol.ProtocolReviewTests.test_training_ordinals_are_local_not_answer_positions) ... ok
+2026-10-18T15:51:56.8125498Z test_apply_builds_valid_graph (tests.test_rsi_actions.ActionSpaceTests.test_apply_builds_valid_graph) ... ok
+2026-10-18T15:51:56.8126904Z test_apply_covers_full_cross_product (tests.test_rsi_actions.ActionSpaceTests.test_apply_covers_full_cross_product) ... ok
+2026-10-18T15:51:56.8128240Z test_branch_actions_build_typed_graph (tests.test_rsi_actions.ActionSpaceTests.test_branch_actions_build_typed_graph) ... ok
+2026-10-18T15:51:56.8129531Z test_branch_mistyped_edits_rejected (tests.test_rsi_actions.ActionSpaceTests.test_branch_mistyped_edits_rejected) ... ok
+2026-10-18T15:51:56.8130569Z test_const_actions_cover_ir_range (tests.test_rsi_actions.ActionSpaceTests.test_const_actions_cover_ir_range) ... ok
+2026-10-18T15:51:56.8131341Z test_const_out_of_range_rejected (tests.test_rsi_actions.ActionSpaceTests.test_const_out_of_range_rejected) ... ok
+2026-10-18T15:51:56.8132450Z test_forward_reference_rejected (tests.test_rsi_actions.ActionSpaceTests.test_forward_reference_rejected) ... ok
+2026-10-18T15:51:56.8133328Z test_grammar_matches_probe (tests.test_rsi_actions.ActionSpaceTests.test_grammar_matches_probe) ... ok
+2026-10-18T15:51:56.8134074Z test_typecheck_rejects_bad_edits (tests.test_rsi_actions.ActionSpaceTests.test_typecheck_rejects_bad_edits) ... ok
+2026-10-18T15:51:56.8135105Z test_branch_fixture_splits_match (tests.test_rsi_actions.TraceRecorderTests.test_branch_fixture_splits_match) ... ok
+2026-10-18T15:51:56.8136024Z test_const_fixture_splits_match (tests.test_rsi_actions.TraceRecorderTests.test_const_fixture_splits_match) ... ok
+2026-10-18T15:51:56.8137280Z test_family_loads_with_ids (tests.test_rsi_actions.TraceRecorderTests.test_family_loads_with_ids) ... ok
+2026-10-18T15:51:56.8138086Z test_oracle_uses_frozen_expectations (tests.test_rsi_actions.TraceRecorderTests.test_oracle_uses_frozen_expectations) ... ok
+2026-10-18T15:51:57.0733583Z test_record_all_summarizes_family (tests.test_rsi_actions.TraceRecorderTests.test_record_all_summarizes_family) ... ok
+2026-10-18T15:51:57.1932514Z test_record_task_reports_baseline (tests.test_rsi_actions.TraceRecorderTests.test_record_task_reports_baseline) ... ok
+2026-10-18T15:51:57.1934741Z test_split_hash_stable (tests.test_rsi_actions.TraceRecorderTests.test_split_hash_stable) ... ok
+2026-10-18T15:51:57.1937927Z test_ancestor_tampering_is_detected (tests.test_rsi_sandbox.RsiSandboxTests.test_ancestor_tampering_is_detected) ... ok
+2026-10-18T15:51:57.1939715Z test_curriculum_clusters_failures_into_next_tasks (tests.test_rsi_sandbox.RsiSandboxTests.test_curriculum_clusters_failures_into_next_tasks) ... ok
+2026-10-18T15:51:58.3140968Z test_evaluator_runs_supervisor_side_and_ignores_claims (tests.test_rsi_sandbox.RsiSandboxTests.test_evaluator_runs_supervisor_side_and_ignores_claims) ... ok
+2026-10-18T15:51:59.4459707Z test_forged_completion_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_forged_completion_is_rejected) ... ok
+2026-10-18T15:51:59.4485615Z test_hidden_oracle_read_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_hidden_oracle_read_is_rejected) ... ok
+2026-10-18T15:51:59.4487991Z test_lineage_hash_is_stable_and_content_bound (tests.test_rsi_sandbox.RsiSandboxTests.test_lineage_hash_is_stable_and_content_bound) ... ok
+2026-10-18T15:51:59.4504730Z test_oversize_submissions_are_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_oversize_submissions_are_rejected) ... ok
+2026-10-18T15:51:59.4928161Z test_promotion_needs_gain_bound_safety_and_budget (tests.test_rsi_sandbox.RsiSandboxTests.test_promotion_needs_gain_bound_safety_and_budget) ... ok
+2026-10-18T15:51:59.4929768Z test_tool_and_network_addition_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_tool_and_network_addition_is_rejected) ... ok
+2026-10-18T15:51:59.4930981Z test_verifier_edit_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_verifier_edit_is_rejected) ... ok
+2026-10-18T15:52:00.9369484Z test_wall_cap_times_out_and_valid_run_reports_cost (tests.test_rsi_sandbox.RsiSandboxTests.test_wall_cap_times_out_and_valid_run_reports_cost) ... ok
+2026-10-18T15:52:08.5894837Z test_budget_exhaustion_stops_cleanly (tests.test_rsi_headless.HeadlessLoopTests.test_budget_exhaustion_stops_cleanly)
+2026-10-18T15:52:12.5433198Z One-candidate budget stops the loop without failing. ... ok
+2026-10-18T15:52:12.5434256Z test_every_decision_traceable (tests.test_rsi_headless.HeadlessLoopTests.test_every_decision_traceable)
+2026-10-18T15:52:12.5438163Z Decisions match JSONL records; no oracle files leak. ... ok
+2026-10-18T15:52:12.5439028Z test_fallback_debug_column_labelled (tests.test_rsi_headless.HeadlessLoopTests.test_fallback_debug_column_labelled)
+2026-10-18T15:52:20.5553477Z Compare flag adds the enumerator column, never headline. ... ok
+2026-10-18T15:52:20.5554836Z test_hands_off_author_only_honest_rate (tests.test_rsi_headless.HeadlessLoopTests.test_hands_off_author_only_honest_rate)
+2026-10-18T15:52:20.5555675Z Author path 4/4 with no rescue, zero bad executions. ... ok
+2026-10-18T15:52:20.5556347Z test_no_silent_rescue (tests.test_rsi_headless.HeadlessLoopTests.test_no_silent_rescue)
+2026-10-18T15:52:21.1454672Z Beam-solved task needs no fallback; verdict clean. ... ok
+2026-10-18T15:52:21.1455775Z test_tampered_candidate_rejected_loop_continues (tests.test_rsi_headless.HeadlessLoopTests.test_tampered_candidate_rejected_loop_continues)
+2026-10-18T15:52:28.5320088Z Forged mid-run claim is rejected; the loop finishes. ... ok
+2026-10-18T15:52:31.4774619Z test_full_eval_uses_novel_tasks (tests.test_proxy.ProxyScreenTests.test_full_eval_uses_novel_tasks)
+2026-10-18T15:52:32.6771711Z The full protocol evaluates on the novel family. ... ok
+2026-10-18T15:52:32.6772860Z test_inverted_ranking_unproven_selects_nothing (tests.test_proxy.ProxyScreenTests.test_inverted_ranking_unproven_selects_nothing)
+2026-10-18T15:52:32.6774233Z Discordant ranks leave the proxy judging nothing. ... ok
+2026-10-18T15:52:32.6774933Z test_perfect_agreement_proven_selects (tests.test_proxy.ProxyScreenTests.test_perfect_agreement_proven_selects)
+2026-10-18T15:52:32.6775571Z Concordant ranks prove the proxy; top proxy wins. ... ok
+2026-10-18T15:52:32.6776185Z test_report_command_keys (tests.test_proxy.ProxyScreenTests.test_report_command_keys)
+2026-10-18T15:52:38.2201833Z The CLI replay prints fidelity plus both walls. ... ok
+2026-10-18T15:52:38.2202541Z test_report_within_custom_budget (tests.test_proxy.ProxyScreenTests.test_report_within_custom_budget)
+2026-10-18T15:52:41.1521316Z Historical gains give fidelity without full eval. ... ok
+2026-10-18T15:52:41.1522397Z test_screen_runs_within_budget (tests.test_proxy.ProxyScreenTests.test_screen_runs_within_budget)
+2026-10-18T15:52:41.1523274Z Few epochs and few seeds stay far under budget. ... ok
+2026-10-18T15:52:41.1524148Z test_screen_scores_every_candidate (tests.test_proxy.ProxyScreenTests.test_screen_scores_every_candidate)
+2026-10-18T15:52:41.1525568Z One finite proxy score per candidate seed. ... ok
+2026-10-18T15:52:41.1526443Z test_screen_touches_no_novel_task (tests.test_proxy.ProxyScreenTests.test_screen_touches_no_novel_task)
+2026-10-18T15:52:41.1527629Z Train and eval slices stay inside the W1 family. ... ok
+2026-10-18T15:52:41.1528573Z test_small_sample_never_proven (tests.test_proxy.ProxyScreenTests.test_small_sample_never_proven)
+2026-10-18T15:52:41.1529469Z Perfect agreement on one pair still proves nothing. ... ok
+2026-10-18T15:52:41.1530485Z test_ties_are_counted_not_hidden (tests.test_proxy.ProxyScreenTests.test_ties_are_counted_not_hidden)
+2026-10-18T15:52:41.1533569Z A flat proxy scores half agreement, never proven. ... ok
+2026-10-18T15:53:57.1993591Z test_baseline_solve_rate_and_cost (tests.test_rsi_hard.HardFamilyTests.test_baseline_solve_rate_and_cost) ... ok
+2026-10-18T15:53:57.1994944Z test_digest_stable (tests.test_rsi_hard.HardFamilyTests.test_digest_stable) ... ok
+2026-10-18T15:53:57.1995982Z test_enumerator_clearly_expensive (tests.test_rsi_hard.HardFamilyTests.test_enumerator_clearly_expensive) ... ok
+2026-10-18T15:53:57.1997661Z test_expectations_recomputed (tests.test_rsi_hard.HardFamilyTests.test_expectations_recomputed) ... ok
+2026-10-18T15:53:57.1998335Z test_ids_bounds_and_depths (tests.test_rsi_hard.HardFamilyTests.test_ids_bounds_and_depths) ... ok
+2026-10-18T15:53:57.1999731Z test_near_miss_passes_train_fails_held_out (tests.test_rsi_hard.HardFamilyTests.test_near_miss_passes_train_fails_held_out) ... ok
+2026-10-18T15:55:46.4767735Z test_branch_tasks_need_select_to_solve (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_branch_tasks_need_select_to_solve) ... ok
+2026-10-18T15:55:46.4769784Z test_const_graph_renders_and_runs (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_const_graph_renders_and_runs) ... ok
+2026-10-18T15:55:46.4789440Z test_const_task_needs_consts_to_solve (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_const_task_needs_consts_to_solve) ... ok
+2026-10-18T15:55:46.4791082Z test_const_terminals_cover_ir_range (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_const_terminals_cover_ir_range) ... ok
+2026-10-18T15:55:46.5528048Z test_enumerator_assembles_dag_that_matches_held_out_oracle (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_enumerator_assembles_dag_that_matches_held_out_oracle) ... ok
+2026-10-18T15:55:46.5530053Z test_independent_oracle_rejects_valid_but_wrong_graph (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_independent_oracle_rejects_valid_but_wrong_graph) ... ok
+2026-10-18T15:55:46.5531522Z test_select_graph_runs_and_renders (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_select_graph_runs_and_renders) ... ok
+2026-10-18T15:55:46.5532885Z test_validator_rejects_bad_branch_types (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_validator_rejects_bad_branch_types) ... ok
+2026-10-18T15:55:46.5534225Z test_validator_rejects_bad_constants (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_validator_rejects_bad_constants) ... ok
+2026-10-18T15:55:46.5536022Z test_validator_rejects_unknown_operation_cycle_and_malformed_arity (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_validator_rejects_unknown_operation_cycle_and_malformed_arity) ... ok
+2026-10-18T15:55:46.5537959Z test_decoded_edits_author_valid_program (tests.test_rsi_decoder.SpikeDecoderTests.test_decoded_edits_author_valid_program)
+2026-10-18T15:55:46.5539016Z Decoded const+add commits graph for x+3 via emit_edit. ... ok
+2026-10-18T15:55:46.5540036Z test_malformed_populations_reject (tests.test_rsi_decoder.SpikeDecoderTests.test_malformed_populations_reject)
+2026-10-18T15:55:46.5541034Z Wrong shapes and missing populations are unknown. ... ok
+2026-10-18T15:55:46.5542064Z test_random_spikes_validate_or_reject (tests.test_rsi_decoder.SpikeDecoderTests.test_random_spikes_validate_or_reject)
+2026-10-18T15:55:46.5814073Z Fuzz: every output typechecks or carries a reason. ... ok
+2026-10-18T15:55:46.5815254Z test_round_trip_every_op_and_terminal (tests.test_rsi_decoder.SpikeDecoderTests.test_round_trip_every_op_and_terminal)
+2026-10-18T15:55:46.5825887Z Hand-built spikes decode to each exact alphabet action. ... ok
+2026-10-18T15:55:46.5827098Z test_tie_and_threshold_reject (tests.test_rsi_decoder.SpikeDecoderTests.test_tie_and_threshold_reject)
+2026-10-18T15:55:46.5830314Z Ambiguous or quiet populations never guess. ... ok
+2026-10-18T15:55:46.5831516Z test_delayed_feedback_changes_outputs_within_one_drive (tests.test_modular.ModularPolicyTests.test_delayed_feedback_changes_outputs_within_one_drive)
+2026-10-18T15:55:46.5928594Z The feedback edge remains active in a fresh drive. ... ok
+2026-10-18T15:55:46.5929860Z test_explicit_continuation_carries_state (tests.test_modular.ModularPolicyTests.test_explicit_continuation_carries_state)
+2026-10-18T15:55:46.6020838Z Sequence callers can explicitly continue prior state. ... ok
+2026-10-18T15:55:46.6022150Z test_guided_search_solves_shadow_family (tests.test_modular.ModularPolicyTests.test_guided_search_solves_shadow_family)
+2026-10-18T15:55:47.4168785Z Factored ranker solves the same tasks via search. ... ok
+2026-10-18T15:55:47.4169944Z test_per_module_metrics_reported (tests.test_modular.ModularPolicyTests.test_per_module_metrics_reported)
+2026-10-18T15:55:48.9392789Z Op and operand heads measured against chance. ... ok
+2026-10-18T15:55:48.9393697Z test_same_rows_are_independent_of_prior_candidate_batches (tests.test_modular.ModularPolicyTests.test_same_rows_are_independent_of_prior_candidate_batches)
+2026-10-18T15:55:48.9493962Z Scoring independent batches never inherits prior state. ... ok
+2026-10-18T15:55:48.9494622Z test_snapshot_round_trips_scores (tests.test_modular.ModularPolicyTests.test_snapshot_round_trips_scores)
+2026-10-18T15:55:48.9595474Z Restore reproduces identical combined rankings. ... ok
+2026-10-18T15:55:48.9596354Z test_old_policy_ignores_new_rank_args (tests.test_modular.SharedRankPathTests.test_old_policy_ignores_new_rank_args)
+2026-10-18T15:55:48.9632883Z Extended rank signature leaves monolith behavior. ... ok
+2026-10-18T15:55:48.9633574Z test_branch_tasks_require_branch (tests.test_rsi_tasks.TaskGeneratorTests.test_branch_tasks_require_branch)
+2026-10-18T15:56:09.6104860Z A fresh branch task fails bare and const-only search. ... ok
+2026-10-18T15:56:09.6105902Z test_curriculum_loop_closed (tests.test_rsi_tasks.TaskGeneratorTests.test_curriculum_loop_closed)
+2026-10-18T15:56:09.6125385Z Gate failures become family parameters and fresh tasks. ... ok
+2026-10-18T15:56:09.6126395Z test_frozen_splits_and_counts (tests.test_rsi_tasks.TaskGeneratorTests.test_frozen_splits_and_counts)
+2026-10-18T15:56:09.6138540Z 24+12 tasks, matching hashes, disjoint rows. ... ok
+2026-10-18T15:56:09.6139261Z test_safety_report_yields_no_tasks (tests.test_rsi_tasks.TaskGeneratorTests.test_safety_report_yields_no_tasks)
+2026-10-18T15:56:09.6139980Z Safety failures are a gate issue, never a data order. ... ok
+2026-10-18T15:56:09.6140583Z test_same_seed_byte_identical (tests.test_rsi_tasks.TaskGeneratorTests.test_same_seed_byte_identical)
+2026-10-18T15:56:09.6301299Z Determinism: one seed always yields the same bytes. ... ok
+2026-10-18T15:56:09.6302036Z test_all_edits_lists_nontrivial_only (tests.test_edits.EditOperatorTests.test_all_edits_lists_nontrivial_only)
+2026-10-18T15:56:09.6302945Z Enumeration skips current values and stays valid. ... ok
+2026-10-18T15:56:09.6303667Z test_every_operator_round_trips (tests.test_edits.EditOperatorTests.test_every_operator_round_trips)
+2026-10-18T15:56:09.6306367Z Apply then invert restores the config exactly. ... ok
+2026-10-18T15:56:09.6307170Z test_gate_modules_unnameable (tests.test_edits.EditOperatorTests.test_gate_modules_unnameable)
+2026-10-18T15:56:09.6320619Z No operator, field, or import can touch the judge. ... ok
+2026-10-18T15:56:09.6321689Z test_malformed_and_foreign_edits_rejected (tests.test_edits.EditOperatorTests.test_malformed_and_foreign_edits_rejected)
+2026-10-18T15:56:09.6322641Z Unknown fields, ops, and values all raise. ... ok
+2026-10-18T15:56:09.6323268Z test_beneficial_edit_promotes_with_lineage (tests.test_self_gate.SelfGateTests.test_beneficial_edit_promotes_with_lineage)
+2026-10-18T15:56:09.6457300Z Uniform gain clears bootstrap and gain bars. ... ok
+2026-10-18T15:56:09.6457899Z test_budget_exactness (tests.test_self_gate.SelfGateTests.test_budget_exactness)
+2026-10-18T15:56:09.6620063Z Zero budget runs nothing; N attempts then exhausted. ... ok
+2026-10-18T15:56:09.6620888Z test_crash_rolls_back_and_records (tests.test_self_gate.SelfGateTests.test_crash_rolls_back_and_records)
+2026-10-18T15:56:09.6670058Z Trainer exceptions become recorded rollbacks. ... ok
+2026-10-18T15:56:09.6670950Z test_harmful_edit_refused_base_intact (tests.test_self_gate.SelfGateTests.test_harmful_edit_refused_base_intact)
+2026-10-18T15:56:09.6769881Z Red team: uniform loss refuses with logged reason. ... ok
+2026-10-18T15:56:09.6770864Z test_judge_files_untouched_by_trial (tests.test_self_gate.SelfGateTests.test_judge_files_untouched_by_trial)
+2026-10-18T15:56:09.6870279Z Gate and sandbox bytes identical after a full trial. ... ok
+2026-10-18T15:56:09.6871227Z test_malformed_edit_never_trains (tests.test_self_gate.SelfGateTests.test_malformed_edit_never_trains)
+2026-10-18T15:56:09.6914782Z Bad edits refuse before any trainer call. ... ok
+2026-10-18T15:56:09.6915652Z test_real_trainer_protocol_holds (tests.test_self_gate.SelfGateTests.test_real_trainer_protocol_holds)
+2026-10-18T15:56:11.9153708Z Smallest real training loop obeys the fence. ... ok
+2026-10-18T15:56:11.9157109Z test_empty_archive_empty_profile (tests.test_autonomy.AgencyProfileTests.test_empty_archive_empty_profile)
+2026-10-18T15:56:11.9158033Z No entries, no profile. ... ok
+2026-10-18T15:56:11.9159020Z test_shrinking_diversity_converges (tests.test_autonomy.AgencyProfileTests.test_shrinking_diversity_converges)
+2026-10-18T15:56:11.9159971Z Collapsing spread with rising fitness converges. ... ok
+2026-10-18T15:56:11.9160875Z test_degenerate_inputs_score_zero (tests.test_autonomy.AutonomyRatioTests.test_degenerate_inputs_score_zero)
+2026-10-18T15:56:11.9161819Z One history, empty input, or flat lines score zero. ... ok
+2026-10-18T15:56:11.9162682Z test_full_separation_scores_one (tests.test_autonomy.AutonomyRatioTests.test_full_separation_scores_one)
+2026-10-18T15:56:11.9163476Z Disjoint histories own all the variance. ... ok
+2026-10-18T15:56:11.9164027Z test_partial_variance_fraction (tests.test_autonomy.AutonomyRatioTests.test_partial_variance_fraction)
+2026-10-18T15:56:11.9164596Z Between over total on a mixed population. ... ok
+2026-10-18T15:56:11.9165170Z test_shared_spread_scores_zero (tests.test_autonomy.AutonomyRatioTests.test_shared_spread_scores_zero)
+2026-10-18T15:56:11.9165720Z Identical spreads leave nothing to history. ... ok
+2026-10-18T15:56:11.9166342Z test_chain_reports_no_integration (tests.test_autonomy.DivergenceTests.test_chain_reports_no_integration)
+2026-10-18T15:56:11.9192662Z Feedforward monolith has nothing to sever. ... ok
+2026-10-18T15:56:11.9193490Z test_driven_feedback_moves_outputs (tests.test_autonomy.DivergenceTests.test_driven_feedback_moves_outputs)
+2026-10-18T15:56:11.9331163Z Strong drive makes the cut bite: positive number. ... ok
+2026-10-18T15:56:11.9331982Z test_feedback_edge_lists_and_measures (tests.test_autonomy.DivergenceTests.test_feedback_edge_lists_and_measures)
+2026-10-18T15:56:11.9593374Z Modular feedback severs and reports a number. ... ok
+2026-10-18T15:56:22.1148816Z test_contrast_training_separates_guidance (tests.test_rsi_ood.FrozenBenchmarkTests.test_contrast_training_separates_guidance)
+2026-10-18T15:56:23.8679006Z Mirror penalty pushes broad guidance off baseline. ... ok
+2026-10-18T15:56:23.8679716Z test_expanded_training_keeps_discipline (tests.test_rsi_ood.FrozenBenchmarkTests.test_expanded_training_keeps_discipline)
+2026-10-18T15:56:25.2217303Z Wide training runs frozen with caveat attached. ... ok
+2026-10-18T15:56:25.2218498Z test_guidance_similarity_matches_fresh_pairwise_cosines (tests.test_rsi_ood.FrozenBenchmarkTests.test_guidance_similarity_matches_fresh_pairwise_cosines)
+2026-10-18T15:56:25.3210304Z Report matches independent snapshot-restored pair scores. ... ok
+2026-10-18T15:56:25.3211065Z test_refined_bench_keeps_discipline (tests.test_rsi_ood.FrozenBenchmarkTests.test_refined_bench_keeps_discipline)
+2026-10-18T15:56:28.7784723Z Refine-then-lock bench reports its refined flag. ... ok
+2026-10-18T15:56:28.7785461Z test_refinement_sees_train_rows_only (tests.test_rsi_ood.FrozenBenchmarkTests.test_refinement_sees_train_rows_only)
+2026-10-18T15:56:28.7787358Z No task's held-out rows train that same task. ... ok
+2026-10-18T15:56:28.7788106Z test_tamper_aborts (tests.test_rsi_ood.FrozenBenchmarkTests.test_tamper_aborts)
+2026-10-18T15:56:28.7803100Z A moved weight fails the frozen check. ... ok
+2026-10-18T15:56:28.7804021Z test_weights_locked_through_eval (tests.test_rsi_ood.FrozenBenchmarkTests.test_weights_locked_through_eval)
+2026-10-18T15:56:30.6938168Z Frozen run leaves every weight byte untouched. ... ok
+2026-10-18T15:56:30.6938997Z test_widened_bench_superset_within_budget (tests.test_rsi_ood.FrozenBenchmarkTests.test_widened_bench_superset_within_budget)
+2026-10-18T15:56:35.6599749Z Production schedule only adds solves in budget. ... ok
+2026-10-18T15:56:35.6600698Z test_wider_net_trains_and_scores (tests.test_rsi_ood.FrozenBenchmarkTests.test_wider_net_trains_and_scores)
+2026-10-18T15:56:35.8123524Z Hidden-64 policy fits, scores finite, deterministic. ... ok
+2026-10-18T15:56:35.8124294Z test_hard_corpus_plain_and_bounded (tests.test_rsi_ood.MirrorTests.test_hard_corpus_plain_and_bounded)
+2026-10-18T15:56:35.8128112Z New pools are plain-OPS with the intended bounds. ... ok
+2026-10-18T15:56:35.8129161Z test_inverts_comparison_and_swaps_roles (tests.test_rsi_ood.MirrorTests.test_inverts_comparison_and_swaps_roles)
+2026-10-18T15:56:35.8130067Z lt(x, y) mirrors to lt(y, x). ... ok
+2026-10-18T15:56:35.8130901Z test_names_degenerate_v1_patterns (tests.test_rsi_ood.MirrorTests.test_names_degenerate_v1_patterns)
+2026-10-18T15:56:35.8131807Z Constant and out-of-range conditions are flagged. ... ok
+2026-10-18T15:56:35.8132659Z test_preserves_consts_and_involutes (tests.test_rsi_ood.MirrorTests.test_preserves_consts_and_involutes)
+2026-10-18T15:56:35.8133513Z Consts survive; mirroring twice restores roles. ... ok
+2026-10-18T15:56:35.8134049Z test_splits_verify_and_no_leakage (tests.test_rsi_ood.MirrorTests.test_splits_verify_and_no_leakage)
+2026-10-18T15:56:35.8153908Z Split hashes hold; held-out never trains its task. ... ok
+2026-10-18T15:56:35.8154808Z test_strict_filter_bites_and_freezes (tests.test_rsi_ood.MirrorTests.test_strict_filter_bites_and_freezes)
+2026-10-18T15:56:45.5661154Z Explicit legacy selection reproduces the historical fixtures. ... ok
+2026-10-18T15:56:45.5661815Z test_twin_rows_align_oracles_differ (tests.test_rsi_ood.MirrorTests.test_twin_rows_align_oracles_differ)
+2026-10-18T15:56:45.5662956Z Same rows, flipped outputs: memorized answers fail. ... ok
+2026-10-18T15:56:45.5663720Z test_check_passes_offline (tests.test_gains.GainsTests.test_check_passes_offline)
+2026-10-18T15:56:45.6394676Z CSV validates without matplotlib or network. ... ok
+2026-10-18T15:56:45.6395509Z test_decode_each_family_validates (tests.test_rsi_words.CodecTests.test_decode_each_family_validates)
+2026-10-18T15:56:45.6396736Z One word program per op family passes validation. ... ok
+2026-10-18T15:56:45.6397572Z test_decode_rejects_truncated_missing_or_typeless (tests.test_rsi_words.CodecTests.test_decode_rejects_truncated_missing_or_typeless)
+2026-10-18T15:56:45.6398276Z Truncated, stopless, and outputless fail loudly. ... ok
+2026-10-18T15:56:45.6398873Z test_decode_rejects_type_mismatch (tests.test_rsi_words.CodecTests.test_decode_rejects_type_mismatch)
+2026-10-18T15:56:45.6417338Z Bool node as Int operand fails validation. ... ok
+2026-10-18T15:56:45.6437708Z test_isa_covers_sixteen_with_stop (tests.test_rsi_words.CodecTests.test_isa_covers_sixteen_with_stop)
+2026-10-18T15:56:45.6438920Z ISA v0 names every codepoint 0-8; rest reserved. ... ok
+2026-10-18T15:56:45.6439463Z test_pack_rejects_bad_bits (tests.test_rsi_words.CodecTests.test_pack_rejects_bad_bits)
+2026-10-18T15:56:45.6440014Z Wrong length, non-binary, or range fail loudly. ... ok
+2026-10-18T15:56:45.6440604Z test_pack_unpack_round_trip_all_words (tests.test_rsi_words.CodecTests.test_pack_unpack_round_trip_all_words)
+2026-10-18T15:56:45.6441224Z All 16 codepoints pack and unpack losslessly. ... ok
+2026-10-18T15:56:45.6441763Z test_corrupted_words_fail_oracle (tests.test_rsi_words.OracleTests.test_corrupted_words_fail_oracle)
+2026-10-18T15:56:45.7982311Z Truncated and reserved-token edits do not verify. ... ok
+2026-10-18T15:56:45.7983242Z test_fixtures_load_unchanged (tests.test_rsi_words.OracleTests.test_fixtures_load_unchanged)
+2026-10-18T15:56:45.7987260Z Codec work writes no fixtures; all still parse. ... ok
+2026-10-18T15:56:45.7988018Z test_word_programs_hold_on_all_shadow (tests.test_rsi_words.OracleTests.test_word_programs_hold_on_all_shadow)
+2026-10-18T15:56:45.9527250Z Encoded solutions verify train + held-out. ... ok
+2026-10-18T15:56:45.9568495Z test_encoder_freeze_api (tests.test_rsi_lattice.LatticeTests.test_encoder_freeze_api)
+2026-10-18T15:56:45.9569372Z Freeze locks shared stages, never the heads. ... ok
+2026-10-18T15:56:45.9570343Z test_encoder_transfer_count_and_bytes (tests.test_rsi_lattice.LatticeTests.test_encoder_transfer_count_and_bytes)
+2026-10-18T15:56:45.9578351Z Fourteen stage keys land identical in the donee. ... ok
+2026-10-18T15:56:45.9579374Z test_independent_lattice_drives_start_fresh (tests.test_rsi_lattice.LatticeTests.test_independent_lattice_drives_start_fresh)
+2026-10-18T15:56:45.9688430Z A prior same-sized batch cannot change lattice output. ... ok
+2026-10-18T15:56:45.9689429Z test_lesion_flips_bit_two_only (tests.test_rsi_lattice.LatticeTests.test_lesion_flips_bit_two_only)
+2026-10-18T15:56:45.9766860Z Silencing head 2 flips bit 2, nothing else. ... ok
+2026-10-18T15:56:45.9767967Z test_snapshot_restore_round_trips (tests.test_rsi_lattice.LatticeTests.test_snapshot_restore_round_trips)
+2026-10-18T15:56:45.9917462Z Snapshots reload weights and reproduce words. ... ok
+2026-10-18T15:56:45.9918292Z test_struct_gate_steers_commit (tests.test_rsi_lattice.LatticeTests.test_struct_gate_steers_commit)
+2026-10-18T15:56:45.9986732Z Biased struct weights force commit or reject. ... ok
+2026-10-18T15:56:45.9987777Z test_struct_parity_on_shadow_family (tests.test_rsi_lattice.LatticeTests.test_struct_parity_on_shadow_family)
+2026-10-18T15:56:46.0052009Z Shared struct gate matches the donor on shadow. ... ok
+2026-10-18T15:56:48.9117507Z test_encoder_coadapts_from_donor (tests.test_rsi_lattice_train.LatticeTrainTests.test_encoder_coadapts_from_donor)
+2026-10-18T15:56:48.9139136Z Joint training moves shared weights off the donor. ... ok
+2026-10-18T15:56:48.9140194Z test_heads_beat_chance_words_beat_third (tests.test_rsi_lattice_train.LatticeTrainTests.test_heads_beat_chance_words_beat_third)
+2026-10-18T15:56:48.9141319Z Bit and word-bit accuracy stay above their baselines. ... ok
+2026-10-18T15:56:48.9142300Z test_lineage_records_training_run (tests.test_rsi_lattice_train.LatticeTrainTests.test_lineage_records_training_run)
+2026-10-18T15:56:48.9146849Z One prepared intent names the fixture and metrics. ... ok
+2026-10-18T15:57:12.1935423Z test_full_ir_boundary_reported (tests.test_rsi_lattice_author.LatticeAuthorTests.test_full_ir_boundary_reported)
+2026-10-18T15:57:12.1937233Z Full-IR boundary: real misses carry real verdicts. ... ok
+2026-10-18T15:57:12.1937873Z test_novel_miss_stays_missed (tests.test_rsi_lattice_author.LatticeAuthorTests.test_novel_miss_stays_missed)
+2026-10-18T15:57:12.1938589Z A capability miss never resolves by another path. ... ok
+2026-10-18T15:57:12.1939234Z test_novel_transfer_reported (tests.test_rsi_lattice_author.LatticeAuthorTests.test_novel_transfer_reported)
+2026-10-18T15:57:12.1939968Z Novel-family word-exact solves with reject tally. ... ok
+2026-10-18T15:57:12.1940945Z test_ood_headline_reported (tests.test_rsi_lattice_author.LatticeAuthorTests.test_ood_headline_reported)
+2026-10-18T15:57:12.1941569Z Author-only OOD numbers with path=lattice. ... ok
+2026-10-18T15:57:12.1942170Z test_shadow_authors_cleanly (tests.test_rsi_lattice_author.LatticeAuthorTests.test_shadow_authors_cleanly)
+2026-10-18T15:57:12.1942770Z Shadow solves come from agreement, oracle-checked. ... ok
+2026-10-18T15:57:12.1943440Z test_zero_budget_never_falls_back (tests.test_rsi_lattice_author.LatticeAuthorTests.test_zero_budget_never_falls_back)
+2026-10-18T15:57:12.2665989Z Zero budget stays unsolved; no hidden rescue path. ... ok
+2026-10-18T15:57:12.2668240Z test_bool_is_intermediate_but_not_a_final_program (tests.test_rsi_lattice_author.LatticeAuthorTypeTests.test_bool_is_intermediate_but_not_a_final_program)
+2026-10-18T15:57:12.2670094Z Authoring may use Bool conditions; finished DAGs return Int. ... ok
+2026-10-18T15:57:12.2671508Z test_all_solved_tasks_verify_binary (tests.test_rsi_bytecode.BytecodeTests.test_all_solved_tasks_verify_binary)
+2026-10-18T15:57:13.2455636Z Every solved task's binary holds train + held-out. ... ok
+2026-10-18T15:57:13.2456544Z test_corrupted_binaries_fail_oracle (tests.test_rsi_bytecode.BytecodeTests.test_corrupted_binaries_fail_oracle)
+2026-10-18T15:57:13.3405790Z Truncated, foreign, and behavior-flipped fail. ... ok
+2026-10-18T15:57:13.3407051Z test_decoder_rejects_junk (tests.test_rsi_bytecode.BytecodeTests.test_decoder_rejects_junk)
+2026-10-18T15:57:13.3407830Z Bad opcodes, truncations, and missing HALT fail. ... ok
+2026-10-18T15:57:13.3408607Z test_disassemble_round_trips (tests.test_rsi_bytecode.BytecodeTests.test_disassemble_round_trips)
+2026-10-18T15:57:13.3409298Z Decode names every instruction and operand. ... ok
+2026-10-18T15:57:13.3409816Z test_known_program_byte_exact (tests.test_rsi_bytecode.BytecodeTests.test_known_program_byte_exact)
+2026-10-18T15:57:13.3410339Z x + y assembles to five exact bytes. ... ok
+2026-10-18T15:57:13.3410913Z test_store_underflow_is_a_value_error (tests.test_rsi_bytecode.BytecodeTests.test_store_underflow_is_a_value_error)
+2026-10-18T15:57:13.3411563Z VM stack underflow has the same rejection type for STORE. ... ok
+2026-10-18T15:57:49.4906876Z test_family_report_is_deterministic (tests.test_rsi_selectivity.SelectivityTests.test_family_report_is_deterministic)
+2026-10-18T15:57:52.1015499Z Same inputs reproduce the same report exactly. ... ok
+2026-10-18T15:57:52.1018670Z test_report_covers_all_families (tests.test_rsi_selectivity.SelectivityTests.test_report_covers_all_families)
+2026-10-18T15:57:52.1019753Z Every family reports solves, rates, and tallies. ... ok
+2026-10-18T15:57:52.1020991Z test_capacity_fields_lead_on_reject_wall (tests.test_rsi_proposer.ProposerTests.test_capacity_fields_lead_on_reject_wall)
+2026-10-18T15:57:52.1022081Z A no-solution reject wall ranks capacity first. ... ok
+2026-10-18T15:57:52.1023020Z test_coupling_fields_lead_on_agreed_wrong (tests.test_rsi_proposer.ProposerTests.test_coupling_fields_lead_on_agreed_wrong)
+2026-10-18T15:57:52.1024153Z Agreed-but-wrong commits rank coupling first. ... ok
+2026-10-18T15:57:52.1025113Z test_every_proposal_validates_with_provenance (tests.test_rsi_proposer.ProposerTests.test_every_proposal_validates_with_provenance)
+2026-10-18T15:57:52.1026122Z All proposals validate; each names its signal. ... ok
+2026-10-18T15:57:52.1027164Z test_fenced_edit_refused_before_gate (tests.test_rsi_proposer.ProposerTests.test_fenced_edit_refused_before_gate)
+2026-10-18T15:57:52.1078871Z A fenced proposal never spends budget or trains. ... ok
+2026-10-18T15:57:52.1080000Z test_suspect_field_beats_seeded_order (tests.test_rsi_proposer.ProposerTests.test_suspect_field_beats_seeded_order)
+2026-10-18T15:57:52.2166865Z Suspect diagnostics reach promotion in fewer trials. ... ok
+2026-10-18T15:57:52.2167472Z 
+2026-10-18T15:57:52.2167741Z ======================================================================
+2026-10-18T15:57:52.2169049Z ERROR: test_real_training_startup_stops_before_any_evaluation (tests.test_benchmark_bounded.BoundedBenchmarkTests.test_real_training_startup_stops_before_any_evaluation)
+2026-10-18T15:57:52.2169950Z ----------------------------------------------------------------------
+2026-10-18T15:57:52.2170581Z Traceback (most recent call last):
+2026-10-18T15:57:52.2180295Z   File "/home/runner/work/rsi-programmer/rsi-programmer/tests/test_benchmark_bounded.py", line 31, in test_real_training_startup_stops_before_any_evaluation
+2026-10-18T15:57:52.2181436Z     run.run(output)
+2026-10-18T15:57:52.2181838Z     ~~~~~~~^^^^^^^^
+2026-10-18T15:57:52.2182734Z   File "/home/runner/work/rsi-programmer/rsi-programmer/rsi_programmer/benchmark_bounded.py", line 296, in run
+2026-10-18T15:57:52.2183917Z     models, fitted, construction = work._make_models_with_cpu(
+2026-10-18T15:57:52.2184553Z                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2026-10-18T15:57:52.2185056Z         seed,
+2026-10-18T15:57:52.2185420Z         ^^^^^
+2026-10-18T15:57:52.2185856Z     ...<4 lines>...
+2026-10-18T15:57:52.2186230Z         ],
+2026-10-18T15:57:52.2186775Z         ^^
+2026-10-18T15:57:52.2187119Z     )
+2026-10-18T15:57:52.2187531Z     ^
+2026-10-18T15:57:52.2188381Z   File "/home/runner/work/rsi-programmer/rsi-programmer/rsi_programmer/benchmark_total_work.py", line 224, in _make_models_with_cpu
+2026-10-18T15:57:52.2189258Z     raise ValueError(
+2026-10-18T15:57:52.2189805Z         f"{name} post-fit weights differ from pinned v2 hash"
+2026-10-18T15:57:52.2190340Z     )
+2026-10-18T15:57:52.2190829Z ValueError: trained_snn post-fit weights differ from pinned v2 hash
+2026-10-18T15:57:52.2191274Z 
+2026-10-18T15:57:52.2191514Z ----------------------------------------------------------------------
+2026-10-18T15:57:52.2192076Z Ran 350 tests in 370.824s
+2026-10-18T15:57:52.2192321Z 
+2026-10-18T15:57:52.2192519Z FAILED (errors=1)
+2026-10-18T15:57:52.2249246Z solve=4/4 wall=0.25s
+2026-10-18T15:57:52.2250044Z task=square_plus solved=True tried=6807 wall=0.118s
+2026-10-18T15:57:52.2250707Z solve=1.00 base=1.00 cost=828 base=14673 wall=7.6s
+2026-10-18T15:57:52.2251350Z task=deep_shift_square solved=True tried=314169 wall=8.63s
+2026-10-18T15:57:52.2251818Z task=sub_square_diff solved=True tried=46821 wall=1.05s
+2026-10-18T15:57:52.2252285Z task=mixed_depth7 solved=True tried=2061216 wall=66.36s
+2026-10-18T15:57:52.2252697Z task=distractor_cube solved=False tried=12 wall=0.00s
+2026-10-18T15:57:52.2253077Z deep_shift_square tried=314169 ratio=46.2x
+2026-10-18T15:57:52.2253471Z mixed_depth7 tried=2061216 ratio=302.8x
+2026-10-18T15:57:52.2256258Z modular={'layers': 10, 'op_argmax_role': 'not_directly_supervised_diagnostic', 'op_argmax_directly_supervised': False, 'legacy_metric_names_deprecated': True, 'left_operand_top1_role': 'candidate_row_signature_membership_diagnostic', 'legacy_metric_aliases': {'op_accuracy': 'op_argmax_accuracy', 'op_chance': 'op_argmax_chance', 'operand_top1': 'left_operand_top1_match', 'operand_chance': 'left_operand_top1_chance'}, 'objective_ranking_layers': 10, 'objective_ranking_chance': 0.5, 'objective_ranking_role': 'positive_negative_rows_as_in_group_loss', 'combined_pairwise_preference_accuracy': 0.569, 'op_own_pairwise_preference_accuracy': 0.569, 'left_score_pairwise_preference_accuracy': 0.5, 'right_score_pairwise_preference_accuracy': 0.5, 'emit_pairwise_preference_accuracy': 0.5, 'op_argmax_accuracy': 0.309, 'op_argmax_chance': 0.3333, 'left_operand_top1_match': 0.1, 'left_operand_top1_chance': 0.05, 'op_accuracy': 0.309, 'op_chance': 0.3333, 'operand_top1': 0.1, 'operand_chance': 0.05}
+2026-10-18T15:57:52.2259520Z contrast blindness: 0.4631 (baseline 0.9446)
+2026-10-18T15:57:52.2259959Z ood-wide: narrow=0.500 broad=1.000 gap=+0.500 enum_tried=3873
+2026-10-18T15:57:52.2260850Z v2.4.0 section 9.1: behavioral adaptation alone is neither the definition of intelligence nor sufficient demonstration of it. This report measures expression only and places nothing on any gradient.
+2026-10-18T15:57:52.2261666Z wide: narrow=0.500 wide=1.000 blindness=0.4142
+2026-10-18T15:57:52.2262272Z ood-ref: narrow=1.000 broad=1.000 gap=+0.000 enum_tried=3873
+2026-10-18T15:57:52.2263157Z v2.4.0 section 9.1: behavioral adaptation alone is neither the definition of intelligence nor sufficient demonstration of it. This report measures expression only and places nothing on any gradient.
+2026-10-18T15:57:52.2263934Z refined: narrow=1.000 broad=1.000
+2026-10-18T15:57:52.2264354Z ood-test: narrow=0.500 broad=0.500 gap=+0.000 enum_tried=3873
+2026-10-18T15:57:52.2265230Z v2.4.0 section 9.1: behavioral adaptation alone is neither the definition of intelligence nor sufficient demonstration of it. This report measures expression only and places nothing on any gradient.
+2026-10-18T15:57:52.2266114Z ood-test: narrow=0.500 broad=0.500 gap=+0.000
+2026-10-18T15:57:52.2266544Z ood-w0: narrow=0.500 broad=0.500 gap=+0.000 enum_tried=3873
+2026-10-18T15:57:52.2267434Z v2.4.0 section 9.1: behavioral adaptation alone is neither the definition of intelligence nor sufficient demonstration of it. This report measures expression only and places nothing on any gradient.
+2026-10-18T15:57:52.2268318Z ood-w6: narrow=1.000 broad=1.000 gap=+0.000 enum_tried=3873
+2026-10-18T15:57:52.2269111Z v2.4.0 section 9.1: behavioral adaptation alone is neither the definition of intelligence nor sufficient demonstration of it. This report measures expression only and places nothing on any gradient.
+2026-10-18T15:57:52.2269871Z widen: base=0.500/0.500 wide=1.000/1.000
+2026-10-18T15:57:52.2270289Z shadow rows=48 st-worst-diff=0.00e+00
+2026-10-18T15:57:52.2270625Z moved=6/32
+2026-10-18T15:57:52.2271127Z heads=[1.0, 1.0, 1.0, 1.0] exact=1.000 rounds=313
+2026-10-18T15:57:52.2271741Z lattice full-ir: 2/8 solved=['gen_ood_05', 'gen_ood_07'] rejects={'no-authored-solution': 6, 'solved': 2}
+2026-10-18T15:57:52.2272264Z lattice novel misses=0
+2026-10-18T15:57:52.2272709Z lattice novel: solved=['prod_plus_sum', 'sum_squares', 'scaled_mix'] rejects={'solved': 3}
+2026-10-18T15:57:52.2273799Z lattice ood: 15/16 solved=['gen_ood_u_00', 'gen_ood_u_01', 'gen_ood_u_02', 'gen_ood_u_03', 'gen_ood_u_04', 'gen_ood_u_05', 'gen_ood_u_06', 'gen_ood_u_07', 'gen_ood_p_00', 'gen_ood_p_02', 'gen_ood_p_03', 'gen_ood_p_04', 'gen_ood_p_05', 'gen_ood_p_06', 'gen_ood_p_07'] rejects={'solved': 15, 'no-authored-solution': 1}
+2026-10-18T15:57:52.2274738Z lattice shadow: 4/4 named-rate=0.719
+2026-10-18T15:57:52.2275099Z binaries=25 biggest-value=150
+2026-10-18T15:57:52.2275485Z   diff_squares   20 bytes
+2026-10-18T15:57:52.2275806Z   gen_ood_05     8 bytes
+2026-10-18T15:57:52.2276144Z   gen_ood_07     14 bytes
+2026-10-18T15:57:52.2276467Z   gen_ood_p_00   20 bytes
+2026-10-18T15:57:52.2276890Z   gen_ood_p_01   26 bytes
+2026-10-18T15:57:52.2277223Z   gen_ood_p_02   26 bytes
+2026-10-18T15:57:52.2277527Z   gen_ood_p_03   20 bytes
+2026-10-18T15:57:52.2277850Z   gen_ood_p_04   14 bytes
+2026-10-18T15:57:52.2278211Z   gen_ood_p_05   14 bytes
+2026-10-18T15:57:52.2278499Z   gen_ood_p_06   20 bytes
+2026-10-18T15:57:52.2278829Z   gen_ood_p_07   26 bytes
+2026-10-18T15:57:52.2279128Z   gen_ood_u_00   20 bytes
+2026-10-18T15:57:52.2279500Z   gen_ood_u_01   26 bytes
+2026-10-18T15:57:52.2279799Z   gen_ood_u_02   26 bytes
+2026-10-18T15:57:52.2280083Z   gen_ood_u_03   20 bytes
+2026-10-18T15:57:52.2280409Z   gen_ood_u_04   14 bytes
+2026-10-18T15:57:52.2280767Z   gen_ood_u_05   14 bytes
+2026-10-18T15:57:52.2281076Z   gen_ood_u_06   20 bytes
+2026-10-18T15:57:52.2281379Z   gen_ood_u_07   26 bytes
+2026-10-18T15:57:52.2281667Z   prod_plus_sum  20 bytes
+2026-10-18T15:57:52.2282033Z   scaled_mix     26 bytes
+2026-10-18T15:57:52.2282362Z   square_minus   21 bytes
+2026-10-18T15:57:52.2282685Z   square_plus    21 bytes
+2026-10-18T15:57:52.2282992Z   sum_squares    20 bytes
+2026-10-18T15:57:52.2283330Z   twice_product  14 bytes
+2026-10-18T15:57:52.2283866Z selectivity rsi_shadow_tasks: solved=4/4 named=0.965 echo=0.102 shuffle=0/4 per-op={'add': 0.858, 'sub': 1.0, 'mul': 1.0}
+2026-10-18T15:57:52.2284629Z selectivity rsi_novel_tasks: solved=3/3 named=0.955 echo=0.097 shuffle=0/3 per-op={'add': 0.837, 'sub': 1.0, 'mul': 1.0}
+2026-10-18T15:57:52.2285446Z selectivity rsi_ood_twin: solved=8/8 named=0.943 echo=0.111 shuffle=0/8 per-op={'add': 0.856, 'sub': 1.0, 'mul': 1.0}
+2026-10-18T15:57:52.2286182Z selectivity rsi_ood_plain: solved=7/8 named=0.963 echo=0.112 shuffle=0/8 per-op={'add': 0.867, 'sub': 1.0, 'mul': 1.0}
+2026-10-18T15:57:52.2286961Z selectivity rsi_ood_tasks: solved=2/8 named=0.962 echo=0.129 shuffle=1/8 per-op={'add': 0.906, 'sub': 1.0, 'mul': 1.0}
+2026-10-18T15:57:52.2287505Z proposer trials=2 seeded trials=14
+2026-10-18T15:57:55.3258169Z error: recipe `test-fast` failed on line 41 with exit code 1
+2026-10-18T15:57:55.3271344Z ##[error]Process completed with exit code 1.
+2026-10-18T15:57:55.3382600Z Post job cleanup.
+2026-10-18T15:57:55.4194020Z [command]/usr/bin/git version
+2026-10-18T15:57:55.4229909Z git version 2.55.0
+2026-10-18T15:57:55.4262476Z Temporarily overriding HOME='/home/runner/work/_temp/b17887ee-284b-426d-8a7b-35995e08ffc5' before making global git config changes
+2026-10-18T15:57:55.4263842Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T15:57:55.4267360Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/rsi-programmer/rsi-programmer/vendor/spikeforge
+2026-10-18T15:57:55.4301521Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T15:57:55.4331819Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T15:57:55.4552572Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T15:57:55.4580432Z http.https://github.com/.extraheader
+2026-10-18T15:57:55.4592175Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-18T15:57:55.4624142Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T15:57:55.4847927Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T15:57:55.4878468Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T15:57:55.5227356Z Post job cleanup.
+2026-10-18T15:57:55.6006224Z [command]/usr/bin/git version
+2026-10-18T15:57:55.6040440Z git version 2.55.0
+2026-10-18T15:57:55.6072266Z Temporarily overriding HOME='/home/runner/work/_temp/4d516c07-5602-4e5d-bffa-132be19de261' before making global git config changes
+2026-10-18T15:57:55.6073426Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T15:57:55.6078338Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/rsi-programmer/rsi-programmer
+2026-10-18T15:57:55.6110215Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T15:57:55.6140453Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T15:57:55.6347073Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T15:57:55.6366444Z http.https://github.com/.extraheader
+2026-10-18T15:57:55.6376245Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-18T15:57:55.6407414Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T15:57:55.6600658Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T15:57:55.6629242Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T15:57:55.7064014Z Cleaning up orphan processes
+2026-10-18T15:57:55.7312965Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, astral-sh/setup-uv@v5, extractions/setup-just@v2. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

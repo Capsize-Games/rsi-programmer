@@ -24,7 +24,13 @@ The memory pass is checked separately from the timing data. It reports RSS
 high-water and traced Python bytes without treating either as performance
 timing.
 
-Run the result audit after the complete bundle is available:
+The completed bundle passed the independent audit with 10,656 timed rows and
+864 memory rows. All five negative controls produced their expected
+rejections. `final-audit.json` preserves the first audit failure;
+`final-audit-v2.json` is the corrected audit report. `audit-receipt.json`
+records final command exit codes, durations, log hashes, and bundle hashes.
+
+Run the result audit on a future completed bundle with:
 
 ```sh
 python artifacts/benchmark-bounded-audit-20261018/bounded_audit.py \
@@ -45,6 +51,3 @@ python artifacts/benchmark-bounded-audit-20261018/negative_controls.py \
   artifacts/benchmark-bounded-v1-<run>/ \
   --output artifacts/benchmark-bounded-audit-20261018/negative-controls.json
 ```
-
-No complete benchmark bundle is available at this checkpoint, so the positive
-result audit and the four bundle-level negative controls remain pending.

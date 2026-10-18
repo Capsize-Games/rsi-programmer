@@ -1,11 +1,11 @@
 {
-  "auditor_sha256": "06ea473eb8225a4be0d16d9a8b18726aead8a803950fb0dad6875523fba0b27d",
+  "auditor_sha256": "56d26318d1dac80816132a9a08802cc4ab4c1e271a5e05e06e0b8af0f44d8bbf",
   "commands": [
     "uv tool run --from ruff ruff format --check --line-length 79 artifacts/benchmark-bounded-audit-20261018/bounded_audit.py",
     "python -B inline validation: AST parse; <=79 columns; close(0.2,0.6)=False; close(True,1)=False; close(1.0,1.0+1e-12)=True; independently enumerate expected_rows against frozen protocol/corpus"
   ],
   "negative_control_harness": {
-    "bundle_execution": "pending builder unlock and completed benchmark bundle",
+    "bundle_execution": "passed on completed bundle after parent confirmed builder lock free",
     "controls": [
       "duplicate raw key",
       "reordered raw rows",
@@ -15,19 +15,27 @@
     ],
     "format": "passed",
     "path": "artifacts/benchmark-bounded-audit-20261018/negative_controls.py",
-    "sha256": "11a7abaf9d23e01e07065b2b5640aedee97e79cdaf708c51e2999c5999a5de18",
+    "results_json": "negative-controls-final.json",
+    "sha256": "93205061ecabc43f2f6dc54ebbcaed150e703c1df2fdb485633d5a8821e550d0",
     "syntax": "passed"
+  },
+  "provenance_audit_amendment": {
+    "auditor_sha256_after": "56d26318d1dac80816132a9a08802cc4ab4c1e271a5e05e06e0b8af0f44d8bbf",
+    "corrected_report": "final-audit-v2.json",
+    "first_report": "final-audit.json preserved with two audit-check errors",
+    "git_metadata": "before/after git equality removed; pinned before/after source and environment hashes are checked and artifact publication legitimately changed git state",
+    "protocol_reference": "checked legacy source snapshot hash against fixtures/benchmark_total_work_v1.json; frozen bounded protocol is independently checked as c235...3472d"
   },
   "report_type": "bounded-candidate-auditor-validation",
   "results": {
-    "benchmark_bundle_available": false,
+    "benchmark_bundle_available": true,
     "bool_int_negative_control": "passed",
     "corpus_sha256": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
     "eval_task_count": 48,
     "format_check": "passed",
     "memory_rows_protocol": 864,
-    "negative bundle controls": "pending bundle",
-    "positive_result_audit": "pending bundle",
+    "negative bundle controls": "all five passed (negative-controls-final.json)",
+    "positive_result_audit": "passed (final-audit-v2.json; 10,656 timed + 864 memory; zero errors)",
     "protocol_sha256": "c235994867676059311cc05ac876060da0aa1517a6e3fa53cd73b80fabd3472d",
     "small_float_tolerance_positive_control": "passed",
     "strict_float_ratio_negative_control": "passed",
@@ -36,8 +44,8 @@
     "timed_rows_protocol": 10656
   },
   "sequence_audit_amendment": {
-    "auditor_execution": "pending lock-free state",
-    "auditor_sha256_after": "06ea473eb8225a4be0d16d9a8b18726aead8a803950fb0dad6875523fba0b27d",
+    "auditor_execution": "passed on completed bundle; schedule order checks passed",
+    "auditor_sha256_after": "56d26318d1dac80816132a9a08802cc4ab4c1e271a5e05e06e0b8af0f44d8bbf",
     "auditor_sha256_before": "3b686b9460d9a191a749cc9db2455df367496a97806b944cc700b9bec8129934",
     "format": "passed",
     "line_width": "passed",
