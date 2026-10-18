@@ -1175,12 +1175,14 @@ one logical run still reject
 
 ## 9. Current contracts
 
-- **Type safety of every emitted graph.** All construction goes
+- **Type safety of every emitted graph.** Historical search construction goes
   through `ActionSpace.apply` or `lower_to_dag` plus
   `validate_graph`; references are backward-only, so graphs are
   acyclic and operands correctly typed. Final validation requires Int
   output by default; ActionSpace explicitly permits Bool intermediate
   outputs ([#67](https://github.com/Capsize-Games/rsi-programmer/issues/67)).
+  The additive online iterator builds typed graph dictionaries directly;
+  `interpret` validates them before executing each observed row (§11).
 - **Acceptance independence.** Solved means exact equality on
   train and held rows under the frozen expectations (Sections
   2.3, 7.8); no network score, vote, or self-report can promote
@@ -1228,3 +1230,94 @@ not a declaration that every defect remains in the current code.
 | [#69](https://github.com/Capsize-Games/rsi-programmer/issues/69) | lineage overwrites across runs | §8.5 |
 | [#70](https://github.com/Capsize-Games/rsi-programmer/issues/70) | exact_flag/gap answer channels confound authorship claims | §5 |
 | [#71](https://github.com/Capsize-Games/rsi-programmer/issues/71) | `tasks._size_of` double-counts child roots | §1 |
+
+## 11. Additive online execution controller
+
+The online experiment is separate from the historical ranker, author,
+lattice and outer evolution loops. `online_graph.iter_candidates` yields a
+bounded grammar of two arithmetic operations over `x`, `y` and one constant
+from `(2, 3, 4, 5)`. The policy selects among three root-operation lanes;
+Python emits the next graph in that lane and executes it on observed rows.
+Each lane contains 144 graphs, for 432 total. The policy does not construct
+an arbitrary graph or receive an LLM-generated action or learning signal.
+
+```mermaid
+flowchart TD
+    OBS["Six observed input/target triples"] --> CONTEXT["Context projection"]
+    HISTORY["Bias, previous action, error, progress"] --> ENCODER
+    CONTEXT --> ENCODER["16 LIF units; six ticks per choice"]
+    ENCODER --> HEAD["Three-action softmax readout"]
+    HEAD --> HOST["Python emits next graph in selected lane"]
+    HOST --> EXEC["Execute on observed rows"]
+    EXEC --> HISTORY
+    EXEC --> CREDIT["Observed reward minus running baseline"]
+    CREDIT -->|"Readout-only mode"| HEAD
+    CREDIT -->|"Plastic mode: local eligibility"| CONTEXT
+    CREDIT -->|"Plastic mode: local eligibility"| ENCODER
+    EXEC -->|"Observed match or budget end"| CHECK
+    HELD["Held answers and polynomial; evaluator only"] --> CHECK
+    CHECK["Independent acceptance; no learner feedback"]
+```
+
+`OnlineSpikingPolicy` uses six history features and a fixed 16-by-6
+projection. `ObservedContextPolicy` additionally flattens six current integer
+`(x, y, target)` triples into 18 values, transforms each as
+`h_j = v_j / (1 + abs(v_j))`, and adds `sum_j C[j,k]*h_j / 18` to each
+neuron's input current. These targets are observed task specifications.
+Task identity, phase, root labels, held rows and exact answer polynomials
+are excluded from policy inputs and feedback.
+
+`OnlinePlasticEncoderPolicy` adds opt-in learning of both incoming
+projections. Its fixed-encoder mode preserves the earlier forward dynamics,
+readout rule, initial projections and action RNG. The neuron count,
+threshold 1, membrane decay 0.8 and six-tick choice remain unchanged. Only
+the readout learns in the previous modes; plastic mode also updates the
+history and observed-context projections.
+
+For one choice, let the constant drive into a neuron be `d`. The forward
+dynamics are `u_t = 0.8*m_(t-1) + d`, `s_t = 1[u_t >= 1]`, and
+`m_t = u_t*(1-s_t)`. The surrogate derivative is
+`psi(u) = 0.3*max(0, 1-abs(u-1))`. The local drive derivative starts at zero
+at every choice and follows:
+
+```text
+du_t = 0.8*dm_(t-1) + 1
+ds_t = psi(u_t)*du_t
+dm_t = (1-s_t)*du_t - u_t*ds_t
+q = sum_t ds_t / 6
+```
+
+Constant inputs within a choice allow this scalar trace to factorize all
+incoming-weight eligibilities: `q*x_i` for a history weight and `q*h_j/18`
+for a context weight. The matched continuous control retains the leaky
+membrane without spike reset and uses the derivative of `tanh(u_t)`.
+Actual membrane values carry between choices within an episode, but their
+derivative history is truncated at each choice. This is a six-step surrogate
+rule, not full recurrent credit assignment or an exact e-prop implementation.
+
+After real execution, reward is `1 - mean(min(1, abs(got-target) /
+(1+abs(target))))` on observed rows. Advantage is reward minus the previous
+running baseline. The hidden action signal is computed from the pre-update
+readout: `g_k = sum_a W[a,k]*(1[a==chosen]-p_a)` over available actions.
+Encoder updates multiply advantage, `g_k` and the corresponding eligibility,
+with learning rate 0.01, per-update clipping at 0.05 and weight clipping at 5.
+The inherited readout learning rate remains 0.05. Both updates use the
+current decision's stored credit; feedback consumes that credit once. A
+zero initial readout gives zero encoder credit on the first choice.
+
+Readout, both learned projections and reward baseline persist between tasks
+in persistent arms. Membrane, pending credit and observed context clear at
+episode boundaries. Reset controls restore both seeded projections and the
+readout without rewinding the sampler. Boundary snapshots include learned
+matrices, model/readout hashes, baseline, RNG and counters; invalid restores
+are rejected before replacing state. Read-only evaluation copies disable
+learning and preserve the source policy.
+
+The first exact observed match stops search; held rejection cannot trigger
+further learning or retries. `online_graph.check_result` independently checks
+held rows and exact polynomial identity after the policy ends its episode.
+The frozen encoder-learning comparison and cold root-preference retention
+diagnostic are specified in
+[benchmark-online-plastic-encoder.md](docs/benchmark-online-plastic-encoder.md).
+Those probes do not establish retention of full programs. No physical
+sensor interface, chip implementation or device-energy result is implied.

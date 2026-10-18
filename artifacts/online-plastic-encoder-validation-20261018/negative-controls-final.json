@@ -1,0 +1,62 @@
+{
+  "controls": [
+    {
+      "control": "valid_episode_prefix",
+      "error": "incomplete episode matrix 1/13824",
+      "status": "rejected"
+    },
+    {
+      "control": "forged_observed_prediction",
+      "error": "observed predictions mismatch",
+      "status": "rejected"
+    },
+    {
+      "control": "forged_observed_reward",
+      "error": "attempt reward mismatch",
+      "status": "rejected"
+    },
+    {
+      "control": "forged_encoder_hash",
+      "error": "pre-task encoder hash mismatch",
+      "status": "rejected"
+    },
+    {
+      "control": "forged_context_work",
+      "error": "observed context setup counters mismatch",
+      "status": "rejected"
+    },
+    {
+      "control": "valid_retention_prefix",
+      "error": "retention matrix incomplete 1/1008",
+      "status": "replayed_prefix"
+    },
+    {
+      "control": "forged_retention_rate",
+      "error": "retention context probe.rates[0] mismatch",
+      "status": "rejected"
+    },
+    {
+      "control": "forged_retention_probability",
+      "error": "retention context probe.probabilities[0] mismatch",
+      "status": "rejected"
+    },
+    {
+      "control": "forged_retention_source_hash",
+      "error": "retention source before mismatch",
+      "status": "rejected"
+    },
+    {
+      "control": "forged_retention_work",
+      "error": "retention explicit work missing",
+      "status": "rejected"
+    },
+    {
+      "control": "missing_source_manifest_entry",
+      "error": "source manifest path set mismatch; missing=['rsi_programmer/online_plastic_encoder.py'], extra=[]",
+      "status": "rejected"
+    }
+  ],
+  "protocol_sha256": "8fd37e1cd6904ab28dae47d48baf95beab68e0819b5a554d920c3d63aa1ebbf9",
+  "scope": "One valid episode row and one valid 48-probe retention group; semantic corruption is checked before matrix EOF. This is not a full-bundle audit.",
+  "status": "passed"
+}

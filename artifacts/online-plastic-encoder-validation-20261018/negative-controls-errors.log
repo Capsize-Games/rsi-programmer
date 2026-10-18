@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/home/joe/Projects/rsi-programmer/artifacts/online-plastic-encoder-validation-20261018/negative-controls.py", line 222, in <module>
+    print(json.dumps(run_controls(), sort_keys=True, indent=2))
+                     ~~~~~~~~~~~~^^
+  File "/home/joe/Projects/rsi-programmer/artifacts/online-plastic-encoder-validation-20261018/negative-controls.py", line 196, in run_controls
+    controls.extend(_retention_controls(directory))
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/joe/Projects/rsi-programmer/artifacts/online-plastic-encoder-validation-20261018/negative-controls.py", line 154, in _retention_controls
+    audit(row)
+    ~~~~~^^^^^
+  File "/home/joe/Projects/rsi-programmer/artifacts/online-plastic-encoder-validation-20261018/negative-controls.py", line 149, in audit
+    _audit_retention(
+    ~~~~~~~~~~~~~~~~^
+        directory, boundary_states, tasks,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        {"retention_raw_sha256": digest},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joe/Projects/rsi-programmer/scripts/audit_online_plastic_encoder.py", line 888, in _audit_retention
+    raise ValueError(f"retention matrix incomplete {len(output)}"
+                     f"/{len(expected)}")
+ValueError: retention matrix incomplete 1/1008

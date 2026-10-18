@@ -30,8 +30,9 @@ from the current six observed triples at each decision.
 
 Plasticity uses a six-step, current-decision surrogate eligibility. For each
 choice, the derivative history starts at zero and covers the six forward
-steps for that choice only. The actual membrane state continues through those
-steps and resets at the episode boundary. There is no delayed reward credit
+steps for that choice only. The actual membrane state carries between choices
+within an episode and resets at the episode boundary; only derivative history
+truncates at each choice. There is no delayed reward credit
 across choices, and this is not an exact e-prop implementation. With
 `u_t = 0.8*m_(t-1) + input_t`, the binary-LIF surrogate is
 `psi(u) = 0.3*max(0, 1-abs(u-1))`; the continuous control uses the derivative

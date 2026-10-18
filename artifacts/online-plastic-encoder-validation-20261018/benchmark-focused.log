@@ -1,0 +1,19 @@
+test_all_neural_arms_start_from_matched_projection_and_readout (tests.test_online_plastic_benchmark.TestOnlinePlasticBenchmark.test_all_neural_arms_start_from_matched_projection_and_readout)
+Arm flags must not alter the seeded initial model or RNG state. ... ok
+test_partial_matrix_cannot_pass_gates (tests.test_online_plastic_benchmark.TestOnlinePlasticBenchmark.test_partial_matrix_cannot_pass_gates)
+A sparse result set cannot satisfy any predeclared comparison. ... ok
+test_protocol_digest_rejects_changed_bytes (tests.test_online_plastic_benchmark.TestOnlinePlasticBenchmark.test_protocol_digest_rejects_changed_bytes)
+Any protocol edit requires a new explicit freeze. ... ok
+test_protocol_is_pinned_to_existing_inputs_and_matrix (tests.test_online_plastic_benchmark.TestOnlinePlasticBenchmark.test_protocol_is_pinned_to_existing_inputs_and_matrix)
+The new protocol must pin the original stream and full matrix. ... ok
+test_retention_probe_covers_canonical_contexts_without_mutation (tests.test_online_plastic_benchmark.TestOnlinePlasticBenchmark.test_retention_probe_covers_canonical_contexts_without_mutation)
+Read-only cold probes cover each task and preserve full source. ... ok
+test_retention_summary_pairs_phase_end_with_final_same_contexts (tests.test_online_plastic_benchmark.TestOnlinePlasticBenchmark.test_retention_summary_pairs_phase_end_with_final_same_contexts)
+Retention compares each phase's contexts at two boundaries. ... ok
+test_summary_charges_probes_and_enforces_each_frozen_gate (tests.test_online_plastic_benchmark.TestOnlinePlasticBenchmark.test_summary_charges_probes_and_enforces_each_frozen_gate)
+Probe cost belongs in total CPU; gate denominators are per order. ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.046s
+
+OK
