@@ -7,7 +7,7 @@ replay auditor and its tests before running the comparison.
   tests.test_counterbalanced_protocol tests.test_online_diagnostics
   tests.test_counterbalanced_audit tests.test_online_spiking
   tests.test_online_graph tests.test_online_corpus tests.test_online_audit
-  tests.test_online_benchmark -v`: 46 passed in 0.189 seconds.
+  tests.test_online_benchmark -v`: 46 passed in 0.190 seconds.
 - `just test-fast`: 420 passed in 234.598 seconds; no skips or exclusions.
   Source hashes were unchanged; receipt and complete log are retained here.
 - Commands ran serially under `/tmp/rsi-programmer-builder.lock`.

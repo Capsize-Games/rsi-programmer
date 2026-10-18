@@ -1,0 +1,7 @@
+diagnostic entropy: rejected: ValueError: diagnostic_before.entropy_nats mismatch
+reward: rejected: ValueError: attempt reward mismatch
+first phase position: rejected: ValueError: counterbalanced row phase_position mismatch
+incoming RNG offset: rejected: ValueError: incoming RNG draw offset mismatch
+omitted source hash: rejected: ValueError: source manifest path set mismatch; missing=['.github/workflows/ci.yml'], extra=[]
+summary CPU: rejected: ValueError: summary.per_order[0].per_seed[0].total_cpu_seconds mismatch
+missing final row: rejected: ValueError: incomplete episode matrix: 8639

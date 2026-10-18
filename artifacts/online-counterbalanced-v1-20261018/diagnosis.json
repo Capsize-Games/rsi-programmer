@@ -1,0 +1,171 @@
+{
+  "by_acceptance": {
+    "accepted": {
+      "attempts": 21880,
+      "episodes": 378,
+      "mean_attempts_per_episode": 57.883597883597886,
+      "nonexact_update_fraction": 0.9827239488117002,
+      "nonexact_updates": 21502,
+      "positive_advantage_fraction": 0.3552559414990859,
+      "positive_advantages": 7773,
+      "positive_reward_fraction_among_wrong_root_attempts": 0.9396279778092027,
+      "positive_reward_wrong_root": 8638,
+      "share_of_all_updates": 0.2381781764347296,
+      "updates": 21880,
+      "wrong_root_attempts": 9193
+    },
+    "failed": {
+      "attempts": 69984,
+      "episodes": 486,
+      "mean_attempts_per_episode": 144.0,
+      "nonexact_update_fraction": 1.0,
+      "nonexact_updates": 69984,
+      "positive_advantage_fraction": 0.3848736854138089,
+      "positive_advantages": 26935,
+      "positive_reward_fraction_among_wrong_root_attempts": 0.9194114871830715,
+      "positive_reward_wrong_root": 52617,
+      "share_of_all_updates": 0.7618218235652704,
+      "updates": 69984,
+      "wrong_root_attempts": 57229
+    }
+  },
+  "cold_diagnostics": {
+    "order": {
+      "0-1-2": {
+        "episodes": 144,
+        "mean_entropy_nats": 0.4344267351373284,
+        "mean_max_probability": 0.8443960895165401
+      },
+      "0-2-1": {
+        "episodes": 144,
+        "mean_entropy_nats": 0.4126878321097394,
+        "mean_max_probability": 0.864962297394144
+      },
+      "1-0-2": {
+        "episodes": 144,
+        "mean_entropy_nats": 0.567240216896043,
+        "mean_max_probability": 0.7765849008857405
+      },
+      "1-2-0": {
+        "episodes": 144,
+        "mean_entropy_nats": 0.7748298887623156,
+        "mean_max_probability": 0.6667806730898352
+      },
+      "2-0-1": {
+        "episodes": 144,
+        "mean_entropy_nats": 0.6436823501545441,
+        "mean_max_probability": 0.7279631568558251
+      },
+      "2-1-0": {
+        "episodes": 144,
+        "mean_entropy_nats": 0.6589269405939246,
+        "mean_max_probability": 0.7245318342199853
+      }
+    },
+    "phase_position": {
+      "0": {
+        "episodes": 288,
+        "mean_entropy_nats": 0.7999662162575193,
+        "mean_max_probability": 0.6349739479385923
+      },
+      "1": {
+        "episodes": 288,
+        "mean_entropy_nats": 0.532500639811902,
+        "mean_max_probability": 0.8018324770182166
+      },
+      "2": {
+        "episodes": 288,
+        "mean_entropy_nats": 0.4134301257575268,
+        "mean_max_probability": 0.8658030510242265
+      }
+    },
+    "root_family": {
+      "add": {
+        "episodes": 288,
+        "mean_entropy_nats": 0.5867731944798068,
+        "mean_max_probability": 0.7706587042895987
+      },
+      "mul": {
+        "episodes": 288,
+        "mean_entropy_nats": 0.6229663072148822,
+        "mean_max_probability": 0.736974836558187
+      },
+      "sub": {
+        "episodes": 288,
+        "mean_entropy_nats": 0.5361574801322585,
+        "mean_max_probability": 0.7949759351332493
+      }
+    }
+  },
+  "first_features": {
+    "constant": true,
+    "distinct_vectors": 1,
+    "expected_vector": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "only_vector": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "rows": 864
+  },
+  "input_hashes": {
+    "counterbalanced_raw_sha256": "8bb24abbc9687a18069e6a7b036877c942cde137cabd0967b4d4c8d4d082d94d",
+    "original_raw_sha256": "816b5486a45cb77c4a1cafe8dc28d1480a7739f2ebdac4ae8b14fa48c9c7a702"
+  },
+  "old_order_semantic_match": {
+    "expected_rows": 1440,
+    "rows_compared": 1440,
+    "semantic_fields": [
+      "attempts",
+      "candidate_evaluations",
+      "accepted",
+      "observed_solved",
+      "held_correct",
+      "polynomial_correct",
+      "weight_before",
+      "weight_after"
+    ],
+    "status": "exact_match",
+    "timings_and_new_diagnostic_fields_excluded": true
+  },
+  "overall_work": {
+    "advantage_computation": "per attempt, reward - diagnostic baseline; then update baseline += 0.05 * advantage; no held values read",
+    "attempts": 91864,
+    "baseline_chain_mismatches": 0,
+    "baseline_ema_rate": 0.05,
+    "nonexact_update_fraction": 0.9958852216319777,
+    "nonexact_updates": 91486,
+    "positive_advantage_fraction": 0.37781938517808933,
+    "positive_advantages": 34708,
+    "positive_reward_fraction_among_wrong_root_attempts": 0.9222095088976544,
+    "positive_reward_wrong_root_attempts": 61255,
+    "updates": 91864,
+    "wrong_root_attempts": 66422
+  },
+  "scope": {
+    "arm": "persistent_snn",
+    "budget": 144,
+    "causal_or_significance_claim": false,
+    "episodes": 864,
+    "held_answers_used_as_input": false,
+    "orders": [
+      "0-1-2",
+      "0-2-1",
+      "1-0-2",
+      "1-2-0",
+      "2-0-1",
+      "2-1-0"
+    ],
+    "task_stream": "same 48 functions repeated across orders/seeds; not independent task draws"
+  }
+}
