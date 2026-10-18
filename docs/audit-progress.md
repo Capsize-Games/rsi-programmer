@@ -1,10 +1,22 @@
 # Audit progress checkpoint
 
-Snapshot: 2026-10-18T06:19:41.092443+00:00. Runtime and test inputs match implementation
-[`0fcf868`](https://github.com/Capsize-Games/rsi-programmer/commit/0fcf8689b9e26a872230b89741902aecd98eba48),
-tagged [code-v42](https://github.com/Capsize-Games/rsi-programmer/releases/tag/code-v42).
-This checkpoint publishes the completed review and test evidence while the
-affected slow lane continues. It does not claim completed integration validation.
+Snapshot: 2026-10-18T06:42:49.236645+00:00. The 96 runtime/test/fixture inputs still match
+implementation [`0fcf868`](https://github.com/Capsize-Games/rsi-programmer/commit/0fcf8689b9e26a872230b89741902aecd98eba48).
+SHA-256: `2a6b6ebbaabbd95e3ed77f467cc359ebf798fb9907794612db423b5a25b79d94`.
+
+## Slow validation passed
+
+`just test-slow`: **64 tests passed in 14,217.561s**. The completed lane
+includes the shared-instance scale `run()` test that repeats evolution,
+both scale acceptance paths, and the transfer checks.
+[Exact log](../artifacts/validation-slow-20261018/slow-final.log) and
+[source/timing manifest](../artifacts/validation-slow-20261018/manifest.json).
+
+`just test-retry` started after the successful slow lane and is currently
+running. The independent three-seed measurement on the final sources
+follows retry. Neither pending result is claimed complete. The automatic
+full CI jobs are separate from the completed fast matrix; no separate
+local full discovery run was invoked.
 
 ## Completed evidence
 
@@ -14,28 +26,14 @@ affected slow lane continues. It does not claim completed integration validation
 - [Python 3.13 CI fast log](../artifacts/validation-checkpoint-20261018/ci-fast-313-public.log): 222 tests passed in 422.996s.
 - The two new same-instance repeat-run tests first reproduced two `LineageError` exceptions ([red log](../artifacts/validation-checkpoint-20261018/repeat-run-red-confirmed.log)); after the caller fix, 14 integrity tests passed in 0.827s ([green log](../artifacts/validation-checkpoint-20261018/repeat-run-integrity-confirmed.log)). Fitting and fitness are small deterministic stubs in those focused tests; the ledger and high-level run methods execute normally.
 
-## Pending validation
 
-The current `just test-slow` run has 58 reported passes and is still
-running the shared-instance scale `run()` integration test. The earlier
-scale evolution-and-acceptance test passed. The
-[partial log](../artifacts/validation-checkpoint-20261018/slow-partial.log)
-is a snapshot, not a passing lane. `just test-retry` and the independent
-rank measurement on these final sources follow sequentially and have not
-started. The automatic full CI jobs are separate from the completed fast
-matrix. No separate local full discovery run was invoked.
+## Earlier partial runs
 
-The three preceding interrupted slow attempts are preserved as
-[attempt 1](../artifacts/validation-checkpoint-20261018/slow-attempt-1.log),
-[attempt 2](../artifacts/validation-checkpoint-20261018/slow-attempt-2.log), and
-[attempt 3](../artifacts/validation-checkpoint-20261018/slow-attempt-3.log).
-None is counted as a passing lane. The final publication will add the
-completed lane results and fresh measurement; the historical baseline
-experiment remains labeled as such.
-
-[Checkpoint manifest](../artifacts/validation-checkpoint-20261018/manifest.json)
-records source and output hashes. The 96 runtime/test/fixture inputs have
-SHA-256 `2a6b6ebbaabbd95e3ed77f467cc359ebf798fb9907794612db423b5a25b79d94`.
+The [previous checkpoint](../artifacts/validation-checkpoint-20261018/manifest.json)
+records the 06:19 UTC snapshot with 58 partial slow passes. Its partial
+log and three interrupted attempts remain available in that artifact
+folder; none was counted as a passing lane. The historical baseline
+measurement describes 5c6701b and is separate from the pending final run.
 
 ## Issue disposition
 
