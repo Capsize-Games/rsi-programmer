@@ -122,7 +122,8 @@ class MeasurementProvenanceTests(unittest.TestCase):
                     patch.object(measurement, "_tasks",
                                  return_value=([task], [{"id": "tiny"}])), \
                     patch.object(measurement, "SearchPolicy"), \
-                    patch.object(measurement, "train_author", return_value=1), \
+                    patch.object(measurement, "train_author",
+                                 return_value=1), \
                     patch.object(measurement, "refine_author",
                                  return_value=([1.0] * len(
                                      measurement.EXTRA), [])), \

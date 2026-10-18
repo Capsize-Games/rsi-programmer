@@ -270,8 +270,9 @@ class ProtocolReviewTests(unittest.TestCase):
                    return_value=FakePolicy()), \
                 patch("rsi_programmer.rich.guided_search",
                       return_value=dict(result)):
-            fitness = fitness_of(FakePolicy(), jobs, [[[0.0]]],
-                                [0.0] * 4, 2, 1)
+            selection = [[[0.0], [1.0]]]
+            fitness = fitness_of(FakePolicy(), jobs, selection,
+                                 [0.0] * 4, 2, 1)
         self.assertEqual(fitness["correctness"], 0.0)
         self.assertEqual(fitness["recovery"], 0.0)
 

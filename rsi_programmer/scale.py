@@ -69,6 +69,10 @@ class ScaleUp:
         self._best: SearchPolicy = SearchPolicy(seed=seed)
         self._archive: list[dict[str, Any]] = []
         self._exprs: dict[str, Any] = {}
+        self._surrogate_evidence: list[dict[str, Any]] = []
+        self._hard_training_group_count = 0
+        self._hard_selection_group_count = 0
+        self._rich_fitted_group_count = 0
 
     @staticmethod
     def _parts(task: Task) -> tuple[Any, Any, int]:
@@ -129,8 +133,24 @@ class ScaleUp:
         tries = {t["id"]: int(self._base["hard"]["tasks"][
             t["id"]]["signature_evaluations"])
                  for t in self._ha_tasks}
-        more12, morex, sel = family_pairs(tasks, self._exprs,
-                                          tries, self._parts)
+        evidence: list[dict[str, Any]] = []
+        more12, morex, sel = family_pairs(
+            tasks, self._exprs, tries, self._parts,
+            diagnostics=evidence)
+        self._surrogate_evidence = evidence
+        self._hard_training_group_count = sum(
+            bool(any(label == 1 for _, label in group)
+                 and any(label == 0 for _, label in group))
+            for group in more12)
+        self._hard_selection_group_count = sum(
+            len(group) > 1 for group in sel)
+        if not self._hard_training_group_count:
+            raise ValueError(
+                "scale-up requires complete hard training groups with "
+                "known positive and negative pairs")
+        if not self._hard_selection_group_count:
+            raise ValueError(
+                "scale-up requires a non-vacuous hard selection group")
         self._sel = sel
         return list(w1) + more12, morex
 
@@ -253,6 +273,31 @@ class ScaleUp:
         fidelity = {"richer": list(RICH),
                     "rich_weights": list(self._rich),
                     "stopped_early": bool(evo["stopped"]),
+                    "surrogate_evidence": {
+                        "tasks": list(self._surrogate_evidence),
+                        "task_count": len(self._surrogate_evidence),
+                        "training_group_count":
+                            self._hard_training_group_count,
+                        "selection_group_count":
+                            self._hard_selection_group_count,
+                        "rich_fitted_group_count":
+                            self._rich_fitted_group_count,
+                        "known_negative_pairs": sum(
+                            int(row.get("negative_pairs", 0))
+                            for row in self._surrogate_evidence),
+                        "training_negative_pairs": sum(
+                            int(row.get("training_negative_pairs", 0))
+                            for row in self._surrogate_evidence),
+                        "selection_negative_pairs": sum(
+                            int(row.get("selection_negative_pairs", 0))
+                            for row in self._surrogate_evidence),
+                        "truncated_tasks": sum(
+                            row.get("reason") == "reachability_truncated"
+                            for row in self._surrogate_evidence),
+                        "skipped_tasks": sum(
+                            not bool(row.get("included"))
+                            for row in self._surrogate_evidence),
+                    },
                     "bias": ["no full hard search in evolution",
                              "selection shares one positive",
                              "early layers provably match-free",
@@ -264,6 +309,13 @@ class ScaleUp:
         """Surrogates plus fitted rich weights; returns groups."""
         groups, extra = self.surrogate_groups()
         self._rich = fit_rich(extra)
+        self._rich_fitted_group_count = sum(
+            bool(any(label == 1 for _, label in group)
+                 and any(label == 0 for _, label in group))
+            for group in extra)
+        if not self._rich_fitted_group_count:
+            raise ValueError(
+                "scale-up requires at least one non-vacuous rich fit group")
         return groups
 
     def run(self) -> dict[str, Any]:

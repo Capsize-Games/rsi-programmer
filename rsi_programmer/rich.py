@@ -179,6 +179,9 @@ def _run_job(policy: SearchPolicy, job: Any) -> dict[str, Any]:
 def _pairs_acc(policy: SearchPolicy, sel: list[Any],
                rich: list[float]) -> float:
     """Top-1 accuracy of the solver over selection negs."""
+    if not sel or any(len(feats) < 2 for feats in sel):
+        raise ValueError(
+            "selection fidelity requires nonvacuous negative pairs")
     hits = 0
     policy.set_rich_bonus(list(rich))
     for feats in sel:
@@ -231,9 +234,10 @@ def _neg_layer(levels: dict[int, list[Expr]], size: int,
     return cur
 
 
-def hard_neg(rows: Rows, target: Vals,
-             bound: int) -> tuple[Group, Group]:
-    """Bounded negatives excluding train-graph completing intermediates.
+def hard_neg_with_report(
+        rows: Rows, target: Vals, bound: int
+        ) -> tuple[Group, Group, dict[str, Any]]:
+    """Return bounded negatives and their train-only evidence status.
 
     A truncated reachability graph yields no negatives rather than treating
     candidates with unknown status as negative evidence.
@@ -242,7 +246,9 @@ def hard_neg(rows: Rows, target: Vals,
 
     completing, report = solution_sigs_by_size_report(rows, target, bound)
     if report["truncated"]:
-        return [], []
+        return [], [], {**report, "evidence_status": "truncated",
+                        "negative_pairs": 0,
+                        "negative_cap_reached": False}
     g12: Group = []
     gx: Group = []
     levels: dict[int, list[Expr]] = {0: list(terminals())}
@@ -251,7 +257,17 @@ def hard_neg(rows: Rows, target: Vals,
                                   bound, g12, gx, completing)
         if len(g12) >= NEG_CAP:
             break
-    return g12, gx
+    return g12, gx, {**report, "evidence_status": "complete",
+                     "negative_pairs": len(g12),
+                     "negative_cap_reached": len(g12) >= NEG_CAP}
+
+
+def hard_neg(rows: Rows, target: Vals,
+             bound: int) -> tuple[Group, Group]:
+    """Bounded negatives excluding train-graph completing intermediates."""
+    negatives, rich_negatives, _report = hard_neg_with_report(
+        rows, target, bound)
+    return negatives, rich_negatives
 
 
 def hard_pos(expr: Expr, rows: Rows, target: Vals,
@@ -284,19 +300,42 @@ def hard_pos(expr: Expr, rows: Rows, target: Vals,
 
 
 def family_pairs(tasks: dict[str, Task], exprs: dict[str, Any],
-                 tries: dict[str, int], parts: Any) -> tuple[
+                 tries: dict[str, int], parts: Any,
+                 diagnostics: list[dict[str, Any]] | None = None) -> tuple[
                      list[Group], list[Group], list[Any]]:
-    """Surrogate groups plus one disjoint selection slice."""
+    """Surrogate groups plus disjoint selection, omitting unknown labels."""
     g12: list[Group] = []
     gx: list[Group] = []
     sel: list[Any] = []
     for tid, expr in exprs.items():
         if expr is None:
+            if diagnostics is not None:
+                diagnostics.append({"task": tid, "included": False,
+                                    "reason": "no_train_solver"})
             continue
         rows, target, bound = parts(tasks[tid])
+        neg12, negx, report = hard_neg_with_report(rows, target, bound)
+        count = len(neg12)
+        if count != len(negx):
+            raise ValueError("rich and base negative counts differ")
+        reason = ("reachability_truncated" if report["truncated"] else
+                  "insufficient_negative_pairs" if count < 2 else None)
+        if reason is not None:
+            if diagnostics is not None:
+                diagnostics.append({"task": tid, "included": False,
+                                    "reason": reason, **report})
+            continue
         pos = hard_pos(expr, rows, target, bound, tries[tid])
-        neg12, negx = hard_neg(rows, target, bound)
-        g12.append([pos[0]] + neg12[SEL_CAP:])
-        gx.append([pos[1]] + negx[SEL_CAP:])
-        sel.append([f for f, _ in neg12[:SEL_CAP]] + [pos[0][0]])
+        selection_count = min(SEL_CAP, max(1, count // 2))
+        g12.append([pos[0]] + neg12[selection_count:])
+        gx.append([pos[1]] + negx[selection_count:])
+        sel.append([f for f, _ in neg12[:selection_count]]
+                   + [pos[0][0]])
+        if diagnostics is not None:
+            diagnostics.append({
+                "task": tid, "included": True,
+                "training_negative_pairs": count - selection_count,
+                "selection_negative_pairs": selection_count,
+                **report,
+            })
     return g12, gx, sel

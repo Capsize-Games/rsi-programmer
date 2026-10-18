@@ -1,8 +1,8 @@
 # Audit progress
 
-The [audit follow-up](audit-followup.md) records code-v51's complete
-slow-lane failure: 64 tests, one failure in rich-surrogate fidelity.
-#66 is reopened and retry did not run. The repair and renewed gates
-are pending. Code-v48's real measurements and green local/CI fast
-evidence remain historical source-matched results; they are not a
-passing integration gate for this failure.
+The [audit follow-up](audit-followup.md) records code-v52's rich-surrogate
+caller repair and complete green fast lane. #66 remains open pending
+new-source slow/retry integration. Unknown hard-task labels are omitted
+with reported reasons; hard fitting and selection cover one complete
+task, while search acceptance still covers all eight tasks. The earlier
+failed slow and fast attempts remain published with their failures.

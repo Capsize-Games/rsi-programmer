@@ -983,9 +983,17 @@ $$
 
 plus *refinability* (fraction of 2 probe tasks solved after
 EXTRA-weight refinement) in evolve's ordering key, and
-*hard_benefit* in scale: the fraction of selection sets (750
-hard negatives + 1 positive, positive last) where
-policy-score-plus-rich-bonus ranks the positive first. Ordering
+*hard_benefit* in scale: the fraction of nonvacuous selection
+sets where policy-score-plus-rich-bonus ranks the positive first
+(positive last). For N >= 2 materialized proven negatives, selection
+uses `min(750, max(1, N // 2))`; the disjoint remainder trains the
+policy. The negative pool is capped at 1,500. Truncated, unsolved,
+or smaller pools are omitted with per-task evidence; empty or
+singleton selection raises. On the frozen hard family, only
+`sub_square_diff` supplies complete surrogate evidence; the other
+three tasks reach the graph cap. Thus hard fitting and selection
+have one-task coverage, although search acceptance still evaluates
+all four hard and four shadow tasks. Ordering
 is lexicographic on the components (`_fitkey`, `fitkey4`), while
 Pareto dominance uses a subset - the two rankings can and do
 disagree, and both drive selection in different lines of the

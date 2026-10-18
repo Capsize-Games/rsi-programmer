@@ -1,5 +1,47 @@
 # Audit follow-up
 
+## code-v52: rich-surrogate caller repair; fast verified
+
+Capped reachability evidence no longer produces positive-only rich
+training groups or one-item selection lists. `family_pairs` omits
+truncated, unsolved, or undersized tasks and records each reason.
+For a complete pool of N >= 2 negatives, selection takes
+`min(750, max(1, N // 2))` and training takes the disjoint remainder.
+The real 1,500-pair pool still splits 750/750. Empty or singleton
+selection raises an error; scale preparation also requires actual
+mixed-label hard and rich fitting groups. The old two-value `hard_neg`
+API remains compatible, with a separate evidence-reporting helper.
+
+Scale reports include per-task reachability caps, completion status,
+materialized known-negative counts, skipped reasons, and fitting and
+selection group counts. Negative counts describe the materialized pool
+capped at 1,500, not every possible eligible negative. Three hard
+tasks remain capped and omitted from surrogate fitting and selection;
+only `sub_square_diff` supplies complete hard evidence. Consequently
+`hard_benefit` and rich fitting have one-task coverage. Search acceptance
+still evaluates all four shadow and all four hard tasks.
+
+The original real-fixture fidelity assertion was retained and passed
+with the seven new regressions: **8 tests in 27.750s; OK** on the
+repaired runtime. A full fast attempt then found an older held-failure
+test mock supplying a singleton selection: **266 tests in 221.283s,
+one error**. That fixture now contains a negative and a positive;
+its held-failure correctness and recovery assertions are unchanged.
+The affected modules passed **22 tests in 0.439s** after that adjustment.
+
+The fresh complete `just test-fast` passed: **Ran 266 tests in 222.071s; OK**.
+No fast tests were excluded. All 104 runtime/test/fixture inputs have
+SHA-256 `9fc2dbdc1c651ddbbfdc3e88677741d2760dc1789867dc636046f613b2742ef9` before and after the run. Measurements and complete
+slow/retry lanes are being rerun sequentially on this exact frozen
+source. #66 stays open pending those integration gates. Code-v51's
+complete failed slow run remains published as failed evidence.
+
+[Passing fast log](../artifacts/followup-rich-fix-20261018/fast.log),
+[first fast failure](../artifacts/followup-rich-fix-20261018/prior-fast-failure.log),
+[affected-module checks](../artifacts/followup-rich-fix-20261018/focused-held-failure.log),
+[original fidelity regression](../artifacts/followup-rich-fix-20261018/focused-real-fidelity.log),
+and [source/log manifest](../artifacts/followup-rich-fix-20261018/manifest.json).
+
 ## code-v51: complete slow-lane failure; #66 reopened
 
 The complete affected slow lane finished **64 tests in 3502.573s**,
