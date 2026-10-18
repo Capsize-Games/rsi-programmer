@@ -1,0 +1,93 @@
+{
+  "snapshot_at_utc": "2026-10-18T09:27:36.372561+00:00",
+  "source": {
+    "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+    "files": 102
+  },
+  "stages": [
+    {
+      "name": "author-ablation",
+      "command": [
+        ".venv/bin/python",
+        "scripts/measure_author_ablation.py",
+        "--seeds",
+        "0",
+        "1",
+        "2",
+        "--epochs",
+        "100",
+        "--rounds",
+        "12",
+        "--budget",
+        "128",
+        "--topk",
+        "3",
+        "--width",
+        "3",
+        "--output",
+        "artifacts/author-ablation-v1.json"
+      ],
+      "source_start": {
+        "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+        "files": 102
+      },
+      "status": "passed",
+      "started_at_unix": 1792314851.489588,
+      "exit_code": 0,
+      "wall_seconds": 71.3024230003357,
+      "source_finish": {
+        "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+        "files": 102
+      }
+    },
+    {
+      "name": "ranker",
+      "command": [
+        ".venv/bin/python",
+        "scripts/measure_ranker.py",
+        "--out",
+        "artifacts/ranker-v47"
+      ],
+      "source_start": {
+        "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+        "files": 102
+      },
+      "status": "passed",
+      "started_at_unix": 1792314922.7985647,
+      "exit_code": 0,
+      "wall_seconds": 13.575035572052002,
+      "source_finish": {
+        "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+        "files": 102
+      }
+    },
+    {
+      "name": "slow",
+      "command": [
+        "just",
+        "test-slow"
+      ],
+      "source_start": {
+        "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+        "files": 102
+      },
+      "status": "running",
+      "started_at_unix": 1792314936.3808098
+    }
+  ],
+  "partial_slow_reported_passes": 55,
+  "partial_slow_reported_failures": 0,
+  "pending": [
+    "complete slow lane",
+    "complete retry lane",
+    "automatic CI full jobs"
+  ],
+  "excluded_tests": [],
+  "full_local_discovery": false,
+  "outputs_sha256": {
+    "ci-fast.json": "a7eee280128a89661edb15b4b1c0ffe830eab57015c1418259abf3a68367b883",
+    "ranker-dependency-bracket.json": "12299036a0e8fdc569f967c21b5542142dc00c53a8de47de8fbb8fce937706b2",
+    "ranker-integrity-audit.json": "5c3cfb9863ad007baf33ac744027a47ec51bca7accc16f858d75f604c037b624",
+    "slow-partial.log": "c21e32e5ff4ad9612392740125d3c89d41478f7b8819aa32eaec27a8a877fa08"
+  }
+}

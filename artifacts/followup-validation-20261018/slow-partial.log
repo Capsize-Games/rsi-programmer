@@ -1,0 +1,113 @@
+.venv/bin/python -m unittest tests.test_hub_verify tests.test_rsi_author tests.test_rsi_baseline tests.test_rsi_beam tests.test_rsi_evolve tests.test_rsi_loop tests.test_rsi_operands tests.test_rsi_scale tests.test_rsi_transfer -v
+test_missing_hub_listing_recorded (tests.test_hub_verify.HubVerifyTests.test_missing_hub_listing_recorded)
+Unpublished models report hub FAIL with the reason. ... ok
+test_wrong_checksum_fails (tests.test_hub_verify.HubVerifyTests.test_wrong_checksum_fails)
+Corrupted local weights fail against real assets. ... ok
+test_enumerator_fallback_intact (tests.test_rsi_author.AuthorTests.test_enumerator_fallback_intact)
+Zero scan budget leaves both author and fallback unsolved. ... ok
+test_every_authored_edit_verdict_carrying (tests.test_rsi_author.AuthorTests.test_every_authored_edit_verdict_carrying)
+Each emitted edit names its validator verdict. ... ok
+test_honest_report_complete (tests.test_rsi_author.AuthorTests.test_honest_report_complete)
+Every row tagged; authoring non-vacuous. ... ok
+test_malformed_edits_rejected_pre_execution (tests.test_rsi_author.AuthorTests.test_malformed_edits_rejected_pre_execution)
+Validator gate rejects malformed edits pre-execution. ... ok
+test_runs_within_cpu_budget (tests.test_rsi_author.AuthorTests.test_runs_within_cpu_budget)
+Whole module stays under 600 wall seconds. ... ok
+test_solved_graphs_pass_frozen_oracle (tests.test_rsi_author.AuthorTests.test_solved_graphs_pass_frozen_oracle)
+Authored solutions validate and meet expectations. ... ok
+test_enumerator_baseline_per_family (tests.test_rsi_baseline.GeneratedBaselineTests.test_enumerator_baseline_per_family)
+Every generated task solves within its bound. ... ok
+test_score_backtrack_pops_best_first (tests.test_rsi_beam.BeamOrderTests.test_score_backtrack_pops_best_first)
+Best-scored stash entry commits before the rest. ... ok
+test_score_order_costs_no_more (tests.test_rsi_beam.BeamOrderTests.test_score_order_costs_no_more)
+Score revisit never costs more tried per task. ... ok
+test_widen_schedule_superset_within_budget (tests.test_rsi_beam.BeamOrderTests.test_widen_schedule_superset_within_budget)
+Wider retry only adds solves inside the budget. ... ok
+test_backtrack_revisits_deprioritized (tests.test_rsi_beam.BeamTests.test_backtrack_revisits_deprioritized)
+Width-capped scan stashes; backtrack re-evaluates. ... ok
+test_beam_accounting_identical (tests.test_rsi_beam.BeamTests.test_beam_accounting_identical)
+Legacy tried counts beam commit attempts in its edit log. ... ok
+test_beam_report_with_win (tests.test_rsi_beam.BeamTests.test_beam_report_with_win)
+Every row tagged; beam beats rank at least once. ... ok
+test_enumerator_fallback_intact (tests.test_rsi_beam.BeamTests.test_enumerator_fallback_intact)
+Zero scan budget leaves beam and fallback unsolved. ... ok
+test_every_beam_edit_verdict_carrying (tests.test_rsi_beam.BeamTests.test_every_beam_edit_verdict_carrying)
+Each emitted edit names its validator verdict. ... ok
+test_malformed_edits_rejected_pre_execution (tests.test_rsi_beam.BeamTests.test_malformed_edits_rejected_pre_execution)
+Validator gate rejects malformed edits pre-execution. ... ok
+test_runs_within_cpu_budget (tests.test_rsi_beam.BeamTests.test_runs_within_cpu_budget)
+Whole module stays under 600 wall seconds. ... ok
+test_solved_graphs_pass_frozen_oracle (tests.test_rsi_beam.BeamTests.test_solved_graphs_pass_frozen_oracle)
+Beam solutions validate and meet expectations. ... ok
+test_archive_lineage_round_trips (tests.test_rsi_evolve.PolicyLoopTests.test_archive_lineage_round_trips)
+Lineage survives close and reopen through intents. ... ok
+test_every_rejection_carries_verdict (tests.test_rsi_evolve.PolicyLoopTests.test_every_rejection_carries_verdict)
+No silent drops: each rejection names its verdict. ... ok
+test_heldout_matches_baseline_at_equal_signature_work (tests.test_rsi_evolve.PolicyLoopTests.test_heldout_matches_baseline_at_equal_signature_work)
+Guidance changes scan order, not eager root signature work. ... ok
+test_snapshot_restore_turnover (tests.test_rsi_evolve.PolicyLoopTests.test_snapshot_restore_turnover)
+Temporal state round-trips across generation turnover. ... ok
+test_two_generations_show_no_regression (tests.test_rsi_evolve.PolicyLoopTests.test_two_generations_show_no_regression)
+Elite archive fitness never steps back. ... ok
+test_probe_elite_refines_and_reports (tests.test_rsi_evolve.ProbeLoopTests.test_probe_elite_refines_and_reports)
+Probe-pressured elite + refine vs #26 1/4 baseline. ... ok
+test_probe_off_by_default (tests.test_rsi_evolve.ProbeLoopTests.test_probe_off_by_default)
+Probe defaults off; fitness key still present. ... ok
+test_probe_recorded_in_lineage (tests.test_rsi_evolve.ProbeLoopTests.test_probe_recorded_in_lineage)
+Every archive fitness carries a probe score. ... ok
+test_probe_scores_bounded_and_deterministic (tests.test_rsi_evolve.ProbeLoopTests.test_probe_scores_bounded_and_deterministic)
+Probe shares sit in [0, 1] and repeat per seed. ... ok
+test_elite_refines_and_reports_solves (tests.test_rsi_evolve.RefinableLoopTests.test_elite_refines_and_reports_solves)
+Elite plus EXTRA refinement authors shadow tasks. ... ok
+test_founders_include_author_member (tests.test_rsi_evolve.RefinableLoopTests.test_founders_include_author_member)
+Author-trained founder joins the gene pool. ... ok
+test_fit_after_restore_moves_weights (tests.test_rsi_evolve.RestoreOptimizerTests.test_fit_after_restore_moves_weights)
+Restore rebinds the optimizer to the live net (#51). ... ok
+test_promotion_evaluates_no_more (tests.test_rsi_evolve.ScreenedLoopTests.test_promotion_evaluates_no_more)
+Screened loop never pays for extra full evals. ... ok
+test_screen_order_and_pact_reported (tests.test_rsi_evolve.ScreenedLoopTests.test_screen_order_and_pact_reported)
+Every screened generation names order and pact. ... ok
+test_skips_keep_parent_fitness_provisional (tests.test_rsi_evolve.ScreenedLoopTests.test_skips_keep_parent_fitness_provisional)
+Skipped kids retain parent scores separately as provisional. ... ok
+test_scores_idempotent_and_history_free (tests.test_rsi_evolve.StatelessScoringTests.test_scores_idempotent_and_history_free)
+Repeated scores ignore prior drives (#52). ... ok
+test_const_terminals_solve_without_them_failing (tests.test_rsi_loop.AuthoredLoopTests.test_const_terminals_solve_without_them_failing)
+Const-flagged tasks solve with consts, miss without. ... ok
+test_dry_run_uses_authored_order (tests.test_rsi_loop.AuthoredLoopTests.test_dry_run_uses_authored_order)
+Dry plans follow proposer rank, train nothing. ... ok
+test_loop_trainer_threads_consts (tests.test_rsi_loop.AuthoredLoopTests.test_loop_trainer_threads_consts)
+Loop held shows const tasks solved, branch missed. ... ok
+test_prior_promotion_authors_next_one (tests.test_rsi_loop.AuthoredLoopTests.test_prior_promotion_authors_next_one)
+A measured prior promotion authors the next loop. ... ok
+test_real_diagnostics_report_honestly (tests.test_rsi_loop.AuthoredLoopTests.test_real_diagnostics_report_honestly)
+Lattice-wall diagnostics drive an honest report. ... ok
+test_real_trainer_joint_trial (tests.test_rsi_loop.AuthoredLoopTests.test_real_trainer_joint_trial)
+Joint-field edits reach a real gate verdict. ... ok
+test_crashing_trainer_keeps_base (tests.test_rsi_loop.RsiLoopTests.test_crashing_trainer_keeps_base)
+Mid-cycle blowups leave the base config intact. ... ok
+test_dry_run_plans_without_training (tests.test_rsi_loop.RsiLoopTests.test_dry_run_plans_without_training)
+Dry runs record plans, promote nothing, train never. ... ok
+test_multi_cycle_promotes_logged_gains (tests.test_rsi_loop.RsiLoopTests.test_multi_cycle_promotes_logged_gains)
+Three-plus cycles, logged gains, transfer holds. ... ok
+test_reproducible_from_seed (tests.test_rsi_loop.RsiLoopTests.test_reproducible_from_seed)
+Same seed replays identical diffs and configs. ... ok
+test_two_misses_stop_the_run (tests.test_rsi_loop.RsiLoopTests.test_two_misses_stop_the_run)
+Consecutive non-improving evals end the run early. ... ok
+test_beam_accounting_identical (tests.test_rsi_operands.OperandTests.test_beam_accounting_identical)
+Legacy tried counts beam commit attempts in its edit log. ... ok
+test_beam_comparison_reports_canonical_work (tests.test_rsi_operands.OperandTests.test_beam_comparison_reports_canonical_work)
+Summarize current signature work without old win thresholds. ... ok
+test_contrastive_top1_above_chance (tests.test_rsi_operands.OperandTests.test_contrastive_top1_above_chance)
+Rank spread: top-1 beats chance on frozen pairs. ... ok
+test_feature_audit_readout_dependence_nonzero (tests.test_rsi_operands.OperandTests.test_feature_audit_readout_dependence_nonzero)
+Trained readout depends on operand-signature dims. ... ok
+test_feature_audit_variance_nonzero (tests.test_rsi_operands.OperandTests.test_feature_audit_variance_nonzero)
+Operand-signature dims vary over contrast pairs. ... ok
+test_malformed_edits_rejected_pre_execution (tests.test_rsi_operands.OperandTests.test_malformed_edits_rejected_pre_execution)
+Validator gate rejects malformed edits pre-execution. ... ok
+test_runs_within_cpu_budget (tests.test_rsi_operands.OperandTests.test_runs_within_cpu_budget)
+Whole module stays under 600 wall seconds. ... ok
+test_zero_bad_executions (tests.test_rsi_operands.OperandTests.test_zero_bad_executions)
+Every edit verdict-carrying; solutions validate. ... ok
+test_author_weighted_acceptance_locks_weights (tests.test_rsi_scale.ScaleUpTests.test_author_weighted_acceptance_locks_weights)
+Refined EXTRA weights ride the sweep, locked. ...

@@ -1,0 +1,40 @@
+{
+  "scope": "external package-content observations bracket the ranker run; its native manifest does not record imported dependencies",
+  "start": {
+    "recorded_at_unix": 1792314752.8665423,
+    "package": "spikeforge",
+    "content_sha256": "9e9bba1834c842ad08bbe4cf43459aee43977e8e6d7aed737c59d69fa94e4b20",
+    "python_file_count": 290,
+    "git_commit": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6",
+    "git_dirty": false
+  },
+  "finish": {
+    "recorded_at_unix": 1792315262.7608974,
+    "package": "spikeforge",
+    "content_sha256": "9e9bba1834c842ad08bbe4cf43459aee43977e8e6d7aed737c59d69fa94e4b20",
+    "python_file_count": 290,
+    "git_commit": "2981b28105a0d9a8ddcb76ae4e21a4358a1d96f6",
+    "git_dirty": false
+  },
+  "ranker_stage": {
+    "name": "ranker",
+    "command": [
+      ".venv/bin/python",
+      "scripts/measure_ranker.py",
+      "--out",
+      "artifacts/ranker-v47"
+    ],
+    "source_start": {
+      "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+      "files": 102
+    },
+    "status": "passed",
+    "started_at_unix": 1792314922.7985647,
+    "exit_code": 0,
+    "wall_seconds": 13.575035572052002,
+    "source_finish": {
+      "sha256": "6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c",
+      "files": 102
+    }
+  }
+}

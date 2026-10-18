@@ -1,0 +1,185 @@
+{
+  "checks": {
+    "180_rows": true,
+    "all_expected_unique_cells": true,
+    "fixture_hashes_match_frozen_tree": true,
+    "source_hash_matches_frozen_tree": true,
+    "exact_random_formula_every_row": true,
+    "positions_in_layer_range": true,
+    "summary_has_12_fixture_epoch_cells": true,
+    "summary_means_recompute_from_rows": true,
+    "train_fixture_overlap_matches_report": true,
+    "work_table_complete_15_tasks": true,
+    "guided_candidate_work_ranker_invariant_and_matches_eager": true,
+    "independent_streaming_work_matches_probe_order_examined": true,
+    "all_artifact_names_repo_relative": true,
+    "dependency_source_hash_recorded": false
+  },
+  "result_rows": 180,
+  "unique_keys": 180,
+  "fixture_task_counts": {
+    "fixtures/rsi_shadow_tasks.json": 4,
+    "fixtures/rsi_novel_tasks.json": 3,
+    "fixtures/rsi_ood_plain.json": 8
+  },
+  "source_sha256_recomputed": "1b5ed277fc0a2a4aab0f5ba50e200e0f25e79d11cc1de1f663a7364cfdad3af0",
+  "source_python_file_count": 35,
+  "fixture_hashes_recomputed": {
+    "fixtures/rsi_shadow_tasks.json": "da7b2603f9a17a6f85e3f46cc358f717a1653c119ad6ae373db9f78a22b6156d",
+    "fixtures/rsi_novel_tasks.json": "0267aaa6a5a11f2d036f6f07a5104663dde5793afd08f11f4b665bd1025181c8",
+    "fixtures/rsi_ood_plain.json": "944217d3b212c4d50c8866218314ea4391d03d8eb00bcceb7e1fe6d9150320ca"
+  },
+  "random_expected_formula": "(layer_candidates + 1) / (train_solvers + 1)",
+  "summary_means_recomputed": [
+    {
+      "fixture": "fixtures/rsi_shadow_tasks.json",
+      "epochs": 0,
+      "tasks": 4,
+      "rows": 12,
+      "means_match": true,
+      "position_mean": 848.5833333333334,
+      "probe_position_mean": 640.75,
+      "random_expected_mean": 912.5958333333333
+    },
+    {
+      "fixture": "fixtures/rsi_shadow_tasks.json",
+      "epochs": 5,
+      "tasks": 4,
+      "rows": 12,
+      "means_match": true,
+      "position_mean": 125.41666666666667,
+      "probe_position_mean": 640.75,
+      "random_expected_mean": 912.5958333333333
+    },
+    {
+      "fixture": "fixtures/rsi_shadow_tasks.json",
+      "epochs": 40,
+      "tasks": 4,
+      "rows": 12,
+      "means_match": true,
+      "position_mean": 20.916666666666668,
+      "probe_position_mean": 640.75,
+      "random_expected_mean": 912.5958333333333
+    },
+    {
+      "fixture": "fixtures/rsi_shadow_tasks.json",
+      "epochs": 50,
+      "tasks": 4,
+      "rows": 12,
+      "means_match": true,
+      "position_mean": 17.25,
+      "probe_position_mean": 640.75,
+      "random_expected_mean": 912.5958333333333
+    },
+    {
+      "fixture": "fixtures/rsi_novel_tasks.json",
+      "epochs": 0,
+      "tasks": 3,
+      "rows": 9,
+      "means_match": true,
+      "position_mean": 700.8888888888889,
+      "probe_position_mean": 828.0,
+      "random_expected_mean": 521.4253968253968
+    },
+    {
+      "fixture": "fixtures/rsi_novel_tasks.json",
+      "epochs": 5,
+      "tasks": 3,
+      "rows": 9,
+      "means_match": true,
+      "position_mean": 166.11111111111111,
+      "probe_position_mean": 828.0,
+      "random_expected_mean": 521.4253968253968
+    },
+    {
+      "fixture": "fixtures/rsi_novel_tasks.json",
+      "epochs": 40,
+      "tasks": 3,
+      "rows": 9,
+      "means_match": true,
+      "position_mean": 350.55555555555554,
+      "probe_position_mean": 828.0,
+      "random_expected_mean": 521.4253968253968
+    },
+    {
+      "fixture": "fixtures/rsi_novel_tasks.json",
+      "epochs": 50,
+      "tasks": 3,
+      "rows": 9,
+      "means_match": true,
+      "position_mean": 390.1111111111111,
+      "probe_position_mean": 828.0,
+      "random_expected_mean": 521.4253968253968
+    },
+    {
+      "fixture": "fixtures/rsi_ood_plain.json",
+      "epochs": 0,
+      "tasks": 8,
+      "rows": 24,
+      "means_match": true,
+      "position_mean": 894.7083333333334,
+      "probe_position_mean": 482.5,
+      "random_expected_mean": 830.2874999999999
+    },
+    {
+      "fixture": "fixtures/rsi_ood_plain.json",
+      "epochs": 5,
+      "tasks": 8,
+      "rows": 24,
+      "means_match": true,
+      "position_mean": 483.0833333333333,
+      "probe_position_mean": 482.5,
+      "random_expected_mean": 830.2874999999999
+    },
+    {
+      "fixture": "fixtures/rsi_ood_plain.json",
+      "epochs": 40,
+      "tasks": 8,
+      "rows": 24,
+      "means_match": true,
+      "position_mean": 801.4583333333334,
+      "probe_position_mean": 482.5,
+      "random_expected_mean": 830.2874999999999
+    },
+    {
+      "fixture": "fixtures/rsi_ood_plain.json",
+      "epochs": 50,
+      "tasks": 8,
+      "rows": 24,
+      "means_match": true,
+      "position_mean": 831.125,
+      "probe_position_mean": 482.5,
+      "random_expected_mean": 830.2874999999999
+    }
+  ],
+  "work_task_count": 15,
+  "work_ranker_names": [
+    "probe_order",
+    "uniform_permutation_seed0",
+    "untrained_seed0",
+    "trained_last_seed_last_epoch"
+  ],
+  "candidate_work_sums": {
+    "instrumented_guided_candidate_sum": 46836,
+    "eager_enumerator_sum": 46836,
+    "streaming_early_stop_sum": 15297,
+    "probe_order_operand_signatures_sum": 96567
+  },
+  "summed_ratios": {
+    "guided_over_eager_total": 1.0,
+    "streaming_over_eager_total": 0.32660773763771456,
+    "eager_over_streaming_total": 3.0617768189841144,
+    "reduction_streaming_vs_eager": 0.6733922623622854
+  },
+  "streaming_equals_probe_order_examined_tasks": 15,
+  "reported_overlap": {
+    "fixtures/rsi_shadow_tasks.json": 4,
+    "fixtures/rsi_novel_tasks.json": 0,
+    "fixtures/rsi_ood_plain.json": 0
+  },
+  "training_labels": "final-layer train-output equality",
+  "signature_unit": "root vectors; excludes recursive calls",
+  "torch_version": "2.8.0+cpu",
+  "provenance_limit": "The report hashes local rsi_programmer sources and fixtures, but records no SpikeForge source hash/commit/dirty state; the trained SearchPolicy imports SpikeForge.",
+  "ratio_interpretation": "Summed candidate signature-call counts only: guided/eager = 1.0; streaming/eager = 0.32660773763771456. This measures counterfactual root-vector work, not elapsed-time speedup or recursive/operand/neural cost."
+}

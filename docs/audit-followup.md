@@ -1,5 +1,33 @@
 # Audit follow-up
 
+## code-v49: CI fast matrix and provenance checkpoint
+
+Both code-v48 CI fast jobs passed on the same 102 validation inputs:
+Python 3.12 **259 tests OK in 433.091s**, Python 3.13 **259 tests OK in
+332.495s**. [Completed job metadata and links](../artifacts/followup-validation-20261018/ci-fast.json)
+identify the tested commit. The automatic full CI jobs remain in progress
+at this checkpoint; they are not counted as passes.
+
+At **2026-10-18T09:27:36.372561+00:00**, the local complete slow lane has
+**55 reported passes and 0 reported failures**. This is a partial log,
+not a completed lane result. Retry remains queued sequentially. The
+slow lane includes the expensive scale acceptance searches; the earlier
+code-v45 lane took 14,217.561s, which is historical timing only.
+No runtime, test or fixture input changed for this evidence checkpoint.
+
+An independent read-only audit recomputed all 180 ranker rows, all 12
+summary means, the exact random expectations, and the 15 task work
+comparisons from the published data. Native ranker manifests do not
+record imported dependency sources. A separate package-content
+observation before and after that run brackets it with the same
+290-file SpikeForge hash and clean Git commit. This is external
+provenance evidence, not a claim that the native manifest contains it.
+
+[Partial slow log](../artifacts/followup-validation-20261018/slow-partial.log),
+[ranker audit](../artifacts/followup-validation-20261018/ranker-integrity-audit.json),
+[dependency bracket](../artifacts/followup-validation-20261018/ranker-dependency-bracket.json),
+and [dated stage/output manifest](../artifacts/followup-validation-20261018/manifest.json).
+
 ## code-v48: paired ablations and independent rank measurement
 
 The measurement script now uses repository-relative fixture names in raw
