@@ -1,0 +1,79 @@
+test_cold_diagnostic_is_pure_with_pending_context (tests.test_online_observed_context.ObservedContextPolicyTests.test_cold_diagnostic_is_pure_with_pending_context) ... ok
+test_context_changes_encode_and_is_cleared_at_episode_end (tests.test_online_observed_context.ObservedContextPolicyTests.test_context_changes_encode_and_is_cleared_at_episode_end) ... ok
+test_failed_start_preserves_pending_context_and_random_state (tests.test_online_observed_context.ObservedContextPolicyTests.test_failed_start_preserves_pending_context_and_random_state) ... ok
+test_frozen_policy_and_single_action_mask_contract (tests.test_online_observed_context.ObservedContextPolicyTests.test_frozen_policy_and_single_action_mask_contract) ... ok
+test_manual_encoder_reference_for_spiking_and_continuous_modes (tests.test_online_observed_context.ObservedContextPolicyTests.test_manual_encoder_reference_for_spiking_and_continuous_modes) ... ok
+test_projection_is_seeded_separately_and_snapshot_pins_its_hash (tests.test_online_observed_context.ObservedContextPolicyTests.test_projection_is_seeded_separately_and_snapshot_pins_its_hash) ... ok
+test_rows_are_validated_without_advancing_action_rng (tests.test_online_observed_context.ObservedContextPolicyTests.test_rows_are_validated_without_advancing_action_rng) ... ok
+test_zero_context_matches_baseline_encoder (tests.test_online_observed_context.ObservedContextPolicyTests.test_zero_context_matches_baseline_encoder) ... ok
+test_changed_protocol_rejects_before_execution (tests.test_online_context_benchmark.ObservedContextBenchmarkTests.test_changed_protocol_rejects_before_execution) ... ok
+test_existing_result_directory_cannot_be_overwritten (tests.test_online_context_benchmark.ObservedContextBenchmarkTests.test_existing_result_directory_cannot_be_overwritten) ... ok
+test_frozen_controls_matrices_and_original_encoder (tests.test_online_context_benchmark.ObservedContextBenchmarkTests.test_frozen_controls_matrices_and_original_encoder) ... ok
+test_context_digest_work_diagnostic_and_cpu_corruption_rejected (tests.test_audit_observed_context.ObservedContextAuditTests.test_context_digest_work_diagnostic_and_cpu_corruption_rejected) ... ok
+test_learned_context_diagnostics_match_modes_and_seeds (tests.test_audit_observed_context.ObservedContextAuditTests.test_learned_context_diagnostics_match_modes_and_seeds) ... ok
+test_projection_and_cold_diagnostic_replay (tests.test_audit_observed_context.ObservedContextAuditTests.test_projection_and_cold_diagnostic_replay) ... ERROR
+test_schedule_hash_rejects_even_whitespace_changes (tests.test_counterbalanced_protocol.CounterbalancedProtocolTests.test_schedule_hash_rejects_even_whitespace_changes) ... ok
+test_six_orders_balance_phase_position_and_predecessors (tests.test_counterbalanced_protocol.CounterbalancedProtocolTests.test_six_orders_balance_phase_position_and_predecessors) ... ok
+test_adaptive_policy_reports_readout_statistics_without_weights (tests.test_online_diagnostics.OnlineDiagnosticsTests.test_adaptive_policy_reports_readout_statistics_without_weights) ... ok
+test_initial_policy_is_uniform_and_diagnostic_is_read_only (tests.test_online_diagnostics.OnlineDiagnosticsTests.test_initial_policy_is_uniform_and_diagnostic_is_read_only) ... ok
+test_inspection_preserves_the_next_seeded_choice (tests.test_online_diagnostics.OnlineDiagnosticsTests.test_inspection_preserves_the_next_seeded_choice) ... ok
+test_streaming_control_has_deterministic_first_lane (tests.test_online_diagnostics.OnlineDiagnosticsTests.test_streaming_control_has_deterministic_first_lane) ... ok
+test_accepts_valid_stream_row_and_rejects_corruption (tests.test_counterbalanced_audit.CounterbalancedAuditTests.test_accepts_valid_stream_row_and_rejects_corruption) ... ok
+test_diagnostic_is_pure_and_matches_probe_helper (tests.test_counterbalanced_audit.CounterbalancedAuditTests.test_diagnostic_is_pure_and_matches_probe_helper) ... ok
+test_diagnostic_replay_agrees_for_learning_policy (tests.test_counterbalanced_audit.CounterbalancedAuditTests.test_diagnostic_replay_agrees_for_learning_policy) ... ok
+test_frozen_schedule_has_six_original_task_permutations (tests.test_counterbalanced_audit.CounterbalancedAuditTests.test_frozen_schedule_has_six_original_task_permutations) ... ok
+test_summary_recomputation_covers_all_orders_and_cpu (tests.test_counterbalanced_audit.CounterbalancedAuditTests.test_summary_recomputation_covers_all_orders_and_cpu)
+Exercise summary audit, including phase strata and all gates. ... ok
+test_action_mask_and_input_contract (tests.test_online_spiking.OnlineSpikingPolicyTests.test_action_mask_and_input_contract) ... ok
+test_continuous_encoder_control_shares_plastic_readout_contract (tests.test_online_spiking.OnlineSpikingPolicyTests.test_continuous_encoder_control_shares_plastic_readout_contract) ... ok
+test_each_observation_consumes_only_its_decision_trace (tests.test_online_spiking.OnlineSpikingPolicyTests.test_each_observation_consumes_only_its_decision_trace) ... ok
+test_episode_and_single_pending_observation_contract (tests.test_online_spiking.OnlineSpikingPolicyTests.test_episode_and_single_pending_observation_contract) ... ok
+test_episode_boundary_clears_membrane_and_eligibility (tests.test_online_spiking.OnlineSpikingPolicyTests.test_episode_boundary_clears_membrane_and_eligibility) ... ok
+test_good_and_bad_rewards_credit_sampled_action (tests.test_online_spiking.OnlineSpikingPolicyTests.test_good_and_bad_rewards_credit_sampled_action) ... ok
+test_observed_reward_changes_only_adaptive_readout (tests.test_online_spiking.OnlineSpikingPolicyTests.test_observed_reward_changes_only_adaptive_readout) ... ok
+test_reset_learning_restores_initial_readout_and_metrics (tests.test_online_spiking.OnlineSpikingPolicyTests.test_reset_learning_restores_initial_readout_and_metrics) ... ok
+test_reward_clipping_and_invalid_reward (tests.test_online_spiking.OnlineSpikingPolicyTests.test_reward_clipping_and_invalid_reward) ... ok
+test_snapshot_rejects_bad_version_config_shape_and_hash (tests.test_online_spiking.OnlineSpikingPolicyTests.test_snapshot_rejects_bad_version_config_shape_and_hash) ... ok
+test_snapshot_restore_preserves_learning_and_sampling (tests.test_online_spiking.OnlineSpikingPolicyTests.test_snapshot_restore_preserves_learning_and_sampling) ... ok
+test_complete_streaming_fallback_and_hard_budget (tests.test_online_graph.OnlineGraphTests.test_complete_streaming_fallback_and_hard_budget) ... ok
+test_feedback_follows_all_observed_executions (tests.test_online_graph.OnlineGraphTests.test_feedback_follows_all_observed_executions) ... ok
+test_grammar_lanes_cover_the_same_432_typed_candidates (tests.test_online_graph.OnlineGraphTests.test_grammar_lanes_cover_the_same_432_typed_candidates) ... ok
+test_held_row_match_alone_does_not_replace_exact_identity (tests.test_online_graph.OnlineGraphTests.test_held_row_match_alone_does_not_replace_exact_identity) ... ok
+test_invalid_inputs_and_action_do_not_execute (tests.test_online_graph.OnlineGraphTests.test_invalid_inputs_and_action_do_not_execute) ... ok
+test_observed_stop_cannot_learn_or_retry_from_held_rejection (tests.test_online_graph.OnlineGraphTests.test_observed_stop_cannot_learn_or_retry_from_held_rejection) ... ok
+test_symbolic_audit_matches_independent_integer_execution (tests.test_online_graph.OnlineGraphTests.test_symbolic_audit_matches_independent_integer_execution) ... ok
+test_candidate_pools_and_primary_reachability (tests.test_online_corpus.OnlineCorpusTests.test_candidate_pools_and_primary_reachability) ... ok
+test_checked_in_fixture_matches_generator (tests.test_online_corpus.OnlineCorpusTests.test_checked_in_fixture_matches_generator) ... ok
+test_corpus_is_reproducible_and_has_frozen_phase_quotas (tests.test_online_corpus.OnlineCorpusTests.test_corpus_is_reproducible_and_has_frozen_phase_quotas) ... ok
+test_observed_rows_separate_targets_from_candidate_polynomials (tests.test_online_corpus.OnlineCorpusTests.test_observed_rows_separate_targets_from_candidate_polynomials) ... ok
+test_protocol_freezes_budgets_seeds_arms_and_policy (tests.test_online_corpus.OnlineCorpusTests.test_protocol_freezes_budgets_seeds_arms_and_policy) ... ok
+test_shared_rows_are_disjoint_and_target_independent (tests.test_online_corpus.OnlineCorpusTests.test_shared_rows_are_disjoint_and_target_independent) ... ok
+test_witnesses_match_independent_polynomial_evaluation (tests.test_online_corpus.OnlineCorpusTests.test_witnesses_match_independent_polynomial_evaluation) ... ok
+test_write_returns_digest_of_frozen_json (tests.test_online_corpus.OnlineCorpusTests.test_write_returns_digest_of_frozen_json) ... ok
+test_accepts_valid_small_streaming_episode (tests.test_online_audit.OnlineAuditTests.test_accepts_valid_small_streaming_episode) ... ok
+test_recomputes_phase_counts (tests.test_online_audit.OnlineAuditTests.test_recomputes_phase_counts) ... ok
+test_rejects_corrupted_episode_records (tests.test_online_audit.OnlineAuditTests.test_rejects_corrupted_episode_records) ... ok
+test_rejects_missing_source_manifest_entry (tests.test_online_audit.OnlineAuditTests.test_rejects_missing_source_manifest_entry) ... ok
+test_rejects_source_hash_mismatch (tests.test_online_audit.OnlineAuditTests.test_rejects_source_hash_mismatch) ... ok
+test_existing_bundle_cannot_be_overwritten_or_execute (tests.test_online_benchmark.OnlineBenchmarkTests.test_existing_bundle_cannot_be_overwritten_or_execute) ... ok
+test_modified_corpus_is_rejected_before_execution (tests.test_online_benchmark.OnlineBenchmarkTests.test_modified_corpus_is_rejected_before_execution) ... ok
+test_real_policy_configuration_matches_published_protocol (tests.test_online_benchmark.OnlineBenchmarkTests.test_real_policy_configuration_matches_published_protocol) ... ok
+test_source_manifest_covers_new_runtime_tests_and_workflow (tests.test_online_benchmark.OnlineBenchmarkTests.test_source_manifest_covers_new_runtime_tests_and_workflow) ... ok
+
+======================================================================
+ERROR: test_projection_and_cold_diagnostic_replay (tests.test_audit_observed_context.ObservedContextAuditTests.test_projection_and_cold_diagnostic_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/joe/Projects/rsi-programmer/tests/test_audit_observed_context.py", line 67, in test_projection_and_cold_diagnostic_replay
+    self.assertEqual(_validate_context_row(
+                     ~~~~~~~~~~~~~~~~~~~~~^
+        row, self.task, policy, before), (context, current))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joe/Projects/rsi-programmer/scripts/audit_online_observed_context.py", line 263, in _validate_context_row
+    raise ValueError("invalid cold diagnostic CPU time")
+ValueError: invalid cold diagnostic CPU time
+
+----------------------------------------------------------------------
+Ran 60 tests in 0.207s
+
+FAILED (errors=1)
