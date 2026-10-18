@@ -1,0 +1,115 @@
+{
+  "protocol_id": "rsi-programmer-frozen-pre-eval-v1",
+  "schema_version": 1,
+  "status": "frozen-before-measurement",
+  "baseline_revision": "a0d418b2c5e278b3d38ae1f2f35be7557c249f69",
+  "corpus": {
+    "path": "fixtures/benchmark_pre_eval_corpus_v1.json",
+    "sha256": "81dba9b0d683e725e4598dd19c16da55c1b3d8b8c73000df2aba54df8df4b5c7",
+    "generator": "independent-expression-enumerator-v1",
+    "generator_source": {
+      "path": "scripts/generate_benchmark_pre_eval_corpus.js",
+      "sha256": "68ce48c356046c865b8168340c0605486c967584d9d5c73a2c5b0dd8ae8e9113",
+      "reproduction_command": "node scripts/generate_benchmark_pre_eval_corpus.js",
+      "runtime": "Node.js 18 or newer; built-in modules only",
+      "algorithm": "Enumerate three explicit syntax families, then use per-family 32-bit LCG seeds 61031/61032/61033 to sample distinct syntax keys in generation order. First four programs per family enter train and next eight enter eval. Inputs are assigned from task-index-specific coordinate blocks; outputs are direct interpreter evaluation of the recorded expression."
+    },
+    "generation_acceptance": "all generated programs retained; no search-outcome filtering",
+    "counts": {"train_tasks": 12, "eval_tasks": 24, "train_per_family": 4, "tasks_per_eval_family": 8},
+    "families": ["balanced", "repeated_subtree", "skewed"],
+    "dsl": {"operators": ["add", "sub", "mul"], "terminals": ["x", "y"], "max_tree_ops": 3},
+    "rows_per_task": {"train": 6, "held_out": 4},
+    "split_guarantees": [
+      "task IDs are unique",
+      "generating expression keys are unique across all tasks",
+      "train and eval task sets are disjoint",
+      "input coordinate pairs are globally disjoint across all observed and held-out rows",
+      "every generated task is retained regardless of bounded-search solvability",
+      "train and eval include examples from every syntax family"
+    ],
+    "limitations": [
+      "all examples use the plain two-input integer arithmetic DSL",
+      "structural buckets are syntax-based and do not guarantee semantic separation",
+      "zero-valued, identity-like, or otherwise trivial generated programs and outputs are retained when sampled; no semantic difficulty filter is applied",
+      "each task has six observed row triples and four independently held-out row triples; task-indexed x coordinates are disjoint and held-out x values use a separate range",
+      "constants, branching, alternate DSLs, and tree bounds above three are unsupported in this protocol"
+    ]
+  },
+  "feature_encoding": {
+    "name": "layer-ordinal-v1",
+    "dimensions": 12,
+    "indices": {
+      "0-2": "operator one-hot in add,sub,mul order",
+      "3-5": "left size, right size, candidate tree size divided by bound",
+      "6-9": "left hit/inside and right hit/inside fractions against target rows",
+      "10-11": "candidate generation ordinal fraction within the current layer and its complement"
+    },
+    "search_features": "rsi_programmer.policy.encode",
+    "training_features": "same encoder semantics; candidates generated from training tasks only"
+  },
+  "training": {
+    "task_split": "train",
+    "training_task_count": 12,
+    "training_rows_only": true,
+    "label_rule": "For each train task, generate the fixed probe-order candidate group at the first tree-size layer whose training-row signature equals the task target; label exact signature matches 1 and other candidates 0. No eval task, eval target, or held-out row participates in group creation, feature construction, fitting, early stopping, or model selection.",
+    "epochs": 40,
+    "optimizer": "Adam",
+    "learning_rate": 0.05,
+    "loss": "sum per-group mean softplus(1 - (positive score - negative score)); one optimizer update per epoch",
+    "seeds": [0, 1, 2],
+    "policy_seed_rule": "Each model is initialized independently with the listed integer seed. The same trained instance per model and seed is reused for every evaluation task and budget.",
+    "cost_accounting": "Record group generation and labeling time/counters separately from fitting time/counters; record each model's fit duration, final loss, architecture, parameter count, and state semantics."
+  },
+  "controls": {
+    "streaming": "policy=None; probe-order candidates evaluated without ranking; same bound and candidate-signature-evaluation budget",
+    "heuristic": "fixed score 2*(left_hit+right_hit) + 0.5*(left_inside+right_inside) - 0.05*(left_size+right_size), using feature indices 3-9 only; no fitted weights",
+    "seeded_random": "For each candidate, compute BLAKE2b digest_size=8 over UTF-8 text seed:index:comma-joined float.hex() features, interpret digest as an unsigned big-endian integer, then rank descending with stable ties. Benchmark derives task seed as unsigned big-endian first 8 bytes of SHA256(UTF-8 base_seed:task_id). Independent of global RNG state.",
+    "untrained_snn": "SearchPolicy initialized at each seed and evaluated without fitting",
+    "trained_snn": "SearchPolicy defaults: 12 inputs, hidden=16, 6 recurrent ticks, lr=0.05, fit for 40 epochs; 225 trainable parameters",
+    "mlp": "Linear(12,16), ReLU, Linear(16,1); 225 trainable parameters; one feed-forward scoring step; fresh ranking order ties stable",
+    "recurrent": "Linear(12,16) drive, Linear(16,16) recurrence with tanh for 6 ticks from zero state per rank drive, Linear(16,1) readout averaged over ticks; 497 trainable parameters; ties stable",
+    "shared_learning_rule": "MLP and recurrent controls use the same 12-dimensional groups, eligible groups, summed per-group mean softplus margin loss, Adam lr=0.05, and 40 optimizer updates. MLP and SNN each have 225 parameters but different architectures and dynamics; recurrent has 497 parameters. Parameter count does not establish equivalent capacity, compute, or energy."
+  },
+  "evaluation": {
+    "task_split": "eval",
+    "task_count": 24,
+    "candidate_scan_budgets": [32, 128, 512, 2048],
+    "budget_unit": "candidate_signature_evaluations",
+    "tree_bound": 3,
+    "alternatives_per_signature": 1,
+    "signature_budget": null,
+    "oracle": null,
+    "run_matrix": "Every control, seed, task, and budget combination; models are frozen across all eval tasks and budgets for a seed.",
+    "streaming_seed": "No stochasticity",
+    "random_stream_rule": "Derive one stable-random ordering from base seed, task ID, and candidate features; it is fixed across budgets so larger budgets extend the same ordering.",
+    "held_out_rule": "Pass only six task training rows and their targets to search. Make exactly one search attempt per combination. After it returns, independently evaluate any returned graph against all four held-out rows. Never forward held-out data to search, fit, rank, retry, or select a result.",
+    "failure_rule": "Record every unsolved, invalid, or held-out-failing attempt as an explicit result row; do not drop generated tasks.",
+    "required_metrics": [
+      "search solved, independently checked train_valid, held_out_valid, and accepted (all three true)",
+      "candidate signature evaluations/examined and budget",
+      "candidate signature evaluations",
+      "operand signature evaluations/lookups",
+      "generated and scored descriptors",
+      "feature builds and policy batches",
+      "SNN steps where available",
+      "committed nodes and output nodes",
+      "search graph/oracle validation calls and times, plus independent train/held graph check calls, row operations, and time",
+      "search elapsed time",
+      "group generation/labeling work and model fit time",
+      "model architecture, parameter count, fitted-state fingerprint, and before/after weight hashes"
+    ],
+    "aggregation": "Publish raw task-seed-budget rows and aggregate per family and overall. Compute each seed/family success fraction over its fixed eight tasks, then summarize the three seed fractions; each overall seed fraction uses its fixed 24 tasks, and overall is the mean of the three seed fractions. Report actual candidate totals, elapsed work, and model costs separately from success."
+  },
+  "decision_rule": {
+    "matched_success_targets": [0.25, 0.5, 0.75, 1.0],
+    "matched_success_reporting": "For each control, report the lowest listed candidate-signature-evaluation budget reaching each mean overall accepted fraction target across the three seeds; if no budget reaches it, report unreached/censored at 2048. Show all result rows and actual candidate counts and wall/model costs; include every fixed task, including failures.",
+    "claim_scope": "This corpus, these seven controls, the listed candidate-scan budgets, bound three, and the recorded software/hardware environment only.",
+    "trained_snn_advantage": "Call a trained-SNN success advantage supported only if its overall accepted fraction exceeds the best other control by at least 0.10 at both 512 and 2048 candidate-signature-evaluation budgets, and trained SNN is higher in at least two of the three family means at each of those budgets. Otherwise report no supported advantage or mixed results. Always show all controls, seeds, families, work counts, and wall time; this rule does not establish generalization beyond the frozen corpus.",
+    "wall_time": "Wall time is descriptive and is never a standalone success or efficiency claim."
+  },
+  "provenance": {
+    "environment": "Set torch intra-op threads to 1. Record Python version, platform, CPU, torch version, thread count, dependency lock/input hashes, git revision and dirty state, and SHA256 manifests of all rsi_programmer Python sources, benchmark scripts, fixtures, requirements, and the full imported SpikeForge Python source tree before and after the run.",
+    "integrity": "Runner must reject any mismatch against the pinned protocol bytes or corpus bytes; preserve raw result rows and hashes in the output bundle.",
+    "source_hashes": "Record hashes for the benchmark runner, search implementation, policies, and probe validator. Hashes describe the actual run; this protocol does not assert those changing implementation files equal the baseline revision."
+  }
+}

@@ -1,0 +1,3191 @@
+{
+  "corpus_id": "benchmark-pre-eval-v1",
+  "generator": "independent-expression-enumerator-v1",
+  "generation_acceptance": "all generated programs retained; no search-outcome filtering",
+  "dsl": {
+    "operators": [
+      "add",
+      "sub",
+      "mul"
+    ],
+    "terminals": [
+      "x",
+      "y"
+    ],
+    "max_tree_ops": 3
+  },
+  "splits": {
+    "train": [
+      {
+        "id": "frozen_train_01",
+        "family": "balanced",
+        "train": [
+          [
+            -180,
+            -14,
+            0
+          ],
+          [
+            -179,
+            -3,
+            0
+          ],
+          [
+            -178,
+            8,
+            0
+          ],
+          [
+            -177,
+            -10,
+            0
+          ],
+          [
+            -176,
+            1,
+            0
+          ],
+          [
+            -175,
+            12,
+            0
+          ]
+        ],
+        "held_out": [
+          [
+            1000,
+            -15,
+            0
+          ],
+          [
+            1001,
+            -8,
+            0
+          ],
+          [
+            1002,
+            -1,
+            0
+          ],
+          [
+            1003,
+            6,
+            0
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            }
+          },
+          "program_key": "mul(sub(y,y),mul(y,y))"
+        }
+      },
+      {
+        "id": "frozen_train_02",
+        "family": "balanced",
+        "train": [
+          [
+            -170,
+            3,
+            -167
+          ],
+          [
+            -169,
+            14,
+            -155
+          ],
+          [
+            -168,
+            -4,
+            -172
+          ],
+          [
+            -167,
+            7,
+            -160
+          ],
+          [
+            -166,
+            -11,
+            -177
+          ],
+          [
+            -165,
+            0,
+            -165
+          ]
+        ],
+        "held_out": [
+          [
+            1010,
+            4,
+            1014
+          ],
+          [
+            1011,
+            11,
+            1022
+          ],
+          [
+            1012,
+            -13,
+            999
+          ],
+          [
+            1013,
+            -6,
+            1007
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "add",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "add(add(x,x),sub(y,x))"
+        }
+      },
+      {
+        "id": "frozen_train_03",
+        "family": "balanced",
+        "train": [
+          [
+            -160,
+            -9,
+            1120
+          ],
+          [
+            -159,
+            2,
+            -636
+          ],
+          [
+            -158,
+            13,
+            -2370
+          ],
+          [
+            -157,
+            -5,
+            471
+          ],
+          [
+            -156,
+            6,
+            -1248
+          ],
+          [
+            -155,
+            -12,
+            1550
+          ]
+        ],
+        "held_out": [
+          [
+            1020,
+            -8,
+            -6120
+          ],
+          [
+            1021,
+            -1,
+            1021
+          ],
+          [
+            1022,
+            6,
+            8176
+          ],
+          [
+            1023,
+            13,
+            15345
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            },
+            "right": {
+              "op": "add",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "add(mul(x,y),add(x,x))"
+        }
+      },
+      {
+        "id": "frozen_train_04",
+        "family": "balanced",
+        "train": [
+          [
+            -150,
+            8,
+            189600
+          ],
+          [
+            -149,
+            -10,
+            -207110
+          ],
+          [
+            -148,
+            1,
+            22052
+          ],
+          [
+            -147,
+            12,
+            280476
+          ],
+          [
+            -146,
+            -6,
+            -122640
+          ],
+          [
+            -145,
+            5,
+            108750
+          ]
+        ],
+        "held_out": [
+          [
+            1030,
+            11,
+            11545270
+          ],
+          [
+            1031,
+            -13,
+            -13992732
+          ],
+          [
+            1032,
+            -6,
+            -6427296
+          ],
+          [
+            1033,
+            1,
+            1066056
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            }
+          },
+          "program_key": "mul(sub(x,y),mul(x,y))"
+        }
+      },
+      {
+        "id": "frozen_train_05",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            -60,
+            -13,
+            12960000
+          ],
+          [
+            -59,
+            -2,
+            12117361
+          ],
+          [
+            -58,
+            9,
+            11316496
+          ],
+          [
+            -57,
+            -9,
+            10556001
+          ],
+          [
+            -56,
+            2,
+            9834496
+          ],
+          [
+            -55,
+            13,
+            9150625
+          ]
+        ],
+        "held_out": [
+          [
+            1120,
+            -4,
+            1573519360000
+          ],
+          [
+            1121,
+            3,
+            1579146602881
+          ],
+          [
+            1122,
+            10,
+            1584788925456
+          ],
+          [
+            1123,
+            -14,
+            1590446354641
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "mul(mul(x,x),mul(x,x))"
+        }
+      },
+      {
+        "id": "frozen_train_06",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            -50,
+            4,
+            16
+          ],
+          [
+            -49,
+            -14,
+            -56
+          ],
+          [
+            -48,
+            -3,
+            -12
+          ],
+          [
+            -47,
+            8,
+            32
+          ],
+          [
+            -46,
+            -10,
+            -40
+          ],
+          [
+            -45,
+            1,
+            4
+          ]
+        ],
+        "held_out": [
+          [
+            1130,
+            15,
+            60
+          ],
+          [
+            1131,
+            -9,
+            -36
+          ],
+          [
+            1132,
+            -2,
+            -8
+          ],
+          [
+            1133,
+            5,
+            20
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "add",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            },
+            "right": {
+              "op": "add",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            }
+          },
+          "program_key": "add(add(y,y),add(y,y))"
+        }
+      },
+      {
+        "id": "frozen_train_07",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            -40,
+            -8,
+            102400
+          ],
+          [
+            -39,
+            3,
+            13689
+          ],
+          [
+            -38,
+            14,
+            283024
+          ],
+          [
+            -37,
+            -4,
+            21904
+          ],
+          [
+            -36,
+            7,
+            63504
+          ],
+          [
+            -35,
+            -11,
+            148225
+          ]
+        ],
+        "held_out": [
+          [
+            1140,
+            3,
+            11696400
+          ],
+          [
+            1141,
+            10,
+            130188100
+          ],
+          [
+            1142,
+            -14,
+            255616144
+          ],
+          [
+            1143,
+            -7,
+            64016001
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            }
+          },
+          "program_key": "mul(mul(x,y),mul(x,y))"
+        }
+      },
+      {
+        "id": "frozen_train_08",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            -30,
+            9,
+            1521
+          ],
+          [
+            -29,
+            -9,
+            400
+          ],
+          [
+            -28,
+            2,
+            900
+          ],
+          [
+            -27,
+            13,
+            1600
+          ],
+          [
+            -26,
+            -5,
+            441
+          ],
+          [
+            -25,
+            6,
+            961
+          ]
+        ],
+        "held_out": [
+          [
+            1150,
+            -9,
+            1343281
+          ],
+          [
+            1151,
+            -2,
+            1329409
+          ],
+          [
+            1152,
+            5,
+            1315609
+          ],
+          [
+            1153,
+            12,
+            1301881
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "mul(sub(y,x),sub(y,x))"
+        }
+      },
+      {
+        "id": "frozen_train_09",
+        "family": "skewed",
+        "train": [
+          [
+            60,
+            -12,
+            432000
+          ],
+          [
+            61,
+            -1,
+            453962
+          ],
+          [
+            62,
+            10,
+            476656
+          ],
+          [
+            63,
+            -8,
+            500094
+          ],
+          [
+            64,
+            3,
+            524288
+          ],
+          [
+            65,
+            14,
+            549250
+          ]
+        ],
+        "held_out": [
+          [
+            1240,
+            7,
+            3813248000
+          ],
+          [
+            1241,
+            14,
+            3822481042
+          ],
+          [
+            1242,
+            -10,
+            3831728976
+          ],
+          [
+            1243,
+            -3,
+            3840991814
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "input",
+              "name": "x"
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "add",
+                "left": {
+                  "op": "input",
+                  "name": "x"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "x"
+                }
+              }
+            }
+          },
+          "program_key": "mul(x,mul(x,add(x,x)))"
+        }
+      },
+      {
+        "id": "frozen_train_10",
+        "family": "skewed",
+        "train": [
+          [
+            70,
+            5,
+            50
+          ],
+          [
+            71,
+            -13,
+            -111
+          ],
+          [
+            72,
+            -2,
+            66
+          ],
+          [
+            73,
+            9,
+            1
+          ],
+          [
+            74,
+            -9,
+            -16
+          ],
+          [
+            75,
+            2,
+            73
+          ]
+        ],
+        "held_out": [
+          [
+            1250,
+            -5,
+            1220
+          ],
+          [
+            1251,
+            2,
+            1249
+          ],
+          [
+            1252,
+            9,
+            1180
+          ],
+          [
+            1253,
+            -15,
+            1013
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "input",
+              "name": "x"
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "mul",
+                "left": {
+                  "op": "input",
+                  "name": "y"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "y"
+                }
+              }
+            }
+          },
+          "program_key": "add(x,sub(y,mul(y,y)))"
+        }
+      },
+      {
+        "id": "frozen_train_11",
+        "family": "skewed",
+        "train": [
+          [
+            80,
+            -7,
+            -7
+          ],
+          [
+            81,
+            4,
+            4
+          ],
+          [
+            82,
+            -14,
+            -14
+          ],
+          [
+            83,
+            -3,
+            -3
+          ],
+          [
+            84,
+            8,
+            8
+          ],
+          [
+            85,
+            -10,
+            -10
+          ]
+        ],
+        "held_out": [
+          [
+            1260,
+            14,
+            14
+          ],
+          [
+            1261,
+            -10,
+            -10
+          ],
+          [
+            1262,
+            -3,
+            -3
+          ],
+          [
+            1263,
+            4,
+            4
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "sub",
+            "left": {
+              "op": "input",
+              "name": "y"
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "sub",
+                "left": {
+                  "op": "input",
+                  "name": "y"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "y"
+                }
+              }
+            }
+          },
+          "program_key": "sub(y,mul(x,sub(y,y)))"
+        }
+      },
+      {
+        "id": "frozen_train_12",
+        "family": "skewed",
+        "train": [
+          [
+            90,
+            10,
+            -900
+          ],
+          [
+            91,
+            -8,
+            576
+          ],
+          [
+            92,
+            3,
+            -18
+          ],
+          [
+            93,
+            14,
+            -2548
+          ],
+          [
+            94,
+            -4,
+            80
+          ],
+          [
+            95,
+            7,
+            -294
+          ]
+        ],
+        "held_out": [
+          [
+            1270,
+            2,
+            -4
+          ],
+          [
+            1271,
+            9,
+            -648
+          ],
+          [
+            1272,
+            -15,
+            3600
+          ],
+          [
+            1273,
+            -8,
+            576
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "input",
+              "name": "y"
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "mul",
+                "left": {
+                  "op": "input",
+                  "name": "y"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "y"
+                }
+              }
+            }
+          },
+          "program_key": "mul(y,sub(y,mul(y,y)))"
+        }
+      }
+    ],
+    "eval": [
+      {
+        "id": "frozen_eval_01",
+        "family": "balanced",
+        "train": [
+          [
+            -140,
+            -4,
+            -696
+          ],
+          [
+            -139,
+            7,
+            827
+          ],
+          [
+            -138,
+            -11,
+            -1645
+          ],
+          [
+            -137,
+            0,
+            -137
+          ],
+          [
+            -136,
+            11,
+            1349
+          ],
+          [
+            -135,
+            -7,
+            -1073
+          ]
+        ],
+        "held_out": [
+          [
+            1040,
+            -1,
+            2081
+          ],
+          [
+            1041,
+            6,
+            -5211
+          ],
+          [
+            1042,
+            13,
+            -12517
+          ],
+          [
+            1043,
+            -11,
+            12527
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "sub",
+            "left": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "sub(sub(x,y),mul(y,x))"
+        }
+      },
+      {
+        "id": "frozen_eval_02",
+        "family": "balanced",
+        "train": [
+          [
+            -130,
+            13,
+            26
+          ],
+          [
+            -129,
+            -5,
+            -99
+          ],
+          [
+            -128,
+            6,
+            -98
+          ],
+          [
+            -127,
+            -12,
+            29
+          ],
+          [
+            -126,
+            -1,
+            -124
+          ],
+          [
+            -125,
+            10,
+            -35
+          ]
+        ],
+        "held_out": [
+          [
+            1050,
+            -13,
+            1232
+          ],
+          [
+            1051,
+            -6,
+            1093
+          ],
+          [
+            1052,
+            1,
+            1052
+          ],
+          [
+            1053,
+            8,
+            1109
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            }
+          },
+          "program_key": "add(sub(x,y),mul(y,y))"
+        }
+      },
+      {
+        "id": "frozen_eval_03",
+        "family": "balanced",
+        "train": [
+          [
+            -120,
+            1,
+            14280
+          ],
+          [
+            -119,
+            12,
+            152796
+          ],
+          [
+            -118,
+            -6,
+            -87792
+          ],
+          [
+            -117,
+            5,
+            65520
+          ],
+          [
+            -116,
+            -13,
+            -194532
+          ],
+          [
+            -115,
+            -2,
+            -26910
+          ]
+        ],
+        "held_out": [
+          [
+            1060,
+            6,
+            6779760
+          ],
+          [
+            1061,
+            13,
+            14813682
+          ],
+          [
+            1062,
+            -11,
+            -12277782
+          ],
+          [
+            1063,
+            -4,
+            -4502868
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "add",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "mul(mul(y,x),add(y,x))"
+        }
+      },
+      {
+        "id": "frozen_eval_04",
+        "family": "balanced",
+        "train": [
+          [
+            -110,
+            -11,
+            -22
+          ],
+          [
+            -109,
+            0,
+            0
+          ],
+          [
+            -108,
+            11,
+            22
+          ],
+          [
+            -107,
+            -7,
+            -14
+          ],
+          [
+            -106,
+            4,
+            8
+          ],
+          [
+            -105,
+            -14,
+            -28
+          ]
+        ],
+        "held_out": [
+          [
+            1070,
+            -6,
+            -12
+          ],
+          [
+            1071,
+            1,
+            2
+          ],
+          [
+            1072,
+            8,
+            16
+          ],
+          [
+            1073,
+            15,
+            30
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "sub",
+            "left": {
+              "op": "add",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            }
+          },
+          "program_key": "sub(add(x,y),sub(x,y))"
+        }
+      },
+      {
+        "id": "frozen_eval_05",
+        "family": "balanced",
+        "train": [
+          [
+            -100,
+            6,
+            -940000
+          ],
+          [
+            -99,
+            -12,
+            -1087911
+          ],
+          [
+            -98,
+            -1,
+            -950796
+          ],
+          [
+            -97,
+            10,
+            -818583
+          ],
+          [
+            -96,
+            -8,
+            -958464
+          ],
+          [
+            -95,
+            3,
+            -830300
+          ]
+        ],
+        "held_out": [
+          [
+            1080,
+            13,
+            1274875200
+          ],
+          [
+            1081,
+            -11,
+            1250360270
+          ],
+          [
+            1082,
+            -4,
+            1262040472
+          ],
+          [
+            1083,
+            3,
+            1273757454
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "add",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            }
+          },
+          "program_key": "mul(mul(x,x),add(x,y))"
+        }
+      },
+      {
+        "id": "frozen_eval_06",
+        "family": "balanced",
+        "train": [
+          [
+            -90,
+            -6,
+            0
+          ],
+          [
+            -89,
+            5,
+            0
+          ],
+          [
+            -88,
+            -13,
+            0
+          ],
+          [
+            -87,
+            -2,
+            0
+          ],
+          [
+            -86,
+            9,
+            0
+          ],
+          [
+            -85,
+            -9,
+            0
+          ]
+        ],
+        "held_out": [
+          [
+            1090,
+            1,
+            0
+          ],
+          [
+            1091,
+            8,
+            0
+          ],
+          [
+            1092,
+            15,
+            0
+          ],
+          [
+            1093,
+            -9,
+            0
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "add",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            }
+          },
+          "program_key": "mul(add(x,y),sub(y,y))"
+        }
+      },
+      {
+        "id": "frozen_eval_07",
+        "family": "balanced",
+        "train": [
+          [
+            -80,
+            11,
+            -880
+          ],
+          [
+            -79,
+            -7,
+            553
+          ],
+          [
+            -78,
+            4,
+            -312
+          ],
+          [
+            -77,
+            -14,
+            1078
+          ],
+          [
+            -76,
+            -3,
+            228
+          ],
+          [
+            -75,
+            8,
+            -600
+          ]
+        ],
+        "held_out": [
+          [
+            1100,
+            -11,
+            -12100
+          ],
+          [
+            1101,
+            -4,
+            -4404
+          ],
+          [
+            1102,
+            3,
+            3306
+          ],
+          [
+            1103,
+            10,
+            11030
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "add(sub(x,x),mul(y,x))"
+        }
+      },
+      {
+        "id": "frozen_eval_08",
+        "family": "balanced",
+        "train": [
+          [
+            -70,
+            -1,
+            -1
+          ],
+          [
+            -69,
+            10,
+            769
+          ],
+          [
+            -68,
+            -8,
+            -484
+          ],
+          [
+            -67,
+            3,
+            271
+          ],
+          [
+            -66,
+            14,
+            1004
+          ],
+          [
+            -65,
+            -4,
+            -199
+          ]
+        ],
+        "held_out": [
+          [
+            1110,
+            8,
+            -9982
+          ],
+          [
+            1111,
+            15,
+            -17761
+          ],
+          [
+            1112,
+            -9,
+            8887
+          ],
+          [
+            1113,
+            -2,
+            1111
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61031,
+          "program": {
+            "op": "sub",
+            "left": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            }
+          },
+          "program_key": "sub(sub(y,x),mul(x,y))"
+        }
+      },
+      {
+        "id": "frozen_eval_09",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            -20,
+            -3,
+            -34
+          ],
+          [
+            -19,
+            8,
+            -54
+          ],
+          [
+            -18,
+            -10,
+            -16
+          ],
+          [
+            -17,
+            1,
+            -36
+          ],
+          [
+            -16,
+            12,
+            -56
+          ],
+          [
+            -15,
+            -6,
+            -18
+          ]
+        ],
+        "held_out": [
+          [
+            1160,
+            10,
+            2300
+          ],
+          [
+            1161,
+            -14,
+            2350
+          ],
+          [
+            1162,
+            -7,
+            2338
+          ],
+          [
+            1163,
+            0,
+            2326
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            }
+          },
+          "program_key": "add(sub(x,y),sub(x,y))"
+        }
+      },
+      {
+        "id": "frozen_eval_10",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            -10,
+            14,
+            0
+          ],
+          [
+            -9,
+            -4,
+            0
+          ],
+          [
+            -8,
+            7,
+            0
+          ],
+          [
+            -7,
+            -11,
+            0
+          ],
+          [
+            -6,
+            0,
+            0
+          ],
+          [
+            -5,
+            11,
+            0
+          ]
+        ],
+        "held_out": [
+          [
+            1170,
+            -2,
+            0
+          ],
+          [
+            1171,
+            5,
+            0
+          ],
+          [
+            1172,
+            12,
+            0
+          ],
+          [
+            1173,
+            -12,
+            0
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "sub",
+            "left": {
+              "op": "add",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "add",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "sub(add(y,x),add(y,x))"
+        }
+      },
+      {
+        "id": "frozen_eval_11",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            13,
+            26
+          ],
+          [
+            2,
+            -5,
+            -20
+          ],
+          [
+            3,
+            6,
+            36
+          ],
+          [
+            4,
+            -12,
+            -96
+          ],
+          [
+            5,
+            -1,
+            -10
+          ]
+        ],
+        "held_out": [
+          [
+            1180,
+            -14,
+            -33040
+          ],
+          [
+            1181,
+            -7,
+            -16534
+          ],
+          [
+            1182,
+            0,
+            0
+          ],
+          [
+            1183,
+            7,
+            16562
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "add(mul(y,x),mul(y,x))"
+        }
+      },
+      {
+        "id": "frozen_eval_12",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            10,
+            -10,
+            0
+          ],
+          [
+            11,
+            1,
+            0
+          ],
+          [
+            12,
+            12,
+            0
+          ],
+          [
+            13,
+            -6,
+            0
+          ],
+          [
+            14,
+            5,
+            0
+          ],
+          [
+            15,
+            -13,
+            0
+          ]
+        ],
+        "held_out": [
+          [
+            1190,
+            5,
+            0
+          ],
+          [
+            1191,
+            12,
+            0
+          ],
+          [
+            1192,
+            -12,
+            0
+          ],
+          [
+            1193,
+            -5,
+            0
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "mul(sub(x,x),sub(x,x))"
+        }
+      },
+      {
+        "id": "frozen_eval_13",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            20,
+            7,
+            0
+          ],
+          [
+            21,
+            -11,
+            0
+          ],
+          [
+            22,
+            0,
+            0
+          ],
+          [
+            23,
+            11,
+            0
+          ],
+          [
+            24,
+            -7,
+            0
+          ],
+          [
+            25,
+            4,
+            0
+          ]
+        ],
+        "held_out": [
+          [
+            1200,
+            -7,
+            0
+          ],
+          [
+            1201,
+            0,
+            0
+          ],
+          [
+            1202,
+            7,
+            0
+          ],
+          [
+            1203,
+            14,
+            0
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "sub",
+            "left": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "sub(mul(x,x),mul(x,x))"
+        }
+      },
+      {
+        "id": "frozen_eval_14",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            30,
+            -5,
+            -70
+          ],
+          [
+            31,
+            6,
+            -50
+          ],
+          [
+            32,
+            -12,
+            -88
+          ],
+          [
+            33,
+            -1,
+            -68
+          ],
+          [
+            34,
+            10,
+            -48
+          ],
+          [
+            35,
+            -8,
+            -86
+          ]
+        ],
+        "held_out": [
+          [
+            1210,
+            12,
+            -2396
+          ],
+          [
+            1211,
+            -12,
+            -2446
+          ],
+          [
+            1212,
+            -5,
+            -2434
+          ],
+          [
+            1213,
+            2,
+            -2422
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "add(sub(y,x),sub(y,x))"
+        }
+      },
+      {
+        "id": "frozen_eval_15",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            40,
+            12,
+            0
+          ],
+          [
+            41,
+            -6,
+            0
+          ],
+          [
+            42,
+            5,
+            0
+          ],
+          [
+            43,
+            -13,
+            0
+          ],
+          [
+            44,
+            -2,
+            0
+          ],
+          [
+            45,
+            9,
+            0
+          ]
+        ],
+        "held_out": [
+          [
+            1220,
+            0,
+            0
+          ],
+          [
+            1221,
+            7,
+            0
+          ],
+          [
+            1222,
+            14,
+            0
+          ],
+          [
+            1223,
+            -10,
+            0
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "input",
+                "name": "y"
+              }
+            }
+          },
+          "program_key": "add(sub(y,y),sub(y,y))"
+        }
+      },
+      {
+        "id": "frozen_eval_16",
+        "family": "repeated_subtree",
+        "train": [
+          [
+            50,
+            0,
+            5000
+          ],
+          [
+            51,
+            11,
+            5202
+          ],
+          [
+            52,
+            -7,
+            5408
+          ],
+          [
+            53,
+            4,
+            5618
+          ],
+          [
+            54,
+            -14,
+            5832
+          ],
+          [
+            55,
+            -3,
+            6050
+          ]
+        ],
+        "held_out": [
+          [
+            1230,
+            -12,
+            3025800
+          ],
+          [
+            1231,
+            -5,
+            3030722
+          ],
+          [
+            1232,
+            2,
+            3035648
+          ],
+          [
+            1233,
+            9,
+            3040578
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61032,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "input",
+                "name": "x"
+              }
+            }
+          },
+          "program_key": "add(mul(x,x),mul(x,x))"
+        }
+      },
+      {
+        "id": "frozen_eval_17",
+        "family": "skewed",
+        "train": [
+          [
+            100,
+            -2,
+            -200
+          ],
+          [
+            101,
+            9,
+            909
+          ],
+          [
+            102,
+            -9,
+            -918
+          ],
+          [
+            103,
+            2,
+            206
+          ],
+          [
+            104,
+            13,
+            1352
+          ],
+          [
+            105,
+            -5,
+            -525
+          ]
+        ],
+        "held_out": [
+          [
+            1280,
+            -10,
+            -12800
+          ],
+          [
+            1281,
+            -3,
+            -3843
+          ],
+          [
+            1282,
+            4,
+            5128
+          ],
+          [
+            1283,
+            11,
+            14113
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "input",
+              "name": "x"
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "sub",
+                "left": {
+                  "op": "input",
+                  "name": "x"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "y"
+                }
+              }
+            }
+          },
+          "program_key": "mul(x,sub(x,sub(x,y)))"
+        }
+      },
+      {
+        "id": "frozen_eval_18",
+        "family": "skewed",
+        "train": [
+          [
+            110,
+            -14,
+            169386
+          ],
+          [
+            111,
+            -3,
+            36960
+          ],
+          [
+            112,
+            8,
+            -100344
+          ],
+          [
+            113,
+            -10,
+            127680
+          ],
+          [
+            114,
+            1,
+            -12995
+          ],
+          [
+            115,
+            12,
+            -158688
+          ]
+        ],
+        "held_out": [
+          [
+            1290,
+            9,
+            -14976891
+          ],
+          [
+            1291,
+            -15,
+            25000200
+          ],
+          [
+            1292,
+            -8,
+            13354104
+          ],
+          [
+            1293,
+            -1,
+            1671848
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "sub",
+            "left": {
+              "op": "input",
+              "name": "y"
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "mul",
+                "left": {
+                  "op": "input",
+                  "name": "x"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "x"
+                }
+              }
+            }
+          },
+          "program_key": "sub(y,mul(y,mul(x,x)))"
+        }
+      },
+      {
+        "id": "frozen_eval_19",
+        "family": "skewed",
+        "train": [
+          [
+            120,
+            3,
+            -13680
+          ],
+          [
+            121,
+            14,
+            -11253
+          ],
+          [
+            122,
+            -4,
+            -15860
+          ],
+          [
+            123,
+            7,
+            -13407
+          ],
+          [
+            124,
+            -11,
+            -18104
+          ],
+          [
+            125,
+            0,
+            -15625
+          ]
+        ],
+        "held_out": [
+          [
+            1300,
+            -3,
+            -1697800
+          ],
+          [
+            1301,
+            4,
+            -1682193
+          ],
+          [
+            1302,
+            11,
+            -1666560
+          ],
+          [
+            1303,
+            -13,
+            -1731687
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "input",
+              "name": "x"
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "sub",
+                "left": {
+                  "op": "input",
+                  "name": "x"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "y"
+                }
+              }
+            }
+          },
+          "program_key": "mul(x,sub(y,sub(x,y)))"
+        }
+      },
+      {
+        "id": "frozen_eval_20",
+        "family": "skewed",
+        "train": [
+          [
+            130,
+            -9,
+            -16779
+          ],
+          [
+            131,
+            2,
+            -17028
+          ],
+          [
+            132,
+            13,
+            -17279
+          ],
+          [
+            133,
+            -5,
+            -17561
+          ],
+          [
+            134,
+            6,
+            -17816
+          ],
+          [
+            135,
+            -12,
+            -18102
+          ]
+        ],
+        "held_out": [
+          [
+            1310,
+            -15,
+            -1714805
+          ],
+          [
+            1311,
+            -8,
+            -1717418
+          ],
+          [
+            1312,
+            -1,
+            -1720033
+          ],
+          [
+            1313,
+            6,
+            -1722650
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "input",
+              "name": "y"
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "mul",
+                "left": {
+                  "op": "input",
+                  "name": "x"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "x"
+                }
+              }
+            }
+          },
+          "program_key": "add(y,sub(x,mul(x,x)))"
+        }
+      },
+      {
+        "id": "frozen_eval_21",
+        "family": "skewed",
+        "train": [
+          [
+            140,
+            8,
+            17920
+          ],
+          [
+            141,
+            -10,
+            28200
+          ],
+          [
+            142,
+            1,
+            284
+          ],
+          [
+            143,
+            12,
+            41184
+          ],
+          [
+            144,
+            -6,
+            10368
+          ],
+          [
+            145,
+            5,
+            7250
+          ]
+        ],
+        "held_out": [
+          [
+            1320,
+            4,
+            42240
+          ],
+          [
+            1321,
+            11,
+            319682
+          ],
+          [
+            1322,
+            -13,
+            446836
+          ],
+          [
+            1323,
+            -6,
+            95256
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "input",
+              "name": "y"
+            },
+            "right": {
+              "op": "mul",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "add",
+                "left": {
+                  "op": "input",
+                  "name": "x"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "x"
+                }
+              }
+            }
+          },
+          "program_key": "mul(y,mul(y,add(x,x)))"
+        }
+      },
+      {
+        "id": "frozen_eval_22",
+        "family": "skewed",
+        "train": [
+          [
+            150,
+            -4,
+            16
+          ],
+          [
+            151,
+            7,
+            49
+          ],
+          [
+            152,
+            -11,
+            121
+          ],
+          [
+            153,
+            0,
+            0
+          ],
+          [
+            154,
+            11,
+            121
+          ],
+          [
+            155,
+            -7,
+            49
+          ]
+        ],
+        "held_out": [
+          [
+            1330,
+            -8,
+            64
+          ],
+          [
+            1331,
+            -1,
+            1
+          ],
+          [
+            1332,
+            6,
+            36
+          ],
+          [
+            1333,
+            13,
+            169
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "input",
+              "name": "y"
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "sub",
+                "left": {
+                  "op": "input",
+                  "name": "x"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "y"
+                }
+              }
+            }
+          },
+          "program_key": "mul(y,sub(x,sub(x,y)))"
+        }
+      },
+      {
+        "id": "frozen_eval_23",
+        "family": "skewed",
+        "train": [
+          [
+            160,
+            13,
+            199
+          ],
+          [
+            161,
+            -5,
+            146
+          ],
+          [
+            162,
+            6,
+            180
+          ],
+          [
+            163,
+            -12,
+            127
+          ],
+          [
+            164,
+            -1,
+            161
+          ],
+          [
+            165,
+            10,
+            195
+          ]
+        ],
+        "held_out": [
+          [
+            1340,
+            11,
+            1373
+          ],
+          [
+            1341,
+            -13,
+            1302
+          ],
+          [
+            1342,
+            -6,
+            1324
+          ],
+          [
+            1343,
+            1,
+            1346
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "add",
+            "left": {
+              "op": "input",
+              "name": "y"
+            },
+            "right": {
+              "op": "add",
+              "left": {
+                "op": "input",
+                "name": "y"
+              },
+              "right": {
+                "op": "add",
+                "left": {
+                  "op": "input",
+                  "name": "y"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "x"
+                }
+              }
+            }
+          },
+          "program_key": "add(y,add(y,add(y,x)))"
+        }
+      },
+      {
+        "id": "frozen_eval_24",
+        "family": "skewed",
+        "train": [
+          [
+            170,
+            1,
+            169
+          ],
+          [
+            171,
+            12,
+            324
+          ],
+          [
+            172,
+            -6,
+            -816
+          ],
+          [
+            173,
+            5,
+            740
+          ],
+          [
+            174,
+            -13,
+            -65
+          ],
+          [
+            175,
+            -2,
+            -342
+          ]
+        ],
+        "held_out": [
+          [
+            1350,
+            -1,
+            -1349
+          ],
+          [
+            1351,
+            6,
+            7890
+          ],
+          [
+            1352,
+            13,
+            15379
+          ],
+          [
+            1353,
+            -11,
+            -13552
+          ]
+        ],
+        "max_tree_ops": 3,
+        "generator": {
+          "seed": 61033,
+          "program": {
+            "op": "mul",
+            "left": {
+              "op": "input",
+              "name": "y"
+            },
+            "right": {
+              "op": "sub",
+              "left": {
+                "op": "input",
+                "name": "x"
+              },
+              "right": {
+                "op": "mul",
+                "left": {
+                  "op": "input",
+                  "name": "y"
+                },
+                "right": {
+                  "op": "input",
+                  "name": "y"
+                }
+              }
+            }
+          },
+          "program_key": "mul(y,sub(x,mul(y,y)))"
+        }
+      }
+    ]
+  }
+}
