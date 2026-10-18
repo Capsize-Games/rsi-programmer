@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Factored transmitting SNN: encoder, op, operand, structure heads.
+"""Multi-head transmitting SNN with candidate-row scoring heads.
 
-One shared TaskEncoder drive fans out to four spiking populations
-connected by additive edges plus a delayed feedback projection, so
-modules converse across steps through spikes and membranes rather
-than one scalar per choice. Combined head rates rank choices; each
-head trains on its own labels. Opcode argmax is a separate diagnostic
-and is not directly supervised by a within-row classification loss.
+One shared encoder drives four spiking populations through additive
+edges and a delayed feedback projection. Training ranks positive
+candidate rows over negative rows using the combined score and each
+head's corresponding row score: own-op, scalar left and right operand,
+and EMIT. Only the EMIT struct rate is scored; STOP is not a direct loss
+or score term, though it can affect later states through feedback. The
+operand outputs are not distributions over choices, and opcode argmax is
+not directly trained by a within-row classification loss.
 """
 from __future__ import annotations
 

@@ -2,12 +2,15 @@
 """Bit-slice team training loop (lattice v32).
 
 Every triple directly labels its own opcode bits (recognition);
-membership labels apply directly to the struct gate. STOP can
-still affect later outputs through recurrent feedback. Each
-pack combines the mean of six head losses with their maximum;
-the maximum is across pack-aggregate head losses, not per-word
-errors. Thresholds are tuned on a calibration slice and metrics
-are reported on a separate evaluation slice.
+membership labels apply to EMIT and the complementary STOP output.
+Both struct outputs are fitted, then decoded by an EMIT-minus-STOP
+threshold. STOP can also affect later outputs through recurrent
+feedback. Each pack combines the mean of six aggregate head losses
+with their maximum; the maximum is across pack-aggregate head losses,
+not per-word errors. Mixed-class rate terms use a one-spike hinge
+margin and have attainable floor zero. Thresholds are tuned on a
+calibration slice and metrics are reported on a separate evaluation
+slice.
 """
 from __future__ import annotations
 
@@ -19,27 +22,37 @@ from rsi_programmer.author import contrastive_groups
 from rsi_programmer.lattice import EMIT, N_BITS, STOP, BitLattice
 from rsi_programmer.lineage import mission_ledger
 from rsi_programmer.modules import with_gap
-from rsi_programmer.policy import OP_ORDER
+from rsi_programmer.policy import OP_ORDER, STEPS
 from rsi_programmer.words import OPCODES, unpack
 
 RATE_TARGET = 0.5
 RATE_TOLERANCE = 0.05
 
 
-def _margins(out: torch.Tensor, want: torch.Tensor) -> torch.Tensor:
-    """House margin: positives above negatives, or regress.
+def _rate_margin(steps: int) -> float:
+    """One binary firing step as a fraction of the rate window."""
+    if not isinstance(steps, int) or isinstance(steps, bool) or steps < 1:
+        raise ValueError("lattice steps must be positive")
+    return 1.0 / steps
 
-    With both classes present this is the pairwise margin
-    rankers train on (policy/modular precedent): relative,
-    skew-proof, and forgiving of operating point. With a
-    constant target (an opcode bit no training triple sets)
-    it regresses to that constant instead.
+
+def _margins(out: torch.Tensor, want: torch.Tensor,
+             steps: int = STEPS) -> torch.Tensor:
+    """One-spike hinge ranking for mixed labels; regress constants.
+
+    Rates average ``steps`` binary spike steps, so the requested
+    margin is one firing step (1/steps). Once every positive-negative pair is
+    separated by that amount, the term is exactly zero and gives no
+    further gradient toward saturated rates. With a constant target
+    (an opcode bit no training triple sets), squared error regresses
+    the channel to that constant instead.
     """
+    margin = _rate_margin(steps)
     pos = out[want > 0.5]
     neg = out[want < 0.5]
     if len(pos) and len(neg):
         gap = pos.unsqueeze(1) - neg.unsqueeze(0)
-        return torch.nn.functional.softplus(1.0 - gap).mean()
+        return torch.relu(margin - gap).mean()
     const = want[0] if len(want) else torch.zeros(())
     return ((out - const) ** 2).mean()
 
@@ -166,12 +179,12 @@ def fit_packs(lat: BitLattice,
             lat.reset()
             out = lat._drive(mat)
             terms = [_margins(out["b%d" % i][:, 0],
-                              want[:, i])
+                              want[:, i], lat._steps)
                      for i in range(N_BITS)]
             terms.append(_margins(out["st"][:, EMIT],
-                                  membership))
+                                  membership, lat._steps))
             terms.append(_margins(out["st"][:, STOP],
-                                  1.0 - membership))
+                                  1.0 - membership, lat._steps))
             total = total + _pack_objective(torch.stack(terms), lam)
             count += 1
         loss = total / max(count, 1)
@@ -196,10 +209,14 @@ def train_lattice(lat: BitLattice, fixture: str, ledger: str,
     calibration groups; reported bit metrics use evaluation groups.
     """
     from rsi_programmer.lprecision import refine, split_groups
-    groups = contrastive_groups(fixture)
+    supervision_report: list[dict[str, Any]] = []
+    split_report: dict[str, Any] = {}
+    groups = contrastive_groups(fixture,
+                                supervision_report=supervision_report)
     if not groups:
         raise ValueError("lattice training requires at least one group")
-    train_groups, calibration_groups, eval_groups = split_groups(groups)
+    train_groups, calibration_groups, eval_groups = split_groups(
+        groups, report=split_report)
     packs = [pack_rows(group) for group in train_groups]
     full = torch.cat([mat for mat, _, _ in packs])
     calibration = _calibrate(lat, full)
@@ -213,6 +230,7 @@ def train_lattice(lat: BitLattice, fixture: str, ledger: str,
               "calibration_groups": len(calibration_groups),
               "evaluation_groups": len(eval_groups),
               "split_unit": "contrastive_group",
+              "group_split": split_report,
               "initial_calibration": calibration,
               "postfit_rates": postfit_rates,
               "postfit_rate_drift": rate_drift,
@@ -222,6 +240,16 @@ def train_lattice(lat: BitLattice, fixture: str, ledger: str,
               "postfit_max_rate_deviation": max(
                   (abs(value - RATE_TARGET)
                    for value in postfit_rates.values()), default=0.0)}
+    report["training_objective"] = {
+        "mixed_class_loss": "pairwise_hinge",
+        "mixed_class_rate_margin": _rate_margin(lat._steps),
+        "rate_window_steps": lat._steps,
+        "mixed_class_attainable_loss_floor": 0.0,
+        "constant_target_loss": "mean_squared_error",
+        "pack_aggregate": "mean_plus_lambda_max_of_six_head_losses",
+        "stop_target": "complement_of_membership",
+        "struct_decode": "emit_rate_ge_stop_rate_plus_calibrated_margin"}
+    report["training_supervision"] = supervision_report
     if calibration_groups:
         report.update(refine(lat, calibration_groups))
         report["calibration_available"] = True

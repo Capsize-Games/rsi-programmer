@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Bit-slice lattice: frozen shared encoder, four 1-bit heads.
+"""Bit-slice lattice: four independent 1-bit rate heads.
 
 Head i drives bit i (weight 2**i) of every 4-bit word; the
-shared EMIT/STOP struct gate commits words on EMIT-majority.
-Encoder, struct, and feedback stages load from a trained
-modular snapshot by stage-name prefix; bit heads train fresh
-in v32 with the encoder write-locked.
+struct output is trained on membership and its complement, then
+decodes a commit when EMIT rate clears STOP rate by its calibrated
+margin. Encoder and feedback stages can load from a modular snapshot.
 """
 from __future__ import annotations
 
@@ -40,6 +39,8 @@ class BitLattice:
     def __init__(self, seed: int = 0, hidden: int = 16,
                  steps: int = STEPS, lr: float = 0.05) -> None:
         """Build the lattice topology and its gradient entry."""
+        if not isinstance(steps, int) or isinstance(steps, bool) or steps < 1:
+            raise ValueError("lattice steps must be positive")
         torch.manual_seed(seed)
         self._seed = seed
         self._steps = steps
@@ -127,7 +128,11 @@ class BitLattice:
 
     def struct(self, feats: list[list[float]],
                gap: float | None = None) -> list[bool]:
-        """Commit flag: EMIT beats STOP by learned margin."""
+        """Commit when EMIT clears STOP by the calibrated margin.
+
+        Lattice training fits EMIT on membership and STOP on its
+        complement. Threshold calibration tunes their difference.
+        """
         rates = self.head_rates(feats, gap)
         margin = self.thresholds["st"]
         return [row[EMIT] >= row[STOP] + margin

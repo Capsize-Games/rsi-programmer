@@ -1,0 +1,26 @@
+test_signature_cap_keeps_complete_layer_feature_denominator (tests.test_search_amendments.LowerLayerAlternativeTests.test_signature_cap_keeps_complete_layer_feature_denominator) ... FAIL
+
+======================================================================
+FAIL: test_signature_cap_keeps_complete_layer_feature_denominator (tests.test_search_amendments.LowerLayerAlternativeTests.test_signature_cap_keeps_complete_layer_feature_denominator)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "{repository}/tests/test_search_amendments.py", line 114, in test_signature_cap_keeps_complete_layer_feature_denominator
+    self.assertEqual(policy.progress, [1 / 12, 2 / 12, 3 / 12])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [0.3333333333333333, 0.6666666666666666, 1.0] != [0.08333333333333333, 0.16666666666666666, 0.25]
+
+First differing element 0:
+0.3333333333333333
+0.08333333333333333
+
+- [0.3333333333333333, 0.6666666666666666, 1.0]
+?    ^                                     ^ ^
+
++ [0.08333333333333333, 0.16666666666666666, 0.25]
+?    ^^                   +                  ^ ^^
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

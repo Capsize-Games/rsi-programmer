@@ -1,0 +1,158 @@
+{
+  "base_commit": "d8f387703f7db8793328162a99f7ee3e38dbed11",
+  "patch_files": {
+    "justfile": "ae62f33a56f18c9ec9fa1c5205fd6560bb3e04a2a7a49f0ced6fe56979e28f3f",
+    "rsi_programmer/author.py": "24361254d788c923b0ff19509ba74efc5de94d2a4df4556c1d570fe3fdaa2ed3",
+    "rsi_programmer/lattice.py": "47f7e8152f501583352a243152c18bdcc23fbd509db24239a5661e519a988558",
+    "rsi_programmer/lprecision.py": "d1dd5c288366b4a3a50308a0b48a8744f6df8bbf91a00ed88b5d02774907b275",
+    "rsi_programmer/ltrain.py": "d8def3f1727bbd3ffcd3151adb5bbdb37aa48faf33062492de905a01c7671c25",
+    "rsi_programmer/mgroups.py": "930b5b9e69dc6fad971b615c33599184f3fdc876f8e90cc2a33fb07b7451f6d6",
+    "rsi_programmer/modules.py": "9ff3a3707b31740bcff7db7175d87c4ce0714cdba4b018054c2c68c7b12d304b",
+    "rsi_programmer/probe.py": "cdcd5475abcf35dbbaee4505569ba8db26f2e091f0aadc7e1bd2690bec262914",
+    "rsi_programmer/rich.py": "a9a536e5c14fa78340a344834b773aa7e329827ebd9efe63dc8289f56eaa3721",
+    "rsi_programmer/search.py": "92694dd1a4eabcc72aadceab0132a69425acd4348a3ed37aa20a6a561f4ad96e",
+    "scripts/measure_author_ablation.py": "ec9c16a85bb3ee3892a4e29291c24c68f9f4b72be6ec95b31aac62800ebc5ec7",
+    "scripts/train.py": "4a08e301e39ffdc492481e27897925a947ea8ba6a70cfa192d409f25fb3a9d88",
+    "tests/test_measurement_provenance.py": "a9a43a96a152cd3ed7fc1f2ea07259d45859c7b71cdebf82091fbbbe6472b2be",
+    "tests/test_objective_amendments.py": "686b0ce10357eeee493884fa7a9aa95b2c725b8a2fa5b83258bd45679bf3069e",
+    "tests/test_search_amendments.py": "90d7954eda99597d81f82bb8719882f953375e0eabdd3a6fb82777aaf9bad800",
+    "tests/test_supervision_amendments.py": "bdb72695f6eec2c35d153719f7c5a96065b4fd247ee22b83de450d8ccd0175cc"
+  },
+  "source": {
+    "sha256": "d45d2fac4964c4d2415f851c11c38db226962551629ea7b3bebdb525ff19f0af",
+    "files": 102
+  },
+  "command": [
+    "just",
+    "test-fast"
+  ],
+  "status": "passed",
+  "started_at": 1792314078.9420605,
+  "exit_code": 0,
+  "wall_seconds": 227.45504641532898,
+  "source_after": {
+    "sha256": "d45d2fac4964c4d2415f851c11c38db226962551629ea7b3bebdb525ff19f0af",
+    "files": 102
+  },
+  "test_summary": "Ran 258 tests in 223.871s",
+  "log_sha256": {
+    "fast.log": "fe4f0adc73ff13eae23b9ead9eca98682bfb008cd16febea931c7941927ed361",
+    "prior-fast-failure.log": "cc66525b5c330f8b35c6d0e0c0d795733bec9903be53fe9b3d0d3e6ac49964da",
+    "interrupted-first.log": "f30b104ddb18a4e780d1bfbc14270abde7e61a85d7bc607347a273d3f17843cd",
+    "interrupted-superseded.log": "6adefe9b90cfe6458aca7550407186fc8a63d8703f5775d4b67a898ff941633d",
+    "signature-budget-red.log": "95410af47b19865616e3bc8d5eeff097ffa4a10a9983fda73f7b27d9c78b81bc"
+  },
+  "normalization": "Local repository/home paths replaced; trailing whitespace removed; LF line endings.",
+  "scope": "Complete fast lane. Slow/retry on these inputs and the paired author/beam experiment are separate, pending stages.",
+  "earlier_attempts": {
+    "integration": {
+      "base_commit": "d8f387703f7db8793328162a99f7ee3e38dbed11",
+      "patch_files": {
+        "justfile": "dfa21bf261c1188b0648d547bab9ca0d7d739103f020103df2d105104422ebd2",
+        "rsi_programmer/author.py": "24361254d788c923b0ff19509ba74efc5de94d2a4df4556c1d570fe3fdaa2ed3",
+        "rsi_programmer/lattice.py": "47f7e8152f501583352a243152c18bdcc23fbd509db24239a5661e519a988558",
+        "rsi_programmer/ltrain.py": "da3a2219e2a2b70add600cd51d55b277c6645797019882d67948d5d99cd8d3be",
+        "rsi_programmer/mgroups.py": "930b5b9e69dc6fad971b615c33599184f3fdc876f8e90cc2a33fb07b7451f6d6",
+        "rsi_programmer/modules.py": "9ff3a3707b31740bcff7db7175d87c4ce0714cdba4b018054c2c68c7b12d304b",
+        "rsi_programmer/probe.py": "fd7831a2204bd624be278af53923bba712539a376e1ce58b4de77208d7bf5b7a",
+        "rsi_programmer/rich.py": "a9a536e5c14fa78340a344834b773aa7e329827ebd9efe63dc8289f56eaa3721",
+        "rsi_programmer/search.py": "14e4719a63394eee25ab55ca0f90f2f7e7d2fde74b3b005f13bab1859e6298d0",
+        "scripts/measure_author_ablation.py": "1442ac23620404c007f71f223f164edefa8c269d82ab901ce24a2567b794f2f7",
+        "scripts/train.py": "1c5eedfefe6b8dca24fc6468fb66888b0ca1a31803acbb3f33353ebb2c12ace4",
+        "tests/test_objective_amendments.py": "af43e7eccd04a8f58134d6647dbf1b2e1854d2b9ab7b8fb760bcf890cbbc38eb",
+        "tests/test_search_amendments.py": "4958cd1f47e550b58351845677fb0e29b6c8881e1e717ed3b73a399ee25d3974",
+        "tests/test_supervision_amendments.py": "bdb72695f6eec2c35d153719f7c5a96065b4fd247ee22b83de450d8ccd0175cc"
+      },
+      "source": {
+        "sha256": "d00b19fd4e0fc54c74cb2aa758126ed6447d3175ed92c4d8784846f3e150957a",
+        "files": 101
+      },
+      "command": [
+        "just",
+        "test-fast"
+      ],
+      "status": "interrupted",
+      "started_at": 1792313127.7847962,
+      "exit_code": 130,
+      "wall_seconds": 121.09496235847473,
+      "source_after": {
+        "sha256": "d00b19fd4e0fc54c74cb2aa758126ed6447d3175ed92c4d8784846f3e150957a",
+        "files": 101
+      },
+      "reason": "Independent review found truncated-layer feature denominator regression and missing measurement provenance guards; source corrected before rerun."
+    },
+    "integration-final": {
+      "base_commit": "d8f387703f7db8793328162a99f7ee3e38dbed11",
+      "patch_files": {
+        "justfile": "ae62f33a56f18c9ec9fa1c5205fd6560bb3e04a2a7a49f0ced6fe56979e28f3f",
+        "rsi_programmer/author.py": "24361254d788c923b0ff19509ba74efc5de94d2a4df4556c1d570fe3fdaa2ed3",
+        "rsi_programmer/lattice.py": "47f7e8152f501583352a243152c18bdcc23fbd509db24239a5661e519a988558",
+        "rsi_programmer/ltrain.py": "da3a2219e2a2b70add600cd51d55b277c6645797019882d67948d5d99cd8d3be",
+        "rsi_programmer/mgroups.py": "930b5b9e69dc6fad971b615c33599184f3fdc876f8e90cc2a33fb07b7451f6d6",
+        "rsi_programmer/modules.py": "9ff3a3707b31740bcff7db7175d87c4ce0714cdba4b018054c2c68c7b12d304b",
+        "rsi_programmer/probe.py": "fd7831a2204bd624be278af53923bba712539a376e1ce58b4de77208d7bf5b7a",
+        "rsi_programmer/rich.py": "a9a536e5c14fa78340a344834b773aa7e329827ebd9efe63dc8289f56eaa3721",
+        "rsi_programmer/search.py": "92694dd1a4eabcc72aadceab0132a69425acd4348a3ed37aa20a6a561f4ad96e",
+        "scripts/measure_author_ablation.py": "ec9c16a85bb3ee3892a4e29291c24c68f9f4b72be6ec95b31aac62800ebc5ec7",
+        "scripts/train.py": "4a08e301e39ffdc492481e27897925a947ea8ba6a70cfa192d409f25fb3a9d88",
+        "tests/test_measurement_provenance.py": "a9a43a96a152cd3ed7fc1f2ea07259d45859c7b71cdebf82091fbbbe6472b2be",
+        "tests/test_objective_amendments.py": "af43e7eccd04a8f58134d6647dbf1b2e1854d2b9ab7b8fb760bcf890cbbc38eb",
+        "tests/test_search_amendments.py": "b385b5350a2f608c681b488b5aee60d08ca068cf798934a3a030dd6a2234e6bb",
+        "tests/test_supervision_amendments.py": "bdb72695f6eec2c35d153719f7c5a96065b4fd247ee22b83de450d8ccd0175cc"
+      },
+      "source": {
+        "sha256": "116516d27e091d132ce647da8cffe42ac71ba45543a599ea5ce8b400ab13aa33",
+        "files": 102
+      },
+      "command": [
+        "just",
+        "test-fast"
+      ],
+      "status": "failed",
+      "started_at": 1792313389.2842703,
+      "exit_code": 1,
+      "wall_seconds": 210.4009222984314,
+      "source_after": {
+        "sha256": "116516d27e091d132ce647da8cffe42ac71ba45543a599ea5ce8b400ab13aa33",
+        "files": 102
+      }
+    },
+    "integration-release": {
+      "base_commit": "d8f387703f7db8793328162a99f7ee3e38dbed11",
+      "patch_files": {
+        "justfile": "ae62f33a56f18c9ec9fa1c5205fd6560bb3e04a2a7a49f0ced6fe56979e28f3f",
+        "rsi_programmer/author.py": "24361254d788c923b0ff19509ba74efc5de94d2a4df4556c1d570fe3fdaa2ed3",
+        "rsi_programmer/lattice.py": "47f7e8152f501583352a243152c18bdcc23fbd509db24239a5661e519a988558",
+        "rsi_programmer/ltrain.py": "da3a2219e2a2b70add600cd51d55b277c6645797019882d67948d5d99cd8d3be",
+        "rsi_programmer/mgroups.py": "930b5b9e69dc6fad971b615c33599184f3fdc876f8e90cc2a33fb07b7451f6d6",
+        "rsi_programmer/modules.py": "9ff3a3707b31740bcff7db7175d87c4ce0714cdba4b018054c2c68c7b12d304b",
+        "rsi_programmer/probe.py": "cdcd5475abcf35dbbaee4505569ba8db26f2e091f0aadc7e1bd2690bec262914",
+        "rsi_programmer/rich.py": "a9a536e5c14fa78340a344834b773aa7e329827ebd9efe63dc8289f56eaa3721",
+        "rsi_programmer/search.py": "92694dd1a4eabcc72aadceab0132a69425acd4348a3ed37aa20a6a561f4ad96e",
+        "scripts/measure_author_ablation.py": "ec9c16a85bb3ee3892a4e29291c24c68f9f4b72be6ec95b31aac62800ebc5ec7",
+        "scripts/train.py": "4a08e301e39ffdc492481e27897925a947ea8ba6a70cfa192d409f25fb3a9d88",
+        "tests/test_measurement_provenance.py": "a9a43a96a152cd3ed7fc1f2ea07259d45859c7b71cdebf82091fbbbe6472b2be",
+        "tests/test_objective_amendments.py": "af43e7eccd04a8f58134d6647dbf1b2e1854d2b9ab7b8fb760bcf890cbbc38eb",
+        "tests/test_search_amendments.py": "90d7954eda99597d81f82bb8719882f953375e0eabdd3a6fb82777aaf9bad800",
+        "tests/test_supervision_amendments.py": "bdb72695f6eec2c35d153719f7c5a96065b4fd247ee22b83de450d8ccd0175cc"
+      },
+      "source": {
+        "sha256": "8e6281cbf75a7411c9f670449c2b2c239ec1728f8e9020e2ac915403c3b533a3",
+        "files": 102
+      },
+      "command": [
+        "just",
+        "test-fast"
+      ],
+      "status": "interrupted",
+      "started_at": 1792313563.1030312,
+      "exit_code": 130,
+      "wall_seconds": 99.26067161560059,
+      "source_after": {
+        "sha256": "8e6281cbf75a7411c9f670449c2b2c239ec1728f8e9020e2ac915403c3b533a3",
+        "files": 102
+      },
+      "reason": "Same lattice accuracy failure as completed integration-final gate; stopped superseded run before repairing split coverage/thresholds."
+    }
+  }
+}

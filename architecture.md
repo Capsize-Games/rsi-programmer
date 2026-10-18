@@ -91,7 +91,7 @@ flowchart LR
     subgraph TRAIN_PIPE["Learning pipeline (canonical: scripts/train.py)"]
         T1["Fixture family"] --> T2["Replay enumerator<br/>per task, layer by layer"]
         T2 --> T3["Encode every triple<br/>12-d features"]
-        T3 --> T4["Label: on canonical<br/>solution signature set"]
+        T3 --> T4["Label: completing signatures<br/>in retained train graph"]
         T4 --> T5["Full-batch margin loss<br/>softplus(1 - gap)"]
         T5 --> T6["One Adam step / epoch<br/>x EPOCHS"]
         T6 --> T7["Joint pass: margin +<br/>0.2 * listwise, 5 epochs"]
@@ -249,9 +249,11 @@ and optionally (branch families) comparisons into
 $\tilde L^B_s$ analogously, plus
 $\mathrm{select}(c, u, v)$ for $c \in L^B_{a}$, $u \in L_b$,
 $v \in L_{s-1-a-b}$. The raw candidate count at size $s$ is
-$3 \sum_a |L_a|\,|L_{s-1-a}|$ (doubled with CMP, plus the ternary
-select term), which grows roughly like $3^s$ times a Catalan
-factor before pruning.
+$3 \sum_a |L_a|\,|L_{s-1-a}|$ for arithmetic. Branch mode adds
+$2 \sum_a |L_a|\,|L_{s-1-a}|$ comparison candidates and the
+ternary select term. Without constants, branching, or deduplication, the
+plain size-$s$ tree count is $2^{s+1}3^s C_s$, where $C_s$ is the
+Catalan number: each of the $s+1$ leaves independently chooses x or y.
 
 **Dedup.** With `deduplicate=True` (the default everywhere), each
 layer keeps at most one expression per key
@@ -266,6 +268,13 @@ scanned in generation order for the first $e$ with
 $\sigma_R(e) = \mathbf{t}$ (optionally restricted to a root op);
 that $e$ is returned.
 
+Guided search can retain more than one lower-layer representative via
+`alternatives_per_signature`; the default remains one. Reports count
+retained and dropped alternatives and flag truncation. Alternative mode
+uses a 10,000 candidate-signature budget by default, independently of the
+scan budget; callers can set `signature_budget` explicitly, including
+zero. This bounds expansion and does not claim held-out completeness.
+
 **Work counters.** `signature_evaluations` is the canonical cost
 across search paths: each candidate-signature computation counts
 once, including work needed to materialize a layer. Reports retain
@@ -278,6 +287,12 @@ the retained output graph). These counters count root vector
 evaluations, excluding recursive subtree calls and neural work;
 they are not a total CPU-operation or runtime measurement.
 Trace collection observes enumeration in one pass without replay.
+The optional `enumerate_programs_report` preserves the tuple API and
+reports generated signature work, retained root-eligible examinations,
+and the raw root-eligible match ordinal within the solving layer. Bool
+comparison expressions contribute signature work but are not Int-root
+examinations. Historical [gains charts](docs/gains/README.md) retain their
+original measurements and cannot be read as current work comparisons.
 Compare paths by
 `signature_evaluations`, not by `tried` ([#53](https://github.com/Capsize-Games/rsi-programmer/issues/53)).
 
@@ -436,34 +451,42 @@ scores, so ranking does not double-count it ([#55](https://github.com/Capsize-Ga
 
 ### 6.1 Training data and labels
 
-All supervision comes from replaying the enumerator on frozen
-fixtures (`policy.replay_layers`, `traces.TraceRecorder`). Four
-label schemes exist, and they are not equivalent:
+Teaching rows come from frozen fixtures. Trace enumeration
+(`policy.replay_layers`, `traces.TraceRecorder`) and retained
+train-signature graphs produce candidate groups. Four label schemes
+exist, and they are not equivalent:
 
 1. **Trace groups** (`SearchPolicy.trace_groups`): per task, only
    the solving layer, label
    $y = \mathbf{1}[\sigma(\mathrm{op}(u,v)) = \mathbf{t}]$.
    This label is exact: every program that solves the train split
    at that layer is positive.
-2. **Canonical-imitation groups** (`author._base_groups`): every layer up to
-   the solving layer. Let $e^\*$ be the enumerator's first-found
-   solution and $\mathcal{W} = \{\sigma(z) : z \text{ a subtree of
-   } e^\*\}$. Label
-   $y = \mathbf{1}[\sigma(\mathrm{op}(u,v)) \in \mathcal{W}]$:
-   positive iff the candidate computes a value-vector that the
-   canonical solution uses. This imitates one decomposition; it
-   does not label whether a candidate can complete under any
-   solution. Valid alternatives can be negative
+2. **Completion groups** (`author._base_groups`): teaching rows cover
+   each layer through the first solving layer. A separate train-only
+   graph is expanded through the full task bound. Its nodes are
+   $(s,\sigma)$; every raw candidate contributes edges to its nonterminal
+   operand nodes before operator/signature deduplication chooses
+   representatives
+   for the next layer. Backward reachability starts from every
+   target-signature node at every size within the bound. If
+   $\mathcal{W}_s$ is the set of reached signatures at size $s$, label
+   $y=\mathbf{1}[\sigma(\mathrm{op}(u,v))\in\mathcal{W}_s]$.
+   This covers alternatives in the retained train-signature graph;
+   it does not prove held-out correctness. A 50,000-candidate cap
+   bounds evidence collection. An incomplete graph yields no labels,
+   and the task is skipped rather than treating unknowns as negatives.
+   `supervision="canonical"` retains the old first-solution-subtree
+   labels as an explicit ablation control. Rich surrogate negatives also
+   exclude exact-size completing intermediates, or omit negatives when
+   their graph evidence is truncated
    ([#66](https://github.com/Capsize-Games/rsi-programmer/issues/66)).
-   This canonical-imitation objective is retained; the labels are
-   not evidence that other valid decompositions are incorrect.
 3. **Contrastive groups** (`author.contrastive_groups`): author
    groups partitioned by the candidate's own op, keeping only
    partitions with both classes present and with nonzero variance
    in at least one of the four operand feature dims
    (`OPDIMS` = features 6-9). Same labels as (2); used by the
    operand-refinement and lattice paths.
-4. **Modular groups** (`mgroups.modular_groups`): author labels
+4. **Modular groups** (`mgroups.modular_groups`): completion labels
    plus per-group metadata (candidate op index, solution op set,
    layer gap). One group per task layer.
 
@@ -474,7 +497,8 @@ target, and the author label (2) as struct-gate membership.
 ### 6.2 The pairwise margin loss (ranker core)
 
 For a group with positive index set $P$ and negative set $N$ and
-scores $s_i$, every learner in the stack uses the same term:
+scores $s_i$, SearchPolicy and ModularPolicy use this term; the
+lattice uses the bounded-rate hinge in Section 6.5:
 
 $$
 \mathcal{M}(P, N) = \frac{1}{|P|\,|N|}
@@ -557,6 +581,16 @@ candidate. STOP has no direct score or loss term, but it feeds back
 through the encoder and can affect later outputs
 ([#65](https://github.com/Capsize-Games/rsi-programmer/issues/65)).
 
+These are candidate-row scoring heads, not conditional choices of
+operators and operands. `module_report` measures positive-versus-negative
+pairwise preference for the exact five row scores used by the loss.
+For each group and score $s$, the statistic is
+$\frac{1}{|P||N|}\sum_{p,n}(\mathbf{1}[s_p>s_n]
++\frac12\mathbf{1}[s_p=s_n])$, then averaged over eligible groups.
+Uniform ordering has expectation 0.5, including ties. The report gives
+the group count. Opcode argmax and operand-signature top-1 remain
+explicit diagnostics; their older ambiguous keys are deprecated aliases.
+
 ### 6.5 BitLattice training (`ltrain.train_lattice`)
 
 Step by step:
@@ -577,9 +611,9 @@ Step by step:
    calibration curves ([#57](https://github.com/Capsize-Games/rsi-programmer/issues/57)).
 3. **Fit** (`fit_packs`, `epochs = 8` default). Per pack
    (contrastive group), six terms: for bit $j$,
-   $\mathcal{M}$ between rows whose target bit is 1 vs 0, where
+   $\mathcal{H}_T$ between rows whose target bit is 1 vs 0, where
    the target word is the candidate's **own opcode**; for the
-   struct gate, $\mathcal{M}$ of EMIT rate against author-label
+   struct gate, $\mathcal{H}_T$ of EMIT rate against author-label
    membership, and of STOP rate against $1 -{}$membership. If a
    bit's target is constant within the pack, the margin is
    replaced by squared-error regression to that constant. Pack
@@ -594,18 +628,32 @@ Step by step:
    $$
 
    averaged over packs, one Adam step per epoch, state reset per
-   pack. For mixed-label heads the pairwise margin is bounded
-   below by $\ln 2$ because rates lie in $[0,1]$; constant-label
-   opcode bits use squared error instead. The maximum is across
+   pack. For rates averaged over $T$ firing steps, mixed-label heads
+   use the one-spike hinge
+
+   $$
+   \mathcal{H}_T(P,N)=\frac{1}{|P||N|}
+   \sum_{p\in P,n\in N}\max(0,1/T-(r_p-r_n)).
+   $$
+
+   Its attainable floor is zero. Once all pairs have a one-spike
+   gap, this term supplies no further gradient toward saturation.
+   Constant-target heads use squared error instead. The maximum is across
    six pack-aggregate head losses, not per-word errors. STOP is
    directly fitted and also affects later rates through feedback
    ([#56](https://github.com/Capsize-Games/rsi-programmer/issues/56)).
 4. **Threshold tuning and evaluation** (`lprecision.refine`).
-   Groups are split before fitting into training, calibration,
-   and evaluation partitions. On the calibration groups,
-   coordinate descent (2 rounds) tunes bit thresholds
-   $\theta_j \in \{0.5, 0.4, 0.6, 0.7\}$ maximizing word-exact
-   rate, then struct margin $m \in \{0, -0.2, 0.2\}$ maximizing
+   Whole groups are split before fitting into training, calibration,
+   and evaluation partitions. For homogeneous candidate-opcode groups,
+   the seeded split preserves at least one training group per observed
+   opcode. When each opcode has at least three groups, calibration and
+   evaluation each receive every observed opcode. Sparse strata report
+   incomplete coverage. Group counts and row counts remain distinct.
+   On calibration groups, coordinate descent (2 rounds) tunes bit
+   thresholds from $\{0\}\cup\{(k+0.5)/T:k=0,\ldots,T\}$, covering
+   every discrete rate cut including always-on and always-off, to
+   maximize word-exact rate. It then tunes struct margin
+   $m \in \{0, -0.2, 0.2\}$ maximizing
    gate F1. Threshold ties retain their current value. No gradients
    are applied during tuning. The calibration report also measures
    whether word-exact AND EMIT agrees with membership, but does not

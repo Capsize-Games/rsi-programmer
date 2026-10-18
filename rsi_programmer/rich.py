@@ -210,7 +210,8 @@ def rollup(per: list[dict[str, Any]],
 
 def _neg_layer(levels: dict[int, list[Expr]], size: int,
                rows: Rows, target: Vals, bound: int,
-               g12: Group, gx: Group) -> list[Expr]:
+               g12: Group, gx: Group,
+               completing: dict[int, set[Vals]]) -> list[Expr]:
     """One layer of capped negatives; returns its members."""
     cur: list[Expr] = []
     triples = layer_triples(levels, size)
@@ -218,7 +219,8 @@ def _neg_layer(levels: dict[int, list[Expr]], size: int,
     for index, (op, left, right) in enumerate(triples):
         candidate = Expr(op, left, right, size)
         cur.append(candidate)
-        if signature_of(candidate, rows) == target:
+        sig = signature_of(candidate, rows)
+        if sig == target or sig in completing.get(size, set()):
             continue
         first, second = neg_pair(op, left, right, size, rows,
                                  target, bound, index + 1, total)
@@ -231,13 +233,22 @@ def _neg_layer(levels: dict[int, list[Expr]], size: int,
 
 def hard_neg(rows: Rows, target: Vals,
              bound: int) -> tuple[Group, Group]:
-    """Bounded negatives from the task's own early layers."""
+    """Bounded negatives excluding train-graph completing intermediates.
+
+    A truncated reachability graph yields no negatives rather than treating
+    candidates with unknown status as negative evidence.
+    """
+    from rsi_programmer.author import solution_sigs_by_size_report
+
+    completing, report = solution_sigs_by_size_report(rows, target, bound)
+    if report["truncated"]:
+        return [], []
     g12: Group = []
     gx: Group = []
     levels: dict[int, list[Expr]] = {0: list(terminals())}
     for size in (1, 2, 3, 4):
         levels[size] = _neg_layer(levels, size, rows, target,
-                                  bound, g12, gx)
+                                  bound, g12, gx, completing)
         if len(g12) >= NEG_CAP:
             break
     return g12, gx

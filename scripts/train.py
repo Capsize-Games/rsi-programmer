@@ -26,6 +26,8 @@ def _args() -> argparse.Namespace:
         here / "fixtures" / "rsi_shadow_tasks.json"))
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--epochs", type=int, default=50)
+    parser.add_argument("--supervision", choices=("reachability", "canonical"),
+                        default="reachability")
     parser.add_argument("--name", default="rsi-search-policy-w1")
     parser.add_argument("--out", default=str(here / "weights"))
     return parser.parse_args()
@@ -33,7 +35,8 @@ def _args() -> argparse.Namespace:
 
 def _manifest(name: str, policy: SearchPolicy,
               fixture: str, seed: int, epochs: int,
-              rows: int) -> dict[str, Any]:
+              rows: int, supervision: str = "reachability",
+              evidence: list[dict[str, Any]] | None = None) -> dict[str, Any]:
     """Weights spec plus training provenance for one run."""
     snap = policy.snapshot()
     state = policy.weights()
@@ -48,7 +51,12 @@ def _manifest(name: str, policy: SearchPolicy,
             "epochs": epochs,
             "seed": seed,
             "trained_rows": rows,
-            "label_semantics": "canonical_solution_signature_membership",
+            "trained_rows_unit": "feature_label_pairs_including_contrastive",
+            "label_semantics": "retained_train_signature_graph_reachability"
+                if supervision == "reachability"
+                else "canonical_train_solution_subtrees",
+            "supervision_mode": supervision,
+            "supervision_evidence": evidence,
             "snapshot_sha256": _snapshot_hash(snap["weights"]),
         },
         "license": "BSD-3-Clause",
@@ -69,11 +77,15 @@ def main() -> None:
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     policy = SearchPolicy(seed=args.seed)
-    rows = train_author(policy, args.fixture, epochs=args.epochs)
+    evidence: list[dict[str, Any]] = []
+    rows = train_author(policy, args.fixture, epochs=args.epochs,
+                        supervision=args.supervision,
+                        supervision_report=evidence)
     blob_path = out / (args.name + ".pt")
     torch.save(policy.weights(), str(blob_path))
     manifest = _manifest(args.name, policy, args.fixture,
-                         args.seed, args.epochs, rows)
+                         args.seed, args.epochs, rows,
+                         args.supervision, evidence)
     (out / (args.name + ".manifest.json")).write_text(
         json.dumps(manifest, indent=2, sort_keys=True))
     blob = blob_path.read_bytes()

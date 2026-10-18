@@ -15,7 +15,7 @@ import time
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Callable
+from typing import Any, Callable
 
 
 OPS: dict[str, Callable[[int, int], int]] = {
@@ -188,6 +188,91 @@ def enumerate_programs(rows: tuple[tuple[int, int], ...], expected: tuple[int, .
                 if current_signatures[id(expr)] == expected:
                     return expr, tried, _volume(levels, blevels)
     return None, tried, _volume(levels, blevels)
+
+
+def enumerate_programs_report(
+        rows: tuple[tuple[int, int], ...], expected: tuple[int, ...],
+        max_ops: int, root_op: str | None = None,
+        deduplicate: bool = True, consts: tuple[int, ...] = (),
+        branch: bool = False,
+        on_candidate: Callable[
+            [Expr, tuple[int, ...], int], None] | None = None
+        ) -> dict[str, Any]:
+    """Return the legacy result with distinct work and scan counters.
+
+    ``signature_evaluations`` counts generated candidates whose signatures
+    were computed. ``examined`` counts retained, root-eligible candidates
+    checked through the first match (or all eligible retained candidates on
+    failure). ``first_match_position`` is the raw generated candidate
+    position within the solving layer, before train-signature deduplication
+    and among candidates eligible under ``root_op``.
+    The legacy three-tuple API remains available through
+    :func:`enumerate_programs`.
+    """
+    seen_main: dict[int, set[tuple[str, tuple[int, ...]]]] = {}
+    seen_bool: dict[int, set[tuple[str, tuple[int, ...]]]] = {}
+    retained: dict[int, list[Expr]] = {}
+    raw_eligible: dict[int, int] = {}
+    raw_position: dict[int, int] = {}
+
+    def eligible(expr: Expr) -> bool:
+        return expr.op not in CMP and (
+            root_op is None or expr.op == root_op)
+
+    def record(expr: Expr, sig: tuple[int, ...], count: int) -> None:
+        size = expr.size
+        retained.setdefault(size, [])
+        raw_eligible.setdefault(size, 0)
+        if eligible(expr):
+            raw_eligible[size] += 1
+            raw_position[id(expr)] = raw_eligible[size]
+        if deduplicate:
+            keys = seen_bool if expr.op in CMP else seen_main
+            level_seen = keys.setdefault(size, set())
+            key = (expr.op, sig)
+            if key in level_seen:
+                keep = False
+            else:
+                level_seen.add(key)
+                keep = True
+        else:
+            keep = True
+        if keep:
+            retained[size].append(expr)
+        if on_candidate is not None:
+            on_candidate(expr, sig, count)
+
+    expr, tried, unique = enumerate_programs(
+        rows, expected, max_ops, root_op=root_op,
+        deduplicate=deduplicate, consts=consts, branch=branch,
+        on_candidate=record)
+    examined = 0
+    first_match_position: int | None = None
+    if expr is None:
+        examined = sum(sum(eligible(candidate)
+                           for candidate in candidates)
+                       for candidates in retained.values())
+    else:
+        for size in range(1, expr.size + 1):
+            candidates = [candidate for candidate in retained.get(size, [])
+                          if eligible(candidate)]
+            if size < expr.size:
+                examined += len(candidates)
+                continue
+            for candidate in candidates:
+                examined += 1
+                if candidate is expr:
+                    break
+            first_match_position = raw_position.get(id(expr))
+    return {"expr": expr, "tried": tried,
+            "unique": unique, "signature_evaluations": tried,
+            "generated_candidates": tried, "examined": examined,
+            "first_match_position": first_match_position,
+            "first_match_position_unit":
+            "root_eligible_raw_candidates",
+            "tried_unit": "candidate_signature_evaluations",
+            "cost_unit": "candidate_signature_evaluations",
+            "budget_unit": None, "bound_unit": "tree_operations"}
 
 
 def _volume(levels: dict[int, list[Expr]],

@@ -18,15 +18,16 @@ import torch
 
 from rsi_programmer.lattice import N_BITS, BitLattice
 from rsi_programmer.ltrain import pack_rows
+from rsi_programmer.policy import OP_ORDER
 
 VAL_FRAC = 0.2
-BIT_GRID = (0.5, 0.4, 0.6, 0.7)
 MARGIN_GRID = (0.0, -0.2, 0.2)
 
 Row = tuple[list[float], int]
 
 
-def split_groups(groups: list[list[Row]], seed: int = 0
+def split_groups(groups: list[list[Row]], seed: int = 0,
+                 report: dict[str, Any] | None = None
                  ) -> tuple[list[list[Row]], list[list[Row]],
                             list[list[Row]]]:
     """Seeded train/calibration/evaluation split by whole groups."""
@@ -35,6 +36,101 @@ def split_groups(groups: list[list[Row]], seed: int = 0
     n_hold = int(len(groups) * VAL_FRAC)
     if len(groups) >= 3:
         n_hold = max(1, n_hold)
+
+    # Contrastive lattice groups are homogeneous in their candidate opcode.
+    # Keep opcode strata in calibration and evaluation so a bit threshold is
+    # not selected on one opcode and assessed only on a different one.
+    strata: dict[tuple[int, ...], list[int]] = {}
+    stratifiable = True
+    for index, group in enumerate(groups):
+        if not group or len(group[0][0]) < 3:
+            stratifiable = False
+            break
+        op_bits = tuple(int(value) for value in group[0][0][:3])
+        if (sum(op_bits) != 1 or
+                any(value not in (0, 1) for value in op_bits)):
+            stratifiable = False
+            break
+        strata.setdefault(op_bits, []).append(index)
+    if stratifiable and strata:
+        rng = Random(seed)
+        keys = list(strata)
+        rng.shuffle(keys)
+        for bucket in strata.values():
+            rng.shuffle(bucket)
+        if (len(groups) >= 3 * len(keys) and
+                all(len(strata[key]) >= 3 for key in keys)):
+            n_hold = max(n_hold, len(keys))
+            calibration_ids: list[int] = []
+            evaluation_ids: list[int] = []
+            for key in keys:
+                calibration_ids.append(strata[key].pop())
+                evaluation_ids.append(strata[key].pop())
+            used = set(calibration_ids + evaluation_ids)
+            for destination in (calibration_ids, evaluation_ids):
+                for index in order:
+                    if len(destination) >= n_hold:
+                        break
+                    if index in used:
+                        continue
+                    key = next(key for key, bucket in strata.items()
+                               if index in bucket)
+                    if len(strata[key]) <= 1:
+                        continue
+                    destination.append(index)
+                    used.add(index)
+                    strata[key].remove(index)
+            if (len(calibration_ids) == n_hold and
+                    len(evaluation_ids) == n_hold):
+                train = [group for i, group in enumerate(groups)
+                         if i not in used]
+                calibration = [groups[i] for i in calibration_ids]
+                evaluation = [groups[i] for i in evaluation_ids]
+                train_ops = opcode_support(train)
+                cal_ops = opcode_support(calibration)
+                eval_ops = opcode_support(evaluation)
+                if report is not None:
+                    report.update({
+                        "strategy": "stratified_candidate_opcode",
+                        "stratified": True,
+                        "coverage_complete":
+                            train_ops == cal_ops == eval_ops,
+                        "train_opcodes": train_ops,
+                        "calibration_opcodes": cal_ops,
+                        "evaluation_opcodes": eval_ops,
+                        "strata": len(keys),
+                    })
+                return train, calibration, evaluation
+
+        # Sparse strata cannot support complete validation coverage. Reserve
+        # one group per observed opcode for fitting, then split only remaining
+        # groups. The report makes any missing validation support explicit.
+        reserved_train = {bucket.pop() for bucket in strata.values()}
+        pool = [index for index in order if index not in reserved_train]
+        calibration_ids = pool[:n_hold]
+        evaluation_ids = pool[n_hold:2 * n_hold]
+        held_ids = set(calibration_ids + evaluation_ids)
+        train = [group for i, group in enumerate(groups)
+                 if i not in held_ids]
+        calibration = [groups[i] for i in calibration_ids]
+        evaluation = [groups[i] for i in evaluation_ids]
+        all_ops = opcode_support(groups)
+        train_ops = opcode_support(train)
+        cal_ops = opcode_support(calibration)
+        eval_ops = opcode_support(evaluation)
+        if report is not None:
+            report.update({
+                "strategy": "stratified_candidate_opcode",
+                "stratified": True,
+                "coverage_complete":
+                    train_ops == cal_ops == eval_ops == all_ops,
+                "train_opcodes": train_ops,
+                "calibration_opcodes": cal_ops,
+                "evaluation_opcodes": eval_ops,
+                "strata": len(keys),
+            })
+        return train, calibration, evaluation
+
     cal_ids = set(order[:n_hold])
     eval_ids = set(order[n_hold:2 * n_hold])
     train = [group for i, group in enumerate(groups)
@@ -43,7 +139,39 @@ def split_groups(groups: list[list[Row]], seed: int = 0
                    if i in cal_ids]
     evaluation = [group for i, group in enumerate(groups)
                   if i in eval_ids]
+    if report is not None:
+        report.update({
+            "strategy": "seeded_random_group",
+            "stratified": False,
+            "coverage_complete": False,
+            "train_opcodes": opcode_support(train),
+            "calibration_opcodes": opcode_support(calibration),
+            "evaluation_opcodes": opcode_support(evaluation),
+            "strata": len(strata) if stratifiable else None,
+        })
     return train, calibration, evaluation
+
+
+def opcode_support(groups: list[list[Row]]) -> list[str] | None:
+    """Return known candidate-op strata, or None for non-one-hot inputs."""
+    found: set[int] = set()
+    for group in groups:
+        if not group or len(group[0][0]) < len(OP_ORDER):
+            return None
+        bits = tuple(int(value) for value in group[0][0][:len(OP_ORDER)])
+        if (sum(bits) != 1 or
+                any(value not in (0, 1) for value in bits)):
+            return None
+        found.add(bits.index(1))
+    return [op for index, op in enumerate(OP_ORDER) if index in found]
+
+
+def _bit_threshold_grid(steps: int) -> tuple[float, ...]:
+    """Cover both extremes and every cut between firing-rate levels."""
+    if type(steps) is not int or steps < 1:
+        raise ValueError("lattice steps must be positive")
+    return (0.0,) + tuple(
+        (index + 0.5) / steps for index in range(steps + 1))
 
 
 def _word_exact(lat: BitLattice, mat: torch.Tensor,
@@ -109,7 +237,7 @@ def sweep_thresholds(lat: BitLattice,
             key = "b%d" % i
             best = lat.thresholds[key]
             best_v = _word_exact(lat, mat, want)
-            for grid in BIT_GRID:
+            for grid in _bit_threshold_grid(lat._steps):
                 lat.thresholds[key] = grid
                 val = _word_exact(lat, mat, want)
                 if val > best_v:

@@ -14,8 +14,8 @@ from rsi_programmer.policy import Triple, encode, layer_triples
 from rsi_programmer.rich import listwise_loss
 from rsi_programmer.traces import TraceRecorder
 from rsi_programmer.probe import Expr, const_node, const_terms
-from rsi_programmer.probe import enumerate_programs
-from rsi_programmer.probe import minimize_graph, signature, terminals
+from rsi_programmer.probe import enumerate_programs, minimize_graph
+from rsi_programmer.probe import signature, terminals
 # Classical author bonus terms appended after SNN scores; encode_author keeps
 # them outside the DIM neural input, including exact_flag.
 EXTRA = ("nodes_per_bound", "open_gap", "exact_flag", "self_apply")
@@ -23,6 +23,7 @@ OPDIMS = tuple(range(len(OP_ORDER) + 3, len(OP_ORDER) + 7))
 TaskRow = tuple[str, Rows, Vals, int]
 Scored = tuple[list[Triple], list[Vals], list[int], list[float]]
 Stash = dict[int, list[tuple[float, Triple, Vals]]]
+SOLUTION_CANDIDATE_CAP = 50_000
 def open_gap(sigs: list[Vals], target: Vals) -> float:
     return 1.0 - max([sum(1 for a, b in zip(s, target) if a == b)
                        / (len(target) or 1) for s in sigs] or [0.0])
@@ -40,16 +41,115 @@ def author_scores(policy: SearchPolicy, feats: list[list[float]],
     base = policy.scores([f[:DIM] for f in feats])
     return [b + sum(w * e for w, e in zip(weights, f[DIM:]))
             for b, f in zip(base, feats)]
+def solution_sigs_by_size_report(
+        rows: Rows, target: Vals, bound: int,
+        candidate_cap: int = SOLUTION_CANDIDATE_CAP
+        ) -> tuple[dict[int, set[Vals]], dict[str, Any]]:
+    """Find completing signatures by size in the train-only graph.
+
+    The retained graph deduplicates nodes by layer and training signature.
+    If a candidate cap interrupts a layer, no labels are returned: treating
+    unexamined candidates as negative would reintroduce false negatives.
+    """
+    if type(candidate_cap) is not int or candidate_cap < 1:
+        raise ValueError("solution evidence cap must be a positive integer")
+    if type(bound) is not int or bound < 1:
+        raise ValueError("solution bound must be a positive integer")
+    edges: dict[tuple[int, Vals], set[tuple[int, Vals]]] = {}
+    roots: set[tuple[int, Vals]] = set()
+    levels: dict[int, list[Expr]] = {0: list(terminals())}
+    examined = 0
+    truncated = False
+    found: dict[int, set[Vals]] = {}
+    solved = False
+    for size in range(1, bound + 1):
+        remaining = candidate_cap - examined
+        triples = layer_triples(levels, size, limit=remaining + 1)
+        if len(triples) > remaining:
+            truncated = True
+            break
+        current: dict[Any, Expr] = {}
+        for op, left, right in triples:
+            examined += 1
+            expr = Expr(op, left, right, size)
+            sig = signature(expr, rows)
+            if sig == target:
+                roots.add((size, sig))
+                solved = True
+            children: set[tuple[int, Vals]] = set()
+            if left.size:
+                children.add((left.size, signature(left, rows)))
+            if right.size:
+                children.add((right.size, signature(right, rows)))
+            edges.setdefault((size, sig), set()).update(children)
+            current.setdefault((op, sig), expr)
+        levels[size] = list(current.values())
+    if not truncated and not solved:
+        raise ValueError("training target has no solution within bound")
+    if truncated:
+        return {}, {
+            "label_semantics": "retained_train_signature_graph_reachability",
+            "candidate_signature_evaluations": examined,
+            "candidate_cap": candidate_cap,
+            "truncated": True,
+            "retained_graph_complete": False,
+            "bound": bound,
+        }
+    pending = list(roots)
+    seen: set[tuple[int, Vals]] = set()
+    while pending:
+        node = pending.pop()
+        if node in seen:
+            continue
+        seen.add(node)
+        found.setdefault(node[0], set()).add(node[1])
+        pending.extend(edges.get(node, ()))
+    return found, {
+        "label_semantics": "retained_train_signature_graph_reachability",
+        "candidate_signature_evaluations": examined,
+        "candidate_cap": candidate_cap,
+        "truncated": False,
+        "retained_graph_complete": True,
+        "scope": "all_retained_layers_through_bound",
+        "bound": bound,
+    }
+
+
+def solution_sigs_report(
+        rows: Rows, target: Vals, bound: int,
+        candidate_cap: int = SOLUTION_CANDIDATE_CAP
+        ) -> tuple[set[Vals], dict[str, Any]]:
+    """Return the union of completing signatures and its bounded scope."""
+    by_size, report = solution_sigs_by_size_report(
+        rows, target, bound, candidate_cap)
+    return set().union(*by_size.values()), report
+
+
 def solution_sigs(rows: Rows, target: Vals, bound: int) -> set[Vals]:
-    """Imitation labels from one canonical solution, not completability."""
+    """Completable subtree signatures from the retained train-only graph."""
+    found, report = solution_sigs_report(rows, target, bound)
+    if report["truncated"]:
+        raise ValueError("train solution graph exceeded evidence cap")
+    return found
+
+
+def canonical_solution_sigs(rows: Rows, target: Vals,
+                            bound: int) -> set[Vals]:
+    """Subtree labels from the first canonical train solution (ablation)."""
     expr, _, _ = enumerate_programs(rows, target, bound)
-    assert expr is not None
-    found, stack = set(), [expr]
+    if expr is None:
+        raise ValueError("training target has no solution within bound")
+    found: set[Vals] = set()
+    stack = [expr]
     while stack:
         term = stack.pop()
-        if isinstance(term, str) or term.op == "input": continue
+        if term.op == "input":
+            continue
         found.add(signature(term, rows))
-        stack += [term.left, term.right]
+        if isinstance(term.left, Expr):
+            stack.append(term.left)
+        if isinstance(term.right, Expr):
+            stack.append(term.right)
     return found
 def _collect_layers(rows: Rows, target: Vals,
                     bound: int) -> list[tuple[int, list[Triple]]]:
@@ -76,7 +176,12 @@ def _label_layer(size: int, triples: list[Triple], rows: Rows,
                        i + 1, len(triples))
         group.append((feats, 1 if sig in want else 0))
     return group
-def _base_groups(fixture: str, budget: int = 10 ** 9) -> list[Group]:
+def _base_groups(fixture: str, budget: int = 10 ** 9,
+                 supervision: str = "reachability",
+                 supervision_report: list[dict[str, Any]] | None = None
+                 ) -> list[Group]:
+    if supervision not in ("reachability", "canonical"):
+        raise ValueError("unknown author supervision mode")
     rec = TraceRecorder(fixture)
     frozen = {r["task"]: r for r in rec.record_all()["records"]}
     groups: list[Group] = []
@@ -84,40 +189,79 @@ def _base_groups(fixture: str, budget: int = 10 ** 9) -> list[Group]:
         rows = tuple((c[0], c[1]) for c in task["train"])
         target = tuple(c[2] for c in task["train"])
         bound = int(task.get("max_tree_ops", 4))
-        want = solution_sigs(rows, target, bound)
         layers = _collect_layers(rows, target, bound)
         total = sum(len(t) for _, t in layers)
         assert total == len(frozen[task["id"]]["choice_pairs"])
+        if supervision == "canonical":
+            want = canonical_solution_sigs(rows, target, bound)
+            want_by_size = {size: want for size, _triples in layers}
+            task_report = {
+                "task": task["id"],
+                "bound": bound,
+                "mode": "canonical",
+                "included": True,
+                "label_semantics": "canonical_train_solution_subtrees",
+            }
+        else:
+            want_by_size, report = solution_sigs_by_size_report(
+                rows, target, bound)
+            task_report = {"task": task["id"], "bound": bound,
+                           "mode": "reachability",
+                           "included": not report["truncated"], **report}
+            if report["truncated"]:
+                # Unknown candidates are not safe negatives. Omit this task's
+                # groups rather than training on incomplete reachability.
+                if supervision_report is not None:
+                    supervision_report.append(task_report)
+                continue
+        if supervision_report is not None:
+            supervision_report.append(task_report)
         offset = 0
         for size, triples in layers:
             groups.append(_label_layer(size, triples, rows, target,
-                                       bound, offset, budget, want))
+                                       bound, offset, budget,
+                                       want_by_size.get(size, set())))
             offset += len(triples)
     return groups
 def _kept(pairs: Group) -> bool:
     var = [statistics.pvariance([f[d] for f, _ in pairs]) for d in OPDIMS]
     return 0 < sum(y for _, y in pairs) < len(pairs) and max(var) > 0.0
-def contrastive_groups(fixture: str, budget: int = 10 ** 9) -> list[Group]:
+def _contrastive_from(groups: list[Group]) -> list[Group]:
     out: list[Group] = []
-    for group in _base_groups(fixture, budget):
+    for group in groups:
         parts: dict[int, Group] = {}
         for feats, label in group:
             op = max(range(len(OP_ORDER)), key=lambda i: feats[i])
             parts.setdefault(op, []).append((feats, label))
         out += [p for p in parts.values() if _kept(p)]
     return out
-def clone_groups(fixture: str, budget: int = 10 ** 9) -> list[Group]:
-    groups = _base_groups(fixture, budget)
-    return groups + contrastive_groups(fixture, budget)
+
+
+def contrastive_groups(fixture: str, budget: int = 10 ** 9,
+                       supervision: str = "reachability",
+                       supervision_report: list[dict[str, Any]] | None = None
+                       ) -> list[Group]:
+    return _contrastive_from(_base_groups(
+        fixture, budget, supervision, supervision_report))
+
+
+def clone_groups(fixture: str, budget: int = 10 ** 9,
+                 supervision: str = "reachability",
+                 supervision_report: list[dict[str, Any]] | None = None
+                 ) -> list[Group]:
+    groups = _base_groups(fixture, budget, supervision,
+                          supervision_report)
+    return groups + _contrastive_from(groups)
 JOINT_LAMBDA = 0.2
 JOINT_EPOCHS = 5
 
 
-def _tensed_pairs(fixture: str) -> list[tuple[torch.Tensor,
-                                              torch.Tensor]]:
+def _tensed_pairs(fixture: str,
+                  supervision: str = "reachability"
+                  ) -> list[tuple[torch.Tensor, torch.Tensor]]:
     """Operand pairs as score/label tensors."""
     tensed: list[tuple[torch.Tensor, torch.Tensor]] = []
-    for group in contrastive_groups(fixture):
+    for group in contrastive_groups(fixture, supervision=supervision):
         feats = torch.tensor([f for f, _ in group])
         labels = torch.tensor([y for _, y in group])
         tensed.append((feats, labels))
@@ -137,10 +281,11 @@ def _tensed_margin(groups: list[Group]) -> list[tuple[torch.Tensor,
 
 def refine_operands(policy: SearchPolicy, groups: list[Group],
                     fixture: str, lam: float = JOINT_LAMBDA,
-                    epochs: int = JOINT_EPOCHS) -> int:
+                    epochs: int = JOINT_EPOCHS,
+                    supervision: str = "reachability") -> int:
     """Joint margin/listwise pass lifting operand top-1."""
     pair = _tensed_margin(groups)
-    ranked = _tensed_pairs(fixture)
+    ranked = _tensed_pairs(fixture, supervision)
     for _ in range(epochs):
         policy._opt.zero_grad()
         loss = torch.zeros(())
@@ -159,10 +304,18 @@ def refine_operands(policy: SearchPolicy, groups: list[Group],
     return sum(int(f.shape[0]) for f, _ in ranked)
 
 
-def train_author(policy: SearchPolicy, fixture: str, epochs: int = 100) -> int:
-    groups = clone_groups(fixture)
+def train_author(policy: SearchPolicy, fixture: str, epochs: int = 100,
+                 supervision: str = "reachability",
+                 supervision_report: list[dict[str, Any]] | None = None
+                 ) -> int:
+    """Fit author labels with reachability or a canonical-label control."""
+    groups = clone_groups(fixture, supervision=supervision,
+                          supervision_report=supervision_report)
+    if not groups:
+        raise ValueError(
+            "author supervision produced no complete training groups")
     policy.fit(groups, epochs=epochs)
-    refine_operands(policy, groups, fixture)
+    refine_operands(policy, groups, fixture, supervision=supervision)
     return sum(len(g) for g in groups)
 def emit_edit(space: ActionSpace, graph: dict[str, Any],
               action: dict[str, Any], task_id: str, sig: Vals
@@ -259,7 +412,7 @@ def _pack(ctx: dict[str, Any], solved: bool, graph: dict[str, Any] | None,
             "examined": ctx["examined"],
             "committed_nodes": len(ctx["sigs"]),
             "tried_unit": unit, "budget_unit": unit,
-            "label_semantics": "canonical_solution_signature_membership"}
+            "label_semantics": "policy-specific; see training report"}
 
 
 def _add_work(out: dict[str, Any], previous: dict[str, Any]) -> None:

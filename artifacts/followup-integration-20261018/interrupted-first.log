@@ -1,0 +1,240 @@
+.venv/bin/python -m unittest tests.test_search_amendments tests.test_objective_amendments tests.test_supervision_amendments tests.test_generator_amendments tests.test_review_search tests.test_review_search_edges tests.test_review_acceptance tests.test_review_integrity tests.test_review_lattice tests.test_review_protocol tests.test_rsi_actions tests.test_rsi_sandbox tests.test_rsi_headless tests.test_proxy tests.test_rsi_hard tests.test_typed_dag_programming_probe tests.test_rsi_decoder tests.test_modular tests.test_rsi_tasks tests.test_edits tests.test_self_gate tests.test_autonomy tests.test_rsi_ood tests.test_gains tests.test_rsi_words tests.test_rsi_lattice tests.test_rsi_lattice_train tests.test_rsi_lattice_author tests.test_rsi_bytecode tests.test_rsi_selectivity tests.test_rsi_proposer -v
+test_branch_miss_excludes_bool_candidates_from_examined (tests.test_search_amendments.EnumerationReportTests.test_branch_miss_excludes_bool_candidates_from_examined) ... ok
+test_report_separates_signature_work_from_match_position (tests.test_search_amendments.EnumerationReportTests.test_report_separates_signature_work_from_match_position) ... ok
+test_select_root_and_no_dedup_callback_counters (tests.test_search_amendments.EnumerationReportTests.test_select_root_and_no_dedup_callback_counters) ... ok
+test_alternative_cap_reports_truncation (tests.test_search_amendments.LowerLayerAlternativeTests.test_alternative_cap_reports_truncation) ... ok
+test_alternative_expansion_has_signature_work_budget (tests.test_search_amendments.LowerLayerAlternativeTests.test_alternative_expansion_has_signature_work_budget) ... ok
+test_alternative_limits_require_integer_values (tests.test_search_amendments.LowerLayerAlternativeTests.test_alternative_limits_require_integer_values) ... ok
+test_capped_alternatives_recover_held_correct_candidate (tests.test_search_amendments.LowerLayerAlternativeTests.test_capped_alternatives_recover_held_correct_candidate) ... ok
+test_zero_signature_budget_is_valid_and_does_no_work (tests.test_search_amendments.LowerLayerAlternativeTests.test_zero_signature_budget_is_valid_and_does_no_work) ... ok
+test_constant_rate_target_keeps_squared_error (tests.test_objective_amendments.LatticeMarginTests.test_constant_rate_target_keeps_squared_error) ... ok
+test_mixed_rate_hinge_pushes_reversed_pairs_toward_order (tests.test_objective_amendments.LatticeMarginTests.test_mixed_rate_hinge_pushes_reversed_pairs_toward_order) ... ok
+test_nonpositive_step_count_is_rejected (tests.test_objective_amendments.LatticeMarginTests.test_nonpositive_step_count_is_rejected) ... ok
+test_one_step_margin_has_interior_zero_loss_and_gradient (tests.test_objective_amendments.LatticeMarginTests.test_one_step_margin_has_interior_zero_loss_and_gradient)
+A one-spike gap is enough; the objective need not saturate. ... ok
+test_bisect_preference_matches_pair_loop_with_ties (tests.test_objective_amendments.ModularObjectiveMetricTests.test_bisect_preference_matches_pair_loop_with_ties)
+The optimized statistic keeps the exact pairwise definition. ... ok
+test_modular_labels_match_exact_size_reachability (tests.test_objective_amendments.ModularObjectiveMetricTests.test_modular_labels_match_exact_size_reachability) ... ok
+test_objective_metrics_survive_empty_choice_diagnostics (tests.test_objective_amendments.ModularObjectiveMetricTests.test_objective_metrics_survive_empty_choice_diagnostics)
+Ranking output does not depend on opcode diagnostic labels. ... ok
+test_pairwise_metrics_match_the_five_ranked_row_scores (tests.test_objective_amendments.ModularObjectiveMetricTests.test_pairwise_metrics_match_the_five_ranked_row_scores)
+Objective metrics compare positives/negatives per head. ... ok
+test_truncated_modular_task_is_skipped_and_reported (tests.test_objective_amendments.ModularObjectiveMetricTests.test_truncated_modular_task_is_skipped_and_reported) ... ok
+test_bonus_ablations_change_only_named_channels (tests.test_supervision_amendments.SupervisionAmendmentTests.test_bonus_ablations_change_only_named_channels)
+Exact and gap controls zero only their named author weights. ... ok
+test_evidence_cap_and_bound_require_positive_integers (tests.test_supervision_amendments.SupervisionAmendmentTests.test_evidence_cap_and_bound_require_positive_integers)
+Reject booleans and floats rather than treating them as counts. ... ok
+test_later_within_bound_solution_adds_completing_intermediate (tests.test_supervision_amendments.SupervisionAmendmentTests.test_later_within_bound_solution_adds_completing_intermediate)
+Longer train solutions contribute labels beyond canonical tree. ... ok
+test_reachability_labels_alternative_train_intermediates (tests.test_supervision_amendments.SupervisionAmendmentTests.test_reachability_labels_alternative_train_intermediates)
+Reachability includes both y*y and x+y for train target five. ... ok
+test_rich_negatives_exclude_longer_solution_intermediate (tests.test_supervision_amendments.SupervisionAmendmentTests.test_rich_negatives_exclude_longer_solution_intermediate)
+Rich negatives omit x*y because it completes a longer train path. ... ok
+test_size_specific_labels_match_tiny_tree_completion (tests.test_supervision_amendments.SupervisionAmendmentTests.test_size_specific_labels_match_tiny_tree_completion)
+A signature at one size does not label another size as positive. ... ok
+test_training_manifest_identifies_actual_supervision (tests.test_supervision_amendments.SupervisionAmendmentTests.test_training_manifest_identifies_actual_supervision) ... ok
+test_truncated_graph_returns_no_negative_label_universe (tests.test_supervision_amendments.SupervisionAmendmentTests.test_truncated_graph_returns_no_negative_label_universe)
+An interrupted layer is surfaced instead of mislabeled negative. ... ok
+test_cli_defaults_to_independent_acceptance (tests.test_generator_amendments.GeneratorAmendmentTests.test_cli_defaults_to_independent_acceptance) ... ok
+test_default_accepts_generator_witness_without_search (tests.test_generator_amendments.GeneratorAmendmentTests.test_default_accepts_generator_witness_without_search) ... ok
+test_family_records_acceptance_mode_and_frozen_witness (tests.test_generator_amendments.GeneratorAmendmentTests.test_family_records_acceptance_mode_and_frozen_witness) ... ok
+test_legacy_filter_is_explicit_and_recorded (tests.test_generator_amendments.GeneratorAmendmentTests.test_legacy_filter_is_explicit_and_recorded) ... ok
+test_beam_reports_signature_work_and_fallback_attempts (tests.test_review_search.SearchReviewTests.test_beam_reports_signature_work_and_fallback_attempts) ... ok
+test_bonus_roundtrip_and_rank_use_one_score_contract (tests.test_review_search.SearchReviewTests.test_bonus_roundtrip_and_rank_use_one_score_contract) ... ok
+test_bool_intermediates_and_int_final_output (tests.test_review_search.SearchReviewTests.test_bool_intermediates_and_int_final_output) ... ok
+test_grammar_miss_is_not_budget_exhaustion (tests.test_review_search.SearchReviewTests.test_grammar_miss_is_not_budget_exhaustion) ... ok
+test_restore_training_moves_all_live_networks (tests.test_review_search.SearchReviewTests.test_restore_training_moves_all_live_networks) ... ok
+test_training_and_scoring_share_layer_ordinals (tests.test_review_search.SearchReviewTests.test_training_and_scoring_share_layer_ordinals) ... ok
+test_work_scan_budget_and_minimal_graph (tests.test_review_search.SearchReviewTests.test_work_scan_budget_and_minimal_graph) ... ok
+test_author_budget_bounds_huge_layer_materialization (tests.test_review_search_edges.SearchEdgeTests.test_author_budget_bounds_huge_layer_materialization) ... ok
+test_author_tiny_budget_keeps_full_layer_ordinal (tests.test_review_search_edges.SearchEdgeTests.test_author_tiny_budget_keeps_full_layer_ordinal) ... ok
+test_guided_search_tiny_budget_can_solve_first_candidate (tests.test_review_search_edges.SearchEdgeTests.test_guided_search_tiny_budget_can_solve_first_candidate) ... ok
+test_ranker_restore_has_explicit_donor_optimizer_opt_in (tests.test_review_search_edges.SearchEdgeTests.test_ranker_restore_has_explicit_donor_optimizer_opt_in) ... ok
+test_score_backtrack_matches_legacy_order_and_mutation (tests.test_review_search_edges.SearchEdgeTests.test_score_backtrack_matches_legacy_order_and_mutation) ... ok
+test_score_backtrack_zero_budget_skips_ordering (tests.test_review_search_edges.SearchEdgeTests.test_score_backtrack_zero_budget_skips_ordering) ... ok
+test_trace_signature_evaluations_match_candidate_callback (tests.test_review_search_edges.SearchEdgeTests.test_trace_signature_evaluations_match_candidate_callback) ... ok
+test_widen_fallback_reports_discarded_author_work (tests.test_review_search_edges.SearchEdgeTests.test_widen_fallback_reports_discarded_author_work) ... ok
+test_default_active_fields_are_trainer_surface_only (tests.test_review_acceptance.AcceptanceReviewTests.test_default_active_fields_are_trainer_surface_only) ... ok
+test_default_scores_require_held_out_oracle (tests.test_review_acceptance.AcceptanceReviewTests.test_default_scores_require_held_out_oracle) ... ok
+test_default_trainer_consumes_active_fields (tests.test_review_acceptance.AcceptanceReviewTests.test_default_trainer_consumes_active_fields) ... ok
+test_default_trainer_ignores_unsupported_fields (tests.test_review_acceptance.AcceptanceReviewTests.test_default_trainer_ignores_unsupported_fields) ... ok
+test_gate_rejects_inadequate_and_nonfinite_evidence (tests.test_review_acceptance.AcceptanceReviewTests.test_gate_rejects_inadequate_and_nonfinite_evidence) ... ok
+test_loop_excludes_unmeasured_gains_from_summaries (tests.test_review_acceptance.AcceptanceReviewTests.test_loop_excludes_unmeasured_gains_from_summaries) ... ok
+test_loop_preserves_finite_negative_refusal_gain (tests.test_review_acceptance.AcceptanceReviewTests.test_loop_preserves_finite_negative_refusal_gain) ... ok
+test_self_gate_records_nonfinite_refusal_and_finite_gain (tests.test_review_acceptance.AcceptanceReviewTests.test_self_gate_records_nonfinite_refusal_and_finite_gain) ... ok
+test_summary_marks_singletons_and_checks_dimensions (tests.test_review_acceptance.AcceptanceReviewTests.test_summary_marks_singletons_and_checks_dimensions) ... ok
+test_bytecode_vm_errors_and_trailing_material_reject (tests.test_review_integrity.IntegrityReviewTests.test_bytecode_vm_errors_and_trailing_material_reject) ... ok
+test_concurrent_duplicate_intent_is_inserted_once (tests.test_review_integrity.IntegrityReviewTests.test_concurrent_duplicate_intent_is_inserted_once) ... ok
+test_evolution_cost_prefers_canonical_signature_counter (tests.test_review_integrity.IntegrityReviewTests.test_evolution_cost_prefers_canonical_signature_counter) ... ok
+test_lineage_appends_run_scoped_records_and_checks_digest (tests.test_review_integrity.IntegrityReviewTests.test_lineage_appends_run_scoped_records_and_checks_digest) ... ok
+test_policy_repeated_run_uses_new_logical_run_ids (tests.test_review_integrity.IntegrityReviewTests.test_policy_repeated_run_uses_new_logical_run_ids) ... ok
+test_proxy_rejects_trace_group_count_mismatch (tests.test_review_integrity.IntegrityReviewTests.test_proxy_rejects_trace_group_count_mismatch) ... ok
+test_proxy_subsets_trace_groups_by_task_id (tests.test_review_integrity.IntegrityReviewTests.test_proxy_subsets_trace_groups_by_task_id) ... ok
+test_proxy_uses_configured_seed_offsets (tests.test_review_integrity.IntegrityReviewTests.test_proxy_uses_configured_seed_offsets) ... ok
+test_rebuilt_expression_size_counts_each_operation_once (tests.test_review_integrity.IntegrityReviewTests.test_rebuilt_expression_size_counts_each_operation_once) ... ok
+test_scale_repeated_evolve_uses_new_logical_run_ids (tests.test_review_integrity.IntegrityReviewTests.test_scale_repeated_evolve_uses_new_logical_run_ids) ... ok
+test_skipped_child_has_no_measured_fitness_in_archive (tests.test_review_integrity.IntegrityReviewTests.test_skipped_child_has_no_measured_fitness_in_archive) ... ok
+test_trace_groups_bind_records_by_task_id (tests.test_review_integrity.IntegrityReviewTests.test_trace_groups_bind_records_by_task_id) ... ok
+test_unmeasured_entries_never_win_evolution_selection (tests.test_review_integrity.IntegrityReviewTests.test_unmeasured_entries_never_win_evolution_selection) ... ok
+test_word_decoder_checks_operands_and_stop_boundary (tests.test_review_integrity.IntegrityReviewTests.test_word_decoder_checks_operands_and_stop_boundary) ... ok
+test_calibration_reports_both_struct_channels_afterwards (tests.test_review_lattice.ReviewLatticeTests.test_calibration_reports_both_struct_channels_afterwards) ... ok
+test_calibration_sweep_reports_joint_word_emit_accuracy (tests.test_review_lattice.ReviewLatticeTests.test_calibration_sweep_reports_joint_word_emit_accuracy) ... ok
+test_constant_bit_target_uses_squared_error (tests.test_review_lattice.ReviewLatticeTests.test_constant_bit_target_uses_squared_error) ... ok
+test_joint_word_and_emit_metric_matches_membership (tests.test_review_lattice.ReviewLatticeTests.test_joint_word_and_emit_metric_matches_membership) ... ok
+test_lattice_restore_keeps_recipient_adam_options_and_freezes (tests.test_review_lattice.ReviewLatticeTests.test_lattice_restore_keeps_recipient_adam_options_and_freezes) ... ok
+test_lattice_snapshot_optimizer_is_explicit_opt_in (tests.test_review_lattice.ReviewLatticeTests.test_lattice_snapshot_optimizer_is_explicit_opt_in) ... ok
+test_legacy_untagged_snapshots_remain_loadable (tests.test_review_lattice.ReviewLatticeTests.test_legacy_untagged_snapshots_remain_loadable) ... ok
+test_missing_calibration_reports_joint_metric_unavailable (tests.test_review_lattice.ReviewLatticeTests.test_missing_calibration_reports_joint_metric_unavailable) ... ok
+test_modular_continuation_is_explicit (tests.test_review_lattice.ReviewLatticeTests.test_modular_continuation_is_explicit) ... ok
+test_modular_independent_drives_start_fresh (tests.test_review_lattice.ReviewLatticeTests.test_modular_independent_drives_start_fresh) ... ok
+test_modular_restore_uses_recipient_or_explicit_donor_options (tests.test_review_lattice.ReviewLatticeTests.test_modular_restore_uses_recipient_or_explicit_donor_options) ... ok
+test_module_opcode_argmax_is_labeled_as_diagnostic (tests.test_review_lattice.ReviewLatticeTests.test_module_opcode_argmax_is_labeled_as_diagnostic) ... ok
+test_pack_loss_is_mean_plus_max_of_head_losses (tests.test_review_lattice.ReviewLatticeTests.test_pack_loss_is_mean_plus_max_of_head_losses) ... ok
+test_restore_rejects_tagged_incompatible_feature_encoding (tests.test_review_lattice.ReviewLatticeTests.test_restore_rejects_tagged_incompatible_feature_encoding) ... ok
+test_small_split_has_no_phantom_evaluation_group (tests.test_review_lattice.ReviewLatticeTests.test_small_split_has_no_phantom_evaluation_group) ... ok
+test_split_keeps_validation_groups_untouched (tests.test_review_lattice.ReviewLatticeTests.test_split_keeps_validation_groups_untouched) ... ok
+test_threshold_sweep_keeps_current_values_on_ties (tests.test_review_lattice.ReviewLatticeTests.test_threshold_sweep_keeps_current_values_on_ties) ... ok
+test_behavior_hash_covers_call_settings_and_policy_steps (tests.test_review_protocol.ProtocolReviewTests.test_behavior_hash_covers_call_settings_and_policy_steps) ... ok
+test_exact_flag_is_external_and_can_be_ablated (tests.test_review_protocol.ProtocolReviewTests.test_exact_flag_is_external_and_can_be_ablated) ... ok
+test_fallback_requires_held_out_oracle (tests.test_review_protocol.ProtocolReviewTests.test_fallback_requires_held_out_oracle) ... ok
+test_generated_task_discloses_selection_filter (tests.test_review_protocol.ProtocolReviewTests.test_generated_task_discloses_selection_filter) ... ok
+test_headless_insufficient_pairs_refuses_without_crashing (tests.test_review_protocol.ProtocolReviewTests.test_headless_insufficient_pairs_refuses_without_crashing) ... ok
+test_headless_pairs_one_average_per_task (tests.test_review_protocol.ProtocolReviewTests.test_headless_pairs_one_average_per_task) ... ok
+test_headless_reports_oracle_exception (tests.test_review_protocol.ProtocolReviewTests.test_headless_reports_oracle_exception) ... ok
+test_headless_skips_oracle_for_rejected_graph (tests.test_review_protocol.ProtocolReviewTests.test_headless_skips_oracle_for_rejected_graph) ... ok
+test_recovery_requires_held_out_oracle (tests.test_review_protocol.ProtocolReviewTests.test_recovery_requires_held_out_oracle) ... ok
+test_rich_fitness_does_not_credit_held_failure (tests.test_review_protocol.ProtocolReviewTests.test_rich_fitness_does_not_credit_held_failure) ... ok
+test_rich_negative_groups_skip_exact_train_solvers (tests.test_review_protocol.ProtocolReviewTests.test_rich_negative_groups_skip_exact_train_solvers) ... ok
+test_rich_rollup_uses_canonical_cost_with_legacy_aliases (tests.test_review_protocol.ProtocolReviewTests.test_rich_rollup_uses_canonical_cost_with_legacy_aliases) ... ok
+test_scale_family_cost_uses_canonical_counter (tests.test_review_protocol.ProtocolReviewTests.test_scale_family_cost_uses_canonical_counter) ... ok
+test_scale_flags_each_family_regression (tests.test_review_protocol.ProtocolReviewTests.test_scale_flags_each_family_regression) ... ok
+test_training_ordinals_are_local_not_answer_positions (tests.test_review_protocol.ProtocolReviewTests.test_training_ordinals_are_local_not_answer_positions) ... ok
+test_apply_builds_valid_graph (tests.test_rsi_actions.ActionSpaceTests.test_apply_builds_valid_graph) ... ok
+test_apply_covers_full_cross_product (tests.test_rsi_actions.ActionSpaceTests.test_apply_covers_full_cross_product) ... ok
+test_branch_actions_build_typed_graph (tests.test_rsi_actions.ActionSpaceTests.test_branch_actions_build_typed_graph) ... ok
+test_branch_mistyped_edits_rejected (tests.test_rsi_actions.ActionSpaceTests.test_branch_mistyped_edits_rejected) ... ok
+test_const_actions_cover_ir_range (tests.test_rsi_actions.ActionSpaceTests.test_const_actions_cover_ir_range) ... ok
+test_const_out_of_range_rejected (tests.test_rsi_actions.ActionSpaceTests.test_const_out_of_range_rejected) ... ok
+test_forward_reference_rejected (tests.test_rsi_actions.ActionSpaceTests.test_forward_reference_rejected) ... ok
+test_grammar_matches_probe (tests.test_rsi_actions.ActionSpaceTests.test_grammar_matches_probe) ... ok
+test_typecheck_rejects_bad_edits (tests.test_rsi_actions.ActionSpaceTests.test_typecheck_rejects_bad_edits) ... ok
+test_branch_fixture_splits_match (tests.test_rsi_actions.TraceRecorderTests.test_branch_fixture_splits_match) ... ok
+test_const_fixture_splits_match (tests.test_rsi_actions.TraceRecorderTests.test_const_fixture_splits_match) ... ok
+test_family_loads_with_ids (tests.test_rsi_actions.TraceRecorderTests.test_family_loads_with_ids) ... ok
+test_oracle_uses_frozen_expectations (tests.test_rsi_actions.TraceRecorderTests.test_oracle_uses_frozen_expectations) ... ok
+test_record_all_summarizes_family (tests.test_rsi_actions.TraceRecorderTests.test_record_all_summarizes_family) ... ok
+test_record_task_reports_baseline (tests.test_rsi_actions.TraceRecorderTests.test_record_task_reports_baseline) ... ok
+test_split_hash_stable (tests.test_rsi_actions.TraceRecorderTests.test_split_hash_stable) ... ok
+test_ancestor_tampering_is_detected (tests.test_rsi_sandbox.RsiSandboxTests.test_ancestor_tampering_is_detected) ... ok
+test_curriculum_clusters_failures_into_next_tasks (tests.test_rsi_sandbox.RsiSandboxTests.test_curriculum_clusters_failures_into_next_tasks) ... ok
+test_evaluator_runs_supervisor_side_and_ignores_claims (tests.test_rsi_sandbox.RsiSandboxTests.test_evaluator_runs_supervisor_side_and_ignores_claims) ... ok
+test_forged_completion_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_forged_completion_is_rejected) ... ok
+test_hidden_oracle_read_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_hidden_oracle_read_is_rejected) ... ok
+test_lineage_hash_is_stable_and_content_bound (tests.test_rsi_sandbox.RsiSandboxTests.test_lineage_hash_is_stable_and_content_bound) ... ok
+test_oversize_submissions_are_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_oversize_submissions_are_rejected) ... ok
+test_promotion_needs_gain_bound_safety_and_budget (tests.test_rsi_sandbox.RsiSandboxTests.test_promotion_needs_gain_bound_safety_and_budget) ... ok
+test_tool_and_network_addition_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_tool_and_network_addition_is_rejected) ... ok
+test_verifier_edit_is_rejected (tests.test_rsi_sandbox.RsiSandboxTests.test_verifier_edit_is_rejected) ... ok
+test_wall_cap_times_out_and_valid_run_reports_cost (tests.test_rsi_sandbox.RsiSandboxTests.test_wall_cap_times_out_and_valid_run_reports_cost) ... ok
+test_budget_exhaustion_stops_cleanly (tests.test_rsi_headless.HeadlessLoopTests.test_budget_exhaustion_stops_cleanly)
+One-candidate budget stops the loop without failing. ... ok
+test_every_decision_traceable (tests.test_rsi_headless.HeadlessLoopTests.test_every_decision_traceable)
+Decisions match JSONL records; no oracle files leak. ... ok
+test_fallback_debug_column_labelled (tests.test_rsi_headless.HeadlessLoopTests.test_fallback_debug_column_labelled)
+Compare flag adds the enumerator column, never headline. ... ok
+test_hands_off_author_only_honest_rate (tests.test_rsi_headless.HeadlessLoopTests.test_hands_off_author_only_honest_rate)
+Author path 4/4 with no rescue, zero bad executions. ... ok
+test_no_silent_rescue (tests.test_rsi_headless.HeadlessLoopTests.test_no_silent_rescue)
+Beam-solved task needs no fallback; verdict clean. ... ok
+test_tampered_candidate_rejected_loop_continues (tests.test_rsi_headless.HeadlessLoopTests.test_tampered_candidate_rejected_loop_continues)
+Forged mid-run claim is rejected; the loop finishes. ... ok
+test_full_eval_uses_novel_tasks (tests.test_proxy.ProxyScreenTests.test_full_eval_uses_novel_tasks)
+The full protocol evaluates on the novel family. ... ok
+test_inverted_ranking_unproven_selects_nothing (tests.test_proxy.ProxyScreenTests.test_inverted_ranking_unproven_selects_nothing)
+Discordant ranks leave the proxy judging nothing. ... ok
+test_perfect_agreement_proven_selects (tests.test_proxy.ProxyScreenTests.test_perfect_agreement_proven_selects)
+Concordant ranks prove the proxy; top proxy wins. ... ok
+test_report_command_keys (tests.test_proxy.ProxyScreenTests.test_report_command_keys)
+The CLI replay prints fidelity plus both walls. ... ok
+test_report_within_custom_budget (tests.test_proxy.ProxyScreenTests.test_report_within_custom_budget)
+Historical gains give fidelity without full eval. ... ok
+test_screen_runs_within_budget (tests.test_proxy.ProxyScreenTests.test_screen_runs_within_budget)
+Few epochs and few seeds stay far under budget. ... ok
+test_screen_scores_every_candidate (tests.test_proxy.ProxyScreenTests.test_screen_scores_every_candidate)
+One finite proxy score per candidate seed. ... ok
+test_screen_touches_no_novel_task (tests.test_proxy.ProxyScreenTests.test_screen_touches_no_novel_task)
+Train and eval slices stay inside the W1 family. ... ok
+test_small_sample_never_proven (tests.test_proxy.ProxyScreenTests.test_small_sample_never_proven)
+Perfect agreement on one pair still proves nothing. ... ok
+test_ties_are_counted_not_hidden (tests.test_proxy.ProxyScreenTests.test_ties_are_counted_not_hidden)
+A flat proxy scores half agreement, never proven. ... ok
+test_baseline_solve_rate_and_cost (tests.test_rsi_hard.HardFamilyTests.test_baseline_solve_rate_and_cost) ... ok
+test_digest_stable (tests.test_rsi_hard.HardFamilyTests.test_digest_stable) ... ok
+test_enumerator_clearly_expensive (tests.test_rsi_hard.HardFamilyTests.test_enumerator_clearly_expensive) ... ok
+test_expectations_recomputed (tests.test_rsi_hard.HardFamilyTests.test_expectations_recomputed) ... ok
+test_ids_bounds_and_depths (tests.test_rsi_hard.HardFamilyTests.test_ids_bounds_and_depths) ... ok
+test_near_miss_passes_train_fails_held_out (tests.test_rsi_hard.HardFamilyTests.test_near_miss_passes_train_fails_held_out) ... ok
+test_branch_tasks_need_select_to_solve (tests.test_typed_dag_programming_probe.TypedDagProgrammingProbeTests.test_branch_tasks_need_select_to_solve) ... Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+    ~~~~^^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/main.py", line 104, in __init__
+    self.runTests()
+    ~~~~~~~~~~~~~^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/main.py", line 270, in runTests
+    self.result = testRunner.run(self.test)
+                  ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/runner.py", line 240, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+    ~~~~^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/case.py", line 707, in __call__
+    return self.run(*args, **kwds)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(testMethod)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "{home}/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/unittest/case.py", line 606, in _callTestMethod
+    if method() is not None:
+       ~~~~~~^^
+  File "{repository}/tests/test_typed_dag_programming_probe.py", line 89, in test_branch_tasks_need_select_to_solve
+    expr, _, _ = enumerate_programs(rows, target, bound, consts=CONSTS, branch=True)
+                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "{repository}/rsi_programmer/probe.py", line 153, in enumerate_programs
+    sig = signature(expr, rows)
+  File "{repository}/rsi_programmer/probe.py", line 84, in signature
+    right = signature(expr.right, rows)  # type: ignore[arg-type]
+  File "{repository}/rsi_programmer/probe.py", line 95, in signature
+    right = signature(expr.right, rows)  # type: ignore[arg-type]
+  File "{repository}/rsi_programmer/probe.py", line 78, in signature
+    return tuple(value for _ in rows)
+KeyboardInterrupt
+solve=4/4 wall=0.21s
+task=square_plus solved=True tried=6807 wall=0.063s
+solve=1.00 base=1.00 cost=1277 base=14673 wall=5.7s
+task=deep_shift_square solved=True tried=314169 wall=5.18s
+task=sub_square_diff solved=True tried=46821 wall=0.61s
+task=mixed_depth7 solved=True tried=2061216 wall=37.94s
+task=distractor_cube solved=False tried=12 wall=0.00s
+deep_shift_square tried=314169 ratio=46.2x
+mixed_depth7 tried=2061216 ratio=302.8x
+error: recipe `test-fast` was terminated on line 30 by signal 2
