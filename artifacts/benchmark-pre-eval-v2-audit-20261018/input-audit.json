@@ -1,0 +1,56 @@
+{
+  "corpus_audit": {
+    "errors": [],
+    "family_counts": {
+      "eval/balanced": 16,
+      "eval/repeated_subtree": 16,
+      "eval/skewed": 16,
+      "train/balanced": 8,
+      "train/repeated_subtree": 8,
+      "train/skewed": 8
+    },
+    "globally_unique_input_pairs": 1728,
+    "independently_rebuilt_pool_counts": {
+      "balanced": 745,
+      "repeated_subtree": 1526,
+      "skewed": 4011
+    },
+    "ok": true,
+    "static_floor_proof": {
+      "bound_holds": true,
+      "counterexamples": [],
+      "trees_checked": 2318
+    },
+    "task_total": 72,
+    "unique_exact_functions": 72,
+    "unique_expression_syntax": 72,
+    "unique_task_ids": 72
+  },
+  "corpus_path": "/home/joe/Projects/rsi-programmer/fixtures/benchmark_pre_eval_corpus_v2.json",
+  "input_sha256": {
+    "corpus": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+    "corpus_module": "13c49ca629ce51e766ffdd3615a925a601ede4c9cff9a713710d159698f6526f",
+    "generator": "30cf448a5762710958df1ca96d7631b442e32638dd9236f63e297018d3076b31",
+    "protocol": "cf83dc077dc7960d4e576d898d842484655ac2c61d0e36128da6cda5ae8e7015",
+    "v1_corpus": "81dba9b0d683e725e4598dd19c16da55c1b3d8b8c73000df2aba54df8df4b5c7"
+  },
+  "ok": true,
+  "protocol_audit": {
+    "corpus_sha256": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921",
+    "errors": [],
+    "generator_source_sha256": {
+      "rsi_programmer/benchmark_v2_corpus.py": "13c49ca629ce51e766ffdd3615a925a601ede4c9cff9a713710d159698f6526f",
+      "scripts/generate_benchmark_pre_eval_v2.py": "30cf448a5762710958df1ca96d7631b442e32638dd9236f63e297018d3076b31"
+    },
+    "ok": true,
+    "protocol_sha256": "cf83dc077dc7960d4e576d898d842484655ac2c61d0e36128da6cda5ae8e7015"
+  },
+  "protocol_path": "/home/joe/Projects/rsi-programmer/fixtures/benchmark_pre_eval_v2.json",
+  "v1_disjointness": {
+    "exact_function_overlap": 0,
+    "overlap_examples": [],
+    "v1_unique_functions": 30,
+    "v2_unique_functions": 72,
+    "zero_overlap": true
+  }
+}
