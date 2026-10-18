@@ -1,5 +1,42 @@
 # Audit follow-up
 
+## code-v51: complete slow-lane failure; #66 reopened
+
+The complete affected slow lane finished **64 tests in 3502.573s**,
+with **63 passes and one failure**. No slow test was excluded. The
+pipeline stopped on that failure and **retry did not run**. Source
+before/after remained the same 102-file hash as code-v48 through
+code-v50: `6111b2f0ed9cd031c668726350afbe0ece077b9b9ea0409a5e7e6ee5bf4e3a5c`.
+This checkpoint preserves the red result and does not include a fix.
+
+`test_rsi_scale.ScaleUpTests.test_surrogate_fidelity_recorded` failed
+its original `all(len(g) > 1 for g in self.groups)` assertion. The
+rich negative builder correctly refuses unknown labels when the
+full-bound reachability graph is capped. Its caller still created a
+positive-only training group and a one-item selection list for each
+such task. Training ignores these groups, but selection credited the
+only item as a perfect result, inflating `hard_benefit`.
+
+The concrete probe found three truncated tasks: `deep_shift_square`
+(bound 6), `mixed_depth7` and `distractor_cube` (bound 7). Each reachability probe stopped
+with 46,821 candidate evaluations under the 50,000 cap and supplied
+no negatives. `sub_square_diff` (bound 5) completed at 46,821 and
+supplied 1,500 proven negatives, split 750/750. Thus this is a missed
+caller contract, not a reason to relabel unknown candidates negative
+or remove the existing fidelity assertion.
+
+#66 is reopened. The pending repair omits capped or insufficient
+groups from both training and selection, carries per-task evidence
+into scale reports, and rejects vacuous selection. Focused checks
+and a new complete fast/slow/retry sequence must verify the repair.
+Earlier fast and measurement evidence remains tied to its original
+source; it does not turn this failed integration run green.
+
+[Complete failure log](../artifacts/followup-slow-failure-20261018/slow.log),
+[diagnostic output](../artifacts/followup-slow-failure-20261018/diagnostic.log),
+[reproduction script](../artifacts/followup-slow-failure-20261018/diagnose_hard_surrogates.py),
+and [source/command/log manifest](../artifacts/followup-slow-failure-20261018/manifest.json).
+
 ## code-v50: why the gap ablation is inert in author/beam
 
 Code review explains the code-v48 gap result beyond the five zero
