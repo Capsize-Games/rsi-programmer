@@ -1,0 +1,815 @@
+{
+  "alternative_lane_win_counts_over_all_tasks": {
+    "add": 9,
+    "mul": 1,
+    "sub": 5
+  },
+  "corpus_sha256": "a4f9af2dfc0d8c4539d700b032dcc223c82aa272f02497902024d9f371096140",
+  "full_lane_uniform_mean_reward": true,
+  "interpretation_limit": "Uniform full-lane means are not actual sequential exposures and do not establish a causal effect. Candidate order is deterministic; actual exposure stops at the first exact observed match or at the episode budget.",
+  "lane_size": {
+    "add": 144,
+    "mul": 144,
+    "sub": 144
+  },
+  "online_corpus_source_sha256": "5c4ae63c98868d5a36e0c303e4b363ae95373e376787e9586328fb0953d64421",
+  "online_graph_source_sha256": "399a4512a7749b05875adf15f4fc795c03f6d87f1aee1b53f4f8b7a9d1b8a6be",
+  "reward_formula": "1 - mean(min(1, abs(prediction-target)/(1+abs(target))))",
+  "schema_version": 1,
+  "task_count": 48,
+  "task_results": [
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 114,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.2644100634678068,
+        "mul": 0.13110349971219215,
+        "sub": 0.22311344171347633
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "2f01fc905dd2a2c0"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 1,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.2685185185185185,
+        "mul": 0.0718364197530864,
+        "sub": 0.09868827160493826
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "7279ba4282d4f264"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 109,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.2862654320987654,
+        "mul": 0.14814814814814814,
+        "sub": 0.11522633744855969
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "3f0533e7b4d139ff"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 109,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.16689845395446487,
+        "mul": 0.21457291159306185,
+        "sub": 0.12751485732189283
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "mul",
+      "task_id": "d33f05a27895172c"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 120,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.25986099790417144,
+        "mul": 0.15122466018702352,
+        "sub": 0.20491436680110633
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "cb1abafb9d894298"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 8,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.18994056457758812,
+        "mul": 0.11970802354196183,
+        "sub": 0.2413386850092839
+      },
+      "non_solvable_lanes_beating_solvable_mean": [
+        "add",
+        "sub"
+      ],
+      "phase": 0,
+      "solvable_root": "mul",
+      "task_id": "9a0bea3d134fe31c"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 48
+      },
+      "mean_reward_by_root": {
+        "add": 0.23152392608810235,
+        "mul": 0.13291367308369223,
+        "sub": 0.24381965925907498
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "sub",
+      "task_id": "abaec4e3e7134d30"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 3,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.2325676571355106,
+        "mul": 0.18106110012231008,
+        "sub": 0.1996682239925919
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "d20d0c60692e887a"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 42,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.2859711533322644,
+        "mul": 0.0904648056847131,
+        "sub": 0.20781077418808902
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "7e3d5fc27a64cb20"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 111,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.24604034929238183,
+        "mul": 0.16136141222523337,
+        "sub": 0.22177978162056752
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "8125306e6e66957e"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 6,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.3036651234567901,
+        "mul": 0.07698688271604938,
+        "sub": 0.15324074074074073
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "22325cec8dee25c3"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 84,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.26911475869809204,
+        "mul": 0.1417094431417348,
+        "sub": 0.20644816217732884
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "e36f1fb1b4d3d287"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 78,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.2776333597412029,
+        "mul": 0.10901627591272199,
+        "sub": 0.22998211279461278
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "dcfbf90383301ac3"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 48,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.25410856755965455,
+        "mul": 0.12467839628165717,
+        "sub": 0.20084922290538232
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "0bda085993f2555f"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 39,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.23839787015896652,
+        "mul": 0.17131230577174525,
+        "sub": 0.20606015397642846
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "add",
+      "task_id": "c110b8f276d79045"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 50
+      },
+      "mean_reward_by_root": {
+        "add": 0.13587962962962963,
+        "mul": 0.04801954732510287,
+        "sub": 0.16026234567901235
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 0,
+      "solvable_root": "sub",
+      "task_id": "367ccd595120156b"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 11,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.20808555990007604,
+        "mul": 0.2802660582398485,
+        "sub": 0.17568723051473947
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "mul",
+      "task_id": "bff28c216087fb3b"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 122
+      },
+      "mean_reward_by_root": {
+        "add": 0.14002875982042648,
+        "mul": 0.0440796857463524,
+        "sub": 0.18487128226711558
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "9adee645d366136f"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 135
+      },
+      "mean_reward_by_root": {
+        "add": 0.16471343851369002,
+        "mul": 0.16514738706463108,
+        "sub": 0.21437902513676974
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "f4c815c87a05dec5"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 12,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.25579789295067074,
+        "mul": 0.08943310419004863,
+        "sub": 0.18102152477152478
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "add",
+      "task_id": "aa2728b1db23c9c4"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 39
+      },
+      "mean_reward_by_root": {
+        "add": 0.2565642587329857,
+        "mul": 0.19667134193635263,
+        "sub": 0.20289038871640258
+      },
+      "non_solvable_lanes_beating_solvable_mean": [
+        "add"
+      ],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "90ba6b66bc6e11ba"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 73,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.29297385620915034,
+        "mul": 0.10183142701525057,
+        "sub": 0.1109375
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "add",
+      "task_id": "aabc12877bb70610"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 14
+      },
+      "mean_reward_by_root": {
+        "add": 0.10855579605579606,
+        "mul": 0.04829795975629311,
+        "sub": 0.14571684102934104
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "6058cb9312f00c6d"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 111
+      },
+      "mean_reward_by_root": {
+        "add": 0.25354184901939486,
+        "mul": 0.2009708252938408,
+        "sub": 0.21463698097355594
+      },
+      "non_solvable_lanes_beating_solvable_mean": [
+        "add"
+      ],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "fe65d7e0c2f641e8"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 3
+      },
+      "mean_reward_by_root": {
+        "add": 0.25316111131062113,
+        "mul": 0.1990231055028849,
+        "sub": 0.19816892212725545
+      },
+      "non_solvable_lanes_beating_solvable_mean": [
+        "add",
+        "mul"
+      ],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "e67b2fcba792391e"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 93
+      },
+      "mean_reward_by_root": {
+        "add": 0.13605148912166454,
+        "mul": 0.11135258165594422,
+        "sub": 0.22557952930759947
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "3f11d889a857b145"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 74
+      },
+      "mean_reward_by_root": {
+        "add": 0.14881321569918063,
+        "mul": 0.09040883986059428,
+        "sub": 0.15769774815827448
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "838d7f4e10feb812"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 8
+      },
+      "mean_reward_by_root": {
+        "add": 0.19547598597843696,
+        "mul": 0.08391395732082008,
+        "sub": 0.2336705177085079
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "3ced89337a77e021"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 63
+      },
+      "mean_reward_by_root": {
+        "add": 0.19003933618030983,
+        "mul": 0.12469077140899319,
+        "sub": 0.23582945630359425
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "29cf7471c2339225"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 74,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.14038217823341198,
+        "mul": 0.13447008554696474,
+        "sub": 0.19125933093270134
+      },
+      "non_solvable_lanes_beating_solvable_mean": [
+        "add",
+        "sub"
+      ],
+      "phase": 1,
+      "solvable_root": "mul",
+      "task_id": "17510e23286b516d"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 78
+      },
+      "mean_reward_by_root": {
+        "add": 0.22647198480531813,
+        "mul": 0.11015006726812282,
+        "sub": 0.22717872405372408
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "8cfcce22e1ddd3df"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 6
+      },
+      "mean_reward_by_root": {
+        "add": 0.23203563411896747,
+        "mul": 0.0925005260942761,
+        "sub": 0.24983164983164985
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 1,
+      "solvable_root": "sub",
+      "task_id": "4b4702dd019e1297"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 10,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.2111884553203998,
+        "mul": 0.2628505291005291,
+        "sub": 0.1609801679159318
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "ad7f88f71868cdad"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 105
+      },
+      "mean_reward_by_root": {
+        "add": 0.11865588842667145,
+        "mul": 0.10190044525705254,
+        "sub": 0.20714406460607146
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "sub",
+      "task_id": "7a6782413bead4b3"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 3,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.12748926874858937,
+        "mul": 0.3829206128007104,
+        "sub": 0.11049657279980393
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "435a497ec76fc582"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 113,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.12450085317732376,
+        "mul": 0.1219932640888523,
+        "sub": 0.10337776330423389
+      },
+      "non_solvable_lanes_beating_solvable_mean": [
+        "add"
+      ],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "06c089450bc2b1db"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 2,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.18427252096338606,
+        "mul": 0.09024310675097125,
+        "sub": 0.2413386850092839
+      },
+      "non_solvable_lanes_beating_solvable_mean": [
+        "add",
+        "sub"
+      ],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "80ac35d2c158178e"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 77,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.22488001967168636,
+        "mul": 0.12383506732465066,
+        "sub": 0.17185136429928097
+      },
+      "non_solvable_lanes_beating_solvable_mean": [
+        "add",
+        "sub"
+      ],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "7dd60b9a6a18e5e0"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": null,
+        "sub": 86
+      },
+      "mean_reward_by_root": {
+        "add": 0.14444444444444446,
+        "mul": 0.04413580246913579,
+        "sub": 0.17878086419753086
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "sub",
+      "task_id": "ad01c81bd69bc9fe"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 46,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.1721738757446211,
+        "mul": 0.26300155721590956,
+        "sub": 0.13593566567095347
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "b97916fdeecda532"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 17,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.10951017363427758,
+        "mul": 0.1802597386434752,
+        "sub": 0.17568723051473947
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "3e216461a2ad1ba4"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 125,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.10801183279780352,
+        "mul": 0.15715263413659672,
+        "sub": 0.12442369749151617
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "83a900fe7c95a444"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 37,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.3039296737213404,
+        "mul": 0.08317487874779537,
+        "sub": 0.10646081349206349
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "add",
+      "task_id": "fe7a685ab9f9d536"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": 75,
+        "mul": null,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.24262993112630793,
+        "mul": 0.1651454917532816,
+        "sub": 0.2124278499278499
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "add",
+      "task_id": "960a7304250afb07"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 38,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.15847724331876617,
+        "mul": 0.11423391562176256,
+        "sub": 0.22429373464397845
+      },
+      "non_solvable_lanes_beating_solvable_mean": [
+        "add",
+        "sub"
+      ],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "2aff42e5974ed3e2"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 73,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.191545706601729,
+        "mul": 0.20721678984984304,
+        "sub": 0.13458218045052778
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "aacbc4a9ec8fbb8c"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 111,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.0625189047771158,
+        "mul": 0.36346526139435026,
+        "sub": 0.050186668428838135
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "cba0da0d6c39f968"
+    },
+    {
+      "first_observed_exact_position_by_root": {
+        "add": null,
+        "mul": 4,
+        "sub": null
+      },
+      "mean_reward_by_root": {
+        "add": 0.22070709358073487,
+        "mul": 0.2463914221471966,
+        "sub": 0.2065430510316531
+      },
+      "non_solvable_lanes_beating_solvable_mean": [],
+      "phase": 2,
+      "solvable_root": "mul",
+      "task_id": "3852a8a3d6d4e9e2"
+    }
+  ],
+  "tasks_with_non_solvable_lane_higher_mean": 9
+}
