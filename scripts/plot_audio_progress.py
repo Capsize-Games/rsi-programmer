@@ -15,6 +15,7 @@ ARMS = (
     "ema",
     "persistence",
 )
+ADAPTIVE_ARMS = ("adaptive_snn", "adaptive_ann")
 DISPLAY = {
     "adaptive_snn": "Adaptive SNN",
     "fixed_snn": "Fixed SNN",
@@ -131,6 +132,7 @@ def build_plot_data(
     probe_series: dict[str, list[dict[str, float]]] = {
         arm: [] for arm in ARMS
     }
+    checkpoints: list[dict[str, Any]] = []
     for checkpoint in summary["checkpoints"]:
         if not isinstance(checkpoint, dict):
             continue
@@ -138,12 +140,15 @@ def build_plot_data(
         probe = checkpoint.get("sealed_probe")
         if monitor_frame is None or not isinstance(probe, dict):
             continue
+        checkpoints.append(checkpoint)
         minute = monitor_frame * frame_seconds / 60.0
         for arm in ARMS:
             mse = _arm_mse(probe, arm)
             if mse is not None:
                 probe_series[arm].append({"minute": minute, "mse": mse})
 
+    change_comparison = _change_comparison(
+        summary, checkpoints, frame_seconds, block_frames)
     safe_timestamps = _safe_timestamps(status, summary)
     runtime = status.get("runtime", {})
     if not isinstance(runtime, dict):
@@ -180,8 +185,84 @@ def build_plot_data(
                 "series": probe_series,
             },
         ],
+        "change_comparison": change_comparison,
         "metadata": metadata,
     }
+
+
+def _change_comparison(
+    summary: dict[str, Any],
+    checkpoints: list[dict[str, Any]],
+    frame_seconds: float,
+    block_frames: float,
+) -> dict[str, Any]:
+    """Calculate adaptive MSE reductions and retain each denominator."""
+    live: dict[str, list[dict[str, float | None]]] = {
+        arm: [] for arm in ADAPTIVE_ARMS
+    }
+    for block in summary["blocks"]:
+        if not isinstance(block, dict):
+            continue
+        end_frame = _finite_nonnegative(block.get("frames"))
+        fixed_mse = _arm_mse(block, "fixed_snn")
+        if end_frame is None:
+            continue
+        minute = max(0.0, end_frame - block_frames / 2.0)
+        minute *= frame_seconds / 60.0
+        for arm in ADAPTIVE_ARMS:
+            current_mse = _arm_mse(block, arm)
+            live[arm].append({
+                "minute": minute,
+                "mse_reduction_percent": _percent_reduction(
+                    current_mse, fixed_mse),
+                "current_mse": current_mse,
+                "denominator_mse": fixed_mse,
+            })
+
+    initial_probe = next(
+        (checkpoint.get("sealed_probe") for checkpoint in checkpoints
+         if checkpoint.get("monitor_frame") == 0
+         and isinstance(checkpoint.get("sealed_probe"), dict)),
+        {},
+    )
+    initial_denominators = {
+        arm: _arm_mse(initial_probe, arm) for arm in ADAPTIVE_ARMS
+    }
+    sealed_probe: dict[str, list[dict[str, float | None]]] = {
+        arm: [] for arm in ADAPTIVE_ARMS
+    }
+    for checkpoint in checkpoints:
+        monitor_frame = _finite_nonnegative(checkpoint.get("monitor_frame"))
+        probe = checkpoint.get("sealed_probe")
+        if monitor_frame is None or not isinstance(probe, dict):
+            continue
+        minute = monitor_frame * frame_seconds / 60.0
+        for arm in ADAPTIVE_ARMS:
+            current_mse = _arm_mse(probe, arm)
+            denominator = initial_denominators[arm]
+            sealed_probe[arm].append({
+                "minute": minute,
+                "mse_reduction_percent": _percent_reduction(
+                    current_mse, denominator),
+                "current_mse": current_mse,
+                "denominator_mse": denominator,
+            })
+    return {
+        "positive_means_lower_mse": True,
+        "live_denominator_rule": "fixed_snn_mse_per_block",
+        "sealed_probe_denominator_rule": "same_arm_checkpoint_0_mse",
+        "series": {"live": live, "sealed_probe": sealed_probe},
+    }
+
+
+def _percent_reduction(
+    current_mse: float | None, denominator_mse: float | None
+) -> float | None:
+    """Return percent reduction, retaining negative relative changes."""
+    if (current_mse is None or denominator_mse is None
+            or denominator_mse == 0):
+        return None
+    return 100.0 * (denominator_mse - current_mse) / denominator_mse
 
 
 def _safe_hash(value: Any) -> str | None:
@@ -243,6 +324,46 @@ def render_plot(data: dict[str, Any], output: Path,
     plt.close(figure)
 
 
+def render_change_plot(data: dict[str, Any], output: Path) -> None:
+    """Render live and sealed-probe relative MSE change for adaptive arms."""
+    import matplotlib.pyplot as plt
+
+    comparison = data["change_comparison"]["series"]
+    figure, axes = plt.subplots(2, 1, figsize=(10.5, 8.0), sharex=True)
+    figure.suptitle("Adaptive model MSE reduction", fontsize=15)
+    panels = (
+        (axes[0], comparison["live"],
+         "Live complete-block reduction vs fixed SNN"),
+        (axes[1], comparison["sealed_probe"],
+         "Sealed-probe reduction vs same arm at checkpoint 0"),
+    )
+    for axis, series, label in panels:
+        for arm in ADAPTIVE_ARMS:
+            points = series[arm]
+            axis.plot(
+                [point["minute"] for point in points],
+                [point["mse_reduction_percent"] for point in points],
+                color=COLORS[arm],
+                linestyle=LINESTYLES[arm],
+                marker=MARKERS[arm],
+                markersize=4,
+                linewidth=1.7,
+                label=DISPLAY[arm],
+            )
+        axis.axhline(0.0, color="#444444", linewidth=0.9)
+        axis.set_title(label, loc="left", fontsize=11)
+        axis.set_ylabel("MSE reduction (%)", fontsize=11)
+        axis.tick_params(axis="both", labelsize=10)
+        axis.grid(True, color="#D9DDE2", linewidth=0.7)
+        axis.spines[["top", "right"]].set_visible(False)
+        axis.legend(frameon=False, fontsize=10, loc="best")
+    axes[-1].set_xlabel("Minutes of sample clock", fontsize=11)
+    figure.tight_layout(rect=(0, 0, 1, 0.96))
+    output.parent.mkdir(parents=True, exist_ok=True)
+    figure.savefig(output, dpi=180, bbox_inches="tight")
+    plt.close(figure)
+
+
 def main() -> None:
     """Read aggregate status and write the figure plus plotted data."""
     parser = argparse.ArgumentParser(description=__doc__)
@@ -258,6 +379,7 @@ def main() -> None:
     data = build_plot_data(status, source_bytes)
     args.output_dir.mkdir(parents=True, exist_ok=False)
     render_plot(data, args.output_dir / "audio-progress.png", args.title)
+    render_change_plot(data, args.output_dir / "learning-change.png")
     with (args.output_dir / "plotted-data.json").open(
             "w", encoding="utf-8") as stream:
         json.dump(data, stream, indent=2, sort_keys=True, allow_nan=False)

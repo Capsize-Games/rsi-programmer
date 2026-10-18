@@ -1,0 +1,83 @@
+{
+  "audit_through_monitor_frame": 1200,
+  "complete_block_metrics": {
+    "adaptive_ann": {
+      "alarm_count": 2,
+      "alarms_per_minute": 0.5106382978723405,
+      "feature_target_count": 7050,
+      "mse": 0.012102101363891418,
+      "scored_frames": 1175,
+      "sse": 85.3198146154345
+    },
+    "adaptive_snn": {
+      "alarm_count": 2,
+      "alarms_per_minute": 0.5106382978723405,
+      "feature_target_count": 7050,
+      "mse": 0.012260588657785539,
+      "scored_frames": 1175,
+      "sse": 86.43715003738805
+    },
+    "ema": {
+      "alarm_count": 2,
+      "alarms_per_minute": 0.5106382978723405,
+      "feature_target_count": 7050,
+      "mse": 0.012118929251892122,
+      "scored_frames": 1175,
+      "sse": 85.43845122583946
+    },
+    "fixed_snn": {
+      "alarm_count": 2,
+      "alarms_per_minute": 0.5106382978723405,
+      "feature_target_count": 7050,
+      "mse": 0.01250108854724994,
+      "scored_frames": 1175,
+      "sse": 88.13267425811208
+    },
+    "persistence": {
+      "alarm_count": 5,
+      "alarms_per_minute": 1.2765957446808511,
+      "feature_target_count": 7050,
+      "mse": 0.02224751217721337,
+      "scored_frames": 1175,
+      "sse": 156.84496084935427
+    }
+  },
+  "fixed_reference_unchanged": true,
+  "parameter_change_counts_since_monitor_start": {
+    "adaptive_ann": {
+      "input_biases": 72,
+      "input_weights": 72,
+      "output_bias": 6,
+      "readout_weights": 72
+    },
+    "adaptive_snn": {
+      "input_biases": 71,
+      "input_weights": 71,
+      "output_bias": 6,
+      "readout_weights": 36
+    },
+    "fixed_snn": {
+      "input_biases": 0,
+      "input_weights": 0,
+      "output_bias": 0,
+      "readout_weights": 0
+    }
+  },
+  "percent_reduction_vs_fixed": {
+    "adaptive_ann": 3.1916195285753273,
+    "adaptive_snn": 1.9238315811890467,
+    "ema": 3.057008147037624,
+    "fixed_snn": 0.0,
+    "persistence": -77.96459958766953
+  },
+  "quality_issue_count": 0,
+  "report_monitor_frames": 1200,
+  "scored_seconds": 235.0,
+  "sealed_probe_percent_reduction_vs_own_start": {
+    "adaptive_ann": -2.7902270129891815,
+    "adaptive_snn": -0.8349824973430593,
+    "ema": 0.0,
+    "fixed_snn": 0.0,
+    "persistence": 0.0
+  }
+}

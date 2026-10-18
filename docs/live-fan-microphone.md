@@ -83,4 +83,8 @@ uv run --no-project --with matplotlib --python .venv/bin/python \
 ```
 
 The chart distinguishes live minute-block errors from repeated sealed-probe
-errors. Its accompanying JSON contains the plotted aggregate values.
+errors. A second chart, `learning-change.png`, shows the two adaptive
+neural arms' changes: each live block versus the fixed SNN on that block,
+and each sealed-probe checkpoint versus that arm's initial probe MSE.
+Positive percentages mean lower error; negative values remain visible.
+The accompanying JSON contains the plotted values and exact denominators.

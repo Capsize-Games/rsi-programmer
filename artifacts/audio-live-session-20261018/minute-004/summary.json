@@ -1,0 +1,726 @@
+{
+  "adaptive_vs_fixed": {
+    "adaptive_ann": {
+      "block_mse_delta": [
+        -0.00013320570953563246,
+        -5.882322268232522e-05,
+        -0.0004915467887689554,
+        -0.0008902245562952722
+      ],
+      "cumulative_mse_delta": -0.0004149098982523785,
+      "relative_improvement": 0.033235851439619976
+    },
+    "adaptive_snn": {
+      "block_mse_delta": [
+        -8.097611832072471e-05,
+        -2.0754777918666548e-05,
+        -0.00026973441743828944,
+        -0.000577240596584613
+      ],
+      "cumulative_mse_delta": -0.0002564131401685144,
+      "relative_improvement": 0.020539661911424034
+    },
+    "ema": {
+      "block_mse_delta": [
+        -7.425773597588385e-05,
+        0.0001078286584515354,
+        -0.0006652817921040527,
+        -0.0008712678485210418
+      ],
+      "cumulative_mse_delta": -0.00040010480482370256,
+      "relative_improvement": 0.03204990748451612
+    },
+    "persistence": {
+      "block_mse_delta": [
+        0.010346759183987144,
+        0.010014124457011674,
+        0.009211426674847685,
+        0.009463412166842525
+      ],
+      "cumulative_mse_delta": 0.0099222111494952,
+      "relative_improvement": -0.794806624537483
+    }
+  },
+  "blocks": [
+    {
+      "arms": {
+        "adaptive_ann": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 275,
+          "feature_target_count": 1650,
+          "frame_count": 275,
+          "mse": 0.011834975644578192,
+          "sse": 19.52770981355402
+        },
+        "adaptive_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 275,
+          "feature_target_count": 1650,
+          "frame_count": 275,
+          "mse": 0.0118872052357931,
+          "sse": 19.613888639058615
+        },
+        "ema": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 275,
+          "feature_target_count": 1650,
+          "frame_count": 275,
+          "mse": 0.01189392361813794,
+          "sse": 19.624973969927602
+        },
+        "fixed_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 275,
+          "feature_target_count": 1650,
+          "frame_count": 275,
+          "mse": 0.011968181354113825,
+          "sse": 19.74749923428781
+        },
+        "persistence": {
+          "alarm_count": 2,
+          "alarms_per_minute": 2.181818181818182,
+          "count": 275,
+          "feature_target_count": 1650,
+          "frame_count": 275,
+          "mse": 0.02231494053810097,
+          "sse": 36.8196518878666
+        }
+      },
+      "block": 1,
+      "frames": 300,
+      "relative_improvement_vs_fixed": {
+        "adaptive_ann": 0.011129987555698731,
+        "adaptive_snn": 0.006765950141028802,
+        "ema": 0.006204596486195393,
+        "persistence": -0.8645222593013809
+      }
+    },
+    {
+      "arms": {
+        "adaptive_ann": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.011432841960086119,
+          "sse": 20.579115528155015
+        },
+        "adaptive_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.011470910404849778,
+          "sse": 20.6476387287296
+        },
+        "ema": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.01159949384121998,
+          "sse": 20.879088914195965
+        },
+        "fixed_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.011491665182768444,
+          "sse": 20.6849973289832
+        },
+        "persistence": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.02150578963978012,
+          "sse": 38.71042135160421
+        }
+      },
+      "block": 2,
+      "frames": 600,
+      "relative_improvement_vs_fixed": {
+        "adaptive_ann": 0.005118772758062046,
+        "adaptive_snn": 0.0018060722783490057,
+        "ema": -0.009383205717933954,
+        "persistence": -0.8714250108876895
+      }
+    },
+    {
+      "arms": {
+        "adaptive_ann": {
+          "alarm_count": 2,
+          "alarms_per_minute": 2.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.01344679217084588,
+          "sse": 24.204225907522584
+        },
+        "adaptive_snn": {
+          "alarm_count": 2,
+          "alarms_per_minute": 2.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.013668604542176546,
+          "sse": 24.603488175917782
+        },
+        "ema": {
+          "alarm_count": 2,
+          "alarms_per_minute": 2.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.013273057167510783,
+          "sse": 23.89150290151941
+        },
+        "fixed_snn": {
+          "alarm_count": 2,
+          "alarms_per_minute": 2.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.013938338959614835,
+          "sse": 25.089010127306704
+        },
+        "persistence": {
+          "alarm_count": 3,
+          "alarms_per_minute": 3.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.02314976563446252,
+          "sse": 41.669578142032535
+        }
+      },
+      "block": 3,
+      "frames": 900,
+      "relative_improvement_vs_fixed": {
+        "adaptive_ann": 0.03526580822816627,
+        "adaptive_snn": 0.019351977177468723,
+        "ema": 0.047730349651536726,
+        "persistence": -0.6608697565425133
+      }
+    },
+    {
+      "arms": {
+        "adaptive_ann": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.01167153520344604,
+          "sse": 21.00876336620287
+        },
+        "adaptive_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.011984519163156699,
+          "sse": 21.572134493682057
+        },
+        "ema": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.01169049191122027,
+          "sse": 21.042885440196486
+        },
+        "fixed_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.012561759759741312,
+          "sse": 22.611167567534363
+        },
+        "persistence": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "count": 300,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.022025171926583837,
+          "sse": 39.64530946785091
+        }
+      },
+      "block": 4,
+      "frames": 1200,
+      "relative_improvement_vs_fixed": {
+        "adaptive_ann": 0.07086782213016983,
+        "adaptive_snn": 0.04595220794100749,
+        "ema": 0.06935874154458309,
+        "persistence": -0.7533508320364032
+      }
+    }
+  ],
+  "calibration": {
+    "adaptive_ann": {
+      "count": 125,
+      "feature_target_count": 750,
+      "frame_count": 125,
+      "mse": 0.013193562410220364,
+      "sse": 9.895171807665273
+    },
+    "adaptive_snn": {
+      "count": 125,
+      "feature_target_count": 750,
+      "frame_count": 125,
+      "mse": 0.013281459879922668,
+      "sse": 9.961094909942002
+    },
+    "ema": {
+      "count": 125,
+      "feature_target_count": 750,
+      "frame_count": 125,
+      "mse": 0.013401221739802245,
+      "sse": 10.050916304851684
+    },
+    "fixed_snn": {
+      "count": 125,
+      "feature_target_count": 750,
+      "frame_count": 125,
+      "mse": 0.013310411201699757,
+      "sse": 9.982808401274818
+    },
+    "persistence": {
+      "count": 125,
+      "feature_target_count": 750,
+      "frame_count": 125,
+      "mse": 0.022430911538060618,
+      "sse": 16.823183653545463
+    }
+  },
+  "checkpoints": [
+    {
+      "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+      "monitor_frame": 0,
+      "sealed_probe": {
+        "arms": {
+          "adaptive_ann": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.01172095379694145,
+            "sse": 5.274429208623652
+          },
+          "adaptive_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "ema": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012129598112054886,
+            "sse": 5.458319150424699
+          },
+          "fixed_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "persistence": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.02227037955939562,
+            "sse": 10.021670801728028
+          }
+        },
+        "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "frames": 100,
+        "warmup_frames": 25
+      }
+    },
+    {
+      "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+      "monitor_frame": 300,
+      "sealed_probe": {
+        "arms": {
+          "adaptive_ann": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011599109266353956,
+            "sse": 5.21959916985928
+          },
+          "adaptive_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011675486225190894,
+            "sse": 5.253968801335902
+          },
+          "ema": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012129598112054886,
+            "sse": 5.458319150424699
+          },
+          "fixed_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "persistence": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.02227037955939562,
+            "sse": 10.021670801728028
+          }
+        },
+        "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "frames": 100,
+        "warmup_frames": 25
+      }
+    },
+    {
+      "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+      "monitor_frame": 600,
+      "sealed_probe": {
+        "arms": {
+          "adaptive_ann": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011595817725687197,
+            "sse": 5.218117976559239
+          },
+          "adaptive_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011665356269666534,
+            "sse": 5.249410321349941
+          },
+          "ema": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012129598112054886,
+            "sse": 5.458319150424699
+          },
+          "fixed_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "persistence": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.02227037955939562,
+            "sse": 10.021670801728028
+          }
+        },
+        "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "frames": 100,
+        "warmup_frames": 25
+      }
+    },
+    {
+      "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+      "monitor_frame": 900,
+      "sealed_probe": {
+        "arms": {
+          "adaptive_ann": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011731144920977852,
+            "sse": 5.279015214440033
+          },
+          "adaptive_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.01165231787144058,
+            "sse": 5.243543042148261
+          },
+          "ema": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012129598112054886,
+            "sse": 5.458319150424699
+          },
+          "fixed_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "persistence": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.02227037955939562,
+            "sse": 10.021670801728028
+          }
+        },
+        "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "frames": 100,
+        "warmup_frames": 25
+      }
+    },
+    {
+      "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+      "monitor_frame": 1200,
+      "sealed_probe": {
+        "arms": {
+          "adaptive_ann": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012047995015963691,
+            "sse": 5.421597757183661
+          },
+          "adaptive_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011803140478930541,
+            "sse": 5.311413215518743
+          },
+          "ema": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012129598112054886,
+            "sse": 5.458319150424699
+          },
+          "fixed_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "persistence": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.02227037955939562,
+            "sse": 10.021670801728028
+          }
+        },
+        "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "frames": 100,
+        "warmup_frames": 25
+      }
+    }
+  ],
+  "cumulative": {
+    "adaptive_ann": {
+      "alarm_count": 2,
+      "alarms_per_minute": 0.48192771084337344,
+      "count": 1245,
+      "feature_target_count": 7470,
+      "frame_count": 1245,
+      "mse": 0.012068895398752,
+      "sse": 90.15464862867744
+    },
+    "adaptive_snn": {
+      "alarm_count": 2,
+      "alarms_per_minute": 0.48192771084337344,
+      "count": 1245,
+      "feature_target_count": 7470,
+      "frame_count": 1245,
+      "mse": 0.012227392156835864,
+      "sse": 91.3386194115639
+    },
+    "ema": {
+      "alarm_count": 2,
+      "alarms_per_minute": 0.48192771084337344,
+      "count": 1245,
+      "feature_target_count": 7470,
+      "frame_count": 1245,
+      "mse": 0.012083700492180676,
+      "sse": 90.26524267658965
+    },
+    "fixed_snn": {
+      "alarm_count": 2,
+      "alarms_per_minute": 0.48192771084337344,
+      "count": 1245,
+      "feature_target_count": 7470,
+      "frame_count": 1245,
+      "mse": 0.012483805297004378,
+      "sse": 93.25402556862271
+    },
+    "persistence": {
+      "alarm_count": 6,
+      "alarms_per_minute": 1.4457831325301203,
+      "count": 1245,
+      "feature_target_count": 7470,
+      "frame_count": 1245,
+      "mse": 0.022406016446499578,
+      "sse": 167.37294285535185
+    }
+  },
+  "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+  "frame_count": 1670,
+  "monitor_alarms": {
+    "adaptive_ann": 2,
+    "adaptive_snn": 2,
+    "ema": 2,
+    "fixed_snn": 2,
+    "persistence": 6
+  },
+  "monitor_frames": 1270,
+  "observed_alarms_per_minute": {
+    "adaptive_ann": 0.48192771084337344,
+    "adaptive_snn": 0.48192771084337344,
+    "ema": 0.48192771084337344,
+    "fixed_snn": 0.48192771084337344,
+    "persistence": 1.4457831325301203
+  },
+  "phase": "monitor",
+  "private_status_sha256": "bcaf8161336349005d4a73a0d164dd840f991525b988740ae66fb79adbc11054",
+  "protocol": {
+    "alarm_rate_denominator": "Scored feature frames times0.2 seconds; exclude initial25 warmup frames. First complete block has275 scored frames=55s; later complete blocks300=60s",
+    "arms": [
+      "adaptive_snn",
+      "fixed_snn",
+      "adaptive_ann",
+      "ema",
+      "persistence"
+    ],
+    "band_edges_hz": [
+      80,
+      160,
+      320,
+      640,
+      1280,
+      2560,
+      6000
+    ],
+    "baselines": "Persistence predicts the current six features as the next features. EMA initializes from the first frame and uses alpha=1-exp(-.2/5)=0.03921056084767682 per nominal0.2s frame. Reset baseline state at calibration/probe/monitor boundaries",
+    "block_frames": 300,
+    "bootstrap": "One pass over normalized fit frames for SNN and continuous banks, same band seeds seed+band; no calibration/probe training of source models",
+    "calibration": "Independent trained copies process next150 frames with matching learning flags; discard their updates. Threshold=max(1e-9,maximum sqrt(mean6(previous_forecast-target)^2) after25-frame warmup). Strict > produces zero calibration alarms by construction, without guaranteeing future rate",
+    "calibration_frames": 150,
+    "clock": "Model time is sample-derived (global_frame+1)*.2 seconds at nominal16kHz, distinct from monotonic delivery timestamps. Raw PCM does not carry measured hardware timestamps",
+    "comparison": "Each300-frame nonoverlapping monitoring block reports paired next-frame MSE against fixed SNN, ANN, EMA and persistence, plus cumulative MSE and observed alarms/minute. First block omits25 warmup targets. Relative improvement=(fixed_mse-adaptive_mse)/fixed_mse, null if fixed_mse=0",
+    "cooldown_frames": 25,
+    "ema_alpha": 0.03921056084767682,
+    "feature": "Hann-windowed, DC-removed, one-sided FFT band mean-square energy in dBFS; six independent bands",
+    "fit_frames": 150,
+    "fixed_reference": "Freeze a copy of the fully fitted adaptive SNN parameters. Parameters and normalization stay fixed; transient state evolves on the same live frames",
+    "frame_seconds": 0.2,
+    "monitor": "Predict before receiving target; score and emit threshold alarm before updating. Score is sqrt(mean six squared errors); warmup25frames, at least25 frame indices between alarms. Same live frames for all five arms; states continue through monitor; no event/fault labels",
+    "neural": "Six independent SensingPredictor instances (12 units each), existing fixed tau/input/readout/eligibility/learning constants; SNN and continuous control differ only by spiking dynamics",
+    "normalizer": "Fit per-band median and max(3dB,1.4826*MAD) on first150 frames only; z=.5+.5*(band-center)/(scale+abs(band-center)); then freeze",
+    "privacy": "Raw audio is discarded after feature extraction. Exact feature/forecast traces and learned arrays stay in a private local state directory, outside Git. Publish aggregate measurements only",
+    "probe": "Next100 feature frames are sealed and never trained on; no source updates during collection. Checkpoint0 and each300 monitor frames evaluate frozen copies on this identical20s tape, reset transient state and ignore first25 frames. Repeated probe evaluations are correlated; no outcome tuning",
+    "probe_frames": 100,
+    "purpose": "Live fan microphone prediction and fixed-reference comparison",
+    "report": "Prediction error and observed alarm rate, not detection accuracy, faults, confirmed false positives, independent trials or chip energy. No claims from changes in surprise alone",
+    "sample_rate": 16000,
+    "seed": 0,
+    "signal_check": "A short pre-model capture may confirm signal/frequencies before this protocol. Capture source must be a physical input, never an output monitor; no default/gain changes",
+    "stopping": "Continuous until stopped or capture failure; checkpoints every60 audio seconds. Preserve the first learning curve and negative outcomes; parameter changes require a new named session/protocol",
+    "version": 1,
+    "warmup_frames": 25
+  },
+  "reference_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+  "report_monitor_frames": 1200,
+  "runtime": {
+    "delivery_seconds": 334.0882441329886,
+    "error": null,
+    "git_head": "aa5057289f58720b6f76d7ff8fca6bf8bb15020c",
+    "last_signal": {
+      "clip_fraction": 0.0,
+      "peak_hz": 170.0,
+      "rms_dbfs": -24.44907799666549
+    },
+    "protocol_sha256": "ef7019083c0fcb24f3477a8384a5b3deccd260fd1ad9f7ef1d133c433b065561",
+    "quality_issue_count": 0,
+    "started_at": "2026-10-18T23:44:38.013642+00:00",
+    "status": "running"
+  },
+  "sealed_probe": {
+    "arms": {
+      "adaptive_ann": {
+        "count": 450,
+        "feature_target_count": 450,
+        "frame_count": 75,
+        "mse": 0.01172095379694145,
+        "sse": 5.274429208623652
+      },
+      "adaptive_snn": {
+        "count": 450,
+        "feature_target_count": 450,
+        "frame_count": 75,
+        "mse": 0.011705402417500838,
+        "sse": 5.267431087875377
+      },
+      "ema": {
+        "count": 450,
+        "feature_target_count": 450,
+        "frame_count": 75,
+        "mse": 0.012129598112054886,
+        "sse": 5.458319150424699
+      },
+      "fixed_snn": {
+        "count": 450,
+        "feature_target_count": 450,
+        "frame_count": 75,
+        "mse": 0.011705402417500838,
+        "sse": 5.267431087875377
+      },
+      "persistence": {
+        "count": 450,
+        "feature_target_count": 450,
+        "frame_count": 75,
+        "mse": 0.02227037955939562,
+        "sse": 10.021670801728028
+      }
+    },
+    "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+    "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+    "frames": 100,
+    "warmup_frames": 25
+  },
+  "thresholds": {
+    "adaptive_ann": 0.21270281479425954,
+    "adaptive_snn": 0.22000954143432466,
+    "ema": 0.21458750784190447,
+    "fixed_snn": 0.22097890355238917,
+    "persistence": 0.2574074955076985
+  }
+}
