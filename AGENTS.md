@@ -32,3 +32,8 @@ checkpoints and tag published snapshots. Record the exact completed tests,
 partial runs, and pending checks in each checkpoint. Update issue status
 with the evidence available; keep unresolved findings open. Publish again
 at validation milestones instead of holding all evidence for the final run.
+
+Owner update (2026-10-18): commit and push completed changes without waiting
+for remote CI. Run affected local checks and state pending CI accurately;
+fix actual failures without weakening tests. Pause new tags and releases
+until the owner asks to resume them.

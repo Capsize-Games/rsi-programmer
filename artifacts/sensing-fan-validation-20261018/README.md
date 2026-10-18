@@ -3,7 +3,8 @@
 The prospective freeze is code-v105. Implementation `643be25` was verified
 before measurement and published with verification evidence as code-v106
 (`de87983`). The measured runtime, tests, protocol and workflow have not
-changed since code-v106. Code-v107 publishes results, charts and evidence.
+changed since code-v106. Commit `3ee8914` publishes results, charts and
+evidence. New tags and releases are paused at the owner's request.
 See [result and limitations](../../docs/sensing-fan-result.md).
 
 ## Final checks
