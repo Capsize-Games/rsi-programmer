@@ -1,7 +1,9 @@
 # Audit progress
 
-The [audit follow-up](audit-followup.md) records code-v57's complete
-64-test slow pass, including the original rich-surrogate fidelity
-assertion. Local fast and the Python 3.12/3.13 CI fast matrix are green.
-Retry remains in progress, so #66 stays open until that result. All 105
-inputs remain unchanged; prior failures and research limits are retained.
+The [audit follow-up](audit-followup.md) records code-v58's complete
+source-matched fast, slow and retry gates, all green with no exclusions.
+It includes the repaired rich-surrogate caller and hub asset lookup,
+fresh independently audited three-seed measurements, and preserved
+failed attempts. #66 closes after integration verification. Issue updates
+for #51-#71 state each resolution and remaining limit. Local full
+discovery was not run; separate CI job status is linked in the evidence.

@@ -1,5 +1,56 @@
 # Audit follow-up
 
+## code-v58: complete affected gates verified
+
+The source published in code-v53 passed all three complete named lanes,
+sequentially under the shared builder lock, with no exclusions:
+
+- `just test-fast`: **270 tests in 222.641s; OK**.
+- `just test-slow`: **64 tests in 3399.418s; OK**.
+- `just test-retry`: **3 tests in 653.939s; OK**.
+
+All 105 runtime/test/fixture inputs retained SHA-256
+`476d213151b3998477739267dee834bf4ac604cae8e41c81870fdd7cba3c8e73` before and after every lane and match
+the final checkout. Local full discovery was not run. CI fast on this
+runtime also passed on Python 3.12 and 3.13. Both full-CI jobs remain
+running at the final status observation and are not counted as passes.
+
+The original rich-surrogate fidelity assertions now pass within the
+complete slow lane. Full search acceptance still covers all four shadow
+and four hard tasks. Capped or insufficient evidence supplies no false
+negatives or vacuous selection credit; hard fitting and selection cover
+one complete task under the cap. Retry retains its original near-miss,
+true-rule, out-of-fixture probes and hook-invariance checks. The live hub
+asset and corruption checks also pass with paginated lookup.
+
+#66 can now close on this verified repair. #53, #54, #56, #65 and #70
+retain their documented acceptance resolutions and research limits.
+The earlier complete failure and interrupted red runs remain published;
+they are not counted as passes. Fresh three-seed measurement outcomes
+remain those reported in code-v53: conditional neural ordering effects,
+no unique spiking contribution established, recipe-dependent transfer,
+and no guided candidate-signature work win. Search completeness,
+one-task hard-surrogate coverage and separately fitted label-mode
+comparisons remain explicit limitations.
+
+The calibration joint metric is accuracy of the word-exact AND EMIT
+prediction against membership labels, including correct negative
+predictions; it is measured after threshold and margin selection. A
+complete hard-task reachability graph supplies 1,500 materialized proven
+negatives at the negative-generation cap, not an exhaustive negative
+population. Repeated seeds, modes and paths reuse the same task IDs;
+paired counts do not represent additional independent tasks. The
+code-v45 disposition table is explicitly marked historical.
+
+[Complete fast log](../artifacts/followup-final-validation-20261018/fast.log),
+[complete slow log](../artifacts/followup-final-validation-20261018/slow.log),
+[complete retry log](../artifacts/followup-final-validation-20261018/retry.log),
+[CI fast job evidence](../artifacts/followup-final-validation-20261018/ci-fast.json),
+[current CI job status](../artifacts/followup-final-validation-20261018/ci-current-status.json),
+[independent gate audit](../artifacts/followup-final-validation-20261018/gate-integrity-audit.json),
+[dependency and weight-fixture bindings](../artifacts/followup-final-validation-20261018/dependencies-and-weights.json),
+and [source/command/log manifest](../artifacts/followup-final-validation-20261018/manifest.json).
+
 ## code-v57: complete slow lane verified; retry remains
 
 The complete current `just test-slow` passed: **64 tests in 3399.418s;

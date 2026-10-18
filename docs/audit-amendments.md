@@ -54,11 +54,15 @@ stash maximum scans and full-graph validation as costs. The final local
 lanes were run without that profiler. Scored backtracking now sorts once
 per layer; differential regressions preserve the preceding behavior.
 
-## Issue disposition
+## Issue disposition at code-v45 (historical)
 
-All 21 issues were reviewed. Fifteen are closed, including #51, which was
-already closed before the follow-up amendments. Six remain open: #53,
-#54, #56, #65, #66, and #70.
+This table records code-v45 and is retained as historical evidence.
+Later fixes and current validation are in the [audit follow-up](audit-followup.md);
+the statuses and implementation limits below do not describe the current runtime.
+
+At code-v45, all 21 issues had been reviewed. Fifteen were closed, including
+#51, which was already closed before those amendments. Six remained open:
+#53, #54, #56, #65, #66, and #70.
 
 | Issue | Amendment | Remaining limitation |
 |---|---|---|
