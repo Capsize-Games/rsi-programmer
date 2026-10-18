@@ -1,0 +1,185 @@
+{
+  "arms": [
+    {
+      "arm": "persistent_snn",
+      "budget": 144,
+      "candidate_fraction_saved_vs_streaming": -0.030610398715426257,
+      "context": {
+        "accepted": 390,
+        "candidate_evaluations": 91141,
+        "first_lane_correct": 290,
+        "total_cpu_seconds": 9.398618520999815
+      },
+      "cpu_ratio_vs_streaming": 4.849155484780819,
+      "no_context": {
+        "accepted": 378,
+        "candidate_evaluations": 91864,
+        "first_lane_correct": 286,
+        "total_cpu_seconds": 9.036384029999532
+      }
+    },
+    {
+      "arm": "frozen_snn",
+      "budget": 144,
+      "candidate_fraction_saved_vs_streaming": 0.003607209896646091,
+      "context": {
+        "accepted": 395,
+        "candidate_evaluations": 88115,
+        "first_lane_correct": 286,
+        "total_cpu_seconds": 8.03066778400002
+      },
+      "cpu_ratio_vs_streaming": 4.143370288327621,
+      "no_context": {
+        "accepted": 395,
+        "candidate_evaluations": 88115,
+        "first_lane_correct": 286,
+        "total_cpu_seconds": 7.558531871999765
+      }
+    },
+    {
+      "arm": "episode_reset_snn",
+      "budget": 144,
+      "candidate_fraction_saved_vs_streaming": 0.024899925368071063,
+      "context": {
+        "accepted": 425,
+        "candidate_evaluations": 86232,
+        "first_lane_correct": 266,
+        "total_cpu_seconds": 9.010256480999974
+      },
+      "cpu_ratio_vs_streaming": 4.6487826414594196,
+      "no_context": {
+        "accepted": 415,
+        "candidate_evaluations": 86144,
+        "first_lane_correct": 294,
+        "total_cpu_seconds": 8.465838282000314
+      }
+    },
+    {
+      "arm": "online_nonspiking",
+      "budget": 144,
+      "candidate_fraction_saved_vs_streaming": -0.06848044869620273,
+      "context": {
+        "accepted": 364,
+        "candidate_evaluations": 94490,
+        "first_lane_correct": 306,
+        "total_cpu_seconds": 9.902115093000166
+      },
+      "cpu_ratio_vs_streaming": 5.108931233549492,
+      "no_context": {
+        "accepted": 361,
+        "candidate_evaluations": 94651,
+        "first_lane_correct": 295,
+        "total_cpu_seconds": 9.730611686999632
+      }
+    },
+    {
+      "arm": "grammar_streaming",
+      "budget": 144,
+      "candidate_fraction_saved_vs_streaming": 0.0,
+      "context": {
+        "accepted": 414,
+        "candidate_evaluations": 88434,
+        "first_lane_correct": 288,
+        "total_cpu_seconds": 1.9381969809995958
+      },
+      "cpu_ratio_vs_streaming": 1.0,
+      "no_context": {
+        "accepted": 414,
+        "candidate_evaluations": 88434,
+        "first_lane_correct": 288,
+        "total_cpu_seconds": 2.0002194679995444
+      }
+    },
+    {
+      "arm": "persistent_snn",
+      "budget": 432,
+      "candidate_fraction_saved_vs_streaming": 0.026723177332059866,
+      "context": {
+        "accepted": 864,
+        "candidate_evaluations": 146739,
+        "first_lane_correct": 275,
+        "total_cpu_seconds": 15.033480606999897
+      },
+      "cpu_ratio_vs_streaming": 4.286510409131644,
+      "no_context": {
+        "accepted": 864,
+        "candidate_evaluations": 148472,
+        "first_lane_correct": 274,
+        "total_cpu_seconds": 14.607879323000057
+      }
+    },
+    {
+      "arm": "frozen_snn",
+      "budget": 432,
+      "candidate_fraction_saved_vs_streaming": -0.0033296190172980022,
+      "context": {
+        "accepted": 864,
+        "candidate_evaluations": 151270,
+        "first_lane_correct": 284,
+        "total_cpu_seconds": 13.804774070999471
+      },
+      "cpu_ratio_vs_streaming": 3.936168163445602,
+      "no_context": {
+        "accepted": 864,
+        "candidate_evaluations": 151270,
+        "first_lane_correct": 284,
+        "total_cpu_seconds": 13.13155987200021
+      }
+    },
+    {
+      "arm": "episode_reset_snn",
+      "budget": 432,
+      "candidate_fraction_saved_vs_streaming": 0.13662050302451445,
+      "context": {
+        "accepted": 864,
+        "candidate_evaluations": 130170,
+        "first_lane_correct": 303,
+        "total_cpu_seconds": 13.65994221099997
+      },
+      "cpu_ratio_vs_streaming": 3.894872119522634,
+      "no_context": {
+        "accepted": 864,
+        "candidate_evaluations": 129317,
+        "first_lane_correct": 307,
+        "total_cpu_seconds": 12.864687910000237
+      }
+    },
+    {
+      "arm": "online_nonspiking",
+      "budget": 432,
+      "candidate_fraction_saved_vs_streaming": 0.011487848880398999,
+      "context": {
+        "accepted": 864,
+        "candidate_evaluations": 149036,
+        "first_lane_correct": 282,
+        "total_cpu_seconds": 15.79312369499984
+      },
+      "cpu_ratio_vs_streaming": 4.503108154461525,
+      "no_context": {
+        "accepted": 864,
+        "candidate_evaluations": 149967,
+        "first_lane_correct": 294,
+        "total_cpu_seconds": 15.561997936000502
+      }
+    },
+    {
+      "arm": "grammar_streaming",
+      "budget": 432,
+      "candidate_fraction_saved_vs_streaming": 0.0,
+      "context": {
+        "accepted": 864,
+        "candidate_evaluations": 150768,
+        "first_lane_correct": 288,
+        "total_cpu_seconds": 3.5071606439993133
+      },
+      "cpu_ratio_vs_streaming": 1.0,
+      "no_context": {
+        "accepted": 864,
+        "candidate_evaluations": 150768,
+        "first_lane_correct": 288,
+        "total_cpu_seconds": 3.6159594089995704
+      }
+    }
+  ],
+  "scope": "Descriptive repeated measurements of the same 48 functions; separate source/run CPU totals are not a causal comparison"
+}

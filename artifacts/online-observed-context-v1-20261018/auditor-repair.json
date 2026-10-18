@@ -1,0 +1,37 @@
+{
+  "analysis_only_changes": {
+    "scripts/audit_online_observed_context.py": {
+      "corrected_sha256": "8aedd631620870d5fc1ec3e50f83a436bbac842470fed3d2d0d623cfc031cf25",
+      "measured_sha256": "c2c4f7c37f7170686087b19e548e6aaf2c268d63f0e8253759579d40df480f52"
+    },
+    "tests/test_audit_observed_context.py": {
+      "corrected_sha256": "db63364515d9aad0f698ea59450bb7d057b846b7879cccd471a7031364ab7401",
+      "measured_sha256": "bdd22117be71a596a7e41a261f275f4a49a99871682dd774f197ee90070b6913"
+    }
+  },
+  "archived_source_verified": true,
+  "audit": {
+    "capacity_cpu_seconds": 0.023489863,
+    "capacity_sha256": "c3fdba5202ed9b3e97812aebdad460a1a9716b069a47b818cb33624d8bf28344",
+    "context_protocol_sha256": "d8897dc237ceed1a8781dd2dd828b4507842bbdf53473558edffa928fe6485fb",
+    "diagnosis": {
+      "exploratory_mechanism_trigger": false,
+      "orders_below_reset_acceptance": 4,
+      "pooled_regression": false,
+      "strict_all_orders_underperformance": false
+    },
+    "episode_rows": 8640,
+    "full_experiment_cpu_seconds": 100.10182595099806,
+    "orders": 6,
+    "raw_sha256": "8984424d2f8a5b8bfd3990152899b693c844b8c169379f27360beeab3fc82d86",
+    "schedule_sha256": "0ffbd7eadac93aa63b8df68d9ba250cd4da5a55a178e8339f9505d81638af3f1",
+    "status": "passed"
+  },
+  "current_execution_sources_match_measurement": true,
+  "measured_manifest_sha256": "34f3a564cfee8839bec5dbeee8795d5e5eb58974a003d51f6616ded616144c6e",
+  "measured_source": "ff9a0f38fe7e0ce0af34aac11cbb899cd95a1a47",
+  "raw_sha256": "8984424d2f8a5b8bfd3990152899b693c844b8c169379f27360beeab3fc82d86",
+  "reason": "Validator expected an obsolete metadata key; corrected to the frozen answer-metadata flag and opaque-ID guard contract",
+  "source_path_count": 191,
+  "status": "passed"
+}

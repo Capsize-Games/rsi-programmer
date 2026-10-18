@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/joe/Projects/rsi-programmer/scripts/audit_online_observed_context.py", line 506, in <module>
+    main()
+    ~~~~^^
+  File "/home/joe/Projects/rsi-programmer/scripts/audit_online_observed_context.py", line 502, in main
+    print(json.dumps(audit_bundle(args.bundle), sort_keys=True))
+                     ~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/joe/Projects/rsi-programmer/scripts/audit_online_observed_context.py", line 379, in audit_bundle
+    protocol = _protocol_payload()
+  File "/home/joe/Projects/rsi-programmer/scripts/audit_online_observed_context.py", line 73, in _protocol_payload
+    raise ValueError("observed-context information contract changed")
+ValueError: observed-context information contract changed

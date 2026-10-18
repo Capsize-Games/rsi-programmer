@@ -1,0 +1,9 @@
+unaltered first row: accepted
+observed input hash: rejected: ValueError: context row context_input_sha256 mismatch
+projection hash: rejected: ValueError: context row context_projection_sha256 mismatch
+context work: rejected: ValueError: context row context_work mismatch
+cold probability: rejected: ValueError: context diagnostic.probabilities[0] mismatch
+context CPU: rejected: ValueError: invalid context CPU time
+capacity side study: rejected: ValueError: capacity.rows[0].rates[0][0] mismatch
+charged summary CPU: rejected: ValueError: summary.per_order[0].per_seed[0].total_cpu_seconds mismatch
+missing first order: rejected: ValueError: context row order mismatch at 1
