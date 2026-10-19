@@ -215,40 +215,56 @@ class SoundMemory:
         return {label: hashlib.sha256(self._canonical(value)).hexdigest()
                 for label, value in sorted(self._labels.items())}
 
+    def snapshot(self) -> dict[str, Any]:
+        """Copy private training memory for transactional local storage.
+
+        This contains feature vectors and must not be published or sent to
+        the user interface. Use summary() for aggregate display data.
+        """
+        return copy.deepcopy({
+            "version": MEMORY_VERSION, "revision": self._revision,
+            "labels": self._labels, "probes": self._probes,
+        })
+
+    def restore(self, payload: dict[str, Any]) -> None:
+        """Validate a private snapshot before atomically replacing memory."""
+        if (not isinstance(payload, dict)
+                or payload.get("version") != MEMORY_VERSION):
+            raise ValueError("unsupported memory format")
+        labels = payload.get("labels")
+        probes = payload.get("probes", [])
+        revision = payload.get("revision", 0)
+        if not isinstance(labels, dict) or len(labels) > MAX_LABELS:
+            raise ValueError("invalid labels")
+        if not isinstance(probes, list) or len(probes) > 500:
+            raise ValueError("invalid probe history")
+        if type(revision) is not int or revision < 0:
+            raise ValueError("invalid revision")
+        loaded: dict[str, dict[str, Any]] = {}
+        for label, entry in labels.items():
+            label = self._validate_label(label)
+            if not isinstance(entry, dict):
+                raise ValueError("invalid label entry")
+            action = entry.get("action")
+            examples = entry.get("examples")
+            if (action not in ALLOWED_ACTIONS
+                    or not isinstance(examples, list)):
+                raise ValueError("invalid label action or examples")
+            if not examples or len(examples) > MAX_EXAMPLES_PER_LABEL:
+                raise ValueError("invalid example count")
+            loaded[label] = {"action": action,
+                             "examples": [self._validate_vector(item)
+                                          for item in examples]}
+        loaded_probes = [self._validate_probe(item) for item in probes]
+        self._labels = loaded
+        self._probes = loaded_probes
+        self._revision = revision
+        self._load_error = None
+
     def _load(self) -> None:
         try:
             with self.path.open("r", encoding="utf-8") as stream:
-                payload = json.load(stream)
-            if (not isinstance(payload, dict)
-                    or payload.get("version") != MEMORY_VERSION):
-                raise ValueError("unsupported memory format")
-            labels = payload.get("labels")
-            probes = payload.get("probes", [])
-            revision = payload.get("revision", 0)
-            if not isinstance(labels, dict) or len(labels) > MAX_LABELS:
-                raise ValueError("invalid labels")
-            if not isinstance(probes, list) or len(probes) > 500:
-                raise ValueError("invalid probe history")
-            if type(revision) is not int or revision < 0:
-                raise ValueError("invalid revision")
-            loaded: dict[str, dict[str, Any]] = {}
-            for label, entry in labels.items():
-                label = self._validate_label(label)
-                if not isinstance(entry, dict):
-                    raise ValueError("invalid label entry")
-                action = entry.get("action")
-                examples = entry.get("examples")
-                if (action not in ALLOWED_ACTIONS
-                        or not isinstance(examples, list)):
-                    raise ValueError("invalid label action or examples")
-                if not examples or len(examples) > MAX_EXAMPLES_PER_LABEL:
-                    raise ValueError("invalid example count")
-                loaded[label] = {"action": action,
-                                 "examples": [self._validate_vector(item)
-                                              for item in examples]}
-            self._labels = loaded
-            self._probes = [self._validate_probe(item) for item in probes]
-            self._revision = revision
+                self.restore(json.load(stream))
         except (OSError, ValueError, TypeError, json.JSONDecodeError) as error:
             self._labels = {}
             self._probes = []

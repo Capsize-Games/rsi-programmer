@@ -37,3 +37,13 @@ Owner update (2026-10-18): commit and push completed changes without waiting
 for remote CI. Run affected local checks and state pending CI accurately;
 fix actual failures without weakening tests. Pause new tags and releases
 until the owner asks to resume them.
+
+## Sound Companion
+
+Owner correction: the creature's purpose is to learn and remember sounds
+with the SNN. The SNN must choose its action label; keep the previous
+example matcher as a comparison control. Do not replace neural learning
+with example matching or route actions through the control. A separate
+rejection guard may suppress an unsupported neural choice, and must be
+described as such. Preserve evaluation-only recordings, retain old taught
+examples for replay, and compare both backends on the same fresh sounds.

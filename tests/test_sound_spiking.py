@@ -33,10 +33,14 @@ class SoundSpikingTests(unittest.TestCase):
         self.assertGreater(report["actual_spikes"], 0)
         self.assertGreater(report["changed_input_parameters"], 0)
         self.assertGreater(report["changed_readout_parameters"], 0)
+        self.assertEqual(report["current_encoder_hash"],
+                         network.encoder_hash())
+        self.assertEqual(report["current_readout_hash"],
+                         network.readout_hash())
         self.assertNotEqual(report["initialized_encoder_hash"],
-                            network.encoder_hash())
+                            report["current_encoder_hash"])
         self.assertNotEqual(report["initialized_readout_hash"],
-                            network.readout_hash())
+                            report["current_readout_hash"])
         self.assertEqual(len(network.scores(vectors[0])), 2)
         self.assertGreater(network.scores(vectors[0])[0],
                            network.scores(vectors[0])[1])

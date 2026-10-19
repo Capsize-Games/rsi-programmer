@@ -1,0 +1,47 @@
+{
+  "builder_lock": "/tmp/rsi-programmer-builder.lock",
+  "command": [
+    ".venv-desktop/bin/python",
+    "-m",
+    "unittest",
+    "tests.test_sound_spiking",
+    "tests.test_sound_comparison",
+    "tests.test_sound_features",
+    "tests.test_sound_memory",
+    "tests.test_sound_contract",
+    "tests.test_sound_microphone",
+    "tests.test_sound_controller",
+    "tests.test_sound_window",
+    "tests.test_audio_capture",
+    "tests.test_install_sound_companion",
+    "tests.test_sound_comparison_protocol",
+    "-v"
+  ],
+  "compressed_log_sha256": "4e9179be5ece42f1b4791a2f57091097e828296a665f4da0ea9ab4647eb8c410",
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "exit_code": 0,
+  "source_files": {
+    "rsi_programmer/sound_comparison.py": "7956fc8fff93a695d0a31f65a1261da2e176e07884f89d69c0ed13dbf9433d05",
+    "rsi_programmer/sound_controller.py": "c6fae88edd36602e6cc217b81d2d159c6a8ef6fbe2261069d76f62ea8912a222",
+    "rsi_programmer/sound_memory.py": "9ff8d0412d005b04cd03fc49f4d12f9e50c15459e6c185a73bf8df40e282f117",
+    "rsi_programmer/sound_spiking.py": "606889b625778a9e59bdabf272c1f186cc4357aec388ae54d39d00fb621edbab",
+    "rsi_programmer/sound_window.py": "54d3473b626f709de3151e43360fb31a5a24927460d2790b1f22398ec8fda208",
+    "scripts/sound_companion.py": "cecb42ab2ddf7f78d3bac9b4500cf5de8acd1394620efece2c8727272fbefe48",
+    "tests/test_sound_comparison.py": "ebd263abd5606220dc1bc04c40d2c4361b4ac01d55765b7a0b5a8d1214792edd",
+    "tests/test_sound_controller.py": "fa7953c38b3142b1afef149ee04b0170f68d096c27b7a74dec396c78c07635c2",
+    "tests/test_sound_memory.py": "763a74eb9cbab995dc535d953306bca707d299e29c1c2b0fe5b4be983fc97b38",
+    "tests/test_sound_spiking.py": "e25c5868bd691a4a9877f3675b1b16ddb68a4b9752dee7e556fd6908dbbf450e",
+    "tests/test_sound_window.py": "9ee2ff39f0736c40dab950197ec0e57e00552e2406a39568e2ba4916e7b4f6ac"
+  },
+  "source_unchanged": true,
+  "test_runs": [
+    [
+      "77",
+      "6.601"
+    ]
+  ],
+  "wall_seconds": 7.57303927798057
+}

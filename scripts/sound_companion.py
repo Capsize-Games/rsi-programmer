@@ -32,12 +32,12 @@ def main() -> int:
     import torch
 
     from rsi_programmer.sound_controller import SoundController
-    from rsi_programmer.sound_memory import SoundMemory
+    from rsi_programmer.sound_comparison import SoundComparison
 
     torch.set_num_threads(1)
     root = tk.Tk(className="SoundCompanion")
     controller = SoundController(
-        root, SoundMemory(directory / "memory.json"), args.source)
+        root, SoundComparison(directory / "memory.json"), args.source)
     try:
         root.mainloop()
     finally:

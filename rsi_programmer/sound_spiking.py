@@ -137,7 +137,9 @@ class SoundSpiking:
                 readout_weight, readout_bias,
             )
             predicted = logits.argmax(dim=1)
-            accuracy = float((predicted == target_tensor).float().mean().item())
+            accuracy = float(
+                (predicted == target_tensor).float().mean().item()
+            )
         metrics = {
             "trained": True,
             "examples": len(vectors),
@@ -297,6 +299,8 @@ class SoundSpiking:
         result["weight_hash"] = self.weight_hash()
         result["encoder_hash"] = self.encoder_hash()
         result["readout_hash"] = self.readout_hash()
+        result["current_encoder_hash"] = self.encoder_hash()
+        result["current_readout_hash"] = self.readout_hash()
         return result
 
     @staticmethod
@@ -338,25 +342,31 @@ class SoundSpiking:
                       for vector in vectors]
         target_values: list[int] = []
         for target in targets:
-            if type(target) is not int or target < 0 or target >= class_count:
+            if (type(target) is not int or target < 0
+                    or target >= class_count):
                 raise ValueError("target is outside the class range")
             target_values.append(target)
         if class_count > 1 and len(set(target_values)) < 2:
             raise ValueError("multiple classes require examples per class")
-        if class_count > 1 and set(target_values) != set(range(class_count)):
+        if (class_count > 1
+                and set(target_values) != set(range(class_count))):
             raise ValueError("each class must have a taught example")
         return normalized, target_values, class_count
 
     @staticmethod
     def _validate_vector(vector: list[float]) -> list[float]:
         if not isinstance(vector, list) or len(vector) != FEATURE_COUNT:
-            raise ValueError(f"sound vectors must contain {FEATURE_COUNT} values")
+            raise ValueError(
+                f"sound vectors must contain {FEATURE_COUNT} values"
+            )
         result: list[float] = []
         for value in vector:
-            if isinstance(value, bool) or not isinstance(value, (int, float)):
+            if (isinstance(value, bool)
+                    or not isinstance(value, (int, float))):
                 raise ValueError("sound vector values must be numbers")
             numeric = float(value)
-            if not math.isfinite(numeric) or not 0.0 <= numeric <= 1.0:
+            if (not math.isfinite(numeric)
+                    or not 0.0 <= numeric <= 1.0):
                 raise ValueError("sound vector values must be finite in [0, 1]")
             result.append(numeric)
         return result
@@ -366,7 +376,8 @@ class SoundSpiking:
         value: Any, shape: tuple[int, ...]
     ) -> torch.Tensor:
         tensor = torch.tensor(value, dtype=torch.float32)
-        if tuple(tensor.shape) != shape or not bool(torch.isfinite(tensor).all()):
+        if (tuple(tensor.shape) != shape
+                or not bool(torch.isfinite(tensor).all())):
             raise ValueError("invalid snapshot tensor")
         return tensor
 
