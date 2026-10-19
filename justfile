@@ -32,6 +32,7 @@ test-fast:
         tests.test_audio_session tests.test_audio_runtime \
         tests.test_audio_session_audit \
         tests.test_sensing_memory tests.test_audio_continual \
+        tests.test_audio_continual_runtime tests.test_audio_continual_audit \
         tests.test_sensing_data \
         tests.test_sensing_predictor tests.test_sensing_baseline \
         tests.test_sensing_benchmark tests.test_sensing_audit \

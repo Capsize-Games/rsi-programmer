@@ -20,6 +20,7 @@ from rsi_programmer.audio_runtime import (
     new_session_dir,
     resolve_source,
 )
+from rsi_programmer.audio_continual_runtime import AudioContinualRuntime
 from scripts.fan_microphone import command_start, command_stop
 
 
@@ -169,6 +170,48 @@ class AudioRuntimeTests(unittest.TestCase):
             self.assertTrue((output / "model_snapshot.json").exists())
             self.assertTrue((output / "audit.json").exists())
             self.assertEqual(audit.call_count, 2)
+
+    def test_continual_runtime_audits_terminal_bound_after_publish(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            with patch.object(
+                AudioRuntime, "_read_git_head", return_value=None
+            ):
+                runtime = AudioContinualRuntime(
+                    root / "session", "physical-input", "Yeti"
+                )
+            summary_state = {"monitor_frames": 8999}
+            session = Mock(
+                phase="monitor", ready=True,
+                protocol={"block_frames": 300},
+            )
+            session.observe.return_value = {"i": 0}
+            session.summary.side_effect = lambda: {
+                "frame_count": 1001,
+                "monitor_frames": summary_state["monitor_frames"],
+            }
+            runtime._session = session
+            events: list[str] = []
+            runtime._write_trace = Mock()
+            runtime._write_snapshot = Mock()
+            runtime._publish = Mock(side_effect=lambda state: events.append(
+                f"publish:{state}"
+            ))
+            runtime._audit_checkpoint = Mock(
+                side_effect=lambda frames: events.append(f"audit:{frames}")
+            )
+            features = {
+                "rms_dbfs": -24.0,
+                "peak_hz": 150.0,
+                "clip_fraction": 0.0,
+            }
+
+            runtime._feed(features, 0.2)
+            self.assertEqual(events, [])
+            summary_state["monitor_frames"] = 9000
+            runtime._feed(features, 0.4)
+
+            self.assertEqual(events, ["publish:running", "audit:9000"])
 
     def test_atomic_json_uses_private_permissions(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

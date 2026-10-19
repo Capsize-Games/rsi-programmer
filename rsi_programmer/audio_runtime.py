@@ -140,6 +140,10 @@ class AudioRuntime:
         except (OSError, subprocess.SubprocessError):
             return None
 
+    def _make_session(self, protocol: dict[str, Any]) -> AudioSession:
+        """Create the original fixed audio session for this runtime."""
+        return AudioSession(protocol)
+
     @property
     def status_path(self) -> Path:
         return self.output_dir / "status.json"
@@ -274,13 +278,16 @@ class AudioRuntime:
         )
         if publish:
             self._publish("running")
-        # Retain early audits, then double the interval. Full-prefix replay
-        # on every minute would accumulate quadratic background work.
         block_number = monitor_frames // block_frames
-        should_audit = (block_number == 0
-                        or block_number & (block_number - 1) == 0)
-        if checkpoint and should_audit:
+        if checkpoint and self._should_audit(block_number, monitor_frames):
             self._audit_checkpoint(monitor_frames)
+
+    def _should_audit(self, block_number: int,
+                      monitor_frames: int) -> bool:
+        """Retain early audits, then double the interval."""
+        del monitor_frames
+        return (block_number == 0
+                or block_number & (block_number - 1) == 0)
 
     def _write_snapshot(self, monitor_frames: int) -> None:
         assert self._session is not None
@@ -358,7 +365,7 @@ class AudioRuntime:
             os.chmod(self.trace_path, 0o600)
             self._publish("initializing")
             torch_set_threads()
-            session = AudioSession(protocol)
+            session = self._make_session(protocol)
             self._session = session
             capture = PulseCapture(
                 self.source_identity,

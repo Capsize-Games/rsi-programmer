@@ -23,6 +23,29 @@ from rsi_programmer.audio_runtime import (
 )
 
 
+def _runtime_type(variant: str) -> type[AudioRuntime]:
+    if variant == "original":
+        return AudioRuntime
+    if variant == "continual":
+        from rsi_programmer.audio_continual_runtime import (
+            AudioContinualRuntime,
+        )
+
+        return AudioContinualRuntime
+    raise ValueError(f"unknown microphone runtime variant: {variant}")
+
+
+def _validate_minutes(variant: str, minutes: float | None) -> None:
+    if variant == "continual":
+        if minutes is not None and minutes != 30.0:
+            raise ValueError("continual variant runs for exactly 30 minutes")
+        return
+    if minutes is not None and (
+        not math.isfinite(minutes) or minutes <= 0
+    ):
+        raise ValueError("minutes must be a positive finite number")
+
+
 def _process_arguments(pid: int) -> list[str] | None:
     try:
         raw = Path(f"/proc/{pid}/cmdline").read_bytes()
@@ -67,33 +90,39 @@ def _status_starting(
     output_dir: Path,
     source_identity: str,
     source_description: str,
+    variant: str = "original",
 ) -> None:
+    runtime = {
+        "status": "initializing",
+        "pid": None,
+        "session_dir": str(output_dir),
+        "source_description": source_description,
+        "source_identity": source_identity,
+        "started_at": None,
+        "delivery_seconds": 0.0,
+        "last_signal": None,
+        "protocol_sha256": None,
+        "git_head": None,
+        "error": None,
+    }
+    if variant != "original":
+        runtime["variant"] = variant
     atomic_write_json(output_dir / "status.json", {
         "phase": "initializing",
         "frame_count": 0,
         "monitor_frames": 0,
         "blocks": [],
         "checkpoints": [],
-        "runtime": {
-            "status": "initializing",
-            "pid": None,
-            "session_dir": str(output_dir),
-            "source_description": source_description,
-            "source_identity": source_identity,
-            "started_at": None,
-            "delivery_seconds": 0.0,
-            "last_signal": None,
-            "protocol_sha256": None,
-            "git_head": None,
-            "error": None,
-        },
+        "runtime": runtime,
     })
 
 
 def command_run(args: argparse.Namespace) -> int:
+    variant = getattr(args, "variant", "original")
+    _validate_minutes(variant, args.minutes)
     output_dir = Path(args.output).expanduser().resolve()
     source, description = resolve_source(args.source)
-    runtime = AudioRuntime(
+    runtime = _runtime_type(variant)(
         output_dir=output_dir,
         source_identity=source,
         source_description=description,
@@ -103,10 +132,8 @@ def command_run(args: argparse.Namespace) -> int:
 
 
 def command_start(args: argparse.Namespace) -> int:
-    if args.minutes is not None and (
-        not math.isfinite(args.minutes) or args.minutes <= 0
-    ):
-        raise ValueError("minutes must be a positive finite number")
+    variant = getattr(args, "variant", "original")
+    _validate_minutes(variant, args.minutes)
     root = Path(args.state_root).expanduser().resolve()
     source, description = resolve_source(args.source)
     latest_path = _latest_path(root)
@@ -123,12 +150,14 @@ def command_start(args: argparse.Namespace) -> int:
         except (KeyError, TypeError, ValueError, OSError):
             pass
     output_dir = new_session_dir(root)
-    _status_starting(output_dir, source, description)
+    _status_starting(output_dir, source, description, variant)
     command = [
         sys.executable, "-m", "scripts.fan_microphone", "run",
         "--source", source,
         "--output", str(output_dir),
     ]
+    if variant != "original":
+        command.extend(["--variant", variant])
     if args.minutes is not None:
         command.extend(["--minutes", str(args.minutes)])
     log_path = output_dir / "run.log"
@@ -147,10 +176,13 @@ def command_start(args: argparse.Namespace) -> int:
         "pid": process.pid,
         "session_dir": str(output_dir),
     })
-    atomic_write_json(latest_path, {
+    latest = {
         "pid": process.pid,
         "session_dir": str(output_dir),
-    })
+    }
+    if variant != "original":
+        latest["variant"] = variant
+    atomic_write_json(latest_path, latest)
     print(
         f"started microphone session pid={process.pid} "
         f"source={description} session={output_dir}"
@@ -217,11 +249,17 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--source")
     run_parser.add_argument("--output", required=True)
     run_parser.add_argument("--minutes", type=float)
+    run_parser.add_argument(
+        "--variant", choices=("original", "continual"), default="original"
+    )
     run_parser.set_defaults(handler=command_run)
 
     start_parser = subparsers.add_parser("start", help="start in background")
     start_parser.add_argument("--source")
     start_parser.add_argument("--minutes", type=float)
+    start_parser.add_argument(
+        "--variant", choices=("original", "continual"), default="original"
+    )
     start_parser.add_argument("--state-root", default=str(STATE_PATH))
     start_parser.set_defaults(handler=command_start)
 
