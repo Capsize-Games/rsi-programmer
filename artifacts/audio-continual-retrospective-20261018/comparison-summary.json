@@ -1,0 +1,162 @@
+{
+  "extra_training_work": {
+    "fit_memory_frames_per_bank": 150,
+    "increase_percent": 47.23436816790555,
+    "memory_updates_per_arm": 80814,
+    "nonmemory_updates_per_arm": 54888,
+    "normalized_values_per_bank": 900,
+    "replay_targets_per_arm": 25926,
+    "replays_per_band": 29
+  },
+  "formula": "100*(controlMSE-modelMSE)/controlMSE; positive lower model error",
+  "interpretation": "Three seeds on one preserved physical recording; retrospective diagnostic only",
+  "live": {
+    "adaptive_ann": {
+      "mse": 0.012068844913138796,
+      "reduction_vs_controls_percent": {
+        "adaptive_ann": 0.0,
+        "adaptive_snn": 2.0755442969807527,
+        "ema": -0.35453379543161573,
+        "fixed_snn": 13.658487375314264,
+        "persistence": 45.00590529418017
+      }
+    },
+    "adaptive_snn": {
+      "mse": 0.012324648451190405,
+      "reduction_vs_controls_percent": {
+        "adaptive_ann": -2.1195362099079387,
+        "adaptive_snn": 0.0,
+        "ema": -2.4815844775100886,
+        "fixed_snn": 11.828447751051817,
+        "persistence": 43.84028554357925
+      }
+    },
+    "ema": {
+      "mse": 0.012026207941676671,
+      "reduction_vs_controls_percent": {
+        "adaptive_ann": 0.35328129385197243,
+        "adaptive_snn": 2.4214930810858806,
+        "ema": 0.0,
+        "fixed_snn": 13.96351578824612,
+        "persistence": 45.20018914349906
+      }
+    },
+    "fixed_snn": {
+      "mse": 0.013978032751870293,
+      "reduction_vs_controls_percent": {
+        "adaptive_ann": -15.819143028783575,
+        "adaptive_snn": -13.41526541083768,
+        "ema": -16.229761032399896,
+        "fixed_snn": 0.0,
+        "persistence": 36.306310795281824
+      }
+    },
+    "memory_ann": {
+      "mse": 0.012181815419983047,
+      "reduction_vs_controls_percent": {
+        "adaptive_ann": -0.9360506962954279,
+        "adaptive_snn": 1.1589217475291331,
+        "ema": -1.2939031077877838,
+        "fixed_snn": 12.850287045198888,
+        "persistence": 44.491132687764974
+      }
+    },
+    "memory_snn": {
+      "mse": 0.012472919968209166,
+      "reduction_vs_controls_percent": {
+        "adaptive_ann": -3.348083913403117,
+        "adaptive_snn": -1.203048651699596,
+        "ema": -3.714487797807156,
+        "fixed_snn": 10.76770108053824,
+        "persistence": 43.16465685601293
+      }
+    },
+    "persistence": {
+      "mse": 0.021945710676207552,
+      "reduction_vs_controls_percent": {
+        "adaptive_ann": -81.83770554807832,
+        "adaptive_snn": -78.06358342081452,
+        "ema": -82.48238166708369,
+        "fixed_snn": -57.00142549223291,
+        "persistence": 0.0
+      }
+    },
+    "readout_snn": {
+      "mse": 0.012325280889337856,
+      "reduction_vs_controls_percent": {
+        "adaptive_ann": -2.1247764640664997,
+        "adaptive_snn": -0.005131490362225603,
+        "ema": -2.486843310140608,
+        "fixed_snn": 11.823923236345937,
+        "persistence": 43.83740371324446
+      }
+    },
+    "recent_memory_snn": {
+      "mse": 0.012302197980480352,
+      "reduction_vs_controls_percent": {
+        "adaptive_ann": -1.9335161651428263,
+        "adaptive_snn": 0.18215911633474907,
+        "ema": -2.294904928820007,
+        "fixed_snn": 11.989060271487132,
+        "persistence": 43.94258558316918
+      }
+    }
+  },
+  "probe": {
+    "adaptive_ann": {
+      "final_mse": 0.01566032567672367,
+      "increase_from_own_start_percent": 33.60678036721768,
+      "initial_mse": 0.011721205790365825,
+      "reduction_vs_adaptive_snn_percent": -4.34228496259168
+    },
+    "adaptive_snn": {
+      "final_mse": 0.015008609100651896,
+      "increase_from_own_start_percent": 28.465091202233797,
+      "initial_mse": 0.011683025295194684,
+      "reduction_vs_adaptive_snn_percent": 0.0
+    },
+    "ema": {
+      "final_mse": 0.012129598112054886,
+      "increase_from_own_start_percent": 0.0,
+      "initial_mse": 0.012129598112054886,
+      "reduction_vs_adaptive_snn_percent": 19.182397044853143
+    },
+    "fixed_snn": {
+      "final_mse": 0.011683025295194684,
+      "increase_from_own_start_percent": 0.0,
+      "initial_mse": 0.011683025295194684,
+      "reduction_vs_adaptive_snn_percent": 22.157841430574436
+    },
+    "memory_ann": {
+      "final_mse": 0.014660947997975498,
+      "increase_from_own_start_percent": 25.080544273234896,
+      "initial_mse": 0.011721205790365825,
+      "reduction_vs_adaptive_snn_percent": 2.31641120336259
+    },
+    "memory_snn": {
+      "final_mse": 0.013649330827736056,
+      "increase_from_own_start_percent": 16.83044830306178,
+      "initial_mse": 0.011683025295194684,
+      "reduction_vs_adaptive_snn_percent": 9.056657174559897
+    },
+    "persistence": {
+      "final_mse": 0.02227037955939562,
+      "increase_from_own_start_percent": 0.0,
+      "initial_mse": 0.02227037955939562,
+      "reduction_vs_adaptive_snn_percent": -48.38403352398798
+    },
+    "readout_snn": {
+      "final_mse": 0.015017089674396432,
+      "increase_from_own_start_percent": 28.537680052555167,
+      "initial_mse": 0.011683025295194684,
+      "reduction_vs_adaptive_snn_percent": -0.05650472797088073
+    },
+    "recent_memory_snn": {
+      "final_mse": 0.014952738454402252,
+      "increase_from_own_start_percent": 27.986870494515024,
+      "initial_mse": 0.011683025295194684,
+      "reduction_vs_adaptive_snn_percent": 0.37225732161427855
+    }
+  },
+  "report_sha256": "0b64516a376e514f3fad24293bc45b1c6bc51f4a415a17d625d585309e220b3a"
+}

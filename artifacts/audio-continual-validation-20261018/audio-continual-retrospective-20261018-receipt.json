@@ -1,0 +1,38 @@
+{
+  "builder_lock": "/tmp/rsi-programmer-builder.lock",
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "scripts.measure_audio_continual",
+    "--trace",
+    "<private-feature-trace>",
+    "--private-dir",
+    "<private-replay-state>",
+    "--output-dir",
+    "artifacts/audio-continual-retrospective-20261018",
+    "--stage",
+    "retrospective"
+  ],
+  "compressed_log_sha256": "62668238674d3caf7cebc0fd55daa2c5b6c63a35f0114a6454a1d88d128b3566",
+  "exit_code": 0,
+  "git_head": "e87bd5060934d3c7c5260d0225bf86156b34221d",
+  "log_sanitization": "Private state arguments replaced in command; repository absolute path replaced in output. No measurement values changed.",
+  "scope": "retrospective frozen three-seed first30 monitoring minutes",
+  "source_files": {
+    "fixtures/audio_continual_v1.json": "ff4a161882904aca6ba31a8498a859a1347addaa289e989ec0ea1e231a70fb58",
+    "rsi_programmer/audio_capture.py": "3803e119e03becd133c6d79bd091fbdeb2c9e9a640076361f1c58933ee37b1ab",
+    "rsi_programmer/audio_continual.py": "f96dd030763bd1a3bff3e25e352874bbdb3b8e2b397fb4fea91ef34b653c7774",
+    "rsi_programmer/audio_continual_runtime.py": "3c3c3355739ff268f10cb6d5a2085f1057871978e19a4f23af094520b0ffab72",
+    "rsi_programmer/audio_features.py": "1253b71912c305f26484c5ac00e916a15d3018745231a3537b3654fbe8c4c417",
+    "rsi_programmer/audio_learning.py": "eb6b3372a0746925d1176ec99a36b28352eed6198db024399d79590a390c0b9e",
+    "rsi_programmer/audio_memory.py": "2d927e53b4beb49f555b5013f9c6f89eb508dca43619af06e98c97a6281cb5e4",
+    "rsi_programmer/audio_runtime.py": "b8c64d0696f64ee41fc50c561e53ecbaedcc7fc10816a5bc751e9e9cad859a62",
+    "rsi_programmer/audio_session.py": "f3568a853f64eb72fcf1bc0f284bed2e855fdbac9558c080824e2fa6191d1c70",
+    "rsi_programmer/sensing_memory.py": "e2382302419eaf9160a99e4ed0cc96b0b5ad66566b90be1503f2c0a0e304ae07",
+    "rsi_programmer/sensing_predictor.py": "425f553780d586f818517224d255b8fde0bcec7d9d6c8e62cff55a7d846c493c",
+    "scripts/audit_audio_continual.py": "cee061d6a8f90a75567a27f4cd24c138b081867ce59f54e318f4806ec55b629b",
+    "scripts/measure_audio_continual.py": "d150a13baab036dab7af3ef6ecd6f0b257e7dad8f28a854c2459b3173b7d569c"
+  },
+  "source_unchanged": true,
+  "wall_seconds": 70.14654944802169
+}

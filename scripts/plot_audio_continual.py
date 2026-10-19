@@ -430,7 +430,8 @@ def render_charts(data: dict[str, Any], output_dir: Path) -> list[Path]:
 def _render_panel(path: Path, title: str, ylabel: str,
                   series: dict[str, list[tuple[float, float | None]]],
                   reference_zero: bool, note: str, plt: Any) -> None:
-    figure, axis = plt.subplots(figsize=(12.8, 7.4), constrained_layout=True)
+    figure, axis = plt.subplots(figsize=(12.8, 7.4))
+    figure.subplots_adjust(bottom=0.22, top=0.91, left=0.09, right=0.98)
     for arm in ARMS:
         points = series[arm]
         x_values = [point[0] for point in points]
@@ -450,7 +451,7 @@ def _render_panel(path: Path, title: str, ylabel: str,
     axis.tick_params(axis="both", labelsize=10)
     axis.grid(True, which="major", alpha=0.25)
     axis.legend(loc="best", ncol=3, fontsize=10, frameon=True)
-    figure.text(0.5, 0.005, note, ha="center", va="bottom", fontsize=10)
+    figure.text(0.5, 0.02, note, ha="center", va="bottom", fontsize=10)
     figure.savefig(path, dpi=180, bbox_inches="tight")
     plt.close(figure)
 
