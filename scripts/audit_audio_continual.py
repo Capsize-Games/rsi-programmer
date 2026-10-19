@@ -365,6 +365,10 @@ def audit_data(rows: list[dict[str, Any]], summary: dict[str, Any],
                     raise ValueError("fixed SNN hash changed")
             prior[arm] = after
 
+    if monitor_frames == 0:
+        thresholds = {arm: max(1e-9, max(calibration_scores[arm]))
+                      for arm in ARMS}
+
     if scored_count != max(0, monitor_frames - warmup):
         raise ValueError("scored monitor frame count mismatch")
     if summary.get("experiment") != "audio_continual_v1":
@@ -374,7 +378,11 @@ def audit_data(rows: list[dict[str, Any]], summary: dict[str, Any],
         raise ValueError("summary fixed hash mismatch")
     if summary.get("reference_hash") != fixed_hash:
         raise ValueError("summary reference hash mismatch")
-    _check_initial_hashes(fitted_hashes, monitor_initial_hashes)
+    model_metrics = summary.get("model_metrics")
+    declared_fit_hashes = (model_metrics.get("initial_fit_weight_hashes")
+                           if isinstance(model_metrics, dict) else None)
+    _check_initial_hashes(fitted_hashes, monitor_initial_hashes,
+                          declared_fit_hashes, monitor_frames)
     _same(summary.get("monitor_alarms"), alarms, "monitor_alarms")
     _check_calibration(summary, calibration_scores)
     _check_cumulative(summary, scores, alarms, frame_seconds)
@@ -576,11 +584,24 @@ def _check_probe_record(value: Any, expected_frames: int,
 
 
 def _check_initial_hashes(fitted: dict[str, str],
-                          monitored: dict[str, str]) -> None:
-    if set(fitted) != set(NEURAL_ARMS) or set(monitored) != set(NEURAL_ARMS):
+                          monitored: dict[str, str],
+                          declared: Any,
+                          monitor_frames: int) -> None:
+    if not isinstance(declared, dict) or set(declared) != set(NEURAL_ARMS):
+        raise ValueError("declared initial fit hashes are incomplete")
+    if set(fitted) != set(NEURAL_ARMS):
         raise ValueError("initial neural parameter hashes are incomplete")
     for arm in NEURAL_ARMS:
-        if fitted[arm] != monitored[arm]:
+        if not isinstance(declared[arm], str) or not declared[arm]:
+            raise ValueError(f"{arm} declared fit hash is invalid")
+        if fitted[arm] != declared[arm]:
+            raise ValueError(f"{arm} declared fit hash mismatch")
+    if monitor_frames == 0:
+        monitored = declared
+    if set(monitored) != set(NEURAL_ARMS):
+        raise ValueError("initial monitor parameter hashes are incomplete")
+    for arm in NEURAL_ARMS:
+        if declared[arm] != monitored[arm]:
             raise ValueError(f"{arm} changed between fit and monitor start")
     snn_hashes = {fitted[arm] for arm in
                   ("adaptive_snn", "readout_snn", "memory_snn",

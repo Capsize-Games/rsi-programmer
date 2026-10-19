@@ -1,0 +1,37 @@
+{
+  "auditor_source_sha256": "899b043d4d4f783aec38bb72d66631e44ac129721354d93c853b9b4411145a21",
+  "auditor_source_unchanged": true,
+  "builder_lock": "/tmp/rsi-programmer-builder.lock",
+  "checks": [
+    {
+      "frames": 400,
+      "label": "preserved-failed-startup-prefix",
+      "monitor_frames": 0,
+      "summary_sha256": "d5a24713b85298e58d074cd322b1eeb0bc9510a8e99d912d5fd91ae714694999",
+      "valid": true
+    },
+    {
+      "frames": 9400,
+      "label": "retrospective-seed-0",
+      "monitor_frames": 9000,
+      "summary_sha256": "15416b78f10db1d7dc259be5e001dd5255f43a759ba5fac6a0d4c388a0e5a83c",
+      "valid": true
+    },
+    {
+      "frames": 9400,
+      "label": "retrospective-seed-1",
+      "monitor_frames": 9000,
+      "summary_sha256": "2c6903a95cc908ed4c1542a927c2fa749511e168922f9fc02ca5c4d968c3693b",
+      "valid": true
+    },
+    {
+      "frames": 9400,
+      "label": "retrospective-seed-2",
+      "monitor_frames": 9000,
+      "summary_sha256": "f4f3bb23fe7af116464f1503b42424511a61b37fd9acbc0c3b00a093477515e0",
+      "valid": true
+    }
+  ],
+  "scope": "Repaired data-only auditor rechecks preserved prefixes without training or modifying any trace, summary, snapshot or result; original retrospective measured source remains e87bd50",
+  "wall_seconds": 4.1550146079971455
+}

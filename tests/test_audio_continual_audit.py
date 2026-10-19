@@ -300,6 +300,8 @@ def _make_case() -> tuple[
         model_metrics[arm] = metric
     model_metrics.update({
         "processing_wall_seconds": 0.0,
+        "initial_fit_weight_hashes": {
+            arm: hashes[arm] for arm in NEURAL_ARMS},
         "memory_capacity_frames": 150,
         "memory_interval_targets": 300,
         "memory_samples_per_arm": {
@@ -369,6 +371,13 @@ class ContinualAudioAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "thresholds"):
             audit_data(self.rows, summary, self.spec)
 
+    def test_rejects_declared_fit_hash_mismatch(self) -> None:
+        summary = copy.deepcopy(self.summary)
+        summary["model_metrics"]["initial_fit_weight_hashes"][
+            "adaptive_snn"] = "tampered"
+        with self.assertRaisesRegex(ValueError, "declared fit hash mismatch"):
+            audit_data(self.rows, summary, self.spec)
+
     def test_rejects_missing_probe_checkpoint(self) -> None:
         summary = copy.deepcopy(self.summary)
         summary["checkpoints"].pop()
@@ -388,10 +397,10 @@ class ContinualAudioAuditTests(unittest.TestCase):
         self.assertEqual(protocol["seeds"], [0, 1, 2])
 
 
-    def test_continual_session_output_is_independently_auditable(self) -> None:
+    def _audit_production_length(self, monitor_frames: int) -> dict[str, Any]:
         from rsi_programmer.audio_continual import AudioContinualSession
 
-        protocol = load_protocol()
+        protocol = dict(load_protocol(), monitor_frames=monitor_frames)
         session = AudioContinualSession(dict(protocol, seed=0))
         rows = []
         total = (protocol["fit_frames"] + protocol["calibration_frames"]
@@ -402,9 +411,24 @@ class ContinualAudioAuditTests(unittest.TestCase):
                 for band in range(6)]}
             rows.append(session.observe(features, index * 0.2))
         session.finish()
-        result = audit_data(rows, session.summary(), expected_seed=0)
+        return audit_data(rows, session.summary(), expected_seed=0)
+
+    def test_continual_session_output_is_independently_auditable(self) -> None:
+        result = self._audit_production_length(9000)
         self.assertTrue(result["valid"])
         self.assertEqual(result["monitor_frames"], 9000)
+
+    def test_zero_monitor_session_retains_fit_hash_validation(self) -> None:
+        result = self._audit_production_length(0)
+        self.assertTrue(result["valid"])
+        self.assertEqual(result["monitor_frames"], 0)
+        self.assertTrue(result["initial_fit_hashes"])
+
+    def test_first_monitor_frame_retains_hash_and_threshold_validation(
+            self) -> None:
+        result = self._audit_production_length(1)
+        self.assertTrue(result["valid"])
+        self.assertEqual(result["monitor_frames"], 1)
 
     def test_file_api_reads_only_the_summary_prefix(self) -> None:
         from scripts.audit_audio_continual import audit_session
