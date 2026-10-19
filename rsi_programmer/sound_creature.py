@@ -30,6 +30,8 @@ class SoundCreature:
         width = max(c.winfo_width(), 280)
         height = max(c.winfo_height(), 180)
         cx, cy = width / 2, height / 2 + 10
+        scale = min(1.0, (height - 16) / 225,
+                    (width - 20) / 250)
         phase = self.frame / 8
         sleeping = self.pose == "sleep"
         dancing = self.pose == "dance"
@@ -90,3 +92,4 @@ class SoundCreature:
         elif self.pose == "timer":
             c.create_text(cx + 101, cy - 55, text="◷", fill="#ffbe63",
                           font=("TkDefaultFont", 24, "bold"))
+        c.scale("all", cx, cy, scale, scale)

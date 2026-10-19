@@ -1,0 +1,174 @@
+{
+  "held_out_after_fourth": {
+    "correct": [
+      {
+        "action": "wake",
+        "distance": 0.03456629848199735,
+        "expected": "bell",
+        "gap": 0.23252795773196852,
+        "label": "bell",
+        "reason": "matched"
+      },
+      {
+        "action": "timer",
+        "distance": 0.04014719826134807,
+        "expected": "knock",
+        "gap": 0.20522632701880275,
+        "label": "knock",
+        "reason": "matched"
+      },
+      {
+        "action": "dance",
+        "distance": 0.11153958682018264,
+        "expected": "chime",
+        "gap": 0.09990410753280726,
+        "label": "chime",
+        "reason": "matched"
+      }
+    ],
+    "false_matches": [],
+    "missed": [],
+    "phase": "held_out_after_fourth",
+    "unknown": [
+      {
+        "action": null,
+        "distance": 0.10951066320813027,
+        "expected": "whistle",
+        "gap": 0.1520540967249641,
+        "label": null,
+        "reason": "too_different"
+      }
+    ]
+  },
+  "held_out_after_restart": {
+    "correct": [
+      {
+        "action": "wake",
+        "distance": 0.03456629848199735,
+        "expected": "bell",
+        "gap": 0.23252795773196852,
+        "label": "bell",
+        "reason": "matched"
+      },
+      {
+        "action": "timer",
+        "distance": 0.04014719826134807,
+        "expected": "knock",
+        "gap": 0.20522632701880275,
+        "label": "knock",
+        "reason": "matched"
+      },
+      {
+        "action": "dance",
+        "distance": 0.11153958682018264,
+        "expected": "chime",
+        "gap": 0.09990410753280726,
+        "label": "chime",
+        "reason": "matched"
+      }
+    ],
+    "false_matches": [],
+    "missed": [],
+    "phase": "held_out_after_restart",
+    "unknown": [
+      {
+        "action": null,
+        "distance": 0.10951066320813027,
+        "expected": "whistle",
+        "gap": 0.1520540967249641,
+        "label": null,
+        "reason": "too_different"
+      }
+    ]
+  },
+  "held_out_before_fourth": {
+    "correct": [
+      {
+        "action": "sleep",
+        "distance": 0.025055104207355433,
+        "expected": "whistle",
+        "gap": 0.22771221629586344,
+        "label": "whistle",
+        "reason": "matched"
+      }
+    ],
+    "false_matches": [],
+    "missed": [],
+    "phase": "held_out_before_fourth",
+    "unknown": [
+      {
+        "action": null,
+        "distance": 0.13655496264928216,
+        "expected": "bell",
+        "gap": 0.12519282295339448,
+        "label": null,
+        "reason": "too_different"
+      },
+      {
+        "action": null,
+        "distance": 0.17681815854993477,
+        "expected": "knock",
+        "gap": 0.0750462225205959,
+        "label": null,
+        "reason": "too_different"
+      }
+    ]
+  },
+  "memory": {
+    "fingerprint": "f15badeb9edbd0fd77a64a38850c2e319cf964dfb4ac05bbae0ca4d3f668bcc2",
+    "label_fingerprints": {
+      "bell": "b2156e3ff9b4e5f325fa6d26469dbf00725f61fed359fe8b95cb7bee50a08cb0",
+      "chime": "def850ea982c291fe6beb6ac18bc3c3c733c127506593743a72d92d7ea6f77e1",
+      "knock": "c552a78bf2f90434f3d288fe61108f67dcf6c0f21e2a61af59726c0a5a570ac9",
+      "whistle": "b1e248aa99e70d618cda9a63507674c2ecd7b60360b814e22443da0d50f7f0c4"
+    },
+    "labels": [
+      {
+        "action": "wake",
+        "examples": 3,
+        "name": "bell"
+      },
+      {
+        "action": "dance",
+        "examples": 1,
+        "name": "chime"
+      },
+      {
+        "action": "timer",
+        "examples": 3,
+        "name": "knock"
+      },
+      {
+        "action": "sleep",
+        "examples": 3,
+        "name": "whistle"
+      }
+    ],
+    "load_error": null,
+    "probe_count": 11,
+    "revision": 21,
+    "total_examples": 10
+  },
+  "notice": "Synthetic demonstration only; not real microphone accuracy.",
+  "old_label_fingerprints_retained": {
+    "bell": true,
+    "knock": true,
+    "whistle": true
+  },
+  "silence_and_noise": {
+    "noise": {
+      "action": null,
+      "distance": 0.1663912517582742,
+      "gap": 0.022865668966649877,
+      "label": null,
+      "reason": "too_different"
+    },
+    "silence": {
+      "action": null,
+      "distance": null,
+      "gap": null,
+      "label": null,
+      "reason": "quiet"
+    }
+  }
+}

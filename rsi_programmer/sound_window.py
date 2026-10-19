@@ -58,12 +58,27 @@ class SoundWindow:
         style.configure("Accent.TButton", background=self.CYAN,
                         foreground="#102027", padding=(12, 8),
                         font=("TkDefaultFont", 10, "bold"))
-        style.map("Accent.TButton", background=[("active", "#7ce9db")])
+        style.map("Accent.TButton",
+                  background=[("disabled", "#263740"),
+                              ("active", "#7ce9db")],
+                  foreground=[("disabled", "#82969e"),
+                              ("!disabled", "#102027")])
         style.configure("TButton", padding=(9, 6))
+        style.map("TButton", background=[("disabled", "#263740"),
+                                          ("active", "#29434b")],
+                  foreground=[("disabled", "#82969e"),
+                              ("!disabled", self.TEXT)])
         style.configure("TEntry", fieldbackground="#0f1921",
                         foreground=self.TEXT, insertcolor=self.TEXT)
         style.configure("TCombobox", fieldbackground="#0f1921",
                         foreground=self.TEXT, arrowcolor=self.CYAN)
+        style.map("TCombobox",
+                  fieldbackground=[("disabled", self.PANEL),
+                                   ("readonly", "#0f1921")],
+                  foreground=[("disabled", self.MUTED),
+                              ("readonly", self.TEXT)],
+                  selectbackground=[("readonly", "#0f1921")],
+                  selectforeground=[("readonly", self.TEXT)])
         style.configure("Treeview", background="#111c25",
                         fieldbackground="#111c25", foreground=self.TEXT,
                         rowheight=27, borderwidth=0)
@@ -73,8 +88,8 @@ class SoundWindow:
 
     def _build_window(self) -> None:
         self.root.title("Sound Companion")
-        self.root.geometry("1000x720")
-        self.root.minsize(760, 590)
+        self.root.geometry("1000x800")
+        self.root.minsize(760, 720)
         self.root.columnconfigure(0, weight=1)
         self.root.rowconfigure(1, weight=1)
         header = ttk.Frame(self.root, padding=(24, 18, 24, 10))
@@ -171,7 +186,7 @@ class SoundWindow:
         columns = ("sound", "action", "examples")
         self.memory_tree = ttk.Treeview(
             panel, columns=columns, show="headings",
-            selectmode="browse", height=7)
+                                        selectmode="browse", height=5)
         self.memory_tree.heading("sound", text="Sound")
         self.memory_tree.heading("action", text="Action")
         self.memory_tree.heading("examples", text="Examples")

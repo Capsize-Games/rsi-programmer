@@ -1,0 +1,195 @@
+{
+  "held_out_after_fourth": {
+    "correct": [
+      {
+        "action": "wake",
+        "distance": 0.12464993084062324,
+        "expected": "bell",
+        "gap": 0.13344915506083338,
+        "label": "bell",
+        "reason": "matched",
+        "seed": 1000
+      },
+      {
+        "action": "timer",
+        "distance": 0.14860584908321062,
+        "expected": "knock",
+        "gap": 0.10951479805783426,
+        "label": "knock",
+        "reason": "matched",
+        "seed": 1001
+      },
+      {
+        "action": "sleep",
+        "distance": 0.025055104207355426,
+        "expected": "whistle",
+        "gap": 0.2366418788477028,
+        "label": "whistle",
+        "reason": "matched",
+        "seed": 1002
+      },
+      {
+        "action": "dance",
+        "distance": 0.07440600395107944,
+        "expected": "chime",
+        "gap": 0.15483470675763103,
+        "label": "chime",
+        "reason": "matched",
+        "seed": 1003
+      }
+    ],
+    "false_matches": [],
+    "missed": [],
+    "phase": "held_out_after_fourth",
+    "unknown": []
+  },
+  "held_out_after_restart": {
+    "correct": [
+      {
+        "action": "wake",
+        "distance": 0.12464993084062324,
+        "expected": "bell",
+        "gap": 0.13344915506083338,
+        "label": "bell",
+        "reason": "matched",
+        "seed": 1000
+      },
+      {
+        "action": "timer",
+        "distance": 0.14860584908321062,
+        "expected": "knock",
+        "gap": 0.10951479805783426,
+        "label": "knock",
+        "reason": "matched",
+        "seed": 1001
+      },
+      {
+        "action": "sleep",
+        "distance": 0.025055104207355426,
+        "expected": "whistle",
+        "gap": 0.2366418788477028,
+        "label": "whistle",
+        "reason": "matched",
+        "seed": 1002
+      },
+      {
+        "action": "dance",
+        "distance": 0.07440600395107944,
+        "expected": "chime",
+        "gap": 0.15483470675763103,
+        "label": "chime",
+        "reason": "matched",
+        "seed": 1003
+      }
+    ],
+    "false_matches": [],
+    "missed": [],
+    "phase": "held_out_after_restart",
+    "unknown": []
+  },
+  "held_out_before_fourth": {
+    "correct": [
+      {
+        "action": "wake",
+        "distance": 0.12464993084062324,
+        "expected": "bell",
+        "gap": 0.13344915506083338,
+        "label": "bell",
+        "reason": "matched",
+        "seed": 1000
+      },
+      {
+        "action": "timer",
+        "distance": 0.14860584908321062,
+        "expected": "knock",
+        "gap": 0.10951479805783426,
+        "label": "knock",
+        "reason": "matched",
+        "seed": 1001
+      },
+      {
+        "action": "sleep",
+        "distance": 0.025055104207355426,
+        "expected": "whistle",
+        "gap": 0.24796920295493977,
+        "label": "whistle",
+        "reason": "matched",
+        "seed": 1002
+      }
+    ],
+    "false_matches": [],
+    "missed": [],
+    "phase": "held_out_before_fourth",
+    "unknown": []
+  },
+  "held_out_seed_mapping": {
+    "after_fourth_and_restart": {
+      "bell": 1000,
+      "chime": 1003,
+      "knock": 1001,
+      "whistle": 1002
+    },
+    "before_fourth": {
+      "bell": 1000,
+      "knock": 1001,
+      "whistle": 1002
+    }
+  },
+  "memory": {
+    "fingerprint": "f15badeb9edbd0fd77a64a38850c2e319cf964dfb4ac05bbae0ca4d3f668bcc2",
+    "label_fingerprints": {
+      "bell": "b2156e3ff9b4e5f325fa6d26469dbf00725f61fed359fe8b95cb7bee50a08cb0",
+      "chime": "def850ea982c291fe6beb6ac18bc3c3c733c127506593743a72d92d7ea6f77e1",
+      "knock": "c552a78bf2f90434f3d288fe61108f67dcf6c0f21e2a61af59726c0a5a570ac9",
+      "whistle": "b1e248aa99e70d618cda9a63507674c2ecd7b60360b814e22443da0d50f7f0c4"
+    },
+    "labels": [
+      {
+        "action": "wake",
+        "examples": 3,
+        "name": "bell"
+      },
+      {
+        "action": "dance",
+        "examples": 1,
+        "name": "chime"
+      },
+      {
+        "action": "timer",
+        "examples": 3,
+        "name": "knock"
+      },
+      {
+        "action": "sleep",
+        "examples": 3,
+        "name": "whistle"
+      }
+    ],
+    "load_error": null,
+    "probe_count": 11,
+    "revision": 21,
+    "total_examples": 10
+  },
+  "notice": "Synthetic demonstration only; not real microphone accuracy.",
+  "old_label_fingerprints_retained": {
+    "bell": true,
+    "knock": true,
+    "whistle": true
+  },
+  "silence_and_noise": {
+    "noise": {
+      "action": null,
+      "distance": 0.16639125175827407,
+      "gap": 0.02286566896664996,
+      "label": null,
+      "reason": "too_different"
+    },
+    "silence": {
+      "action": null,
+      "distance": null,
+      "gap": null,
+      "label": null,
+      "reason": "quiet"
+    }
+  }
+}

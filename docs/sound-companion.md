@@ -11,6 +11,10 @@ Run from the repository root:
 just sound
 ```
 
+`just install-sound` adds **Sound Companion** to your application menu.
+The shortcut uses this checkout and its desktop environment; it does not
+start the app at login.
+
 ## Teach and test
 
 1. Click **Enable microphone** and stay quiet during the brief background
@@ -53,9 +57,11 @@ older examples; recognition can still become ambiguous when names sound
 alike. A corrupt saved file is preserved and further writes are blocked.
 
 The recognizer compares 1.2-second clips using overlapping frequency
-filters and temporal features. It retains at most 20 examples per name.
+filters, temporal features, and alignment limited to one 100 ms time bin.
+It retains at most 20 examples per name.
 It rejects quiet clips, distant examples and close competing labels.
-Acceptance radii come from the taught examples. A match is not a calibrated
+Acceptance radii use the taught examples with a fixed minimum tolerance.
+A match is not a calibrated
 probability, and successful synthetic checks do not establish accuracy on
 your microphone. Fresh recordings in the test panel provide that check.
 

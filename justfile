@@ -104,10 +104,13 @@ setup-sound SPIKEFORGE_DIR="$HOME/Projects/spikeforge/spikeforge" PYTHON="/usr/b
 sound:
     .venv-desktop/bin/python -m scripts.sound_companion
 
+install-sound:
+    .venv-desktop/bin/python -m scripts.install_sound_companion
+
 test-sound:
     flock /tmp/rsi-programmer-builder.lock xvfb-run -a \
         .venv-desktop/bin/python -m unittest \
         tests.test_sound_features tests.test_sound_memory \
         tests.test_sound_contract tests.test_sound_microphone \
         tests.test_sound_controller tests.test_sound_window \
-        tests.test_audio_capture -v
+        tests.test_audio_capture tests.test_install_sound_companion -v

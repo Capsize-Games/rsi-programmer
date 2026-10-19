@@ -26,7 +26,7 @@ MAX_EXAMPLES_PER_LABEL = 20
 MAX_LABELS = 100
 MIN_GAP = 0.025
 SINGLE_EXAMPLE_RADIUS = 0.16
-MIN_MULTI_EXAMPLE_RADIUS = 0.10
+MIN_MULTI_EXAMPLE_RADIUS = SINGLE_EXAMPLE_RADIUS
 MAX_ACCEPTANCE_RADIUS = 0.38
 TRAINING_RADIUS_MARGIN = 0.02
 TRAINING_RADIUS_SCALE = 1.5
@@ -340,29 +340,66 @@ class SoundMemory:
 
     @staticmethod
     def _distance(left: list[float], right: list[float]) -> float:
-        weighted_error = 0.0
-        total_weight = 0.0
-        for bin_index in range(FEATURE_COUNT // FEATURES_PER_BIN):
-            start = bin_index * FEATURES_PER_BIN
-            left_level = left[start + 16]
-            right_level = right[start + 16]
-            if max(left_level, right_level) <= 0.05:
-                continue
-            for feature_index in range(FEATURES_PER_BIN):
-                weight = 1.0 if feature_index < 16 else 0.45
-                delta = (
-                    left[start + feature_index]
-                    - right[start + feature_index]
-                )
-                weighted_error += weight * delta * delta
-                total_weight += weight
-        if total_weight == 0.0:
+        """Return a one-bin-constrained DTW distance over active time bins."""
+        bin_count = FEATURE_COUNT // FEATURES_PER_BIN
+        feature_weights = [
+            1.0 if index < 16 else 0.45
+            for index in range(FEATURES_PER_BIN)
+        ]
+        weight_sum = sum(feature_weights)
+        left_active = sum(
+            left[index * FEATURES_PER_BIN + 16] > 0.05
+            for index in range(bin_count)
+        )
+        right_active = sum(
+            right[index * FEATURES_PER_BIN + 16] > 0.05
+            for index in range(bin_count)
+        )
+        active_count = max(left_active, right_active)
+        if active_count == 0:
             return 0.0
-        return math.sqrt(weighted_error / total_weight)
+
+        infinity = float("inf")
+        costs = [[infinity] * bin_count for _ in range(bin_count)]
+        for left_index in range(bin_count):
+            left_start = left_index * FEATURES_PER_BIN
+            for right_index in range(
+                max(0, left_index - 1), min(bin_count, left_index + 2)
+            ):
+                right_start = right_index * FEATURES_PER_BIN
+                local_cost = 0.0
+                left_level = left[left_start + 16]
+                right_level = right[right_start + 16]
+                if max(left_level, right_level) > 0.05:
+                    for feature_index, weight in enumerate(feature_weights):
+                        delta = (
+                            left[left_start + feature_index]
+                            - right[right_start + feature_index]
+                        )
+                        local_cost += weight * delta * delta
+                if left_index == 0 and right_index == 0:
+                    costs[left_index][right_index] = local_cost
+                    continue
+                predecessors: list[float] = []
+                if left_index > 0:
+                    predecessors.append(costs[left_index - 1][right_index])
+                if right_index > 0:
+                    predecessors.append(costs[left_index][right_index - 1])
+                if left_index > 0 and right_index > 0:
+                    predecessors.append(
+                        costs[left_index - 1][right_index - 1]
+                    )
+                if predecessors:
+                    costs[left_index][right_index] = (
+                        local_cost + min(predecessors)
+                    )
+        return math.sqrt(
+            costs[-1][-1] / (active_count * weight_sum)
+        )
 
     @classmethod
     def _acceptance_radius(cls, examples: list[list[float]]) -> float:
-        """Set a label radius from its positive nearest-neighbor distances."""
+        """Use positive-neighbor spread, with the one-example floor."""
         if len(examples) < 2:
             return SINGLE_EXAMPLE_RADIUS
         positive_distances = [

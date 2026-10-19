@@ -60,6 +60,18 @@ class SoundMemoryTests(unittest.TestCase):
         result = memory.recognize(tone(452.0, 0.3))
         self.assertEqual(result["label"], "whistle")
 
+    def test_tempo_jitter_aligns_within_one_time_bin(self) -> None:
+        memory = SoundMemory()
+        base = (0.18, 0.38, 0.58, 0.78)
+        faster = tuple(value * 1.04 for value in base)
+        slower = tuple(value * 0.96 for value in base)
+        held_out = tuple(value * 1.08 for value in base)
+        for intervals in (base, faster, slower):
+            memory.teach("knock", click_pattern(intervals), "timer")
+
+        result = memory.recognize(click_pattern(held_out))
+        self.assertEqual(result["label"], "knock")
+
     def test_new_label_preserves_existing_vectors(self) -> None:
         memory = SoundMemory()
         memory.teach("wake", tone(440.0), "wake")
@@ -88,6 +100,15 @@ class SoundMemoryTests(unittest.TestCase):
             memory.teach("wake", tone(440.0), "wake")
         with self.assertRaises(ValueError):
             memory.teach("wake", tone(440.0), "wake")
+
+    def test_positive_examples_do_not_narrow_single_example_radius(
+        self,
+    ) -> None:
+        examples = [tone(440.0, amplitude)["vector"]
+                    for amplitude in (0.1, 0.4, 0.8)]
+        single_radius = SoundMemory._acceptance_radius(examples[:1])
+        multi_radius = SoundMemory._acceptance_radius(examples)
+        self.assertGreaterEqual(multi_radius, single_radius)
 
     def test_leave_one_out_report_is_explicitly_training_only(self) -> None:
         memory = SoundMemory()

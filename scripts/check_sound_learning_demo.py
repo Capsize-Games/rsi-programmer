@@ -73,10 +73,11 @@ def evaluate(
 ) -> dict[str, Any]:
     rows: list[dict[str, Any]] = []
     for index, (kind, expected) in enumerate(expected_by_kind.items()):
-        result = memory.recognize(descriptor(kind, seed_offset + index))
-        memory.record_probe(
-            expected, descriptor(kind, seed_offset + index))
-        rows.append({"expected": expected, **result})
+        seed = seed_offset + index
+        example = descriptor(kind, seed)
+        result = memory.recognize(example)
+        memory.record_probe(expected, example)
+        rows.append({"expected": expected, "seed": seed, **result})
     return summarize_rows(phase, rows)
 
 
@@ -108,7 +109,7 @@ def run_demo(path: Path) -> dict[str, Any]:
     memory.teach("chime", descriptor("chime", 400), LABEL_ACTIONS["chime"])
     fourth_class_holdout = {**held_out, "chime": "chime"}
     after_fourth = evaluate(
-        memory, "held_out_after_fourth", fourth_class_holdout, 1200)
+        memory, "held_out_after_fourth", fourth_class_holdout, 1000)
     retained = {
         label: memory.summary()["label_fingerprints"].get(label) == fingerprint
         for label, fingerprint in old_fingerprints.items()
@@ -116,7 +117,7 @@ def run_demo(path: Path) -> dict[str, Any]:
 
     reloaded = SoundMemory(path)
     after_restart = evaluate(
-        reloaded, "held_out_after_restart", fourth_class_holdout, 1200)
+        reloaded, "held_out_after_restart", fourth_class_holdout, 1000)
     silence = extract_sound([0.0] * round(SAMPLE_RATE * DURATION), SAMPLE_RATE)
     noise_rng = random.Random(9000)
     noise = extract_sound(
@@ -134,6 +135,16 @@ def run_demo(path: Path) -> dict[str, Any]:
         "held_out_before_fourth": before_fourth,
         "held_out_after_fourth": after_fourth,
         "held_out_after_restart": after_restart,
+        "held_out_seed_mapping": {
+            "before_fourth": {
+                kind: 1000 + index
+                for index, kind in enumerate(held_out)
+            },
+            "after_fourth_and_restart": {
+                kind: 1000 + index
+                for index, kind in enumerate(fourth_class_holdout)
+            },
+        },
         "old_label_fingerprints_retained": retained,
         "silence_and_noise": unknown_inputs,
         "memory": reloaded.summary(),
