@@ -1,0 +1,28 @@
+{
+  "builder_lock": "/tmp/rsi-programmer-builder.lock",
+  "command": [
+    ".venv-desktop/bin/python",
+    "-m",
+    "unittest",
+    "tests.test_sound_spiking",
+    "-v"
+  ],
+  "compressed_log_sha256": "1dc1228a661a9df214ca719dbdac43bbc8abdfd962f5f2e7d7a0de1fe9c9faf4",
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "exit_code": 0,
+  "source_files": {
+    "rsi_programmer/sound_spiking.py": "ebb3c199e13c6c891c895b5817a3e91694215b5fb1257b8366c2f4bed3fab034",
+    "tests/test_sound_spiking.py": "0ca763518b99ff252ab59d0fa7e48a8269266a42e4d8325cff1e4b771e28d0ab"
+  },
+  "source_unchanged": true,
+  "test_runs": [
+    [
+      "6",
+      "2.595"
+    ]
+  ],
+  "wall_seconds": 3.562749245960731
+}
