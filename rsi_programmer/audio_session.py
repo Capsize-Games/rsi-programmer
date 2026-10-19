@@ -27,6 +27,8 @@ DEFAULT_PROTOCOL = {
 class AudioSession:
     """Run a fixed five-arm online comparison over six normalized bands."""
 
+    ARM_NAMES = ARMS
+
     def __init__(self, protocol: dict[str, Any] | None = None) -> None:
         """Create an empty session; frame counts are overridable for checks."""
         self.protocol = dict(DEFAULT_PROTOCOL)
@@ -43,21 +45,26 @@ class AudioSession:
         self._normalizer: dict[str, list[float]] | None = None
         self._models: dict[str, AudioLearner] = {}
         self._cal_models: dict[str, AudioLearner] = {}
+        self._cal_work_start: dict[str, dict[str, Any]] = {}
+        self._calibration_work: dict[str, dict[str, int]] = {}
+        self._probe_work: dict[str, dict[str, int]] = {}
         self._cal_predictions: dict[str, list[float]] = {}
         self._thresholds: dict[str, float] = {}
-        self._cal_errors: dict[str, list[float]] = {arm: [] for arm in ARMS}
+        self._cal_errors: dict[str, list[float]] = {
+            arm: [] for arm in self.ARM_NAMES
+        }
         self._probe_result: dict[str, Any] | None = None
         self._reference_hash: str | None = None
         self._fixed_hash: str | None = None
         self._monitor_frames = 0
         self._monitor_predictions: dict[str, list[float]] = {}
-        self._monitor_cooldown = {arm: 0 for arm in ARMS}
-        self._monitor_alarms = {arm: 0 for arm in ARMS}
-        self._block_alarms = {arm: 0 for arm in ARMS}
-        self._monitor_sse = {arm: 0.0 for arm in ARMS}
-        self._monitor_scored_frames = {arm: 0 for arm in ARMS}
+        self._monitor_cooldown = {arm: 0 for arm in self.ARM_NAMES}
+        self._monitor_alarms = {arm: 0 for arm in self.ARM_NAMES}
+        self._block_alarms = {arm: 0 for arm in self.ARM_NAMES}
+        self._monitor_sse = {arm: 0.0 for arm in self.ARM_NAMES}
+        self._monitor_scored_frames = {arm: 0 for arm in self.ARM_NAMES}
         self._block_errors: dict[str, list[float]] = {
-            arm: [] for arm in ARMS
+            arm: [] for arm in self.ARM_NAMES
         }
         self._blocks: list[dict[str, Any]] = []
         self._checkpoints: list[dict[str, Any]] = []
@@ -144,9 +151,9 @@ class AudioSession:
         cumulative = {
             arm: self._summary_from_totals(
                 self._monitor_sse[arm], self._monitor_scored_frames[arm])
-            for arm in ARMS
+            for arm in self.ARM_NAMES
         }
-        for arm in ARMS:
+        for arm in self.ARM_NAMES:
             cumulative[arm]["alarm_count"] = self._monitor_alarms[arm]
             cumulative[arm]["alarms_per_minute"] = (
                 self._monitor_alarms[arm]
@@ -178,7 +185,7 @@ class AudioSession:
                     else None
                 ),
             }
-            for arm in ARMS if arm != "fixed_snn"
+            for arm in self.ARM_NAMES if arm != "fixed_snn"
         }
         return {
             "protocol": copy.deepcopy(self.protocol),
@@ -190,19 +197,71 @@ class AudioSession:
             "thresholds": dict(self._thresholds),
             "calibration": {
                 arm: self._error_summary(self._cal_errors[arm])
-                for arm in ARMS
+                for arm in self.ARM_NAMES
             },
             "sealed_probe": copy.deepcopy(self._probe_result),
             "monitor_frames": self._monitor_frames,
             "monitor_alarms": dict(self._monitor_alarms),
             "observed_alarms_per_minute": {
-                arm: cumulative[arm]["alarms_per_minute"] for arm in ARMS
+                arm: cumulative[arm]["alarms_per_minute"]
+                for arm in self.ARM_NAMES
             },
             "cumulative": cumulative,
             "blocks": copy.deepcopy(self._blocks),
             "adaptive_vs_fixed": adaptive_vs_fixed,
             "checkpoints": copy.deepcopy(self._checkpoints),
+            "model_metrics": self._model_metrics(),
+            "work_accounting": {
+                "live_training_banks": "fit, online updates, and replay",
+                "calibration_copies": copy.deepcopy(self._calibration_work),
+                "sealed_probe_copies": copy.deepcopy(self._probe_work),
+                "wall_seconds_scope": "all observe processing",
+            },
         }
+
+    def _build_models(self, rows: list[list[float]],
+                      seed: int) -> dict[str, AudioLearner]:
+        """Fit default SNN and ANN banks and create the fixed copy."""
+        adaptive_snn = self._train(
+            AudioLearner(seed=seed, spiking=True), rows)
+        adaptive_ann = self._train(
+            AudioLearner(seed=seed, spiking=False), rows)
+        return {
+            "adaptive_snn": adaptive_snn,
+            "adaptive_ann": adaptive_ann,
+            "fixed_snn": adaptive_snn.evaluation_copy(),
+        }
+
+    def _clone_calibration_models(self) -> dict[str, AudioLearner]:
+        """Create independent calibration copies of each neural arm."""
+        return {name: copy.deepcopy(model)
+                for name, model in self._models.items()}
+
+    def _model_metrics(self) -> dict[str, Any]:
+        """Return work evidence for every live neural arm."""
+        return {name: model.metrics() for name, model in self._models.items()}
+
+    @staticmethod
+    def _counter_delta(before: dict[str, Any],
+                       after: dict[str, Any]) -> dict[str, int]:
+        counters = (
+            "sessions", "predictions", "scored_targets", "updates",
+            "neuron_ticks", "spikes", "readout_synapse_visits",
+            "input_synapse_visits", "changed_readout_parameters",
+            "changed_input_parameters", "replay_passes", "replay_targets",
+        )
+        return {
+            name: max(0, int(after.get(name, 0)) - int(before.get(name, 0)))
+            for name in counters
+        }
+
+    @classmethod
+    def _accumulate_work(cls, target: dict[str, dict[str, int]], arm: str,
+                         metrics: dict[str, Any]) -> None:
+        delta = cls._counter_delta({}, metrics)
+        current = target.setdefault(arm, {name: 0 for name in delta})
+        for name, value in delta.items():
+            current[name] += value
 
     def _after_fit_row(self) -> None:
         if len(self._fit_rows) != int(self.protocol["fit_frames"]):
@@ -211,18 +270,13 @@ class AudioSession:
         normalized = [self._normalize(row["band_dbfs"])
                       for row in self._fit_rows]
         seed = int(self.protocol["seed"])
-        self._models["adaptive_snn"] = self._train(
-            AudioLearner(seed=seed, spiking=True), normalized)
-        self._models["adaptive_ann"] = self._train(
-            AudioLearner(seed=seed, spiking=False), normalized)
-        self._models["fixed_snn"] = self._models[
-            "adaptive_snn"].evaluation_copy()
+        self._models = self._build_models(normalized, seed)
         self._reference_hash = self._bank_hash(self._models["fixed_snn"])
         self._fixed_hash = self._reference_hash
-        self._cal_models = {
-            "adaptive_snn": copy.deepcopy(self._models["adaptive_snn"]),
-            "fixed_snn": copy.deepcopy(self._models["fixed_snn"]),
-            "adaptive_ann": copy.deepcopy(self._models["adaptive_ann"]),
+        self._cal_models = self._clone_calibration_models()
+        self._cal_work_start = {
+            name: model.metrics()
+            for name, model in self._cal_models.items()
         }
         self._phase = "calibration"
 
@@ -230,7 +284,7 @@ class AudioSession:
                           values: list[float]) -> dict[str, Any]:
         result: dict[str, Any] = {}
         frame_position = len(self._cal_rows)
-        for arm in ARMS:
+        for arm in self.ARM_NAMES:
             if arm in self._cal_models:
                 model = self._cal_models[arm]
                 before = self._cal_predictions.get(arm)
@@ -273,15 +327,18 @@ class AudioSession:
     def _after_calibration_row(self) -> None:
         if len(self._cal_rows) != int(self.protocol["calibration_frames"]):
             return
-        for model in self._cal_models.values():
+        for name, model in self._cal_models.items():
+            self._calibration_work[name] = self._counter_delta(
+                self._cal_work_start.get(name, {}), model.metrics())
             if model.active:
                 model.end_session()
-        for arm in ARMS:
+        for arm in self.ARM_NAMES:
             errors = self._cal_errors[arm]
             if not errors:
                 raise RuntimeError("calibration produced no scored targets")
             self._thresholds[arm] = max(1e-9, max(errors))
         self._cal_models = {}
+        self._cal_work_start = {}
         self._cal_predictions = {}
         self._phase = "probe"
 
@@ -301,7 +358,7 @@ class AudioSession:
                       values: list[float]) -> dict[str, Any]:
         position = self._monitor_frames
         result: dict[str, Any] = {}
-        for arm in ARMS:
+        for arm in self.ARM_NAMES:
             if arm in self._models:
                 model = self._models[arm]
                 before = self._monitor_predictions.get(arm)
@@ -351,10 +408,9 @@ class AudioSession:
     def _evaluate_probe(self, rows: list[list[float]]) -> dict[str, Any]:
         warmup = int(self.protocol["warmup_frames"])
         fixed_hash_before = self._bank_hash(self._models["fixed_snn"])
-        sums = {arm: 0.0 for arm in ARMS}
-        counts = {arm: 0 for arm in ARMS}
-        for arm in ("adaptive_snn", "fixed_snn", "adaptive_ann"):
-            live = self._models[arm]
+        sums = {arm: 0.0 for arm in self.ARM_NAMES}
+        counts = {arm: 0 for arm in self.ARM_NAMES}
+        for arm, live in self._models.items():
             evaluator = live.clone_for_evaluation()
             predictions: list[float] | None = None
             for position, values in enumerate(rows):
@@ -369,7 +425,10 @@ class AudioSession:
                     counts[arm] += len(errors)
                 predictions = evaluator.advance(timestamp, values)
             evaluator.end_session()
-        for arm in ("ema", "persistence"):
+            self._accumulate_work(
+                self._probe_work, arm, evaluator.metrics())
+        for arm in (arm for arm in self.ARM_NAMES
+                    if arm not in self._models):
             predictions = None
             baseline_state: dict[str, Any] = {}
             for position, values in enumerate(rows):
@@ -390,7 +449,7 @@ class AudioSession:
                 "frame_count": counts[arm] // 6,
                 "feature_target_count": counts[arm],
                 "mse": sums[arm] / counts[arm] if counts[arm] else None,
-            } for arm in ARMS},
+            } for arm in self.ARM_NAMES},
             "fixed_hash_before": fixed_hash_before,
             "fixed_hash_after": self._bank_hash(self._models["fixed_snn"]),
         }
@@ -409,7 +468,7 @@ class AudioSession:
 
     def _close_block(self) -> None:
         arms: dict[str, Any] = {}
-        for arm in ARMS:
+        for arm in self.ARM_NAMES:
             errors = self._block_errors[arm]
             summary = self._error_summary(errors)
             summary["alarm_count"] = self._block_alarms[arm]
@@ -435,7 +494,7 @@ class AudioSession:
                                      and arms[arm]["mse"] is not None
                                      else None
                                  )
-                                 for arm in ARMS
+                                 for arm in self.ARM_NAMES
                                  if arm != "fixed_snn"
                              }})
 

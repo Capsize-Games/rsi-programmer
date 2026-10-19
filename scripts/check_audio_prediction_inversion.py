@@ -145,7 +145,8 @@ def measure(session: Path) -> dict[str, Any]:
         "protocol_sha256": hashlib.sha256(spec_path.read_bytes()).hexdigest(),
         "original_trace_prefix_sha256": digest.hexdigest(),
         "private_snapshot_sha256": hashlib.sha256(snapshot_bytes).hexdigest(),
-        "script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "script_sha256": hashlib.sha256(
+            Path(__file__).read_bytes()).hexdigest(),
         "live": live_result, "sealed_probe": result,
         "probe_training": False, "parameters_unchanged": True,
         "original_metrics_reproduce_published_report": True,
