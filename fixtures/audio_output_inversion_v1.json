@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "source_runtime": "aa5057289f58720b6f76d7ff8fca6bf8bb15020c",
+  "original_report_commit": "374a6359006ed1ab8eaaf5d2b9199b01bf941936",
+  "monitor_frames": 9000,
+  "prefix_frames": 9400,
+  "warmup_frames": 25,
+  "probe_checkpoint": 9000,
+  "arms": [
+    "adaptive_snn",
+    "fixed_snn",
+    "adaptive_ann",
+    "ema",
+    "persistence"
+  ],
+  "transforms": [
+    "original p versus y",
+    "prediction complement1-p versus y",
+    "both complemented1-p versus1-y: MSE invariance"
+  ],
+  "live": "Recompute from saved forecasts and normalized targets in exactly first30 monitor minutes",
+  "probe": "Restore checkpoint30 copies with learning disabled; replay sealed100-frame tape using fit-only normalizer; score75frames after25warmup. Verify original MSE reproduces published checkpoint30 and model hashes remain unchanged",
+  "interpretation": "Retrospective diagnostic on previously examined data; chart-sign inversion is display only. No probe training, parameter fitting, threshold selection or tuning. Separate future probe required to confirm any chosen algorithm."
+}
