@@ -1,0 +1,27 @@
+{
+  "aggregate_check_count_correction": {
+    "original_receipt_count": 6030,
+    "reason": "Original counter added9 work checks for each nonmemory arm where6 were performed;36 fewer counted checks. Data and outcomes unchanged.",
+    "reproducible_count": 5994
+  },
+  "exit_code": 0,
+  "files": {
+    "artifacts/audio-continual-retrospective-20261018/charts/audio-continual-chart-data.json": "2a5fa874fe56fd5c95bc9e2db4067c451d33cf87bf842ce3c385a0d99c306f30",
+    "artifacts/audio-continual-retrospective-20261018/charts/audio-continual-live-cumulative-mse.png": "206899f0f20b98b3da64fa98fb92ad53cf651881aec021f94ce56a228a32fa39",
+    "artifacts/audio-continual-retrospective-20261018/charts/audio-continual-sealed-probe-change.png": "1752b3b498542287f9e61ee67a23f150bf2c7fea85cb82d729c4c47251792e71",
+    "artifacts/audio-continual-retrospective-20261018/report.json": "0b64516a376e514f3fad24293bc45b1c6bc51f4a415a17d625d585309e220b3a",
+    "artifacts/audio-continual-retrospective-20261018/reproducible-aggregate-check.json": "208ad3d967df03bd67234414739c00d7b1a8530be66a571a432aa8fc9627f4f0",
+    "scripts/check_audio_continual_aggregates.py": "b33521aa9ff6fe3179240b1bdf6a983e0df145cd10eb1e354b4da789f5a24de0",
+    "scripts/plot_audio_continual.py": "570e3a9e14053131a77c36b5026d1c020265576ae4e178a23680b4a649677b27"
+  },
+  "scope": "Data-only aggregate/chart/work verification; no model or trace replay",
+  "verification_command": [
+    ".venv/bin/python",
+    "-m",
+    "scripts.check_audio_continual_aggregates",
+    "artifacts/audio-continual-retrospective-20261018/report.json",
+    "artifacts/audio-continual-retrospective-20261018/charts/audio-continual-chart-data.json",
+    "--output",
+    "artifacts/audio-continual-retrospective-20261018/reproducible-aggregate-check.json"
+  ]
+}

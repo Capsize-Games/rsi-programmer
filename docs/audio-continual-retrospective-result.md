@@ -70,9 +70,12 @@ chip memory or energy.
 
 All three independent trace-arithmetic audits pass. Seed 0 reproduces
 the original five arms' published first-30-minute counts and squared
-errors. A separate aggregate check validates 6,030 numeric comparisons,
+errors. A separate aggregate check validates 5,994 numeric comparisons,
 including all plotted values, per-seed contributions, denominators and
 derived replay-work counts. Both rendered charts were inspected.
+The reproducible verifier corrects the first receipt's check counter:
+that counter included 36 conditional work checks that were not performed.
+The reported MSEs, plotted data and successful comparisons are unchanged.
 The exact logs and source receipts are under
 [`artifacts/audio-continual-validation-20261018/`](
 ../artifacts/audio-continual-validation-20261018/).
@@ -86,6 +89,16 @@ boundary error and stopped before recording any monitoring outcomes;
 its separate failure receipt is preserved. It does not invalidate this
 completed retrospective replay. Corrected startup verification and the
 fresh prospective comparison are separate evidence scopes.
+The boundary repair in `5ccb0a5` passes 131 affected tests in 27.035
+seconds. Its auditor also validates the preserved failed startup prefix
+and all three completed retrospective traces in 4.155 seconds, without
+training models or modifying the original results.
+The separately named corrected capture uses the same frozen recipe and
+source `5ccb0a5`. Its start and first-minute audits pass; the latter covers
+700 total fit/calibration/probe/monitor frames. The SNN arms' fitted
+parameters match, the reference remains unchanged, and the microphone
+signal passes quality checks. This verifies startup only. Its full
+30-minute prospective outcomes are pending.
 
 The [experiment description](audio-continual-comparison.md) contains the
 implemented flow and start command. The sealed probe stays out of all

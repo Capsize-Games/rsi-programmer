@@ -1,0 +1,38 @@
+{
+  "audit_valid": true,
+  "audit_wall_seconds": 0.06276830396382138,
+  "audited_monitor_frames": 300,
+  "audited_total_frames": 700,
+  "capture_source_commit": "5ccb0a5585888d2809dc59d3065f93a648fdfd69",
+  "current_runtime_sources_match_capture_commit": true,
+  "error": null,
+  "fixed_reference_hash": "8a33a85152bbd490ab7af93216ba05c33a186816095eecb21e32de3f2641ac83",
+  "frozen_protocol_sha256": "ff4a161882904aca6ba31a8498a859a1347addaa289e989ec0ea1e231a70fb58",
+  "initial_snn_parameters_match": true,
+  "monitor_frames_observed": 385,
+  "owned_process_verified": true,
+  "phase": "monitor",
+  "scope": "Fresh corrected capture startup verification only; prospective30-minute outcomes pending. Raw traces, weights, deviceidentity and privatepaths excluded.",
+  "signal": {
+    "clip_fraction": 0.0,
+    "peak_hz": 160.0,
+    "rms_dbfs": -21.97291221553961
+  },
+  "source_files": {
+    "fixtures/audio_continual_v1.json": "ff4a161882904aca6ba31a8498a859a1347addaa289e989ec0ea1e231a70fb58",
+    "rsi_programmer/audio_capture.py": "3803e119e03becd133c6d79bd091fbdeb2c9e9a640076361f1c58933ee37b1ab",
+    "rsi_programmer/audio_continual.py": "f96dd030763bd1a3bff3e25e352874bbdb3b8e2b397fb4fea91ef34b653c7774",
+    "rsi_programmer/audio_continual_runtime.py": "3c3c3355739ff268f10cb6d5a2085f1057871978e19a4f23af094520b0ffab72",
+    "rsi_programmer/audio_features.py": "1253b71912c305f26484c5ac00e916a15d3018745231a3537b3654fbe8c4c417",
+    "rsi_programmer/audio_learning.py": "eb6b3372a0746925d1176ec99a36b28352eed6198db024399d79590a390c0b9e",
+    "rsi_programmer/audio_memory.py": "2d927e53b4beb49f555b5013f9c6f89eb508dca43619af06e98c97a6281cb5e4",
+    "rsi_programmer/audio_runtime.py": "b8c64d0696f64ee41fc50c561e53ecbaedcc7fc10816a5bc751e9e9cad859a62",
+    "rsi_programmer/audio_session.py": "f3568a853f64eb72fcf1bc0f284bed2e855fdbac9558c080824e2fa6191d1c70",
+    "rsi_programmer/sensing_memory.py": "e2382302419eaf9160a99e4ed0cc96b0b5ad66566b90be1503f2c0a0e304ae07",
+    "rsi_programmer/sensing_predictor.py": "425f553780d586f818517224d255b8fde0bcec7d9d6c8e62cff55a7d846c493c",
+    "scripts/audit_audio_continual.py": "899b043d4d4f783aec38bb72d66631e44ac129721354d93c853b9b4411145a21",
+    "scripts/fan_microphone.py": "d6bedf2c211a77633d1b0381c0f0ed82f219ffe55928448eb3754118443506e1",
+    "scripts/measure_audio_continual.py": "d150a13baab036dab7af3ef6ecd6f0b257e7dad8f28a854c2459b3173b7d569c"
+  },
+  "status": "running"
+}
