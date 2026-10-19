@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "purpose": "Controlled audio adaptation, encoder and training-memory comparison",
+  "sample_rate": 16000,
+  "frame_seconds": 0.2,
+  "band_edges_hz": [
+    80,
+    160,
+    320,
+    640,
+    1280,
+    2560,
+    6000
+  ],
+  "fit_frames": 150,
+  "calibration_frames": 150,
+  "probe_frames": 100,
+  "block_frames": 300,
+  "warmup_frames": 25,
+  "cooldown_frames": 25,
+  "ema_alpha": 0.03921056084767682,
+  "seed": 0,
+  "arms": [
+    "adaptive_snn",
+    "readout_snn",
+    "memory_snn",
+    "recent_memory_snn",
+    "fixed_snn",
+    "adaptive_ann",
+    "memory_ann",
+    "ema",
+    "persistence"
+  ],
+  "feature": "Hann-windowed, DC-removed, one-sided FFT band mean-square energy in dBFS; six independent bands",
+  "normalizer": "Fit per-band median and max(3dB,1.4826*MAD) on first150 frames only; z=.5+.5*(band-center)/(scale+abs(band-center)); then freeze",
+  "bootstrap": "One pass over normalized fit frames for SNN and continuous banks, same band seeds seed+band; no calibration/probe training of source models",
+  "neural": "Six independent SensingPredictor instances (12 units each), existing fixed tau/input/readout/eligibility/learning constants; SNN and continuous control differ only by spiking dynamics",
+  "fixed_reference": "Freeze a copy of the fully fitted adaptive SNN parameters. Parameters and normalization stay fixed; transient state evolves on the same live frames",
+  "calibration": "Independent trained copies process next150 frames with matching learning flags; discard their updates. Threshold=max(1e-9,maximum sqrt(mean6(previous_forecast-target)^2) after25-frame warmup). Strict > produces zero calibration alarms by construction, without guaranteeing future rate",
+  "probe": "Same held-out100-frame tape evaluated without learning on reset copies at monitor0 and every300 monitor frames, warmup25. Never store these frames in either training memory; no selection or tuning from probe outcomes",
+  "monitor": "Predict before receiving target; score and emit threshold alarm before updating. Score is sqrt(mean six squared errors); warmup25frames, at least25 frame indices between alarms. Same live frames for all five arms; states continue through monitor; no event/fault labels",
+  "baselines": "Persistence predicts the current six features as the next features. EMA initializes from the first frame and uses alpha=1-exp(-.2/5)=0.03921056084767682 per nominal0.2s frame. Reset baseline state at calibration/probe/monitor boundaries",
+  "alarm_rate_denominator": "Scored feature frames times0.2 seconds; exclude initial25 warmup frames. First complete block has275 scored frames=55s; later complete blocks300=60s",
+  "clock": "Model time is sample-derived (global_frame+1)*.2 seconds at nominal16kHz, distinct from monotonic delivery timestamps. Raw PCM does not carry measured hardware timestamps",
+  "comparison": "Each300-frame nonoverlapping monitoring block reports paired next-frame MSE against fixed SNN, ANN, EMA and persistence, plus cumulative MSE and observed alarms/minute. First block omits25 warmup targets. Relative improvement=(fixed_mse-adaptive_mse)/fixed_mse, null if fixed_mse=0",
+  "report": "Prediction error and observed alarm rate, not detection accuracy, faults, confirmed false positives, independent trials or chip energy. No claims from changes in surprise alone",
+  "signal_check": "A short pre-model capture may confirm signal/frequencies before this protocol. Capture source must be a physical input, never an output monitor; no default/gain changes",
+  "privacy": "Raw audio is discarded after feature extraction. Exact feature/forecast traces and learned arrays stay in a private local state directory, outside Git. Publish aggregate measurements only",
+  "stopping": "Prospective comparison stops after9000 monitor frames; preserve old run and all private snapshots. Retrospective and prospective claims remain separate.",
+  "experiment": "audio_continual_v1",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "monitor_frames": 9000,
+  "memory_capacity_frames": 150,
+  "memory_interval_targets": 300,
+  "memory": {
+    "fit_memory": "Only normalized fit frames0..149; immutable and never populated with calibration, sealed probe or monitor data",
+    "recent_memory_control": "Most recent150 causal monitoring observations, excluding all calibration and probe observations; same replay cadence/length as fit memory",
+    "activation": "After each300 scored online training targets (including warmup learning), first replay at monitor frame301. Replay150 observations/149 targets on a transient training copy, then copy learned parameters only back before the next live forecast. Preserve live temporal state and pending-credit causality; no replay inside replay or evaluation",
+    "matched_initialization": "All SNN arms receive identical full-learning fit pass and match parameter hashes at monitor0; readout-only disables encoder learning after fit. ANN memory/control receive matching ANN fit pass",
+    "work": "Report all forward/update/synapse counts including replay, passes/targets and wall time. Retain recent-memory SNN and fit-memory ANN to distinguish extra optimization and architecture from old-example retention",
+    "capacity": "150 six-band normalized training frames per bank; report logical samples/parameters and work, not chip memory or energy"
+  },
+  "comparison_stages": {
+    "retrospective": "Exactly original first30 monitor minutes from preserved private feature trace; three fixed seeds. Original evaluation probe remains evaluation-only. Previously examined outcomes make this diagnostic, not new held-out validation",
+    "prospective": "Separately named future microphone session with same frozen fit/calibration/probe scheme and30 monitoring minutes. Seed0 online, then replay identical captured feature tape for seeds0,1,2 serially after bounded capture stops; require online/replay seed0 agreement. No recipe tuning from either probe",
+    "publication": "Retain all arms/seeds and negative outcomes; publish source-specific artifacts. No tags or CI waiting"
+  },
+  "inversion_diagnostic": {
+    "scope": "Retrospective original first30 monitoring minutes only; score previous saved predictions against actual normalized targets",
+    "transforms": [
+      "original prediction p",
+      "prediction-only complement1-p",
+      "both prediction and target complemented (MSE invariance check)"
+    ],
+    "limitations": "Changing chart sign changes interpretation only. Prediction complement is a different causal predictor; any benefit on previously examined data requires new held-out confirmation. No model updates or probe training in this diagnostic"
+  }
+}
