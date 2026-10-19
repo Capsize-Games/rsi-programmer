@@ -27,7 +27,9 @@ test:
 # interference is covered by those full runs, not by
 # re-running 3.7 h per release.
 test-fast:
-    .venv/bin/python -m unittest tests.test_audio_capture \
+    .venv/bin/python -m unittest tests.test_sound_features \
+        tests.test_sound_memory tests.test_sound_contract \
+        tests.test_audio_capture \
         tests.test_audio_features tests.test_audio_learning \
         tests.test_audio_session tests.test_audio_runtime \
         tests.test_audio_session_audit \

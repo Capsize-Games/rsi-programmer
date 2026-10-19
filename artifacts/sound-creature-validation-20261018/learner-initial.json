@@ -1,0 +1,29 @@
+{
+  "builder_lock": "/tmp/rsi-programmer-builder.lock",
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "unittest",
+    "tests.test_sound_features",
+    "tests.test_sound_memory",
+    "tests.test_sound_contract",
+    "-v"
+  ],
+  "compressed_log_sha256": "c07cdfd2d129ea30d7346e9adc9a701b9c9a89aa048217a085e155d730843abb",
+  "exit_code": 0,
+  "source_files": {
+    "rsi_programmer/sound_features.py": "3176dd6db2ff7bc5b6e15dd160fe5b131bf88e4b994247ee8b2fe903466bfaa2",
+    "rsi_programmer/sound_memory.py": "f8a647eefab8f635928b34c3999857d71a75fc85bd73d79bc01b98c8264c8a6d",
+    "tests/test_sound_contract.py": "7d84ecbd0918042946154d2bde0029ea414a275e0b983f56cbe5a16adea81c45",
+    "tests/test_sound_features.py": "c9268faab659396a537047e5b034306c39e4d5662abf6132db92f70c80bc48e1",
+    "tests/test_sound_memory.py": "0c800fe0e7a86e1ace3aca38e9856b1c53b98b52e77d678ee11d372ab53e2175"
+  },
+  "source_unchanged": true,
+  "test_runs": [
+    [
+      "16",
+      "0.439"
+    ]
+  ],
+  "wall_seconds": 1.2893506230320781
+}
