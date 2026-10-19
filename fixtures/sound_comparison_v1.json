@@ -1,0 +1,69 @@
+{
+  "protocol_sha256": "1f0be06f30f3010b1cd75d10fab4c8c676ab137c56f1e2dd046cfe4111839b83",
+  "name": "desktop-creature-sound-backend-comparison-v1",
+  "schema_version": 1,
+  "seed": 0,
+  "generator": {
+    "module": "scripts.check_sound_learning_demo",
+    "function": "make_sound",
+    "sample_rate": 16000,
+    "duration_seconds": 1.2,
+    "families": ["bell", "knock", "whistle", "chime"]
+  },
+  "labels": {
+    "bell": {"action": "wake", "training_seeds": [100, 101, 102]},
+    "knock": {"action": "timer", "training_seeds": [200, 201, 202]},
+    "whistle": {"action": "sleep", "training_seeds": [300, 301, 302]},
+    "chime": {"action": "dance", "training_seeds": [400, 401, 402]}
+  },
+  "stages": [
+    {"id": "initial_unknown", "labels": []},
+    {"id": "three_labels", "labels": ["bell", "knock", "whistle"]},
+    {
+      "id": "four_labels",
+      "labels": ["bell", "knock", "whistle", "chime"]
+    },
+    {
+      "id": "after_reload",
+      "labels": ["bell", "knock", "whistle", "chime"],
+      "reload": true
+    }
+  ],
+  "probes": {
+    "parameter_seeds": [0, 1, 2],
+    "replicates_per_parameter_seed": 4,
+    "first_seed": 10000,
+    "family_seed_stride": 100,
+    "families": ["bell", "knock", "whistle", "chime"],
+    "controls": {
+      "silence": {"kind": "silence"},
+      "noise": {"kind": "noise", "seed": 19000, "sigma": 0.04},
+      "far_tone_low": {
+        "kind": "pure_tone",
+        "seed": 19100,
+        "frequency_hz": 5000,
+        "gain": 0.35
+      },
+      "far_tone_high": {
+        "kind": "pure_tone",
+        "seed": 19200,
+        "frequency_hz": 6200,
+        "gain": 0.35
+      }
+    }
+  },
+  "evaluation": {
+    "queries_are_read_only": true,
+    "same_family_queries_reused_at_each_stage": true,
+    "training_and_probe_seeds_disjoint": true,
+    "minimum_queries_per_family": 12,
+    "report_outcomes": ["correct", "wrong", "rejected"],
+    "report_per_class": true,
+    "report_probe_model_fingerprint_unchanged": true,
+    "report_example_counts_and_old_label_retention": true,
+    "report_training_and_inference_wall_time": true,
+    "report_false_accepts_for_controls": true,
+    "aggregate_only": true,
+    "allow_nan": false
+  }
+}

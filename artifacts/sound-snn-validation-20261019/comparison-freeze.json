@@ -1,0 +1,40 @@
+{
+  "families": 4,
+  "fresh_queries_per_family": 12,
+  "model_parameter_seeds": [
+    0,
+    1,
+    2
+  ],
+  "protocol_canonical_sha256": "1f0be06f30f3010b1cd75d10fab4c8c676ab137c56f1e2dd046cfe4111839b83",
+  "retention_stages": [
+    "three_labels",
+    "four_labels",
+    "after_reload"
+  ],
+  "same_queries_for_all_models": true,
+  "scope": "Frozen generated comparison before running either backend on protocol probes; core unit checks used separate vectors",
+  "source_files": {
+    "fixtures/sound_comparison_v1.json": "2e76b9e2a77d7e42ecf0ae1c186d4669192614fff44f6fba839102ff7049f25f",
+    "rsi_programmer/sound_comparison.py": "7956fc8fff93a695d0a31f65a1261da2e176e07884f89d69c0ed13dbf9433d05",
+    "rsi_programmer/sound_features.py": "857e7a01dd12ae703a22fb4b0301211596a90d34e5bce0549fa2aa04cf51bf15",
+    "rsi_programmer/sound_memory.py": "9ff8d0412d005b04cd03fc49f4d12f9e50c15459e6c185a73bf8df40e282f117",
+    "rsi_programmer/sound_spiking.py": "606889b625778a9e59bdabf272c1f186cc4357aec388ae54d39d00fb621edbab",
+    "scripts/check_sound_learning_demo.py": "fbf2f961efb03fd375928d119401a4d3bc3ebe39b1416cbb8caa5a5524a05de9",
+    "scripts/compare_sound_backends.py": "b157efe86849a6d1115324abbd3cdd7e81b9be6ccb665b2165693c9fc556e9f3",
+    "tests/test_sound_comparison_protocol.py": "5350a32548618bcfadfbbbfc0b3388b83b36cadf2bc5ba12165b485d86f199d0"
+  },
+  "teaching_examples_per_class": 3,
+  "unit_protocol_checks": {
+    "command": [
+      ".venv-desktop/bin/python",
+      "-m",
+      "unittest",
+      "tests.test_sound_comparison_protocol",
+      "-v"
+    ],
+    "result": "OK",
+    "seconds": 0.001,
+    "tests": 3
+  }
+}
