@@ -1,0 +1,27 @@
+{
+  "builder_lock": "/tmp/rsi-programmer-builder.lock",
+  "command": [
+    ".venv-desktop/bin/python",
+    "-m",
+    "scripts.compare_sound_backends",
+    "--output-dir",
+    "artifacts/sound-snn-validation-20261019/frozen-comparison-v1"
+  ],
+  "compressed_log_sha256": "e06566a1cbc0e5bc17be656139fcf31f6513424eaea6d2474570a9f9751ce642",
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "exit_code": 0,
+  "source_files": {
+    "fixtures/sound_comparison_v1.json": "2e76b9e2a77d7e42ecf0ae1c186d4669192614fff44f6fba839102ff7049f25f",
+    "rsi_programmer/sound_comparison.py": "75db02e4bba2bec8cabe8caa2294db767a4c5107682350f7b854540facc1326d",
+    "rsi_programmer/sound_features.py": "857e7a01dd12ae703a22fb4b0301211596a90d34e5bce0549fa2aa04cf51bf15",
+    "rsi_programmer/sound_memory.py": "9ff8d0412d005b04cd03fc49f4d12f9e50c15459e6c185a73bf8df40e282f117",
+    "rsi_programmer/sound_spiking.py": "606889b625778a9e59bdabf272c1f186cc4357aec388ae54d39d00fb621edbab",
+    "scripts/check_sound_learning_demo.py": "fbf2f961efb03fd375928d119401a4d3bc3ebe39b1416cbb8caa5a5524a05de9",
+    "scripts/compare_sound_backends.py": "7e2595b52e18054b084c7bd2fe0b69fc26c46484c5b26465e9ccf54ab3911989"
+  },
+  "source_unchanged": true,
+  "wall_seconds": 15.679322036041413
+}

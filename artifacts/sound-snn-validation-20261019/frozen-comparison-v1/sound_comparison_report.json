@@ -1,0 +1,3175 @@
+{
+  "model_seeds": [
+    0,
+    1,
+    2
+  ],
+  "notice": "Synthetic feature probes only; no microphone accuracy claim.",
+  "per_seed": {
+    "0": {
+      "final_learning_metrics": {
+        "accuracy": 1.0,
+        "actual_spikes": 4427,
+        "changed_input_parameters": 1344,
+        "changed_readout_parameters": 260,
+        "class_count": 4,
+        "epochs": 100,
+        "examples": 12,
+        "loss": 0.00010636451042955741,
+        "matcher_train_seconds": 0.0026387759717181325,
+        "model_hash": "37703612004b1269e7903a81532fc16ea6634e0dc7aad9fa0cebd3620f111cc9",
+        "spikes": 4427,
+        "teach_events": 12,
+        "train_seconds": 2.563018481072504,
+        "trained": true,
+        "updates": 1200
+      },
+      "forgetting_delta": {
+        "bell": {
+          "matcher": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          },
+          "snn": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          }
+        },
+        "knock": {
+          "matcher": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          },
+          "snn": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          }
+        },
+        "whistle": {
+          "matcher": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          },
+          "snn": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          }
+        }
+      },
+      "model_seed": 0,
+      "old_label_retention": {
+        "bell": true,
+        "knock": true,
+        "whistle": true
+      },
+      "parameter_change_evidence": {
+        "model_hash_after_reload": "37703612004b1269e7903a81532fc16ea6634e0dc7aad9fa0cebd3620f111cc9",
+        "reported_learning_metrics": {
+          "accuracy": 1.0,
+          "actual_spikes": 4427,
+          "changed_input_parameters": 1344,
+          "changed_readout_parameters": 260,
+          "class_count": 4,
+          "epochs": 100,
+          "examples": 12,
+          "loss": 0.00010636451042955741,
+          "matcher_train_seconds": 0.0026387759717181325,
+          "model_hash": "37703612004b1269e7903a81532fc16ea6634e0dc7aad9fa0cebd3620f111cc9",
+          "spikes": 4427,
+          "teach_events": 12,
+          "train_seconds": 2.563018481072504,
+          "trained": true,
+          "updates": 1200
+        }
+      },
+      "reload_hashes": {
+        "example_hash_matches": true,
+        "examples_after": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+        "examples_before": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+        "model_after": "37703612004b1269e7903a81532fc16ea6634e0dc7aad9fa0cebd3620f111cc9",
+        "model_before": "37703612004b1269e7903a81532fc16ea6634e0dc7aad9fa0cebd3620f111cc9",
+        "model_hash_matches": true
+      },
+      "reload_label_retention": {
+        "bell": true,
+        "chime": true,
+        "knock": true,
+        "whistle": true
+      },
+      "reload_results_match": {
+        "bell": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        },
+        "chime": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        },
+        "controls": true,
+        "knock": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        },
+        "whistle": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        }
+      },
+      "stages": [
+        {
+          "controls": {},
+          "example_fingerprint_after_probes": "80fe33d67f23acbe69fa0adcd48c8ea3940f1f7b57849d5a861b46de4172c8be",
+          "example_fingerprint_before_probes": "80fe33d67f23acbe69fa0adcd48c8ea3940f1f7b57849d5a861b46de4172c8be",
+          "examples_by_label": {},
+          "examples_unchanged_during_probes": true,
+          "id": "initial_unknown",
+          "matcher": {
+            "correct": 0,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.001071190054062754,
+          "model_hash_after_probes": "36678fd72d4129626f8820edf867b89bfa607af1ac793b7eb626e56b4f0d5e57",
+          "model_hash_before_probes": "36678fd72d4129626f8820edf867b89bfa607af1ac793b7eb626e56b4f0d5e57",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.0,
+          "per_class": {},
+          "queries": 0,
+          "raw_neural": {
+            "correct": 0,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 0,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.0012361858389340341,
+          "summary": {
+            "fingerprint": "80fe33d67f23acbe69fa0adcd48c8ea3940f1f7b57849d5a861b46de4172c8be",
+            "label_fingerprints": {},
+            "labels": [],
+            "learning": {
+              "accuracy": null,
+              "actual_spikes": 0,
+              "changed_input_parameters": 0,
+              "changed_readout_parameters": 0,
+              "class_count": 0,
+              "epochs": 0,
+              "examples": 0,
+              "initialized_encoder_hash": null,
+              "initialized_readout_hash": null,
+              "loss": null,
+              "matcher_train_seconds": 0.0,
+              "model_hash": "36678fd72d4129626f8820edf867b89bfa607af1ac793b7eb626e56b4f0d5e57",
+              "spikes": 0,
+              "teach_events": 0,
+              "train_seconds": 0.0,
+              "trained": false,
+              "updates": 0
+            },
+            "probe_count": 0,
+            "revision": 0,
+            "total_examples": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 0,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {
+            "bell": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            },
+            "chime": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            },
+            "knock": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            },
+            "whistle": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            }
+          }
+        },
+        {
+          "controls": {},
+          "example_fingerprint_after_probes": "43037fa0ec60914200891e4a227d637cc62da6ca3e06ee33c365b586d077b7da",
+          "example_fingerprint_before_probes": "43037fa0ec60914200891e4a227d637cc62da6ca3e06ee33c365b586d077b7da",
+          "examples_by_label": {
+            "bell": 3,
+            "knock": 3,
+            "whistle": 3
+          },
+          "examples_unchanged_during_probes": true,
+          "id": "three_labels",
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.03274069802137092,
+          "model_hash_after_probes": "ba1992abf0c77326eb31ddd7d481736049508cac7af881426a38cdfbd2fd4a7c",
+          "model_hash_before_probes": "ba1992abf0c77326eb31ddd7d481736049508cac7af881426a38cdfbd2fd4a7c",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.37057260517030954,
+          "per_class": {
+            "bell": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "knock": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "whistle": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            }
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.08227052702568471,
+          "summary": {
+            "fingerprint": "43037fa0ec60914200891e4a227d637cc62da6ca3e06ee33c365b586d077b7da",
+            "label_fingerprints": {
+              "bell": "b2156e3ff9b4e5f325fa6d26469dbf00725f61fed359fe8b95cb7bee50a08cb0",
+              "knock": "c552a78bf2f90434f3d288fe61108f67dcf6c0f21e2a61af59726c0a5a570ac9",
+              "whistle": "b1e248aa99e70d618cda9a63507674c2ecd7b60360b814e22443da0d50f7f0c4"
+            },
+            "labels": [
+              {
+                "action": "wake",
+                "examples": 3,
+                "name": "bell"
+              },
+              {
+                "action": "timer",
+                "examples": 3,
+                "name": "knock"
+              },
+              {
+                "action": "sleep",
+                "examples": 3,
+                "name": "whistle"
+              }
+            ],
+            "learning": {
+              "accuracy": 1.0,
+              "actual_spikes": 3401,
+              "changed_input_parameters": 1344,
+              "changed_readout_parameters": 192,
+              "class_count": 3,
+              "epochs": 100,
+              "examples": 9,
+              "loss": 6.192033470142633e-05,
+              "matcher_train_seconds": 0.001557527983095497,
+              "model_hash": "ba1992abf0c77326eb31ddd7d481736049508cac7af881426a38cdfbd2fd4a7c",
+              "spikes": 3401,
+              "teach_events": 9,
+              "train_seconds": 2.0136098470538855,
+              "trained": true,
+              "updates": 900
+            },
+            "probe_count": 36,
+            "revision": 9,
+            "total_examples": 9
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {
+            "chime": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 12,
+              "snn_false_accepts": 0
+            }
+          }
+        },
+        {
+          "controls": {
+            "far_tone_high": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "knock",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "far_tone_low": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "chime",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "noise": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "chime",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "silence": {
+              "matcher_false_accept": false,
+              "matcher_reason": "quiet",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": false,
+              "raw_neural_recognized": null,
+              "snn_false_accept": false,
+              "snn_reason": "quiet",
+              "snn_recognized": null
+            }
+          },
+          "example_fingerprint_after_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "example_fingerprint_before_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "examples_by_label": {
+            "bell": 3,
+            "chime": 3,
+            "knock": 3,
+            "whistle": 3
+          },
+          "examples_unchanged_during_probes": true,
+          "id": "four_labels",
+          "matcher": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.04141818586504087,
+          "model_hash_after_probes": "37703612004b1269e7903a81532fc16ea6634e0dc7aad9fa0cebd3620f111cc9",
+          "model_hash_before_probes": "37703612004b1269e7903a81532fc16ea6634e0dc7aad9fa0cebd3620f111cc9",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.559984048246406,
+          "per_class": {
+            "bell": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "chime": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "knock": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "whistle": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            }
+          },
+          "queries": 48,
+          "raw_neural": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.106218283821363,
+          "summary": {
+            "fingerprint": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+            "label_fingerprints": {
+              "bell": "b2156e3ff9b4e5f325fa6d26469dbf00725f61fed359fe8b95cb7bee50a08cb0",
+              "chime": "ec63b4c10ded2973d0a4d621b5909e01e67799ee1827f27b713ceddb8bae7a00",
+              "knock": "c552a78bf2f90434f3d288fe61108f67dcf6c0f21e2a61af59726c0a5a570ac9",
+              "whistle": "b1e248aa99e70d618cda9a63507674c2ecd7b60360b814e22443da0d50f7f0c4"
+            },
+            "labels": [
+              {
+                "action": "wake",
+                "examples": 3,
+                "name": "bell"
+              },
+              {
+                "action": "dance",
+                "examples": 3,
+                "name": "chime"
+              },
+              {
+                "action": "timer",
+                "examples": 3,
+                "name": "knock"
+              },
+              {
+                "action": "sleep",
+                "examples": 3,
+                "name": "whistle"
+              }
+            ],
+            "learning": {
+              "accuracy": 1.0,
+              "actual_spikes": 4427,
+              "changed_input_parameters": 1344,
+              "changed_readout_parameters": 260,
+              "class_count": 4,
+              "epochs": 100,
+              "examples": 12,
+              "loss": 0.00010636451042955741,
+              "matcher_train_seconds": 0.0026387759717181325,
+              "model_hash": "37703612004b1269e7903a81532fc16ea6634e0dc7aad9fa0cebd3620f111cc9",
+              "spikes": 4427,
+              "teach_events": 12,
+              "train_seconds": 2.563018481072504,
+              "trained": true,
+              "updates": 1200
+            },
+            "probe_count": 84,
+            "revision": 12,
+            "total_examples": 12
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 48,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {}
+        },
+        {
+          "controls": {
+            "far_tone_high": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "knock",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "far_tone_low": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "chime",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "noise": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "chime",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "silence": {
+              "matcher_false_accept": false,
+              "matcher_reason": "quiet",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": false,
+              "raw_neural_recognized": null,
+              "snn_false_accept": false,
+              "snn_reason": "quiet",
+              "snn_recognized": null
+            }
+          },
+          "example_fingerprint_after_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "example_fingerprint_before_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "examples_by_label": {
+            "bell": 3,
+            "chime": 3,
+            "knock": 3,
+            "whistle": 3
+          },
+          "examples_unchanged_during_probes": true,
+          "id": "after_reload",
+          "matcher": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.042712952999863774,
+          "model_hash_after_probes": "37703612004b1269e7903a81532fc16ea6634e0dc7aad9fa0cebd3620f111cc9",
+          "model_hash_before_probes": "37703612004b1269e7903a81532fc16ea6634e0dc7aad9fa0cebd3620f111cc9",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.5671633712481707,
+          "per_class": {
+            "bell": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "chime": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "knock": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "whistle": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            }
+          },
+          "queries": 48,
+          "raw_neural": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.10711997514590621,
+          "summary": {
+            "fingerprint": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+            "label_fingerprints": {
+              "bell": "b2156e3ff9b4e5f325fa6d26469dbf00725f61fed359fe8b95cb7bee50a08cb0",
+              "chime": "ec63b4c10ded2973d0a4d621b5909e01e67799ee1827f27b713ceddb8bae7a00",
+              "knock": "c552a78bf2f90434f3d288fe61108f67dcf6c0f21e2a61af59726c0a5a570ac9",
+              "whistle": "b1e248aa99e70d618cda9a63507674c2ecd7b60360b814e22443da0d50f7f0c4"
+            },
+            "labels": [
+              {
+                "action": "wake",
+                "examples": 3,
+                "name": "bell"
+              },
+              {
+                "action": "dance",
+                "examples": 3,
+                "name": "chime"
+              },
+              {
+                "action": "timer",
+                "examples": 3,
+                "name": "knock"
+              },
+              {
+                "action": "sleep",
+                "examples": 3,
+                "name": "whistle"
+              }
+            ],
+            "learning": {
+              "accuracy": 1.0,
+              "actual_spikes": 4427,
+              "changed_input_parameters": 1344,
+              "changed_readout_parameters": 260,
+              "class_count": 4,
+              "epochs": 100,
+              "examples": 12,
+              "loss": 0.00010636451042955741,
+              "matcher_train_seconds": 0.0026387759717181325,
+              "model_hash": "37703612004b1269e7903a81532fc16ea6634e0dc7aad9fa0cebd3620f111cc9",
+              "spikes": 4427,
+              "teach_events": 12,
+              "train_seconds": 2.563018481072504,
+              "trained": true,
+              "updates": 1200
+            },
+            "probe_count": 132,
+            "revision": 12,
+            "total_examples": 12
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 48,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {}
+        }
+      ],
+      "teaching": {
+        "examples_by_label": {
+          "bell": 3,
+          "chime": 3,
+          "knock": 3,
+          "whistle": 3
+        },
+        "matcher_and_persistence_wall_seconds": 0.14880976302083582,
+        "snn_replay_fit_wall_seconds": 2.563018481072504,
+        "wall_seconds": 2.71182824409334
+      },
+      "total_training_examples": 12
+    },
+    "1": {
+      "final_learning_metrics": {
+        "accuracy": 1.0,
+        "actual_spikes": 4235,
+        "changed_input_parameters": 1344,
+        "changed_readout_parameters": 252,
+        "class_count": 4,
+        "epochs": 100,
+        "examples": 12,
+        "loss": 9.49812019825913e-05,
+        "matcher_train_seconds": 0.0026372529100626707,
+        "model_hash": "c0b8faa3deb60252b85deb2bb95d67c8a13a6f6bba9945ba1a392257f82ff633",
+        "spikes": 4235,
+        "teach_events": 12,
+        "train_seconds": 2.1455800309195183,
+        "trained": true,
+        "updates": 1200
+      },
+      "forgetting_delta": {
+        "bell": {
+          "matcher": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          },
+          "snn": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          }
+        },
+        "knock": {
+          "matcher": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          },
+          "snn": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          }
+        },
+        "whistle": {
+          "matcher": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          },
+          "snn": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          }
+        }
+      },
+      "model_seed": 1,
+      "old_label_retention": {
+        "bell": true,
+        "knock": true,
+        "whistle": true
+      },
+      "parameter_change_evidence": {
+        "model_hash_after_reload": "c0b8faa3deb60252b85deb2bb95d67c8a13a6f6bba9945ba1a392257f82ff633",
+        "reported_learning_metrics": {
+          "accuracy": 1.0,
+          "actual_spikes": 4235,
+          "changed_input_parameters": 1344,
+          "changed_readout_parameters": 252,
+          "class_count": 4,
+          "epochs": 100,
+          "examples": 12,
+          "loss": 9.49812019825913e-05,
+          "matcher_train_seconds": 0.0026372529100626707,
+          "model_hash": "c0b8faa3deb60252b85deb2bb95d67c8a13a6f6bba9945ba1a392257f82ff633",
+          "spikes": 4235,
+          "teach_events": 12,
+          "train_seconds": 2.1455800309195183,
+          "trained": true,
+          "updates": 1200
+        }
+      },
+      "reload_hashes": {
+        "example_hash_matches": true,
+        "examples_after": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+        "examples_before": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+        "model_after": "c0b8faa3deb60252b85deb2bb95d67c8a13a6f6bba9945ba1a392257f82ff633",
+        "model_before": "c0b8faa3deb60252b85deb2bb95d67c8a13a6f6bba9945ba1a392257f82ff633",
+        "model_hash_matches": true
+      },
+      "reload_label_retention": {
+        "bell": true,
+        "chime": true,
+        "knock": true,
+        "whistle": true
+      },
+      "reload_results_match": {
+        "bell": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        },
+        "chime": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        },
+        "controls": true,
+        "knock": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        },
+        "whistle": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        }
+      },
+      "stages": [
+        {
+          "controls": {},
+          "example_fingerprint_after_probes": "80fe33d67f23acbe69fa0adcd48c8ea3940f1f7b57849d5a861b46de4172c8be",
+          "example_fingerprint_before_probes": "80fe33d67f23acbe69fa0adcd48c8ea3940f1f7b57849d5a861b46de4172c8be",
+          "examples_by_label": {},
+          "examples_unchanged_during_probes": true,
+          "id": "initial_unknown",
+          "matcher": {
+            "correct": 0,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.001063968171365559,
+          "model_hash_after_probes": "36678fd72d4129626f8820edf867b89bfa607af1ac793b7eb626e56b4f0d5e57",
+          "model_hash_before_probes": "36678fd72d4129626f8820edf867b89bfa607af1ac793b7eb626e56b4f0d5e57",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.0,
+          "per_class": {},
+          "queries": 0,
+          "raw_neural": {
+            "correct": 0,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 0,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.0012438020785339177,
+          "summary": {
+            "fingerprint": "80fe33d67f23acbe69fa0adcd48c8ea3940f1f7b57849d5a861b46de4172c8be",
+            "label_fingerprints": {},
+            "labels": [],
+            "learning": {
+              "accuracy": null,
+              "actual_spikes": 0,
+              "changed_input_parameters": 0,
+              "changed_readout_parameters": 0,
+              "class_count": 0,
+              "epochs": 0,
+              "examples": 0,
+              "initialized_encoder_hash": null,
+              "initialized_readout_hash": null,
+              "loss": null,
+              "matcher_train_seconds": 0.0,
+              "model_hash": "36678fd72d4129626f8820edf867b89bfa607af1ac793b7eb626e56b4f0d5e57",
+              "spikes": 0,
+              "teach_events": 0,
+              "train_seconds": 0.0,
+              "trained": false,
+              "updates": 0
+            },
+            "probe_count": 0,
+            "revision": 0,
+            "total_examples": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 0,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {
+            "bell": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            },
+            "chime": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            },
+            "knock": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            },
+            "whistle": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            }
+          }
+        },
+        {
+          "controls": {},
+          "example_fingerprint_after_probes": "43037fa0ec60914200891e4a227d637cc62da6ca3e06ee33c365b586d077b7da",
+          "example_fingerprint_before_probes": "43037fa0ec60914200891e4a227d637cc62da6ca3e06ee33c365b586d077b7da",
+          "examples_by_label": {
+            "bell": 3,
+            "knock": 3,
+            "whistle": 3
+          },
+          "examples_unchanged_during_probes": true,
+          "id": "three_labels",
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.03298342309426516,
+          "model_hash_after_probes": "50de1d24e3ca6f07a32dfe75568412cddaa236663433845c2ada01a9ed720341",
+          "model_hash_before_probes": "50de1d24e3ca6f07a32dfe75568412cddaa236663433845c2ada01a9ed720341",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.37532633874798194,
+          "per_class": {
+            "bell": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "knock": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "whistle": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            }
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.08357947698095813,
+          "summary": {
+            "fingerprint": "43037fa0ec60914200891e4a227d637cc62da6ca3e06ee33c365b586d077b7da",
+            "label_fingerprints": {
+              "bell": "b2156e3ff9b4e5f325fa6d26469dbf00725f61fed359fe8b95cb7bee50a08cb0",
+              "knock": "c552a78bf2f90434f3d288fe61108f67dcf6c0f21e2a61af59726c0a5a570ac9",
+              "whistle": "b1e248aa99e70d618cda9a63507674c2ecd7b60360b814e22443da0d50f7f0c4"
+            },
+            "labels": [
+              {
+                "action": "wake",
+                "examples": 3,
+                "name": "bell"
+              },
+              {
+                "action": "timer",
+                "examples": 3,
+                "name": "knock"
+              },
+              {
+                "action": "sleep",
+                "examples": 3,
+                "name": "whistle"
+              }
+            ],
+            "learning": {
+              "accuracy": 1.0,
+              "actual_spikes": 3158,
+              "changed_input_parameters": 1344,
+              "changed_readout_parameters": 183,
+              "class_count": 3,
+              "epochs": 100,
+              "examples": 9,
+              "loss": 8.095268276520073e-05,
+              "matcher_train_seconds": 0.001534523966256529,
+              "model_hash": "50de1d24e3ca6f07a32dfe75568412cddaa236663433845c2ada01a9ed720341",
+              "spikes": 3158,
+              "teach_events": 9,
+              "train_seconds": 1.5987607309943996,
+              "trained": true,
+              "updates": 900
+            },
+            "probe_count": 36,
+            "revision": 9,
+            "total_examples": 9
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {
+            "chime": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 12,
+              "snn_false_accepts": 0
+            }
+          }
+        },
+        {
+          "controls": {
+            "far_tone_high": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "chime",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "far_tone_low": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "chime",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "noise": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "chime",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "silence": {
+              "matcher_false_accept": false,
+              "matcher_reason": "quiet",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": false,
+              "raw_neural_recognized": null,
+              "snn_false_accept": false,
+              "snn_reason": "quiet",
+              "snn_recognized": null
+            }
+          },
+          "example_fingerprint_after_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "example_fingerprint_before_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "examples_by_label": {
+            "bell": 3,
+            "chime": 3,
+            "knock": 3,
+            "whistle": 3
+          },
+          "examples_unchanged_during_probes": true,
+          "id": "four_labels",
+          "matcher": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.04389192588860169,
+          "model_hash_after_probes": "c0b8faa3deb60252b85deb2bb95d67c8a13a6f6bba9945ba1a392257f82ff633",
+          "model_hash_before_probes": "c0b8faa3deb60252b85deb2bb95d67c8a13a6f6bba9945ba1a392257f82ff633",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.5852134344168007,
+          "per_class": {
+            "bell": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "chime": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "knock": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "whistle": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            }
+          },
+          "queries": 48,
+          "raw_neural": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.11127577559091151,
+          "summary": {
+            "fingerprint": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+            "label_fingerprints": {
+              "bell": "b2156e3ff9b4e5f325fa6d26469dbf00725f61fed359fe8b95cb7bee50a08cb0",
+              "chime": "ec63b4c10ded2973d0a4d621b5909e01e67799ee1827f27b713ceddb8bae7a00",
+              "knock": "c552a78bf2f90434f3d288fe61108f67dcf6c0f21e2a61af59726c0a5a570ac9",
+              "whistle": "b1e248aa99e70d618cda9a63507674c2ecd7b60360b814e22443da0d50f7f0c4"
+            },
+            "labels": [
+              {
+                "action": "wake",
+                "examples": 3,
+                "name": "bell"
+              },
+              {
+                "action": "dance",
+                "examples": 3,
+                "name": "chime"
+              },
+              {
+                "action": "timer",
+                "examples": 3,
+                "name": "knock"
+              },
+              {
+                "action": "sleep",
+                "examples": 3,
+                "name": "whistle"
+              }
+            ],
+            "learning": {
+              "accuracy": 1.0,
+              "actual_spikes": 4235,
+              "changed_input_parameters": 1344,
+              "changed_readout_parameters": 252,
+              "class_count": 4,
+              "epochs": 100,
+              "examples": 12,
+              "loss": 9.49812019825913e-05,
+              "matcher_train_seconds": 0.0026372529100626707,
+              "model_hash": "c0b8faa3deb60252b85deb2bb95d67c8a13a6f6bba9945ba1a392257f82ff633",
+              "spikes": 4235,
+              "teach_events": 12,
+              "train_seconds": 2.1455800309195183,
+              "trained": true,
+              "updates": 1200
+            },
+            "probe_count": 84,
+            "revision": 12,
+            "total_examples": 12
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 48,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {}
+        },
+        {
+          "controls": {
+            "far_tone_high": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "chime",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "far_tone_low": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "chime",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "noise": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "chime",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "silence": {
+              "matcher_false_accept": false,
+              "matcher_reason": "quiet",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": false,
+              "raw_neural_recognized": null,
+              "snn_false_accept": false,
+              "snn_reason": "quiet",
+              "snn_recognized": null
+            }
+          },
+          "example_fingerprint_after_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "example_fingerprint_before_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "examples_by_label": {
+            "bell": 3,
+            "chime": 3,
+            "knock": 3,
+            "whistle": 3
+          },
+          "examples_unchanged_during_probes": true,
+          "id": "after_reload",
+          "matcher": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.043877314892597497,
+          "model_hash_after_probes": "c0b8faa3deb60252b85deb2bb95d67c8a13a6f6bba9945ba1a392257f82ff633",
+          "model_hash_before_probes": "c0b8faa3deb60252b85deb2bb95d67c8a13a6f6bba9945ba1a392257f82ff633",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.5868022558861412,
+          "per_class": {
+            "bell": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "chime": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "knock": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "whistle": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            }
+          },
+          "queries": 48,
+          "raw_neural": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.10894320660736412,
+          "summary": {
+            "fingerprint": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+            "label_fingerprints": {
+              "bell": "b2156e3ff9b4e5f325fa6d26469dbf00725f61fed359fe8b95cb7bee50a08cb0",
+              "chime": "ec63b4c10ded2973d0a4d621b5909e01e67799ee1827f27b713ceddb8bae7a00",
+              "knock": "c552a78bf2f90434f3d288fe61108f67dcf6c0f21e2a61af59726c0a5a570ac9",
+              "whistle": "b1e248aa99e70d618cda9a63507674c2ecd7b60360b814e22443da0d50f7f0c4"
+            },
+            "labels": [
+              {
+                "action": "wake",
+                "examples": 3,
+                "name": "bell"
+              },
+              {
+                "action": "dance",
+                "examples": 3,
+                "name": "chime"
+              },
+              {
+                "action": "timer",
+                "examples": 3,
+                "name": "knock"
+              },
+              {
+                "action": "sleep",
+                "examples": 3,
+                "name": "whistle"
+              }
+            ],
+            "learning": {
+              "accuracy": 1.0,
+              "actual_spikes": 4235,
+              "changed_input_parameters": 1344,
+              "changed_readout_parameters": 252,
+              "class_count": 4,
+              "epochs": 100,
+              "examples": 12,
+              "loss": 9.49812019825913e-05,
+              "matcher_train_seconds": 0.0026372529100626707,
+              "model_hash": "c0b8faa3deb60252b85deb2bb95d67c8a13a6f6bba9945ba1a392257f82ff633",
+              "spikes": 4235,
+              "teach_events": 12,
+              "train_seconds": 2.1455800309195183,
+              "trained": true,
+              "updates": 1200
+            },
+            "probe_count": 132,
+            "revision": 12,
+            "total_examples": 12
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 48,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {}
+        }
+      ],
+      "teaching": {
+        "examples_by_label": {
+          "bell": 3,
+          "chime": 3,
+          "knock": 3,
+          "whistle": 3
+        },
+        "matcher_and_persistence_wall_seconds": 0.1449147621751763,
+        "snn_replay_fit_wall_seconds": 2.1455800309195183,
+        "wall_seconds": 2.2904947930946946
+      },
+      "total_training_examples": 12
+    },
+    "2": {
+      "final_learning_metrics": {
+        "accuracy": 1.0,
+        "actual_spikes": 4472,
+        "changed_input_parameters": 1344,
+        "changed_readout_parameters": 256,
+        "class_count": 4,
+        "epochs": 100,
+        "examples": 12,
+        "loss": 8.372987940674648e-05,
+        "matcher_train_seconds": 0.0028217490762472153,
+        "model_hash": "57c3e6604500a051243a67c6bc828b3fa0ce6acd1a10d80ffc289e992d2ae323",
+        "spikes": 4472,
+        "teach_events": 12,
+        "train_seconds": 2.20314431207953,
+        "trained": true,
+        "updates": 1200
+      },
+      "forgetting_delta": {
+        "bell": {
+          "matcher": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          },
+          "snn": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          }
+        },
+        "knock": {
+          "matcher": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          },
+          "snn": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          }
+        },
+        "whistle": {
+          "matcher": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          },
+          "snn": {
+            "accuracy_delta": 0.0,
+            "correct_count_delta": 0
+          }
+        }
+      },
+      "model_seed": 2,
+      "old_label_retention": {
+        "bell": true,
+        "knock": true,
+        "whistle": true
+      },
+      "parameter_change_evidence": {
+        "model_hash_after_reload": "57c3e6604500a051243a67c6bc828b3fa0ce6acd1a10d80ffc289e992d2ae323",
+        "reported_learning_metrics": {
+          "accuracy": 1.0,
+          "actual_spikes": 4472,
+          "changed_input_parameters": 1344,
+          "changed_readout_parameters": 256,
+          "class_count": 4,
+          "epochs": 100,
+          "examples": 12,
+          "loss": 8.372987940674648e-05,
+          "matcher_train_seconds": 0.0028217490762472153,
+          "model_hash": "57c3e6604500a051243a67c6bc828b3fa0ce6acd1a10d80ffc289e992d2ae323",
+          "spikes": 4472,
+          "teach_events": 12,
+          "train_seconds": 2.20314431207953,
+          "trained": true,
+          "updates": 1200
+        }
+      },
+      "reload_hashes": {
+        "example_hash_matches": true,
+        "examples_after": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+        "examples_before": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+        "model_after": "57c3e6604500a051243a67c6bc828b3fa0ce6acd1a10d80ffc289e992d2ae323",
+        "model_before": "57c3e6604500a051243a67c6bc828b3fa0ce6acd1a10d80ffc289e992d2ae323",
+        "model_hash_matches": true
+      },
+      "reload_label_retention": {
+        "bell": true,
+        "chime": true,
+        "knock": true,
+        "whistle": true
+      },
+      "reload_results_match": {
+        "bell": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        },
+        "chime": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        },
+        "controls": true,
+        "knock": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        },
+        "whistle": {
+          "matcher": true,
+          "raw_neural": true,
+          "snn": true,
+          "support_guard_effect": true
+        }
+      },
+      "stages": [
+        {
+          "controls": {},
+          "example_fingerprint_after_probes": "80fe33d67f23acbe69fa0adcd48c8ea3940f1f7b57849d5a861b46de4172c8be",
+          "example_fingerprint_before_probes": "80fe33d67f23acbe69fa0adcd48c8ea3940f1f7b57849d5a861b46de4172c8be",
+          "examples_by_label": {},
+          "examples_unchanged_during_probes": true,
+          "id": "initial_unknown",
+          "matcher": {
+            "correct": 0,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.001077963737770915,
+          "model_hash_after_probes": "36678fd72d4129626f8820edf867b89bfa607af1ac793b7eb626e56b4f0d5e57",
+          "model_hash_before_probes": "36678fd72d4129626f8820edf867b89bfa607af1ac793b7eb626e56b4f0d5e57",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.0,
+          "per_class": {},
+          "queries": 0,
+          "raw_neural": {
+            "correct": 0,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 0,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.0012541330070234835,
+          "summary": {
+            "fingerprint": "80fe33d67f23acbe69fa0adcd48c8ea3940f1f7b57849d5a861b46de4172c8be",
+            "label_fingerprints": {},
+            "labels": [],
+            "learning": {
+              "accuracy": null,
+              "actual_spikes": 0,
+              "changed_input_parameters": 0,
+              "changed_readout_parameters": 0,
+              "class_count": 0,
+              "epochs": 0,
+              "examples": 0,
+              "initialized_encoder_hash": null,
+              "initialized_readout_hash": null,
+              "loss": null,
+              "matcher_train_seconds": 0.0,
+              "model_hash": "36678fd72d4129626f8820edf867b89bfa607af1ac793b7eb626e56b4f0d5e57",
+              "spikes": 0,
+              "teach_events": 0,
+              "train_seconds": 0.0,
+              "trained": false,
+              "updates": 0
+            },
+            "probe_count": 0,
+            "revision": 0,
+            "total_examples": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 0,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {
+            "bell": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            },
+            "chime": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            },
+            "knock": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            },
+            "whistle": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 0,
+              "snn_false_accepts": 0
+            }
+          }
+        },
+        {
+          "controls": {},
+          "example_fingerprint_after_probes": "43037fa0ec60914200891e4a227d637cc62da6ca3e06ee33c365b586d077b7da",
+          "example_fingerprint_before_probes": "43037fa0ec60914200891e4a227d637cc62da6ca3e06ee33c365b586d077b7da",
+          "examples_by_label": {
+            "bell": 3,
+            "knock": 3,
+            "whistle": 3
+          },
+          "examples_unchanged_during_probes": true,
+          "id": "three_labels",
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.03259972675004974,
+          "model_hash_after_probes": "833b67e95cbb2548f265e35869aef1040c4cf9816ae7edba54436326e55d324b",
+          "model_hash_before_probes": "833b67e95cbb2548f265e35869aef1040c4cf9816ae7edba54436326e55d324b",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.3702165700378828,
+          "per_class": {
+            "bell": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "knock": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "whistle": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            }
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.08452255098382011,
+          "summary": {
+            "fingerprint": "43037fa0ec60914200891e4a227d637cc62da6ca3e06ee33c365b586d077b7da",
+            "label_fingerprints": {
+              "bell": "b2156e3ff9b4e5f325fa6d26469dbf00725f61fed359fe8b95cb7bee50a08cb0",
+              "knock": "c552a78bf2f90434f3d288fe61108f67dcf6c0f21e2a61af59726c0a5a570ac9",
+              "whistle": "b1e248aa99e70d618cda9a63507674c2ecd7b60360b814e22443da0d50f7f0c4"
+            },
+            "labels": [
+              {
+                "action": "wake",
+                "examples": 3,
+                "name": "bell"
+              },
+              {
+                "action": "timer",
+                "examples": 3,
+                "name": "knock"
+              },
+              {
+                "action": "sleep",
+                "examples": 3,
+                "name": "whistle"
+              }
+            ],
+            "learning": {
+              "accuracy": 1.0,
+              "actual_spikes": 3475,
+              "changed_input_parameters": 1344,
+              "changed_readout_parameters": 189,
+              "class_count": 3,
+              "epochs": 100,
+              "examples": 9,
+              "loss": 5.072848580311984e-05,
+              "matcher_train_seconds": 0.0016748670605011284,
+              "model_hash": "833b67e95cbb2548f265e35869aef1040c4cf9816ae7edba54436326e55d324b",
+              "spikes": 3475,
+              "teach_events": 9,
+              "train_seconds": 1.6444755520205945,
+              "trained": true,
+              "updates": 900
+            },
+            "probe_count": 36,
+            "revision": 9,
+            "total_examples": 9
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {
+            "chime": {
+              "matcher_false_accepts": 0,
+              "queries": 12,
+              "raw_neural_false_accepts": 12,
+              "snn_false_accepts": 0
+            }
+          }
+        },
+        {
+          "controls": {
+            "far_tone_high": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "knock",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "far_tone_low": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "knock",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "noise": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "whistle",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "silence": {
+              "matcher_false_accept": false,
+              "matcher_reason": "quiet",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": false,
+              "raw_neural_recognized": null,
+              "snn_false_accept": false,
+              "snn_reason": "quiet",
+              "snn_recognized": null
+            }
+          },
+          "example_fingerprint_after_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "example_fingerprint_before_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "examples_by_label": {
+            "bell": 3,
+            "chime": 3,
+            "knock": 3,
+            "whistle": 3
+          },
+          "examples_unchanged_during_probes": true,
+          "id": "four_labels",
+          "matcher": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.041705513023771346,
+          "model_hash_after_probes": "57c3e6604500a051243a67c6bc828b3fa0ce6acd1a10d80ffc289e992d2ae323",
+          "model_hash_before_probes": "57c3e6604500a051243a67c6bc828b3fa0ce6acd1a10d80ffc289e992d2ae323",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.5605973642668687,
+          "per_class": {
+            "bell": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "chime": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "knock": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "whistle": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            }
+          },
+          "queries": 48,
+          "raw_neural": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.10595139092765749,
+          "summary": {
+            "fingerprint": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+            "label_fingerprints": {
+              "bell": "b2156e3ff9b4e5f325fa6d26469dbf00725f61fed359fe8b95cb7bee50a08cb0",
+              "chime": "ec63b4c10ded2973d0a4d621b5909e01e67799ee1827f27b713ceddb8bae7a00",
+              "knock": "c552a78bf2f90434f3d288fe61108f67dcf6c0f21e2a61af59726c0a5a570ac9",
+              "whistle": "b1e248aa99e70d618cda9a63507674c2ecd7b60360b814e22443da0d50f7f0c4"
+            },
+            "labels": [
+              {
+                "action": "wake",
+                "examples": 3,
+                "name": "bell"
+              },
+              {
+                "action": "dance",
+                "examples": 3,
+                "name": "chime"
+              },
+              {
+                "action": "timer",
+                "examples": 3,
+                "name": "knock"
+              },
+              {
+                "action": "sleep",
+                "examples": 3,
+                "name": "whistle"
+              }
+            ],
+            "learning": {
+              "accuracy": 1.0,
+              "actual_spikes": 4472,
+              "changed_input_parameters": 1344,
+              "changed_readout_parameters": 256,
+              "class_count": 4,
+              "epochs": 100,
+              "examples": 12,
+              "loss": 8.372987940674648e-05,
+              "matcher_train_seconds": 0.0028217490762472153,
+              "model_hash": "57c3e6604500a051243a67c6bc828b3fa0ce6acd1a10d80ffc289e992d2ae323",
+              "spikes": 4472,
+              "teach_events": 12,
+              "train_seconds": 2.20314431207953,
+              "trained": true,
+              "updates": 1200
+            },
+            "probe_count": 84,
+            "revision": 12,
+            "total_examples": 12
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 48,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {}
+        },
+        {
+          "controls": {
+            "far_tone_high": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "knock",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "far_tone_low": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "knock",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "noise": {
+              "matcher_false_accept": false,
+              "matcher_reason": "too_different",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": true,
+              "raw_neural_recognized": "whistle",
+              "snn_false_accept": false,
+              "snn_reason": "too_different",
+              "snn_recognized": null
+            },
+            "silence": {
+              "matcher_false_accept": false,
+              "matcher_reason": "quiet",
+              "matcher_recognized": null,
+              "raw_neural_false_accept": false,
+              "raw_neural_recognized": null,
+              "snn_false_accept": false,
+              "snn_reason": "quiet",
+              "snn_recognized": null
+            }
+          },
+          "example_fingerprint_after_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "example_fingerprint_before_probes": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+          "examples_by_label": {
+            "bell": 3,
+            "chime": 3,
+            "knock": 3,
+            "whistle": 3
+          },
+          "examples_unchanged_during_probes": true,
+          "id": "after_reload",
+          "matcher": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "matcher_inference_wall_seconds": 0.04248944733990356,
+          "model_hash_after_probes": "57c3e6604500a051243a67c6bc828b3fa0ce6acd1a10d80ffc289e992d2ae323",
+          "model_hash_before_probes": "57c3e6604500a051243a67c6bc828b3fa0ce6acd1a10d80ffc289e992d2ae323",
+          "model_unchanged_during_probes": true,
+          "paired_record_wall_seconds": 0.5647692852071486,
+          "per_class": {
+            "bell": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "chime": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "knock": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            },
+            "whistle": {
+              "matcher": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "queries": 12,
+              "raw_neural": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "snn": {
+                "correct": 12,
+                "rejected": 0,
+                "wrong": 0
+              },
+              "support_guard_effect": {
+                "guard_accepted_raw_correct": 12,
+                "guard_accepted_raw_unclassified": 0,
+                "guard_accepted_raw_wrong": 0,
+                "guard_rejected_raw_correct": 0,
+                "guard_rejected_raw_unclassified": 0,
+                "guard_rejected_raw_wrong": 0
+              }
+            }
+          },
+          "queries": 48,
+          "raw_neural": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 48,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn_inference_wall_seconds": 0.10818129708059132,
+          "summary": {
+            "fingerprint": "c8273751d2e7206adf47020a821f05fabdf88fc67a71f71d970a1759a7fba21c",
+            "label_fingerprints": {
+              "bell": "b2156e3ff9b4e5f325fa6d26469dbf00725f61fed359fe8b95cb7bee50a08cb0",
+              "chime": "ec63b4c10ded2973d0a4d621b5909e01e67799ee1827f27b713ceddb8bae7a00",
+              "knock": "c552a78bf2f90434f3d288fe61108f67dcf6c0f21e2a61af59726c0a5a570ac9",
+              "whistle": "b1e248aa99e70d618cda9a63507674c2ecd7b60360b814e22443da0d50f7f0c4"
+            },
+            "labels": [
+              {
+                "action": "wake",
+                "examples": 3,
+                "name": "bell"
+              },
+              {
+                "action": "dance",
+                "examples": 3,
+                "name": "chime"
+              },
+              {
+                "action": "timer",
+                "examples": 3,
+                "name": "knock"
+              },
+              {
+                "action": "sleep",
+                "examples": 3,
+                "name": "whistle"
+              }
+            ],
+            "learning": {
+              "accuracy": 1.0,
+              "actual_spikes": 4472,
+              "changed_input_parameters": 1344,
+              "changed_readout_parameters": 256,
+              "class_count": 4,
+              "epochs": 100,
+              "examples": 12,
+              "loss": 8.372987940674648e-05,
+              "matcher_train_seconds": 0.0028217490762472153,
+              "model_hash": "57c3e6604500a051243a67c6bc828b3fa0ce6acd1a10d80ffc289e992d2ae323",
+              "spikes": 4472,
+              "teach_events": 12,
+              "train_seconds": 2.20314431207953,
+              "trained": true,
+              "updates": 1200
+            },
+            "probe_count": 132,
+            "revision": 12,
+            "total_examples": 12
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 48,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          },
+          "unknown_family_controls": {}
+        }
+      ],
+      "teaching": {
+        "examples_by_label": {
+          "bell": 3,
+          "chime": 3,
+          "knock": 3,
+          "whistle": 3
+        },
+        "matcher_and_persistence_wall_seconds": 0.1457716699806042,
+        "snn_replay_fit_wall_seconds": 2.20314431207953,
+        "wall_seconds": 2.3489159820601344
+      },
+      "total_training_examples": 12
+    }
+  },
+  "pooled_stages": [
+    {
+      "controls": {},
+      "id": "initial_unknown",
+      "matcher": {
+        "correct": 0,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "matcher_inference_wall_seconds": 0.003213121963199228,
+      "model_runs": 3,
+      "paired_record_wall_seconds": 0.0,
+      "per_class": {},
+      "queries": 0,
+      "raw_neural": {
+        "correct": 0,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "snn": {
+        "correct": 0,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "snn_inference_wall_seconds": 0.0037341209244914353,
+      "support_guard_effect": {
+        "guard_accepted_raw_correct": 0,
+        "guard_accepted_raw_unclassified": 0,
+        "guard_accepted_raw_wrong": 0,
+        "guard_rejected_raw_correct": 0,
+        "guard_rejected_raw_unclassified": 0,
+        "guard_rejected_raw_wrong": 0
+      },
+      "unknown_family_controls": {
+        "bell": {
+          "matcher_false_accepts": 0,
+          "queries": 36,
+          "raw_neural_false_accepts": 0,
+          "snn_false_accepts": 0
+        },
+        "chime": {
+          "matcher_false_accepts": 0,
+          "queries": 36,
+          "raw_neural_false_accepts": 0,
+          "snn_false_accepts": 0
+        },
+        "knock": {
+          "matcher_false_accepts": 0,
+          "queries": 36,
+          "raw_neural_false_accepts": 0,
+          "snn_false_accepts": 0
+        },
+        "whistle": {
+          "matcher_false_accepts": 0,
+          "queries": 36,
+          "raw_neural_false_accepts": 0,
+          "snn_false_accepts": 0
+        }
+      }
+    },
+    {
+      "controls": {},
+      "id": "three_labels",
+      "matcher": {
+        "correct": 108,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "matcher_inference_wall_seconds": 0.09832384786568582,
+      "model_runs": 3,
+      "paired_record_wall_seconds": 1.1161155139561743,
+      "per_class": {
+        "bell": {
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          }
+        },
+        "knock": {
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          }
+        },
+        "whistle": {
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          }
+        }
+      },
+      "queries": 108,
+      "raw_neural": {
+        "correct": 108,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "snn": {
+        "correct": 108,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "snn_inference_wall_seconds": 0.25037255499046296,
+      "support_guard_effect": {
+        "guard_accepted_raw_correct": 108,
+        "guard_accepted_raw_unclassified": 0,
+        "guard_accepted_raw_wrong": 0,
+        "guard_rejected_raw_correct": 0,
+        "guard_rejected_raw_unclassified": 0,
+        "guard_rejected_raw_wrong": 0
+      },
+      "unknown_family_controls": {
+        "chime": {
+          "matcher_false_accepts": 0,
+          "queries": 36,
+          "raw_neural_false_accepts": 36,
+          "snn_false_accepts": 0
+        }
+      }
+    },
+    {
+      "controls": {
+        "far_tone_high": {
+          "matcher_false_accepts": 0,
+          "queries": 3,
+          "raw_neural_false_accepts": 3,
+          "snn_false_accepts": 0
+        },
+        "far_tone_low": {
+          "matcher_false_accepts": 0,
+          "queries": 3,
+          "raw_neural_false_accepts": 3,
+          "snn_false_accepts": 0
+        },
+        "noise": {
+          "matcher_false_accepts": 0,
+          "queries": 3,
+          "raw_neural_false_accepts": 3,
+          "snn_false_accepts": 0
+        },
+        "silence": {
+          "matcher_false_accepts": 0,
+          "queries": 3,
+          "raw_neural_false_accepts": 0,
+          "snn_false_accepts": 0
+        }
+      },
+      "id": "four_labels",
+      "matcher": {
+        "correct": 144,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "matcher_inference_wall_seconds": 0.1270156247774139,
+      "model_runs": 3,
+      "paired_record_wall_seconds": 1.7057948469300754,
+      "per_class": {
+        "bell": {
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          }
+        },
+        "chime": {
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          }
+        },
+        "knock": {
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          }
+        },
+        "whistle": {
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          }
+        }
+      },
+      "queries": 144,
+      "raw_neural": {
+        "correct": 144,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "snn": {
+        "correct": 144,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "snn_inference_wall_seconds": 0.323445450339932,
+      "support_guard_effect": {
+        "guard_accepted_raw_correct": 144,
+        "guard_accepted_raw_unclassified": 0,
+        "guard_accepted_raw_wrong": 0,
+        "guard_rejected_raw_correct": 0,
+        "guard_rejected_raw_unclassified": 0,
+        "guard_rejected_raw_wrong": 0
+      },
+      "unknown_family_controls": {}
+    },
+    {
+      "controls": {
+        "far_tone_high": {
+          "matcher_false_accepts": 0,
+          "queries": 3,
+          "raw_neural_false_accepts": 3,
+          "snn_false_accepts": 0
+        },
+        "far_tone_low": {
+          "matcher_false_accepts": 0,
+          "queries": 3,
+          "raw_neural_false_accepts": 3,
+          "snn_false_accepts": 0
+        },
+        "noise": {
+          "matcher_false_accepts": 0,
+          "queries": 3,
+          "raw_neural_false_accepts": 3,
+          "snn_false_accepts": 0
+        },
+        "silence": {
+          "matcher_false_accepts": 0,
+          "queries": 3,
+          "raw_neural_false_accepts": 0,
+          "snn_false_accepts": 0
+        }
+      },
+      "id": "after_reload",
+      "matcher": {
+        "correct": 144,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "matcher_inference_wall_seconds": 0.12907971523236483,
+      "model_runs": 3,
+      "paired_record_wall_seconds": 1.7187349123414606,
+      "per_class": {
+        "bell": {
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          }
+        },
+        "chime": {
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          }
+        },
+        "knock": {
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          }
+        },
+        "whistle": {
+          "matcher": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "queries": 36,
+          "raw_neural": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "snn": {
+            "correct": 36,
+            "rejected": 0,
+            "wrong": 0
+          },
+          "support_guard_effect": {
+            "guard_accepted_raw_correct": 36,
+            "guard_accepted_raw_unclassified": 0,
+            "guard_accepted_raw_wrong": 0,
+            "guard_rejected_raw_correct": 0,
+            "guard_rejected_raw_unclassified": 0,
+            "guard_rejected_raw_wrong": 0
+          }
+        }
+      },
+      "queries": 144,
+      "raw_neural": {
+        "correct": 144,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "snn": {
+        "correct": 144,
+        "rejected": 0,
+        "wrong": 0
+      },
+      "snn_inference_wall_seconds": 0.32424447883386165,
+      "support_guard_effect": {
+        "guard_accepted_raw_correct": 144,
+        "guard_accepted_raw_unclassified": 0,
+        "guard_accepted_raw_wrong": 0,
+        "guard_rejected_raw_correct": 0,
+        "guard_rejected_raw_unclassified": 0,
+        "guard_rejected_raw_wrong": 0
+      },
+      "unknown_family_controls": {}
+    }
+  ],
+  "protocol_name": "desktop-creature-sound-backend-comparison-v1",
+  "protocol_sha256": "1f0be06f30f3010b1cd75d10fab4c8c676ab137c56f1e2dd046cfe4111839b83",
+  "queries_per_seed": 48,
+  "total_matcher_and_persistence_wall_seconds_all_seeds": 0.4394961951766163,
+  "total_snn_replay_fit_wall_seconds_all_seeds": 6.911742824071553,
+  "total_teaching_wall_seconds_all_seeds": 7.351239019248169,
+  "total_training_examples_per_seed": 12
+}

@@ -1,0 +1,32 @@
+{
+  "inference_queries": 144,
+  "inference_stage": "four_labels",
+  "matcher_ms_per_query": 0.8820529498431521,
+  "snn_ms_per_query": 2.246148960693972,
+  "stages": [
+    {
+      "id": "three_labels",
+      "matcher_correct": 108,
+      "matcher_percent": 100.0,
+      "queries": 108,
+      "snn_correct": 108,
+      "snn_percent": 100.0
+    },
+    {
+      "id": "four_labels",
+      "matcher_correct": 144,
+      "matcher_percent": 100.0,
+      "queries": 144,
+      "snn_correct": 144,
+      "snn_percent": 100.0
+    },
+    {
+      "id": "after_reload",
+      "matcher_correct": 144,
+      "matcher_percent": 100.0,
+      "queries": 144,
+      "snn_correct": 144,
+      "snn_percent": 100.0
+    }
+  ]
+}

@@ -36,8 +36,11 @@ LABEL_ORDER = ("bell", "knock", "whistle", "chime")
 
 def canonical_json(value: Any) -> bytes:
     """Encode JSON data deterministically for the frozen protocol digest."""
-    return json.dumps(value, sort_keys=True, separators=(",", ":"),
-                      ensure_ascii=True, allow_nan=False).encode("ascii")
+    encoded = json.dumps(
+        value, sort_keys=True, separators=(",", ":"),
+        ensure_ascii=True, allow_nan=False,
+    )
+    return encoded.encode("ascii")
 
 
 def protocol_digest(protocol: dict[str, Any]) -> str:
@@ -63,7 +66,8 @@ def load_protocol(path: Path = DEFAULT_PROTOCOL) -> dict[str, Any]:
 
 def validate_protocol(protocol: dict[str, Any]) -> None:
     """Reject changed labels, schedules, seed overlap, or stage counts."""
-    if protocol.get("name") != "desktop-creature-sound-backend-comparison-v1":
+    expected_name = "desktop-creature-sound-backend-comparison-v1"
+    if protocol.get("name") != expected_name:
         raise ValueError("unexpected protocol name")
     if protocol.get("schema_version") != 1:
         raise ValueError("unsupported protocol schema")
@@ -95,7 +99,8 @@ def validate_protocol(protocol: dict[str, Any]) -> None:
     if not isinstance(stages, list) or len(stages) != len(expected_stages):
         raise ValueError("protocol stage count differs")
     for stage, (stage_id, expected_labels) in zip(stages, expected_stages):
-        if stage.get("id") != stage_id or stage.get("labels") != expected_labels:
+        if (stage.get("id") != stage_id
+                or stage.get("labels") != expected_labels):
             raise ValueError("protocol stage sequence differs")
     if stages[-1].get("reload") is not True:
         raise ValueError("last protocol stage must reload persistent memory")
@@ -209,9 +214,21 @@ def _count_result(
 
 
 def _new_stage_counts() -> dict[str, Any]:
+    guard_outcomes = (
+        "guard_rejected_raw_correct",
+        "guard_rejected_raw_wrong",
+        "guard_rejected_raw_unclassified",
+        "guard_accepted_raw_correct",
+        "guard_accepted_raw_wrong",
+        "guard_accepted_raw_unclassified",
+    )
     return {
         "snn": {key: 0 for key in ("correct", "wrong", "rejected")},
+        "raw_neural": {
+            key: 0 for key in ("correct", "wrong", "rejected")
+        },
         "matcher": {key: 0 for key in ("correct", "wrong", "rejected")},
+        "support_guard_effect": {key: 0 for key in guard_outcomes},
         "per_class": {},
         "queries": 0,
         "snn_inference_wall_seconds": 0.0,
@@ -243,16 +260,41 @@ def _record_known_probes(
             time.perf_counter() - record_started
         )
         snn_label = snn_result.get("label")
+        neural_label = snn_result.get("neural_label")
         baseline_label = baseline_result.get("label")
         class_counts = stage["per_class"].setdefault(case["family"], {
             "snn": {key: 0 for key in ("correct", "wrong", "rejected")},
+            "raw_neural": {
+                key: 0 for key in ("correct", "wrong", "rejected")
+            },
             "matcher": {key: 0 for key in ("correct", "wrong", "rejected")},
+            "support_guard_effect": {
+                key: 0 for key in stage["support_guard_effect"]
+            },
             "queries": 0,
         })
         _count_result(stage["snn"], case["expected"], snn_label)
+        _count_result(stage["raw_neural"], case["expected"], neural_label)
         _count_result(stage["matcher"], case["expected"], baseline_label)
         _count_result(class_counts["snn"], case["expected"], snn_label)
-        _count_result(class_counts["matcher"], case["expected"], baseline_label)
+        _count_result(
+            class_counts["raw_neural"], case["expected"], neural_label
+        )
+        _count_result(
+            class_counts["matcher"], case["expected"], baseline_label
+        )
+        if neural_label is None:
+            raw_result = "unclassified"
+        elif neural_label == case["expected"]:
+            raw_result = "correct"
+        else:
+            raw_result = "wrong"
+        guard_outcome = (
+            "guard_rejected_raw_" if snn_label is None
+            else "guard_accepted_raw_"
+        ) + raw_result
+        stage["support_guard_effect"][guard_outcome] += 1
+        class_counts["support_guard_effect"][guard_outcome] += 1
         stage["queries"] += 1
         class_counts["queries"] += 1
 
@@ -276,6 +318,10 @@ def _recognize_unknown(
     stage["controls"][name] = {
         "snn_false_accept": snn_result.get("label") is not None,
         "snn_recognized": snn_result.get("label"),
+        "raw_neural_false_accept": (
+            snn_result.get("neural_label") is not None
+        ),
+        "raw_neural_recognized": snn_result.get("neural_label"),
         "snn_reason": snn_result.get("reason"),
         "matcher_false_accept": baseline_result.get("label") is not None,
         "matcher_recognized": baseline_result.get("label"),
@@ -305,7 +351,7 @@ def _safe_summary(summary: dict[str, Any]) -> dict[str, Any]:
 
 
 def _aggregate_metrics(value: Any) -> Any:
-    """Keep numeric aggregate metrics and discard strings, paths, and arrays."""
+    """Keep numeric metrics; discard strings, paths, and arrays."""
     if isinstance(value, bool) or value is None:
         return value
     if isinstance(value, (int, float)):
@@ -345,11 +391,15 @@ def _record_unknown_family(
     item = stage["unknown_family_controls"].setdefault(case["family"], {
         "queries": 0,
         "snn_false_accepts": 0,
+        "raw_neural_false_accepts": 0,
         "matcher_false_accepts": 0,
     })
     result = stage["controls"].pop(f"family_{case['family']}")
     item["queries"] += 1
     item["snn_false_accepts"] += int(result["snn_false_accept"])
+    item["raw_neural_false_accepts"] += int(
+        result["raw_neural_false_accept"]
+    )
     item["matcher_false_accepts"] += int(result["matcher_false_accept"])
 
 
@@ -526,15 +576,21 @@ def _run_seed_comparison(
     return _sanitize(report)
 
 
-def _stage_results_match(first: dict[str, Any], second: dict[str, Any]) -> dict[str, Any]:
+def _stage_results_match(
+    first: dict[str, Any], second: dict[str, Any]
+) -> dict[str, Any]:
     """Compare saved and reloaded outcomes by class and backend."""
     result: dict[str, Any] = {}
     for label in LABEL_ORDER:
         result[label] = {
             backend: first["per_class"][label][backend]
             == second["per_class"][label][backend]
-            for backend in ("snn", "matcher")
+            for backend in ("snn", "raw_neural", "matcher")
         }
+        result[label]["support_guard_effect"] = (
+            first["per_class"][label]["support_guard_effect"]
+            == second["per_class"][label]["support_guard_effect"]
+        )
     result["controls"] = first["controls"] == second["controls"]
     return result
 
@@ -543,7 +599,8 @@ def _pool_stage_results(
     per_seed: dict[str, dict[str, Any]],
 ) -> list[dict[str, Any]]:
     """Sum count and timing fields while preserving per-class outcomes."""
-    stage_ids = [stage["id"] for stage in next(iter(per_seed.values()))["stages"]]
+    first_run = next(iter(per_seed.values()))
+    stage_ids = [stage["id"] for stage in first_run["stages"]]
     pooled: list[dict[str, Any]] = []
     for stage_id in stage_ids:
         stages = [next(stage for stage in run["stages"]
@@ -552,11 +609,15 @@ def _pool_stage_results(
         combined = _new_stage_counts()
         combined["id"] = stage_id
         combined["model_runs"] = len(stages)
-        for backend in ("snn", "matcher"):
+        for backend in ("snn", "raw_neural", "matcher"):
             for outcome in ("correct", "wrong", "rejected"):
                 combined[backend][outcome] = sum(
                     stage[backend][outcome] for stage in stages
                 )
+        for outcome in combined["support_guard_effect"]:
+            combined["support_guard_effect"][outcome] = sum(
+                stage["support_guard_effect"][outcome] for stage in stages
+            )
         for field in ("queries", "snn_inference_wall_seconds",
                       "matcher_inference_wall_seconds",
                       "paired_record_wall_seconds"):
@@ -567,11 +628,18 @@ def _pool_stage_results(
             if not records:
                 continue
             merged = {"queries": sum(item["queries"] for item in records)}
-            for backend in ("snn", "matcher"):
+            for backend in ("snn", "raw_neural", "matcher"):
                 merged[backend] = {
                     outcome: sum(item[backend][outcome] for item in records)
                     for outcome in ("correct", "wrong", "rejected")
                 }
+            merged["support_guard_effect"] = {
+                outcome: sum(
+                    item["support_guard_effect"][outcome]
+                    for item in records
+                )
+                for outcome in combined["support_guard_effect"]
+            }
             combined["per_class"][label] = merged
         unknown_labels = set().union(*(
             set(stage["unknown_family_controls"]) for stage in stages
@@ -584,9 +652,12 @@ def _pool_stage_results(
             combined["unknown_family_controls"][label] = {
                 key: sum(row[key] for row in rows)
                 for key in ("queries", "snn_false_accepts",
+                            "raw_neural_false_accepts",
                             "matcher_false_accepts")
             }
-        control_names = set().union(*(set(stage["controls"]) for stage in stages))
+        control_names = set().union(
+            *(set(stage["controls"]) for stage in stages)
+        )
         combined["controls"] = {}
         for name in control_names:
             rows = [stage["controls"][name] for stage in stages
@@ -597,6 +668,9 @@ def _pool_stage_results(
                 ),
                 "matcher_false_accepts": sum(
                     int(row["matcher_false_accept"]) for row in rows
+                ),
+                "raw_neural_false_accepts": sum(
+                    int(row["raw_neural_false_accept"]) for row in rows
                 ),
                 "queries": len(rows),
             }
@@ -620,14 +694,18 @@ def run_comparison(
     }
     per_seed: dict[str, dict[str, Any]] = {}
     for model_seed in protocol["probes"]["parameter_seeds"]:
-        seed_path = memory_path.parent / f"seed-{model_seed}" / memory_path.name
+        seed_path = (
+            memory_path.parent / f"seed-{model_seed}" / memory_path.name
+        )
         per_seed[str(model_seed)] = _run_seed_comparison(
             protocol, seed_path, model_seed, probe_descriptors, controls
         )
     return _sanitize({
         "protocol_name": protocol["name"],
         "protocol_sha256": EXPECTED_PROTOCOL_SHA256,
-        "notice": "Synthetic feature probes only; no microphone accuracy claim.",
+        "notice": (
+            "Synthetic feature probes only; no microphone accuracy claim."
+        ),
         "model_seeds": protocol["probes"]["parameter_seeds"],
         "queries_per_seed": len(probe_descriptors),
         "per_seed": per_seed,
@@ -666,7 +744,12 @@ def main(argv: list[str] | None = None) -> int:
     protocol = load_protocol(args.protocol)
     if args.private_dir is not None:
         private_dir = args.private_dir.resolve()
-        private_dir.mkdir(parents=True, exist_ok=False)
+        if private_dir == ROOT or ROOT in private_dir.parents:
+            raise ValueError("--private-dir must be outside the repository")
+        private_dir.mkdir(
+            parents=True, exist_ok=False, mode=0o700
+        )
+        private_dir.chmod(0o700)
         report = run_comparison(protocol, private_dir / "memory.json")
     else:
         with tempfile.TemporaryDirectory(prefix="sound-comparison-") as temp:

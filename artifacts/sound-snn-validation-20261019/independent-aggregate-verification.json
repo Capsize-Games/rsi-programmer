@@ -1,0 +1,55 @@
+{
+  "command": [
+    ".venv-desktop/bin/python",
+    "-m",
+    "scripts.check_sound_snn_comparison",
+    "artifacts/sound-snn-validation-20261019/frozen-comparison-v1/sound_comparison_report.json"
+  ],
+  "mutation_checks": [
+    {
+      "mutation": "pooled_accuracy",
+      "reason": "pooled_stages.four_labels.snn.correct: expected 144, got 143",
+      "rejected": true
+    },
+    {
+      "mutation": "known_query_denominator",
+      "reason": "seed_0.three_labels.queries: expected 36, got 35",
+      "rejected": true
+    },
+    {
+      "mutation": "learning_parameter_evidence",
+      "reason": "seed_0.changed_input_parameters_nonzero: expected at least 1",
+      "rejected": true
+    }
+  ],
+  "result": {
+    "known_query_total_all_seeds_across_stages": 396,
+    "known_query_total_per_seed_across_stages": 132,
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "numeric_assertions": 1708,
+    "scope": "Synthetic fixed feature probes only; this validates aggregate report consistency, not microphone accuracy or generalization.",
+    "stage_known_queries_per_seed": {
+      "after_reload": 48,
+      "four_labels": 48,
+      "initial_unknown": 0,
+      "three_labels": 36
+    },
+    "timed_recognitions_per_seed_by_stage": {
+      "after_reload": 52,
+      "four_labels": 52,
+      "initial_unknown": 48,
+      "three_labels": 48
+    },
+    "timing_scope": "SNN and matcher timers cover the same known, unknown-family, and scheduled-control inputs; stage.queries counts known inputs only. SNN time includes its support guard. Paired-record time includes a second recognition and persistence. These are sequential wall-clock totals without repeated timing trials."
+  },
+  "scope": "Independent data-only consistency check; three separately perturbed in-memory reports must reject; frozen report unchanged",
+  "source_files": {
+    "artifacts/sound-snn-validation-20261019/frozen-comparison-v1/sound_comparison_report.json": "10a35d6156feaed8d599ddaeae15d0236cc0d013a4c6cdb896f0a599aa374eae",
+    "scripts/check_sound_snn_comparison.py": "d701e7f10ccc9e92710d93931f8b6508e781bd2855580ca06932e6c5ad8722a8"
+  },
+  "wall_seconds": 0.0048745719832368195
+}

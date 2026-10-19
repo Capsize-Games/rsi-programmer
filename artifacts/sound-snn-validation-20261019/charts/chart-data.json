@@ -1,0 +1,33 @@
+{
+  "inference_queries": 156,
+  "inference_scope": "Known families plus unknown/control clips",
+  "inference_stage": "four_labels",
+  "matcher_ms_per_query": 0.8142027229321405,
+  "snn_ms_per_query": 2.0733682714098203,
+  "stages": [
+    {
+      "id": "three_labels",
+      "matcher_correct": 108,
+      "matcher_percent": 100.0,
+      "queries": 108,
+      "snn_correct": 108,
+      "snn_percent": 100.0
+    },
+    {
+      "id": "four_labels",
+      "matcher_correct": 144,
+      "matcher_percent": 100.0,
+      "queries": 144,
+      "snn_correct": 144,
+      "snn_percent": 100.0
+    },
+    {
+      "id": "after_reload",
+      "matcher_correct": 144,
+      "matcher_percent": 100.0,
+      "queries": 144,
+      "snn_correct": 144,
+      "snn_percent": 100.0
+    }
+  ]
+}
