@@ -7,15 +7,52 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 from rsi_programmer.sound_comparison import SoundComparison
+from rsi_programmer.sound_controller import SoundController
 from rsi_programmer.sound_memory import SoundMemory
 from rsi_programmer.sound_spiking import SoundSpiking
 from tests.test_sound_contract import tone
+from tests.test_sound_controller import tone as pcm_tone
 
 
 class SoundComparisonTests(unittest.TestCase):
+    def test_actual_snn_teaches_tests_and_controls_creature(self) -> None:
+        memory = SoundComparison()
+        memory.teach("high", tone(1760), "sleep")
+        root, view = Mock(), Mock()
+        controller = SoundController(root, memory,
+                                     window_factory=lambda *_args: view)
+        controller.connected = True
+        controller.microphone = Mock()
+        self.addCleanup(controller.close)
+        controller.teach("low", "Wake")
+        controller.handle_event({
+            "kind": "clip", "request_id": controller._next_request,
+            "samples": pcm_tone(440),
+        })
+        controller._learning_thread.join(timeout=5)
+        self.assertFalse(controller._learning_thread.is_alive())
+        controller.poll()
+        before = memory.summary()["learning"]["model_hash"]
+        controller.test("low")
+        controller.handle_event({
+            "kind": "clip", "request_id": controller._next_request,
+            "samples": pcm_tone(452),
+        })
+        result = view.set_test_result.call_args.args[0]
+        self.assertTrue(result["correct"])
+        self.assertTrue(result["baseline_correct"])
+        self.assertEqual(memory.summary()["learning"]["model_hash"], before)
+        view.perform_action.assert_not_called()
+        controller.toggle_listening()
+        controller.handle_event({
+            "kind": "clip", "request_id": None,
+            "samples": pcm_tone(452),
+        })
+        view.perform_action.assert_called_once_with("wake")
+
     def taught(self, path: Path | None = None) -> SoundComparison:
         memory = SoundComparison(path)
         memory.teach("low", tone(440), "wake")

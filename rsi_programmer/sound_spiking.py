@@ -367,7 +367,9 @@ class SoundSpiking:
             numeric = float(value)
             if (not math.isfinite(numeric)
                     or not 0.0 <= numeric <= 1.0):
-                raise ValueError("sound vector values must be finite in [0, 1]")
+                raise ValueError(
+                    "sound vector values must be finite in [0, 1]"
+                )
             result.append(numeric)
         return result
 

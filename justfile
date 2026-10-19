@@ -29,6 +29,8 @@ test:
 test-fast:
     .venv/bin/python -m unittest tests.test_sound_features \
         tests.test_sound_memory tests.test_sound_contract \
+        tests.test_sound_spiking tests.test_sound_comparison \
+        tests.test_sound_comparison_protocol tests.test_sound_snn_controller \
         tests.test_sound_microphone tests.test_sound_controller \
         tests.test_audio_capture \
         tests.test_audio_features tests.test_audio_learning \
@@ -109,8 +111,11 @@ install-sound:
 
 test-sound:
     flock /tmp/rsi-programmer-builder.lock xvfb-run -a \
+        env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
         .venv-desktop/bin/python -m unittest \
         tests.test_sound_features tests.test_sound_memory \
         tests.test_sound_contract tests.test_sound_microphone \
         tests.test_sound_controller tests.test_sound_window \
+        tests.test_sound_spiking tests.test_sound_comparison \
+        tests.test_sound_comparison_protocol tests.test_sound_snn_controller \
         tests.test_audio_capture tests.test_install_sound_companion -v

@@ -34,6 +34,10 @@ class SoundWindow:
         self._can_correct = False
         self._memory_revision: Any = 0
         self._tests_by_label: dict[str, list[int]] = {}
+        self._comparison = {
+            "snn": {"correct": 0, "total": 0},
+            "matcher": {"correct": 0, "total": 0},
+        }
         self._build_style()
         self._build_window()
         self._refresh_controls()
@@ -89,7 +93,7 @@ class SoundWindow:
     def _build_window(self) -> None:
         self.root.title("Sound Companion")
         self.root.geometry("1000x800")
-        self.root.minsize(760, 720)
+        self.root.minsize(760, 800)
         self.root.columnconfigure(0, weight=1)
         self.root.rowconfigure(1, weight=1)
         header = ttk.Frame(self.root, padding=(24, 18, 24, 10))
@@ -100,6 +104,11 @@ class SoundWindow:
         ttk.Label(header, text="Teach sounds, then check what it remembers.",
                   foreground=self.MUTED).grid(row=1, column=0, sticky="w",
                                               pady=(4, 0))
+        self.backend_var = tk.StringVar(
+            value="Example matcher controls the creature")
+        ttk.Label(header, textvariable=self.backend_var,
+                  foreground=self.CYAN).grid(row=2, column=0, sticky="w",
+                                             pady=(4, 0))
         self.status_var = tk.StringVar(value="Microphone is off")
         ttk.Label(header, textvariable=self.status_var,
                   foreground=self.CYAN, wraplength=300).grid(
@@ -175,25 +184,37 @@ class SoundWindow:
         right = ttk.Frame(parent)
         right.grid(row=0, column=1, sticky="nsew")
         right.columnconfigure(0, weight=1)
-        right.rowconfigure(0, weight=3)
-        right.rowconfigure(1, weight=2)
+        right.rowconfigure(0, weight=1)
+        right.rowconfigure(1, weight=0)
         self._build_memory_panel(right)
         self._build_test_panel(right)
 
     def _build_memory_panel(self, parent: ttk.Frame) -> None:
-        panel = self._panel(parent, 0, "Sound memory")
+        panel = self._panel(parent, 0, "Sound memory", padding=12)
         panel.rowconfigure(1, weight=1)
+        panel.columnconfigure(0, weight=1)
         columns = ("sound", "action", "examples")
+        tree_frame = ttk.Frame(panel, style="Panel.TFrame")
+        tree_frame.grid(row=1, column=0, sticky="nsew", pady=(8, 5))
+        tree_frame.columnconfigure(0, weight=1)
+        tree_frame.rowconfigure(0, weight=1)
         self.memory_tree = ttk.Treeview(
-            panel, columns=columns, show="headings",
-                                        selectmode="browse", height=5)
+            tree_frame, columns=columns, show="headings",
+                                    selectmode="browse", height=4,
+                                    yscrollcommand=self._set_memory_scroll)
         self.memory_tree.heading("sound", text="Sound")
         self.memory_tree.heading("action", text="Action")
-        self.memory_tree.heading("examples", text="Examples")
-        self.memory_tree.column("sound", width=110, anchor="w")
-        self.memory_tree.column("action", width=105, anchor="w")
-        self.memory_tree.column("examples", width=65, anchor="center")
-        self.memory_tree.grid(row=1, column=0, sticky="nsew", pady=(12, 8))
+        self.memory_tree.heading("examples", text="Count")
+        self.memory_tree.column("sound", width=100, minwidth=65,
+                                anchor="w", stretch=True)
+        self.memory_tree.column("action", width=85, minwidth=60,
+                                anchor="w", stretch=True)
+        self.memory_tree.column("examples", width=60, minwidth=54,
+                                anchor="center", stretch=False)
+        self.memory_tree.grid(row=0, column=0, sticky="nsew")
+        self.memory_scrollbar = ttk.Scrollbar(
+            tree_frame, orient="vertical", command=self.memory_tree.yview)
+        self.memory_scrollbar.grid(row=0, column=1, sticky="ns")
         self.memory_tree.bind("<<TreeviewSelect>>", self._selection_changed)
         self.memory_count_var = tk.StringVar(value="0 sounds · revision 0")
         ttk.Label(panel, textvariable=self.memory_count_var,
@@ -209,36 +230,62 @@ class SoundWindow:
         self.delete_button.grid(row=0, column=1, sticky="ew", padx=(5, 0))
 
     def _build_test_panel(self, parent: ttk.Frame) -> None:
-        panel = self._panel(parent, 1, "Test recognition")
+        panel = self._panel(parent, 1, "Test recognition", padding=12)
         ttk.Label(panel, text="Expected sound", style="Muted.TLabel").grid(
-            row=1, column=0, sticky="w", pady=(10, 4))
+            row=1, column=0, sticky="w", pady=(7, 3))
         self.expected_var = tk.StringVar()
         self.expected_box = ttk.Combobox(panel, textvariable=self.expected_var,
                                          state="readonly")
-        self.expected_box.grid(row=2, column=0, sticky="ew")
+        self.expected_box.grid(row=2, column=0, columnspan=2, sticky="ew")
         self.test_button = ttk.Button(panel, text="Record test sound",
                                       command=self._test)
-        self.test_button.grid(row=3, column=0, sticky="ew", pady=(9, 10))
+        self.test_button.grid(row=3, column=0, columnspan=2,
+                              sticky="ew", pady=(6, 6))
         self.latest_var = tk.StringVar(value="No sound recorded yet")
         ttk.Label(panel, textvariable=self.latest_var, style="Panel.TLabel",
-                  wraplength=300).grid(row=4, column=0, sticky="w")
+                  wraplength=300).grid(row=4, column=0, columnspan=2,
+                                       sticky="w")
         self.level_var = tk.StringVar(value="Input level: —")
         ttk.Label(panel, textvariable=self.level_var,
                   style="Muted.TLabel").grid(row=5, column=0, sticky="w",
-                                             pady=(8, 0))
+                                             pady=(5, 0))
         self.timer_var = tk.StringVar(value="Timer: —")
         ttk.Label(panel, textvariable=self.timer_var,
-                  style="Panel.TLabel").grid(row=6, column=0, sticky="w",
+                  style="Panel.TLabel").grid(row=5, column=1, sticky="e",
                                               pady=(5, 0))
         self.feedback_var = tk.StringVar(value="")
         ttk.Label(panel, textvariable=self.feedback_var,
                   style="Muted.TLabel", wraplength=300).grid(
-                      row=7, column=0, sticky="w", pady=(5, 0))
+                      row=6, column=0, columnspan=2, sticky="w", pady=(4, 0))
         self.test_history_var = tk.StringVar(
-            value="Test checks this session: 0")
+            value="Session: 0 tests · 0 correct")
         ttk.Label(panel, textvariable=self.test_history_var,
-                  style="Muted.TLabel").grid(row=8, column=0, sticky="w",
-                                              pady=(8, 0))
+                  style="Muted.TLabel").grid(row=7, column=0, columnspan=2,
+                                              sticky="w", pady=(4, 0))
+        self.comparison_var = tk.StringVar(
+            value="Probes · SNN 0/0 · Example matcher 0/0")
+        ttk.Label(panel, textvariable=self.comparison_var,
+                  style="Panel.TLabel", wraplength=300).grid(
+                      row=8, column=0, columnspan=2, sticky="w", pady=(6, 0))
+        self.learning_var = tk.StringVar(value="SNN parameters: unavailable")
+        ttk.Label(panel, textvariable=self.learning_var,
+                  style="Muted.TLabel", wraplength=330).grid(
+                      row=9, column=0, columnspan=2, sticky="w", pady=(3, 0))
+
+        def wrap_labels(event: tk.Event) -> None:
+            for widget in panel.winfo_children():
+                if not isinstance(widget, ttk.Label):
+                    continue
+                length = widget.cget("wraplength")
+                if str(length) and widget.winfo_pixels(length):
+                    widget.configure(wraplength=max(120, event.width - 24))
+
+        panel.bind("<Configure>", wrap_labels)
+
+    def _set_memory_scroll(self, first: str, last: str) -> None:
+        """Keep the memory list's scrollbar synchronized with its rows."""
+        if hasattr(self, "memory_scrollbar"):
+            self.memory_scrollbar.set(first, last)
 
     def _callback(self, name: str, *args: Any) -> None:
         callback = self.callbacks.get(name)
@@ -332,6 +379,46 @@ class SoundWindow:
 
     def set_memory(self, summary: dict[str, Any]) -> None:
         """Replace the displayed sound memory with a controller snapshot."""
+        backend = summary.get("backend")
+        learning = summary.get("learning", {})
+        if summary.get("load_error"):
+            backend_text = "SNN unavailable; saved memory needs repair"
+        elif backend == "trained_snn" and isinstance(learning, dict):
+            backend_text = (
+                "SNN controls the creature" if learning.get("trained")
+                else "SNN ready; teach a sound")
+        elif backend == "trained_snn":
+            backend_text = "SNN ready; teach a sound"
+        else:
+            backend_text = "Example matcher controls the creature"
+        self.backend_var.set(backend_text)
+        comparison = summary.get("comparison")
+        if isinstance(comparison, dict):
+            for key in ("snn", "matcher"):
+                counts = comparison.get(key)
+                if isinstance(counts, dict):
+                    self._comparison[key] = {
+                        "correct": int(counts.get("correct", 0)),
+                        "total": int(counts.get("total", 0)),
+                    }
+            self._refresh_comparison()
+        if isinstance(learning, dict):
+            fingerprint = (learning.get("model_hash")
+                           or learning.get("parameter_hash"))
+            if summary.get("load_error"):
+                detail = "SNN parameters unavailable"
+            elif not learning.get("trained"):
+                detail = "SNN parameters: not trained"
+            elif fingerprint:
+                detail = f"SNN parameters {str(fingerprint)[:10]}"
+            else:
+                detail = "SNN parameters: unavailable"
+            metrics = []
+            if learning.get("updates") is not None:
+                metrics.append(f"{learning['updates']} updates total")
+            if metrics:
+                detail += " · " + " · ".join(metrics)
+            self.learning_var.set(detail)
         raw_sounds = summary.get("sounds", summary.get("labels", []))
         self._sounds = []
         for sound in raw_sounds:
@@ -358,7 +445,14 @@ class SoundWindow:
         if self._selected_label not in labels:
             self._selected_label = ""
         if not self._sounds:
-            self.feedback_var.set("Teach a sound to begin building memory.")
+            if summary.get("load_error"):
+                self.feedback_var.set("")
+            else:
+                self.feedback_var.set(
+                    "Teach a sound to begin building memory.")
+        elif self.feedback_var.get() == (
+                "Teach a sound to begin building memory."):
+            self.feedback_var.set("")
         self._refresh_controls()
 
     def set_recognition(self, result: dict[str, Any]) -> None:
@@ -385,16 +479,34 @@ class SoundWindow:
         if correct:
             self._test_matches += 1
             label_counts[1] += 1
+        snn_counts = self._comparison["snn"]
+        snn_counts["total"] += 1
+        snn_counts["correct"] += int(correct)
+        baseline_correct = result.get("baseline_correct")
+        if baseline_correct is not None:
+            matcher_counts = self._comparison["matcher"]
+            matcher_counts["total"] += 1
+            matcher_counts["correct"] += int(bool(baseline_correct))
+        self._refresh_comparison()
         self.test_history_var.set(
-            f"Test cases this session: {self._test_count} · "
+            f"Session: {self._test_count} tests · "
             f"{self._test_matches} correct")
         verdict = "Correct" if correct else "Incorrect"
         revision = result.get("memory_revision", self._memory_revision)
         self.latest_var.set(
-            f"Test · expected {expected} · heard {recognized} · "
-            f"memory rev {revision}")
-        self.feedback_var.set(message or f"{verdict} · {label_counts[1]} of "
-                              f"{label_counts[0]} tests for {expected}")
+            f"Test · heard {recognized} (expected {expected}) · "
+            f"rev {revision}")
+        self.feedback_var.set(
+            message or f"{verdict} · {expected} {label_counts[1]}/"
+            f"{label_counts[0]}")
+
+    def _refresh_comparison(self) -> None:
+        """Show cumulative held-out correctness for both recognizers."""
+        snn = self._comparison["snn"]
+        matcher = self._comparison["matcher"]
+        self.comparison_var.set(
+            f"Probes · SNN {snn['correct']}/{snn['total']} · "
+            f"Example matcher {matcher['correct']}/{matcher['total']}")
 
     def perform_action(self, action: str) -> None:
         """Reflect an action dispatched by the controller."""

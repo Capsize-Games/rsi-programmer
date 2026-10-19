@@ -85,6 +85,14 @@ The affected desktop checks passed: 86 tests in 6.921 seconds, including
 real Tk controls under isolated Xvfb, actual-SNN controller routing,
 parameter changes in both synapse stages, persistence, migration,
 transaction rollback, evaluation isolation and background fitting.
+After layout fixes, verification reused 77 unchanged non-window checks
+from a subsequent 86-test pass and reran all ten window checks, including
+a new minimum-size bounds check. That covers 87 distinct affected checks;
+it is not a claim that another combined 87-test run occurred. Source hashes
+and the exact reuse scope are retained. The final rendered window was
+inspected at 1000 by 800 and 760 by 800 pixels. An actual physical microphone
+worker also calibrated, delivered finite level events, stopped cleanly and
+released its builder lock without saving audio or training any model.
 Independent aggregate verification checked 1,708 numeric assertions and
 rejected three separately corrupted in-memory reports. The figure's 18
 numeric values and denominators were checked against the saved report.

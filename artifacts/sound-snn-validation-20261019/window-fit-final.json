@@ -1,0 +1,39 @@
+{
+  "builder_lock": "/tmp/rsi-programmer-builder.lock",
+  "command": [
+    ".venv-desktop/bin/python",
+    "-m",
+    "unittest",
+    "tests.test_sound_window",
+    "-v"
+  ],
+  "compressed_log_sha256": "41c2a0dff5e042890382d1ef7296b98f846972a7f484e169a2197a34383cfbb2",
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "exit_code": 0,
+  "source_files": {
+    "rsi_programmer/sound_comparison.py": "75db02e4bba2bec8cabe8caa2294db767a4c5107682350f7b854540facc1326d",
+    "rsi_programmer/sound_controller.py": "52e7c579eb097fc6904856705383c62368251254855da3001848a3350d6dee52",
+    "rsi_programmer/sound_memory.py": "9ff8d0412d005b04cd03fc49f4d12f9e50c15459e6c185a73bf8df40e282f117",
+    "rsi_programmer/sound_spiking.py": "0cd2c47cb26d7299b2abd2e700456de012676817086341261499415e6e395794",
+    "rsi_programmer/sound_window.py": "ecac7617e93355696f0d6badebd97bfe41391964074e0c1a67517f8d7f14e43e",
+    "scripts/sound_companion.py": "cecb42ab2ddf7f78d3bac9b4500cf5de8acd1394620efece2c8727272fbefe48",
+    "tests/sound_memory_fake.py": "dc6d380039bbd228e52c986b6a57532866471e193437433471bbca5e5ebac847",
+    "tests/test_sound_comparison.py": "5f733a71b29fee017c44d4e0858ca10d4833bd7126f2f90f1b2882f7746c107f",
+    "tests/test_sound_controller.py": "fa7953c38b3142b1afef149ee04b0170f68d096c27b7a74dec396c78c07635c2",
+    "tests/test_sound_memory.py": "763a74eb9cbab995dc535d953306bca707d299e29c1c2b0fe5b4be983fc97b38",
+    "tests/test_sound_snn_controller.py": "8ed51a4015e8b0c4b461d18c037e18dc62b67e1c4c6f8b117b68cb2645e39113",
+    "tests/test_sound_spiking.py": "e25c5868bd691a4a9877f3675b1b16ddb68a4b9752dee7e556fd6908dbbf450e",
+    "tests/test_sound_window.py": "f72700023ae978b848600d29e7b5a3c8877a7b9afdc9ef807214b117917acca1"
+  },
+  "source_unchanged": true,
+  "test_runs": [
+    [
+      "10",
+      "0.224"
+    ]
+  ],
+  "wall_seconds": 1.0819030560087413
+}

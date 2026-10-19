@@ -1,0 +1,50 @@
+{
+  "builder_lock": "/tmp/rsi-programmer-builder.lock",
+  "command": [
+    ".venv-desktop/bin/python",
+    "-m",
+    "unittest",
+    "tests.test_sound_spiking",
+    "tests.test_sound_comparison",
+    "tests.test_sound_features",
+    "tests.test_sound_memory",
+    "tests.test_sound_contract",
+    "tests.test_sound_microphone",
+    "tests.test_sound_controller",
+    "tests.test_sound_snn_controller",
+    "tests.test_sound_window",
+    "tests.test_audio_capture",
+    "tests.test_install_sound_companion",
+    "tests.test_sound_comparison_protocol",
+    "-v"
+  ],
+  "compressed_log_sha256": "3c01f0ae1df8ab1caa6b64c799047d3ec69f7671a73524e883540fed3aad9a83",
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "exit_code": 0,
+  "source_files": {
+    "rsi_programmer/sound_comparison.py": "75db02e4bba2bec8cabe8caa2294db767a4c5107682350f7b854540facc1326d",
+    "rsi_programmer/sound_controller.py": "52e7c579eb097fc6904856705383c62368251254855da3001848a3350d6dee52",
+    "rsi_programmer/sound_memory.py": "9ff8d0412d005b04cd03fc49f4d12f9e50c15459e6c185a73bf8df40e282f117",
+    "rsi_programmer/sound_spiking.py": "0cd2c47cb26d7299b2abd2e700456de012676817086341261499415e6e395794",
+    "rsi_programmer/sound_window.py": "7958b0580ee528b3a7039cdfd30f0d88f90a5e674a3744a1ca852c3db9f3cf94",
+    "scripts/sound_companion.py": "cecb42ab2ddf7f78d3bac9b4500cf5de8acd1394620efece2c8727272fbefe48",
+    "tests/sound_memory_fake.py": "dc6d380039bbd228e52c986b6a57532866471e193437433471bbca5e5ebac847",
+    "tests/test_sound_comparison.py": "5f733a71b29fee017c44d4e0858ca10d4833bd7126f2f90f1b2882f7746c107f",
+    "tests/test_sound_controller.py": "fa7953c38b3142b1afef149ee04b0170f68d096c27b7a74dec396c78c07635c2",
+    "tests/test_sound_memory.py": "763a74eb9cbab995dc535d953306bca707d299e29c1c2b0fe5b4be983fc97b38",
+    "tests/test_sound_snn_controller.py": "8ed51a4015e8b0c4b461d18c037e18dc62b67e1c4c6f8b117b68cb2645e39113",
+    "tests/test_sound_spiking.py": "e25c5868bd691a4a9877f3675b1b16ddb68a4b9752dee7e556fd6908dbbf450e",
+    "tests/test_sound_window.py": "472880953c53636eec3210ab53e12d2fe128be2d596b8368f3acacd580674018"
+  },
+  "source_unchanged": true,
+  "test_runs": [
+    [
+      "86",
+      "6.921"
+    ]
+  ],
+  "wall_seconds": 7.901261891005561
+}
