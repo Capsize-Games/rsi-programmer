@@ -88,3 +88,21 @@ neural arms' changes: each live block versus the fixed SNN on that block,
 and each sealed-probe checkpoint versus that arm's initial probe MSE.
 Positive percentages mean lower error; negative values remain visible.
 The accompanying JSON contains the plotted values and exact denominators.
+
+To export exactly the first 30 complete monitoring blocks from an ongoing
+session, use the data-only report command after that checkpoint exists:
+
+```sh
+.venv/bin/python -m scripts.report_audio_checkpoint /path/to/status.json \
+  --minutes 30 --output-dir /new/report/directory
+```
+
+This writes `report.json` with pooled errors and SNN comparisons against
+each control, plus `summary.json` for the plotting command above. It
+excludes any later audio from reported totals and records the source
+status's monitoring frame count separately. The third chart,
+`snn-control-comparison.png`, compares SNN MSE with fixed SNN, ANN and EMA
+on the same live blocks and probe checkpoints. Positive percentages mean
+the SNN has lower error than that control; negative values mean higher
+error. These report and plotting commands read aggregates without running
+or changing the learner.

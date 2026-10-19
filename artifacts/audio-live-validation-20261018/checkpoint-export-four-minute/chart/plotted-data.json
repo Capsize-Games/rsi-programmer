@@ -1,0 +1,615 @@
+{
+  "change_comparison": {
+    "live_denominator_rule": "fixed_snn_mse_per_block",
+    "positive_means_lower_mse": true,
+    "sealed_probe_denominator_rule": "same_arm_checkpoint_0_mse",
+    "series": {
+      "live": {
+        "adaptive_ann": [
+          {
+            "current_mse": 0.011834975644578192,
+            "denominator_mse": 0.011968181354113825,
+            "minute": 0.5,
+            "mse_reduction_percent": 1.112998755569873
+          },
+          {
+            "current_mse": 0.011432841960086119,
+            "denominator_mse": 0.011491665182768444,
+            "minute": 1.5,
+            "mse_reduction_percent": 0.5118772758062047
+          },
+          {
+            "current_mse": 0.01344679217084588,
+            "denominator_mse": 0.013938338959614835,
+            "minute": 2.5,
+            "mse_reduction_percent": 3.526580822816627
+          },
+          {
+            "current_mse": 0.01167153520344604,
+            "denominator_mse": 0.012561759759741312,
+            "minute": 3.5000000000000004,
+            "mse_reduction_percent": 7.086782213016983
+          }
+        ],
+        "adaptive_snn": [
+          {
+            "current_mse": 0.0118872052357931,
+            "denominator_mse": 0.011968181354113825,
+            "minute": 0.5,
+            "mse_reduction_percent": 0.6765950141028801
+          },
+          {
+            "current_mse": 0.011470910404849778,
+            "denominator_mse": 0.011491665182768444,
+            "minute": 1.5,
+            "mse_reduction_percent": 0.18060722783490057
+          },
+          {
+            "current_mse": 0.013668604542176546,
+            "denominator_mse": 0.013938338959614835,
+            "minute": 2.5,
+            "mse_reduction_percent": 1.9351977177468722
+          },
+          {
+            "current_mse": 0.011984519163156699,
+            "denominator_mse": 0.012561759759741312,
+            "minute": 3.5000000000000004,
+            "mse_reduction_percent": 4.595220794100749
+          }
+        ]
+      },
+      "sealed_probe": {
+        "adaptive_ann": [
+          {
+            "current_mse": 0.01172095379694145,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 0.0,
+            "mse_reduction_percent": 0.0
+          },
+          {
+            "current_mse": 0.011599109266353956,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 1.0,
+            "mse_reduction_percent": 1.039544500374095
+          },
+          {
+            "current_mse": 0.011595817725687197,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 2.0,
+            "mse_reduction_percent": 1.0676270329374224
+          },
+          {
+            "current_mse": 0.011731144920977852,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 3.0,
+            "mse_reduction_percent": -0.08694790725189698
+          },
+          {
+            "current_mse": 0.012047995015963691,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 4.0,
+            "mse_reduction_percent": -2.7902270129891815
+          }
+        ],
+        "adaptive_snn": [
+          {
+            "current_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 0.0,
+            "mse_reduction_percent": 0.0
+          },
+          {
+            "current_mse": 0.011675486225190894,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 1.0,
+            "mse_reduction_percent": 0.25557594043256215
+          },
+          {
+            "current_mse": 0.011665356269666534,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 2.0,
+            "mse_reduction_percent": 0.34211679706483816
+          },
+          {
+            "current_mse": 0.01165231787144058,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 3.0,
+            "mse_reduction_percent": 0.45350466534060185
+          },
+          {
+            "current_mse": 0.011803140478930541,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 4.0,
+            "mse_reduction_percent": -0.8349824973430593
+          }
+        ]
+      }
+    }
+  },
+  "metadata": {
+    "arms": {
+      "adaptive_ann": {
+        "color": "#009E73",
+        "label": "Adaptive ANN"
+      },
+      "adaptive_snn": {
+        "color": "#0072B2",
+        "label": "Adaptive SNN"
+      },
+      "ema": {
+        "color": "#CC79A7",
+        "label": "EMA"
+      },
+      "fixed_snn": {
+        "color": "#D55E00",
+        "label": "Fixed SNN"
+      },
+      "persistence": {
+        "color": "#666666",
+        "label": "Persistence"
+      }
+    },
+    "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+    "git_head": "aa5057289f58720b6f76d7ff8fca6bf8bb15020c",
+    "monitor_frames": 1200.0,
+    "protocol": {
+      "block_frames": 300,
+      "calibration_frames": 150,
+      "cooldown_frames": 25,
+      "ema_alpha": 0.03921056084767682,
+      "fit_frames": 150,
+      "frame_seconds": 0.2,
+      "probe_frames": 100,
+      "sample_rate": 16000,
+      "seed": 0,
+      "version": 1,
+      "warmup_frames": 25
+    },
+    "protocol_sha256": "ef7019083c0fcb24f3477a8384a5b3deccd260fd1ad9f7ef1d133c433b065561",
+    "reference_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+    "source_status_sha256": "53ed768f7f49a8f24e91d7f8ed52030f26a7bdb4d7b1ab14fba749836b957573",
+    "timestamps": {}
+  },
+  "panels": [
+    {
+      "key": "live",
+      "label": "Live next-feature MSE",
+      "series": {
+        "adaptive_ann": [
+          {
+            "minute": 0.5,
+            "mse": 0.011834975644578192
+          },
+          {
+            "minute": 1.5,
+            "mse": 0.011432841960086119
+          },
+          {
+            "minute": 2.5,
+            "mse": 0.01344679217084588
+          },
+          {
+            "minute": 3.5,
+            "mse": 0.01167153520344604
+          }
+        ],
+        "adaptive_snn": [
+          {
+            "minute": 0.5,
+            "mse": 0.0118872052357931
+          },
+          {
+            "minute": 1.5,
+            "mse": 0.011470910404849778
+          },
+          {
+            "minute": 2.5,
+            "mse": 0.013668604542176546
+          },
+          {
+            "minute": 3.5,
+            "mse": 0.011984519163156699
+          }
+        ],
+        "ema": [
+          {
+            "minute": 0.5,
+            "mse": 0.01189392361813794
+          },
+          {
+            "minute": 1.5,
+            "mse": 0.01159949384121998
+          },
+          {
+            "minute": 2.5,
+            "mse": 0.013273057167510783
+          },
+          {
+            "minute": 3.5,
+            "mse": 0.01169049191122027
+          }
+        ],
+        "fixed_snn": [
+          {
+            "minute": 0.5,
+            "mse": 0.011968181354113825
+          },
+          {
+            "minute": 1.5,
+            "mse": 0.011491665182768444
+          },
+          {
+            "minute": 2.5,
+            "mse": 0.013938338959614835
+          },
+          {
+            "minute": 3.5,
+            "mse": 0.012561759759741312
+          }
+        ],
+        "persistence": [
+          {
+            "minute": 0.5,
+            "mse": 0.02231494053810097
+          },
+          {
+            "minute": 1.5,
+            "mse": 0.02150578963978012
+          },
+          {
+            "minute": 2.5,
+            "mse": 0.02314976563446252
+          },
+          {
+            "minute": 3.5,
+            "mse": 0.022025171926583837
+          }
+        ]
+      },
+      "x": "minute"
+    },
+    {
+      "key": "sealed_probe",
+      "label": "Sealed 20-second probe MSE",
+      "series": {
+        "adaptive_ann": [
+          {
+            "minute": 0.0,
+            "mse": 0.01172095379694145
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.011599109266353956
+          },
+          {
+            "minute": 2.0,
+            "mse": 0.011595817725687197
+          },
+          {
+            "minute": 3.0,
+            "mse": 0.011731144920977852
+          },
+          {
+            "minute": 4.0,
+            "mse": 0.012047995015963691
+          }
+        ],
+        "adaptive_snn": [
+          {
+            "minute": 0.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.011675486225190894
+          },
+          {
+            "minute": 2.0,
+            "mse": 0.011665356269666534
+          },
+          {
+            "minute": 3.0,
+            "mse": 0.01165231787144058
+          },
+          {
+            "minute": 4.0,
+            "mse": 0.011803140478930541
+          }
+        ],
+        "ema": [
+          {
+            "minute": 0.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 2.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 3.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 4.0,
+            "mse": 0.012129598112054886
+          }
+        ],
+        "fixed_snn": [
+          {
+            "minute": 0.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 2.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 3.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 4.0,
+            "mse": 0.011705402417500838
+          }
+        ],
+        "persistence": [
+          {
+            "minute": 0.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 2.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 3.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 4.0,
+            "mse": 0.02227037955939562
+          }
+        ]
+      },
+      "x": "minute"
+    }
+  ],
+  "schema_version": 1,
+  "snn_control_comparison": {
+    "controls": {
+      "adaptive_ann": "Adaptive ANN",
+      "ema": "EMA",
+      "fixed_snn": "Fixed SNN"
+    },
+    "denominator_rule": "same_control_mse_at_each_block_or_checkpoint",
+    "formula": "100*(control_mse-snn_mse)/control_mse",
+    "positive_means_snn_lower_mse": true,
+    "series": {
+      "live": {
+        "adaptive_ann": [
+          {
+            "control_mse": 0.011834975644578192,
+            "denominator_mse": 0.011834975644578192,
+            "minute": 0.5,
+            "mse_reduction_percent": -0.44131557836230134,
+            "snn_mse": 0.0118872052357931
+          },
+          {
+            "control_mse": 0.011432841960086119,
+            "denominator_mse": 0.011432841960086119,
+            "minute": 1.5,
+            "mse_reduction_percent": -0.33297446861035696,
+            "snn_mse": 0.011470910404849778
+          },
+          {
+            "control_mse": 0.01344679217084588,
+            "denominator_mse": 0.01344679217084588,
+            "minute": 2.5,
+            "mse_reduction_percent": -1.649556031746958,
+            "snn_mse": 0.013668604542176546
+          },
+          {
+            "control_mse": 0.01167153520344604,
+            "denominator_mse": 0.01167153520344604,
+            "minute": 3.5000000000000004,
+            "mse_reduction_percent": -2.681600614272664,
+            "snn_mse": 0.011984519163156699
+          }
+        ],
+        "ema": [
+          {
+            "control_mse": 0.01189392361813794,
+            "denominator_mse": 0.01189392361813794,
+            "minute": 0.5,
+            "mse_reduction_percent": 0.056485837311040836,
+            "snn_mse": 0.0118872052357931
+          },
+          {
+            "control_mse": 0.01159949384121998,
+            "denominator_mse": 0.01159949384121998,
+            "minute": 1.5,
+            "mse_reduction_percent": 1.108526269596934,
+            "snn_mse": 0.011470910404849778
+          },
+          {
+            "control_mse": 0.013273057167510783,
+            "denominator_mse": 0.013273057167510783,
+            "minute": 2.5,
+            "mse_reduction_percent": -2.9800773828803138,
+            "snn_mse": 0.013668604542176546
+          },
+          {
+            "control_mse": 0.01169049191122027,
+            "denominator_mse": 0.01169049191122027,
+            "minute": 3.5000000000000004,
+            "mse_reduction_percent": -2.515097347223072,
+            "snn_mse": 0.011984519163156699
+          }
+        ],
+        "fixed_snn": [
+          {
+            "control_mse": 0.011968181354113825,
+            "denominator_mse": 0.011968181354113825,
+            "minute": 0.5,
+            "mse_reduction_percent": 0.6765950141028801,
+            "snn_mse": 0.0118872052357931
+          },
+          {
+            "control_mse": 0.011491665182768444,
+            "denominator_mse": 0.011491665182768444,
+            "minute": 1.5,
+            "mse_reduction_percent": 0.18060722783490057,
+            "snn_mse": 0.011470910404849778
+          },
+          {
+            "control_mse": 0.013938338959614835,
+            "denominator_mse": 0.013938338959614835,
+            "minute": 2.5,
+            "mse_reduction_percent": 1.9351977177468722,
+            "snn_mse": 0.013668604542176546
+          },
+          {
+            "control_mse": 0.012561759759741312,
+            "denominator_mse": 0.012561759759741312,
+            "minute": 3.5000000000000004,
+            "mse_reduction_percent": 4.595220794100749,
+            "snn_mse": 0.011984519163156699
+          }
+        ]
+      },
+      "sealed_probe": {
+        "adaptive_ann": [
+          {
+            "control_mse": 0.01172095379694145,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 0.0,
+            "mse_reduction_percent": 0.13268015308335884,
+            "snn_mse": 0.011705402417500838
+          },
+          {
+            "control_mse": 0.011599109266353956,
+            "denominator_mse": 0.011599109266353956,
+            "minute": 1.0,
+            "mse_reduction_percent": -0.6584726213286755,
+            "snn_mse": 0.011675486225190894
+          },
+          {
+            "control_mse": 0.011595817725687197,
+            "denominator_mse": 0.011595817725687197,
+            "minute": 2.0,
+            "mse_reduction_percent": -0.5996864181927751,
+            "snn_mse": 0.011665356269666534
+          },
+          {
+            "control_mse": 0.011731144920977852,
+            "denominator_mse": 0.011731144920977852,
+            "minute": 3.0,
+            "mse_reduction_percent": 0.6719467713361201,
+            "snn_mse": 0.01165231787144058
+          },
+          {
+            "control_mse": 0.012047995015963691,
+            "denominator_mse": 0.012047995015963691,
+            "minute": 4.0,
+            "mse_reduction_percent": 2.0323260153138807,
+            "snn_mse": 0.011803140478930541
+          }
+        ],
+        "ema": [
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 0.0,
+            "mse_reduction_percent": 3.4971949658617754,
+            "snn_mse": 0.011705402417500838
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 1.0,
+            "mse_reduction_percent": 3.743832917371576,
+            "snn_mse": 0.011675486225190894
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 2.0,
+            "mse_reduction_percent": 3.8273472715222945,
+            "snn_mse": 0.011665356269666534
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 3.0,
+            "mse_reduction_percent": 3.934839688876137,
+            "snn_mse": 0.01165231787144058
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 4.0,
+            "mse_reduction_percent": 2.6914134343816243,
+            "snn_mse": 0.011803140478930541
+          }
+        ],
+        "fixed_snn": [
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 0.0,
+            "mse_reduction_percent": 0.0,
+            "snn_mse": 0.011705402417500838
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 1.0,
+            "mse_reduction_percent": 0.25557594043256215,
+            "snn_mse": 0.011675486225190894
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 2.0,
+            "mse_reduction_percent": 0.34211679706483816,
+            "snn_mse": 0.011665356269666534
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 3.0,
+            "mse_reduction_percent": 0.45350466534060185,
+            "snn_mse": 0.01165231787144058
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 4.0,
+            "mse_reduction_percent": -0.8349824973430593,
+            "snn_mse": 0.011803140478930541
+          }
+        ]
+      }
+    },
+    "units": {
+      "x": "minutes of sample clock",
+      "y": "percent"
+    }
+  },
+  "units": {
+    "x": "minutes of sample clock",
+    "y": "MSE"
+  }
+}

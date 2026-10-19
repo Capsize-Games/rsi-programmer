@@ -1,0 +1,1653 @@
+{
+  "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+  "metadata": {
+    "git_head": "aa5057289f58720b6f76d7ff8fca6bf8bb15020c",
+    "protocol_sha256": "ef7019083c0fcb24f3477a8384a5b3deccd260fd1ad9f7ef1d133c433b065561",
+    "source_status_sha256": "d9046a585354f55f756af642afdf3213e47626c07ea5fb0ed8e5f518fc50af1e",
+    "started_at": "2026-10-18T23:44:38.013642+00:00",
+    "status": "running"
+  },
+  "per_minute_adaptive_snn_vs_controls": [
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": -0.44131557836230134,
+          "adaptive_snn_sse_ratio": 1.004413155783623
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": 0.056485837311040836,
+          "adaptive_snn_sse_ratio": 0.9994351416268896
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 0.6765950141028801,
+          "adaptive_snn_sse_ratio": 0.9932340498589711
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 46.72983683063528,
+          "adaptive_snn_sse_ratio": 0.5327016316936473
+        }
+      },
+      "block": 1,
+      "minute": 0.5
+    },
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": -0.33297446861035696,
+          "adaptive_snn_sse_ratio": 1.0033297446861036
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": 1.108526269596934,
+          "adaptive_snn_sse_ratio": 0.9889147373040306
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 0.18060722783490057,
+          "adaptive_snn_sse_ratio": 0.9981939277216509
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 46.66129169406746,
+          "adaptive_snn_sse_ratio": 0.5333870830593255
+        }
+      },
+      "block": 2,
+      "minute": 1.5
+    },
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": -1.649556031746958,
+          "adaptive_snn_sse_ratio": 1.0164955603174695
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": -2.9800773828803138,
+          "adaptive_snn_sse_ratio": 1.029800773828803
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 1.9351977177468722,
+          "adaptive_snn_sse_ratio": 0.9806480228225313
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 40.95575411861444,
+          "adaptive_snn_sse_ratio": 0.5904424588138556
+        }
+      },
+      "block": 3,
+      "minute": 2.5
+    },
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": -2.681600614272664,
+          "adaptive_snn_sse_ratio": 1.0268160061427267
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": -2.515097347223072,
+          "adaptive_snn_sse_ratio": 1.0251509734722306
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 4.595220794100749,
+          "adaptive_snn_sse_ratio": 0.9540477920589924
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 45.58717088291292,
+          "adaptive_snn_sse_ratio": 0.5441282911708707
+        }
+      },
+      "block": 4,
+      "minute": 3.5
+    }
+  ],
+  "protocol": {
+    "arms": [
+      "adaptive_snn",
+      "fixed_snn",
+      "adaptive_ann",
+      "ema",
+      "persistence"
+    ],
+    "band_edges_hz": [
+      80,
+      160,
+      320,
+      640,
+      1280,
+      2560,
+      6000
+    ],
+    "block_frames": 300,
+    "calibration_frames": 150,
+    "cooldown_frames": 25,
+    "ema_alpha": 0.03921056084767682,
+    "fit_frames": 150,
+    "frame_seconds": 0.2,
+    "probe_frames": 100,
+    "sample_rate": 16000,
+    "seed": 0,
+    "version": 1,
+    "warmup_frames": 25
+  },
+  "reference_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+  "schema_version": 1,
+  "scope": {
+    "block_frames": 300,
+    "capture_status_monitor_frames": 1270,
+    "complete_blocks_only": true,
+    "frame_seconds": 0.2,
+    "report_monitor_frames": 1200,
+    "requested_minutes": 4
+  },
+  "selected_blocks": [
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": -0.44131557836230134,
+          "adaptive_snn_sse_ratio": 1.004413155783623
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": 0.056485837311040836,
+          "adaptive_snn_sse_ratio": 0.9994351416268896
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 0.6765950141028801,
+          "adaptive_snn_sse_ratio": 0.9932340498589711
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 46.72983683063528,
+          "adaptive_snn_sse_ratio": 0.5327016316936473
+        }
+      },
+      "arms": {
+        "adaptive_ann": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1650,
+          "frame_count": 275,
+          "mse": 0.011834975644578192,
+          "sse": 19.52770981355402
+        },
+        "adaptive_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1650,
+          "frame_count": 275,
+          "mse": 0.0118872052357931,
+          "sse": 19.613888639058615
+        },
+        "ema": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1650,
+          "frame_count": 275,
+          "mse": 0.01189392361813794,
+          "sse": 19.624973969927602
+        },
+        "fixed_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1650,
+          "frame_count": 275,
+          "mse": 0.011968181354113825,
+          "sse": 19.74749923428781
+        },
+        "persistence": {
+          "alarm_count": 2,
+          "alarms_per_minute": 2.181818181818182,
+          "feature_target_count": 1650,
+          "frame_count": 275,
+          "mse": 0.02231494053810097,
+          "sse": 36.8196518878666
+        }
+      },
+      "block": 1,
+      "frames": 300,
+      "minute": 0.5,
+      "minute_interval": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": -0.33297446861035696,
+          "adaptive_snn_sse_ratio": 1.0033297446861036
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": 1.108526269596934,
+          "adaptive_snn_sse_ratio": 0.9889147373040306
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 0.18060722783490057,
+          "adaptive_snn_sse_ratio": 0.9981939277216509
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 46.66129169406746,
+          "adaptive_snn_sse_ratio": 0.5333870830593255
+        }
+      },
+      "arms": {
+        "adaptive_ann": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.011432841960086119,
+          "sse": 20.579115528155015
+        },
+        "adaptive_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.011470910404849778,
+          "sse": 20.6476387287296
+        },
+        "ema": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.01159949384121998,
+          "sse": 20.879088914195965
+        },
+        "fixed_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.011491665182768444,
+          "sse": 20.6849973289832
+        },
+        "persistence": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.02150578963978012,
+          "sse": 38.71042135160421
+        }
+      },
+      "block": 2,
+      "frames": 600,
+      "minute": 1.5,
+      "minute_interval": [
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": -1.649556031746958,
+          "adaptive_snn_sse_ratio": 1.0164955603174695
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": -2.9800773828803138,
+          "adaptive_snn_sse_ratio": 1.029800773828803
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 1.9351977177468722,
+          "adaptive_snn_sse_ratio": 0.9806480228225313
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 40.95575411861444,
+          "adaptive_snn_sse_ratio": 0.5904424588138556
+        }
+      },
+      "arms": {
+        "adaptive_ann": {
+          "alarm_count": 2,
+          "alarms_per_minute": 2.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.01344679217084588,
+          "sse": 24.204225907522584
+        },
+        "adaptive_snn": {
+          "alarm_count": 2,
+          "alarms_per_minute": 2.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.013668604542176546,
+          "sse": 24.603488175917782
+        },
+        "ema": {
+          "alarm_count": 2,
+          "alarms_per_minute": 2.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.013273057167510783,
+          "sse": 23.89150290151941
+        },
+        "fixed_snn": {
+          "alarm_count": 2,
+          "alarms_per_minute": 2.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.013938338959614835,
+          "sse": 25.089010127306704
+        },
+        "persistence": {
+          "alarm_count": 3,
+          "alarms_per_minute": 3.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.02314976563446252,
+          "sse": 41.669578142032535
+        }
+      },
+      "block": 3,
+      "frames": 900,
+      "minute": 2.5,
+      "minute_interval": [
+        2.0,
+        3.0
+      ]
+    },
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": -2.681600614272664,
+          "adaptive_snn_sse_ratio": 1.0268160061427267
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": -2.515097347223072,
+          "adaptive_snn_sse_ratio": 1.0251509734722306
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 4.595220794100749,
+          "adaptive_snn_sse_ratio": 0.9540477920589924
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 45.58717088291292,
+          "adaptive_snn_sse_ratio": 0.5441282911708707
+        }
+      },
+      "arms": {
+        "adaptive_ann": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.01167153520344604,
+          "sse": 21.00876336620287
+        },
+        "adaptive_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.011984519163156699,
+          "sse": 21.572134493682057
+        },
+        "ema": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.01169049191122027,
+          "sse": 21.042885440196486
+        },
+        "fixed_snn": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.012561759759741312,
+          "sse": 22.611167567534363
+        },
+        "persistence": {
+          "alarm_count": 0,
+          "alarms_per_minute": 0.0,
+          "feature_target_count": 1800,
+          "frame_count": 300,
+          "mse": 0.022025171926583837,
+          "sse": 39.64530946785091
+        }
+      },
+      "block": 4,
+      "frames": 1200,
+      "minute": 3.5,
+      "minute_interval": [
+        3.0,
+        4.0
+      ]
+    }
+  ],
+  "selected_checkpoints": [
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": 0.13268015308335884,
+          "adaptive_snn_sse_ratio": 0.9986731984691665
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": 3.4971949658617754,
+          "adaptive_snn_sse_ratio": 0.9650280503413823
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 0.0,
+          "adaptive_snn_sse_ratio": 1.0
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 47.43959173986121,
+          "adaptive_snn_sse_ratio": 0.525604082601388
+        }
+      },
+      "arms": {
+        "adaptive_ann": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.01172095379694145,
+          "sse": 5.274429208623652
+        },
+        "adaptive_snn": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011705402417500838,
+          "sse": 5.267431087875377
+        },
+        "ema": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.012129598112054886,
+          "sse": 5.458319150424699
+        },
+        "fixed_snn": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011705402417500838,
+          "sse": 5.267431087875377
+        },
+        "persistence": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.02227037955939562,
+          "sse": 10.021670801728028
+        }
+      },
+      "change_from_checkpoint_0_percent": {
+        "adaptive_ann": 0.0,
+        "adaptive_snn": 0.0,
+        "ema": 0.0,
+        "fixed_snn": 0.0,
+        "persistence": 0.0
+      },
+      "checkpoint": 0,
+      "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+      "minute": 0.0,
+      "monitor_frame": 0,
+      "sealed_probe": {
+        "arms": {
+          "adaptive_ann": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.01172095379694145,
+            "sse": 5.274429208623652
+          },
+          "adaptive_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "ema": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012129598112054886,
+            "sse": 5.458319150424699
+          },
+          "fixed_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "persistence": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.02227037955939562,
+            "sse": 10.021670801728028
+          }
+        },
+        "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "frames": 100,
+        "warmup_frames": 25
+      }
+    },
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": -0.6584726213286755,
+          "adaptive_snn_sse_ratio": 1.0065847262132868
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": 3.743832917371576,
+          "adaptive_snn_sse_ratio": 0.9625616708262842
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 0.25557594043256215,
+          "adaptive_snn_sse_ratio": 0.9974442405956743
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 47.57392349756724,
+          "adaptive_snn_sse_ratio": 0.5242607650243275
+        }
+      },
+      "arms": {
+        "adaptive_ann": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011599109266353956,
+          "sse": 5.21959916985928
+        },
+        "adaptive_snn": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011675486225190894,
+          "sse": 5.253968801335902
+        },
+        "ema": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.012129598112054886,
+          "sse": 5.458319150424699
+        },
+        "fixed_snn": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011705402417500838,
+          "sse": 5.267431087875377
+        },
+        "persistence": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.02227037955939562,
+          "sse": 10.021670801728028
+        }
+      },
+      "change_from_checkpoint_0_percent": {
+        "adaptive_ann": 1.039544500374095,
+        "adaptive_snn": 0.25557594043256215,
+        "ema": 0.0,
+        "fixed_snn": 0.0,
+        "persistence": 0.0
+      },
+      "checkpoint": 1,
+      "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+      "minute": 1.0,
+      "monitor_frame": 300,
+      "sealed_probe": {
+        "arms": {
+          "adaptive_ann": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011599109266353956,
+            "sse": 5.21959916985928
+          },
+          "adaptive_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011675486225190894,
+            "sse": 5.253968801335902
+          },
+          "ema": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012129598112054886,
+            "sse": 5.458319150424699
+          },
+          "fixed_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "persistence": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.02227037955939562,
+            "sse": 10.021670801728028
+          }
+        },
+        "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "frames": 100,
+        "warmup_frames": 25
+      }
+    },
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": -0.5996864181927751,
+          "adaptive_snn_sse_ratio": 1.0059968641819277
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": 3.8273472715222945,
+          "adaptive_snn_sse_ratio": 0.9617265272847771
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 0.34211679706483816,
+          "adaptive_snn_sse_ratio": 0.9965788320293516
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 47.61940972512499,
+          "adaptive_snn_sse_ratio": 0.5238059027487502
+        }
+      },
+      "arms": {
+        "adaptive_ann": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011595817725687197,
+          "sse": 5.218117976559239
+        },
+        "adaptive_snn": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011665356269666534,
+          "sse": 5.249410321349941
+        },
+        "ema": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.012129598112054886,
+          "sse": 5.458319150424699
+        },
+        "fixed_snn": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011705402417500838,
+          "sse": 5.267431087875377
+        },
+        "persistence": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.02227037955939562,
+          "sse": 10.021670801728028
+        }
+      },
+      "change_from_checkpoint_0_percent": {
+        "adaptive_ann": 1.0676270329374224,
+        "adaptive_snn": 0.34211679706483816,
+        "ema": 0.0,
+        "fixed_snn": 0.0,
+        "persistence": 0.0
+      },
+      "checkpoint": 2,
+      "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+      "minute": 2.0,
+      "monitor_frame": 600,
+      "sealed_probe": {
+        "arms": {
+          "adaptive_ann": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011595817725687197,
+            "sse": 5.218117976559239
+          },
+          "adaptive_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011665356269666534,
+            "sse": 5.249410321349941
+          },
+          "ema": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012129598112054886,
+            "sse": 5.458319150424699
+          },
+          "fixed_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "persistence": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.02227037955939562,
+            "sse": 10.021670801728028
+          }
+        },
+        "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "frames": 100,
+        "warmup_frames": 25
+      }
+    },
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": 0.6719467713361201,
+          "adaptive_snn_sse_ratio": 0.9932805322866388
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": 3.934839688876137,
+          "adaptive_snn_sse_ratio": 0.9606516031112385
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": 0.45350466534060185,
+          "adaptive_snn_sse_ratio": 0.9954649533465939
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 47.677955643443,
+          "adaptive_snn_sse_ratio": 0.5232204435655701
+        }
+      },
+      "arms": {
+        "adaptive_ann": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011731144920977852,
+          "sse": 5.279015214440033
+        },
+        "adaptive_snn": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.01165231787144058,
+          "sse": 5.243543042148261
+        },
+        "ema": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.012129598112054886,
+          "sse": 5.458319150424699
+        },
+        "fixed_snn": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011705402417500838,
+          "sse": 5.267431087875377
+        },
+        "persistence": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.02227037955939562,
+          "sse": 10.021670801728028
+        }
+      },
+      "change_from_checkpoint_0_percent": {
+        "adaptive_ann": -0.08694790725189698,
+        "adaptive_snn": 0.45350466534060185,
+        "ema": 0.0,
+        "fixed_snn": 0.0,
+        "persistence": 0.0
+      },
+      "checkpoint": 3,
+      "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+      "minute": 3.0,
+      "monitor_frame": 900,
+      "sealed_probe": {
+        "arms": {
+          "adaptive_ann": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011731144920977852,
+            "sse": 5.279015214440033
+          },
+          "adaptive_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.01165231787144058,
+            "sse": 5.243543042148261
+          },
+          "ema": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012129598112054886,
+            "sse": 5.458319150424699
+          },
+          "fixed_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "persistence": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.02227037955939562,
+            "sse": 10.021670801728028
+          }
+        },
+        "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "frames": 100,
+        "warmup_frames": 25
+      }
+    },
+    {
+      "adaptive_snn_vs_controls": {
+        "adaptive_ann": {
+          "adaptive_snn_mse_reduction_percent": 2.0323260153138807,
+          "adaptive_snn_sse_ratio": 0.9796767398468611
+        },
+        "ema": {
+          "adaptive_snn_mse_reduction_percent": 2.6914134343816243,
+          "adaptive_snn_sse_ratio": 0.9730858656561837
+        },
+        "fixed_snn": {
+          "adaptive_snn_mse_reduction_percent": -0.8349824973430593,
+          "adaptive_snn_sse_ratio": 1.0083498249734304
+        },
+        "persistence": {
+          "adaptive_snn_mse_reduction_percent": 47.000721530356984,
+          "adaptive_snn_sse_ratio": 0.5299927846964302
+        }
+      },
+      "arms": {
+        "adaptive_ann": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.012047995015963691,
+          "sse": 5.421597757183661
+        },
+        "adaptive_snn": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011803140478930541,
+          "sse": 5.311413215518743
+        },
+        "ema": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.012129598112054886,
+          "sse": 5.458319150424699
+        },
+        "fixed_snn": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.011705402417500838,
+          "sse": 5.267431087875377
+        },
+        "persistence": {
+          "count": 450,
+          "feature_target_count": 450,
+          "frame_count": 75,
+          "mse": 0.02227037955939562,
+          "sse": 10.021670801728028
+        }
+      },
+      "change_from_checkpoint_0_percent": {
+        "adaptive_ann": -2.7902270129891815,
+        "adaptive_snn": -0.8349824973430593,
+        "ema": 0.0,
+        "fixed_snn": 0.0,
+        "persistence": 0.0
+      },
+      "checkpoint": 4,
+      "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+      "minute": 4.0,
+      "monitor_frame": 1200,
+      "sealed_probe": {
+        "arms": {
+          "adaptive_ann": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012047995015963691,
+            "sse": 5.421597757183661
+          },
+          "adaptive_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011803140478930541,
+            "sse": 5.311413215518743
+          },
+          "ema": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.012129598112054886,
+            "sse": 5.458319150424699
+          },
+          "fixed_snn": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.011705402417500838,
+            "sse": 5.267431087875377
+          },
+          "persistence": {
+            "count": 450,
+            "feature_target_count": 450,
+            "frame_count": 75,
+            "mse": 0.02227037955939562,
+            "sse": 10.021670801728028
+          }
+        },
+        "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "frames": 100,
+        "warmup_frames": 25
+      }
+    }
+  ],
+  "selected_cumulative": {
+    "adaptive_snn_vs_controls": {
+      "adaptive_ann": {
+        "adaptive_snn_mse_reduction_percent": -1.3095849152858339,
+        "adaptive_snn_sse_ratio": 1.0130958491528583
+      },
+      "ema": {
+        "adaptive_snn_mse_reduction_percent": -1.168910247341346,
+        "adaptive_snn_sse_ratio": 1.0116891024734136
+      },
+      "fixed_snn": {
+        "adaptive_snn_mse_reduction_percent": 1.9238315811890603,
+        "adaptive_snn_sse_ratio": 0.9807616841881094
+      },
+      "persistence": {
+        "adaptive_snn_mse_reduction_percent": 44.8900687855641,
+        "adaptive_snn_sse_ratio": 0.551099312144359
+      }
+    },
+    "arms": {
+      "adaptive_ann": {
+        "alarm_count": 2,
+        "alarms_per_minute": 0.5106382978723405,
+        "feature_target_count": 7050,
+        "frame_count": 1175,
+        "mse": 0.012102101363891416,
+        "scored_minutes": 3.9166666666666665,
+        "sse": 85.31981461543448
+      },
+      "adaptive_snn": {
+        "alarm_count": 2,
+        "alarms_per_minute": 0.5106382978723405,
+        "feature_target_count": 7050,
+        "frame_count": 1175,
+        "mse": 0.012260588657785539,
+        "scored_minutes": 3.9166666666666665,
+        "sse": 86.43715003738805
+      },
+      "ema": {
+        "alarm_count": 2,
+        "alarms_per_minute": 0.5106382978723405,
+        "feature_target_count": 7050,
+        "frame_count": 1175,
+        "mse": 0.012118929251892124,
+        "scored_minutes": 3.9166666666666665,
+        "sse": 85.43845122583947
+      },
+      "fixed_snn": {
+        "alarm_count": 2,
+        "alarms_per_minute": 0.5106382978723405,
+        "feature_target_count": 7050,
+        "frame_count": 1175,
+        "mse": 0.012501088547249942,
+        "scored_minutes": 3.9166666666666665,
+        "sse": 88.13267425811209
+      },
+      "persistence": {
+        "alarm_count": 5,
+        "alarms_per_minute": 1.2765957446808511,
+        "feature_target_count": 7050,
+        "frame_count": 1175,
+        "mse": 0.02224751217721337,
+        "scored_minutes": 3.9166666666666665,
+        "sse": 156.84496084935427
+      }
+    },
+    "scored_frame_count": 1175
+  },
+  "summary": {
+    "blocks": [
+      {
+        "adaptive_snn_vs_controls": {
+          "adaptive_ann": {
+            "adaptive_snn_mse_reduction_percent": -0.44131557836230134,
+            "adaptive_snn_sse_ratio": 1.004413155783623
+          },
+          "ema": {
+            "adaptive_snn_mse_reduction_percent": 0.056485837311040836,
+            "adaptive_snn_sse_ratio": 0.9994351416268896
+          },
+          "fixed_snn": {
+            "adaptive_snn_mse_reduction_percent": 0.6765950141028801,
+            "adaptive_snn_sse_ratio": 0.9932340498589711
+          },
+          "persistence": {
+            "adaptive_snn_mse_reduction_percent": 46.72983683063528,
+            "adaptive_snn_sse_ratio": 0.5327016316936473
+          }
+        },
+        "arms": {
+          "adaptive_ann": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1650,
+            "frame_count": 275,
+            "mse": 0.011834975644578192,
+            "sse": 19.52770981355402
+          },
+          "adaptive_snn": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1650,
+            "frame_count": 275,
+            "mse": 0.0118872052357931,
+            "sse": 19.613888639058615
+          },
+          "ema": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1650,
+            "frame_count": 275,
+            "mse": 0.01189392361813794,
+            "sse": 19.624973969927602
+          },
+          "fixed_snn": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1650,
+            "frame_count": 275,
+            "mse": 0.011968181354113825,
+            "sse": 19.74749923428781
+          },
+          "persistence": {
+            "alarm_count": 2,
+            "alarms_per_minute": 2.181818181818182,
+            "feature_target_count": 1650,
+            "frame_count": 275,
+            "mse": 0.02231494053810097,
+            "sse": 36.8196518878666
+          }
+        },
+        "block": 1,
+        "frames": 300,
+        "minute": 0.5,
+        "minute_interval": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "adaptive_snn_vs_controls": {
+          "adaptive_ann": {
+            "adaptive_snn_mse_reduction_percent": -0.33297446861035696,
+            "adaptive_snn_sse_ratio": 1.0033297446861036
+          },
+          "ema": {
+            "adaptive_snn_mse_reduction_percent": 1.108526269596934,
+            "adaptive_snn_sse_ratio": 0.9889147373040306
+          },
+          "fixed_snn": {
+            "adaptive_snn_mse_reduction_percent": 0.18060722783490057,
+            "adaptive_snn_sse_ratio": 0.9981939277216509
+          },
+          "persistence": {
+            "adaptive_snn_mse_reduction_percent": 46.66129169406746,
+            "adaptive_snn_sse_ratio": 0.5333870830593255
+          }
+        },
+        "arms": {
+          "adaptive_ann": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.011432841960086119,
+            "sse": 20.579115528155015
+          },
+          "adaptive_snn": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.011470910404849778,
+            "sse": 20.6476387287296
+          },
+          "ema": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.01159949384121998,
+            "sse": 20.879088914195965
+          },
+          "fixed_snn": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.011491665182768444,
+            "sse": 20.6849973289832
+          },
+          "persistence": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.02150578963978012,
+            "sse": 38.71042135160421
+          }
+        },
+        "block": 2,
+        "frames": 600,
+        "minute": 1.5,
+        "minute_interval": [
+          1.0,
+          2.0
+        ]
+      },
+      {
+        "adaptive_snn_vs_controls": {
+          "adaptive_ann": {
+            "adaptive_snn_mse_reduction_percent": -1.649556031746958,
+            "adaptive_snn_sse_ratio": 1.0164955603174695
+          },
+          "ema": {
+            "adaptive_snn_mse_reduction_percent": -2.9800773828803138,
+            "adaptive_snn_sse_ratio": 1.029800773828803
+          },
+          "fixed_snn": {
+            "adaptive_snn_mse_reduction_percent": 1.9351977177468722,
+            "adaptive_snn_sse_ratio": 0.9806480228225313
+          },
+          "persistence": {
+            "adaptive_snn_mse_reduction_percent": 40.95575411861444,
+            "adaptive_snn_sse_ratio": 0.5904424588138556
+          }
+        },
+        "arms": {
+          "adaptive_ann": {
+            "alarm_count": 2,
+            "alarms_per_minute": 2.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.01344679217084588,
+            "sse": 24.204225907522584
+          },
+          "adaptive_snn": {
+            "alarm_count": 2,
+            "alarms_per_minute": 2.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.013668604542176546,
+            "sse": 24.603488175917782
+          },
+          "ema": {
+            "alarm_count": 2,
+            "alarms_per_minute": 2.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.013273057167510783,
+            "sse": 23.89150290151941
+          },
+          "fixed_snn": {
+            "alarm_count": 2,
+            "alarms_per_minute": 2.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.013938338959614835,
+            "sse": 25.089010127306704
+          },
+          "persistence": {
+            "alarm_count": 3,
+            "alarms_per_minute": 3.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.02314976563446252,
+            "sse": 41.669578142032535
+          }
+        },
+        "block": 3,
+        "frames": 900,
+        "minute": 2.5,
+        "minute_interval": [
+          2.0,
+          3.0
+        ]
+      },
+      {
+        "adaptive_snn_vs_controls": {
+          "adaptive_ann": {
+            "adaptive_snn_mse_reduction_percent": -2.681600614272664,
+            "adaptive_snn_sse_ratio": 1.0268160061427267
+          },
+          "ema": {
+            "adaptive_snn_mse_reduction_percent": -2.515097347223072,
+            "adaptive_snn_sse_ratio": 1.0251509734722306
+          },
+          "fixed_snn": {
+            "adaptive_snn_mse_reduction_percent": 4.595220794100749,
+            "adaptive_snn_sse_ratio": 0.9540477920589924
+          },
+          "persistence": {
+            "adaptive_snn_mse_reduction_percent": 45.58717088291292,
+            "adaptive_snn_sse_ratio": 0.5441282911708707
+          }
+        },
+        "arms": {
+          "adaptive_ann": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.01167153520344604,
+            "sse": 21.00876336620287
+          },
+          "adaptive_snn": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.011984519163156699,
+            "sse": 21.572134493682057
+          },
+          "ema": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.01169049191122027,
+            "sse": 21.042885440196486
+          },
+          "fixed_snn": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.012561759759741312,
+            "sse": 22.611167567534363
+          },
+          "persistence": {
+            "alarm_count": 0,
+            "alarms_per_minute": 0.0,
+            "feature_target_count": 1800,
+            "frame_count": 300,
+            "mse": 0.022025171926583837,
+            "sse": 39.64530946785091
+          }
+        },
+        "block": 4,
+        "frames": 1200,
+        "minute": 3.5,
+        "minute_interval": [
+          3.0,
+          4.0
+        ]
+      }
+    ],
+    "calibration_frames": 150,
+    "capture_status_monitor_frames": 1270,
+    "checkpoints": [
+      {
+        "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "monitor_frame": 0,
+        "sealed_probe": {
+          "arms": {
+            "adaptive_ann": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.01172095379694145,
+              "sse": 5.274429208623652
+            },
+            "adaptive_snn": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011705402417500838,
+              "sse": 5.267431087875377
+            },
+            "ema": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.012129598112054886,
+              "sse": 5.458319150424699
+            },
+            "fixed_snn": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011705402417500838,
+              "sse": 5.267431087875377
+            },
+            "persistence": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.02227037955939562,
+              "sse": 10.021670801728028
+            }
+          },
+          "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+          "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+          "frames": 100,
+          "warmup_frames": 25
+        }
+      },
+      {
+        "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "monitor_frame": 300,
+        "sealed_probe": {
+          "arms": {
+            "adaptive_ann": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011599109266353956,
+              "sse": 5.21959916985928
+            },
+            "adaptive_snn": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011675486225190894,
+              "sse": 5.253968801335902
+            },
+            "ema": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.012129598112054886,
+              "sse": 5.458319150424699
+            },
+            "fixed_snn": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011705402417500838,
+              "sse": 5.267431087875377
+            },
+            "persistence": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.02227037955939562,
+              "sse": 10.021670801728028
+            }
+          },
+          "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+          "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+          "frames": 100,
+          "warmup_frames": 25
+        }
+      },
+      {
+        "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "monitor_frame": 600,
+        "sealed_probe": {
+          "arms": {
+            "adaptive_ann": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011595817725687197,
+              "sse": 5.218117976559239
+            },
+            "adaptive_snn": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011665356269666534,
+              "sse": 5.249410321349941
+            },
+            "ema": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.012129598112054886,
+              "sse": 5.458319150424699
+            },
+            "fixed_snn": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011705402417500838,
+              "sse": 5.267431087875377
+            },
+            "persistence": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.02227037955939562,
+              "sse": 10.021670801728028
+            }
+          },
+          "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+          "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+          "frames": 100,
+          "warmup_frames": 25
+        }
+      },
+      {
+        "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "monitor_frame": 900,
+        "sealed_probe": {
+          "arms": {
+            "adaptive_ann": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011731144920977852,
+              "sse": 5.279015214440033
+            },
+            "adaptive_snn": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.01165231787144058,
+              "sse": 5.243543042148261
+            },
+            "ema": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.012129598112054886,
+              "sse": 5.458319150424699
+            },
+            "fixed_snn": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011705402417500838,
+              "sse": 5.267431087875377
+            },
+            "persistence": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.02227037955939562,
+              "sse": 10.021670801728028
+            }
+          },
+          "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+          "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+          "frames": 100,
+          "warmup_frames": 25
+        }
+      },
+      {
+        "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+        "monitor_frame": 1200,
+        "sealed_probe": {
+          "arms": {
+            "adaptive_ann": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.012047995015963691,
+              "sse": 5.421597757183661
+            },
+            "adaptive_snn": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011803140478930541,
+              "sse": 5.311413215518743
+            },
+            "ema": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.012129598112054886,
+              "sse": 5.458319150424699
+            },
+            "fixed_snn": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.011705402417500838,
+              "sse": 5.267431087875377
+            },
+            "persistence": {
+              "count": 450,
+              "feature_target_count": 450,
+              "frame_count": 75,
+              "mse": 0.02227037955939562,
+              "sse": 10.021670801728028
+            }
+          },
+          "fixed_hash_after": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+          "fixed_hash_before": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+          "frames": 100,
+          "warmup_frames": 25
+        }
+      }
+    ],
+    "cumulative": {
+      "adaptive_ann": {
+        "alarm_count": 2,
+        "alarms_per_minute": 0.5106382978723405,
+        "feature_target_count": 7050,
+        "frame_count": 1175,
+        "mse": 0.012102101363891416,
+        "scored_minutes": 3.9166666666666665,
+        "sse": 85.31981461543448
+      },
+      "adaptive_snn": {
+        "alarm_count": 2,
+        "alarms_per_minute": 0.5106382978723405,
+        "feature_target_count": 7050,
+        "frame_count": 1175,
+        "mse": 0.012260588657785539,
+        "scored_minutes": 3.9166666666666665,
+        "sse": 86.43715003738805
+      },
+      "ema": {
+        "alarm_count": 2,
+        "alarms_per_minute": 0.5106382978723405,
+        "feature_target_count": 7050,
+        "frame_count": 1175,
+        "mse": 0.012118929251892124,
+        "scored_minutes": 3.9166666666666665,
+        "sse": 85.43845122583947
+      },
+      "fixed_snn": {
+        "alarm_count": 2,
+        "alarms_per_minute": 0.5106382978723405,
+        "feature_target_count": 7050,
+        "frame_count": 1175,
+        "mse": 0.012501088547249942,
+        "scored_minutes": 3.9166666666666665,
+        "sse": 88.13267425811209
+      },
+      "persistence": {
+        "alarm_count": 5,
+        "alarms_per_minute": 1.2765957446808511,
+        "feature_target_count": 7050,
+        "frame_count": 1175,
+        "mse": 0.02224751217721337,
+        "scored_minutes": 3.9166666666666665,
+        "sse": 156.84496084935427
+      }
+    },
+    "feature_target_count": 7050,
+    "fit_frames": 150,
+    "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+    "frame_count": 1600,
+    "monitor_frames": 1200,
+    "probe_frames": 100,
+    "protocol": {
+      "arms": [
+        "adaptive_snn",
+        "fixed_snn",
+        "adaptive_ann",
+        "ema",
+        "persistence"
+      ],
+      "band_edges_hz": [
+        80,
+        160,
+        320,
+        640,
+        1280,
+        2560,
+        6000
+      ],
+      "block_frames": 300,
+      "calibration_frames": 150,
+      "cooldown_frames": 25,
+      "ema_alpha": 0.03921056084767682,
+      "fit_frames": 150,
+      "frame_seconds": 0.2,
+      "probe_frames": 100,
+      "sample_rate": 16000,
+      "seed": 0,
+      "version": 1,
+      "warmup_frames": 25
+    },
+    "reference_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+    "runtime": {
+      "git_head": "aa5057289f58720b6f76d7ff8fca6bf8bb15020c",
+      "protocol_sha256": "ef7019083c0fcb24f3477a8384a5b3deccd260fd1ad9f7ef1d133c433b065561",
+      "started_at": "2026-10-18T23:44:38.013642+00:00",
+      "status": "running"
+    },
+    "schema_version": 1,
+    "scored_frame_count": 1175,
+    "source_status_sha256": "d9046a585354f55f756af642afdf3213e47626c07ea5fb0ed8e5f518fc50af1e"
+  }
+}

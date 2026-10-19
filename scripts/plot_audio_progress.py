@@ -16,6 +16,7 @@ ARMS = (
     "persistence",
 )
 ADAPTIVE_ARMS = ("adaptive_snn", "adaptive_ann")
+SNN_CONTROLS = ("fixed_snn", "adaptive_ann", "ema")
 DISPLAY = {
     "adaptive_snn": "Adaptive SNN",
     "fixed_snn": "Fixed SNN",
@@ -149,6 +150,8 @@ def build_plot_data(
 
     change_comparison = _change_comparison(
         summary, checkpoints, frame_seconds, block_frames)
+    snn_control_comparison = _snn_control_comparison(
+        summary, checkpoints, frame_seconds, block_frames)
     safe_timestamps = _safe_timestamps(status, summary)
     runtime = status.get("runtime", {})
     if not isinstance(runtime, dict):
@@ -186,6 +189,7 @@ def build_plot_data(
             },
         ],
         "change_comparison": change_comparison,
+        "snn_control_comparison": snn_control_comparison,
         "metadata": metadata,
     }
 
@@ -263,6 +267,68 @@ def _percent_reduction(
             or denominator_mse == 0):
         return None
     return 100.0 * (denominator_mse - current_mse) / denominator_mse
+
+
+def _snn_control_comparison(
+    summary: dict[str, Any],
+    checkpoints: list[dict[str, Any]],
+    frame_seconds: float,
+    block_frames: float,
+) -> dict[str, Any]:
+    """Compare SNN with each control using that same block or checkpoint."""
+    live: dict[str, list[dict[str, float | None]]] = {
+        arm: [] for arm in SNN_CONTROLS
+    }
+    for block in summary["blocks"]:
+        if not isinstance(block, dict):
+            continue
+        end_frame = _finite_nonnegative(block.get("frames"))
+        if end_frame is None:
+            continue
+        minute = max(0.0, end_frame - block_frames / 2.0)
+        minute *= frame_seconds / 60.0
+        snn_mse = _arm_mse(block, "adaptive_snn")
+        for control in SNN_CONTROLS:
+            control_mse = _arm_mse(block, control)
+            live[control].append({
+                "minute": minute,
+                "mse_reduction_percent": _percent_reduction(
+                    snn_mse, control_mse),
+                "snn_mse": snn_mse,
+                "control_mse": control_mse,
+                "denominator_mse": control_mse,
+            })
+
+    sealed_probe: dict[str, list[dict[str, float | None]]] = {
+        arm: [] for arm in SNN_CONTROLS
+    }
+    for checkpoint in checkpoints:
+        monitor_frame = _finite_nonnegative(checkpoint.get("monitor_frame"))
+        probe = checkpoint.get("sealed_probe")
+        if monitor_frame is None or not isinstance(probe, dict):
+            continue
+        minute = monitor_frame * frame_seconds / 60.0
+        snn_mse = _arm_mse(probe, "adaptive_snn")
+        for control in SNN_CONTROLS:
+            control_mse = _arm_mse(probe, control)
+            sealed_probe[control].append({
+                "minute": minute,
+                "mse_reduction_percent": _percent_reduction(
+                    snn_mse, control_mse),
+                "snn_mse": snn_mse,
+                "control_mse": control_mse,
+                "denominator_mse": control_mse,
+            })
+    return {
+        "positive_means_snn_lower_mse": True,
+        "units": {"x": "minutes of sample clock", "y": "percent"},
+        "formula": "100*(control_mse-snn_mse)/control_mse",
+        "denominator_rule": "same_control_mse_at_each_block_or_checkpoint",
+        "controls": {
+            arm: DISPLAY[arm] for arm in SNN_CONTROLS
+        },
+        "series": {"live": live, "sealed_probe": sealed_probe},
+    }
 
 
 def _safe_hash(value: Any) -> str | None:
@@ -364,6 +430,46 @@ def render_change_plot(data: dict[str, Any], output: Path) -> None:
     plt.close(figure)
 
 
+def render_snn_control_plot(data: dict[str, Any], output: Path) -> None:
+    """Render SNN MSE reductions against controls at matching observations."""
+    import matplotlib.pyplot as plt
+
+    comparison = data["snn_control_comparison"]["series"]
+    figure, axes = plt.subplots(2, 1, figsize=(10.5, 8.0), sharex=True)
+    figure.suptitle("SNN MSE reduction vs controls", fontsize=15)
+    panels = (
+        (axes[0], comparison["live"],
+         "Live blocks: SNN vs each control in the same block"),
+        (axes[1], comparison["sealed_probe"],
+         "Sealed probe: SNN vs controls at each checkpoint"),
+    )
+    for axis, series, label in panels:
+        for control in SNN_CONTROLS:
+            points = series[control]
+            axis.plot(
+                [point["minute"] for point in points],
+                [point["mse_reduction_percent"] for point in points],
+                color=COLORS[control],
+                linestyle=LINESTYLES[control],
+                marker=MARKERS[control],
+                markersize=4,
+                linewidth=1.7,
+                label=DISPLAY[control],
+            )
+        axis.axhline(0.0, color="#444444", linewidth=0.9)
+        axis.set_title(label, loc="left", fontsize=11)
+        axis.set_ylabel("SNN MSE reduction (%)", fontsize=11)
+        axis.tick_params(axis="both", labelsize=10)
+        axis.grid(True, color="#D9DDE2", linewidth=0.7)
+        axis.spines[["top", "right"]].set_visible(False)
+        axis.legend(frameon=False, fontsize=10, loc="best")
+    axes[-1].set_xlabel("Minutes of sample clock", fontsize=11)
+    figure.tight_layout(rect=(0, 0, 1, 0.96))
+    output.parent.mkdir(parents=True, exist_ok=True)
+    figure.savefig(output, dpi=180, bbox_inches="tight")
+    plt.close(figure)
+
+
 def main() -> None:
     """Read aggregate status and write the figure plus plotted data."""
     parser = argparse.ArgumentParser(description=__doc__)
@@ -380,6 +486,9 @@ def main() -> None:
     args.output_dir.mkdir(parents=True, exist_ok=False)
     render_plot(data, args.output_dir / "audio-progress.png", args.title)
     render_change_plot(data, args.output_dir / "learning-change.png")
+    render_snn_control_plot(
+        data, args.output_dir / "snn-control-comparison.png"
+    )
     with (args.output_dir / "plotted-data.json").open(
             "w", encoding="utf-8") as stream:
         json.dump(data, stream, indent=2, sort_keys=True, allow_nan=False)
