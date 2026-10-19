@@ -1,0 +1,24 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "scripts.check_audio_prediction_inversion",
+    "<private-preserved-session>",
+    "--output",
+    "artifacts/audio-inversion-20261018/result.json"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 1.4236657100263983,
+  "source_files": {
+    "scripts/check_audio_prediction_inversion.py": "c7a50098031fce7b2455375e47ea2040a35886664b3c38cd452ea76f55f96688",
+    "fixtures/audio_output_inversion_v1.json": "e6b73ab474971dfbd7af34af927c02de58a55402aa11afa3512790ac72713491",
+    "rsi_programmer/audio_features.py": "1253b71912c305f26484c5ac00e916a15d3018745231a3537b3654fbe8c4c417",
+    "rsi_programmer/sensing_predictor.py": "425f553780d586f818517224d255b8fde0bcec7d9d6c8e62cff55a7d846c493c",
+    "requirements.txt": "83836c10253073571cb302a8be96d58d7054a02b29a467f96d40061084d18b27",
+    "artifacts/audio-live-session-20261018/minute-030/report.json": "eaab4f6c9c06f79d30f1fe6e46d7cf3d1a2bece5315116b738d564b3fc23676f"
+  },
+  "source_unchanged": true,
+  "builder_lock": "/tmp/rsi-programmer-builder.lock",
+  "compressed_log_sha256": "9e8c3c523ed96683fe1b289baa42be33b2f6b0dbdacbd1e406c9bd226a268c4c",
+  "scope": "Retrospective saved first30 live forecasts and read-only checkpoint30 probe replay; no training"
+}

@@ -1,0 +1,116 @@
+{
+  "both_complemented_mse_invariant": true,
+  "interpretation": "A chart sign flip changes no predictions. Prediction complements need separate confirmation.",
+  "live": {
+    "adaptive_ann": {
+      "both_flipped_mse": 0.012068901843814183,
+      "both_flipped_sse": 649.9103642893938,
+      "flipped_prediction_mse": 0.017582392675308204,
+      "flipped_prediction_mse_reduction_percent": -45.683450763334484,
+      "flipped_sse": 946.8118455653467,
+      "original_mse": 0.012068901843814183,
+      "original_sse": 649.9103642893938,
+      "targets": 53850
+    },
+    "adaptive_snn": {
+      "both_flipped_mse": 0.012324832546028196,
+      "both_flipped_sse": 663.6922326036183,
+      "flipped_prediction_mse": 0.016726975312215536,
+      "flipped_prediction_mse_reduction_percent": -35.71766796625546,
+      "flipped_sse": 900.7476205628066,
+      "original_mse": 0.012324832546028196,
+      "original_sse": 663.6922326036183,
+      "targets": 53850
+    },
+    "ema": {
+      "both_flipped_mse": 0.012026207941676673,
+      "both_flipped_sse": 647.6112976592889,
+      "flipped_prediction_mse": 0.018815562470324957,
+      "flipped_prediction_mse_reduction_percent": -56.45465770735482,
+      "flipped_sse": 1013.2180390269989,
+      "original_mse": 0.012026207941676671,
+      "original_sse": 647.6112976592888,
+      "targets": 53850
+    },
+    "fixed_snn": {
+      "both_flipped_mse": 0.01398008757705156,
+      "both_flipped_sse": 752.8277160242264,
+      "flipped_prediction_mse": 0.013189422021093859,
+      "flipped_prediction_mse_reduction_percent": 5.65565524250068,
+      "flipped_sse": 710.2503758359043,
+      "original_mse": 0.013980087577051561,
+      "original_sse": 752.8277160242266,
+      "targets": 53850
+    },
+    "persistence": {
+      "both_flipped_mse": 0.021945710676207545,
+      "both_flipped_sse": 1181.7765199137764,
+      "flipped_prediction_mse": 0.0320332403469628,
+      "flipped_prediction_mse_reduction_percent": -45.965837331901255,
+      "flipped_sse": 1724.989992683947,
+      "original_mse": 0.021945710676207552,
+      "original_sse": 1181.7765199137766,
+      "targets": 53850
+    }
+  },
+  "original_metrics_reproduce_published_report": true,
+  "original_trace_prefix_sha256": "4f44995002c6786b149877db48705b270be6761de16b58489d848cfffb5a32a6",
+  "parameters_unchanged": true,
+  "private_snapshot_sha256": "edb94f49086d5fdd971dcef0a9381ebb1a880896d82b8a8001e0c889fd33688a",
+  "probe_training": false,
+  "protocol_sha256": "e6b73ab474971dfbd7af34af927c02de58a55402aa11afa3512790ac72713491",
+  "scope": "Retrospective first30 minutes and checkpoint30 probe",
+  "script_sha256": "c7a50098031fce7b2455375e47ea2040a35886664b3c38cd452ea76f55f96688",
+  "sealed_probe": {
+    "adaptive_ann": {
+      "both_flipped_mse": 0.01565591291826598,
+      "both_flipped_sse": 7.045160813219692,
+      "flipped_prediction_mse": 0.014477884184338735,
+      "flipped_prediction_mse_reduction_percent": 7.524497230390356,
+      "flipped_sse": 6.515047882952431,
+      "original_mse": 0.015655912918265985,
+      "original_sse": 7.045160813219693,
+      "targets": 450
+    },
+    "adaptive_snn": {
+      "both_flipped_mse": 0.015021563227496032,
+      "both_flipped_sse": 6.7597034523732145,
+      "flipped_prediction_mse": 0.013607905250824724,
+      "flipped_prediction_mse_reduction_percent": 9.410857946419958,
+      "flipped_sse": 6.123557362871126,
+      "original_mse": 0.015021563227496032,
+      "original_sse": 6.7597034523732145,
+      "targets": 450
+    },
+    "ema": {
+      "both_flipped_mse": 0.012129598112054886,
+      "both_flipped_sse": 5.458319150424699,
+      "flipped_prediction_mse": 0.011973533738388416,
+      "flipped_prediction_mse_reduction_percent": 1.2866409276278254,
+      "flipped_sse": 5.388090182274787,
+      "original_mse": 0.012129598112054886,
+      "original_sse": 5.458319150424699,
+      "targets": 450
+    },
+    "fixed_snn": {
+      "both_flipped_mse": 0.011705402417500838,
+      "both_flipped_sse": 5.267431087875377,
+      "flipped_prediction_mse": 0.011829168626055745,
+      "flipped_prediction_mse_reduction_percent": -1.057342619591301,
+      "flipped_sse": 5.323125881725085,
+      "original_mse": 0.011705402417500838,
+      "original_sse": 5.267431087875377,
+      "targets": 450
+    },
+    "persistence": {
+      "both_flipped_mse": 0.022270379559395623,
+      "both_flipped_sse": 10.02167080172803,
+      "flipped_prediction_mse": 0.024749557405626208,
+      "flipped_prediction_mse_reduction_percent": -11.132175990169198,
+      "flipped_sse": 11.137300832531794,
+      "original_mse": 0.02227037955939562,
+      "original_sse": 10.021670801728028,
+      "targets": 450
+    }
+  }
+}
