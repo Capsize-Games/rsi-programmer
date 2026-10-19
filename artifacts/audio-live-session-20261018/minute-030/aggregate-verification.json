@@ -1,0 +1,30 @@
+{
+  "all_chart_values_and_denominators_match": true,
+  "checked_chart_points": 610,
+  "cumulative_mse_independently_recomputed_with_fsum": true,
+  "data_only": true,
+  "feature_targets": 53850,
+  "fixed_hash_unchanged": true,
+  "independent_aggregate_review": {
+    "counts_agree": true,
+    "method": "Separate read-only sum over the selected30 saved blocks and checkpoint0/30 values",
+    "snn_live_mse_reduction_percent_vs_ann": -2.1205798632392576,
+    "snn_live_mse_reduction_percent_vs_ema": -2.4831152579409057,
+    "snn_live_mse_reduction_percent_vs_fixed": 11.840090570966545,
+    "snn_probe_mse_reduction_percent_vs_own_start": -28.33017346791236
+  },
+  "live_points_per_arm": 30,
+  "new_model_or_test_job_run": false,
+  "probe_points_per_arm": 31,
+  "public_privacy_fields_checked": true,
+  "relative_tolerance_for_sum_order": 1e-13,
+  "reported_monitor_frames": 9000,
+  "runtime_trace_audit_scope": {
+    "includes_reported_first30_minutes": true,
+    "later_measurements_included_in_report": false,
+    "monitor_frames": 9600,
+    "total_frames": 10000
+  },
+  "scored_frames": 8975,
+  "scored_seconds": 1795
+}

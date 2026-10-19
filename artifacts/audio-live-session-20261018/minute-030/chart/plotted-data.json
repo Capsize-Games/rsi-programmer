@@ -1,0 +1,3371 @@
+{
+  "change_comparison": {
+    "live_denominator_rule": "fixed_snn_mse_per_block",
+    "positive_means_lower_mse": true,
+    "sealed_probe_denominator_rule": "same_arm_checkpoint_0_mse",
+    "series": {
+      "live": {
+        "adaptive_ann": [
+          {
+            "current_mse": 0.011834975644578192,
+            "denominator_mse": 0.011968181354113825,
+            "minute": 0.5,
+            "mse_reduction_percent": 1.112998755569873
+          },
+          {
+            "current_mse": 0.011432841960086119,
+            "denominator_mse": 0.011491665182768444,
+            "minute": 1.5,
+            "mse_reduction_percent": 0.5118772758062047
+          },
+          {
+            "current_mse": 0.01344679217084588,
+            "denominator_mse": 0.013938338959614835,
+            "minute": 2.5,
+            "mse_reduction_percent": 3.526580822816627
+          },
+          {
+            "current_mse": 0.01167153520344604,
+            "denominator_mse": 0.012561759759741312,
+            "minute": 3.5000000000000004,
+            "mse_reduction_percent": 7.086782213016983
+          },
+          {
+            "current_mse": 0.011051186373086982,
+            "denominator_mse": 0.01188065367667727,
+            "minute": 4.5,
+            "mse_reduction_percent": 6.981663855908884
+          },
+          {
+            "current_mse": 0.01172280095941684,
+            "denominator_mse": 0.01227261903870447,
+            "minute": 5.5,
+            "mse_reduction_percent": 4.480038674333943
+          },
+          {
+            "current_mse": 0.011846304627651537,
+            "denominator_mse": 0.013090314836162823,
+            "minute": 6.5,
+            "mse_reduction_percent": 9.503287156047842
+          },
+          {
+            "current_mse": 0.012261458826714575,
+            "denominator_mse": 0.013395949542486574,
+            "minute": 7.500000000000001,
+            "mse_reduction_percent": 8.468908547123517
+          },
+          {
+            "current_mse": 0.020235052300817083,
+            "denominator_mse": 0.021552234926980544,
+            "minute": 8.5,
+            "mse_reduction_percent": 6.11158253715267
+          },
+          {
+            "current_mse": 0.014860390344134689,
+            "denominator_mse": 0.016213614965385006,
+            "minute": 9.5,
+            "mse_reduction_percent": 8.346223986071964
+          },
+          {
+            "current_mse": 0.012050933716538504,
+            "denominator_mse": 0.013390001846519948,
+            "minute": 10.5,
+            "mse_reduction_percent": 10.000507433309034
+          },
+          {
+            "current_mse": 0.012319198430248177,
+            "denominator_mse": 0.013499472611657539,
+            "minute": 11.5,
+            "mse_reduction_percent": 8.743113270885337
+          },
+          {
+            "current_mse": 0.012213826921906193,
+            "denominator_mse": 0.016726462303210475,
+            "minute": 12.5,
+            "mse_reduction_percent": 26.979018632279033
+          },
+          {
+            "current_mse": 0.010756388416035873,
+            "denominator_mse": 0.013853384631922705,
+            "minute": 13.5,
+            "mse_reduction_percent": 22.355520316315662
+          },
+          {
+            "current_mse": 0.011562253960038248,
+            "denominator_mse": 0.01270417323531775,
+            "minute": 14.500000000000002,
+            "mse_reduction_percent": 8.988536712526505
+          },
+          {
+            "current_mse": 0.011016703665265394,
+            "denominator_mse": 0.012355867711488508,
+            "minute": 15.500000000000002,
+            "mse_reduction_percent": 10.838284105113532
+          },
+          {
+            "current_mse": 0.011963374229237461,
+            "denominator_mse": 0.01388834196349077,
+            "minute": 16.5,
+            "mse_reduction_percent": 13.860313486761793
+          },
+          {
+            "current_mse": 0.011727480847723402,
+            "denominator_mse": 0.013354118937455108,
+            "minute": 17.5,
+            "mse_reduction_percent": 12.180796781503687
+          },
+          {
+            "current_mse": 0.010959388991389518,
+            "denominator_mse": 0.013025592885095185,
+            "minute": 18.5,
+            "mse_reduction_percent": 15.862647573378144
+          },
+          {
+            "current_mse": 0.010656229388157658,
+            "denominator_mse": 0.012998292519866811,
+            "minute": 19.5,
+            "mse_reduction_percent": 18.018236842489145
+          },
+          {
+            "current_mse": 0.011637824623042066,
+            "denominator_mse": 0.014071083226085704,
+            "minute": 20.5,
+            "mse_reduction_percent": 17.292617518832788
+          },
+          {
+            "current_mse": 0.011789230594754984,
+            "denominator_mse": 0.014174286262553848,
+            "minute": 21.5,
+            "mse_reduction_percent": 16.82663679581378
+          },
+          {
+            "current_mse": 0.011688911594354699,
+            "denominator_mse": 0.014101469500458236,
+            "minute": 22.5,
+            "mse_reduction_percent": 17.108556707690212
+          },
+          {
+            "current_mse": 0.011967141365044126,
+            "denominator_mse": 0.014873918319359898,
+            "minute": 23.5,
+            "mse_reduction_percent": 19.542778788372864
+          },
+          {
+            "current_mse": 0.012230808400533859,
+            "denominator_mse": 0.014491357843256019,
+            "minute": 24.5,
+            "mse_reduction_percent": 15.599293504260356
+          },
+          {
+            "current_mse": 0.011813489045383948,
+            "denominator_mse": 0.014169070461955865,
+            "minute": 25.5,
+            "mse_reduction_percent": 16.624812636063055
+          },
+          {
+            "current_mse": 0.011179683576550421,
+            "denominator_mse": 0.013973079213813437,
+            "minute": 26.5,
+            "mse_reduction_percent": 19.991267454503042
+          },
+          {
+            "current_mse": 0.010965973114150918,
+            "denominator_mse": 0.013686421530470566,
+            "minute": 27.5,
+            "mse_reduction_percent": 19.87698837320637
+          },
+          {
+            "current_mse": 0.011653321998991096,
+            "denominator_mse": 0.013885729667683831,
+            "minute": 28.500000000000004,
+            "mse_reduction_percent": 16.07699215035277
+          },
+          {
+            "current_mse": 0.011532060174364594,
+            "denominator_mse": 0.017647511545337998,
+            "minute": 29.500000000000004,
+            "mse_reduction_percent": 34.65333543067687
+          }
+        ],
+        "adaptive_snn": [
+          {
+            "current_mse": 0.0118872052357931,
+            "denominator_mse": 0.011968181354113825,
+            "minute": 0.5,
+            "mse_reduction_percent": 0.6765950141028801
+          },
+          {
+            "current_mse": 0.011470910404849778,
+            "denominator_mse": 0.011491665182768444,
+            "minute": 1.5,
+            "mse_reduction_percent": 0.18060722783490057
+          },
+          {
+            "current_mse": 0.013668604542176546,
+            "denominator_mse": 0.013938338959614835,
+            "minute": 2.5,
+            "mse_reduction_percent": 1.9351977177468722
+          },
+          {
+            "current_mse": 0.011984519163156699,
+            "denominator_mse": 0.012561759759741312,
+            "minute": 3.5000000000000004,
+            "mse_reduction_percent": 4.595220794100749
+          },
+          {
+            "current_mse": 0.011266360478206764,
+            "denominator_mse": 0.01188065367667727,
+            "minute": 4.5,
+            "mse_reduction_percent": 5.17053366917357
+          },
+          {
+            "current_mse": 0.011800510515220713,
+            "denominator_mse": 0.01227261903870447,
+            "minute": 5.5,
+            "mse_reduction_percent": 3.8468441169310013
+          },
+          {
+            "current_mse": 0.012203211809966042,
+            "denominator_mse": 0.013090314836162823,
+            "minute": 6.5,
+            "mse_reduction_percent": 6.776789078793604
+          },
+          {
+            "current_mse": 0.012462489806626467,
+            "denominator_mse": 0.013395949542486574,
+            "minute": 7.500000000000001,
+            "mse_reduction_percent": 6.968223737328564
+          },
+          {
+            "current_mse": 0.021009282820965144,
+            "denominator_mse": 0.021552234926980544,
+            "minute": 8.5,
+            "mse_reduction_percent": 2.5192380644278174
+          },
+          {
+            "current_mse": 0.01519453990190804,
+            "denominator_mse": 0.016213614965385006,
+            "minute": 9.5,
+            "mse_reduction_percent": 6.285304453403045
+          },
+          {
+            "current_mse": 0.01253326460490151,
+            "denominator_mse": 0.013390001846519948,
+            "minute": 10.5,
+            "mse_reduction_percent": 6.398335500163533
+          },
+          {
+            "current_mse": 0.012525968206306273,
+            "denominator_mse": 0.013499472611657539,
+            "minute": 11.5,
+            "mse_reduction_percent": 7.211425463470268
+          },
+          {
+            "current_mse": 0.013993122011701727,
+            "denominator_mse": 0.016726462303210475,
+            "minute": 12.5,
+            "mse_reduction_percent": 16.34141303737678
+          },
+          {
+            "current_mse": 0.011042878413675577,
+            "denominator_mse": 0.013853384631922705,
+            "minute": 13.5,
+            "mse_reduction_percent": 20.287505854495713
+          },
+          {
+            "current_mse": 0.01166760946919701,
+            "denominator_mse": 0.01270417323531775,
+            "minute": 14.500000000000002,
+            "mse_reduction_percent": 8.159238282732804
+          },
+          {
+            "current_mse": 0.011183340516338385,
+            "denominator_mse": 0.012355867711488508,
+            "minute": 15.500000000000002,
+            "mse_reduction_percent": 9.489638627806814
+          },
+          {
+            "current_mse": 0.012146395212447661,
+            "denominator_mse": 0.01388834196349077,
+            "minute": 16.5,
+            "mse_reduction_percent": 12.542510514374452
+          },
+          {
+            "current_mse": 0.011807034740436758,
+            "denominator_mse": 0.013354118937455108,
+            "minute": 17.5,
+            "mse_reduction_percent": 11.585071274744672
+          },
+          {
+            "current_mse": 0.011018754102840086,
+            "denominator_mse": 0.013025592885095185,
+            "minute": 18.5,
+            "mse_reduction_percent": 15.40689011209208
+          },
+          {
+            "current_mse": 0.010747710568069686,
+            "denominator_mse": 0.012998292519866811,
+            "minute": 19.5,
+            "mse_reduction_percent": 17.31444301901421
+          },
+          {
+            "current_mse": 0.01176213138143936,
+            "denominator_mse": 0.014071083226085704,
+            "minute": 20.5,
+            "mse_reduction_percent": 16.409197554640922
+          },
+          {
+            "current_mse": 0.011853749638551887,
+            "denominator_mse": 0.014174286262553848,
+            "minute": 21.5,
+            "mse_reduction_percent": 16.371453073672146
+          },
+          {
+            "current_mse": 0.011795649524907616,
+            "denominator_mse": 0.014101469500458236,
+            "minute": 22.5,
+            "mse_reduction_percent": 16.35162899494759
+          },
+          {
+            "current_mse": 0.012087930078516804,
+            "denominator_mse": 0.014873918319359898,
+            "minute": 23.5,
+            "mse_reduction_percent": 18.730694770703764
+          },
+          {
+            "current_mse": 0.01221755168190076,
+            "denominator_mse": 0.014491357843256019,
+            "minute": 24.5,
+            "mse_reduction_percent": 15.690773673175434
+          },
+          {
+            "current_mse": 0.011888099495847118,
+            "denominator_mse": 0.014169070461955865,
+            "minute": 25.5,
+            "mse_reduction_percent": 16.098239981466556
+          },
+          {
+            "current_mse": 0.011283298706061255,
+            "denominator_mse": 0.013973079213813437,
+            "minute": 26.5,
+            "mse_reduction_percent": 19.24973348102923
+          },
+          {
+            "current_mse": 0.01107482837443563,
+            "denominator_mse": 0.013686421530470566,
+            "minute": 27.5,
+            "mse_reduction_percent": 19.08163613272215
+          },
+          {
+            "current_mse": 0.011704528540350432,
+            "denominator_mse": 0.013885729667683831,
+            "minute": 28.500000000000004,
+            "mse_reduction_percent": 15.708221170470393
+          },
+          {
+            "current_mse": 0.012427027491531857,
+            "denominator_mse": 0.017647511545337998,
+            "minute": 29.500000000000004,
+            "mse_reduction_percent": 29.581984068372826
+          }
+        ]
+      },
+      "sealed_probe": {
+        "adaptive_ann": [
+          {
+            "current_mse": 0.01172095379694145,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 0.0,
+            "mse_reduction_percent": 0.0
+          },
+          {
+            "current_mse": 0.011599109266353956,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 1.0,
+            "mse_reduction_percent": 1.039544500374095
+          },
+          {
+            "current_mse": 0.011595817725687197,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 2.0,
+            "mse_reduction_percent": 1.0676270329374224
+          },
+          {
+            "current_mse": 0.011731144920977852,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 3.0,
+            "mse_reduction_percent": -0.08694790725189698
+          },
+          {
+            "current_mse": 0.012047995015963691,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 4.0,
+            "mse_reduction_percent": -2.7902270129891815
+          },
+          {
+            "current_mse": 0.012078708625962036,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 5.0,
+            "mse_reduction_percent": -3.0522672063935765
+          },
+          {
+            "current_mse": 0.011978505370476499,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 6.0,
+            "mse_reduction_percent": -2.1973601977874586
+          },
+          {
+            "current_mse": 0.012284799326998604,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 7.0,
+            "mse_reduction_percent": -4.810577192141895
+          },
+          {
+            "current_mse": 0.01225043683557149,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 8.0,
+            "mse_reduction_percent": -4.51740573167525
+          },
+          {
+            "current_mse": 0.01213257711535519,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 9.0,
+            "mse_reduction_percent": -3.5118585530228064
+          },
+          {
+            "current_mse": 0.012265963441478938,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 10.0,
+            "mse_reduction_percent": -4.649874523690275
+          },
+          {
+            "current_mse": 0.012407590874977417,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 11.0,
+            "mse_reduction_percent": -5.858201388142516
+          },
+          {
+            "current_mse": 0.012307301746781572,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 12.0,
+            "mse_reduction_percent": -5.002561736853943
+          },
+          {
+            "current_mse": 0.014546494789837659,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 13.0,
+            "mse_reduction_percent": -24.1067496881826
+          },
+          {
+            "current_mse": 0.01403102776693892,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 14.0,
+            "mse_reduction_percent": -19.708924802692064
+          },
+          {
+            "current_mse": 0.012959365767597892,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 15.0,
+            "mse_reduction_percent": -10.56579517427671
+          },
+          {
+            "current_mse": 0.012700583388588245,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 16.0,
+            "mse_reduction_percent": -8.357934077877065
+          },
+          {
+            "current_mse": 0.013012485841131004,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 17.0,
+            "mse_reduction_percent": -11.019001239699248
+          },
+          {
+            "current_mse": 0.012954884689072667,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 18.0,
+            "mse_reduction_percent": -10.527563827213516
+          },
+          {
+            "current_mse": 0.013180624309466971,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 19.0,
+            "mse_reduction_percent": -12.453513065689403
+          },
+          {
+            "current_mse": 0.013419065484079425,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 20.0,
+            "mse_reduction_percent": -14.48782852109777
+          },
+          {
+            "current_mse": 0.01344349511528979,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 21.0,
+            "mse_reduction_percent": -14.69625551120108
+          },
+          {
+            "current_mse": 0.013534089114564852,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 22.0,
+            "mse_reduction_percent": -15.469178951089582
+          },
+          {
+            "current_mse": 0.013610756903737507,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 23.0,
+            "mse_reduction_percent": -16.12328774207092
+          },
+          {
+            "current_mse": 0.01397794371394067,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 24.0,
+            "mse_reduction_percent": -19.256026054707046
+          },
+          {
+            "current_mse": 0.013601409542901592,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 25.0,
+            "mse_reduction_percent": -16.04353859368375
+          },
+          {
+            "current_mse": 0.013659683048473883,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 26.0,
+            "mse_reduction_percent": -16.540712344061454
+          },
+          {
+            "current_mse": 0.013784292773576031,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 27.0,
+            "mse_reduction_percent": -17.603848734332562
+          },
+          {
+            "current_mse": 0.013766202358838665,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 28.0,
+            "mse_reduction_percent": -17.44950622048282
+          },
+          {
+            "current_mse": 0.013552685840166584,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 29.0,
+            "mse_reduction_percent": -15.627841171962642
+          },
+          {
+            "current_mse": 0.015655912918265985,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 30.0,
+            "mse_reduction_percent": -33.572004373495204
+          }
+        ],
+        "adaptive_snn": [
+          {
+            "current_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 0.0,
+            "mse_reduction_percent": 0.0
+          },
+          {
+            "current_mse": 0.011675486225190894,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 1.0,
+            "mse_reduction_percent": 0.25557594043256215
+          },
+          {
+            "current_mse": 0.011665356269666534,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 2.0,
+            "mse_reduction_percent": 0.34211679706483816
+          },
+          {
+            "current_mse": 0.01165231787144058,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 3.0,
+            "mse_reduction_percent": 0.45350466534060185
+          },
+          {
+            "current_mse": 0.011803140478930541,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 4.0,
+            "mse_reduction_percent": -0.8349824973430593
+          },
+          {
+            "current_mse": 0.011899460283550494,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 5.0,
+            "mse_reduction_percent": -1.6578487362341268
+          },
+          {
+            "current_mse": 0.011926893685747746,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 6.0,
+            "mse_reduction_percent": -1.89221404225928
+          },
+          {
+            "current_mse": 0.012081126839593354,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 7.0,
+            "mse_reduction_percent": -3.2098377201519175
+          },
+          {
+            "current_mse": 0.012159504003899688,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 8.0,
+            "mse_reduction_percent": -3.8794188375780996
+          },
+          {
+            "current_mse": 0.012104892206346071,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 9.0,
+            "mse_reduction_percent": -3.4128667652463878
+          },
+          {
+            "current_mse": 0.01219679488687331,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 10.0,
+            "mse_reduction_percent": -4.197997231071586
+          },
+          {
+            "current_mse": 0.012244349383409382,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 11.0,
+            "mse_reduction_percent": -4.60425833034805
+          },
+          {
+            "current_mse": 0.012330971942391664,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 12.0,
+            "mse_reduction_percent": -5.3442803807883825
+          },
+          {
+            "current_mse": 0.012980322470441034,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 13.0,
+            "mse_reduction_percent": -10.891723389484271
+          },
+          {
+            "current_mse": 0.013433230168600905,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 14.0,
+            "mse_reduction_percent": -14.760942763631759
+          },
+          {
+            "current_mse": 0.013173347335235244,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 15.0,
+            "mse_reduction_percent": -12.540747130057404
+          },
+          {
+            "current_mse": 0.013048626124604671,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 16.0,
+            "mse_reduction_percent": -11.4752458667766
+          },
+          {
+            "current_mse": 0.013160772291178716,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 17.0,
+            "mse_reduction_percent": -12.433317726026601
+          },
+          {
+            "current_mse": 0.013174995114675523,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 18.0,
+            "mse_reduction_percent": -12.554824214992262
+          },
+          {
+            "current_mse": 0.013339979323417996,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 19.0,
+            "mse_reduction_percent": -13.964294841100799
+          },
+          {
+            "current_mse": 0.013542646717961892,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 20.0,
+            "mse_reduction_percent": -15.695695328801131
+          },
+          {
+            "current_mse": 0.013634409613568562,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 21.0,
+            "mse_reduction_percent": -16.47963160312755
+          },
+          {
+            "current_mse": 0.013739734256265124,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 22.0,
+            "mse_reduction_percent": -17.37942674847932
+          },
+          {
+            "current_mse": 0.013833507410218772,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 23.0,
+            "mse_reduction_percent": -18.180536788177296
+          },
+          {
+            "current_mse": 0.014063047816028061,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 24.0,
+            "mse_reduction_percent": -20.14151512640257
+          },
+          {
+            "current_mse": 0.014024090204849175,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 25.0,
+            "mse_reduction_percent": -19.808697767465468
+          },
+          {
+            "current_mse": 0.01403969670106811,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 26.0,
+            "mse_reduction_percent": -19.942025060815094
+          },
+          {
+            "current_mse": 0.014157122147463857,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 27.0,
+            "mse_reduction_percent": -20.94519814455446
+          },
+          {
+            "current_mse": 0.01420193965936517,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 28.0,
+            "mse_reduction_percent": -21.328077009396452
+          },
+          {
+            "current_mse": 0.014072095330675998,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 29.0,
+            "mse_reduction_percent": -20.218808621536155
+          },
+          {
+            "current_mse": 0.015021563227496032,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 30.0,
+            "mse_reduction_percent": -28.33017346791236
+          }
+        ]
+      }
+    }
+  },
+  "metadata": {
+    "arms": {
+      "adaptive_ann": {
+        "color": "#009E73",
+        "label": "Adaptive ANN"
+      },
+      "adaptive_snn": {
+        "color": "#0072B2",
+        "label": "Adaptive SNN"
+      },
+      "ema": {
+        "color": "#CC79A7",
+        "label": "EMA"
+      },
+      "fixed_snn": {
+        "color": "#D55E00",
+        "label": "Fixed SNN"
+      },
+      "persistence": {
+        "color": "#666666",
+        "label": "Persistence"
+      }
+    },
+    "fixed_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+    "git_head": "aa5057289f58720b6f76d7ff8fca6bf8bb15020c",
+    "monitor_frames": 9000.0,
+    "protocol": {
+      "block_frames": 300,
+      "calibration_frames": 150,
+      "cooldown_frames": 25,
+      "ema_alpha": 0.03921056084767682,
+      "fit_frames": 150,
+      "frame_seconds": 0.2,
+      "probe_frames": 100,
+      "sample_rate": 16000,
+      "seed": 0,
+      "version": 1,
+      "warmup_frames": 25
+    },
+    "protocol_sha256": "ef7019083c0fcb24f3477a8384a5b3deccd260fd1ad9f7ef1d133c433b065561",
+    "reference_hash": "1c56faa17c45f6f3ba43d053637953e414f4ace0d0de42673b5abcaaca98385d",
+    "source_status_sha256": "41136376e94a206780c2936c51786fe05cd85fb3478f70849dae49133a1de658",
+    "timestamps": {}
+  },
+  "panels": [
+    {
+      "key": "live",
+      "label": "Live next-feature MSE",
+      "series": {
+        "adaptive_ann": [
+          {
+            "minute": 0.5,
+            "mse": 0.011834975644578192
+          },
+          {
+            "minute": 1.5,
+            "mse": 0.011432841960086119
+          },
+          {
+            "minute": 2.5,
+            "mse": 0.01344679217084588
+          },
+          {
+            "minute": 3.5,
+            "mse": 0.01167153520344604
+          },
+          {
+            "minute": 4.5,
+            "mse": 0.011051186373086982
+          },
+          {
+            "minute": 5.5,
+            "mse": 0.01172280095941684
+          },
+          {
+            "minute": 6.5,
+            "mse": 0.011846304627651537
+          },
+          {
+            "minute": 7.5,
+            "mse": 0.012261458826714575
+          },
+          {
+            "minute": 8.5,
+            "mse": 0.020235052300817083
+          },
+          {
+            "minute": 9.5,
+            "mse": 0.014860390344134689
+          },
+          {
+            "minute": 10.5,
+            "mse": 0.012050933716538504
+          },
+          {
+            "minute": 11.5,
+            "mse": 0.012319198430248177
+          },
+          {
+            "minute": 12.5,
+            "mse": 0.012213826921906193
+          },
+          {
+            "minute": 13.5,
+            "mse": 0.010756388416035873
+          },
+          {
+            "minute": 14.5,
+            "mse": 0.011562253960038248
+          },
+          {
+            "minute": 15.5,
+            "mse": 0.011016703665265394
+          },
+          {
+            "minute": 16.5,
+            "mse": 0.011963374229237461
+          },
+          {
+            "minute": 17.5,
+            "mse": 0.011727480847723402
+          },
+          {
+            "minute": 18.5,
+            "mse": 0.010959388991389518
+          },
+          {
+            "minute": 19.5,
+            "mse": 0.010656229388157658
+          },
+          {
+            "minute": 20.5,
+            "mse": 0.011637824623042066
+          },
+          {
+            "minute": 21.5,
+            "mse": 0.011789230594754984
+          },
+          {
+            "minute": 22.5,
+            "mse": 0.011688911594354699
+          },
+          {
+            "minute": 23.5,
+            "mse": 0.011967141365044126
+          },
+          {
+            "minute": 24.5,
+            "mse": 0.012230808400533859
+          },
+          {
+            "minute": 25.5,
+            "mse": 0.011813489045383948
+          },
+          {
+            "minute": 26.5,
+            "mse": 0.011179683576550421
+          },
+          {
+            "minute": 27.5,
+            "mse": 0.010965973114150918
+          },
+          {
+            "minute": 28.5,
+            "mse": 0.011653321998991096
+          },
+          {
+            "minute": 29.5,
+            "mse": 0.011532060174364594
+          }
+        ],
+        "adaptive_snn": [
+          {
+            "minute": 0.5,
+            "mse": 0.0118872052357931
+          },
+          {
+            "minute": 1.5,
+            "mse": 0.011470910404849778
+          },
+          {
+            "minute": 2.5,
+            "mse": 0.013668604542176546
+          },
+          {
+            "minute": 3.5,
+            "mse": 0.011984519163156699
+          },
+          {
+            "minute": 4.5,
+            "mse": 0.011266360478206764
+          },
+          {
+            "minute": 5.5,
+            "mse": 0.011800510515220713
+          },
+          {
+            "minute": 6.5,
+            "mse": 0.012203211809966042
+          },
+          {
+            "minute": 7.5,
+            "mse": 0.012462489806626467
+          },
+          {
+            "minute": 8.5,
+            "mse": 0.021009282820965144
+          },
+          {
+            "minute": 9.5,
+            "mse": 0.01519453990190804
+          },
+          {
+            "minute": 10.5,
+            "mse": 0.01253326460490151
+          },
+          {
+            "minute": 11.5,
+            "mse": 0.012525968206306273
+          },
+          {
+            "minute": 12.5,
+            "mse": 0.013993122011701727
+          },
+          {
+            "minute": 13.5,
+            "mse": 0.011042878413675577
+          },
+          {
+            "minute": 14.5,
+            "mse": 0.01166760946919701
+          },
+          {
+            "minute": 15.5,
+            "mse": 0.011183340516338385
+          },
+          {
+            "minute": 16.5,
+            "mse": 0.012146395212447661
+          },
+          {
+            "minute": 17.5,
+            "mse": 0.011807034740436758
+          },
+          {
+            "minute": 18.5,
+            "mse": 0.011018754102840086
+          },
+          {
+            "minute": 19.5,
+            "mse": 0.010747710568069686
+          },
+          {
+            "minute": 20.5,
+            "mse": 0.01176213138143936
+          },
+          {
+            "minute": 21.5,
+            "mse": 0.011853749638551887
+          },
+          {
+            "minute": 22.5,
+            "mse": 0.011795649524907616
+          },
+          {
+            "minute": 23.5,
+            "mse": 0.012087930078516804
+          },
+          {
+            "minute": 24.5,
+            "mse": 0.01221755168190076
+          },
+          {
+            "minute": 25.5,
+            "mse": 0.011888099495847118
+          },
+          {
+            "minute": 26.5,
+            "mse": 0.011283298706061255
+          },
+          {
+            "minute": 27.5,
+            "mse": 0.01107482837443563
+          },
+          {
+            "minute": 28.5,
+            "mse": 0.011704528540350432
+          },
+          {
+            "minute": 29.5,
+            "mse": 0.012427027491531857
+          }
+        ],
+        "ema": [
+          {
+            "minute": 0.5,
+            "mse": 0.01189392361813794
+          },
+          {
+            "minute": 1.5,
+            "mse": 0.01159949384121998
+          },
+          {
+            "minute": 2.5,
+            "mse": 0.013273057167510783
+          },
+          {
+            "minute": 3.5,
+            "mse": 0.01169049191122027
+          },
+          {
+            "minute": 4.5,
+            "mse": 0.011110383167111217
+          },
+          {
+            "minute": 5.5,
+            "mse": 0.011858342027369113
+          },
+          {
+            "minute": 6.5,
+            "mse": 0.011760918134267884
+          },
+          {
+            "minute": 7.5,
+            "mse": 0.012030451399385881
+          },
+          {
+            "minute": 8.5,
+            "mse": 0.018468496403419642
+          },
+          {
+            "minute": 9.5,
+            "mse": 0.014358195233511669
+          },
+          {
+            "minute": 10.5,
+            "mse": 0.012001248657850929
+          },
+          {
+            "minute": 11.5,
+            "mse": 0.012314796502546004
+          },
+          {
+            "minute": 12.5,
+            "mse": 0.011315036649627604
+          },
+          {
+            "minute": 13.5,
+            "mse": 0.010906229547676184
+          },
+          {
+            "minute": 14.5,
+            "mse": 0.0114150638968867
+          },
+          {
+            "minute": 15.5,
+            "mse": 0.011200314520753249
+          },
+          {
+            "minute": 16.5,
+            "mse": 0.012173407461722805
+          },
+          {
+            "minute": 17.5,
+            "mse": 0.011904366109097316
+          },
+          {
+            "minute": 18.5,
+            "mse": 0.011152583215343435
+          },
+          {
+            "minute": 19.5,
+            "mse": 0.01084327016014192
+          },
+          {
+            "minute": 20.5,
+            "mse": 0.011740382277462175
+          },
+          {
+            "minute": 21.5,
+            "mse": 0.011967876679993978
+          },
+          {
+            "minute": 22.5,
+            "mse": 0.011890739681392032
+          },
+          {
+            "minute": 23.5,
+            "mse": 0.01220210596080904
+          },
+          {
+            "minute": 24.5,
+            "mse": 0.012443688449189149
+          },
+          {
+            "minute": 25.5,
+            "mse": 0.011975780115593622
+          },
+          {
+            "minute": 26.5,
+            "mse": 0.011344296272099572
+          },
+          {
+            "minute": 27.5,
+            "mse": 0.011101391191459083
+          },
+          {
+            "minute": 28.5,
+            "mse": 0.011751426415107215
+          },
+          {
+            "minute": 29.5,
+            "mse": 0.011087457888767362
+          }
+        ],
+        "fixed_snn": [
+          {
+            "minute": 0.5,
+            "mse": 0.011968181354113825
+          },
+          {
+            "minute": 1.5,
+            "mse": 0.011491665182768444
+          },
+          {
+            "minute": 2.5,
+            "mse": 0.013938338959614835
+          },
+          {
+            "minute": 3.5,
+            "mse": 0.012561759759741312
+          },
+          {
+            "minute": 4.5,
+            "mse": 0.01188065367667727
+          },
+          {
+            "minute": 5.5,
+            "mse": 0.01227261903870447
+          },
+          {
+            "minute": 6.5,
+            "mse": 0.013090314836162823
+          },
+          {
+            "minute": 7.5,
+            "mse": 0.013395949542486574
+          },
+          {
+            "minute": 8.5,
+            "mse": 0.021552234926980544
+          },
+          {
+            "minute": 9.5,
+            "mse": 0.016213614965385006
+          },
+          {
+            "minute": 10.5,
+            "mse": 0.013390001846519948
+          },
+          {
+            "minute": 11.5,
+            "mse": 0.013499472611657539
+          },
+          {
+            "minute": 12.5,
+            "mse": 0.016726462303210475
+          },
+          {
+            "minute": 13.5,
+            "mse": 0.013853384631922705
+          },
+          {
+            "minute": 14.5,
+            "mse": 0.01270417323531775
+          },
+          {
+            "minute": 15.5,
+            "mse": 0.012355867711488508
+          },
+          {
+            "minute": 16.5,
+            "mse": 0.01388834196349077
+          },
+          {
+            "minute": 17.5,
+            "mse": 0.013354118937455108
+          },
+          {
+            "minute": 18.5,
+            "mse": 0.013025592885095185
+          },
+          {
+            "minute": 19.5,
+            "mse": 0.012998292519866811
+          },
+          {
+            "minute": 20.5,
+            "mse": 0.014071083226085704
+          },
+          {
+            "minute": 21.5,
+            "mse": 0.014174286262553848
+          },
+          {
+            "minute": 22.5,
+            "mse": 0.014101469500458236
+          },
+          {
+            "minute": 23.5,
+            "mse": 0.014873918319359898
+          },
+          {
+            "minute": 24.5,
+            "mse": 0.014491357843256019
+          },
+          {
+            "minute": 25.5,
+            "mse": 0.014169070461955865
+          },
+          {
+            "minute": 26.5,
+            "mse": 0.013973079213813437
+          },
+          {
+            "minute": 27.5,
+            "mse": 0.013686421530470566
+          },
+          {
+            "minute": 28.5,
+            "mse": 0.013885729667683831
+          },
+          {
+            "minute": 29.5,
+            "mse": 0.017647511545337998
+          }
+        ],
+        "persistence": [
+          {
+            "minute": 0.5,
+            "mse": 0.02231494053810097
+          },
+          {
+            "minute": 1.5,
+            "mse": 0.02150578963978012
+          },
+          {
+            "minute": 2.5,
+            "mse": 0.02314976563446252
+          },
+          {
+            "minute": 3.5,
+            "mse": 0.022025171926583837
+          },
+          {
+            "minute": 4.5,
+            "mse": 0.022898634079829824
+          },
+          {
+            "minute": 5.5,
+            "mse": 0.022925056100486695
+          },
+          {
+            "minute": 6.5,
+            "mse": 0.02236951493839767
+          },
+          {
+            "minute": 7.5,
+            "mse": 0.021030644075769114
+          },
+          {
+            "minute": 8.5,
+            "mse": 0.02432031474470972
+          },
+          {
+            "minute": 9.5,
+            "mse": 0.021286870377144676
+          },
+          {
+            "minute": 10.5,
+            "mse": 0.020905375767903304
+          },
+          {
+            "minute": 11.5,
+            "mse": 0.02206678241243379
+          },
+          {
+            "minute": 12.5,
+            "mse": 0.021280118476333685
+          },
+          {
+            "minute": 13.5,
+            "mse": 0.019796476838749338
+          },
+          {
+            "minute": 14.5,
+            "mse": 0.0209266843572495
+          },
+          {
+            "minute": 15.5,
+            "mse": 0.020327741647302288
+          },
+          {
+            "minute": 16.5,
+            "mse": 0.021269923157704252
+          },
+          {
+            "minute": 17.5,
+            "mse": 0.022720935455820948
+          },
+          {
+            "minute": 18.5,
+            "mse": 0.021027314009665392
+          },
+          {
+            "minute": 19.5,
+            "mse": 0.021192369238025786
+          },
+          {
+            "minute": 20.5,
+            "mse": 0.023438586327163863
+          },
+          {
+            "minute": 21.5,
+            "mse": 0.02277317300771735
+          },
+          {
+            "minute": 22.5,
+            "mse": 0.021620378301518837
+          },
+          {
+            "minute": 23.5,
+            "mse": 0.022459159280037735
+          },
+          {
+            "minute": 24.5,
+            "mse": 0.02398370788835767
+          },
+          {
+            "minute": 25.5,
+            "mse": 0.024178900212903597
+          },
+          {
+            "minute": 26.5,
+            "mse": 0.02094068369818477
+          },
+          {
+            "minute": 27.5,
+            "mse": 0.02066789576795816
+          },
+          {
+            "minute": 28.5,
+            "mse": 0.02207674903634704
+          },
+          {
+            "minute": 29.5,
+            "mse": 0.02092243250474097
+          }
+        ]
+      },
+      "x": "minute"
+    },
+    {
+      "key": "sealed_probe",
+      "label": "Sealed 20-second probe MSE",
+      "series": {
+        "adaptive_ann": [
+          {
+            "minute": 0.0,
+            "mse": 0.01172095379694145
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.011599109266353956
+          },
+          {
+            "minute": 2.0,
+            "mse": 0.011595817725687197
+          },
+          {
+            "minute": 3.0,
+            "mse": 0.011731144920977852
+          },
+          {
+            "minute": 4.0,
+            "mse": 0.012047995015963691
+          },
+          {
+            "minute": 5.0,
+            "mse": 0.012078708625962036
+          },
+          {
+            "minute": 6.0,
+            "mse": 0.011978505370476499
+          },
+          {
+            "minute": 7.0,
+            "mse": 0.012284799326998604
+          },
+          {
+            "minute": 8.0,
+            "mse": 0.01225043683557149
+          },
+          {
+            "minute": 9.0,
+            "mse": 0.01213257711535519
+          },
+          {
+            "minute": 10.0,
+            "mse": 0.012265963441478938
+          },
+          {
+            "minute": 11.0,
+            "mse": 0.012407590874977417
+          },
+          {
+            "minute": 12.0,
+            "mse": 0.012307301746781572
+          },
+          {
+            "minute": 13.0,
+            "mse": 0.014546494789837659
+          },
+          {
+            "minute": 14.0,
+            "mse": 0.01403102776693892
+          },
+          {
+            "minute": 15.0,
+            "mse": 0.012959365767597892
+          },
+          {
+            "minute": 16.0,
+            "mse": 0.012700583388588245
+          },
+          {
+            "minute": 17.0,
+            "mse": 0.013012485841131004
+          },
+          {
+            "minute": 18.0,
+            "mse": 0.012954884689072667
+          },
+          {
+            "minute": 19.0,
+            "mse": 0.013180624309466971
+          },
+          {
+            "minute": 20.0,
+            "mse": 0.013419065484079425
+          },
+          {
+            "minute": 21.0,
+            "mse": 0.01344349511528979
+          },
+          {
+            "minute": 22.0,
+            "mse": 0.013534089114564852
+          },
+          {
+            "minute": 23.0,
+            "mse": 0.013610756903737507
+          },
+          {
+            "minute": 24.0,
+            "mse": 0.01397794371394067
+          },
+          {
+            "minute": 25.0,
+            "mse": 0.013601409542901592
+          },
+          {
+            "minute": 26.0,
+            "mse": 0.013659683048473883
+          },
+          {
+            "minute": 27.0,
+            "mse": 0.013784292773576031
+          },
+          {
+            "minute": 28.0,
+            "mse": 0.013766202358838665
+          },
+          {
+            "minute": 29.0,
+            "mse": 0.013552685840166584
+          },
+          {
+            "minute": 30.0,
+            "mse": 0.015655912918265985
+          }
+        ],
+        "adaptive_snn": [
+          {
+            "minute": 0.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.011675486225190894
+          },
+          {
+            "minute": 2.0,
+            "mse": 0.011665356269666534
+          },
+          {
+            "minute": 3.0,
+            "mse": 0.01165231787144058
+          },
+          {
+            "minute": 4.0,
+            "mse": 0.011803140478930541
+          },
+          {
+            "minute": 5.0,
+            "mse": 0.011899460283550494
+          },
+          {
+            "minute": 6.0,
+            "mse": 0.011926893685747746
+          },
+          {
+            "minute": 7.0,
+            "mse": 0.012081126839593354
+          },
+          {
+            "minute": 8.0,
+            "mse": 0.012159504003899688
+          },
+          {
+            "minute": 9.0,
+            "mse": 0.012104892206346071
+          },
+          {
+            "minute": 10.0,
+            "mse": 0.01219679488687331
+          },
+          {
+            "minute": 11.0,
+            "mse": 0.012244349383409382
+          },
+          {
+            "minute": 12.0,
+            "mse": 0.012330971942391664
+          },
+          {
+            "minute": 13.0,
+            "mse": 0.012980322470441034
+          },
+          {
+            "minute": 14.0,
+            "mse": 0.013433230168600905
+          },
+          {
+            "minute": 15.0,
+            "mse": 0.013173347335235244
+          },
+          {
+            "minute": 16.0,
+            "mse": 0.013048626124604671
+          },
+          {
+            "minute": 17.0,
+            "mse": 0.013160772291178716
+          },
+          {
+            "minute": 18.0,
+            "mse": 0.013174995114675523
+          },
+          {
+            "minute": 19.0,
+            "mse": 0.013339979323417996
+          },
+          {
+            "minute": 20.0,
+            "mse": 0.013542646717961892
+          },
+          {
+            "minute": 21.0,
+            "mse": 0.013634409613568562
+          },
+          {
+            "minute": 22.0,
+            "mse": 0.013739734256265124
+          },
+          {
+            "minute": 23.0,
+            "mse": 0.013833507410218772
+          },
+          {
+            "minute": 24.0,
+            "mse": 0.014063047816028061
+          },
+          {
+            "minute": 25.0,
+            "mse": 0.014024090204849175
+          },
+          {
+            "minute": 26.0,
+            "mse": 0.01403969670106811
+          },
+          {
+            "minute": 27.0,
+            "mse": 0.014157122147463857
+          },
+          {
+            "minute": 28.0,
+            "mse": 0.01420193965936517
+          },
+          {
+            "minute": 29.0,
+            "mse": 0.014072095330675998
+          },
+          {
+            "minute": 30.0,
+            "mse": 0.015021563227496032
+          }
+        ],
+        "ema": [
+          {
+            "minute": 0.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 2.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 3.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 4.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 5.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 6.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 7.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 8.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 9.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 10.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 11.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 12.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 13.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 14.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 15.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 16.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 17.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 18.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 19.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 20.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 21.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 22.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 23.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 24.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 25.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 26.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 27.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 28.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 29.0,
+            "mse": 0.012129598112054886
+          },
+          {
+            "minute": 30.0,
+            "mse": 0.012129598112054886
+          }
+        ],
+        "fixed_snn": [
+          {
+            "minute": 0.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 2.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 3.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 4.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 5.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 6.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 7.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 8.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 9.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 10.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 11.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 12.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 13.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 14.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 15.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 16.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 17.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 18.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 19.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 20.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 21.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 22.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 23.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 24.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 25.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 26.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 27.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 28.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 29.0,
+            "mse": 0.011705402417500838
+          },
+          {
+            "minute": 30.0,
+            "mse": 0.011705402417500838
+          }
+        ],
+        "persistence": [
+          {
+            "minute": 0.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 1.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 2.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 3.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 4.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 5.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 6.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 7.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 8.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 9.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 10.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 11.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 12.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 13.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 14.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 15.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 16.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 17.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 18.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 19.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 20.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 21.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 22.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 23.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 24.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 25.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 26.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 27.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 28.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 29.0,
+            "mse": 0.02227037955939562
+          },
+          {
+            "minute": 30.0,
+            "mse": 0.02227037955939562
+          }
+        ]
+      },
+      "x": "minute"
+    }
+  ],
+  "schema_version": 1,
+  "snn_control_comparison": {
+    "controls": {
+      "adaptive_ann": "Adaptive ANN",
+      "ema": "EMA",
+      "fixed_snn": "Fixed SNN"
+    },
+    "denominator_rule": "same_control_mse_at_each_block_or_checkpoint",
+    "formula": "100*(control_mse-snn_mse)/control_mse",
+    "positive_means_snn_lower_mse": true,
+    "series": {
+      "live": {
+        "adaptive_ann": [
+          {
+            "control_mse": 0.011834975644578192,
+            "denominator_mse": 0.011834975644578192,
+            "minute": 0.5,
+            "mse_reduction_percent": -0.44131557836230134,
+            "snn_mse": 0.0118872052357931
+          },
+          {
+            "control_mse": 0.011432841960086119,
+            "denominator_mse": 0.011432841960086119,
+            "minute": 1.5,
+            "mse_reduction_percent": -0.33297446861035696,
+            "snn_mse": 0.011470910404849778
+          },
+          {
+            "control_mse": 0.01344679217084588,
+            "denominator_mse": 0.01344679217084588,
+            "minute": 2.5,
+            "mse_reduction_percent": -1.649556031746958,
+            "snn_mse": 0.013668604542176546
+          },
+          {
+            "control_mse": 0.01167153520344604,
+            "denominator_mse": 0.01167153520344604,
+            "minute": 3.5000000000000004,
+            "mse_reduction_percent": -2.681600614272664,
+            "snn_mse": 0.011984519163156699
+          },
+          {
+            "control_mse": 0.011051186373086982,
+            "denominator_mse": 0.011051186373086982,
+            "minute": 4.5,
+            "mse_reduction_percent": -1.9470679242528741,
+            "snn_mse": 0.011266360478206764
+          },
+          {
+            "control_mse": 0.01172280095941684,
+            "denominator_mse": 0.01172280095941684,
+            "minute": 5.5,
+            "mse_reduction_percent": -0.6628923929775533,
+            "snn_mse": 0.011800510515220713
+          },
+          {
+            "control_mse": 0.011846304627651537,
+            "denominator_mse": 0.011846304627651537,
+            "minute": 6.5,
+            "mse_reduction_percent": -3.0128144896883375,
+            "snn_mse": 0.012203211809966042
+          },
+          {
+            "control_mse": 0.012261458826714575,
+            "denominator_mse": 0.012261458826714575,
+            "minute": 7.500000000000001,
+            "mse_reduction_percent": -1.6395355785389714,
+            "snn_mse": 0.012462489806626467
+          },
+          {
+            "control_mse": 0.020235052300817083,
+            "denominator_mse": 0.020235052300817083,
+            "minute": 8.5,
+            "mse_reduction_percent": -3.8261849222737006,
+            "snn_mse": 0.021009282820965144
+          },
+          {
+            "control_mse": 0.014860390344134689,
+            "denominator_mse": 0.014860390344134689,
+            "minute": 9.5,
+            "mse_reduction_percent": -2.2485920627598963,
+            "snn_mse": 0.01519453990190804
+          },
+          {
+            "control_mse": 0.012050933716538504,
+            "denominator_mse": 0.012050933716538504,
+            "minute": 10.5,
+            "mse_reduction_percent": -4.002435825375613,
+            "snn_mse": 0.01253326460490151
+          },
+          {
+            "control_mse": 0.012319198430248177,
+            "denominator_mse": 0.012319198430248177,
+            "minute": 11.5,
+            "mse_reduction_percent": -1.6784353075310419,
+            "snn_mse": 0.012525968206306273
+          },
+          {
+            "control_mse": 0.012213826921906193,
+            "denominator_mse": 0.012213826921906193,
+            "minute": 12.5,
+            "mse_reduction_percent": -14.567875418344656,
+            "snn_mse": 0.013993122011701727
+          },
+          {
+            "control_mse": 0.010756388416035873,
+            "denominator_mse": 0.010756388416035873,
+            "minute": 13.5,
+            "mse_reduction_percent": -2.663440427761036,
+            "snn_mse": 0.011042878413675577
+          },
+          {
+            "control_mse": 0.011562253960038248,
+            "denominator_mse": 0.011562253960038248,
+            "minute": 14.500000000000002,
+            "mse_reduction_percent": -0.9112021715047435,
+            "snn_mse": 0.01166760946919701
+          },
+          {
+            "control_mse": 0.011016703665265394,
+            "denominator_mse": 0.011016703665265394,
+            "minute": 15.500000000000002,
+            "mse_reduction_percent": -1.512583583403274,
+            "snn_mse": 0.011183340516338385
+          },
+          {
+            "control_mse": 0.011963374229237461,
+            "denominator_mse": 0.011963374229237461,
+            "minute": 16.5,
+            "mse_reduction_percent": -1.529844170241805,
+            "snn_mse": 0.012146395212447661
+          },
+          {
+            "control_mse": 0.011727480847723402,
+            "denominator_mse": 0.011727480847723402,
+            "minute": 17.5,
+            "mse_reduction_percent": -0.6783544884560552,
+            "snn_mse": 0.011807034740436758
+          },
+          {
+            "control_mse": 0.010959388991389518,
+            "denominator_mse": 0.010959388991389518,
+            "minute": 18.5,
+            "mse_reduction_percent": -0.5416826749849784,
+            "snn_mse": 0.011018754102840086
+          },
+          {
+            "control_mse": 0.010656229388157658,
+            "denominator_mse": 0.010656229388157658,
+            "minute": 19.5,
+            "mse_reduction_percent": -0.858476076103343,
+            "snn_mse": 0.010747710568069686
+          },
+          {
+            "control_mse": 0.011637824623042066,
+            "denominator_mse": 0.011637824623042066,
+            "minute": 20.5,
+            "mse_reduction_percent": -1.0681270978355821,
+            "snn_mse": 0.01176213138143936
+          },
+          {
+            "control_mse": 0.011789230594754984,
+            "denominator_mse": 0.011789230594754984,
+            "minute": 21.5,
+            "mse_reduction_percent": -0.5472710307796257,
+            "snn_mse": 0.011853749638551887
+          },
+          {
+            "control_mse": 0.011688911594354699,
+            "denominator_mse": 0.011688911594354699,
+            "minute": 22.5,
+            "mse_reduction_percent": -0.9131554267590423,
+            "snn_mse": 0.011795649524907616
+          },
+          {
+            "control_mse": 0.011967141365044126,
+            "denominator_mse": 0.011967141365044126,
+            "minute": 23.5,
+            "mse_reduction_percent": -1.0093363969569291,
+            "snn_mse": 0.012087930078516804
+          },
+          {
+            "control_mse": 0.012230808400533859,
+            "denominator_mse": 0.012230808400533859,
+            "minute": 24.5,
+            "mse_reduction_percent": 0.10838791843489474,
+            "snn_mse": 0.01221755168190076
+          },
+          {
+            "control_mse": 0.011813489045383948,
+            "denominator_mse": 0.011813489045383948,
+            "minute": 25.5,
+            "mse_reduction_percent": -0.6315699805242813,
+            "snn_mse": 0.011888099495847118
+          },
+          {
+            "control_mse": 0.011179683576550421,
+            "denominator_mse": 0.011179683576550421,
+            "minute": 26.5,
+            "mse_reduction_percent": -0.9268162985235868,
+            "snn_mse": 0.011283298706061255
+          },
+          {
+            "control_mse": 0.010965973114150918,
+            "denominator_mse": 0.010965973114150918,
+            "minute": 27.5,
+            "mse_reduction_percent": -0.9926639355356511,
+            "snn_mse": 0.01107482837443563
+          },
+          {
+            "control_mse": 0.011653321998991096,
+            "denominator_mse": 0.011653321998991096,
+            "minute": 28.500000000000004,
+            "mse_reduction_percent": -0.4394158280683305,
+            "snn_mse": 0.011704528540350432
+          },
+          {
+            "control_mse": 0.011532060174364594,
+            "denominator_mse": 0.011532060174364594,
+            "minute": 29.500000000000004,
+            "mse_reduction_percent": -7.76068892839067,
+            "snn_mse": 0.012427027491531857
+          }
+        ],
+        "ema": [
+          {
+            "control_mse": 0.01189392361813794,
+            "denominator_mse": 0.01189392361813794,
+            "minute": 0.5,
+            "mse_reduction_percent": 0.056485837311040836,
+            "snn_mse": 0.0118872052357931
+          },
+          {
+            "control_mse": 0.01159949384121998,
+            "denominator_mse": 0.01159949384121998,
+            "minute": 1.5,
+            "mse_reduction_percent": 1.108526269596934,
+            "snn_mse": 0.011470910404849778
+          },
+          {
+            "control_mse": 0.013273057167510783,
+            "denominator_mse": 0.013273057167510783,
+            "minute": 2.5,
+            "mse_reduction_percent": -2.9800773828803138,
+            "snn_mse": 0.013668604542176546
+          },
+          {
+            "control_mse": 0.01169049191122027,
+            "denominator_mse": 0.01169049191122027,
+            "minute": 3.5000000000000004,
+            "mse_reduction_percent": -2.515097347223072,
+            "snn_mse": 0.011984519163156699
+          },
+          {
+            "control_mse": 0.011110383167111217,
+            "denominator_mse": 0.011110383167111217,
+            "minute": 4.5,
+            "mse_reduction_percent": -1.4038877755113643,
+            "snn_mse": 0.011266360478206764
+          },
+          {
+            "control_mse": 0.011858342027369113,
+            "denominator_mse": 0.011858342027369113,
+            "minute": 5.5,
+            "mse_reduction_percent": 0.48768632254765604,
+            "snn_mse": 0.011800510515220713
+          },
+          {
+            "control_mse": 0.011760918134267884,
+            "denominator_mse": 0.011760918134267884,
+            "minute": 6.5,
+            "mse_reduction_percent": -3.760707035358439,
+            "snn_mse": 0.012203211809966042
+          },
+          {
+            "control_mse": 0.012030451399385881,
+            "denominator_mse": 0.012030451399385881,
+            "minute": 7.500000000000001,
+            "mse_reduction_percent": -3.5912069539023297,
+            "snn_mse": 0.012462489806626467
+          },
+          {
+            "control_mse": 0.018468496403419642,
+            "denominator_mse": 0.018468496403419642,
+            "minute": 8.5,
+            "mse_reduction_percent": -13.757408085885363,
+            "snn_mse": 0.021009282820965144
+          },
+          {
+            "control_mse": 0.014358195233511669,
+            "denominator_mse": 0.014358195233511669,
+            "minute": 9.5,
+            "mse_reduction_percent": -5.824859286244854,
+            "snn_mse": 0.01519453990190804
+          },
+          {
+            "control_mse": 0.012001248657850929,
+            "denominator_mse": 0.012001248657850929,
+            "minute": 10.5,
+            "mse_reduction_percent": -4.433004949885348,
+            "snn_mse": 0.01253326460490151
+          },
+          {
+            "control_mse": 0.012314796502546004,
+            "denominator_mse": 0.012314796502546004,
+            "minute": 11.5,
+            "mse_reduction_percent": -1.7147802947179032,
+            "snn_mse": 0.012525968206306273
+          },
+          {
+            "control_mse": 0.011315036649627604,
+            "denominator_mse": 0.011315036649627604,
+            "minute": 12.5,
+            "mse_reduction_percent": -23.66837549891862,
+            "snn_mse": 0.013993122011701727
+          },
+          {
+            "control_mse": 0.010906229547676184,
+            "denominator_mse": 0.010906229547676184,
+            "minute": 13.5,
+            "mse_reduction_percent": -1.252943241310279,
+            "snn_mse": 0.011042878413675577
+          },
+          {
+            "control_mse": 0.0114150638968867,
+            "denominator_mse": 0.0114150638968867,
+            "minute": 14.500000000000002,
+            "mse_reduction_percent": -2.212388599762358,
+            "snn_mse": 0.01166760946919701
+          },
+          {
+            "control_mse": 0.011200314520753249,
+            "denominator_mse": 0.011200314520753249,
+            "minute": 15.500000000000002,
+            "mse_reduction_percent": 0.1515493550061684,
+            "snn_mse": 0.011183340516338385
+          },
+          {
+            "control_mse": 0.012173407461722805,
+            "denominator_mse": 0.012173407461722805,
+            "minute": 16.5,
+            "mse_reduction_percent": 0.22189554863812117,
+            "snn_mse": 0.012146395212447661
+          },
+          {
+            "control_mse": 0.011904366109097316,
+            "denominator_mse": 0.011904366109097316,
+            "minute": 17.5,
+            "mse_reduction_percent": 0.8176106797167232,
+            "snn_mse": 0.011807034740436758
+          },
+          {
+            "control_mse": 0.011152583215343435,
+            "denominator_mse": 0.011152583215343435,
+            "minute": 18.5,
+            "mse_reduction_percent": 1.1999830883954334,
+            "snn_mse": 0.011018754102840086
+          },
+          {
+            "control_mse": 0.01084327016014192,
+            "denominator_mse": 0.01084327016014192,
+            "minute": 19.5,
+            "mse_reduction_percent": 0.8812801918695606,
+            "snn_mse": 0.010747710568069686
+          },
+          {
+            "control_mse": 0.011740382277462175,
+            "denominator_mse": 0.011740382277462175,
+            "minute": 20.5,
+            "mse_reduction_percent": -0.1852503901762691,
+            "snn_mse": 0.01176213138143936
+          },
+          {
+            "control_mse": 0.011967876679993978,
+            "denominator_mse": 0.011967876679993978,
+            "minute": 21.5,
+            "mse_reduction_percent": 0.9536114424781057,
+            "snn_mse": 0.011853749638551887
+          },
+          {
+            "control_mse": 0.011890739681392032,
+            "denominator_mse": 0.011890739681392032,
+            "minute": 22.5,
+            "mse_reduction_percent": 0.7996992536404129,
+            "snn_mse": 0.011795649524907616
+          },
+          {
+            "control_mse": 0.01220210596080904,
+            "denominator_mse": 0.01220210596080904,
+            "minute": 23.5,
+            "mse_reduction_percent": 0.9357063662530669,
+            "snn_mse": 0.012087930078516804
+          },
+          {
+            "control_mse": 0.012443688449189149,
+            "denominator_mse": 0.012443688449189149,
+            "minute": 24.5,
+            "mse_reduction_percent": 1.8172808505433495,
+            "snn_mse": 0.01221755168190076
+          },
+          {
+            "control_mse": 0.011975780115593622,
+            "denominator_mse": 0.011975780115593622,
+            "minute": 25.5,
+            "mse_reduction_percent": 0.7321495460018942,
+            "snn_mse": 0.011888099495847118
+          },
+          {
+            "control_mse": 0.011344296272099572,
+            "denominator_mse": 0.011344296272099572,
+            "minute": 26.5,
+            "mse_reduction_percent": 0.5376936971254522,
+            "snn_mse": 0.011283298706061255
+          },
+          {
+            "control_mse": 0.011101391191459083,
+            "denominator_mse": 0.011101391191459083,
+            "minute": 27.5,
+            "mse_reduction_percent": 0.23927466896121471,
+            "snn_mse": 0.01107482837443563
+          },
+          {
+            "control_mse": 0.011751426415107215,
+            "denominator_mse": 0.011751426415107215,
+            "minute": 28.500000000000004,
+            "mse_reduction_percent": 0.39908240157546326,
+            "snn_mse": 0.011704528540350432
+          },
+          {
+            "control_mse": 0.011087457888767362,
+            "denominator_mse": 0.011087457888767362,
+            "minute": 29.500000000000004,
+            "mse_reduction_percent": -12.081846138253253,
+            "snn_mse": 0.012427027491531857
+          }
+        ],
+        "fixed_snn": [
+          {
+            "control_mse": 0.011968181354113825,
+            "denominator_mse": 0.011968181354113825,
+            "minute": 0.5,
+            "mse_reduction_percent": 0.6765950141028801,
+            "snn_mse": 0.0118872052357931
+          },
+          {
+            "control_mse": 0.011491665182768444,
+            "denominator_mse": 0.011491665182768444,
+            "minute": 1.5,
+            "mse_reduction_percent": 0.18060722783490057,
+            "snn_mse": 0.011470910404849778
+          },
+          {
+            "control_mse": 0.013938338959614835,
+            "denominator_mse": 0.013938338959614835,
+            "minute": 2.5,
+            "mse_reduction_percent": 1.9351977177468722,
+            "snn_mse": 0.013668604542176546
+          },
+          {
+            "control_mse": 0.012561759759741312,
+            "denominator_mse": 0.012561759759741312,
+            "minute": 3.5000000000000004,
+            "mse_reduction_percent": 4.595220794100749,
+            "snn_mse": 0.011984519163156699
+          },
+          {
+            "control_mse": 0.01188065367667727,
+            "denominator_mse": 0.01188065367667727,
+            "minute": 4.5,
+            "mse_reduction_percent": 5.17053366917357,
+            "snn_mse": 0.011266360478206764
+          },
+          {
+            "control_mse": 0.01227261903870447,
+            "denominator_mse": 0.01227261903870447,
+            "minute": 5.5,
+            "mse_reduction_percent": 3.8468441169310013,
+            "snn_mse": 0.011800510515220713
+          },
+          {
+            "control_mse": 0.013090314836162823,
+            "denominator_mse": 0.013090314836162823,
+            "minute": 6.5,
+            "mse_reduction_percent": 6.776789078793604,
+            "snn_mse": 0.012203211809966042
+          },
+          {
+            "control_mse": 0.013395949542486574,
+            "denominator_mse": 0.013395949542486574,
+            "minute": 7.500000000000001,
+            "mse_reduction_percent": 6.968223737328564,
+            "snn_mse": 0.012462489806626467
+          },
+          {
+            "control_mse": 0.021552234926980544,
+            "denominator_mse": 0.021552234926980544,
+            "minute": 8.5,
+            "mse_reduction_percent": 2.5192380644278174,
+            "snn_mse": 0.021009282820965144
+          },
+          {
+            "control_mse": 0.016213614965385006,
+            "denominator_mse": 0.016213614965385006,
+            "minute": 9.5,
+            "mse_reduction_percent": 6.285304453403045,
+            "snn_mse": 0.01519453990190804
+          },
+          {
+            "control_mse": 0.013390001846519948,
+            "denominator_mse": 0.013390001846519948,
+            "minute": 10.5,
+            "mse_reduction_percent": 6.398335500163533,
+            "snn_mse": 0.01253326460490151
+          },
+          {
+            "control_mse": 0.013499472611657539,
+            "denominator_mse": 0.013499472611657539,
+            "minute": 11.5,
+            "mse_reduction_percent": 7.211425463470268,
+            "snn_mse": 0.012525968206306273
+          },
+          {
+            "control_mse": 0.016726462303210475,
+            "denominator_mse": 0.016726462303210475,
+            "minute": 12.5,
+            "mse_reduction_percent": 16.34141303737678,
+            "snn_mse": 0.013993122011701727
+          },
+          {
+            "control_mse": 0.013853384631922705,
+            "denominator_mse": 0.013853384631922705,
+            "minute": 13.5,
+            "mse_reduction_percent": 20.287505854495713,
+            "snn_mse": 0.011042878413675577
+          },
+          {
+            "control_mse": 0.01270417323531775,
+            "denominator_mse": 0.01270417323531775,
+            "minute": 14.500000000000002,
+            "mse_reduction_percent": 8.159238282732804,
+            "snn_mse": 0.01166760946919701
+          },
+          {
+            "control_mse": 0.012355867711488508,
+            "denominator_mse": 0.012355867711488508,
+            "minute": 15.500000000000002,
+            "mse_reduction_percent": 9.489638627806814,
+            "snn_mse": 0.011183340516338385
+          },
+          {
+            "control_mse": 0.01388834196349077,
+            "denominator_mse": 0.01388834196349077,
+            "minute": 16.5,
+            "mse_reduction_percent": 12.542510514374452,
+            "snn_mse": 0.012146395212447661
+          },
+          {
+            "control_mse": 0.013354118937455108,
+            "denominator_mse": 0.013354118937455108,
+            "minute": 17.5,
+            "mse_reduction_percent": 11.585071274744672,
+            "snn_mse": 0.011807034740436758
+          },
+          {
+            "control_mse": 0.013025592885095185,
+            "denominator_mse": 0.013025592885095185,
+            "minute": 18.5,
+            "mse_reduction_percent": 15.40689011209208,
+            "snn_mse": 0.011018754102840086
+          },
+          {
+            "control_mse": 0.012998292519866811,
+            "denominator_mse": 0.012998292519866811,
+            "minute": 19.5,
+            "mse_reduction_percent": 17.31444301901421,
+            "snn_mse": 0.010747710568069686
+          },
+          {
+            "control_mse": 0.014071083226085704,
+            "denominator_mse": 0.014071083226085704,
+            "minute": 20.5,
+            "mse_reduction_percent": 16.409197554640922,
+            "snn_mse": 0.01176213138143936
+          },
+          {
+            "control_mse": 0.014174286262553848,
+            "denominator_mse": 0.014174286262553848,
+            "minute": 21.5,
+            "mse_reduction_percent": 16.371453073672146,
+            "snn_mse": 0.011853749638551887
+          },
+          {
+            "control_mse": 0.014101469500458236,
+            "denominator_mse": 0.014101469500458236,
+            "minute": 22.5,
+            "mse_reduction_percent": 16.35162899494759,
+            "snn_mse": 0.011795649524907616
+          },
+          {
+            "control_mse": 0.014873918319359898,
+            "denominator_mse": 0.014873918319359898,
+            "minute": 23.5,
+            "mse_reduction_percent": 18.730694770703764,
+            "snn_mse": 0.012087930078516804
+          },
+          {
+            "control_mse": 0.014491357843256019,
+            "denominator_mse": 0.014491357843256019,
+            "minute": 24.5,
+            "mse_reduction_percent": 15.690773673175434,
+            "snn_mse": 0.01221755168190076
+          },
+          {
+            "control_mse": 0.014169070461955865,
+            "denominator_mse": 0.014169070461955865,
+            "minute": 25.5,
+            "mse_reduction_percent": 16.098239981466556,
+            "snn_mse": 0.011888099495847118
+          },
+          {
+            "control_mse": 0.013973079213813437,
+            "denominator_mse": 0.013973079213813437,
+            "minute": 26.5,
+            "mse_reduction_percent": 19.24973348102923,
+            "snn_mse": 0.011283298706061255
+          },
+          {
+            "control_mse": 0.013686421530470566,
+            "denominator_mse": 0.013686421530470566,
+            "minute": 27.5,
+            "mse_reduction_percent": 19.08163613272215,
+            "snn_mse": 0.01107482837443563
+          },
+          {
+            "control_mse": 0.013885729667683831,
+            "denominator_mse": 0.013885729667683831,
+            "minute": 28.500000000000004,
+            "mse_reduction_percent": 15.708221170470393,
+            "snn_mse": 0.011704528540350432
+          },
+          {
+            "control_mse": 0.017647511545337998,
+            "denominator_mse": 0.017647511545337998,
+            "minute": 29.500000000000004,
+            "mse_reduction_percent": 29.581984068372826,
+            "snn_mse": 0.012427027491531857
+          }
+        ]
+      },
+      "sealed_probe": {
+        "adaptive_ann": [
+          {
+            "control_mse": 0.01172095379694145,
+            "denominator_mse": 0.01172095379694145,
+            "minute": 0.0,
+            "mse_reduction_percent": 0.13268015308335884,
+            "snn_mse": 0.011705402417500838
+          },
+          {
+            "control_mse": 0.011599109266353956,
+            "denominator_mse": 0.011599109266353956,
+            "minute": 1.0,
+            "mse_reduction_percent": -0.6584726213286755,
+            "snn_mse": 0.011675486225190894
+          },
+          {
+            "control_mse": 0.011595817725687197,
+            "denominator_mse": 0.011595817725687197,
+            "minute": 2.0,
+            "mse_reduction_percent": -0.5996864181927751,
+            "snn_mse": 0.011665356269666534
+          },
+          {
+            "control_mse": 0.011731144920977852,
+            "denominator_mse": 0.011731144920977852,
+            "minute": 3.0,
+            "mse_reduction_percent": 0.6719467713361201,
+            "snn_mse": 0.01165231787144058
+          },
+          {
+            "control_mse": 0.012047995015963691,
+            "denominator_mse": 0.012047995015963691,
+            "minute": 4.0,
+            "mse_reduction_percent": 2.0323260153138807,
+            "snn_mse": 0.011803140478930541
+          },
+          {
+            "control_mse": 0.012078708625962036,
+            "denominator_mse": 0.012078708625962036,
+            "minute": 5.0,
+            "mse_reduction_percent": 1.4840025367137715,
+            "snn_mse": 0.011899460283550494
+          },
+          {
+            "control_mse": 0.011978505370476499,
+            "denominator_mse": 0.011978505370476499,
+            "minute": 6.0,
+            "mse_reduction_percent": 0.43086915380912666,
+            "snn_mse": 0.011926893685747746
+          },
+          {
+            "control_mse": 0.012284799326998604,
+            "denominator_mse": 0.012284799326998604,
+            "minute": 7.0,
+            "mse_reduction_percent": 1.6579227872093447,
+            "snn_mse": 0.012081126839593354
+          },
+          {
+            "control_mse": 0.01225043683557149,
+            "denominator_mse": 0.01225043683557149,
+            "minute": 8.0,
+            "mse_reduction_percent": 0.742282360150308,
+            "snn_mse": 0.012159504003899688
+          },
+          {
+            "control_mse": 0.01213257711535519,
+            "denominator_mse": 0.01213257711535519,
+            "minute": 9.0,
+            "mse_reduction_percent": 0.2281865488749257,
+            "snn_mse": 0.012104892206346071
+          },
+          {
+            "control_mse": 0.012265963441478938,
+            "denominator_mse": 0.012265963441478938,
+            "minute": 10.0,
+            "mse_reduction_percent": 0.5639064141649571,
+            "snn_mse": 0.01219679488687331
+          },
+          {
+            "control_mse": 0.012407590874977417,
+            "denominator_mse": 0.012407590874977417,
+            "minute": 11.0,
+            "mse_reduction_percent": 1.3156582386774693,
+            "snn_mse": 0.012244349383409382
+          },
+          {
+            "control_mse": 0.012307301746781572,
+            "denominator_mse": 0.012307301746781572,
+            "minute": 12.0,
+            "mse_reduction_percent": -0.19232644244122957,
+            "snn_mse": 0.012330971942391664
+          },
+          {
+            "control_mse": 0.014546494789837659,
+            "denominator_mse": 0.014546494789837659,
+            "minute": 13.0,
+            "mse_reduction_percent": 10.766664698431473,
+            "snn_mse": 0.012980322470441034
+          },
+          {
+            "control_mse": 0.01403102776693892,
+            "denominator_mse": 0.01403102776693892,
+            "minute": 14.0,
+            "mse_reduction_percent": 4.260540341503677,
+            "snn_mse": 0.013433230168600905
+          },
+          {
+            "control_mse": 0.012959365767597892,
+            "denominator_mse": 0.012959365767597892,
+            "minute": 15.0,
+            "mse_reduction_percent": -1.6511731474727505,
+            "snn_mse": 0.013173347335235244
+          },
+          {
+            "control_mse": 0.012700583388588245,
+            "denominator_mse": 0.012700583388588245,
+            "minute": 16.0,
+            "mse_reduction_percent": -2.740368102532601,
+            "snn_mse": 0.013048626124604671
+          },
+          {
+            "control_mse": 0.013012485841131004,
+            "denominator_mse": 0.013012485841131004,
+            "minute": 17.0,
+            "mse_reduction_percent": -1.1395705006571077,
+            "snn_mse": 0.013160772291178716
+          },
+          {
+            "control_mse": 0.012954884689072667,
+            "denominator_mse": 0.012954884689072667,
+            "minute": 18.0,
+            "mse_reduction_percent": -1.6990535298899039,
+            "snn_mse": 0.013174995114675523
+          },
+          {
+            "control_mse": 0.013180624309466971,
+            "denominator_mse": 0.013180624309466971,
+            "minute": 19.0,
+            "mse_reduction_percent": -1.2090096053839248,
+            "snn_mse": 0.013339979323417996
+          },
+          {
+            "control_mse": 0.013419065484079425,
+            "denominator_mse": 0.013419065484079425,
+            "minute": 20.0,
+            "mse_reduction_percent": -0.9209377063483678,
+            "snn_mse": 0.013542646717961892
+          },
+          {
+            "control_mse": 0.01344349511528979,
+            "denominator_mse": 0.01344349511528979,
+            "minute": 21.0,
+            "mse_reduction_percent": -1.4201254706570956,
+            "snn_mse": 0.013634409613568562
+          },
+          {
+            "control_mse": 0.013534089114564852,
+            "denominator_mse": 0.013534089114564852,
+            "minute": 22.0,
+            "mse_reduction_percent": -1.5194605263753211,
+            "snn_mse": 0.013739734256265124
+          },
+          {
+            "control_mse": 0.013610756903737507,
+            "denominator_mse": 0.013610756903737507,
+            "minute": 23.0,
+            "mse_reduction_percent": -1.636576922625798,
+            "snn_mse": 0.013833507410218772
+          },
+          {
+            "control_mse": 0.01397794371394067,
+            "denominator_mse": 0.01397794371394067,
+            "minute": 24.0,
+            "mse_reduction_percent": -0.6088456487524287,
+            "snn_mse": 0.014063047816028061
+          },
+          {
+            "control_mse": 0.013601409542901592,
+            "denominator_mse": 0.013601409542901592,
+            "minute": 25.0,
+            "mse_reduction_percent": -3.1076239606958627,
+            "snn_mse": 0.014024090204849175
+          },
+          {
+            "control_mse": 0.013659683048473883,
+            "denominator_mse": 0.013659683048473883,
+            "minute": 26.0,
+            "mse_reduction_percent": -2.7820092987932385,
+            "snn_mse": 0.01403969670106811
+          },
+          {
+            "control_mse": 0.013784292773576031,
+            "denominator_mse": 0.013784292773576031,
+            "minute": 27.0,
+            "mse_reduction_percent": -2.7047406784809804,
+            "snn_mse": 0.014157122147463857
+          },
+          {
+            "control_mse": 0.013766202358838665,
+            "denominator_mse": 0.013766202358838665,
+            "minute": 28.0,
+            "mse_reduction_percent": -3.1652687441917307,
+            "snn_mse": 0.01420193965936517
+          },
+          {
+            "control_mse": 0.013552685840166584,
+            "denominator_mse": 0.013552685840166584,
+            "minute": 29.0,
+            "mse_reduction_percent": -3.832520702059085,
+            "snn_mse": 0.014072095330675998
+          },
+          {
+            "control_mse": 0.015655912918265985,
+            "denominator_mse": 0.015655912918265985,
+            "minute": 30.0,
+            "mse_reduction_percent": 4.051821788238536,
+            "snn_mse": 0.015021563227496032
+          }
+        ],
+        "ema": [
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 0.0,
+            "mse_reduction_percent": 3.4971949658617754,
+            "snn_mse": 0.011705402417500838
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 1.0,
+            "mse_reduction_percent": 3.743832917371576,
+            "snn_mse": 0.011675486225190894
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 2.0,
+            "mse_reduction_percent": 3.8273472715222945,
+            "snn_mse": 0.011665356269666534
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 3.0,
+            "mse_reduction_percent": 3.934839688876137,
+            "snn_mse": 0.01165231787144058
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 4.0,
+            "mse_reduction_percent": 2.6914134343816243,
+            "snn_mse": 0.011803140478930541
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 5.0,
+            "mse_reduction_percent": 1.8973244321728315,
+            "snn_mse": 0.011899460283550494
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 6.0,
+            "mse_reduction_percent": 1.6711553378317168,
+            "snn_mse": 0.011926893685747746
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 7.0,
+            "mse_reduction_percent": 0.399611528871343,
+            "snn_mse": 0.012081126839593354
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 8.0,
+            "mse_reduction_percent": -0.24655303142384954,
+            "snn_mse": 0.012159504003899688
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 9.0,
+            "mse_reduction_percent": 0.20368280532115382,
+            "snn_mse": 0.012104892206346071
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 10.0,
+            "mse_reduction_percent": -0.5539901173777584,
+            "snn_mse": 0.01219679488687331
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 11.0,
+            "mse_reduction_percent": -0.946043473942071,
+            "snn_mse": 0.012244349383409382
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 12.0,
+            "mse_reduction_percent": -1.6601855104881382,
+            "snn_mse": 0.012330971942391664
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 13.0,
+            "mse_reduction_percent": -7.013623621549863,
+            "snn_mse": 0.012980322470441034
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 14.0,
+            "mse_reduction_percent": -10.747528850526516,
+            "snn_mse": 0.013433230168600905
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 15.0,
+            "mse_reduction_percent": -8.604977786881808,
+            "snn_mse": 0.013173347335235244
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 16.0,
+            "mse_reduction_percent": -7.576739180141652,
+            "snn_mse": 0.013048626124604671
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 17.0,
+            "mse_reduction_percent": -8.501305398560625,
+            "snn_mse": 0.013160772291178716
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 18.0,
+            "mse_reduction_percent": -8.618562568710981,
+            "snn_mse": 0.013174995114675523
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 19.0,
+            "mse_reduction_percent": -9.978741259037951,
+            "snn_mse": 0.013339979323417996
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 20.0,
+            "mse_reduction_percent": -11.64959129604352,
+            "snn_mse": 0.013542646717961892
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 21.0,
+            "mse_reduction_percent": -12.406111790448632,
+            "snn_mse": 0.013634409613568562
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 22.0,
+            "mse_reduction_percent": -13.274439345274093,
+            "snn_mse": 0.013739734256265124
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 23.0,
+            "mse_reduction_percent": -14.047533004992736,
+            "snn_mse": 0.013833507410218772
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 24.0,
+            "mse_reduction_percent": -15.939932107491957,
+            "snn_mse": 0.014063047816028061
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 25.0,
+            "mse_reduction_percent": -15.618754020477118,
+            "snn_mse": 0.014024090204849175
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 26.0,
+            "mse_reduction_percent": -15.747418598435598,
+            "snn_mse": 0.01403969670106811
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 27.0,
+            "mse_reduction_percent": -16.715508763591554,
+            "snn_mse": 0.014157122147463857
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 28.0,
+            "mse_reduction_percent": -17.08499760804694,
+            "snn_mse": 0.01420193965936517
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 29.0,
+            "mse_reduction_percent": -16.014522498404787,
+            "snn_mse": 0.014072095330675998
+          },
+          {
+            "control_mse": 0.012129598112054886,
+            "denominator_mse": 0.012129598112054886,
+            "minute": 30.0,
+            "mse_reduction_percent": -23.842217101710848,
+            "snn_mse": 0.015021563227496032
+          }
+        ],
+        "fixed_snn": [
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 0.0,
+            "mse_reduction_percent": 0.0,
+            "snn_mse": 0.011705402417500838
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 1.0,
+            "mse_reduction_percent": 0.25557594043256215,
+            "snn_mse": 0.011675486225190894
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 2.0,
+            "mse_reduction_percent": 0.34211679706483816,
+            "snn_mse": 0.011665356269666534
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 3.0,
+            "mse_reduction_percent": 0.45350466534060185,
+            "snn_mse": 0.01165231787144058
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 4.0,
+            "mse_reduction_percent": -0.8349824973430593,
+            "snn_mse": 0.011803140478930541
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 5.0,
+            "mse_reduction_percent": -1.6578487362341268,
+            "snn_mse": 0.011899460283550494
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 6.0,
+            "mse_reduction_percent": -1.89221404225928,
+            "snn_mse": 0.011926893685747746
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 7.0,
+            "mse_reduction_percent": -3.2098377201519175,
+            "snn_mse": 0.012081126839593354
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 8.0,
+            "mse_reduction_percent": -3.8794188375780996,
+            "snn_mse": 0.012159504003899688
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 9.0,
+            "mse_reduction_percent": -3.4128667652463878,
+            "snn_mse": 0.012104892206346071
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 10.0,
+            "mse_reduction_percent": -4.197997231071586,
+            "snn_mse": 0.01219679488687331
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 11.0,
+            "mse_reduction_percent": -4.60425833034805,
+            "snn_mse": 0.012244349383409382
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 12.0,
+            "mse_reduction_percent": -5.3442803807883825,
+            "snn_mse": 0.012330971942391664
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 13.0,
+            "mse_reduction_percent": -10.891723389484271,
+            "snn_mse": 0.012980322470441034
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 14.0,
+            "mse_reduction_percent": -14.760942763631759,
+            "snn_mse": 0.013433230168600905
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 15.0,
+            "mse_reduction_percent": -12.540747130057404,
+            "snn_mse": 0.013173347335235244
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 16.0,
+            "mse_reduction_percent": -11.4752458667766,
+            "snn_mse": 0.013048626124604671
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 17.0,
+            "mse_reduction_percent": -12.433317726026601,
+            "snn_mse": 0.013160772291178716
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 18.0,
+            "mse_reduction_percent": -12.554824214992262,
+            "snn_mse": 0.013174995114675523
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 19.0,
+            "mse_reduction_percent": -13.964294841100799,
+            "snn_mse": 0.013339979323417996
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 20.0,
+            "mse_reduction_percent": -15.695695328801131,
+            "snn_mse": 0.013542646717961892
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 21.0,
+            "mse_reduction_percent": -16.47963160312755,
+            "snn_mse": 0.013634409613568562
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 22.0,
+            "mse_reduction_percent": -17.37942674847932,
+            "snn_mse": 0.013739734256265124
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 23.0,
+            "mse_reduction_percent": -18.180536788177296,
+            "snn_mse": 0.013833507410218772
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 24.0,
+            "mse_reduction_percent": -20.14151512640257,
+            "snn_mse": 0.014063047816028061
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 25.0,
+            "mse_reduction_percent": -19.808697767465468,
+            "snn_mse": 0.014024090204849175
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 26.0,
+            "mse_reduction_percent": -19.942025060815094,
+            "snn_mse": 0.01403969670106811
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 27.0,
+            "mse_reduction_percent": -20.94519814455446,
+            "snn_mse": 0.014157122147463857
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 28.0,
+            "mse_reduction_percent": -21.328077009396452,
+            "snn_mse": 0.01420193965936517
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 29.0,
+            "mse_reduction_percent": -20.218808621536155,
+            "snn_mse": 0.014072095330675998
+          },
+          {
+            "control_mse": 0.011705402417500838,
+            "denominator_mse": 0.011705402417500838,
+            "minute": 30.0,
+            "mse_reduction_percent": -28.33017346791236,
+            "snn_mse": 0.015021563227496032
+          }
+        ]
+      }
+    },
+    "units": {
+      "x": "minutes of sample clock",
+      "y": "percent"
+    }
+  },
+  "units": {
+    "x": "minutes of sample clock",
+    "y": "MSE"
+  }
+}
