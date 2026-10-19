@@ -1,0 +1,42 @@
+{
+  "builder_lock": "/tmp/rsi-programmer-builder.lock",
+  "command": [
+    ".venv-desktop/bin/python",
+    "-m",
+    "unittest",
+    "tests.test_sound_features",
+    "tests.test_sound_memory",
+    "tests.test_sound_contract",
+    "tests.test_sound_microphone",
+    "tests.test_sound_controller",
+    "tests.test_sound_window",
+    "tests.test_audio_capture",
+    "-v"
+  ],
+  "compressed_log_sha256": "d2a79a1f595070162f5efb3af5ab2e6af1fd18f432df820e99ae63d0e735d6dc",
+  "exit_code": 1,
+  "source_files": {
+    "rsi_programmer/sound_controller.py": "c6fae88edd36602e6cc217b81d2d159c6a8ef6fbe2261069d76f62ea8912a222",
+    "rsi_programmer/sound_creature.py": "9e745502c8690a63e727c21667d15a215c828fdbecd3992031ed63e90f4ca035",
+    "rsi_programmer/sound_features.py": "857e7a01dd12ae703a22fb4b0301211596a90d34e5bce0549fa2aa04cf51bf15",
+    "rsi_programmer/sound_memory.py": "24e9c6182116f662b8338bea2372ff57c51a267674be0682387a96a5ff1c5e6e",
+    "rsi_programmer/sound_microphone.py": "a1498703d4bcb8c8efdfc8c0e59de005ccfead306f4f5bd9330e9550e72f8682",
+    "rsi_programmer/sound_window.py": "d80d0926f6b81ac6daec25bea2fec7de4d160ca3b8dd8e33e0ff667719ff8434",
+    "scripts/check_sound_learning_demo.py": "437133f0638ebb3047ac24cca36580b33478571232ee10b2a784eba053db2983",
+    "scripts/sound_companion.py": "b2927379c7d8f947549ba63dee0dd721eaf8ac5cf7fec41fe5d61be6b69694ab",
+    "tests/test_sound_contract.py": "5c83cde53a279f62e352fb2f7dc71ead74805ed27d2ecc2af0e85d66ed68a02a",
+    "tests/test_sound_controller.py": "fa7953c38b3142b1afef149ee04b0170f68d096c27b7a74dec396c78c07635c2",
+    "tests/test_sound_features.py": "a6e56efb5302c6eb5f2c39b9e66c0bf446a7667fb634a4e08fbe9537ecf5e652",
+    "tests/test_sound_memory.py": "b0d208c13b70fa5938e9781705bdf8381853710c78f7c3c10efec6858a5a9037",
+    "tests/test_sound_microphone.py": "adb1484630d77346434fc787ac6ea94e399768b49ac58dbd776a4631ea7f16c5",
+    "tests/test_sound_window.py": "9e82ff1ed87d3f1d1bc6305569758c4a4386ce900b1dff00cf0f0d84d56f9b61"
+  },
+  "source_unchanged": true,
+  "test_runs": [
+    [
+      "7",
+      "0.000"
+    ]
+  ],
+  "wall_seconds": 1.796914265025407
+}

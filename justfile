@@ -29,6 +29,7 @@ test:
 test-fast:
     .venv/bin/python -m unittest tests.test_sound_features \
         tests.test_sound_memory tests.test_sound_contract \
+        tests.test_sound_microphone tests.test_sound_controller \
         tests.test_audio_capture \
         tests.test_audio_features tests.test_audio_learning \
         tests.test_audio_session tests.test_audio_runtime \
@@ -93,3 +94,20 @@ test-par:
 
 train:
     .venv/bin/python scripts/train.py --seed 0 --epochs 50
+
+# Use system Tk on Linux; some standalone Python builds abort in widgets.
+setup-sound SPIKEFORGE_DIR="$HOME/Projects/spikeforge/spikeforge" PYTHON="/usr/bin/python3":
+    uv venv --python "{{PYTHON}}" .venv-desktop
+    uv pip install --python .venv-desktop/bin/python -r requirements.txt
+    SITE=$(.venv-desktop/bin/python -c "import sysconfig; print(sysconfig.get_paths()['purelib'])"); echo "{{SPIKEFORGE_DIR}}" > "$SITE/spikeforge-src.pth"
+
+sound:
+    .venv-desktop/bin/python -m scripts.sound_companion
+
+test-sound:
+    flock /tmp/rsi-programmer-builder.lock xvfb-run -a \
+        .venv-desktop/bin/python -m unittest \
+        tests.test_sound_features tests.test_sound_memory \
+        tests.test_sound_contract tests.test_sound_microphone \
+        tests.test_sound_controller tests.test_sound_window \
+        tests.test_audio_capture -v
