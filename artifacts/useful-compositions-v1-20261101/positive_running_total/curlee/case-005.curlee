@@ -1,0 +1,170 @@
+fn process(input: &[Int; 256], count: Int,
+           output: &mut [Int; 256]) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    if (count < 0 || count > 256) { return -1; }
+    let s0: [Int; 256] = [0; 256];
+    let len0: Int = 0;
+    for (i0 in 0..count)
+        [ invariant count >= 0 && count <= 256;
+          invariant len0 >= 0 && len0 <= i0; ] {
+        if (i0 < 0 || i0 >= 256 || len0 < 0 || len0 >= 256) { return -1; }
+        let value: Int = input[i0];
+        if (value > 0) {
+            s0[len0] = value;
+            len0 = len0 + 1;
+        }
+    }
+    let s1: [Int; 256] = [0; 256];
+    let len1: Int = 0;
+    let total1: Int = 0;
+    for (i1 in 0..len0)
+        [ invariant len0 >= 0 && len0 <= 256;
+          invariant len1 >= 0 && len1 <= i1; ] {
+        if (i1 < 0 || i1 >= 256 || len1 < 0 || len1 >= 256) { return -1; }
+        let value: Int = s0[i1];
+        total1 = total1 + value;
+        s1[len1] = total1;
+        len1 = len1 + 1;
+    }
+    for (i in 0..len1)
+        [ invariant len1 >= 0 && len1 <= 256; ] {
+        if (i < 0 || i >= 256) { return -1; }
+        output[i] = s1[i];
+    }
+    return len1;
+}
+
+fn correct(input: &[Int; 256], count: Int,
+           expected: &[Int; 256], expected_count: Int) -> Bool
+    [ requires count >= 0 && count <= 256;
+      requires expected_count >= 0 && expected_count <= 256; ]
+{
+    let output: [Int; 256] = [0; 256];
+    let size: Int = process(&input, count, &mut output);
+    if (size != expected_count) { return false; }
+    for (i in 0..expected_count)
+        [ invariant expected_count >= 0 && expected_count <= 256; ] {
+        if (i < 0 || i >= 256) { return false; }
+        if (output[i] != expected[i]) { return false; }
+    }
+    return true;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    let expected: [Int; 256] = [0; 256];
+    input[0] = -43;
+    input[1] = 55;
+    input[2] = 33;
+    input[3] = 21;
+    input[4] = 45;
+    input[5] = 64;
+    input[6] = -95;
+    input[7] = 28;
+    input[8] = 13;
+    input[9] = 9;
+    input[10] = -14;
+    input[11] = 19;
+    input[12] = -100;
+    input[13] = -24;
+    input[14] = 24;
+    input[15] = -13;
+    input[16] = 10;
+    input[17] = 87;
+    input[18] = 13;
+    input[19] = -86;
+    input[20] = -95;
+    input[21] = 71;
+    input[22] = -68;
+    input[23] = -83;
+    input[24] = -89;
+    input[25] = -31;
+    input[26] = 6;
+    input[27] = -88;
+    input[28] = 11;
+    input[29] = -68;
+    input[30] = 37;
+    input[31] = 89;
+    input[32] = 80;
+    input[33] = 94;
+    input[34] = -34;
+    input[35] = 30;
+    input[36] = -42;
+    input[37] = -87;
+    input[38] = 78;
+    input[39] = 17;
+    input[40] = 77;
+    input[41] = -49;
+    input[42] = 60;
+    input[43] = -71;
+    input[44] = 73;
+    input[45] = 28;
+    input[46] = 11;
+    input[47] = 70;
+    input[48] = -34;
+    input[49] = -10;
+    input[50] = 55;
+    input[51] = -9;
+    input[52] = 84;
+    input[53] = 68;
+    input[54] = 4;
+    input[55] = 94;
+    input[56] = -37;
+    input[57] = -90;
+    input[58] = -99;
+    input[59] = -29;
+    input[60] = -20;
+    input[61] = -99;
+    input[62] = 71;
+    input[63] = -66;
+    input[64] = 79;
+    input[65] = -87;
+    input[66] = -79;
+    input[67] = 16;
+    input[68] = 85;
+    input[69] = 7;
+    input[70] = 88;
+    input[71] = -63;
+    expected[0] = 55;
+    expected[1] = 88;
+    expected[2] = 109;
+    expected[3] = 154;
+    expected[4] = 218;
+    expected[5] = 246;
+    expected[6] = 259;
+    expected[7] = 268;
+    expected[8] = 287;
+    expected[9] = 311;
+    expected[10] = 321;
+    expected[11] = 408;
+    expected[12] = 421;
+    expected[13] = 492;
+    expected[14] = 498;
+    expected[15] = 509;
+    expected[16] = 546;
+    expected[17] = 635;
+    expected[18] = 715;
+    expected[19] = 809;
+    expected[20] = 839;
+    expected[21] = 917;
+    expected[22] = 934;
+    expected[23] = 1011;
+    expected[24] = 1071;
+    expected[25] = 1144;
+    expected[26] = 1172;
+    expected[27] = 1183;
+    expected[28] = 1253;
+    expected[29] = 1308;
+    expected[30] = 1392;
+    expected[31] = 1460;
+    expected[32] = 1464;
+    expected[33] = 1558;
+    expected[34] = 1629;
+    expected[35] = 1708;
+    expected[36] = 1724;
+    expected[37] = 1809;
+    expected[38] = 1816;
+    expected[39] = 1904;
+    if (!correct(&input, 72, &expected, 40)) { return 1; }
+    return 0;
+}

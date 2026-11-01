@@ -79,6 +79,17 @@ comparisons or extended setup. Preserve failures and independent execution
 checks. CURLEE source remains in its local-only repository; use its existing
 resource guard for compiler execution and never modify or publish it here.
 
+Implementation checkpoint (2026-11-01): `statement_*` now constructs a typed
+statement tree from individual loop, condition, update and return tokens.
+The execution-context development recipe has four of six tasks accepted by
+actual Python and CURLEE runs; see `tracks/programmer/statement-results.md`.
+Keep the two failures and earlier negative trials visible. Its CLI plumbing,
+initial accumulator and source lowering remain supplied code. Do not claim
+arbitrary programming, formal compiler qualification or a cost advantage.
+The next capability checks are bounded counterexample-guided resynthesis,
+new statement structures and useful fragment transfer. Keep held evaluation
+rows outside repair/query feedback and preserve the sealed final set.
+
 ## Audit checkpoints
 
 When publication is authorized, publish completed fixes and review evidence

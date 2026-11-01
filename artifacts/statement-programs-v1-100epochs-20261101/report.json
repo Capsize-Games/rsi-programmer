@@ -1,0 +1,494 @@
+{
+  "scope": "Statement-construction development only. All six target functions excluded on teacher probes. Learner chooses loop, branch and expression tokens; emitter supplies syntax lowering and CLI plumbing.",
+  "fixture_sha256": "d732492f5cc2ade6412e8f2ca1bb46a98d442b9a9cbb88aa95c61d87da362fb0",
+  "fit": {
+    "teacher_functions": 366,
+    "teacher_states": 12614,
+    "epochs": 100,
+    "loss": 0.04205534607172012,
+    "wall_seconds": 13.284659602009924,
+    "excluded_functions": [
+      "positive_total",
+      "negative_count",
+      "even_total",
+      "positive_square_total",
+      "odd_count",
+      "above_two_count"
+    ],
+    "exclusion_scope": "equivalence on 24 fixed probe arrays"
+  },
+  "initial_hash": "2dfd7356b57d4325804e7093212bd80aefd552ed8a4e575b46448b70d7b7fc70",
+  "trained_hash": "f85b5e28c233b7755cfb960de4f8c9caac1f5a9b84d2908bf87cb86f24c50698",
+  "tasks": 6,
+  "accepted": 0,
+  "rows": [
+    {
+      "id": "positive_total",
+      "chosen": {
+        "tokens": null,
+        "visited": 3056,
+        "completions": 68,
+        "wall_seconds": 0.04859490899252705
+      },
+      "untrained": {
+        "tokens": null,
+        "visited": 3469,
+        "completions": 32,
+        "wall_seconds": 0.12682703201426193
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          13
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          17
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          11
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        7,
+        5050,
+        731,
+        2297,
+        2469,
+        395,
+        308,
+        967,
+        351,
+        632,
+        1541,
+        1630,
+        256,
+        248,
+        403,
+        1008,
+        279
+      ],
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "negative_count",
+      "chosen": {
+        "tokens": null,
+        "visited": 3066,
+        "completions": 69,
+        "wall_seconds": 0.04676882398780435
+      },
+      "untrained": {
+        "tokens": null,
+        "visited": 3468,
+        "completions": 33,
+        "wall_seconds": 0.04341428400948644
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          3
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          2
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        2,
+        2,
+        100,
+        12,
+        39,
+        41,
+        9,
+        7,
+        21,
+        13,
+        5,
+        34,
+        42,
+        5,
+        7,
+        8,
+        22,
+        12
+      ],
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "even_total",
+      "chosen": {
+        "tokens": null,
+        "visited": 3024,
+        "completions": 74,
+        "wall_seconds": 0.04111538699362427
+      },
+      "untrained": {
+        "tokens": null,
+        "visited": 3469,
+        "completions": 32,
+        "wall_seconds": 0.044112016999861225
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          8
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          0
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          4
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -142,
+        100,
+        330,
+        72,
+        134,
+        -182,
+        -282,
+        286,
+        -178,
+        92,
+        -54,
+        -164,
+        124,
+        -274,
+        -74
+      ],
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "positive_square_total",
+      "chosen": {
+        "tokens": null,
+        "visited": 3150,
+        "completions": 62,
+        "wall_seconds": 0.04060092300642282
+      },
+      "untrained": {
+        "tokens": null,
+        "visited": 3455,
+        "completions": 36,
+        "wall_seconds": 0.04289814698859118
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          45
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          129
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          47
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        17,
+        338350,
+        52825,
+        160729,
+        171261,
+        27063,
+        21794,
+        70191,
+        13849,
+        40202,
+        100343,
+        128888,
+        11366,
+        18664,
+        27133,
+        66880,
+        18333
+      ],
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "odd_count",
+      "chosen": {
+        "tokens": null,
+        "visited": 3051,
+        "completions": 72,
+        "wall_seconds": 0.04473515198333189
+      },
+      "untrained": {
+        "tokens": null,
+        "visited": 3467,
+        "completions": 33,
+        "wall_seconds": 0.04068716600886546
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          2
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          4
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        2,
+        1,
+        100,
+        15,
+        48,
+        46,
+        9,
+        6,
+        21,
+        9,
+        10,
+        28,
+        38,
+        2,
+        6,
+        11,
+        21,
+        6
+      ],
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "above_two_count",
+      "chosen": {
+        "tokens": null,
+        "visited": 3071,
+        "completions": 72,
+        "wall_seconds": 0.04175444899010472
+      },
+      "untrained": {
+        "tokens": null,
+        "visited": 3468,
+        "completions": 33,
+        "wall_seconds": 0.043139338988112286
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          2
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          2
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        1,
+        98,
+        13,
+        42,
+        44,
+        9,
+        5,
+        15,
+        10,
+        12,
+        32,
+        26,
+        7,
+        6,
+        10,
+        19,
+        6
+      ],
+      "python_records": [],
+      "accepted": false
+    }
+  ]
+}

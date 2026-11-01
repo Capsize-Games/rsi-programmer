@@ -1,0 +1,230 @@
+fn process(input: &[Int; 256], count: Int,
+           output: &mut [Int; 256]) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    if (count < 0 || count > 256) { return -1; }
+    let s0: [Int; 256] = [0; 256];
+    let len0: Int = 0;
+    for (i0 in 0..count)
+        [ invariant count >= 0 && count <= 256;
+          invariant len0 >= 0 && len0 <= i0; ] {
+        if (i0 < 0 || i0 >= 256 || len0 < 0 || len0 >= 256) { return -1; }
+        let value: Int = input[i0];
+        if (value >= 0) {
+            s0[len0] = value;
+            len0 = len0 + 1;
+        }
+    }
+    let s1: [Int; 256] = [0; 256];
+    let len1: Int = 0;
+    for (i1 in 0..len0)
+        [ invariant len0 >= 0 && len0 <= 256;
+          invariant len1 >= 0 && len1 <= i1; ] {
+        if (i1 < 0 || i1 >= 256 || len1 < 0 || len1 >= 256) { return -1; }
+        let value: Int = s0[i1];
+        let duplicate: Bool = false;
+        for (j1 in 0..len1)
+            [ invariant len1 >= 0 && len1 <= i1;
+              invariant i1 >= 0 && i1 < len0;
+              invariant len0 <= 256; ] {
+            if (j1 < 0 || j1 >= 256) { return -1; }
+            if (s1[j1] == value) {
+                duplicate = true;
+            }
+        }
+        if (!duplicate) {
+            s1[len1] = value;
+            len1 = len1 + 1;
+        }
+    }
+    let s2: [Int; 256] = [0; 256];
+    let len2: Int = 0;
+    for (i2 in 0..len1)
+        [ invariant len1 >= 0 && len1 <= 256;
+          invariant len2 >= 0 && len2 <= i2; ] {
+        if (i2 < 0 || i2 >= 256 || len2 < 0 || len2 >= 256) { return -1; }
+        let value: Int = s1[i2];
+        s2[len2] = value;
+        len2 = len2 + 1;
+    }
+    if (len2 > 1) {
+    for (a2 in 0..len2)
+        [ invariant len2 > 1 && len2 <= 256; ] {
+        for (b2 in 0..(len2 - 1))
+            [ invariant len2 > 1 && len2 <= 256; ] {
+            if (b2 < 0 || b2 >= 255) { return -1; }
+            let first: Int = s2[b2];
+            let second: Int = s2[b2 + 1];
+            if (first > second) {
+                s2[b2] = second;
+                s2[b2 + 1] = first;
+            }
+        }
+    }
+    }
+    for (i in 0..len2)
+        [ invariant len2 >= 0 && len2 <= 256; ] {
+        if (i < 0 || i >= 256) { return -1; }
+        output[i] = s2[i];
+    }
+    return len2;
+}
+
+fn correct(input: &[Int; 256], count: Int,
+           expected: &[Int; 256], expected_count: Int) -> Bool
+    [ requires count >= 0 && count <= 256;
+      requires expected_count >= 0 && expected_count <= 256; ]
+{
+    let output: [Int; 256] = [0; 256];
+    let size: Int = process(&input, count, &mut output);
+    if (size != expected_count) { return false; }
+    for (i in 0..expected_count)
+        [ invariant expected_count >= 0 && expected_count <= 256; ] {
+        if (i < 0 || i >= 256) { return false; }
+        if (output[i] != expected[i]) { return false; }
+    }
+    return true;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    let expected: [Int; 256] = [0; 256];
+    input[0] = -68;
+    input[1] = 27;
+    input[2] = -5;
+    input[3] = -40;
+    input[4] = -96;
+    input[5] = 5;
+    input[6] = -58;
+    input[7] = -97;
+    input[8] = -14;
+    input[9] = -54;
+    input[10] = -23;
+    input[11] = -85;
+    input[12] = -22;
+    input[13] = -45;
+    input[14] = -41;
+    input[15] = 80;
+    input[16] = -43;
+    input[17] = 79;
+    input[18] = 14;
+    input[19] = -37;
+    input[20] = 54;
+    input[21] = 49;
+    input[22] = -79;
+    input[23] = -78;
+    input[24] = 69;
+    input[25] = -16;
+    input[26] = 34;
+    input[27] = -80;
+    input[28] = -72;
+    input[29] = 13;
+    input[30] = -100;
+    input[31] = 14;
+    input[32] = 18;
+    input[33] = 24;
+    input[34] = -78;
+    input[35] = 70;
+    input[36] = 63;
+    input[37] = 19;
+    input[38] = -20;
+    input[39] = 74;
+    input[40] = -66;
+    input[41] = 14;
+    input[42] = 82;
+    input[43] = -99;
+    input[44] = -28;
+    input[45] = 80;
+    input[46] = -55;
+    input[47] = 18;
+    input[48] = 31;
+    input[49] = 71;
+    input[50] = -42;
+    input[51] = 37;
+    input[52] = 11;
+    input[53] = 3;
+    input[54] = 63;
+    input[55] = 56;
+    input[56] = 96;
+    input[57] = -48;
+    input[58] = 16;
+    input[59] = 80;
+    input[60] = 54;
+    input[61] = -76;
+    input[62] = -11;
+    input[63] = 74;
+    input[64] = -11;
+    input[65] = 68;
+    input[66] = -92;
+    input[67] = 28;
+    input[68] = -81;
+    input[69] = 90;
+    input[70] = -84;
+    input[71] = -51;
+    input[72] = 89;
+    input[73] = -96;
+    input[74] = -11;
+    input[75] = -11;
+    input[76] = 53;
+    input[77] = 4;
+    input[78] = -19;
+    input[79] = -62;
+    input[80] = 36;
+    input[81] = -89;
+    input[82] = 21;
+    input[83] = 44;
+    input[84] = 67;
+    input[85] = -95;
+    input[86] = -46;
+    input[87] = 48;
+    input[88] = -76;
+    input[89] = -20;
+    input[90] = 80;
+    input[91] = 12;
+    input[92] = 67;
+    input[93] = -16;
+    input[94] = -23;
+    input[95] = 45;
+    input[96] = -31;
+    input[97] = -97;
+    input[98] = 13;
+    expected[0] = 3;
+    expected[1] = 4;
+    expected[2] = 5;
+    expected[3] = 11;
+    expected[4] = 12;
+    expected[5] = 13;
+    expected[6] = 14;
+    expected[7] = 16;
+    expected[8] = 18;
+    expected[9] = 19;
+    expected[10] = 21;
+    expected[11] = 24;
+    expected[12] = 27;
+    expected[13] = 28;
+    expected[14] = 31;
+    expected[15] = 34;
+    expected[16] = 36;
+    expected[17] = 37;
+    expected[18] = 44;
+    expected[19] = 45;
+    expected[20] = 48;
+    expected[21] = 49;
+    expected[22] = 53;
+    expected[23] = 54;
+    expected[24] = 56;
+    expected[25] = 63;
+    expected[26] = 67;
+    expected[27] = 68;
+    expected[28] = 69;
+    expected[29] = 70;
+    expected[30] = 71;
+    expected[31] = 74;
+    expected[32] = 79;
+    expected[33] = 80;
+    expected[34] = 82;
+    expected[35] = 89;
+    expected[36] = 90;
+    expected[37] = 96;
+    if (!correct(&input, 99, &expected, 38)) { return 1; }
+    return 0;
+}

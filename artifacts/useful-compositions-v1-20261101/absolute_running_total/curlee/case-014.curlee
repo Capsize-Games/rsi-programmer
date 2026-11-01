@@ -1,0 +1,106 @@
+fn process(input: &[Int; 256], count: Int,
+           output: &mut [Int; 256]) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    if (count < 0 || count > 256) { return -1; }
+    let s0: [Int; 256] = [0; 256];
+    let len0: Int = 0;
+    for (i0 in 0..count)
+        [ invariant count >= 0 && count <= 256;
+          invariant len0 >= 0 && len0 <= i0; ] {
+        if (i0 < 0 || i0 >= 256 || len0 < 0 || len0 >= 256) { return -1; }
+        let value: Int = input[i0];
+        if (value < 0) {
+            s0[len0] = 0 - value;
+        } else {
+            s0[len0] = value;
+        }
+        len0 = len0 + 1;
+    }
+    let s1: [Int; 256] = [0; 256];
+    let len1: Int = 0;
+    let total1: Int = 0;
+    for (i1 in 0..len0)
+        [ invariant len0 >= 0 && len0 <= 256;
+          invariant len1 >= 0 && len1 <= i1; ] {
+        if (i1 < 0 || i1 >= 256 || len1 < 0 || len1 >= 256) { return -1; }
+        let value: Int = s0[i1];
+        total1 = total1 + value;
+        s1[len1] = total1;
+        len1 = len1 + 1;
+    }
+    for (i in 0..len1)
+        [ invariant len1 >= 0 && len1 <= 256; ] {
+        if (i < 0 || i >= 256) { return -1; }
+        output[i] = s1[i];
+    }
+    return len1;
+}
+
+fn correct(input: &[Int; 256], count: Int,
+           expected: &[Int; 256], expected_count: Int) -> Bool
+    [ requires count >= 0 && count <= 256;
+      requires expected_count >= 0 && expected_count <= 256; ]
+{
+    let output: [Int; 256] = [0; 256];
+    let size: Int = process(&input, count, &mut output);
+    if (size != expected_count) { return false; }
+    for (i in 0..expected_count)
+        [ invariant expected_count >= 0 && expected_count <= 256; ] {
+        if (i < 0 || i >= 256) { return false; }
+        if (output[i] != expected[i]) { return false; }
+    }
+    return true;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    let expected: [Int; 256] = [0; 256];
+    input[0] = 53;
+    input[1] = 46;
+    input[2] = -80;
+    input[3] = -4;
+    input[4] = -62;
+    input[5] = 37;
+    input[6] = -27;
+    input[7] = 97;
+    input[8] = 32;
+    input[9] = 47;
+    input[10] = 14;
+    input[11] = 91;
+    input[12] = 38;
+    input[13] = -15;
+    input[14] = 66;
+    input[15] = 51;
+    input[16] = -68;
+    input[17] = 5;
+    input[18] = 2;
+    input[19] = 92;
+    input[20] = -52;
+    input[21] = -15;
+    input[22] = -27;
+    expected[0] = 53;
+    expected[1] = 99;
+    expected[2] = 179;
+    expected[3] = 183;
+    expected[4] = 245;
+    expected[5] = 282;
+    expected[6] = 309;
+    expected[7] = 406;
+    expected[8] = 438;
+    expected[9] = 485;
+    expected[10] = 499;
+    expected[11] = 590;
+    expected[12] = 628;
+    expected[13] = 643;
+    expected[14] = 709;
+    expected[15] = 760;
+    expected[16] = 828;
+    expected[17] = 833;
+    expected[18] = 835;
+    expected[19] = 927;
+    expected[20] = 979;
+    expected[21] = 994;
+    expected[22] = 1021;
+    if (!correct(&input, 23, &expected, 23)) { return 1; }
+    return 0;
+}

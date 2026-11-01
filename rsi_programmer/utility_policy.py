@@ -41,7 +41,9 @@ def features(current: list[list[int]], target: list[list[int]],
     ])
 
 
-def teacher_programs(seed: int = 0) -> list[tuple[str, ...]]:
+def teacher_programs(seed: int = 0,
+                     excluded: list[tuple[str, ...]] | None = None
+                     ) -> list[tuple[str, ...]]:
     """Deduplicate teachers and exclude the target on 24 probe arrays."""
     rng = random.Random(seed)
     probes = [[], [0], [-1, 0, 1], [2, 2, -3, 0, 4, 1]] + [
@@ -51,6 +53,8 @@ def teacher_programs(seed: int = 0) -> list[tuple[str, ...]]:
     goal = tuple(tuple(sorted({v for v in values if v > 0}))
                  for values in probes)
     seen = {tuple(tuple(values) for values in probes), goal}
+    for program in excluded or []:
+        seen.add(tuple(tuple(execute(program, values)) for values in probes))
     programs: list[tuple[str, ...]] = []
     for length in (1, 2, 3):
         for program in itertools.product(OPS, repeat=length):
@@ -62,14 +66,16 @@ def teacher_programs(seed: int = 0) -> list[tuple[str, ...]]:
     return programs
 
 
-def training_data(seed: int = 0) -> tuple[torch.Tensor, torch.Tensor, int]:
+def training_data(seed: int = 0,
+                  excluded: list[tuple[str, ...]] | None = None
+                  ) -> tuple[torch.Tensor, torch.Tensor, int]:
     """Build teacher action states without the evaluation example pairs."""
     rng = random.Random(seed)
     # Preserve the original data generator's random-stream position.
     for _ in range(20):
         for _ in range(rng.randrange(4, 13)):
             rng.randrange(-9, 10)
-    programs = teacher_programs(seed)
+    programs = teacher_programs(seed, excluded)
     matrices: list[torch.Tensor] = []
     labels: list[int] = []
     for program in programs:
@@ -100,8 +106,9 @@ class UtilityPolicy(nn.Module):
     def forward(self, values: torch.Tensor) -> torch.Tensor:
         return self.readout(self.encoder(values).mean(dim=1))
 
-    def fit(self, epochs: int = 40) -> dict[str, Any]:
-        x, y, count = training_data()
+    def fit(self, epochs: int = 40,
+            excluded: list[tuple[str, ...]] | None = None) -> dict[str, Any]:
+        x, y, count = training_data(excluded=excluded)
         opt = torch.optim.Adam(self.parameters(), lr=0.003)
         rng = torch.Generator().manual_seed(100)
         loss_value = 0.0
@@ -117,7 +124,8 @@ class UtilityPolicy(nn.Module):
                 loss_value = float(loss.detach())
         return {"teacher_programs": count, "teacher_steps": len(y),
                 "epochs": epochs, "loss": loss_value,
-                "target_function_excluded_on_probe_suite": True}
+                "target_function_excluded_on_probe_suite": True,
+                "additional_excluded_functions": len(excluded or [])}
 
     def synthesize(self, examples: Pairs, width: int = 32
                    ) -> tuple[str, ...] | None:

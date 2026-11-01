@@ -3,10 +3,12 @@
 This is the primary development track as of 2026-11-01.
 
 The primary outcome is a learner that writes useful programs in Python and
-CURLEE. The first [utility result](language-results.md) composes supplied
-list operations from examples and emits executable target source. The
-Python output reads and writes JSON files; CURLEE has a bounded processing
-interface. General source generation and program repair remain open.
+CURLEE. The latest [statement result](statement-results.md) constructs loops,
+branches, updates and returns for four of six development tasks, with actual
+Python and CURLEE execution. The earlier [utility result](language-results.md)
+composes supplied list operations. Python reads and writes JSON files;
+CURLEE has a bounded processing interface. General source generation and
+program repair remain open.
 
 The objective is a neural controller that constructs executable programs
 from a task specification, learns from training execution and feedback, and
@@ -20,6 +22,8 @@ secondary diagnostic rather than a gate on useful language work.
   training, target-language lowering and independently checked executions.
 - `utility_policy.py`, `utility_ops.py` and `utility_source.py`: learned
   selection from 13 supplied list operations, plus target-code emission.
+- `statement_*`: typed imperative syntax, independent execution, observed
+  prefix execution, neural token choices and direct target-code lowering.
 - `probe.py` and `actions.py`: typed expression graphs, validation and exact
   interpretation of the supported arithmetic/Boolean language.
 - `policy.py`, `modules.py`, `author.py`, `lattice.py`, `lauthor.py` and the

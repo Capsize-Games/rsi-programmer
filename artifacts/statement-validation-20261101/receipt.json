@@ -1,0 +1,57 @@
+{
+  "base_commit": "789ce20b956ad5f29080bb0e6379e94b97ef3ffb",
+  "tests": {
+    "command": ".venv/bin/python -m unittest tests.test_utility_program tests.test_utility_suite tests.test_statement_programs tests.test_track_manifest -v",
+    "exit_code": 0,
+    "count": 19,
+    "seconds": 0.612
+  },
+  "composition": {
+    "new_tasks": 8,
+    "new_python_correct": 5,
+    "new_curlee_correct": 5,
+    "cases_per_task": 20,
+    "missing": 2,
+    "incorrect": 1,
+    "previous_cleaner_control_passed": true
+  },
+  "statements": {
+    "tasks": 6,
+    "cases_per_task": 20,
+    "static_30_correct": 1,
+    "static_100_correct": 0,
+    "execution_context_30_python_correct": 4,
+    "execution_context_30_curlee_correct": 4,
+    "execution_context_generated_but_wrong": 1,
+    "execution_context_missing": 1,
+    "untrained_correct": 0,
+    "compiler_stable": true,
+    "wrong_expected_control_rejected": true
+  },
+  "not_run": [
+    "full programmer fast lane after these additions",
+    "programmer slow/retry lanes",
+    "aggregate suite",
+    "sensing/companion repeats; their source is unchanged",
+    "sealed arithmetic final inference",
+    "matched-total-cost or final statement evaluation"
+  ],
+  "ci": "pending after publication; no pass claimed",
+  "limitations": "Development trials, one seed; target functions excluded on finite teacher probes. Syntax/CLI lowering supplied. No general-programmer, cost-advantage or self-improvement claim.",
+  "source_sha256": {
+    "rsi_programmer/statement_partial.py": "0a2c6d219d7ac05eafb1a552b16f8eecc6684d0fc13c0ca379e0450877fd2171",
+    "rsi_programmer/statement_syntax.py": "50e9498e03a494dd7409f1bdbcdfdd08336849e77e57857a69fddf4096456310",
+    "rsi_programmer/statement_curriculum.py": "170731400d9e8be2157e5e191ebc42cbc3d19add5ffc6239fa4efd8d58f892d3",
+    "rsi_programmer/statement_source.py": "911dabe2c39fa20ae83628235ada20860e2cf63c8bf88da13a3249fdcc29bea3",
+    "rsi_programmer/statement_policy.py": "181a9f749ef2af8873f61be0d6f403cff06d6601afe6a96eda47ef15369d9d3a",
+    "rsi_programmer/statement_execution.py": "e667a14fd264d086c16cfe7bf4cddb638b86c2b2378412a60b40cb1df72004a3",
+    "rsi_programmer/utility_policy.py": "173f887a243ebfa42d73c42d9f7d7156fde5b7d6c7082068d1f13ce2eb7e7e12",
+    "rsi_programmer/utility_suite.py": "a7300b0d3d1213941aa140b8afb0ef196eb21097abe7ccc792e179cc3e00f9b5",
+    "scripts/measure_useful_compositions.py": "c94cd9fdc8aa2415d09522dac27b9658fe3dd85f7ccea9fd9fbe02ec05a6ae33",
+    "scripts/check_useful_compositions_curlee.py": "0bc6c8a217fcda5934e0b6f25503a04ace698559f636dd1c44722915032df749",
+    "scripts/measure_statement_programs.py": "3150420ca43801243407e3e293155ba135e8bdabdfb4ad95d500705b1ccd3729",
+    "scripts/check_statement_curlee.py": "6064408e3a0e6357e02fb8df1a7ca8d2ba803e7e0e2737b951d4b69a704e56cb",
+    "fixtures/statement_tasks_v1.json": "d732492f5cc2ade6412e8f2ca1bb46a98d442b9a9cbb88aa95c61d87da362fb0",
+    "fixtures/useful_compositions_v1.json": "e23d0477d5c4a11837734b906c66d6860699ec031874c3ac44efd627e15a63b3"
+  }
+}

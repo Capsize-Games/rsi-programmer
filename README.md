@@ -4,12 +4,13 @@ The primary development track is neural program synthesis: a learner that
 constructs executable programs and improves from independently checked
 training experience. The
 [programmer roadmap](tracks/programmer/README.md) defines the milestones.
-The first useful program experiment learns a composition that filters,
-deduplicates and sorts integer readings. It emits a standalone Python
-JSON-file utility and a bounded CURLEE processing routine. See the
-[execution results and limits](tracks/programmer/language-results.md).
-The learner selects supplied operations; their implementations and file
-handling come from the emitter. General programming remains unproven.
+The latest [statement-construction trial](
+tracks/programmer/statement-results.md) emits working Python file utilities
+and CURLEE routines for four of six requested totals/counts. The learner
+chooses loop, branch, update and return tokens; the emitter supplies syntax
+lowering and file handling. General programming remains unproven.
+The earlier [list-composition result](tracks/programmer/language-results.md)
+is retained separately.
 
 The work is separated into three [research tracks](tracks/README.md):
 
