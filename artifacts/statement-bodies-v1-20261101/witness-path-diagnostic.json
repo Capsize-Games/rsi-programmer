@@ -1,0 +1,1725 @@
+{
+  "scope": "Retrospective local token ranks on supplied grammar controls, not neural solutions or training labels. This does not track global beam retention or exclude all equivalent programs.",
+  "rows": [
+    {
+      "model": "qualified",
+      "task": "maximum_floor_zero",
+      "rows": [
+        {
+          "position": 1,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 2,
+          "token": "gt",
+          "rank": 1,
+          "top_four": [
+            "gt",
+            "eq",
+            "lt",
+            "ne"
+          ]
+        },
+        {
+          "position": 3,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "rem",
+            "one",
+            "zero"
+          ]
+        },
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 11,
+          "top_four": [
+            "zero",
+            "one",
+            "two",
+            "minus_one"
+          ]
+        },
+        {
+          "position": 5,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "value",
+          "rank": 2,
+          "top_four": [
+            "zero",
+            "value",
+            "two",
+            "one"
+          ]
+        },
+        {
+          "position": 7,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "if",
+            "set"
+          ]
+        }
+      ],
+      "locally_excluded_tokens": [
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 11,
+          "top_four": [
+            "zero",
+            "one",
+            "two",
+            "minus_one"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "qualified",
+      "task": "minimum_ceiling_zero",
+      "rows": [
+        {
+          "position": 1,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 2,
+          "token": "lt",
+          "rank": 1,
+          "top_four": [
+            "lt",
+            "gt",
+            "eq",
+            "ne"
+          ]
+        },
+        {
+          "position": 3,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "rem",
+            "one",
+            "two"
+          ]
+        },
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 11,
+          "top_four": [
+            "two",
+            "zero",
+            "minus_one",
+            "one"
+          ]
+        },
+        {
+          "position": 5,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "value",
+          "rank": 3,
+          "top_four": [
+            "zero",
+            "two",
+            "value",
+            "one"
+          ]
+        },
+        {
+          "position": 7,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "if",
+            "set"
+          ]
+        }
+      ],
+      "locally_excluded_tokens": [
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 11,
+          "top_four": [
+            "two",
+            "zero",
+            "minus_one",
+            "one"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "qualified",
+      "task": "largest_magnitude",
+      "rows": [
+        {
+          "position": 1,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 2,
+          "token": "gt",
+          "rank": 1,
+          "top_four": [
+            "gt",
+            "ne",
+            "lt",
+            "ge"
+          ]
+        },
+        {
+          "position": 3,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "rem",
+            "one",
+            "zero"
+          ]
+        },
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 11,
+          "top_four": [
+            "zero",
+            "one",
+            "two",
+            "minus_one"
+          ]
+        },
+        {
+          "position": 5,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "one",
+            "two",
+            "zero"
+          ]
+        },
+        {
+          "position": 7,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 8,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "end",
+            "set"
+          ]
+        },
+        {
+          "position": 9,
+          "token": "gt",
+          "rank": 3,
+          "top_four": [
+            "lt",
+            "eq",
+            "gt",
+            "le"
+          ]
+        },
+        {
+          "position": 10,
+          "token": "sub",
+          "rank": 11,
+          "top_four": [
+            "value",
+            "zero",
+            "rem",
+            "one"
+          ]
+        },
+        {
+          "position": 11,
+          "token": "zero",
+          "rank": 3,
+          "top_four": [
+            "value",
+            "rem",
+            "zero",
+            "acc"
+          ]
+        },
+        {
+          "position": 12,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "rem",
+            "acc",
+            "one"
+          ]
+        },
+        {
+          "position": 13,
+          "token": "acc",
+          "rank": 2,
+          "top_four": [
+            "value",
+            "acc",
+            "two",
+            "zero"
+          ]
+        },
+        {
+          "position": 14,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 15,
+          "token": "sub",
+          "rank": 6,
+          "top_four": [
+            "acc",
+            "value",
+            "add",
+            "length"
+          ]
+        },
+        {
+          "position": 16,
+          "token": "zero",
+          "rank": 11,
+          "top_four": [
+            "acc",
+            "value",
+            "one",
+            "add"
+          ]
+        },
+        {
+          "position": 17,
+          "token": "value",
+          "rank": 2,
+          "top_four": [
+            "acc",
+            "value",
+            "one",
+            "length"
+          ]
+        },
+        {
+          "position": 18,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "if",
+            "set"
+          ]
+        }
+      ],
+      "locally_excluded_tokens": [
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 11,
+          "top_four": [
+            "zero",
+            "one",
+            "two",
+            "minus_one"
+          ]
+        },
+        {
+          "position": 10,
+          "token": "sub",
+          "rank": 11,
+          "top_four": [
+            "value",
+            "zero",
+            "rem",
+            "one"
+          ]
+        },
+        {
+          "position": 15,
+          "token": "sub",
+          "rank": 6,
+          "top_four": [
+            "acc",
+            "value",
+            "add",
+            "length"
+          ]
+        },
+        {
+          "position": 16,
+          "token": "zero",
+          "rank": 11,
+          "top_four": [
+            "acc",
+            "value",
+            "one",
+            "add"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "qualified",
+      "task": "positive_values_capped_at_two_total",
+      "rows": [
+        {
+          "position": 1,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 2,
+          "token": "gt",
+          "rank": 1,
+          "top_four": [
+            "gt",
+            "eq",
+            "lt",
+            "ne"
+          ]
+        },
+        {
+          "position": 3,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "rem",
+            "one",
+            "two"
+          ]
+        },
+        {
+          "position": 4,
+          "token": "zero",
+          "rank": 1,
+          "top_four": [
+            "zero",
+            "one",
+            "two",
+            "minus_one"
+          ]
+        },
+        {
+          "position": 5,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "add",
+          "rank": 1,
+          "top_four": [
+            "add",
+            "length",
+            "zero",
+            "two"
+          ]
+        },
+        {
+          "position": 7,
+          "token": "acc",
+          "rank": 1,
+          "top_four": [
+            "acc",
+            "length",
+            "one",
+            "two"
+          ]
+        },
+        {
+          "position": 8,
+          "token": "value",
+          "rank": 3,
+          "top_four": [
+            "length",
+            "one",
+            "value",
+            "mul"
+          ]
+        },
+        {
+          "position": 9,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 10,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "end",
+            "set"
+          ]
+        },
+        {
+          "position": 11,
+          "token": "gt",
+          "rank": 3,
+          "top_four": [
+            "lt",
+            "eq",
+            "gt",
+            "le"
+          ]
+        },
+        {
+          "position": 12,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "zero",
+            "length",
+            "rem"
+          ]
+        },
+        {
+          "position": 13,
+          "token": "two",
+          "rank": 5,
+          "top_four": [
+            "zero",
+            "minus_one",
+            "one",
+            "length"
+          ]
+        },
+        {
+          "position": 14,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 15,
+          "token": "sub",
+          "rank": 3,
+          "top_four": [
+            "zero",
+            "add",
+            "sub",
+            "length"
+          ]
+        },
+        {
+          "position": 16,
+          "token": "acc",
+          "rank": 1,
+          "top_four": [
+            "acc",
+            "zero",
+            "one",
+            "add"
+          ]
+        },
+        {
+          "position": 17,
+          "token": "sub",
+          "rank": 7,
+          "top_four": [
+            "one",
+            "mul",
+            "zero",
+            "length"
+          ]
+        },
+        {
+          "position": 18,
+          "token": "value",
+          "rank": 3,
+          "top_four": [
+            "acc",
+            "one",
+            "value",
+            "zero"
+          ]
+        },
+        {
+          "position": 19,
+          "token": "two",
+          "rank": 6,
+          "top_four": [
+            "acc",
+            "one",
+            "value",
+            "zero"
+          ]
+        },
+        {
+          "position": 20,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "if",
+            "set"
+          ]
+        }
+      ],
+      "locally_excluded_tokens": [
+        {
+          "position": 13,
+          "token": "two",
+          "rank": 5,
+          "top_four": [
+            "zero",
+            "minus_one",
+            "one",
+            "length"
+          ]
+        },
+        {
+          "position": 17,
+          "token": "sub",
+          "rank": 7,
+          "top_four": [
+            "one",
+            "mul",
+            "zero",
+            "length"
+          ]
+        },
+        {
+          "position": 19,
+          "token": "two",
+          "rank": 6,
+          "top_four": [
+            "acc",
+            "one",
+            "value",
+            "zero"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "qualified",
+      "task": "positive_count_capped_at_two",
+      "rows": [
+        {
+          "position": 1,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 2,
+          "token": "gt",
+          "rank": 1,
+          "top_four": [
+            "gt",
+            "eq",
+            "lt",
+            "ne"
+          ]
+        },
+        {
+          "position": 3,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "rem",
+            "zero",
+            "one"
+          ]
+        },
+        {
+          "position": 4,
+          "token": "zero",
+          "rank": 1,
+          "top_four": [
+            "zero",
+            "one",
+            "two",
+            "minus_one"
+          ]
+        },
+        {
+          "position": 5,
+          "token": "if",
+          "rank": 2,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "lt",
+          "rank": 2,
+          "top_four": [
+            "ne",
+            "lt",
+            "eq",
+            "gt"
+          ]
+        },
+        {
+          "position": 7,
+          "token": "acc",
+          "rank": 11,
+          "top_four": [
+            "zero",
+            "minus_one",
+            "one",
+            "two"
+          ]
+        },
+        {
+          "position": 8,
+          "token": "two",
+          "rank": 4,
+          "top_four": [
+            "one",
+            "zero",
+            "minus_one",
+            "two"
+          ]
+        },
+        {
+          "position": 9,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set"
+          ]
+        },
+        {
+          "position": 10,
+          "token": "add",
+          "rank": 9,
+          "top_four": [
+            "zero",
+            "one",
+            "value",
+            "minus_one"
+          ]
+        },
+        {
+          "position": 11,
+          "token": "acc",
+          "rank": 11,
+          "top_four": [
+            "value",
+            "rem",
+            "one",
+            "zero"
+          ]
+        },
+        {
+          "position": 12,
+          "token": "one",
+          "rank": 3,
+          "top_four": [
+            "value",
+            "rem",
+            "one",
+            "zero"
+          ]
+        },
+        {
+          "position": 13,
+          "token": "end",
+          "rank": 2,
+          "top_four": [
+            "set",
+            "end"
+          ]
+        },
+        {
+          "position": 14,
+          "token": "end",
+          "rank": 3,
+          "top_four": [
+            "set",
+            "if",
+            "end"
+          ]
+        }
+      ],
+      "locally_excluded_tokens": [
+        {
+          "position": 7,
+          "token": "acc",
+          "rank": 11,
+          "top_four": [
+            "zero",
+            "minus_one",
+            "one",
+            "two"
+          ]
+        },
+        {
+          "position": 10,
+          "token": "add",
+          "rank": 9,
+          "top_four": [
+            "zero",
+            "one",
+            "value",
+            "minus_one"
+          ]
+        },
+        {
+          "position": 11,
+          "token": "acc",
+          "rank": 11,
+          "top_four": [
+            "value",
+            "rem",
+            "one",
+            "zero"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "broader",
+      "task": "maximum_floor_zero",
+      "rows": [
+        {
+          "position": 1,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 2,
+          "token": "gt",
+          "rank": 1,
+          "top_four": [
+            "gt",
+            "lt",
+            "eq",
+            "ge"
+          ]
+        },
+        {
+          "position": 3,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "rem",
+            "sub",
+            "acc"
+          ]
+        },
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 6,
+          "top_four": [
+            "zero",
+            "length",
+            "one",
+            "two"
+          ]
+        },
+        {
+          "position": 5,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "value",
+          "rank": 6,
+          "top_four": [
+            "add",
+            "sub",
+            "mul",
+            "length"
+          ]
+        },
+        {
+          "position": 7,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "if",
+            "set"
+          ]
+        }
+      ],
+      "locally_excluded_tokens": [
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 6,
+          "top_four": [
+            "zero",
+            "length",
+            "one",
+            "two"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "value",
+          "rank": 6,
+          "top_four": [
+            "add",
+            "sub",
+            "mul",
+            "length"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "broader",
+      "task": "minimum_ceiling_zero",
+      "rows": [
+        {
+          "position": 1,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 2,
+          "token": "lt",
+          "rank": 2,
+          "top_four": [
+            "gt",
+            "lt",
+            "ge",
+            "le"
+          ]
+        },
+        {
+          "position": 3,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "rem",
+            "sub",
+            "acc"
+          ]
+        },
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 5,
+          "top_four": [
+            "length",
+            "zero",
+            "two",
+            "minus_one"
+          ]
+        },
+        {
+          "position": 5,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "value",
+          "rank": 4,
+          "top_four": [
+            "add",
+            "sub",
+            "mul",
+            "value"
+          ]
+        },
+        {
+          "position": 7,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "if",
+            "set"
+          ]
+        }
+      ],
+      "locally_excluded_tokens": [
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 5,
+          "top_four": [
+            "length",
+            "zero",
+            "two",
+            "minus_one"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "broader",
+      "task": "largest_magnitude",
+      "rows": [
+        {
+          "position": 1,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 2,
+          "token": "gt",
+          "rank": 1,
+          "top_four": [
+            "gt",
+            "ne",
+            "ge",
+            "lt"
+          ]
+        },
+        {
+          "position": 3,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "sub",
+            "rem",
+            "acc"
+          ]
+        },
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 5,
+          "top_four": [
+            "zero",
+            "length",
+            "two",
+            "one"
+          ]
+        },
+        {
+          "position": 5,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "value",
+          "rank": 6,
+          "top_four": [
+            "add",
+            "sub",
+            "mul",
+            "length"
+          ]
+        },
+        {
+          "position": 7,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 8,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "end",
+            "set"
+          ]
+        },
+        {
+          "position": 9,
+          "token": "gt",
+          "rank": 3,
+          "top_four": [
+            "lt",
+            "ge",
+            "gt",
+            "le"
+          ]
+        },
+        {
+          "position": 10,
+          "token": "sub",
+          "rank": 1,
+          "top_four": [
+            "sub",
+            "zero",
+            "value",
+            "two"
+          ]
+        },
+        {
+          "position": 11,
+          "token": "zero",
+          "rank": 1,
+          "top_four": [
+            "zero",
+            "value",
+            "sub",
+            "acc"
+          ]
+        },
+        {
+          "position": 12,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "acc",
+            "zero",
+            "sub"
+          ]
+        },
+        {
+          "position": 13,
+          "token": "acc",
+          "rank": 1,
+          "top_four": [
+            "acc",
+            "zero",
+            "two",
+            "one"
+          ]
+        },
+        {
+          "position": 14,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 15,
+          "token": "sub",
+          "rank": 3,
+          "top_four": [
+            "one",
+            "two",
+            "sub",
+            "add"
+          ]
+        },
+        {
+          "position": 16,
+          "token": "zero",
+          "rank": 5,
+          "top_four": [
+            "acc",
+            "one",
+            "two",
+            "value"
+          ]
+        },
+        {
+          "position": 17,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "one",
+            "acc",
+            "two"
+          ]
+        },
+        {
+          "position": 18,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "set",
+            "if"
+          ]
+        }
+      ],
+      "locally_excluded_tokens": [
+        {
+          "position": 4,
+          "token": "acc",
+          "rank": 5,
+          "top_four": [
+            "zero",
+            "length",
+            "two",
+            "one"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "value",
+          "rank": 6,
+          "top_four": [
+            "add",
+            "sub",
+            "mul",
+            "length"
+          ]
+        },
+        {
+          "position": 16,
+          "token": "zero",
+          "rank": 5,
+          "top_four": [
+            "acc",
+            "one",
+            "two",
+            "value"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "broader",
+      "task": "positive_values_capped_at_two_total",
+      "rows": [
+        {
+          "position": 1,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 2,
+          "token": "gt",
+          "rank": 1,
+          "top_four": [
+            "gt",
+            "lt",
+            "eq",
+            "ge"
+          ]
+        },
+        {
+          "position": 3,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "rem",
+            "sub",
+            "acc"
+          ]
+        },
+        {
+          "position": 4,
+          "token": "zero",
+          "rank": 1,
+          "top_four": [
+            "zero",
+            "length",
+            "two",
+            "one"
+          ]
+        },
+        {
+          "position": 5,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "add",
+          "rank": 1,
+          "top_four": [
+            "add",
+            "sub",
+            "value",
+            "length"
+          ]
+        },
+        {
+          "position": 7,
+          "token": "acc",
+          "rank": 1,
+          "top_four": [
+            "acc",
+            "value",
+            "zero",
+            "one"
+          ]
+        },
+        {
+          "position": 8,
+          "token": "value",
+          "rank": 2,
+          "top_four": [
+            "length",
+            "value",
+            "add",
+            "one"
+          ]
+        },
+        {
+          "position": 9,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 10,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "end",
+            "set"
+          ]
+        },
+        {
+          "position": 11,
+          "token": "gt",
+          "rank": 5,
+          "top_four": [
+            "lt",
+            "ge",
+            "eq",
+            "le"
+          ]
+        },
+        {
+          "position": 12,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "rem",
+            "sub",
+            "two"
+          ]
+        },
+        {
+          "position": 13,
+          "token": "two",
+          "rank": 4,
+          "top_four": [
+            "zero",
+            "length",
+            "one",
+            "two"
+          ]
+        },
+        {
+          "position": 14,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 15,
+          "token": "sub",
+          "rank": 4,
+          "top_four": [
+            "length",
+            "add",
+            "mul",
+            "sub"
+          ]
+        },
+        {
+          "position": 16,
+          "token": "acc",
+          "rank": 1,
+          "top_four": [
+            "acc",
+            "zero",
+            "mul",
+            "one"
+          ]
+        },
+        {
+          "position": 17,
+          "token": "sub",
+          "rank": 7,
+          "top_four": [
+            "mul",
+            "one",
+            "zero",
+            "length"
+          ]
+        },
+        {
+          "position": 18,
+          "token": "value",
+          "rank": 2,
+          "top_four": [
+            "zero",
+            "value",
+            "one",
+            "two"
+          ]
+        },
+        {
+          "position": 19,
+          "token": "two",
+          "rank": 2,
+          "top_four": [
+            "one",
+            "two",
+            "zero",
+            "value"
+          ]
+        },
+        {
+          "position": 20,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "set",
+            "if"
+          ]
+        }
+      ],
+      "locally_excluded_tokens": [
+        {
+          "position": 11,
+          "token": "gt",
+          "rank": 5,
+          "top_four": [
+            "lt",
+            "ge",
+            "eq",
+            "le"
+          ]
+        },
+        {
+          "position": 17,
+          "token": "sub",
+          "rank": 7,
+          "top_four": [
+            "mul",
+            "one",
+            "zero",
+            "length"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "broader",
+      "task": "positive_count_capped_at_two",
+      "rows": [
+        {
+          "position": 1,
+          "token": "if",
+          "rank": 1,
+          "top_four": [
+            "if",
+            "set"
+          ]
+        },
+        {
+          "position": 2,
+          "token": "gt",
+          "rank": 1,
+          "top_four": [
+            "gt",
+            "lt",
+            "ge",
+            "ne"
+          ]
+        },
+        {
+          "position": 3,
+          "token": "value",
+          "rank": 1,
+          "top_four": [
+            "value",
+            "rem",
+            "sub",
+            "acc"
+          ]
+        },
+        {
+          "position": 4,
+          "token": "zero",
+          "rank": 1,
+          "top_four": [
+            "zero",
+            "length",
+            "one",
+            "two"
+          ]
+        },
+        {
+          "position": 5,
+          "token": "if",
+          "rank": 2,
+          "top_four": [
+            "set",
+            "if"
+          ]
+        },
+        {
+          "position": 6,
+          "token": "lt",
+          "rank": 1,
+          "top_four": [
+            "lt",
+            "ge",
+            "le",
+            "ne"
+          ]
+        },
+        {
+          "position": 7,
+          "token": "acc",
+          "rank": 6,
+          "top_four": [
+            "value",
+            "rem",
+            "sub",
+            "zero"
+          ]
+        },
+        {
+          "position": 8,
+          "token": "two",
+          "rank": 9,
+          "top_four": [
+            "value",
+            "sub",
+            "rem",
+            "mul"
+          ]
+        },
+        {
+          "position": 9,
+          "token": "set",
+          "rank": 1,
+          "top_four": [
+            "set"
+          ]
+        },
+        {
+          "position": 10,
+          "token": "add",
+          "rank": 1,
+          "top_four": [
+            "add",
+            "sub",
+            "mul",
+            "value"
+          ]
+        },
+        {
+          "position": 11,
+          "token": "acc",
+          "rank": 5,
+          "top_four": [
+            "value",
+            "mul",
+            "sub",
+            "add"
+          ]
+        },
+        {
+          "position": 12,
+          "token": "one",
+          "rank": 6,
+          "top_four": [
+            "mul",
+            "add",
+            "value",
+            "sub"
+          ]
+        },
+        {
+          "position": 13,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "set"
+          ]
+        },
+        {
+          "position": 14,
+          "token": "end",
+          "rank": 1,
+          "top_four": [
+            "end",
+            "set",
+            "if"
+          ]
+        }
+      ],
+      "locally_excluded_tokens": [
+        {
+          "position": 7,
+          "token": "acc",
+          "rank": 6,
+          "top_four": [
+            "value",
+            "rem",
+            "sub",
+            "zero"
+          ]
+        },
+        {
+          "position": 8,
+          "token": "two",
+          "rank": 9,
+          "top_four": [
+            "value",
+            "sub",
+            "rem",
+            "mul"
+          ]
+        },
+        {
+          "position": 11,
+          "token": "acc",
+          "rank": 5,
+          "top_four": [
+            "value",
+            "mul",
+            "sub",
+            "add"
+          ]
+        },
+        {
+          "position": 12,
+          "token": "one",
+          "rank": 6,
+          "top_four": [
+            "mul",
+            "add",
+            "value",
+            "sub"
+          ]
+        }
+      ]
+    }
+  ]
+}

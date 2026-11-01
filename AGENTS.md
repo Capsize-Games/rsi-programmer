@@ -104,6 +104,18 @@ before promoting donors; preserve provenance, failed trials and controls.
 
 ## Audit checkpoints
 
+Component-transfer checkpoint (2026-11-01): loop-body contexts and wider
+search alone still produced 0/5 new programs. A component-preserving
+curriculum produced the minimum-with-zero-ceiling program, with 40 actual
+Python and CURLEE cases passing. It solves 1/5 new tasks and retains 4/6
+earlier utilities; do not replace the previously qualified model. Its
+algorithmic components occur inside other teacher functions. This is
+component transfer, not algorithm invention or general programming. See
+`tracks/programmer/component-results.md`. The new minimum is a qualified
+donor; a subsequent maximum candidate fits observed examples only and
+requires held target-language execution. Retain all failures, controls,
+provenance and the sealed final set.
+
 Stateful development checkpoint (2026-11-01): the qualified frozen learner
 solved 0/5 new stateful tasks. Supplied grammar controls passed 40 Python
 and CURLEE cases per task; those controls are never neural successes or

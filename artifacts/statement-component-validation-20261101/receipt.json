@@ -1,0 +1,91 @@
+{
+  "scope": "Bounded component transfer, with previous body/wider-search failures retained. No final-evaluation or cost-advantage claim.",
+  "prior_published_sha": "0ad0aadff2b092c2bf5e4dd6410c6bce35a36266",
+  "source_hashes": {
+    "rsi_programmer/statement_curriculum.py": "60fbe0450d06c8fdde22bf645277956e33602d474e9f31673e71a33c5876b840",
+    "rsi_programmer/statement_policy.py": "391e25d3bf7f79a66f31d9f4db5e785e562b0785f62f8aadb9ece37016c81477",
+    "rsi_programmer/statement_body_contexts.py": "13aaf36a3b1252062fbf22567d11a20957ad8c362dd8e56105f49abf326d1f91",
+    "rsi_programmer/statement_fragment_search.py": "482b8ce5285951e1977def006ffa3a899cc2ecb53261efbf2fd0d4de33eeb63a",
+    "rsi_programmer/statement_return_curriculum.py": "51047a73b196f90d23a5adee4fe67eb155cf148351a6039ce8b054aa49df4dd1",
+    "scripts/execute_statement_trial.py": "f119863e3557c7d053fb1e14093c1c19ecb15034d7aa2c19b04f520639d8577f",
+    "scripts/measure_statement_bodies.py": "539901d4694a5188e66b301610d0674374e0a1a448c8b1718d4461e340cc803c",
+    "scripts/measure_return_curriculum.py": "e39e3ad36976f5877c4d303b16a6c49207db2983a8b77134f1f0b086d31d6501",
+    "tests/test_statement_bodies.py": "b3817185d2e403bd458c928d3d8089844719b303bd9fbded9fda1a8795996520",
+    "tests/test_stateful_tasks.py": "269b0b64ba0843526e2e84706e8389702c6acfbbec575334d80370372fbfcc9d"
+  },
+  "logs": {
+    "body-hole-baseline": {
+      "exit_code": 0,
+      "log": "body-hole-baseline.log.gz",
+      "sha256_uncompressed": "ce0019f50083693154cf00ed5b94d0c869ab666a040c7b6202360bf1ed06e7df"
+    },
+    "all-token-width32": {
+      "exit_code": 0,
+      "log": "all-token-width32.log.gz",
+      "sha256_uncompressed": "ce0019f50083693154cf00ed5b94d0c869ab666a040c7b6202360bf1ed06e7df"
+    },
+    "all-token-width128": {
+      "exit_code": 0,
+      "log": "all-token-width128.log.gz",
+      "sha256_uncompressed": "ce0019f50083693154cf00ed5b94d0c869ab666a040c7b6202360bf1ed06e7df"
+    },
+    "component-fit-decisions": {
+      "exit_code": 0,
+      "log": "component-fit-decisions.log.gz",
+      "sha256_uncompressed": "1536390abd8d767f67f2b60b90d0ec2ec0e8d79c46dfb4e8da97f1079be64edd"
+    },
+    "python-wrong-interpreter": {
+      "exit_code": 1,
+      "log": "python-wrong-interpreter.log.gz",
+      "sha256_uncompressed": "4c6bc112e4c8e6186d7cd8fc51be24b3b2be558bb7ef02417b70065710eb5af5"
+    },
+    "python-correct-environment": {
+      "exit_code": 0,
+      "log": "python-correct-environment.log.gz",
+      "sha256_uncompressed": "5982d50abb170e97fe65c8d0e4b38825b5b78fe422336a615a274150921fef9f"
+    },
+    "curlee-execution": {
+      "exit_code": 0,
+      "log": "curlee-execution.log.gz",
+      "sha256_uncompressed": "f1fd6ddf4708175b5dfa1fd1ba0fb22ce6ead879f7006d03b11e7a077f7e6ca3"
+    },
+    "focused-tests-initial": {
+      "exit_code": 0,
+      "log": "focused-tests-initial.log.gz",
+      "sha256_uncompressed": "e6d1cf8d60b070b6993c8a6c7f4276006668fd3491488e80529cdb3dd9b91ce7"
+    },
+    "focused-tests-final": {
+      "exit_code": 0,
+      "log": "focused-tests-final.log.gz",
+      "sha256_uncompressed": "a69abe1027214f175154ba15bc921901f9650a3590a1d19b174ab613ef05d7ef"
+    }
+  },
+  "focused_tests": {
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m unittest tests.test_statement_bodies tests.test_stateful_tasks tests.test_statement_fragments tests.test_statement_repair tests.test_statement_evaluation tests.test_statement_programs tests.test_track_manifest -v",
+    "tests": 33,
+    "seconds": 9.922,
+    "exit_code": 0
+  },
+  "training_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 python3 /tmp/rsi-run-with-reserve.py flock /tmp/rsi-programmer-builder.lock .venv/bin/python -m scripts.measure_return_curriculum --output artifacts/statement-return-v1-20261101",
+  "python_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m scripts.execute_statement_trial --output artifacts/statement-return-v1-20261101",
+  "curlee_command": "python3 /home/joe/Projects/curlee/scripts/run_limited.py /usr/bin/python3 -m scripts.check_statement_curlee --compiler /home/joe/Projects/curlee/build/linux-debug/curlee --output artifacts/statement-return-v1-20261101",
+  "curlee_guard_sha256": "40068777a1fc6f036c2a5c9c8f3580d1471cbbbfe03e1022fc474f34a77e910a",
+  "acceptance": {
+    "new": 1,
+    "retention": 4,
+    "new_tasks": 5,
+    "retention_tasks": 6,
+    "cases_per_program_per_language": 40,
+    "actual_python_cases": 200,
+    "actual_curlee_cases": 200
+  },
+  "exclusions": [
+    "Other four new tasks and two prior utilities yielded no program.",
+    "New full programmer regression and remote CI pending. Earlier 520-test pass predates this work.",
+    "Sensing and Sound Companion source unchanged; no new runs claimed.",
+    "No sealed final tasks, new model-family comparison, recursive self-improvement or full matched-total-cost test.",
+    "Weights remain ignored; previous qualified model is not replaced.",
+    "Observed-only maximum transfer probe has no held or target-language acceptance yet.",
+    "Tags/releases remain paused under project-specific instruction."
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "scope": "Development body-transfer probe, no refit. Classical context mining, neural body tokens.",
+  "model_hash": "574e21dd961899332d7305ab59cccee84ddeb01a56d441fd21f84d2d66a742f3",
+  "tasks": 5,
+  "rows": [
+    {
+      "id": "maximum_floor_zero",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          3
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          4
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 5763,
+        "completions": 350,
+        "wall_seconds": 0.20639621300506406,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "accepted": false,
+      "python_records": []
+    },
+    {
+      "id": "minimum_ceiling_zero",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          -2
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          -7
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          -2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          0
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          -3
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          0
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 5772,
+        "completions": 337,
+        "wall_seconds": 0.21772553198388778,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "accepted": false,
+      "python_records": []
+    },
+    {
+      "id": "largest_magnitude",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          7
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          3
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          3
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          4
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 5749,
+        "completions": 374,
+        "wall_seconds": 0.250770886981627,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "accepted": false,
+      "python_records": []
+    },
+    {
+      "id": "positive_values_capped_at_two_total",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          5
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          6
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 5843,
+        "completions": 324,
+        "wall_seconds": 0.2063844120129943,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "accepted": false,
+      "python_records": []
+    },
+    {
+      "id": "positive_count_capped_at_two",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          2
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 5741,
+        "completions": 381,
+        "wall_seconds": 0.3003428499796428,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "accepted": false,
+      "python_records": []
+    }
+  ],
+  "execution_pending": false,
+  "accepted": 0,
+  "execution_exclusion": "No program emitted; no Python or CURLEE execution possible."
+}

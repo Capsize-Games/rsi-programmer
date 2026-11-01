@@ -6,6 +6,10 @@ the six earlier utilities. That curriculum is not promoted. The preceding
 [six-task result](repair-results.md) remains valid for its declared tasks;
 these trials expose its limited transfer to new behavior.
 
+The subsequent [component-transfer trial](component-results.md) constructs
+one of these five tasks after changing the curriculum; it also records
+retention losses. The negative results below remain unchanged.
+
 The new tasks compute a maximum with a zero floor, a minimum with a zero
 ceiling, the largest magnitude, the total of positive values capped at two,
 and a positive count capped at two. They use the existing loop, condition,

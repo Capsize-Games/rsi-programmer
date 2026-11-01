@@ -54,7 +54,8 @@ def candidates() -> list[tuple[str, ...]]:
     return result
 
 
-def teachers(excluded: list[str], seed: int = 0, stateful: bool = False
+def teachers(excluded: list[str], seed: int = 0, stateful: bool = False,
+             return_variants: bool = False
              ) -> tuple[list[tuple[str, ...]], list[list[int]]]:
     """Remove complete requested functions on a fixed finite probe suite."""
     rng = random.Random(seed)
@@ -68,6 +69,15 @@ def teachers(excluded: list[str], seed: int = 0, stateful: bool = False
         from rsi_programmer.statement_stateful_curriculum import (
             candidates as stateful_candidates)
         source += stateful_candidates()
+    if return_variants:
+        # Retain a component in other functions when its complete function
+        # is excluded. The independent engine labels and filters all rows.
+        source += [(*program[:-2], "add", "acc", "one", "stop")
+                   for program in source if program[-3:] == (
+                       "return", "acc", "stop")]
+        from rsi_programmer.statement_return_curriculum import (
+            candidates as return_candidates)
+        source += return_candidates()
     programs = []
     for program in source:
         try:

@@ -52,3 +52,24 @@ class StatefulTaskTests(unittest.TestCase):
         for program in programs:
             signature = tuple(execute(program, values) for values in probes)
             self.assertNotIn(signature, excluded)
+
+    def test_return_variants_keep_components_but_exclude_complete_targets(
+            self) -> None:
+        from rsi_programmer.statement_curriculum import oracle as all_oracles
+        from rsi_programmer.statement_syntax import parse
+        names = ["positive_total", "negative_count", "even_total",
+                 "positive_square_total", "odd_count", "above_two_count",
+                 *WITNESSES]
+        programs, probes = teachers(names, stateful=True, return_variants=True)
+        excluded = {tuple(all_oracles(name, values) for values in probes)
+                    for name in names}
+        component = ("if", ("gt", ("value",), ("acc",)),
+                     (("set", ("value",)),))
+        retained = False
+        for program in programs:
+            signature = tuple(execute(program, values) for values in probes)
+            self.assertNotIn(signature, excluded)
+            for node in parse(program):
+                if node[0] == "for" and component in node[1]:
+                    retained = True
+        self.assertTrue(retained)

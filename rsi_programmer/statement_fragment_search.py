@@ -14,7 +14,9 @@ from rsi_programmer.statement_syntax import MAX_TOKENS, TOKENS, analyze, parse
 
 def synthesize(model: StatementPolicy, examples: list[tuple[list[int], int]],
                fragments: list[dict[str, Any]], width: int = 32,
-               rank_contexts: bool = False, budget_seconds: float | None = None
+               rank_contexts: bool = False,
+               budget_seconds: float | None = None,
+               choices_per_prefix: int | None = 4
                ) -> dict[str, Any]:
     """Explore contexts classically; the neural controller fills each hole.
 
@@ -24,6 +26,8 @@ def synthesize(model: StatementPolicy, examples: list[tuple[list[int], int]],
     """
     if width < 1 or (budget_seconds is not None and budget_seconds <= 0):
         raise ValueError("positive width and search budget required")
+    if choices_per_prefix is not None and choices_per_prefix < 1:
+        raise ValueError("positive choice count or None required")
     started = time.monotonic()
     if rank_contexts:
         fragments = rank(model, examples, fragments)
@@ -55,7 +59,8 @@ def synthesize(model: StatementPolicy, examples: list[tuple[list[int], int]],
                         ~mask, -torch.inf).log_softmax(dim=0)
                     choices = sorted(
                         (TOKENS.index(token) for token in allowed),
-                        key=lambda i: -float(probabilities[i]))[:4]
+                        key=lambda i: -float(probabilities[i]))
+                    choices = choices[:choices_per_prefix]
                     for choice in choices:
                         visited += 1
                         child = (*tokens, TOKENS[choice])

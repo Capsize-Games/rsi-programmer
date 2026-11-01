@@ -1,0 +1,36 @@
+{
+  "scope": "Development component-transfer curriculum; complete targets excluded on probes, components present in other functions. No claim of algorithm invention.",
+  "epochs": 30,
+  "seed": 0,
+  "beam_width": 128,
+  "choices_per_prefix": null,
+  "wall_seconds_per_search": 1.0,
+  "additional_observed_inputs": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      -3,
+      -2,
+      -1
+    ],
+    [
+      2,
+      3,
+      4
+    ]
+  ],
+  "held_seed": 461041,
+  "held_per_task": 40,
+  "source_hashes": {
+    "rsi_programmer/statement_curriculum.py": "60fbe0450d06c8fdde22bf645277956e33602d474e9f31673e71a33c5876b840",
+    "rsi_programmer/statement_stateful_curriculum.py": "c2c4bdd070ae42571f1132f0df7932bfe303821a910d5a6abddfd91d26335a4f",
+    "rsi_programmer/statement_return_curriculum.py": "51047a73b196f90d23a5adee4fe67eb155cf148351a6039ce8b054aa49df4dd1",
+    "rsi_programmer/statement_policy.py": "391e25d3bf7f79a66f31d9f4db5e785e562b0785f62f8aadb9ece37016c81477",
+    "rsi_programmer/statement_fragment_search.py": "482b8ce5285951e1977def006ffa3a899cc2ecb53261efbf2fd0d4de33eeb63a",
+    "rsi_programmer/statement_body_contexts.py": "13aaf36a3b1252062fbf22567d11a20957ad8c362dd8e56105f49abf326d1f91",
+    "scripts/measure_return_curriculum.py": "e39e3ad36976f5877c4d303b16a6c49207db2983a8b77134f1f0b086d31d6501"
+  }
+}

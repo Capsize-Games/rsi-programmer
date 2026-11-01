@@ -3,7 +3,11 @@
 This is the primary development track as of 2026-11-01.
 
 The primary outcome is a learner that writes useful programs in Python and
-CURLEE. The [stateful follow-up](stateful-results.md) solves 0/5 new tasks;
+CURLEE. The [component-transfer trial](component-results.md) constructs a
+minimum program, with 40 held cases passing in each language. It solves
+1/5 new tasks and retains 4/6 earlier utilities, so it remains separate
+from the earlier qualified model. Its components occur in other training
+functions. The [stateful follow-up](stateful-results.md) solved 0/5 new tasks;
 one broader curriculum also solves 0/5 and retains 5/6 earlier utilities.
 Supplied controls pass all five in Python and CURLEE. The preceding
 [fragment-transfer result](repair-results.md) repairs two
@@ -53,11 +57,12 @@ passed. See the [complete shortlist result](
 
 ## Capability roadmap
 
-Bounded query feedback also produced no programs for the five stateful
-tasks. The next change should target construction and transfer of
-state-dependent updates. Retain all failed attempts and the qualified
-earlier model; broader typed holes and loop-state features remain proposed
-experiments.
+Loop-body transfer and wider search alone produced no new programs.
+The component-preserving curriculum then constructed a qualified minimum.
+The next check is transfer from that independently checked program to new
+behavior, with old-library, untrained and classical controls. Retain the
+earlier qualified model and every failed attempt; the new model loses two
+earlier utilities.
 The stages below describe the broader capability progression. They do not
 require repeating model-family comparisons before useful-program trials.
 

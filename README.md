@@ -4,7 +4,13 @@ The primary development track is neural program synthesis: a learner that
 constructs executable programs and improves from independently checked
 training experience. The
 [programmer roadmap](tracks/programmer/README.md) defines the milestones.
-The [stateful follow-up](tracks/programmer/stateful-results.md) solved
+The [component-transfer trial](tracks/programmer/component-results.md)
+constructed a minimum program that passed 40 Python and 40 CURLEE cases.
+It solved 1/5 new tasks and retained 4/6 earlier utilities, so that model
+remains separate from the earlier qualified one. Training contains its
+algorithmic components inside different complete functions.
+The preceding [stateful follow-up](tracks/programmer/stateful-results.md)
+solved
 0/5 new tasks, including maximum and capped-count programs. A broader
 curriculum did not improve that result and retained only 5/6 earlier tasks.
 Supplied control programs passed all five tasks in Python and CURLEE;

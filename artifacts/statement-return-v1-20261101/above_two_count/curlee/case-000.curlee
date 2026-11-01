@@ -1,0 +1,95 @@
+fn process(input: &[Int; 256], count: Int) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let acc: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256; ] {
+        if (i < 0 || i >= 256) { return 0; }
+        let value: Int = input[i];
+        if ((value > 2)) {
+            acc = (acc + 1);
+        }
+    }
+    return acc;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    input[0] = 69;
+    input[1] = -39;
+    input[2] = -64;
+    input[3] = 86;
+    input[4] = -54;
+    input[5] = -66;
+    input[6] = 10;
+    input[7] = -93;
+    input[8] = 68;
+    input[9] = -66;
+    input[10] = -87;
+    input[11] = -21;
+    input[12] = 11;
+    input[13] = 88;
+    input[14] = 16;
+    input[15] = 71;
+    input[16] = -94;
+    input[17] = -17;
+    input[18] = 50;
+    input[19] = 80;
+    input[20] = -9;
+    input[21] = -65;
+    input[22] = -70;
+    input[23] = 62;
+    input[24] = 92;
+    input[25] = -84;
+    input[26] = -6;
+    input[27] = 45;
+    input[28] = 3;
+    input[29] = -41;
+    input[30] = -55;
+    input[31] = 32;
+    input[32] = -86;
+    input[33] = -2;
+    input[34] = -31;
+    input[35] = 35;
+    input[36] = -97;
+    input[37] = -3;
+    input[38] = -76;
+    input[39] = 51;
+    input[40] = 7;
+    input[41] = 80;
+    input[42] = -77;
+    input[43] = -26;
+    input[44] = 82;
+    input[45] = -31;
+    input[46] = -66;
+    input[47] = 69;
+    input[48] = -64;
+    input[49] = 13;
+    input[50] = -64;
+    input[51] = 81;
+    input[52] = 19;
+    input[53] = 21;
+    input[54] = -94;
+    input[55] = 38;
+    input[56] = 34;
+    input[57] = -93;
+    input[58] = -11;
+    input[59] = 70;
+    input[60] = 1;
+    input[61] = 8;
+    input[62] = -63;
+    input[63] = -88;
+    input[64] = -27;
+    input[65] = 55;
+    input[66] = 88;
+    input[67] = -18;
+    input[68] = -91;
+    input[69] = 19;
+    input[70] = 9;
+    input[71] = 90;
+    input[72] = 54;
+    input[73] = 76;
+    if (process(&input, 74) != 36) {
+        return 1;
+    }
+    return 0;
+}

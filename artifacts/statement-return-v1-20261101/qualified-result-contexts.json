@@ -1,0 +1,102 @@
+{
+  "donors": [
+    "positive_total",
+    "negative_count",
+    "positive_square_total",
+    "above_two_count",
+    "minimum_ceiling_zero"
+  ],
+  "fragments": [
+    {
+      "id": "decb72c3611a338c",
+      "kind": "Bool condition",
+      "prefix": [
+        "for",
+        "if"
+      ],
+      "suffix": [
+        "set",
+        "add",
+        "acc",
+        "mul",
+        "value",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "donors": [
+        "positive_square_total"
+      ]
+    },
+    {
+      "id": "cda43abf11ed8d3b",
+      "kind": "Bool condition",
+      "prefix": [
+        "for",
+        "if"
+      ],
+      "suffix": [
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "donors": [
+        "above_two_count",
+        "negative_count"
+      ]
+    },
+    {
+      "id": "1624b462af912802",
+      "kind": "Bool condition",
+      "prefix": [
+        "for",
+        "if"
+      ],
+      "suffix": [
+        "set",
+        "add",
+        "acc",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "donors": [
+        "positive_total"
+      ]
+    },
+    {
+      "id": "a2de4b05be8798d6",
+      "kind": "Bool condition",
+      "prefix": [
+        "for",
+        "if"
+      ],
+      "suffix": [
+        "set",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "donors": [
+        "minimum_ceiling_zero"
+      ]
+    }
+  ],
+  "report_sha256": "40ae203a7888ecea46115c427b35b1c7aad5eb256758417fdcf225cc87e56a36",
+  "compiler_proof_sha256": "914db717f3f404707bd7e5fc4e7e41f4bdeb7c4bfa30a6a04fd476e54772416a"
+}

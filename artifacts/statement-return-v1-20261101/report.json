@@ -1,0 +1,2817 @@
+{
+  "scope": "Development component-transfer curriculum; complete targets excluded on probes, components present in other functions. No claim of algorithm invention.",
+  "fit": {
+    "teacher_functions": 2647,
+    "teacher_states": 97410,
+    "epochs": 30,
+    "loss": 0.32125014066696167,
+    "wall_seconds": 38.01947610999923,
+    "execution_context": true,
+    "curriculum": "return-variants-v1",
+    "excluded_functions": [
+      "positive_total",
+      "negative_count",
+      "even_total",
+      "positive_square_total",
+      "odd_count",
+      "above_two_count",
+      "maximum_floor_zero",
+      "minimum_ceiling_zero",
+      "largest_magnitude",
+      "positive_values_capped_at_two_total",
+      "positive_count_capped_at_two"
+    ],
+    "exclusion_scope": "equivalence on 24 fixed probe arrays"
+  },
+  "metadata": {
+    "seed": 0,
+    "tokens": [
+      "for",
+      "if",
+      "set",
+      "end",
+      "return",
+      "stop",
+      "value",
+      "acc",
+      "zero",
+      "one",
+      "two",
+      "minus_one",
+      "length",
+      "add",
+      "sub",
+      "mul",
+      "rem",
+      "gt",
+      "ge",
+      "lt",
+      "le",
+      "eq",
+      "ne"
+    ],
+    "max_tokens": 32,
+    "execution_context": true,
+    "curriculum": "return-variants-v1"
+  },
+  "trained_hash": "fca8f7ae0c4602a9b3c07f8dc4809a374a57f24f208c4367786cff8edac530f7",
+  "tasks": 11,
+  "rows": [
+    {
+      "id": "positive_total",
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          13
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          17
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          11
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          6
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          9
+        ]
+      ],
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "ef7788f3792845c2",
+        "donors": [
+          "even_total",
+          "odd_count",
+          "positive_square_total",
+          "positive_total"
+        ],
+        "visited": 5750,
+        "completions": 241,
+        "wall_seconds": 0.16572737001115456,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "role": "retention",
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 1783,
+          "expected": 1783,
+          "interpreted": 1783,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 2635,
+          "expected": 2635,
+          "interpreted": 2635,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 1703,
+          "expected": 1703,
+          "interpreted": 1703,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 1054,
+          "expected": 1054,
+          "interpreted": 1054,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 1814,
+          "expected": 1814,
+          "interpreted": 1814,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 1924,
+          "expected": 1924,
+          "interpreted": 1924,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 2061,
+          "expected": 2061,
+          "interpreted": 2061,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 1883,
+          "expected": 1883,
+          "interpreted": 1883,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 1400,
+          "expected": 1400,
+          "interpreted": 1400,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 1130,
+          "expected": 1130,
+          "interpreted": 1130,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 1688,
+          "expected": 1688,
+          "interpreted": 1688,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 855,
+          "expected": 855,
+          "interpreted": 855,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 2117,
+          "expected": 2117,
+          "interpreted": 2117,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 407,
+          "expected": 407,
+          "interpreted": 407,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 1144,
+          "expected": 1144,
+          "interpreted": 1144,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 2363,
+          "expected": 2363,
+          "interpreted": 2363,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 1042,
+          "expected": 1042,
+          "interpreted": 1042,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 2219,
+          "expected": 2219,
+          "interpreted": 2219,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 1279,
+          "expected": 1279,
+          "interpreted": 1279,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 931,
+          "expected": 931,
+          "interpreted": 931,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 1658,
+          "expected": 1658,
+          "interpreted": 1658,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": 570,
+          "expected": 570,
+          "interpreted": 570,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": 1627,
+          "expected": 1627,
+          "interpreted": 1627,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": 1855,
+          "expected": 1855,
+          "interpreted": 1855,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 576,
+          "expected": 576,
+          "interpreted": 576,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 671,
+          "expected": 671,
+          "interpreted": 671,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 2091,
+          "expected": 2091,
+          "interpreted": 2091,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 2214,
+          "expected": 2214,
+          "interpreted": 2214,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": 2103,
+          "expected": 2103,
+          "interpreted": 2103,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 789,
+          "expected": 789,
+          "interpreted": 789,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": 361,
+          "expected": 361,
+          "interpreted": 361,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": 2020,
+          "expected": 2020,
+          "interpreted": 2020,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": 2090,
+          "expected": 2090,
+          "interpreted": 2090,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": 562,
+          "expected": 562,
+          "interpreted": 562,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 1108,
+          "expected": 1108,
+          "interpreted": 1108,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 1366,
+          "expected": 1366,
+          "interpreted": 1366,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": 1715,
+          "expected": 1715,
+          "interpreted": 1715,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": 672,
+          "expected": 672,
+          "interpreted": 672,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 456,
+          "expected": 456,
+          "interpreted": 456,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 1094,
+          "expected": 1094,
+          "interpreted": 1094,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "0857ac33e121f4d07c79cad58fa2e16585826bd9ae71e2b14ac016f7d487d89f",
+      "curlee_sha256": "0cb6c2e8cc133866b7cd211df060e1002788d464c90850d9d2fda70d11d77229"
+    },
+    {
+      "id": "negative_count",
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          3
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          0
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          3
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          0
+        ]
+      ],
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "le",
+          "value",
+          "minus_one",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "ef7788f3792845c2",
+        "donors": [
+          "even_total",
+          "odd_count",
+          "positive_square_total",
+          "positive_total"
+        ],
+        "visited": 5522,
+        "completions": 245,
+        "wall_seconds": 0.15544958898681216,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "role": "retention",
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 37,
+          "expected": 37,
+          "interpreted": 37,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 49,
+          "expected": 49,
+          "interpreted": 49,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 40,
+          "expected": 40,
+          "interpreted": 40,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 20,
+          "expected": 20,
+          "interpreted": 20,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 32,
+          "expected": 32,
+          "interpreted": 32,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 44,
+          "expected": 44,
+          "interpreted": 44,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 43,
+          "expected": 43,
+          "interpreted": 43,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 26,
+          "expected": 26,
+          "interpreted": 26,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 23,
+          "expected": 23,
+          "interpreted": 23,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 18,
+          "expected": 18,
+          "interpreted": 18,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 45,
+          "expected": 45,
+          "interpreted": 45,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 13,
+          "expected": 13,
+          "interpreted": 13,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 38,
+          "expected": 38,
+          "interpreted": 38,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 8,
+          "expected": 8,
+          "interpreted": 8,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 22,
+          "expected": 22,
+          "interpreted": 22,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 35,
+          "expected": 35,
+          "interpreted": 35,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 12,
+          "expected": 12,
+          "interpreted": 12,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 44,
+          "expected": 44,
+          "interpreted": 44,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 21,
+          "expected": 21,
+          "interpreted": 21,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 15,
+          "expected": 15,
+          "interpreted": 15,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 37,
+          "expected": 37,
+          "interpreted": 37,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": 14,
+          "expected": 14,
+          "interpreted": 14,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": 33,
+          "expected": 33,
+          "interpreted": 33,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": 23,
+          "expected": 23,
+          "interpreted": 23,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 10,
+          "expected": 10,
+          "interpreted": 10,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 17,
+          "expected": 17,
+          "interpreted": 17,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 57,
+          "expected": 57,
+          "interpreted": 57,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 51,
+          "expected": 51,
+          "interpreted": 51,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": 36,
+          "expected": 36,
+          "interpreted": 36,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 21,
+          "expected": 21,
+          "interpreted": 21,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": 4,
+          "expected": 4,
+          "interpreted": 4,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": 46,
+          "expected": 46,
+          "interpreted": 46,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": 40,
+          "expected": 40,
+          "interpreted": 40,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": 11,
+          "expected": 11,
+          "interpreted": 11,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 21,
+          "expected": 21,
+          "interpreted": 21,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 25,
+          "expected": 25,
+          "interpreted": 25,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": 25,
+          "expected": 25,
+          "interpreted": 25,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": 16,
+          "expected": 16,
+          "interpreted": 16,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 14,
+          "expected": 14,
+          "interpreted": 14,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 26,
+          "expected": 26,
+          "interpreted": 26,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "b4ff38138e2b4c201ea71be2aa61e7658cc6d1af670b41e53a3879bf43edcbf0",
+      "curlee_sha256": "b7f8a6a53bef82fcd21ea2b1771fbf8b22c08ac5edd01061d6961f529a193035"
+    },
+    {
+      "id": "even_total",
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          8
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          0
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          4
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          -2
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          6
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 21683,
+        "completions": 737,
+        "wall_seconds": 0.8400910530181136,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "role": "retention",
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "positive_square_total",
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          45
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          129
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          47
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          14
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          29
+        ]
+      ],
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "mul",
+          "value",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "ef7788f3792845c2",
+        "donors": [
+          "even_total",
+          "odd_count",
+          "positive_square_total",
+          "positive_total"
+        ],
+        "visited": 7670,
+        "completions": 270,
+        "wall_seconds": 0.20436739097931422,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "role": "retention",
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 119169,
+          "expected": 119169,
+          "interpreted": 119169,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 183933,
+          "expected": 183933,
+          "interpreted": 183933,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 120963,
+          "expected": 120963,
+          "interpreted": 120963,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 73202,
+          "expected": 73202,
+          "interpreted": 73202,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 127762,
+          "expected": 127762,
+          "interpreted": 127762,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 133700,
+          "expected": 133700,
+          "interpreted": 133700,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 129711,
+          "expected": 129711,
+          "interpreted": 129711,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 128067,
+          "expected": 128067,
+          "interpreted": 128067,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 103370,
+          "expected": 103370,
+          "interpreted": 103370,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 82528,
+          "expected": 82528,
+          "interpreted": 82528,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 99340,
+          "expected": 99340,
+          "interpreted": 99340,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 57373,
+          "expected": 57373,
+          "interpreted": 57373,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 147655,
+          "expected": 147655,
+          "interpreted": 147655,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 28951,
+          "expected": 28951,
+          "interpreted": 28951,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 74716,
+          "expected": 74716,
+          "interpreted": 74716,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 168843,
+          "expected": 168843,
+          "interpreted": 168843,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 66512,
+          "expected": 66512,
+          "interpreted": 66512,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 148323,
+          "expected": 148323,
+          "interpreted": 148323,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 76941,
+          "expected": 76941,
+          "interpreted": 76941,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 64109,
+          "expected": 64109,
+          "interpreted": 64109,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 107862,
+          "expected": 107862,
+          "interpreted": 107862,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": 37008,
+          "expected": 37008,
+          "interpreted": 37008,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": 97707,
+          "expected": 97707,
+          "interpreted": 97707,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": 121023,
+          "expected": 121023,
+          "interpreted": 121023,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 39256,
+          "expected": 39256,
+          "interpreted": 39256,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 47611,
+          "expected": 47611,
+          "interpreted": 47611,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 147205,
+          "expected": 147205,
+          "interpreted": 147205,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 164904,
+          "expected": 164904,
+          "interpreted": 164904,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": 138749,
+          "expected": 138749,
+          "interpreted": 138749,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 46039,
+          "expected": 46039,
+          "interpreted": 46039,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": 22753,
+          "expected": 22753,
+          "interpreted": 22753,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": 131702,
+          "expected": 131702,
+          "interpreted": 131702,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": 134118,
+          "expected": 134118,
+          "interpreted": 134118,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": 41900,
+          "expected": 41900,
+          "interpreted": 41900,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 80414,
+          "expected": 80414,
+          "interpreted": 80414,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 103704,
+          "expected": 103704,
+          "interpreted": 103704,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": 114611,
+          "expected": 114611,
+          "interpreted": 114611,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": 46952,
+          "expected": 46952,
+          "interpreted": 46952,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 25032,
+          "expected": 25032,
+          "interpreted": 25032,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 74794,
+          "expected": 74794,
+          "interpreted": 74794,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "0b29e8e55d4185ccee4b4e1ad59b5e525a84170fee15d7f965ec45e1c4e27db5",
+      "curlee_sha256": "d6d3d5cc375184f2dc82082cae6deae65b9775dece07754baf6b4aa6f130aea7"
+    },
+    {
+      "id": "odd_count",
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          2
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          4
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          1
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 20850,
+        "completions": 739,
+        "wall_seconds": 0.7960957690083887,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "role": "retention",
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "above_two_count",
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          2
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          1
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          2
+        ]
+      ],
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "ef7788f3792845c2",
+        "donors": [
+          "even_total",
+          "odd_count",
+          "positive_square_total",
+          "positive_total"
+        ],
+        "visited": 5799,
+        "completions": 271,
+        "wall_seconds": 0.1470252809813246,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "role": "retention",
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 36,
+          "expected": 36,
+          "interpreted": 36,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 48,
+          "expected": 48,
+          "interpreted": 48,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 34,
+          "expected": 34,
+          "interpreted": 34,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 20,
+          "expected": 20,
+          "interpreted": 20,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 31,
+          "expected": 31,
+          "interpreted": 31,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 34,
+          "expected": 34,
+          "interpreted": 34,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 46,
+          "expected": 46,
+          "interpreted": 46,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 35,
+          "expected": 35,
+          "interpreted": 35,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 24,
+          "expected": 24,
+          "interpreted": 24,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 19,
+          "expected": 19,
+          "interpreted": 19,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 41,
+          "expected": 41,
+          "interpreted": 41,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 17,
+          "expected": 17,
+          "interpreted": 17,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 39,
+          "expected": 39,
+          "interpreted": 39,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 7,
+          "expected": 7,
+          "interpreted": 7,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 21,
+          "expected": 21,
+          "interpreted": 21,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 41,
+          "expected": 41,
+          "interpreted": 41,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 21,
+          "expected": 21,
+          "interpreted": 21,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 43,
+          "expected": 43,
+          "interpreted": 43,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 31,
+          "expected": 31,
+          "interpreted": 31,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 16,
+          "expected": 16,
+          "interpreted": 16,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 36,
+          "expected": 36,
+          "interpreted": 36,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": 12,
+          "expected": 12,
+          "interpreted": 12,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": 38,
+          "expected": 38,
+          "interpreted": 38,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": 38,
+          "expected": 38,
+          "interpreted": 38,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 9,
+          "expected": 9,
+          "interpreted": 9,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 12,
+          "expected": 12,
+          "interpreted": 12,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 39,
+          "expected": 39,
+          "interpreted": 39,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 39,
+          "expected": 39,
+          "interpreted": 39,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": 38,
+          "expected": 38,
+          "interpreted": 38,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 18,
+          "expected": 18,
+          "interpreted": 18,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": 9,
+          "expected": 9,
+          "interpreted": 9,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": 43,
+          "expected": 43,
+          "interpreted": 43,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": 46,
+          "expected": 46,
+          "interpreted": 46,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": 10,
+          "expected": 10,
+          "interpreted": 10,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 20,
+          "expected": 20,
+          "interpreted": 20,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 22,
+          "expected": 22,
+          "interpreted": 22,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": 33,
+          "expected": 33,
+          "interpreted": 33,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": 11,
+          "expected": 11,
+          "interpreted": 11,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 11,
+          "expected": 11,
+          "interpreted": 11,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 20,
+          "expected": 20,
+          "interpreted": 20,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "b72bc52d64d4a50c6ab2083586d246bc23b10d1d1d1d979c11fb8835e7514946",
+      "curlee_sha256": "1a76382eba0beb6a233293b019808a026d0a96ad884c3fef3d8f8d0a90c15e55"
+    },
+    {
+      "id": "maximum_floor_zero",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          3
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          4
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 20987,
+        "completions": 684,
+        "wall_seconds": 0.8277521849959157,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "role": "new",
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "minimum_ceiling_zero",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          -2
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          -7
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          -2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          0
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          -3
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          0
+        ]
+      ],
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "acc",
+          "value",
+          "set",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "ef7788f3792845c2",
+        "donors": [
+          "even_total",
+          "odd_count",
+          "positive_square_total",
+          "positive_total"
+        ],
+        "visited": 3366,
+        "completions": 214,
+        "wall_seconds": 0.09128025601967238,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "role": "new",
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": -97,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": -95,
+          "expected": -95,
+          "interpreted": -95,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": -97,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": -96,
+          "expected": -96,
+          "interpreted": -96,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": -93,
+          "expected": -93,
+          "interpreted": -93,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": -97,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": -90,
+          "expected": -90,
+          "interpreted": -90,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": -97,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": -95,
+          "expected": -95,
+          "interpreted": -95,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": -96,
+          "expected": -96,
+          "interpreted": -96,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": -97,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": -88,
+          "expected": -88,
+          "interpreted": -88,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": -94,
+          "expected": -94,
+          "interpreted": -94,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": -95,
+          "expected": -95,
+          "interpreted": -95,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": -97,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": -91,
+          "expected": -91,
+          "interpreted": -91,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": -86,
+          "expected": -86,
+          "interpreted": -86,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": -90,
+          "expected": -90,
+          "interpreted": -90,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": -86,
+          "expected": -86,
+          "interpreted": -86,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": -97,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "5f54db3748efee0d2d98f92ae1c48512c925449828cbc30fb503d962d0c237dd",
+      "curlee_sha256": "11fdf6415b3163b1c19aa10c1b23fb7dd86aacced19b7043adbd47e146ab1f49"
+    },
+    {
+      "id": "largest_magnitude",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          7
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          3
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          3
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          4
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 21186,
+        "completions": 703,
+        "wall_seconds": 0.7925205049978103,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "role": "new",
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "positive_values_capped_at_two_total",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          5
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          6
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 20710,
+        "completions": 683,
+        "wall_seconds": 0.7035019820032176,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "role": "new",
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "positive_count_capped_at_two",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          2
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 21071,
+        "completions": 653,
+        "wall_seconds": 0.7278596760006621,
+        "tried_contexts": [
+          "ef7788f3792845c2"
+        ]
+      },
+      "role": "new",
+      "python_records": [],
+      "accepted": false
+    }
+  ],
+  "held_per_task": 40,
+  "execution_pending": false,
+  "accepted": 5,
+  "accepted_by_role": {
+    "new": 1,
+    "retention": 4
+  }
+}

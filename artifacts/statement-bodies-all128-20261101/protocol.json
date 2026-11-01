@@ -1,0 +1,31 @@
+{
+  "scope": "Development body-transfer probe, no refit. Classical context mining, neural body tokens.",
+  "additional_observed_inputs": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      -3,
+      -2,
+      -1
+    ],
+    [
+      2,
+      3,
+      4
+    ]
+  ],
+  "wall_budget_per_search": 1.0,
+  "beam_width": 128,
+  "choices_per_prefix": null,
+  "held_seed": 461037,
+  "held_per_task": 40,
+  "task_fixture_sha256": "52dccad6629d6bbb5de87e9e1c7888baaf6e7fd7ed4e08abdaff377443c241ae",
+  "source_hashes": {
+    "scripts/measure_statement_bodies.py": "539901d4694a5188e66b301610d0674374e0a1a448c8b1718d4461e340cc803c",
+    "rsi_programmer/statement_body_contexts.py": "13aaf36a3b1252062fbf22567d11a20957ad8c362dd8e56105f49abf326d1f91",
+    "rsi_programmer/statement_fragment_search.py": "f42a0e4e01511905d220f8f010df86de3ede0ea2bed96418f464215339c8831e"
+  }
+}

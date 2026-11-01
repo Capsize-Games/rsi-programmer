@@ -1,0 +1,94 @@
+fn process(input: &[Int; 256], count: Int) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let acc: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256; ] {
+        if (i < 0 || i >= 256) { return 0; }
+        let value: Int = input[i];
+        if ((value > 2)) {
+            acc = (acc + 1);
+        }
+    }
+    return acc;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    input[0] = 24;
+    input[1] = -37;
+    input[2] = 92;
+    input[3] = -27;
+    input[4] = 2;
+    input[5] = 9;
+    input[6] = 65;
+    input[7] = 26;
+    input[8] = -14;
+    input[9] = -49;
+    input[10] = -42;
+    input[11] = 45;
+    input[12] = -13;
+    input[13] = -81;
+    input[14] = 1;
+    input[15] = 26;
+    input[16] = -3;
+    input[17] = -60;
+    input[18] = 18;
+    input[19] = 65;
+    input[20] = 37;
+    input[21] = 21;
+    input[22] = 61;
+    input[23] = -2;
+    input[24] = -75;
+    input[25] = 17;
+    input[26] = 96;
+    input[27] = 22;
+    input[28] = 38;
+    input[29] = 24;
+    input[30] = 84;
+    input[31] = 57;
+    input[32] = -87;
+    input[33] = 74;
+    input[34] = -29;
+    input[35] = -52;
+    input[36] = -72;
+    input[37] = 87;
+    input[38] = 55;
+    input[39] = -23;
+    input[40] = -3;
+    input[41] = 7;
+    input[42] = -34;
+    input[43] = -34;
+    input[44] = -99;
+    input[45] = -19;
+    input[46] = -20;
+    input[47] = 20;
+    input[48] = 84;
+    input[49] = -20;
+    input[50] = 8;
+    input[51] = -37;
+    input[52] = -70;
+    input[53] = 9;
+    input[54] = -69;
+    input[55] = 51;
+    input[56] = -94;
+    input[57] = 10;
+    input[58] = 29;
+    input[59] = 88;
+    input[60] = 21;
+    input[61] = 56;
+    input[62] = -9;
+    input[63] = 35;
+    input[64] = -15;
+    input[65] = -49;
+    input[66] = 15;
+    input[67] = 78;
+    input[68] = -2;
+    input[69] = -84;
+    input[70] = 32;
+    input[71] = 38;
+    input[72] = -16;
+    if (process(&input, 73) != 38) {
+        return 1;
+    }
+    return 0;
+}
