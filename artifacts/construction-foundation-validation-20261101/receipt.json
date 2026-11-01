@@ -1,0 +1,35 @@
+{
+  "scope": "Sequential arithmetic construction foundation and corpus/protocol freeze before model fitting",
+  "command": "flock -n /tmp/rsi-programmer-builder.lock env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m unittest tests.test_construction_state tests.test_construction_corpus tests.test_track_manifest -v",
+  "tests": 15,
+  "unittest_seconds": 1.045,
+  "result": "passed",
+  "skipped": 0,
+  "excluded_from_selected_scope": [],
+  "raw_log_sha256": "ee3f97fa20597d78ca48896679ef8ec8d681da9135f68b247ec9a90cdd6d1229",
+  "model_fits_run": 0,
+  "model_evaluations_run": 0,
+  "data_validation": "All 925 witness graphs pass independent observed, held and exact polynomial checks; byte-identical regeneration and function-disjoint splits checked. Training traces reject dev/eval and ignore poisoned held data.",
+  "pending": [
+    "ANN/SNN constructor implementation",
+    "training and dev selection",
+    "final runtime/recipe freeze",
+    "independent benchmark replay",
+    "end-to-end cost measurement",
+    "aggregate fast checks for this additive path",
+    "slow/retry/full discovery",
+    "new CI verdict"
+  ],
+  "source_sha256": {
+    "rsi_programmer/construction_state.py": "68af9a83656627eb952857956a6c227f5161039e9e83226e637c47da0e6f5974",
+    "rsi_programmer/construction_corpus.py": "52fcfaf153434dcb84bda244b8a54a4edb979bc048049109679b13e7e6169aed",
+    "rsi_programmer/construction_check.py": "4c45abfedfa86213de324e7db44f1c7cbc6f283622b2573cfc929c88e7b2a4c8",
+    "scripts/generate_construction_corpus.py": "18b8738bc0a5f674e5063dff1ef4a3c3d3c63585f12481ee1f2d9fd54eeadb7f",
+    "tests/test_construction_corpus.py": "43fc568e62d41145fb01e11307dbdde01f077faaaf4d408e77ca5a4e9a45f727",
+    "tests/test_construction_state.py": "2644096e0391320598c717e8763b55809a9a9ec8ea6d3d7a3b7bdad2da798daf",
+    "fixtures/construction_corpus_v1.json": "1771da269247c9c8a227d48050004fe215158934a14f8684d38d10e35c853735",
+    "fixtures/construction_v1.json": "4c1ca928358db24253a073dda5130a7657223e78419801ccc759bd404eeea6c1",
+    "tracks/manifest.json": "8a458b2257363f490519a163d466e5a7ec40580d064f7a2990ca2d68fa595ffa",
+    "justfile": "50dff73e67d0fe94443ba16b3e90efc6678558c0665f9cd56a77a02bb38e30ea"
+  }
+}

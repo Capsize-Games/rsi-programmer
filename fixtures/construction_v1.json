@@ -1,0 +1,127 @@
+{
+  "protocol_id": "construction-v1",
+  "status": "corpus_and_acceptance_frozen_before_model_fitting",
+  "corpus_path": "fixtures/construction_corpus_v1.json",
+  "corpus_sha256": "1771da269247c9c8a227d48050004fe215158934a14f8684d38d10e35c853735",
+  "question": "Can a learned sequential controller construct correct new arithmetic functions, and does any gain justify its complete cost?",
+  "grammar": {
+    "operators": [
+      "add",
+      "sub",
+      "mul"
+    ],
+    "terminals": [
+      "x",
+      "y"
+    ],
+    "max_tree_ops": 4,
+    "max_graph_nodes": 4,
+    "explicit_stop": true,
+    "constants": false,
+    "branching": false,
+    "loops": false
+  },
+  "data": {
+    "train_functions": 546,
+    "development_functions": 135,
+    "final_functions": 244,
+    "observed_rows_per_task": 36,
+    "held_rows_per_task": 24,
+    "function_disjoint": true,
+    "observed_grid": [
+      -3,
+      2
+    ],
+    "final_split_access": "Do not run model inference on final tasks until the recipe, runtime and development choices have a separate frozen receipt."
+  },
+  "learning": {
+    "llm_teacher": false,
+    "supervision": "Generator-witness actions with observed partial-program execution; training tasks only.",
+    "primary_backend": "ann",
+    "comparison_backend": "snn",
+    "initial_recipe": {
+      "hidden": 64,
+      "snn_steps": 6,
+      "epochs": 100,
+      "batch_size": 64,
+      "learning_rate": 0.003,
+      "gradient_norm_limit": 1.0
+    },
+    "development_limit": "At most three declared recipes on the dev split before a fresh scope decision; retain every attempt. Final measurements cannot guide recipe selection."
+  },
+  "controls": [
+    "streaming",
+    "trained_ann",
+    "untrained_ann",
+    "trained_snn",
+    "untrained_snn",
+    "random_actions"
+  ],
+  "evaluation": {
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "execution_caps": [
+      64,
+      256,
+      1024,
+      4096,
+      16384
+    ],
+    "primary_execution_cap": 256,
+    "beam_width": 8,
+    "operator_top_k": 2,
+    "left_top_k": 2,
+    "right_top_k": 2,
+    "held_feedback": false,
+    "oracle_retry": false,
+    "acceptance": [
+      "typed_grammar_and_budget",
+      "observed_rows",
+      "held_rows",
+      "exact_integer_polynomial"
+    ],
+    "failure_policy": "Retain failures, premature stops, budget exhaustion and invalid actions. Stop search on first explicit neural STOP whose graph meets observed rows; only then check held rows and identity."
+  },
+  "decision_rules": {
+    "learning": "At primary cap, each trained ANN seed must exceed its untrained ANN and random-action acceptance rates by at least 0.10. This is a construction-learning gate, not an efficiency claim.",
+    "cost": "Require observed full coverage for the compared configurations. At their first listed full-coverage caps, standalone ANN per-task CPU including its full setup/fit charge amortized over 244 tasks must be at most 0.90 times streaming. Missing full coverage fails the cost gate.",
+    "snn": "Report matched SNN accuracy, cost and activity independently. No SNN advantage inferred from parameter counts or binary activity.",
+    "scope": "Failure does not authorize scaling, new backends or a new final-set tuning pass. Retain the result and diagnose or stop the approach."
+  },
+  "accounting": {
+    "include": [
+      "supervision_generation",
+      "feature_preparation",
+      "model_initialization",
+      "fitting",
+      "neural_scoring",
+      "selected_candidate_execution",
+      "validation",
+      "independent_acceptance"
+    ],
+    "separate": [
+      "process_cpu",
+      "wall",
+      "peak_memory",
+      "root_vector_evaluations",
+      "neural_calls",
+      "policy_rows",
+      "spikes",
+      "training_updates"
+    ],
+    "amortization_tasks": [
+      244
+    ],
+    "energy_claim": false
+  },
+  "source_provenance": {
+    "generator_sha256": {
+      "rsi_programmer/construction_corpus.py": "52fcfaf153434dcb84bda244b8a54a4edb979bc048049109679b13e7e6169aed",
+      "rsi_programmer/benchmark_v2_corpus.py": "13c49ca629ce51e766ffdd3615a925a601ede4c9cff9a713710d159698f6526f",
+      "scripts/generate_construction_corpus.py": "18b8738bc0a5f674e5063dff1ef4a3c3d3c63585f12481ee1f2d9fd54eeadb7f"
+    }
+  }
+}

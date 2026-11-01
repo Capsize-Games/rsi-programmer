@@ -2,6 +2,10 @@
 
 This is the primary development track as of 2026-11-01.
 
+The active goal begins with the [sequential construction pilot](
+construction-v1.md). Its frozen corpus and typed state/checker are implemented;
+the ANN controller and its independent final evaluation are in progress.
+
 The objective is a neural controller that constructs executable programs
 from a task specification, learns from training execution and feedback, and
 reuses prior solutions on new tasks. Independent execution and acceptance
