@@ -1,0 +1,1963 @@
+{
+  "scope": "Supplied programs proving grammar/backend capacity; not neural programming successes.",
+  "tasks": 5,
+  "rows": [
+    {
+      "id": "maximum_floor_zero",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ]
+      },
+      "role": "supplied grammar control",
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 1,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 2,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 3,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 4,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 9,
+          "interpreted": 9,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 5,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 6,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 7,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 8,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 9,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 97,
+          "interpreted": 97,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 10,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 11,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 79,
+          "interpreted": 79,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 12,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 13,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 18,
+          "interpreted": 18,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 14,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 15,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 16,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 17,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 90,
+          "interpreted": 90,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 18,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 95,
+          "interpreted": 95,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 19,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 93,
+          "interpreted": 93,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 20,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 86,
+          "interpreted": 86,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 21,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 22,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 23,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 24,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 91,
+          "interpreted": 91,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 25,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 90,
+          "interpreted": 90,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 26,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 27,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 28,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 93,
+          "interpreted": 93,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 29,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 30,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 31,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 95,
+          "interpreted": 95,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 32,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 33,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 34,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 92,
+          "interpreted": 92,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 35,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 36,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 37,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 95,
+          "interpreted": 95,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 38,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 39,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 90,
+          "interpreted": 90,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        }
+      ],
+      "accepted": false,
+      "python_sha256": "9a045eca81442de718081c5ba8f8ec5fe74b8b0542ab34f6770c8efa60cb9862",
+      "curlee_sha256": "f2a138c900360b0e0260e446c7bed38c13ddf3982b8a791d534e6d9ee16c306d"
+    },
+    {
+      "id": "minimum_ceiling_zero",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "lt",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ]
+      },
+      "role": "supplied grammar control",
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 1,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 2,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -4,
+          "interpreted": -4,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 3,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -2,
+          "interpreted": -2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 4,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 5,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 6,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 7,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 8,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -66,
+          "interpreted": -66,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 9,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -92,
+          "interpreted": -92,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 10,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 11,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -94,
+          "interpreted": -94,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 12,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -96,
+          "interpreted": -96,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 13,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -28,
+          "interpreted": -28,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 14,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -95,
+          "interpreted": -95,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 15,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 16,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 17,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -92,
+          "interpreted": -92,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 18,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 19,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 20,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 21,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -96,
+          "interpreted": -96,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 22,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -95,
+          "interpreted": -95,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 23,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 24,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 25,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -93,
+          "interpreted": -93,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 26,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 27,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 28,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 29,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 30,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -90,
+          "interpreted": -90,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 31,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 32,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 33,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 34,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -83,
+          "interpreted": -83,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 35,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 36,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 37,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -90,
+          "interpreted": -90,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 38,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 39,
+          "exit_code": 1,
+          "actual": null,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        }
+      ],
+      "accepted": false,
+      "python_sha256": "dcaa4dd695b803863e71d014644b73ba58bbd24dfa5bee2bd409ec2912615fcc",
+      "curlee_sha256": "d2d22fdbba4171b18529dc14f17515dbab987ec553b14013b311cbdf62e25d00"
+    },
+    {
+      "id": "largest_magnitude",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "sub",
+          "zero",
+          "value",
+          "acc",
+          "set",
+          "sub",
+          "zero",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ]
+      },
+      "role": "supplied grammar control",
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 1,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 2,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 4,
+          "interpreted": 4,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 3,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 4,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 9,
+          "interpreted": 9,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 5,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 6,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 7,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 8,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 9,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 97,
+          "interpreted": 97,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 10,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 11,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 94,
+          "interpreted": 94,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 12,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 13,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 28,
+          "interpreted": 28,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 14,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 15,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 16,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 17,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 92,
+          "interpreted": 92,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 18,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 19,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 20,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 21,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 22,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 23,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 24,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 25,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 93,
+          "interpreted": 93,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 26,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 27,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 28,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 29,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 30,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 31,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 32,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 33,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 34,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 92,
+          "interpreted": 92,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 35,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 36,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 37,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 95,
+          "interpreted": 95,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 38,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 39,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        }
+      ],
+      "accepted": false,
+      "python_sha256": "e8ddf2e187a1056757846f38de54b8c9be5ec4ba6e3c3c0bd3319eef34ae488e",
+      "curlee_sha256": "61c8e7b22077fe0640160b2f046512f14bdb4e8d60bfa914c4690548d3a6d314"
+    },
+    {
+      "id": "positive_values_capped_at_two_total",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "set",
+          "sub",
+          "acc",
+          "sub",
+          "value",
+          "two",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ]
+      },
+      "role": "supplied grammar control",
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 1,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 2,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 3,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 4,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 7,
+          "interpreted": 7,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 5,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 512,
+          "interpreted": 512,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 6,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 7,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 199,
+          "interpreted": 199,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 8,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 9,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 56,
+          "interpreted": 56,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 10,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 12,
+          "interpreted": 12,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 11,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 6,
+          "interpreted": 6,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 12,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 94,
+          "interpreted": 94,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 13,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 14,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 70,
+          "interpreted": 70,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 15,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 16,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 17,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 16,
+          "interpreted": 16,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 18,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 70,
+          "interpreted": 70,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 19,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 75,
+          "interpreted": 75,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 20,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 46,
+          "interpreted": 46,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 21,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 78,
+          "interpreted": 78,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 22,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 45,
+          "interpreted": 45,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 23,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 54,
+          "interpreted": 54,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 24,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 50,
+          "interpreted": 50,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 25,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 25,
+          "interpreted": 25,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 26,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 48,
+          "interpreted": 48,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 27,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 48,
+          "interpreted": 48,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 28,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 39,
+          "interpreted": 39,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 29,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 72,
+          "interpreted": 72,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 30,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 32,
+          "interpreted": 32,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 31,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 91,
+          "interpreted": 91,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 32,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 69,
+          "interpreted": 69,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 33,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 45,
+          "interpreted": 45,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 34,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 20,
+          "interpreted": 20,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 35,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 54,
+          "interpreted": 54,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 36,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 63,
+          "interpreted": 63,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 37,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 34,
+          "interpreted": 34,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 38,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 97,
+          "interpreted": 97,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 39,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 26,
+          "interpreted": 26,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        }
+      ],
+      "accepted": false,
+      "python_sha256": "ba6240a7a025210c62ca85dc6e90a81ed50008425bce9afd851e4256cad4b77b",
+      "curlee_sha256": "5d36e893ced7e2bd3d3796a6dba55280104334f6506c8bee0cbfda225c2a9f0f"
+    },
+    {
+      "id": "positive_count_capped_at_two",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "if",
+          "lt",
+          "acc",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ]
+      },
+      "role": "supplied grammar control",
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 1,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 2,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 3,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 4,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 5,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 6,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 7,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 8,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 9,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 10,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 11,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 12,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 13,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 14,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 15,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 16,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 17,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 18,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 19,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 20,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 21,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 22,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 23,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 24,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 25,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 26,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 27,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 28,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 29,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 30,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 31,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 32,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 33,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 34,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 35,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 36,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 37,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 38,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        },
+        {
+          "case": 39,
+          "exit_code": 1,
+          "actual": null,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": false,
+          "stderr": "bwrap: loopback: Failed to create NETLINK_ROUTE socket: Operation not permitted\n"
+        }
+      ],
+      "accepted": false,
+      "python_sha256": "a06aebf23cc5dee976b00c1d31035ba20783191cf0a74db6a68eba3d6743055e",
+      "curlee_sha256": "1ce0c09c5af81c535313d3f96393010afed6ae3634fee2e7755eff13a0ae50a7"
+    }
+  ],
+  "accepted": 0
+}

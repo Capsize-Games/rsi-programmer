@@ -104,6 +104,16 @@ before promoting donors; preserve provenance, failed trials and controls.
 
 ## Audit checkpoints
 
+Stateful development checkpoint (2026-11-01): the qualified frozen learner
+solved 0/5 new stateful tasks. Supplied grammar controls passed 40 Python
+and CURLEE cases per task; those controls are never neural successes or
+library donors. One broader 1,151-function execution curriculum still
+solved 0/5 and retained only 5/6 earlier utilities, so do not promote it.
+See `tracks/programmer/stateful-results.md`. Preserve the failures. The
+maximum and capped-sum tasks share identical initial examples; separate
+that ambiguity from construction failure using bounded visible queries.
+Keep held rows outside feedback and leave the sealed final set untouched.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,

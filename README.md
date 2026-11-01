@@ -4,7 +4,12 @@ The primary development track is neural program synthesis: a learner that
 constructs executable programs and improves from independently checked
 training experience. The
 [programmer roadmap](tracks/programmer/README.md) defines the milestones.
-The latest [verified-fragment trial](tracks/programmer/repair-results.md)
+The [stateful follow-up](tracks/programmer/stateful-results.md) solved
+0/5 new tasks, including maximum and capped-count programs. A broader
+curriculum did not improve that result and retained only 5/6 earlier tasks.
+Supplied control programs passed all five tasks in Python and CURLEE;
+the learner's generalization is the current limitation.
+The preceding [verified-fragment trial](tracks/programmer/repair-results.md)
 retains four statement-generated utilities and repairs two more. All six
 pass 40 held cases each in Python and CURLEE. The learner constructs new
 conditions within contexts mined from previously checked programs; the

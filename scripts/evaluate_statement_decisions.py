@@ -1,6 +1,7 @@
 """Execute already-frozen program choices on independent file inputs."""
 from __future__ import annotations
 
+from collections.abc import Callable
 import hashlib
 import json
 from pathlib import Path
@@ -13,7 +14,9 @@ from rsi_programmer.statement_source import curlee_source, python_source
 
 
 def evaluate(root: Path, decisions: list[dict[str, Any]],
-              inputs: list[list[int]]) -> list[dict[str, Any]]:
+              inputs: list[list[int]],
+              task_oracle: Callable[[str, list[int]], int] = oracle
+              ) -> list[dict[str, Any]]:
     """Evaluate fixed choices without a solver or repair path."""
     if not inputs or not decisions:
         raise ValueError("nonempty program decisions and held inputs required")
@@ -50,7 +53,7 @@ def evaluate(root: Path, decisions: list[dict[str, Any]],
                     path = output_dir / filename
                     actual = (json.loads(path.read_text())
                               if path.exists() else None)
-                    expected = oracle(name, values)
+                    expected = task_oracle(name, values)
                     try:
                         interpreted = execute(tokens, values)
                     except ValueError:

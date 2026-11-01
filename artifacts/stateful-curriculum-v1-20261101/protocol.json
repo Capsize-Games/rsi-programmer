@@ -1,0 +1,21 @@
+{
+  "scope": "Development curriculum trial, not final evaluation. One seed and recipe; no held-guided retries.",
+  "seed": 0,
+  "epochs": 30,
+  "curriculum_seed": 1237,
+  "single_condition_candidates": 1536,
+  "composed_condition_candidates": 512,
+  "held_seed": 461027,
+  "held_per_task": 40,
+  "beam_width": 32,
+  "transfer_seconds": 0.5,
+  "source_hashes": {
+    "rsi_programmer/statement_stateful_curriculum.py": "c2c4bdd070ae42571f1132f0df7932bfe303821a910d5a6abddfd91d26335a4f",
+    "rsi_programmer/statement_curriculum.py": "a8ddbb17a86f70eb0e672eac3189caa1007831b2487d52b01d97de0099bde0f3",
+    "rsi_programmer/statement_policy.py": "869ed3d7b9dcd862846bea0c94a21cafddd254d0eabfa74d368733010472cfe2",
+    "scripts/measure_stateful_curriculum.py": "f45aee6624da57b2325dd9e42c8b752607bede80b95ba3c5d5bd00ca78401f7a",
+    "fixtures/statement_tasks_v1.json": "d732492f5cc2ade6412e8f2ca1bb46a98d442b9a9cbb88aa95c61d87da362fb0",
+    "fixtures/stateful_tasks_v1.json": "52dccad6629d6bbb5de87e9e1c7888baaf6e7fd7ed4e08abdaff377443c241ae",
+    "fixtures/statement_repair_v1.json": "028fc79e4807052f680d52735622c27f3f78985bc345ca67cebf04e71e536168"
+  }
+}

@@ -51,9 +51,10 @@ class StatementPolicy(nn.Module):
         extra = torch.tensor(execution_features(prefix, inputs, targets))
         return torch.cat((base, extra), dim=1)
 
-    def fit(self, excluded: list[str], epochs: int = 30) -> dict[str, Any]:
+    def fit(self, excluded: list[str], epochs: int = 30,
+            stateful: bool = False) -> dict[str, Any]:
         started = time.monotonic()
-        programs, _ = teachers(excluded)
+        programs, _ = teachers(excluded, stateful=stateful)
         rng = random.Random(681)
         matrices, prefixes, labels = [], [], []
         for program in programs:
@@ -86,6 +87,7 @@ class StatementPolicy(nn.Module):
                 "epochs": epochs, "loss": loss_value,
                 "wall_seconds": time.monotonic() - started,
                 "execution_context": self.execution_context,
+                "curriculum": "stateful-v1" if stateful else "basic-v1",
                 "excluded_functions": excluded,
                 "exclusion_scope": "equivalence on 24 fixed probe arrays"}
 

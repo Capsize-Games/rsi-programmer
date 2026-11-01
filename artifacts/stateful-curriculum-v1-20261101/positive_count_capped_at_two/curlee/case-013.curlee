@@ -1,0 +1,108 @@
+fn process(input: &[Int; 256], count: Int) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let acc: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256; ] {
+        if (i < 0 || i >= 256) { return 0; }
+        let value: Int = input[i];
+        if ((((value % 2) % 2) == (acc - (acc - value)))) {
+            acc = (acc + (value * value));
+        }
+    }
+    return acc;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    input[0] = -3;
+    input[1] = 25;
+    input[2] = -66;
+    input[3] = 86;
+    input[4] = 49;
+    input[5] = -67;
+    input[6] = -19;
+    input[7] = -91;
+    input[8] = 52;
+    input[9] = -10;
+    input[10] = 18;
+    input[11] = 90;
+    input[12] = 87;
+    input[13] = -91;
+    input[14] = -35;
+    input[15] = -31;
+    input[16] = -24;
+    input[17] = -15;
+    input[18] = 79;
+    input[19] = 86;
+    input[20] = -55;
+    input[21] = 28;
+    input[22] = 49;
+    input[23] = -4;
+    input[24] = 10;
+    input[25] = 86;
+    input[26] = -43;
+    input[27] = -52;
+    input[28] = -100;
+    input[29] = 31;
+    input[30] = -57;
+    input[31] = 34;
+    input[32] = -15;
+    input[33] = 62;
+    input[34] = -80;
+    input[35] = -72;
+    input[36] = -73;
+    input[37] = 72;
+    input[38] = -15;
+    input[39] = -89;
+    input[40] = -58;
+    input[41] = 74;
+    input[42] = -10;
+    input[43] = -60;
+    input[44] = -57;
+    input[45] = 5;
+    input[46] = -94;
+    input[47] = 27;
+    input[48] = -64;
+    input[49] = 92;
+    input[50] = -15;
+    input[51] = -35;
+    input[52] = 80;
+    input[53] = 74;
+    input[54] = 59;
+    input[55] = -21;
+    input[56] = 7;
+    input[57] = -57;
+    input[58] = -26;
+    input[59] = -51;
+    input[60] = -43;
+    input[61] = 25;
+    input[62] = -3;
+    input[63] = -97;
+    input[64] = -12;
+    input[65] = 49;
+    input[66] = -42;
+    input[67] = 60;
+    input[68] = -44;
+    input[69] = -18;
+    input[70] = 13;
+    input[71] = 41;
+    input[72] = 19;
+    input[73] = -72;
+    input[74] = -94;
+    input[75] = -43;
+    input[76] = 41;
+    input[77] = -82;
+    input[78] = 49;
+    input[79] = -94;
+    input[80] = 4;
+    input[81] = -73;
+    input[82] = 69;
+    input[83] = -90;
+    input[84] = 67;
+    input[85] = 25;
+    input[86] = 66;
+    if (process(&input, 87) != 2) {
+        return 1;
+    }
+    return 0;
+}

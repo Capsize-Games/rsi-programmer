@@ -3,7 +3,10 @@
 This is the primary development track as of 2026-11-01.
 
 The primary outcome is a learner that writes useful programs in Python and
-CURLEE. The latest [fragment-transfer result](repair-results.md) repairs two
+CURLEE. The [stateful follow-up](stateful-results.md) solves 0/5 new tasks;
+one broader curriculum also solves 0/5 and retains 5/6 earlier utilities.
+Supplied controls pass all five in Python and CURLEE. The preceding
+[fragment-transfer result](repair-results.md) repairs two
 failures and retains four programs, with 40 held cases each in both target
 languages. The preceding [statement result](statement-results.md) constructs
 loops, branches, updates and returns for four of six development tasks.
@@ -50,8 +53,9 @@ passed. See the [complete shortlist result](
 
 ## Capability roadmap
 
-The immediate next check is several unseen useful tasks, with every attempt
-reported, then a task requiring a new control-flow choice from the learner.
+The immediate next check is bounded query feedback on the five failed
+stateful tasks, separating ambiguous examples from construction failures.
+Retain all failed attempts and the qualified earlier model.
 The stages below describe the broader capability progression. They do not
 require repeating model-family comparisons before useful-program trials.
 

@@ -21,7 +21,8 @@ def oracle(name: str, values: list[int]) -> int:
         return sum(1 for value in values if value % 2 != 0)
     if name == "above_two_count":
         return sum(1 for value in values if value > 2)
-    raise ValueError("unknown statement task")
+    from rsi_programmer.stateful_tasks import oracle as stateful_oracle
+    return stateful_oracle(name, values)
 
 
 def candidates() -> list[tuple[str, ...]]:
@@ -53,7 +54,7 @@ def candidates() -> list[tuple[str, ...]]:
     return result
 
 
-def teachers(excluded: list[str], seed: int = 0
+def teachers(excluded: list[str], seed: int = 0, stateful: bool = False
              ) -> tuple[list[tuple[str, ...]], list[list[int]]]:
     """Remove complete requested functions on a fixed finite probe suite."""
     rng = random.Random(seed)
@@ -62,8 +63,13 @@ def teachers(excluded: list[str], seed: int = 0
         for _ in range(20)]
     seen = {tuple(oracle(name, values) for values in probes)
             for name in excluded}
+    source = candidates()
+    if stateful:
+        from rsi_programmer.statement_stateful_curriculum import (
+            candidates as stateful_candidates)
+        source += stateful_candidates()
     programs = []
-    for program in candidates():
+    for program in source:
         try:
             parse(program)
             signature = tuple(execute(program, values) for values in probes)

@@ -1,0 +1,526 @@
+{
+  "scope": "Development frontier probe with a frozen learner. No refit, new teacher functions or held retry. Supplied witnesses are controls, not neural outputs.",
+  "fixture_sha256": "52dccad6629d6bbb5de87e9e1c7888baaf6e7fd7ed4e08abdaff377443c241ae",
+  "fit": {
+    "teacher_functions": 366,
+    "teacher_states": 12614,
+    "epochs": 30,
+    "loss": 0.34517407417297363,
+    "wall_seconds": 5.821268989995588,
+    "execution_context": true,
+    "excluded_functions": [
+      "positive_total",
+      "negative_count",
+      "even_total",
+      "positive_square_total",
+      "odd_count",
+      "above_two_count"
+    ],
+    "exclusion_scope": "equivalence on 24 fixed probe arrays"
+  },
+  "trained_hash": "574e21dd961899332d7305ab59cccee84ddeb01a56d441fd21f84d2d66a742f3",
+  "metadata": {
+    "seed": 0,
+    "max_tokens": 32,
+    "tokens": [
+      "for",
+      "if",
+      "set",
+      "end",
+      "return",
+      "stop",
+      "value",
+      "acc",
+      "zero",
+      "one",
+      "two",
+      "minus_one",
+      "length",
+      "add",
+      "sub",
+      "mul",
+      "rem",
+      "gt",
+      "ge",
+      "lt",
+      "le",
+      "eq",
+      "ne"
+    ],
+    "execution_context": true
+  },
+  "checkpoint_reused": true,
+  "load_or_fit_wall_seconds": 0.027398395002819598,
+  "training_probe_function_overlap": false,
+  "tasks": 5,
+  "held_per_task": 40,
+  "rows": [
+    {
+      "id": "maximum_floor_zero",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 3528,
+        "completions": 1878,
+        "wall_seconds": 0.16080804500961676,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ]
+      },
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "minimum_ceiling_zero",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 4188,
+        "completions": 2049,
+        "wall_seconds": 0.17732547601917759,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ]
+      },
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "largest_magnitude",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 2508,
+        "completions": 1173,
+        "wall_seconds": 0.10108628499438055,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ]
+      },
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "positive_values_capped_at_two_total",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 3528,
+        "completions": 1878,
+        "wall_seconds": 0.14261251501739025,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ]
+      },
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "positive_count_capped_at_two",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "one",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 818,
+        "completions": 383,
+        "wall_seconds": 0.03462514700368047,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ]
+      },
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 1,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 3,
+          "expected": 2,
+          "interpreted": 3,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 256,
+          "expected": 2,
+          "interpreted": 256,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 99,
+          "expected": 2,
+          "interpreted": 99,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 28,
+          "expected": 2,
+          "interpreted": 28,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 6,
+          "expected": 2,
+          "interpreted": 6,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 3,
+          "expected": 2,
+          "interpreted": 3,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 47,
+          "expected": 2,
+          "interpreted": 47,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 35,
+          "expected": 2,
+          "interpreted": 35,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 49,
+          "expected": 2,
+          "interpreted": 49,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 49,
+          "expected": 2,
+          "interpreted": 49,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 8,
+          "expected": 2,
+          "interpreted": 8,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 35,
+          "expected": 2,
+          "interpreted": 35,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 37,
+          "expected": 2,
+          "interpreted": 37,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 23,
+          "expected": 2,
+          "interpreted": 23,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": 38,
+          "expected": 2,
+          "interpreted": 38,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": 22,
+          "expected": 2,
+          "interpreted": 22,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": 27,
+          "expected": 2,
+          "interpreted": 27,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 25,
+          "expected": 2,
+          "interpreted": 25,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 12,
+          "expected": 2,
+          "interpreted": 12,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 24,
+          "expected": 2,
+          "interpreted": 24,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 24,
+          "expected": 2,
+          "interpreted": 24,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": 19,
+          "expected": 2,
+          "interpreted": 19,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 36,
+          "expected": 2,
+          "interpreted": 36,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": 16,
+          "expected": 2,
+          "interpreted": 16,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": 45,
+          "expected": 2,
+          "interpreted": 45,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": 34,
+          "expected": 2,
+          "interpreted": 34,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": 22,
+          "expected": 2,
+          "interpreted": 22,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 10,
+          "expected": 2,
+          "interpreted": 10,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 27,
+          "expected": 2,
+          "interpreted": 27,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": 30,
+          "expected": 2,
+          "interpreted": 30,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": 17,
+          "expected": 2,
+          "interpreted": 17,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 48,
+          "expected": 2,
+          "interpreted": 48,
+          "correct": false,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 13,
+          "expected": 2,
+          "interpreted": 13,
+          "correct": false,
+          "stderr": ""
+        }
+      ],
+      "accepted": false,
+      "python_sha256": "3261708f158fe0fbd794a6c71c5648ba052187891d2453b2f4e9d92b089bbb72",
+      "curlee_sha256": "c08724482c742c0ed3d5b0047173477216e805aaba6bd6192241590aceda8111"
+    }
+  ],
+  "accepted": 0,
+  "execution_retry": "Frozen choices only. The earlier sandbox blocked bubblewrap NETLINK_ROUTE setup; no resynthesis, refit or held feedback."
+}

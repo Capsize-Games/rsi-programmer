@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Callable
 import json
 from pathlib import Path
 import re
@@ -16,7 +17,8 @@ def passed(run: dict[str, object], code: int = 0) -> bool:
         rf"curlee run: result {code}\b", str(run.get("stdout", ""))))
 
 
-def main() -> int:
+def main(task_oracle: Callable[[str, list[int]], int] | None = None) -> int:
+    task_oracle = oracle if task_oracle is None else task_oracle
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--compiler", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
@@ -40,7 +42,7 @@ def main() -> int:
             for index, values in enumerate(inputs):
                 path = folder / f"case-{index:03}.curlee"
                 path.write_text(curlee_harness(tokens, values,
-                                               oracle(name, values)))
+                                               task_oracle(name, values)))
                 check = execute(compiler, path, "check")
                 run = (execute(compiler, path, "run")
                        if check["exit_code"] == 0 else {})
@@ -54,7 +56,7 @@ def main() -> int:
             if control is None and entry["accepted"]:
                 path = folder / "wrong_expected.curlee"
                 path.write_text(curlee_harness(tokens, [],
-                                               oracle(name, []) + 1))
+                                               task_oracle(name, []) + 1))
                 run = execute(compiler, path, "run")
                 control = {"task": name, "run": run,
                            "rejected": passed(run, 1)}
@@ -65,6 +67,7 @@ def main() -> int:
     result = {"scope": "Actual compiler check and VM execution for every "
                        "generated statement program, including wrong "
                        "attempts.",
+              "program_origin": report.get("scope"),
               "compiler_before": before, "compiler_after": after,
               "compiler_stable": before == after, "rows": rows,
               "wrong_expected_control": control,

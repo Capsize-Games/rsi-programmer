@@ -1,0 +1,79 @@
+{
+  "scope": "Development capability/retention trials; no promotion, final evaluation or cost advantage.",
+  "prior_published_sha": "11c5fbb78942aa5caf3ba044281f51df5594849a",
+  "sources_at_validation": {
+    "rsi_programmer/statement_curriculum.py": "a8ddbb17a86f70eb0e672eac3189caa1007831b2487d52b01d97de0099bde0f3",
+    "rsi_programmer/statement_policy.py": "869ed3d7b9dcd862846bea0c94a21cafddd254d0eabfa74d368733010472cfe2",
+    "rsi_programmer/statement_stateful_curriculum.py": "c2c4bdd070ae42571f1132f0df7932bfe303821a910d5a6abddfd91d26335a4f",
+    "rsi_programmer/stateful_tasks.py": "8ecb26a0edc07cc73e09a1dd11df6cbd9481f18853b648845617dadfa2b6e846",
+    "scripts/measure_stateful_programs.py": "dad20b72ae315befba9d4debe5e8865d2c053e049c9c4f9feed58e16fc8a9adc",
+    "scripts/measure_stateful_curriculum.py": "73b2b1b440aacf9559e3bc0059caf24403a8f87215217e22307857d3ee594fda",
+    "scripts/check_stateful_curlee.py": "73eba5d1dc590f09b1fec82ae6227dbc40ababe244a619a2ac33e6dfd9cd4cf1",
+    "scripts/check_statement_curlee.py": "ef732c8f41b62e26101abdc8d60bd5b0c886665bc1ed5f745ccbd1dcd166a763",
+    "scripts/evaluate_statement_decisions.py": "28d3fce4cb8495be9f7aba78c028200268a01693aa2c33b3eea636147459ff34",
+    "tests/test_stateful_tasks.py": "74d651be8637ba45dc56931f3ad086426cd782d8fe4694404788773afae7631d"
+  },
+  "logs": {
+    "initial-sandbox-python": {
+      "exit_code": 0,
+      "log": "initial-sandbox-python.log.gz",
+      "sha256_uncompressed": "d82b92a8b805fe0c32addc17f78e980b23a08bc4b7c348cea9f609b652450f33"
+    },
+    "frozen-python-execution-retry": {
+      "exit_code": 0,
+      "log": "frozen-python-execution-retry.log.gz",
+      "sha256_uncompressed": "909574f0cedbe0453f46ae6935e689a769b156a22b244396a79e6d7cdd8aed77"
+    },
+    "grammar-curlee": {
+      "exit_code": 0,
+      "log": "grammar-curlee.log.gz",
+      "sha256_uncompressed": "00783039b46648763deb13e633824a550d10b4e75621abfe857146be3cb87e0a"
+    },
+    "frozen-curlee-reserve-refusal": {
+      "exit_code": 75,
+      "log": "frozen-curlee-reserve-refusal.log.gz",
+      "sha256_uncompressed": "47d1cc63d3093aac486cc33c91f41609f37d91701d4b8cc328ddcad7d56c4a54"
+    },
+    "frozen-curlee-negative-outcome": {
+      "exit_code": 1,
+      "log": "frozen-curlee-negative-outcome.log.gz",
+      "sha256_uncompressed": "9a6dd21b2a0a279f230d275ba70495d4998dcaa2b8dfac89bd16b6f989dc9f35"
+    },
+    "broader-curriculum-python": {
+      "exit_code": 0,
+      "log": "broader-curriculum-python.log.gz",
+      "sha256_uncompressed": "b5a660dce663dd56d313eef241995a956ff65ce18ad9f65536582e041a1c621c"
+    },
+    "broader-curriculum-curlee": {
+      "exit_code": 0,
+      "log": "broader-curriculum-curlee.log.gz",
+      "sha256_uncompressed": "09a27919bd5c76cc1b24fe8fed223f272492ae1490a7e1b39366ef115425f142"
+    },
+    "focused-regression": {
+      "exit_code": 0,
+      "log": "focused-regression.log.gz",
+      "sha256_uncompressed": "6024c36b368876714bef587214b67a812f4e74d292a8e35d349e444c6216ad36"
+    }
+  },
+  "focused_tests": {
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m unittest tests.test_stateful_tasks tests.test_statement_evaluation tests.test_statement_programs tests.test_statement_repair tests.test_statement_fragments tests.test_track_manifest -v",
+    "tests": 27,
+    "seconds": 2.23,
+    "exit_code": 0
+  },
+  "earlier_mistyped_test_command": {
+    "tests_loaded": 5,
+    "module_import_errors": 1,
+    "exit_code": 1,
+    "reason": "Incorrect test module name tests.test_evaluate_statement_decisions; corrected to tests.test_statement_evaluation for the 27-test pass."
+  },
+  "exclusions": [
+    "No new full programmer/sensing/companion run. Earlier 520-test programmer pass predates these additions.",
+    "No sealed final tasks, SNN comparison, general compiler qualification or source-matched compiler build.",
+    "Weights remain local and excluded from Git.",
+    "CI remains in progress; tags/releases remain paused by project-specific direction."
+  ],
+  "execution_retry_scope": "Managed sandbox blocked bubblewrap namespaces. Authorized retry used identical choices, source and held data, preserving bubblewrap OS isolation. No refit or held-guided resynthesis.",
+  "negative_curlee_exit": "Frozen learner checker exit 1: no accepted program exists to seed its wrong-expected-result control. Wrong neural output rejected; separate supplied-control run validates negative control.",
+  "measured_source_snapshot": "../stateful-curriculum-v1-20261101/measured-sources.json.gz preserves pre-line-wrap script bytes; protocol source hashes match that snapshot."
+}
