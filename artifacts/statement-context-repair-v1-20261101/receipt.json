@@ -1,0 +1,46 @@
+{
+  "source_checkpoint": "b6a35b7577fba91927917614687e66cad98f1c92",
+  "scope": "Visible-query donor-retention repair and maximum transfer; no refit, final evaluation, matched-total-cost advantage or recursive improvement.",
+  "commands": {
+    "choices": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 120 python3 /tmp/rsi-run-with-reserve.py flock /tmp/rsi-programmer-builder.lock .venv/bin/python -m scripts.measure_context_repair --output artifacts/statement-context-repair-v1-20261101",
+    "python": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m scripts.execute_statement_trial --output artifacts/statement-context-repair-v1-20261101",
+    "curlee": "python3 /home/joe/Projects/curlee/scripts/run_limited.py /usr/bin/python3 -m scripts.check_statement_curlee --compiler /home/joe/Projects/curlee/build/linux-debug/curlee --output artifacts/statement-context-repair-v1-20261101"
+  },
+  "logs": {
+    "choices": {
+      "exit_code": 0,
+      "path": "choices.log.gz",
+      "sha256_uncompressed": "4d126eece63db174c50903f41557cee47fd60fa049545e55c45ae669f04f4bef"
+    },
+    "python-execution": {
+      "exit_code": 0,
+      "path": "python-execution.log.gz",
+      "sha256_uncompressed": "9cff253510dc6919ce06bb72026850464791336100fa2a00586433d327151de4"
+    },
+    "curlee-execution": {
+      "exit_code": 0,
+      "path": "curlee-execution.log.gz",
+      "sha256_uncompressed": "b0d1259ef40276739c8ced0081d818c10c86158f0847aee87046f9262a126fc0"
+    }
+  },
+  "actual_acceptance": {
+    "new_donor_retention": 1,
+    "old_retention": 6,
+    "transfer": 1
+  },
+  "actual_python_cases": 320,
+  "actual_curlee_cases": 320,
+  "query_pool_size": 37,
+  "held_rows_per_task": 40,
+  "held_query_observed_prior_disjoint": true,
+  "source_hashes_match_protocol": true,
+  "max_added_examples": 3,
+  "control_scope": "Held independent IR only, with component timings and differing call counts; not actual control-language qualification or matched total cost.",
+  "regression_receipt": "../statement-component-validation-20261101/receipt.json",
+  "exclusions": [
+    "Three stateful tasks yielded no program. Other test lanes/tracks not rerun; remote CI pending.",
+    "Package/test sources unchanged from the 530-test pass; new measurement script verified by actual execution.",
+    "No arbitrary Python isolation, general compiler qualification, source-matched compiler build or unrestricted programming.",
+    "Weights remain local. Sealed final set untouched. Tags/releases remain paused under project-specific instruction."
+  ]
+}

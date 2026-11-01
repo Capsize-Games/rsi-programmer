@@ -104,6 +104,19 @@ before promoting donors; preserve provenance, failed trials and controls.
 
 ## Audit checkpoints
 
+Context-repair checkpoint (2026-11-01): bounded visible-query resynthesis
+repairs minimum retention and retains maximum and the earlier six
+utilities. All eight pass 40 held Python and CURLEE cases each: 8/11 tasks
+accepted. See `tracks/programmer/context-repair-results.md`. Three tasks
+remain unsolved. Models stay fixed during repair; this is conditioning on
+counterexamples, not neural weight adaptation or recursive improvement.
+Classical and untrained controls are held-IR checks only; classical also
+accepts 8/11. Do not claim a matched-total-cost advantage. The unchanged
+package/test sources pass 530 programmer fast-track tests; other lanes
+and tracks were not rerun, and remote CI remains pending. Next test bounded
+composition of qualified branch fragments, preserving all failures,
+provenance, controls and separation of held data from feedback.
+
 Context-growth checkpoint (2026-11-01): condition filling in the qualified
 minimum context constructs maximum, with 40 held Python and CURLEE cases
 passing. The retained-model route keeps six old utilities and transfers

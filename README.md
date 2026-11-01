@@ -4,14 +4,19 @@ The primary development track is neural program synthesis: a learner that
 constructs executable programs and improves from independently checked
 training experience. The
 [programmer roadmap](tracks/programmer/README.md) defines the milestones.
-The [context-growth trial](tracks/programmer/context-growth-results.md)
+The [query-repair result](tracks/programmer/context-repair-results.md)
+accepts 8/11 development tasks in Python and CURLEE: six earlier utilities,
+maximum and minimum, each with 40 held cases per language. Three more
+complex tasks remain unsolved. The learner resynthesizes conditions from
+visible counterexamples in verified contexts; weights stay fixed during
+repair. This remains bounded component transfer, not general programming.
+The preceding [context-growth trial](tracks/programmer/context-growth-results.md)
 constructed maximum from a qualified minimum donor, passing 40 Python
 and 40 CURLEE cases. Its retained-model route keeps the six earlier
 utilities but fails to retain minimum, for 7/11 accepted tasks. The
 minimum remains separately qualified in the
 [component-transfer trial](tracks/programmer/component-results.md).
-Training contains these algorithmic components inside other functions;
-this is bounded component transfer, not general programming.
+Training contains these algorithmic components inside other functions.
 The preceding [stateful follow-up](tracks/programmer/stateful-results.md)
 solved 0/5 new tasks, including maximum and capped-count programs. A broader
 curriculum did not improve that result and retained only 5/6 earlier tasks.

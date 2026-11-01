@@ -11,6 +11,10 @@ independently qualified in the [preceding trial](component-results.md).
 Across trials there are eight separately checked task programs; this
 search route does not reliably reproduce all eight.
 
+The subsequent [visible-query repair](context-repair-results.md) recovers
+minimum retention and accepts eight tasks. The failed trial below remains
+unchanged.
+
 The [generated maximum CLI](
 ../../artifacts/statement-context-growth-v1-20261101/maximum_floor_zero/python/clean_readings.py)
 contains:

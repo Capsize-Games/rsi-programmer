@@ -1,0 +1,6894 @@
+{
+  "scope": "Development visible-query repair after qualified donor growth. Fixed weights; no held-row feedback.",
+  "tasks": 11,
+  "rows": [
+    {
+      "id": "positive_total",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "1624b462af912802",
+        "donors": [
+          "even_total",
+          "positive_total"
+        ],
+        "visited": 1581,
+        "completions": 695,
+        "wall_seconds": 0.0824074560077861,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ],
+        "selected_model": "previous",
+        "route": [
+          {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "even_total",
+              "positive_total"
+            ],
+            "visited": 1581,
+            "completions": 695,
+            "wall_seconds": 0.0824074560077861,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          }
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          13
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          17
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          11
+        ]
+      ],
+      "role": "old_retention",
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "value",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "fragment": "1624b462af912802",
+          "donors": [
+            "even_total",
+            "positive_total"
+          ],
+          "visited": 1581,
+          "completions": 695,
+          "wall_seconds": 0.0824074560077861,
+          "tried_contexts": [
+            "decb72c3611a338c",
+            "cda43abf11ed8d3b",
+            "1624b462af912802"
+          ],
+          "selected_model": "previous",
+          "route": [
+            {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "1624b462af912802",
+              "donors": [
+                "even_total",
+                "positive_total"
+              ],
+              "visited": 1581,
+              "completions": 695,
+              "wall_seconds": 0.0824074560077861,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ]
+            }
+          ]
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "1624b462af912802",
+              "donors": [
+                "even_total",
+                "positive_total"
+              ],
+              "visited": 1581,
+              "completions": 695,
+              "wall_seconds": 0.0824074560077861,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ],
+              "selected_model": "previous",
+              "route": [
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "gt",
+                    "value",
+                    "zero",
+                    "set",
+                    "add",
+                    "acc",
+                    "value",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "1624b462af912802",
+                  "donors": [
+                    "even_total",
+                    "positive_total"
+                  ],
+                  "visited": 1581,
+                  "completions": 695,
+                  "wall_seconds": 0.0824074560077861,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            13
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            17
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            11
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.08283442401443608,
+      "cpu_seconds": 0.08283571800000011,
+      "held_ir_accepted": true,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 1958,
+          "expected": 1958,
+          "interpreted": 1958,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 1764,
+          "expected": 1764,
+          "interpreted": 1764,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 683,
+          "expected": 683,
+          "interpreted": 683,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 773,
+          "expected": 773,
+          "interpreted": 773,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 1926,
+          "expected": 1926,
+          "interpreted": 1926,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 1696,
+          "expected": 1696,
+          "interpreted": 1696,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 986,
+          "expected": 986,
+          "interpreted": 986,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 1124,
+          "expected": 1124,
+          "interpreted": 1124,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 1653,
+          "expected": 1653,
+          "interpreted": 1653,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 1158,
+          "expected": 1158,
+          "interpreted": 1158,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 1506,
+          "expected": 1506,
+          "interpreted": 1506,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 2035,
+          "expected": 2035,
+          "interpreted": 2035,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 1490,
+          "expected": 1490,
+          "interpreted": 1490,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 1247,
+          "expected": 1247,
+          "interpreted": 1247,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 1174,
+          "expected": 1174,
+          "interpreted": 1174,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 1396,
+          "expected": 1396,
+          "interpreted": 1396,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 947,
+          "expected": 947,
+          "interpreted": 947,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 2268,
+          "expected": 2268,
+          "interpreted": 2268,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 777,
+          "expected": 777,
+          "interpreted": 777,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 2097,
+          "expected": 2097,
+          "interpreted": 2097,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 1657,
+          "expected": 1657,
+          "interpreted": 1657,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": 1916,
+          "expected": 1916,
+          "interpreted": 1916,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": 1922,
+          "expected": 1922,
+          "interpreted": 1922,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": 360,
+          "expected": 360,
+          "interpreted": 360,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 555,
+          "expected": 555,
+          "interpreted": 555,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 2733,
+          "expected": 2733,
+          "interpreted": 2733,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 789,
+          "expected": 789,
+          "interpreted": 789,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 2337,
+          "expected": 2337,
+          "interpreted": 2337,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": 2177,
+          "expected": 2177,
+          "interpreted": 2177,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 885,
+          "expected": 885,
+          "interpreted": 885,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": 1159,
+          "expected": 1159,
+          "interpreted": 1159,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": 705,
+          "expected": 705,
+          "interpreted": 705,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": 231,
+          "expected": 231,
+          "interpreted": 231,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": 396,
+          "expected": 396,
+          "interpreted": 396,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 2431,
+          "expected": 2431,
+          "interpreted": 2431,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 2016,
+          "expected": 2016,
+          "interpreted": 2016,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": 509,
+          "expected": 509,
+          "interpreted": 509,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": 1730,
+          "expected": 1730,
+          "interpreted": 1730,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 2108,
+          "expected": 2108,
+          "interpreted": 2108,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 1999,
+          "expected": 1999,
+          "interpreted": 1999,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "0857ac33e121f4d07c79cad58fa2e16585826bd9ae71e2b14ac016f7d487d89f",
+      "curlee_sha256": "0cb6c2e8cc133866b7cd211df060e1002788d464c90850d9d2fda70d11d77229"
+    },
+    {
+      "id": "negative_count",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "lt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 830,
+        "completions": 372,
+        "wall_seconds": 0.04007436500978656,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ],
+        "selected_model": "previous",
+        "route": [
+          {
+            "tokens": [
+              "for",
+              "if",
+              "lt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "odd_count"
+            ],
+            "visited": 830,
+            "completions": 372,
+            "wall_seconds": 0.04007436500978656,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          }
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          3
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          2
+        ]
+      ],
+      "role": "old_retention",
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "lt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "fragment": "cda43abf11ed8d3b",
+          "donors": [
+            "odd_count"
+          ],
+          "visited": 830,
+          "completions": 372,
+          "wall_seconds": 0.04007436500978656,
+          "tried_contexts": [
+            "decb72c3611a338c",
+            "cda43abf11ed8d3b"
+          ],
+          "selected_model": "previous",
+          "route": [
+            {
+              "tokens": [
+                "for",
+                "if",
+                "lt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "cda43abf11ed8d3b",
+              "donors": [
+                "odd_count"
+              ],
+              "visited": 830,
+              "completions": 372,
+              "wall_seconds": 0.04007436500978656,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b"
+              ]
+            }
+          ]
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "lt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "cda43abf11ed8d3b",
+              "donors": [
+                "odd_count"
+              ],
+              "visited": 830,
+              "completions": 372,
+              "wall_seconds": 0.04007436500978656,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b"
+              ],
+              "selected_model": "previous",
+              "route": [
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "lt",
+                    "value",
+                    "zero",
+                    "set",
+                    "add",
+                    "acc",
+                    "one",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "cda43abf11ed8d3b",
+                  "donors": [
+                    "odd_count"
+                  ],
+                  "visited": 830,
+                  "completions": 372,
+                  "wall_seconds": 0.04007436500978656,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            3
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            3
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            2
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.040477437985828146,
+      "cpu_seconds": 0.04047961,
+      "held_ir_accepted": true,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 30,
+          "expected": 30,
+          "interpreted": 30,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 40,
+          "expected": 40,
+          "interpreted": 40,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 19,
+          "expected": 19,
+          "interpreted": 19,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 20,
+          "expected": 20,
+          "interpreted": 20,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 44,
+          "expected": 44,
+          "interpreted": 44,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 54,
+          "expected": 54,
+          "interpreted": 54,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 13,
+          "expected": 13,
+          "interpreted": 13,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 27,
+          "expected": 27,
+          "interpreted": 27,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 40,
+          "expected": 40,
+          "interpreted": 40,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 27,
+          "expected": 27,
+          "interpreted": 27,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 33,
+          "expected": 33,
+          "interpreted": 33,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 52,
+          "expected": 52,
+          "interpreted": 52,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 19,
+          "expected": 19,
+          "interpreted": 19,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 14,
+          "expected": 14,
+          "interpreted": 14,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 22,
+          "expected": 22,
+          "interpreted": 22,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 20,
+          "expected": 20,
+          "interpreted": 20,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 18,
+          "expected": 18,
+          "interpreted": 18,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 50,
+          "expected": 50,
+          "interpreted": 50,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 12,
+          "expected": 12,
+          "interpreted": 12,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 38,
+          "expected": 38,
+          "interpreted": 38,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 28,
+          "expected": 28,
+          "interpreted": 28,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": 44,
+          "expected": 44,
+          "interpreted": 44,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": 48,
+          "expected": 48,
+          "interpreted": 48,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": 5,
+          "expected": 5,
+          "interpreted": 5,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 10,
+          "expected": 10,
+          "interpreted": 10,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 37,
+          "expected": 37,
+          "interpreted": 37,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 10,
+          "expected": 10,
+          "interpreted": 10,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 31,
+          "expected": 31,
+          "interpreted": 31,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": 45,
+          "expected": 45,
+          "interpreted": 45,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 18,
+          "expected": 18,
+          "interpreted": 18,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": 36,
+          "expected": 36,
+          "interpreted": 36,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": 19,
+          "expected": 19,
+          "interpreted": 19,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": 7,
+          "expected": 7,
+          "interpreted": 7,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": 14,
+          "expected": 14,
+          "interpreted": 14,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 44,
+          "expected": 44,
+          "interpreted": 44,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 46,
+          "expected": 46,
+          "interpreted": 46,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": 8,
+          "expected": 8,
+          "interpreted": 8,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": 43,
+          "expected": 43,
+          "interpreted": 43,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 53,
+          "expected": 53,
+          "interpreted": 53,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 40,
+          "expected": 40,
+          "interpreted": 40,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "55da9546105e8b598547f4085bbf1e298612e9fe62a7fbc60e69aa211778385a",
+      "curlee_sha256": "123b8c6558635aace794e7df319c5935d4d6bf7fd6738d3c5f5e4137c44cd722"
+    },
+    {
+      "id": "even_total",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "eq",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "1624b462af912802",
+        "donors": [
+          "even_total",
+          "positive_total"
+        ],
+        "visited": 1905,
+        "completions": 873,
+        "wall_seconds": 0.13218090101145208,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ],
+        "selected_model": "previous",
+        "route": [
+          {
+            "tokens": [
+              "for",
+              "if",
+              "eq",
+              "rem",
+              "value",
+              "two",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "even_total",
+              "positive_total"
+            ],
+            "visited": 1905,
+            "completions": 873,
+            "wall_seconds": 0.13218090101145208,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          }
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          8
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          0
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          4
+        ]
+      ],
+      "role": "old_retention",
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "eq",
+            "rem",
+            "value",
+            "two",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "value",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "fragment": "1624b462af912802",
+          "donors": [
+            "even_total",
+            "positive_total"
+          ],
+          "visited": 1905,
+          "completions": 873,
+          "wall_seconds": 0.13218090101145208,
+          "tried_contexts": [
+            "decb72c3611a338c",
+            "cda43abf11ed8d3b",
+            "1624b462af912802"
+          ],
+          "selected_model": "previous",
+          "route": [
+            {
+              "tokens": [
+                "for",
+                "if",
+                "eq",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "1624b462af912802",
+              "donors": [
+                "even_total",
+                "positive_total"
+              ],
+              "visited": 1905,
+              "completions": 873,
+              "wall_seconds": 0.13218090101145208,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ]
+            }
+          ]
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "eq",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "1624b462af912802",
+              "donors": [
+                "even_total",
+                "positive_total"
+              ],
+              "visited": 1905,
+              "completions": 873,
+              "wall_seconds": 0.13218090101145208,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ],
+              "selected_model": "previous",
+              "route": [
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "eq",
+                    "rem",
+                    "value",
+                    "two",
+                    "zero",
+                    "set",
+                    "add",
+                    "acc",
+                    "value",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "1624b462af912802",
+                  "donors": [
+                    "even_total",
+                    "positive_total"
+                  ],
+                  "visited": 1905,
+                  "completions": 873,
+                  "wall_seconds": 0.13218090101145208,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            8
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            0
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            4
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.13267438299953938,
+      "cpu_seconds": 0.13265342000000002,
+      "held_ir_accepted": true,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 204,
+          "expected": 204,
+          "interpreted": 204,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 396,
+          "expected": 396,
+          "interpreted": 396,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 124,
+          "expected": 124,
+          "interpreted": 124,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": -118,
+          "expected": -118,
+          "interpreted": -118,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 34,
+          "expected": 34,
+          "interpreted": 34,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": -866,
+          "expected": -866,
+          "interpreted": -866,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 222,
+          "expected": 222,
+          "interpreted": 222,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": -102,
+          "expected": -102,
+          "interpreted": -102,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": -380,
+          "expected": -380,
+          "interpreted": -380,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 136,
+          "expected": 136,
+          "interpreted": 136,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 26,
+          "expected": 26,
+          "interpreted": 26,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 26,
+          "expected": 26,
+          "interpreted": 26,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 598,
+          "expected": 598,
+          "interpreted": 598,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 350,
+          "expected": 350,
+          "interpreted": 350,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 316,
+          "expected": 316,
+          "interpreted": 316,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 444,
+          "expected": 444,
+          "interpreted": 444,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 302,
+          "expected": 302,
+          "interpreted": 302,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": -280,
+          "expected": -280,
+          "interpreted": -280,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 34,
+          "expected": 34,
+          "interpreted": 34,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 456,
+          "expected": 456,
+          "interpreted": 456,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 556,
+          "expected": 556,
+          "interpreted": 556,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": -144,
+          "expected": -144,
+          "interpreted": -144,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": -2,
+          "expected": -2,
+          "interpreted": -2,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": -74,
+          "expected": -74,
+          "interpreted": -74,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 32,
+          "expected": 32,
+          "interpreted": 32,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 670,
+          "expected": 670,
+          "interpreted": 670,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 242,
+          "expected": 242,
+          "interpreted": 242,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 422,
+          "expected": 422,
+          "interpreted": 422,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": -402,
+          "expected": -402,
+          "interpreted": -402,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 294,
+          "expected": 294,
+          "interpreted": 294,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": -28,
+          "expected": -28,
+          "interpreted": -28,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": -468,
+          "expected": -468,
+          "interpreted": -468,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": -106,
+          "expected": -106,
+          "interpreted": -106,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": -252,
+          "expected": -252,
+          "interpreted": -252,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 246,
+          "expected": 246,
+          "interpreted": 246,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 92,
+          "expected": 92,
+          "interpreted": 92,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": -58,
+          "expected": -58,
+          "interpreted": -58,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": -108,
+          "expected": -108,
+          "interpreted": -108,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 108,
+          "expected": 108,
+          "interpreted": 108,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 412,
+          "expected": 412,
+          "interpreted": 412,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "c980b0772deb29edd2ee763e21a16760bba0b0d375b5b6d143079819d5562b1d",
+      "curlee_sha256": "4fc76e509518bbca25bbc1511ace96e32611e3eb81d8140d59f809399e3a8b83"
+    },
+    {
+      "id": "positive_square_total",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "mul",
+          "value",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "decb72c3611a338c",
+        "donors": [
+          "positive_square_total"
+        ],
+        "visited": 21,
+        "completions": 1,
+        "wall_seconds": 0.002425726008368656,
+        "tried_contexts": [
+          "decb72c3611a338c"
+        ],
+        "selected_model": "previous",
+        "route": [
+          {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "mul",
+              "value",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "decb72c3611a338c",
+            "donors": [
+              "positive_square_total"
+            ],
+            "visited": 21,
+            "completions": 1,
+            "wall_seconds": 0.002425726008368656,
+            "tried_contexts": [
+              "decb72c3611a338c"
+            ]
+          }
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          45
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          129
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          47
+        ]
+      ],
+      "role": "old_retention",
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "mul",
+            "value",
+            "value",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "fragment": "decb72c3611a338c",
+          "donors": [
+            "positive_square_total"
+          ],
+          "visited": 21,
+          "completions": 1,
+          "wall_seconds": 0.002425726008368656,
+          "tried_contexts": [
+            "decb72c3611a338c"
+          ],
+          "selected_model": "previous",
+          "route": [
+            {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "mul",
+                "value",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "decb72c3611a338c",
+              "donors": [
+                "positive_square_total"
+              ],
+              "visited": 21,
+              "completions": 1,
+              "wall_seconds": 0.002425726008368656,
+              "tried_contexts": [
+                "decb72c3611a338c"
+              ]
+            }
+          ]
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "mul",
+                "value",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "decb72c3611a338c",
+              "donors": [
+                "positive_square_total"
+              ],
+              "visited": 21,
+              "completions": 1,
+              "wall_seconds": 0.002425726008368656,
+              "tried_contexts": [
+                "decb72c3611a338c"
+              ],
+              "selected_model": "previous",
+              "route": [
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "gt",
+                    "value",
+                    "zero",
+                    "set",
+                    "add",
+                    "acc",
+                    "mul",
+                    "value",
+                    "value",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "decb72c3611a338c",
+                  "donors": [
+                    "positive_square_total"
+                  ],
+                  "visited": 21,
+                  "completions": 1,
+                  "wall_seconds": 0.002425726008368656,
+                  "tried_contexts": [
+                    "decb72c3611a338c"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            45
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            129
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            47
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.002880085987271741,
+      "cpu_seconds": 0.0028809130000000405,
+      "held_ir_accepted": true,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 137038,
+          "expected": 137038,
+          "interpreted": 137038,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 120042,
+          "expected": 120042,
+          "interpreted": 120042,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 48901,
+          "expected": 48901,
+          "interpreted": 48901,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 45931,
+          "expected": 45931,
+          "interpreted": 45931,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 136192,
+          "expected": 136192,
+          "interpreted": 136192,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 100420,
+          "expected": 100420,
+          "interpreted": 100420,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 76560,
+          "expected": 76560,
+          "interpreted": 76560,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 79882,
+          "expected": 79882,
+          "interpreted": 79882,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 100637,
+          "expected": 100637,
+          "interpreted": 100637,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 75898,
+          "expected": 75898,
+          "interpreted": 75898,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 93348,
+          "expected": 93348,
+          "interpreted": 93348,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 123769,
+          "expected": 123769,
+          "interpreted": 123769,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 93306,
+          "expected": 93306,
+          "interpreted": 93306,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 91633,
+          "expected": 91633,
+          "interpreted": 91633,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 81196,
+          "expected": 81196,
+          "interpreted": 81196,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 94266,
+          "expected": 94266,
+          "interpreted": 94266,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 61693,
+          "expected": 61693,
+          "interpreted": 61693,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 145602,
+          "expected": 145602,
+          "interpreted": 145602,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 41327,
+          "expected": 41327,
+          "interpreted": 41327,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 155551,
+          "expected": 155551,
+          "interpreted": 155551,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 119047,
+          "expected": 119047,
+          "interpreted": 119047,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": 111486,
+          "expected": 111486,
+          "interpreted": 111486,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": 126524,
+          "expected": 126524,
+          "interpreted": 126524,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": 24558,
+          "expected": 24558,
+          "interpreted": 24558,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 39325,
+          "expected": 39325,
+          "interpreted": 39325,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 182783,
+          "expected": 182783,
+          "interpreted": 182783,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 58281,
+          "expected": 58281,
+          "interpreted": 58281,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 156131,
+          "expected": 156131,
+          "interpreted": 156131,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": 151187,
+          "expected": 151187,
+          "interpreted": 151187,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 54741,
+          "expected": 54741,
+          "interpreted": 54741,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": 76079,
+          "expected": 76079,
+          "interpreted": 76079,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": 40417,
+          "expected": 40417,
+          "interpreted": 40417,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": 12239,
+          "expected": 12239,
+          "interpreted": 12239,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": 21778,
+          "expected": 21778,
+          "interpreted": 21778,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 195571,
+          "expected": 195571,
+          "interpreted": 195571,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 131092,
+          "expected": 131092,
+          "interpreted": 131092,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": 38177,
+          "expected": 38177,
+          "interpreted": 38177,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": 100066,
+          "expected": 100066,
+          "interpreted": 100066,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 135774,
+          "expected": 135774,
+          "interpreted": 135774,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 133357,
+          "expected": 133357,
+          "interpreted": 133357,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "0b29e8e55d4185ccee4b4e1ad59b5e525a84170fee15d7f965ec45e1c4e27db5",
+      "curlee_sha256": "d6d3d5cc375184f2dc82082cae6deae65b9775dece07754baf6b4aa6f130aea7"
+    },
+    {
+      "id": "odd_count",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "ne",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 989,
+        "completions": 426,
+        "wall_seconds": 0.04594399401685223,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ],
+        "selected_model": "previous",
+        "route": [
+          {
+            "tokens": [
+              "for",
+              "if",
+              "ne",
+              "rem",
+              "value",
+              "two",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "odd_count"
+            ],
+            "visited": 989,
+            "completions": 426,
+            "wall_seconds": 0.04594399401685223,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          }
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          2
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          4
+        ]
+      ],
+      "role": "old_retention",
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "ne",
+            "rem",
+            "value",
+            "two",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "fragment": "cda43abf11ed8d3b",
+          "donors": [
+            "odd_count"
+          ],
+          "visited": 989,
+          "completions": 426,
+          "wall_seconds": 0.04594399401685223,
+          "tried_contexts": [
+            "decb72c3611a338c",
+            "cda43abf11ed8d3b"
+          ],
+          "selected_model": "previous",
+          "route": [
+            {
+              "tokens": [
+                "for",
+                "if",
+                "ne",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "cda43abf11ed8d3b",
+              "donors": [
+                "odd_count"
+              ],
+              "visited": 989,
+              "completions": 426,
+              "wall_seconds": 0.04594399401685223,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b"
+              ]
+            }
+          ]
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "ne",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "cda43abf11ed8d3b",
+              "donors": [
+                "odd_count"
+              ],
+              "visited": 989,
+              "completions": 426,
+              "wall_seconds": 0.04594399401685223,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b"
+              ],
+              "selected_model": "previous",
+              "route": [
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "ne",
+                    "rem",
+                    "value",
+                    "two",
+                    "zero",
+                    "set",
+                    "add",
+                    "acc",
+                    "one",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "cda43abf11ed8d3b",
+                  "donors": [
+                    "odd_count"
+                  ],
+                  "visited": 989,
+                  "completions": 426,
+                  "wall_seconds": 0.04594399401685223,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            3
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            2
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            4
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.04644361900864169,
+      "cpu_seconds": 0.046445867999999946,
+      "held_ir_accepted": true,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 42,
+          "expected": 42,
+          "interpreted": 42,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 39,
+          "expected": 39,
+          "interpreted": 39,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 14,
+          "expected": 14,
+          "interpreted": 14,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 15,
+          "expected": 15,
+          "interpreted": 15,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 43,
+          "expected": 43,
+          "interpreted": 43,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 42,
+          "expected": 42,
+          "interpreted": 42,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 16,
+          "expected": 16,
+          "interpreted": 16,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 23,
+          "expected": 23,
+          "interpreted": 23,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 40,
+          "expected": 40,
+          "interpreted": 40,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 22,
+          "expected": 22,
+          "interpreted": 22,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 29,
+          "expected": 29,
+          "interpreted": 29,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 52,
+          "expected": 52,
+          "interpreted": 52,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 24,
+          "expected": 24,
+          "interpreted": 24,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 15,
+          "expected": 15,
+          "interpreted": 15,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 22,
+          "expected": 22,
+          "interpreted": 22,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 27,
+          "expected": 27,
+          "interpreted": 27,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 19,
+          "expected": 19,
+          "interpreted": 19,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 52,
+          "expected": 52,
+          "interpreted": 52,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 18,
+          "expected": 18,
+          "interpreted": 18,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 36,
+          "expected": 36,
+          "interpreted": 36,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 23,
+          "expected": 23,
+          "interpreted": 23,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": 44,
+          "expected": 44,
+          "interpreted": 44,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": 51,
+          "expected": 51,
+          "interpreted": 51,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": 9,
+          "expected": 9,
+          "interpreted": 9,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 12,
+          "expected": 12,
+          "interpreted": 12,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 47,
+          "expected": 47,
+          "interpreted": 47,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 10,
+          "expected": 10,
+          "interpreted": 10,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 41,
+          "expected": 41,
+          "interpreted": 41,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": 45,
+          "expected": 45,
+          "interpreted": 45,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 14,
+          "expected": 14,
+          "interpreted": 14,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": 30,
+          "expected": 30,
+          "interpreted": 30,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": 15,
+          "expected": 15,
+          "interpreted": 15,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": 7,
+          "expected": 7,
+          "interpreted": 7,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": 13,
+          "expected": 13,
+          "interpreted": 13,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 46,
+          "expected": 46,
+          "interpreted": 46,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 44,
+          "expected": 44,
+          "interpreted": 44,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": 8,
+          "expected": 8,
+          "interpreted": 8,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": 37,
+          "expected": 37,
+          "interpreted": 37,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 52,
+          "expected": 52,
+          "interpreted": 52,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 39,
+          "expected": 39,
+          "interpreted": 39,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "623586307f7a7cfd873ae9ad16c1bd03e32505839be4a84c0fde0799d7de8ed9",
+      "curlee_sha256": "2b752b3f4344575e9e3b7ddfb29273aeeaef1a7c2c8232183fcc18463ebac212"
+    },
+    {
+      "id": "above_two_count",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 816,
+        "completions": 365,
+        "wall_seconds": 0.03460036899195984,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ],
+        "selected_model": "previous",
+        "route": [
+          {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "two",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "odd_count"
+            ],
+            "visited": 816,
+            "completions": 365,
+            "wall_seconds": 0.03460036899195984,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          }
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          2
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          2
+        ]
+      ],
+      "role": "old_retention",
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "two",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "fragment": "cda43abf11ed8d3b",
+          "donors": [
+            "odd_count"
+          ],
+          "visited": 816,
+          "completions": 365,
+          "wall_seconds": 0.03460036899195984,
+          "tried_contexts": [
+            "decb72c3611a338c",
+            "cda43abf11ed8d3b"
+          ],
+          "selected_model": "previous",
+          "route": [
+            {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "two",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "cda43abf11ed8d3b",
+              "donors": [
+                "odd_count"
+              ],
+              "visited": 816,
+              "completions": 365,
+              "wall_seconds": 0.03460036899195984,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b"
+              ]
+            }
+          ]
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "two",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "cda43abf11ed8d3b",
+              "donors": [
+                "odd_count"
+              ],
+              "visited": 816,
+              "completions": 365,
+              "wall_seconds": 0.03460036899195984,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b"
+              ],
+              "selected_model": "previous",
+              "route": [
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "gt",
+                    "value",
+                    "two",
+                    "set",
+                    "add",
+                    "acc",
+                    "one",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "cda43abf11ed8d3b",
+                  "donors": [
+                    "odd_count"
+                  ],
+                  "visited": 816,
+                  "completions": 365,
+                  "wall_seconds": 0.03460036899195984,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            3
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            2
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            2
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.0350046860112343,
+      "cpu_seconds": 0.03500709700000004,
+      "held_ir_accepted": true,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 34,
+          "expected": 34,
+          "interpreted": 34,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 36,
+          "expected": 36,
+          "interpreted": 36,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 12,
+          "expected": 12,
+          "interpreted": 12,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 16,
+          "expected": 16,
+          "interpreted": 16,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 36,
+          "expected": 36,
+          "interpreted": 36,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 36,
+          "expected": 36,
+          "interpreted": 36,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 15,
+          "expected": 15,
+          "interpreted": 15,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 19,
+          "expected": 19,
+          "interpreted": 19,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 38,
+          "expected": 38,
+          "interpreted": 38,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 24,
+          "expected": 24,
+          "interpreted": 24,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 33,
+          "expected": 33,
+          "interpreted": 33,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 46,
+          "expected": 46,
+          "interpreted": 46,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 31,
+          "expected": 31,
+          "interpreted": 31,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 22,
+          "expected": 22,
+          "interpreted": 22,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 21,
+          "expected": 21,
+          "interpreted": 21,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 27,
+          "expected": 27,
+          "interpreted": 27,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 22,
+          "expected": 22,
+          "interpreted": 22,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 48,
+          "expected": 48,
+          "interpreted": 48,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 18,
+          "expected": 18,
+          "interpreted": 18,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 34,
+          "expected": 34,
+          "interpreted": 34,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 28,
+          "expected": 28,
+          "interpreted": 28,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": 43,
+          "expected": 43,
+          "interpreted": 43,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": 38,
+          "expected": 38,
+          "interpreted": 38,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": 9,
+          "expected": 9,
+          "interpreted": 9,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 9,
+          "expected": 9,
+          "interpreted": 9,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 55,
+          "expected": 55,
+          "interpreted": 55,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 13,
+          "expected": 13,
+          "interpreted": 13,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 43,
+          "expected": 43,
+          "interpreted": 43,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": 40,
+          "expected": 40,
+          "interpreted": 40,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 17,
+          "expected": 17,
+          "interpreted": 17,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": 24,
+          "expected": 24,
+          "interpreted": 24,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": 16,
+          "expected": 16,
+          "interpreted": 16,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": 6,
+          "expected": 6,
+          "interpreted": 6,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": 10,
+          "expected": 10,
+          "interpreted": 10,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 35,
+          "expected": 35,
+          "interpreted": 35,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 38,
+          "expected": 38,
+          "interpreted": 38,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": 9,
+          "expected": 9,
+          "interpreted": 9,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": 36,
+          "expected": 36,
+          "interpreted": 36,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 44,
+          "expected": 44,
+          "interpreted": 44,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 41,
+          "expected": 41,
+          "interpreted": 41,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "b72bc52d64d4a50c6ab2083586d246bc23b10d1d1d1d979c11fb8835e7514946",
+      "curlee_sha256": "1a76382eba0beb6a233293b019808a026d0a96ad884c3fef3d8f8d0a90c15e55"
+    },
+    {
+      "id": "maximum_floor_zero",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "a2de4b05be8798d6",
+        "donors": [
+          "minimum_ceiling_zero"
+        ],
+        "visited": 3479,
+        "completions": 1668,
+        "wall_seconds": 0.21120603202143684,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802",
+          "a2de4b05be8798d6"
+        ],
+        "selected_model": "current",
+        "route": [
+          {
+            "tokens": null,
+            "fragment": null,
+            "visited": 2412,
+            "completions": 1110,
+            "wall_seconds": 0.11045024998020381,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "acc",
+              "set",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "a2de4b05be8798d6",
+            "donors": [
+              "minimum_ceiling_zero"
+            ],
+            "visited": 3479,
+            "completions": 1668,
+            "wall_seconds": 0.21120603202143684,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          }
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          4
+        ]
+      ],
+      "role": "transfer",
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "acc",
+            "set",
+            "value",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "fragment": "a2de4b05be8798d6",
+          "donors": [
+            "minimum_ceiling_zero"
+          ],
+          "visited": 3479,
+          "completions": 1668,
+          "wall_seconds": 0.21120603202143684,
+          "tried_contexts": [
+            "decb72c3611a338c",
+            "cda43abf11ed8d3b",
+            "1624b462af912802",
+            "a2de4b05be8798d6"
+          ],
+          "selected_model": "current",
+          "route": [
+            {
+              "tokens": null,
+              "fragment": null,
+              "visited": 2412,
+              "completions": 1110,
+              "wall_seconds": 0.11045024998020381,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ]
+            },
+            {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "a2de4b05be8798d6",
+              "donors": [
+                "minimum_ceiling_zero"
+              ],
+              "visited": 3479,
+              "completions": 1668,
+              "wall_seconds": 0.21120603202143684,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ]
+            }
+          ]
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "acc",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "1624b462af912802",
+              "donors": [
+                "positive_total"
+              ],
+              "visited": 2479,
+              "completions": 1163,
+              "wall_seconds": 0.12279215999296866,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 3528,
+                  "completions": 1878,
+                  "wall_seconds": 0.15299753201543353,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "gt",
+                    "value",
+                    "acc",
+                    "set",
+                    "add",
+                    "acc",
+                    "value",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "1624b462af912802",
+                  "donors": [
+                    "positive_total"
+                  ],
+                  "visited": 2479,
+                  "completions": 1163,
+                  "wall_seconds": 0.12279215999296866,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                2,
+                3,
+                4
+              ],
+              "expected": 4,
+              "actual": 5
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "a2de4b05be8798d6",
+              "donors": [
+                "minimum_ceiling_zero"
+              ],
+              "visited": 3479,
+              "completions": 1668,
+              "wall_seconds": 0.21120603202143684,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2412,
+                  "completions": 1110,
+                  "wall_seconds": 0.11045024998020381,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "gt",
+                    "value",
+                    "acc",
+                    "set",
+                    "value",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "a2de4b05be8798d6",
+                  "donors": [
+                    "minimum_ceiling_zero"
+                  ],
+                  "visited": 3479,
+                  "completions": 1668,
+                  "wall_seconds": 0.21120603202143684,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 4,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            5
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            2
+          ],
+          [
+            [
+              2,
+              3,
+              4
+            ],
+            4
+          ]
+        ],
+        "added_examples": 1,
+        "oracle_calls": 39,
+        "candidate_executions": 39
+      },
+      "wall_seconds": 0.5981175299966708,
+      "cpu_seconds": 0.5980993729999999,
+      "held_ir_accepted": true,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 99,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 98,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 94,
+          "expected": 94,
+          "interpreted": 94,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 89,
+          "expected": 89,
+          "interpreted": 89,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 98,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 100,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 98,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 87,
+          "expected": 87,
+          "interpreted": 87,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 95,
+          "expected": 95,
+          "interpreted": 95,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 100,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 98,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 92,
+          "expected": 92,
+          "interpreted": 92,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 98,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 98,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 99,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 94,
+          "expected": 94,
+          "interpreted": 94,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 94,
+          "expected": 94,
+          "interpreted": 94,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 99,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 89,
+          "expected": 89,
+          "interpreted": 89,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 100,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": 99,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": 100,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": 97,
+          "expected": 97,
+          "interpreted": 97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": 97,
+          "expected": 97,
+          "interpreted": 97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": 95,
+          "expected": 95,
+          "interpreted": 95,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": 99,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": 98,
+          "expected": 98,
+          "interpreted": 98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": 95,
+          "expected": 95,
+          "interpreted": 95,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": 99,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": 92,
+          "expected": 92,
+          "interpreted": 92,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": 91,
+          "expected": 91,
+          "interpreted": 91,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": 85,
+          "expected": 85,
+          "interpreted": 85,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": 79,
+          "expected": 79,
+          "interpreted": 79,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": 97,
+          "expected": 97,
+          "interpreted": 97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": 100,
+          "expected": 100,
+          "interpreted": 100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": 96,
+          "expected": 96,
+          "interpreted": 96,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": 90,
+          "expected": 90,
+          "interpreted": 90,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": 87,
+          "expected": 87,
+          "interpreted": 87,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": 99,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": 99,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "9a045eca81442de718081c5ba8f8ec5fe74b8b0542ab34f6770c8efa60cb9862",
+      "curlee_sha256": "f2a138c900360b0e0260e446c7bed38c13ddf3982b8a791d534e6d9ee16c306d"
+    },
+    {
+      "id": "minimum_ceiling_zero",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "le",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "a2de4b05be8798d6",
+        "donors": [
+          "minimum_ceiling_zero"
+        ],
+        "visited": 4117,
+        "completions": 2057,
+        "wall_seconds": 0.22500419500283897,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802",
+          "a2de4b05be8798d6"
+        ],
+        "selected_model": "current",
+        "route": [
+          {
+            "tokens": null,
+            "fragment": null,
+            "visited": 2376,
+            "completions": 1125,
+            "wall_seconds": 0.11623633099952713,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          {
+            "tokens": [
+              "for",
+              "if",
+              "le",
+              "value",
+              "acc",
+              "set",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "a2de4b05be8798d6",
+            "donors": [
+              "minimum_ceiling_zero"
+            ],
+            "visited": 4117,
+            "completions": 2057,
+            "wall_seconds": 0.22500419500283897,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          }
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          -2
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          -7
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          -2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          0
+        ],
+        [
+          [
+            3,
+            2,
+            1,
+            0,
+            -1
+          ],
+          -1
+        ]
+      ],
+      "role": "new_donor_retention",
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "le",
+            "value",
+            "acc",
+            "set",
+            "value",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "fragment": "a2de4b05be8798d6",
+          "donors": [
+            "minimum_ceiling_zero"
+          ],
+          "visited": 4117,
+          "completions": 2057,
+          "wall_seconds": 0.22500419500283897,
+          "tried_contexts": [
+            "decb72c3611a338c",
+            "cda43abf11ed8d3b",
+            "1624b462af912802",
+            "a2de4b05be8798d6"
+          ],
+          "selected_model": "current",
+          "route": [
+            {
+              "tokens": null,
+              "fragment": null,
+              "visited": 2376,
+              "completions": 1125,
+              "wall_seconds": 0.11623633099952713,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ]
+            },
+            {
+              "tokens": [
+                "for",
+                "if",
+                "le",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "a2de4b05be8798d6",
+              "donors": [
+                "minimum_ceiling_zero"
+              ],
+              "visited": 4117,
+              "completions": 2057,
+              "wall_seconds": 0.22500419500283897,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ]
+            }
+          ]
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "ge",
+                "acc",
+                "minus_one",
+                "set",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "a2de4b05be8798d6",
+              "donors": [
+                "minimum_ceiling_zero"
+              ],
+              "visited": 3341,
+              "completions": 1701,
+              "wall_seconds": 0.17129508199286647,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 4188,
+                  "completions": 2049,
+                  "wall_seconds": 0.2373665240011178,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "ge",
+                    "acc",
+                    "minus_one",
+                    "set",
+                    "value",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "a2de4b05be8798d6",
+                  "donors": [
+                    "minimum_ceiling_zero"
+                  ],
+                  "visited": 3341,
+                  "completions": 1701,
+                  "wall_seconds": 0.17129508199286647,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                1,
+                2,
+                3
+              ],
+              "expected": 0,
+              "actual": 3
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "sub",
+                "acc",
+                "value",
+                "one",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "1624b462af912802",
+              "donors": [
+                "positive_total"
+              ],
+              "visited": 3007,
+              "completions": 1450,
+              "wall_seconds": 0.15563250199193135,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 3456,
+                  "completions": 1815,
+                  "wall_seconds": 0.1622143860149663,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "gt",
+                    "sub",
+                    "acc",
+                    "value",
+                    "one",
+                    "set",
+                    "add",
+                    "acc",
+                    "value",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "1624b462af912802",
+                  "donors": [
+                    "positive_total"
+                  ],
+                  "visited": 3007,
+                  "completions": 1450,
+                  "wall_seconds": 0.15563250199193135,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                3,
+                2,
+                1,
+                0,
+                -1
+              ],
+              "expected": -1,
+              "actual": 0
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "le",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "a2de4b05be8798d6",
+              "donors": [
+                "minimum_ceiling_zero"
+              ],
+              "visited": 4117,
+              "completions": 2057,
+              "wall_seconds": 0.22500419500283897,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2376,
+                  "completions": 1125,
+                  "wall_seconds": 0.11623633099952713,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "le",
+                    "value",
+                    "acc",
+                    "set",
+                    "value",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "a2de4b05be8798d6",
+                  "donors": [
+                    "minimum_ceiling_zero"
+                  ],
+                  "visited": 4117,
+                  "completions": 2057,
+                  "wall_seconds": 0.22500419500283897,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 5,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            -2
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            -7
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            -2
+          ],
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            0
+          ],
+          [
+            [
+              3,
+              2,
+              1,
+              0,
+              -1
+            ],
+            -1
+          ]
+        ],
+        "added_examples": 2,
+        "oracle_calls": 40,
+        "candidate_executions": 40
+      },
+      "wall_seconds": 1.0682350989955012,
+      "cpu_seconds": 1.0678676030000003,
+      "held_ir_accepted": true,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": -95,
+          "expected": -95,
+          "interpreted": -95,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": -68,
+          "expected": -68,
+          "interpreted": -68,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": -92,
+          "expected": -92,
+          "interpreted": -92,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": -95,
+          "expected": -95,
+          "interpreted": -95,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": -93,
+          "expected": -93,
+          "interpreted": -93,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": -90,
+          "expected": -90,
+          "interpreted": -90,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": -90,
+          "expected": -90,
+          "interpreted": -90,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": -90,
+          "expected": -90,
+          "interpreted": -90,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 20,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 21,
+          "exit_code": 0,
+          "actual": -97,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 22,
+          "exit_code": 0,
+          "actual": -94,
+          "expected": -94,
+          "interpreted": -94,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 23,
+          "exit_code": 0,
+          "actual": -92,
+          "expected": -92,
+          "interpreted": -92,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 24,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 25,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 26,
+          "exit_code": 0,
+          "actual": -64,
+          "expected": -64,
+          "interpreted": -64,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 27,
+          "exit_code": 0,
+          "actual": -95,
+          "expected": -95,
+          "interpreted": -95,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 28,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 29,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 30,
+          "exit_code": 0,
+          "actual": -97,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 31,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 32,
+          "exit_code": 0,
+          "actual": -97,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 33,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 34,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 35,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 36,
+          "exit_code": 0,
+          "actual": -96,
+          "expected": -96,
+          "interpreted": -96,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 37,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 38,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        },
+        {
+          "case": 39,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": ""
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "134144bdf2d62bb6f7130573646c289cdcd2f88726be7a7f6da3f6a74be82cce",
+      "curlee_sha256": "75f0be493fbe8d81325f6c0ce2f25bd5293b24ecee591859aba875a6bcd3453f"
+    },
+    {
+      "id": "largest_magnitude",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 4336,
+        "completions": 2128,
+        "wall_seconds": 0.2375010460091289,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802",
+          "a2de4b05be8798d6"
+        ],
+        "selected_model": "current",
+        "route": [
+          {
+            "tokens": null,
+            "fragment": null,
+            "visited": 2532,
+            "completions": 1212,
+            "wall_seconds": 0.13025476000620984,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          {
+            "tokens": null,
+            "fragment": null,
+            "visited": 4336,
+            "completions": 2128,
+            "wall_seconds": 0.2375010460091289,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          }
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          7
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          3
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          3
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          4
+        ]
+      ],
+      "role": "transfer",
+      "repair": {
+        "chosen": {
+          "tokens": null,
+          "fragment": null,
+          "visited": 4336,
+          "completions": 2128,
+          "wall_seconds": 0.2375010460091289,
+          "tried_contexts": [
+            "decb72c3611a338c",
+            "cda43abf11ed8d3b",
+            "1624b462af912802",
+            "a2de4b05be8798d6"
+          ],
+          "selected_model": "current",
+          "route": [
+            {
+              "tokens": null,
+              "fragment": null,
+              "visited": 2532,
+              "completions": 1212,
+              "wall_seconds": 0.13025476000620984,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ]
+            },
+            {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4336,
+              "completions": 2128,
+              "wall_seconds": 0.2375010460091289,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ]
+            }
+          ]
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4352,
+              "completions": 1964,
+              "wall_seconds": 0.18645359898800962,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2508,
+                  "completions": 1173,
+                  "wall_seconds": 0.1002128659747541,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 4352,
+                  "completions": 1964,
+                  "wall_seconds": 0.18645359898800962,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                1,
+                2,
+                3
+              ],
+              "expected": 3,
+              "actual": null
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4384,
+              "completions": 1984,
+              "wall_seconds": 0.2290353649877943,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2484,
+                  "completions": 1164,
+                  "wall_seconds": 0.1157212890102528,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 4384,
+                  "completions": 1984,
+                  "wall_seconds": 0.2290353649877943,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                -3,
+                -2,
+                -1
+              ],
+              "expected": 3,
+              "actual": null
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4400,
+              "completions": 1968,
+              "wall_seconds": 0.2290255379921291,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2520,
+                  "completions": 1233,
+                  "wall_seconds": 0.12399379801354371,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 4400,
+                  "completions": 1968,
+                  "wall_seconds": 0.2290255379921291,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 5,
+            "counterexample": {
+              "input": [
+                2,
+                3,
+                4
+              ],
+              "expected": 4,
+              "actual": null
+            }
+          },
+          {
+            "round": 3,
+            "attempt": {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4336,
+              "completions": 2128,
+              "wall_seconds": 0.2375010460091289,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2532,
+                  "completions": 1212,
+                  "wall_seconds": 0.13025476000620984,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 4336,
+                  "completions": 2128,
+                  "wall_seconds": 0.2375010460091289,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 6,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            5
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            7
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            2
+          ],
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            3
+          ],
+          [
+            [
+              -3,
+              -2,
+              -1
+            ],
+            3
+          ],
+          [
+            [
+              2,
+              3,
+              4
+            ],
+            4
+          ]
+        ],
+        "added_examples": 3,
+        "oracle_calls": 3,
+        "candidate_executions": 0
+      },
+      "wall_seconds": 1.3522828170098364,
+      "cpu_seconds": 1.3522127340000005,
+      "held_ir_accepted": false,
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "positive_values_capped_at_two_total",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 4320,
+        "completions": 2024,
+        "wall_seconds": 0.25137983402237296,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802",
+          "a2de4b05be8798d6"
+        ],
+        "selected_model": "current",
+        "route": [
+          {
+            "tokens": null,
+            "fragment": null,
+            "visited": 2580,
+            "completions": 1230,
+            "wall_seconds": 0.1565307980054058,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          {
+            "tokens": null,
+            "fragment": null,
+            "visited": 4320,
+            "completions": 2024,
+            "wall_seconds": 0.25137983402237296,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          }
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          5
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          6
+        ]
+      ],
+      "role": "transfer",
+      "repair": {
+        "chosen": {
+          "tokens": null,
+          "fragment": null,
+          "visited": 4320,
+          "completions": 2024,
+          "wall_seconds": 0.25137983402237296,
+          "tried_contexts": [
+            "decb72c3611a338c",
+            "cda43abf11ed8d3b",
+            "1624b462af912802",
+            "a2de4b05be8798d6"
+          ],
+          "selected_model": "current",
+          "route": [
+            {
+              "tokens": null,
+              "fragment": null,
+              "visited": 2580,
+              "completions": 1230,
+              "wall_seconds": 0.1565307980054058,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ]
+            },
+            {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4320,
+              "completions": 2024,
+              "wall_seconds": 0.25137983402237296,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ]
+            }
+          ]
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "acc",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "1624b462af912802",
+              "donors": [
+                "positive_total"
+              ],
+              "visited": 2479,
+              "completions": 1163,
+              "wall_seconds": 0.11921476997667924,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 3528,
+                  "completions": 1878,
+                  "wall_seconds": 0.157334051997168,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "gt",
+                    "value",
+                    "acc",
+                    "set",
+                    "add",
+                    "acc",
+                    "value",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "1624b462af912802",
+                  "donors": [
+                    "positive_total"
+                  ],
+                  "visited": 2479,
+                  "completions": 1163,
+                  "wall_seconds": 0.11921476997667924,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                1,
+                2,
+                3
+              ],
+              "expected": 5,
+              "actual": 3
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4720,
+              "completions": 2280,
+              "wall_seconds": 0.2472668410046026,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2412,
+                  "completions": 1110,
+                  "wall_seconds": 0.11760851801955141,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 4720,
+                  "completions": 2280,
+                  "wall_seconds": 0.2472668410046026,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                -3,
+                -2,
+                -1
+              ],
+              "expected": 0,
+              "actual": null
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4032,
+              "completions": 1856,
+              "wall_seconds": 0.24031265600933693,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2520,
+                  "completions": 1275,
+                  "wall_seconds": 0.13443346301210113,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 4032,
+                  "completions": 1856,
+                  "wall_seconds": 0.24031265600933693,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 5,
+            "counterexample": {
+              "input": [
+                2,
+                3,
+                4
+              ],
+              "expected": 6,
+              "actual": null
+            }
+          },
+          {
+            "round": 3,
+            "attempt": {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4320,
+              "completions": 2024,
+              "wall_seconds": 0.25137983402237296,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2580,
+                  "completions": 1230,
+                  "wall_seconds": 0.1565307980054058,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 4320,
+                  "completions": 2024,
+                  "wall_seconds": 0.25137983402237296,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 6,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            5
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            2
+          ],
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            5
+          ],
+          [
+            [
+              -3,
+              -2,
+              -1
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              3,
+              4
+            ],
+            6
+          ]
+        ],
+        "added_examples": 3,
+        "oracle_calls": 3,
+        "candidate_executions": 1
+      },
+      "wall_seconds": 1.424189673998626,
+      "cpu_seconds": 1.4236696560000004,
+      "held_ir_accepted": false,
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "positive_count_capped_at_two",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 4160,
+        "completions": 1956,
+        "wall_seconds": 0.23129399001481943,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802",
+          "a2de4b05be8798d6"
+        ],
+        "selected_model": "current",
+        "route": [
+          {
+            "tokens": null,
+            "fragment": null,
+            "visited": 2340,
+            "completions": 1146,
+            "wall_seconds": 0.1232403379981406,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          {
+            "tokens": null,
+            "fragment": null,
+            "visited": 4160,
+            "completions": 1956,
+            "wall_seconds": 0.23129399001481943,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          }
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ]
+      ],
+      "role": "transfer",
+      "repair": {
+        "chosen": {
+          "tokens": null,
+          "fragment": null,
+          "visited": 4160,
+          "completions": 1956,
+          "wall_seconds": 0.23129399001481943,
+          "tried_contexts": [
+            "decb72c3611a338c",
+            "cda43abf11ed8d3b",
+            "1624b462af912802",
+            "a2de4b05be8798d6"
+          ],
+          "selected_model": "current",
+          "route": [
+            {
+              "tokens": null,
+              "fragment": null,
+              "visited": 2340,
+              "completions": 1146,
+              "wall_seconds": 0.1232403379981406,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802"
+              ]
+            },
+            {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4160,
+              "completions": 1956,
+              "wall_seconds": 0.23129399001481943,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ]
+            }
+          ]
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "one",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "fragment": "cda43abf11ed8d3b",
+              "donors": [
+                "odd_count"
+              ],
+              "visited": 818,
+              "completions": 383,
+              "wall_seconds": 0.03455378199578263,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b"
+              ],
+              "selected_model": "previous",
+              "route": [
+                {
+                  "tokens": [
+                    "for",
+                    "if",
+                    "gt",
+                    "value",
+                    "one",
+                    "set",
+                    "add",
+                    "acc",
+                    "one",
+                    "end",
+                    "end",
+                    "return",
+                    "acc",
+                    "stop"
+                  ],
+                  "fragment": "cda43abf11ed8d3b",
+                  "donors": [
+                    "odd_count"
+                  ],
+                  "visited": 818,
+                  "completions": 383,
+                  "wall_seconds": 0.03455378199578263,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                2,
+                3,
+                4
+              ],
+              "expected": 2,
+              "actual": 3
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4064,
+              "completions": 2172,
+              "wall_seconds": 0.1973327660234645,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2388,
+                  "completions": 1143,
+                  "wall_seconds": 0.10523616799036972,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 4064,
+                  "completions": 2172,
+                  "wall_seconds": 0.1973327660234645,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                1,
+                2,
+                3
+              ],
+              "expected": 2,
+              "actual": null
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4112,
+              "completions": 1944,
+              "wall_seconds": 0.20971390200429596,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2388,
+                  "completions": 1125,
+                  "wall_seconds": 0.1114962870196905,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 4112,
+                  "completions": 1944,
+                  "wall_seconds": 0.20971390200429596,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 5,
+            "counterexample": {
+              "input": [
+                -3,
+                -2,
+                -1
+              ],
+              "expected": 0,
+              "actual": null
+            }
+          },
+          {
+            "round": 3,
+            "attempt": {
+              "tokens": null,
+              "fragment": null,
+              "visited": 4160,
+              "completions": 1956,
+              "wall_seconds": 0.23129399001481943,
+              "tried_contexts": [
+                "decb72c3611a338c",
+                "cda43abf11ed8d3b",
+                "1624b462af912802",
+                "a2de4b05be8798d6"
+              ],
+              "selected_model": "current",
+              "route": [
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 2340,
+                  "completions": 1146,
+                  "wall_seconds": 0.1232403379981406,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802"
+                  ]
+                },
+                {
+                  "tokens": null,
+                  "fragment": null,
+                  "visited": 4160,
+                  "completions": 1956,
+                  "wall_seconds": 0.23129399001481943,
+                  "tried_contexts": [
+                    "decb72c3611a338c",
+                    "cda43abf11ed8d3b",
+                    "1624b462af912802",
+                    "a2de4b05be8798d6"
+                  ]
+                }
+              ]
+            },
+            "observed_count": 6,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            2
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            1
+          ],
+          [
+            [
+              2,
+              3,
+              4
+            ],
+            2
+          ],
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            2
+          ],
+          [
+            [
+              -3,
+              -2,
+              -1
+            ],
+            0
+          ]
+        ],
+        "added_examples": 3,
+        "oracle_calls": 5,
+        "candidate_executions": 3
+      },
+      "wall_seconds": 1.0129853740218095,
+      "cpu_seconds": 1.0129180479999995,
+      "held_ir_accepted": false,
+      "python_records": [],
+      "accepted": false
+    }
+  ],
+  "held_per_task": 40,
+  "models": {
+    "previous": "574e21dd961899332d7305ab59cccee84ddeb01a56d441fd21f84d2d66a742f3",
+    "current": "fca8f7ae0c4602a9b3c07f8dc4809a374a57f24f208c4367786cff8edac530f7"
+  },
+  "execution_pending": false,
+  "accepted": 8,
+  "accepted_by_role": {
+    "new_donor_retention": 1,
+    "old_retention": 6,
+    "transfer": 1
+  }
+}
