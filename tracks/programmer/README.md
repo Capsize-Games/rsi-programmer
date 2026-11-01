@@ -3,7 +3,11 @@
 This is the primary development track as of 2026-11-01.
 
 The primary outcome is a learner that writes useful programs in Python and
-CURLEE. The [component-transfer trial](component-results.md) constructs a
+CURLEE. The [context-growth trial](context-growth-results.md) constructs
+maximum from the qualified minimum donor, with 40 cases in each language.
+Its route retains the earlier six utilities but fails to retain minimum,
+for 7/11 accepted tasks. The preceding
+[component-transfer trial](component-results.md) constructs a
 minimum program, with 40 held cases passing in each language. It solves
 1/5 new tasks and retains 4/6 earlier utilities, so it remains separate
 from the earlier qualified model. Its components occur in other training
@@ -59,10 +63,10 @@ passed. See the [complete shortlist result](
 
 Loop-body transfer and wider search alone produced no new programs.
 The component-preserving curriculum then constructed a qualified minimum.
-The next check is transfer from that independently checked program to new
-behavior, with old-library, untrained and classical controls. Retain the
-earlier qualified model and every failed attempt; the new model loses two
-earlier utilities.
+Transfer from that donor constructed a qualified maximum, but selecting
+only from examples lost the minimum. The next bounded check is query-based
+repair of this retention failure, with independent held rows and controls.
+Retain the earlier qualified model and every failed attempt.
 The stages below describe the broader capability progression. They do not
 require repeating model-family comparisons before useful-program trials.
 

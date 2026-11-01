@@ -81,11 +81,30 @@
   },
   "exclusions": [
     "Other four new tasks and two prior utilities yielded no program.",
-    "New full programmer regression and remote CI pending. Earlier 520-test pass predates this work.",
     "Sensing and Sound Companion source unchanged; no new runs claimed.",
     "No sealed final tasks, new model-family comparison, recursive self-improvement or full matched-total-cost test.",
     "Weights remain ignored; previous qualified model is not replaced.",
     "Observed-only maximum transfer probe has no held or target-language acceptance yet.",
-    "Tags/releases remain paused under project-specific instruction."
-  ]
+    "Tags/releases remain paused under project-specific instruction.",
+    "Programmer fast retry passed 530 tests; other lanes/tracks and remote CI not claimed passed."
+  ],
+  "broader_regression": {
+    "command": "python3 /tmp/rsi-run-with-reserve.py python3 scripts/tracks.py test programmer --lane fast",
+    "source_commit": "914e4e7de562174a40e8fe9702328a82e113748a",
+    "exit_code": 75,
+    "terminal_reason": "RSI regression reserve: below 5 GiB; stopping own job.",
+    "log": "programmer-fast-partial.log.gz",
+    "complete": false,
+    "focused_test_pass_unchanged": true
+  },
+  "broader_regression_retry": {
+    "command": "python3 /tmp/rsi-run-with-reserve.py python3 scripts/tracks.py test programmer --lane fast",
+    "source_commit": "914e4e7de562174a40e8fe9702328a82e113748a",
+    "tests": 530,
+    "seconds": 270.337,
+    "exit_code": 0,
+    "log": "programmer-fast-complete.log.gz",
+    "complete": true,
+    "scope": "Programmer fast track only; slow/retry, sensing and Sound Companion not run."
+  }
 }

@@ -1,0 +1,43 @@
+{
+  "scope": "Development verified-donor growth. Classical context mining; frozen neural condition filling. No refit.",
+  "methods": [
+    "retained_first",
+    "current_old_library",
+    "current_new_library",
+    "previous_new_library",
+    "untrained_new_library",
+    "classical_new_library"
+  ],
+  "budget_per_search": 1.0,
+  "choices_per_prefix": 4,
+  "beam_width": 32,
+  "additional_observed_inputs": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      -3,
+      -2,
+      -1
+    ],
+    [
+      2,
+      3,
+      4
+    ]
+  ],
+  "held_seed": 461043,
+  "held_per_task": 40,
+  "primary_backend_method": "retained_first",
+  "cost_scope": "Search component only. The primary route can use two searches; not a matched-total-cost gate.",
+  "source_hashes": {
+    "scripts/measure_context_growth.py": "8676648286b77bd04549cd4c5deeee941ab2825f260f1b58050f0b61becf6fa8",
+    "rsi_programmer/statement_fragment_search.py": "482b8ce5285951e1977def006ffa3a899cc2ecb53261efbf2fd0d4de33eeb63a",
+    "rsi_programmer/statement_fragment_classical.py": "4e8b70884bab5f36e6149cde5610f55571e2d024ddb144a5324d231115ca1bc7",
+    "rsi_programmer/statement_fragment_library.py": "2906400cbb0598226f81dad0eb1acf7f9129bdcdc63bcb1a1479717d85ae8adb",
+    "fixtures/statement_tasks_v1.json": "d732492f5cc2ade6412e8f2ca1bb46a98d442b9a9cbb88aa95c61d87da362fb0",
+    "fixtures/stateful_tasks_v1.json": "52dccad6629d6bbb5de87e9e1c7888baaf6e7fd7ed4e08abdaff377443c241ae"
+  }
+}

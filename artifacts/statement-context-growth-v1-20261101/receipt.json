@@ -1,0 +1,44 @@
+{
+  "source_checkpoint": "914e4e7de562174a40e8fe9702328a82e113748a",
+  "scope": "Frozen donor growth; no refit, final evaluation, algorithm invention or cost advantage.",
+  "commands": {
+    "choices": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 120 python3 /tmp/rsi-run-with-reserve.py flock /tmp/rsi-programmer-builder.lock .venv/bin/python -m scripts.measure_context_growth --output artifacts/statement-context-growth-v1-20261101",
+    "python": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m scripts.execute_statement_trial --output artifacts/statement-context-growth-v1-20261101",
+    "curlee": "python3 /home/joe/Projects/curlee/scripts/run_limited.py /usr/bin/python3 -m scripts.check_statement_curlee --compiler /home/joe/Projects/curlee/build/linux-debug/curlee --output artifacts/statement-context-growth-v1-20261101"
+  },
+  "logs": {
+    "choices": {
+      "exit_code": 0,
+      "path": "choices.log.gz",
+      "sha256_uncompressed": "13dfa6328b9150fed6fcd7e5a91f3bac30caf5b0dd0b1d2332e104c46be16f7c"
+    },
+    "python-execution": {
+      "exit_code": 0,
+      "path": "python-execution.log.gz",
+      "sha256_uncompressed": "1f9e3a0a10000e667dbc6ac456a0808e0462d04659f00ccec71a9ed055ca34c2"
+    },
+    "curlee-execution": {
+      "exit_code": 0,
+      "path": "curlee-execution.log.gz",
+      "sha256_uncompressed": "87251b80d6f7213490ac21eb0629f4ba5aff6f0069a8be3021fa172b56418594"
+    }
+  },
+  "actual_acceptance": {
+    "new_donor_retention": 0,
+    "old_retention": 6,
+    "transfer": 1
+  },
+  "actual_python_cases": 320,
+  "actual_curlee_cases": 320,
+  "accepted_program_cases_per_language": 280,
+  "control_scope": "Held independent interpreter checks only, not actual control target-language executions or matched total cost.",
+  "exclusions": [
+    "Minimum donor retention failed and is not promoted. Three other stateful tasks yielded no program.",
+    "Previous minimum is separately qualified; this route does not reproduce eight tasks.",
+    "Sensing and Sound Companion source unchanged; no new runs claimed.",
+    "Weights remain ignored. Sealed final set untouched.",
+    "Tags/releases remain paused under project-specific instruction.",
+    "Programmer fast retry: 530 passed in 270.337s at 914e4e7; slow/retry and other tracks not run. Remote CI pending."
+  ],
+  "regression_receipt": "../statement-component-validation-20261101/receipt.json"
+}

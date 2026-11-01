@@ -104,6 +104,17 @@ before promoting donors; preserve provenance, failed trials and controls.
 
 ## Audit checkpoints
 
+Context-growth checkpoint (2026-11-01): condition filling in the qualified
+minimum context constructs maximum, with 40 held Python and CURLEE cases
+passing. The retained-model route keeps six old utilities and transfers
+maximum, but selects a wrong minimum program: 7/11 accepted. The original
+minimum remains separately qualified; never promote the wrong attempt.
+See `tracks/programmer/context-growth-results.md`. Controls are held-IR
+checks only; primary programs have actual target-language execution.
+Classical search accepts 8/11 and constructs maximum much faster. The
+next bounded check is visible-query repair of donor retention, preserving
+this failure and keeping every held row outside feedback.
+
 Component-transfer checkpoint (2026-11-01): loop-body contexts and wider
 search alone still produced 0/5 new programs. A component-preserving
 curriculum produced the minimum-with-zero-ceiling program, with 40 actual

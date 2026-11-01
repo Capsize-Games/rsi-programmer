@@ -118,13 +118,15 @@ The minimum has now been independently qualified as a donor. An
 [observed-only transfer probe](
 ../../artifacts/statement-return-v1-20261101/maximum-transfer-development-probe.json)
 filled its condition hole with `value - 0 > acc`, producing a maximum
-candidate that fits six examples. It has not passed held target-language
-execution and is not yet a qualified programming success.
+candidate that fits six examples. The subsequent
+[context-growth trial](context-growth-results.md) checks this candidate
+on 40 held Python and CURLEE cases each. That transfer passes, while its
+minimum-retention attempt fails.
 
-The next trial must freeze the expanded library and all controller choices,
-then check transfer on new held rows against the old library, an untrained
-controller and classical hole search. The four remaining stateful failures,
-earlier retention losses and classical cost advantage remain visible.
+That trial freezes the expanded library and all controller choices before
+checking new held rows against old-library, untrained and classical
+controls. Earlier failed trials, retention losses and the classical cost
+advantage remain visible.
 The present result does not demonstrate learned abstraction discovery,
 a full matched-total-cost advantage, general programming or recursive
 self-improvement.
@@ -149,7 +151,10 @@ python3 /home/joe/Projects/curlee/scripts/run_limited.py \
 
 Python requires the existing bubblewrap isolation capabilities. Weights
 remain local and excluded from Git. Thirty-three focused tests passed;
-broader regression and remote CI are pending at this checkpoint. The
+the broader regression stopped with status 75 when available memory fell
+below its 5 GiB reserve. The admitted retry passed all
+530 programmer fast-track tests in 270.337 seconds. Remote CI remains
+pending. The
 [validation receipt](
 ../../artifacts/statement-component-validation-20261101/receipt.json)
 records exact commands, logs and exclusions. This checkpoint does not

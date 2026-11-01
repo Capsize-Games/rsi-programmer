@@ -1,0 +1,6235 @@
+{
+  "scope": "Held IR only; not target-language execution or matched total cost.",
+  "rows": [
+    {
+      "method": "retained_first",
+      "rows": [
+        {
+          "id": "positive_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              13
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              17
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              11
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              6
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              9
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "even_total",
+              "positive_total"
+            ],
+            "visited": 1629,
+            "completions": 735,
+            "wall_seconds": 0.12958337701275013,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ],
+            "selected_model": "previous",
+            "route": [
+              {
+                "tokens": [
+                  "for",
+                  "if",
+                  "gt",
+                  "value",
+                  "zero",
+                  "set",
+                  "add",
+                  "acc",
+                  "value",
+                  "end",
+                  "end",
+                  "return",
+                  "acc",
+                  "stop"
+                ],
+                "fragment": "1624b462af912802",
+                "donors": [
+                  "even_total",
+                  "positive_total"
+                ],
+                "visited": 1629,
+                "completions": 735,
+                "wall_seconds": 0.12958337701275013,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802"
+                ]
+              }
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.12960747198667377,
+          "cpu_seconds": 0.11062488999999998,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "negative_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              3
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "lt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "odd_count"
+            ],
+            "visited": 822,
+            "completions": 397,
+            "wall_seconds": 0.04552251100540161,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ],
+            "selected_model": "previous",
+            "route": [
+              {
+                "tokens": [
+                  "for",
+                  "if",
+                  "lt",
+                  "value",
+                  "zero",
+                  "set",
+                  "add",
+                  "acc",
+                  "one",
+                  "end",
+                  "end",
+                  "return",
+                  "acc",
+                  "stop"
+                ],
+                "fragment": "cda43abf11ed8d3b",
+                "donors": [
+                  "odd_count"
+                ],
+                "visited": 822,
+                "completions": 397,
+                "wall_seconds": 0.04552251100540161,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b"
+                ]
+              }
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.045542698993813246,
+          "cpu_seconds": 0.04547595899999979,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "even_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              8
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              0
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "eq",
+              "rem",
+              "value",
+              "two",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "even_total",
+              "positive_total"
+            ],
+            "visited": 1785,
+            "completions": 803,
+            "wall_seconds": 0.15333438399829902,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ],
+            "selected_model": "previous",
+            "route": [
+              {
+                "tokens": [
+                  "for",
+                  "if",
+                  "eq",
+                  "rem",
+                  "value",
+                  "two",
+                  "zero",
+                  "set",
+                  "add",
+                  "acc",
+                  "value",
+                  "end",
+                  "end",
+                  "return",
+                  "acc",
+                  "stop"
+                ],
+                "fragment": "1624b462af912802",
+                "donors": [
+                  "even_total",
+                  "positive_total"
+                ],
+                "visited": 1785,
+                "completions": 803,
+                "wall_seconds": 0.15333438399829902,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802"
+                ]
+              }
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.1533559130039066,
+          "cpu_seconds": 0.1532853299999999,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "positive_square_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              45
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              129
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              47
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              14
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              29
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "mul",
+              "value",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "decb72c3611a338c",
+            "donors": [
+              "positive_square_total"
+            ],
+            "visited": 21,
+            "completions": 1,
+            "wall_seconds": 0.004034235986182466,
+            "tried_contexts": [
+              "decb72c3611a338c"
+            ],
+            "selected_model": "previous",
+            "route": [
+              {
+                "tokens": [
+                  "for",
+                  "if",
+                  "gt",
+                  "value",
+                  "zero",
+                  "set",
+                  "add",
+                  "acc",
+                  "mul",
+                  "value",
+                  "value",
+                  "end",
+                  "end",
+                  "return",
+                  "acc",
+                  "stop"
+                ],
+                "fragment": "decb72c3611a338c",
+                "donors": [
+                  "positive_square_total"
+                ],
+                "visited": 21,
+                "completions": 1,
+                "wall_seconds": 0.004034235986182466,
+                "tried_contexts": [
+                  "decb72c3611a338c"
+                ]
+              }
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.004050385003210977,
+          "cpu_seconds": 0.00405086599999982,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "odd_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              1
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "ne",
+              "rem",
+              "value",
+              "two",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "odd_count"
+            ],
+            "visited": 989,
+            "completions": 424,
+            "wall_seconds": 0.06042119400808588,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ],
+            "selected_model": "previous",
+            "route": [
+              {
+                "tokens": [
+                  "for",
+                  "if",
+                  "ne",
+                  "rem",
+                  "value",
+                  "two",
+                  "zero",
+                  "set",
+                  "add",
+                  "acc",
+                  "one",
+                  "end",
+                  "end",
+                  "return",
+                  "acc",
+                  "stop"
+                ],
+                "fragment": "cda43abf11ed8d3b",
+                "donors": [
+                  "odd_count"
+                ],
+                "visited": 989,
+                "completions": 424,
+                "wall_seconds": 0.06042119400808588,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b"
+                ]
+              }
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.06044455702067353,
+          "cpu_seconds": 0.06044698400000015,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "above_two_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              1
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "two",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "odd_count"
+            ],
+            "visited": 816,
+            "completions": 382,
+            "wall_seconds": 0.04502935000346042,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ],
+            "selected_model": "previous",
+            "route": [
+              {
+                "tokens": [
+                  "for",
+                  "if",
+                  "gt",
+                  "value",
+                  "two",
+                  "set",
+                  "add",
+                  "acc",
+                  "one",
+                  "end",
+                  "end",
+                  "return",
+                  "acc",
+                  "stop"
+                ],
+                "fragment": "cda43abf11ed8d3b",
+                "donors": [
+                  "odd_count"
+                ],
+                "visited": 816,
+                "completions": 382,
+                "wall_seconds": 0.04502935000346042,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b"
+                ]
+              }
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.04504994800663553,
+          "cpu_seconds": 0.045052335000000054,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "maximum_floor_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "sub",
+              "value",
+              "zero",
+              "acc",
+              "set",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "a2de4b05be8798d6",
+            "donors": [
+              "minimum_ceiling_zero"
+            ],
+            "visited": 4111,
+            "completions": 2113,
+            "wall_seconds": 0.26782294097938575,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ],
+            "selected_model": "current",
+            "route": [
+              {
+                "tokens": null,
+                "fragment": null,
+                "visited": 2436,
+                "completions": 1167,
+                "wall_seconds": 0.14026966100209393,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802"
+                ]
+              },
+              {
+                "tokens": [
+                  "for",
+                  "if",
+                  "gt",
+                  "sub",
+                  "value",
+                  "zero",
+                  "acc",
+                  "set",
+                  "value",
+                  "end",
+                  "end",
+                  "return",
+                  "acc",
+                  "stop"
+                ],
+                "fragment": "a2de4b05be8798d6",
+                "donors": [
+                  "minimum_ceiling_zero"
+                ],
+                "visited": 4111,
+                "completions": 2113,
+                "wall_seconds": 0.26782294097938575,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802",
+                  "a2de4b05be8798d6"
+                ]
+              }
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.40811966100591235,
+          "cpu_seconds": 0.4076641670000001,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "minimum_ceiling_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              -2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              -7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              -2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "sub",
+              "acc",
+              "value",
+              "one",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "positive_total"
+            ],
+            "visited": 2583,
+            "completions": 1255,
+            "wall_seconds": 0.160058787005255,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ],
+            "selected_model": "current",
+            "route": [
+              {
+                "tokens": null,
+                "fragment": null,
+                "visited": 2340,
+                "completions": 1128,
+                "wall_seconds": 0.13511905001359992,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802"
+                ]
+              },
+              {
+                "tokens": [
+                  "for",
+                  "if",
+                  "gt",
+                  "sub",
+                  "acc",
+                  "value",
+                  "one",
+                  "set",
+                  "add",
+                  "acc",
+                  "value",
+                  "end",
+                  "end",
+                  "return",
+                  "acc",
+                  "stop"
+                ],
+                "fragment": "1624b462af912802",
+                "donors": [
+                  "positive_total"
+                ],
+                "visited": 2583,
+                "completions": 1255,
+                "wall_seconds": 0.160058787005255,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802"
+                ]
+              }
+            ]
+          },
+          "role": "new_donor_retention",
+          "wall_seconds": 0.29520464898087084,
+          "cpu_seconds": 0.29517099300000016,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "largest_magnitude",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 4336,
+            "completions": 2128,
+            "wall_seconds": 0.26451466299477033,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ],
+            "selected_model": "current",
+            "route": [
+              {
+                "tokens": null,
+                "fragment": null,
+                "visited": 2532,
+                "completions": 1212,
+                "wall_seconds": 0.14509037701645866,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802"
+                ]
+              },
+              {
+                "tokens": null,
+                "fragment": null,
+                "visited": 4336,
+                "completions": 2128,
+                "wall_seconds": 0.26451466299477033,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802",
+                  "a2de4b05be8798d6"
+                ]
+              }
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.40962116900482215,
+          "cpu_seconds": 0.40961713,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_values_capped_at_two_total",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              5
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 4320,
+            "completions": 2024,
+            "wall_seconds": 0.2552137399907224,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ],
+            "selected_model": "current",
+            "route": [
+              {
+                "tokens": null,
+                "fragment": null,
+                "visited": 2580,
+                "completions": 1230,
+                "wall_seconds": 0.14003632398089394,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802"
+                ]
+              },
+              {
+                "tokens": null,
+                "fragment": null,
+                "visited": 4320,
+                "completions": 2024,
+                "wall_seconds": 0.2552137399907224,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802",
+                  "a2de4b05be8798d6"
+                ]
+              }
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.3952653729938902,
+          "cpu_seconds": 0.39525613900000023,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_count_capped_at_two",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              1
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 4160,
+            "completions": 1956,
+            "wall_seconds": 0.25222661200677976,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ],
+            "selected_model": "current",
+            "route": [
+              {
+                "tokens": null,
+                "fragment": null,
+                "visited": 2340,
+                "completions": 1146,
+                "wall_seconds": 0.14159068098524585,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802"
+                ]
+              },
+              {
+                "tokens": null,
+                "fragment": null,
+                "visited": 4160,
+                "completions": 1956,
+                "wall_seconds": 0.25222661200677976,
+                "tried_contexts": [
+                  "decb72c3611a338c",
+                  "cda43abf11ed8d3b",
+                  "1624b462af912802",
+                  "a2de4b05be8798d6"
+                ]
+              }
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.3938348249939736,
+          "cpu_seconds": 0.393682348,
+          "held_ir_accepted": false
+        }
+      ],
+      "accepted": 7
+    },
+    {
+      "method": "current_old_library",
+      "rows": [
+        {
+          "id": "positive_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              13
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              17
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              11
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              6
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              9
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "even_total",
+              "positive_total"
+            ],
+            "visited": 2517,
+            "completions": 1197,
+            "wall_seconds": 0.1722163159865886,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.1722432859824039,
+          "cpu_seconds": 0.1722204180000002,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "negative_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              3
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "lt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "odd_count"
+            ],
+            "visited": 1054,
+            "completions": 516,
+            "wall_seconds": 0.07098921699798666,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.0710100760043133,
+          "cpu_seconds": 0.0709821810000002,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "even_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              8
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              0
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 2880,
+            "completions": 1266,
+            "wall_seconds": 0.1799762959999498,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.17998633600655012,
+          "cpu_seconds": 0.17976429299999985,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_square_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              45
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              129
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              47
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              14
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              29
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "mul",
+              "value",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "decb72c3611a338c",
+            "donors": [
+              "positive_square_total"
+            ],
+            "visited": 21,
+            "completions": 1,
+            "wall_seconds": 0.0035820890043396503,
+            "tried_contexts": [
+              "decb72c3611a338c"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.0035936509957537055,
+          "cpu_seconds": 0.0035887209999998504,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "odd_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              1
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "ne",
+              "rem",
+              "value",
+              "two",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "odd_count"
+            ],
+            "visited": 1333,
+            "completions": 595,
+            "wall_seconds": 0.09238008200190961,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.09240278400829993,
+          "cpu_seconds": 0.09232649399999993,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "above_two_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              1
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "sub",
+              "value",
+              "zero",
+              "two",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "odd_count"
+            ],
+            "visited": 1276,
+            "completions": 550,
+            "wall_seconds": 0.08335534401703626,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.08337662401027046,
+          "cpu_seconds": 0.08334243799999985,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "maximum_floor_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 3852,
+            "completions": 2034,
+            "wall_seconds": 0.23371781001333147,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.23372878998634405,
+          "cpu_seconds": 0.23338232299999984,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "minimum_ceiling_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              -2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              -7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              -2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "sub",
+              "acc",
+              "value",
+              "one",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "even_total",
+              "positive_total"
+            ],
+            "visited": 2583,
+            "completions": 1255,
+            "wall_seconds": 0.14185543698840775,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          "role": "new_donor_retention",
+          "wall_seconds": 0.1418759950029198,
+          "cpu_seconds": 0.1418594949999994,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "largest_magnitude",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 3252,
+            "completions": 1596,
+            "wall_seconds": 0.18635264999466017,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.18636319899815135,
+          "cpu_seconds": 0.1862956320000002,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_values_capped_at_two_total",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              5
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 3240,
+            "completions": 1518,
+            "wall_seconds": 0.20274350498220883,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.2027542660071049,
+          "cpu_seconds": 0.20274870799999967,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_count_capped_at_two",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              1
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 3120,
+            "completions": 1467,
+            "wall_seconds": 0.19587331399088725,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.19588520599063486,
+          "cpu_seconds": 0.19499944500000055,
+          "held_ir_accepted": false
+        }
+      ],
+      "accepted": 5
+    },
+    {
+      "method": "current_new_library",
+      "rows": [
+        {
+          "id": "positive_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              13
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              17
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              11
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              6
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              9
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "positive_total"
+            ],
+            "visited": 2517,
+            "completions": 1197,
+            "wall_seconds": 0.17459367198171094,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.17461330801597796,
+          "cpu_seconds": 0.17432689600000018,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "negative_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              3
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "lt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "above_two_count",
+              "negative_count"
+            ],
+            "visited": 1054,
+            "completions": 516,
+            "wall_seconds": 0.09075602499069646,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.09077717401669361,
+          "cpu_seconds": 0.08965452700000043,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "even_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              8
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              0
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 3840,
+            "completions": 1688,
+            "wall_seconds": 0.2751416630053427,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.27515248299459927,
+          "cpu_seconds": 0.274975972,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_square_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              45
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              129
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              47
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              14
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              29
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "mul",
+              "value",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "decb72c3611a338c",
+            "donors": [
+              "positive_square_total"
+            ],
+            "visited": 21,
+            "completions": 1,
+            "wall_seconds": 0.0034961479832418263,
+            "tried_contexts": [
+              "decb72c3611a338c"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.0035095220082439482,
+          "cpu_seconds": 0.003510281999999698,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "odd_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              1
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "ne",
+              "rem",
+              "value",
+              "two",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "above_two_count",
+              "negative_count"
+            ],
+            "visited": 1333,
+            "completions": 595,
+            "wall_seconds": 0.10950527200475335,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.1095357190060895,
+          "cpu_seconds": 0.10948673700000011,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "above_two_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              1
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "sub",
+              "value",
+              "zero",
+              "two",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "above_two_count",
+              "negative_count"
+            ],
+            "visited": 1276,
+            "completions": 550,
+            "wall_seconds": 0.10236726101720706,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.10239219799404964,
+          "cpu_seconds": 0.10194533499999991,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "maximum_floor_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "sub",
+              "value",
+              "zero",
+              "acc",
+              "set",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "a2de4b05be8798d6",
+            "donors": [
+              "minimum_ceiling_zero"
+            ],
+            "visited": 4111,
+            "completions": 2113,
+            "wall_seconds": 0.34742335201008245,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.3474576860025991,
+          "cpu_seconds": 0.34251516200000065,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "minimum_ceiling_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              -2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              -7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              -2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "sub",
+              "acc",
+              "value",
+              "one",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "positive_total"
+            ],
+            "visited": 2583,
+            "completions": 1255,
+            "wall_seconds": 0.18945669798995368,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          "role": "new_donor_retention",
+          "wall_seconds": 0.18948264702339657,
+          "cpu_seconds": 0.18947720899999965,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "largest_magnitude",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 4336,
+            "completions": 2128,
+            "wall_seconds": 0.2823330899991561,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.2823459740029648,
+          "cpu_seconds": 0.2823503909999996,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_values_capped_at_two_total",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              5
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 4320,
+            "completions": 2024,
+            "wall_seconds": 0.2685702189919539,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.26858214000822045,
+          "cpu_seconds": 0.2685849469999999,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_count_capped_at_two",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              1
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 4160,
+            "completions": 1956,
+            "wall_seconds": 0.24403111400897615,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.24404326698277146,
+          "cpu_seconds": 0.24404704300000013,
+          "held_ir_accepted": false
+        }
+      ],
+      "accepted": 6
+    },
+    {
+      "method": "previous_new_library",
+      "rows": [
+        {
+          "id": "positive_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              13
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              17
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              11
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              6
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              9
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "positive_total"
+            ],
+            "visited": 1629,
+            "completions": 735,
+            "wall_seconds": 0.09532423800555989,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.09534662999794818,
+          "cpu_seconds": 0.09534161000000019,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "negative_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              3
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "lt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "above_two_count",
+              "negative_count"
+            ],
+            "visited": 822,
+            "completions": 397,
+            "wall_seconds": 0.050091325014363974,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.05011169199133292,
+          "cpu_seconds": 0.050113596000000094,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "even_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              8
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              0
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "eq",
+              "rem",
+              "value",
+              "two",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "positive_total"
+            ],
+            "visited": 1785,
+            "completions": 803,
+            "wall_seconds": 0.10293810698203743,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.10296191202360205,
+          "cpu_seconds": 0.10296470599999985,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "positive_square_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              45
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              129
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              47
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              14
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              29
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "mul",
+              "value",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "decb72c3611a338c",
+            "donors": [
+              "positive_square_total"
+            ],
+            "visited": 21,
+            "completions": 1,
+            "wall_seconds": 0.004100938007468358,
+            "tried_contexts": [
+              "decb72c3611a338c"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.004118651995668188,
+          "cpu_seconds": 0.00412040700000027,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "odd_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              1
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "ne",
+              "rem",
+              "value",
+              "two",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "above_two_count",
+              "negative_count"
+            ],
+            "visited": 989,
+            "completions": 424,
+            "wall_seconds": 0.05874326502089389,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.05876222101505846,
+          "cpu_seconds": 0.058764659000000385,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "above_two_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              1
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "two",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "above_two_count",
+              "negative_count"
+            ],
+            "visited": 816,
+            "completions": 382,
+            "wall_seconds": 0.045211574994027615,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.04523277498083189,
+          "cpu_seconds": 0.04523532800000041,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "maximum_floor_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 3248,
+            "completions": 1556,
+            "wall_seconds": 0.17017957600182854,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.17019127900130115,
+          "cpu_seconds": 0.17019429900000027,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "minimum_ceiling_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              -2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              -7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              -2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 3120,
+            "completions": 1504,
+            "wall_seconds": 0.17718446601065807,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "new_donor_retention",
+          "wall_seconds": 0.1771946960070636,
+          "cpu_seconds": 0.17719731100000047,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "largest_magnitude",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 3376,
+            "completions": 1616,
+            "wall_seconds": 0.17878959901281632,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.17880075998255052,
+          "cpu_seconds": 0.1788031219999997,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_values_capped_at_two_total",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              5
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 3440,
+            "completions": 1640,
+            "wall_seconds": 0.18026734099839814,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.18027757000527345,
+          "cpu_seconds": 0.1802803639999997,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_count_capped_at_two",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              1
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 3120,
+            "completions": 1528,
+            "wall_seconds": 0.1725030119996518,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.17251529500936158,
+          "cpu_seconds": 0.17251085400000044,
+          "held_ir_accepted": false
+        }
+      ],
+      "accepted": 6
+    },
+    {
+      "method": "untrained_new_library",
+      "rows": [
+        {
+          "id": "positive_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              13
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              17
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              11
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              6
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              9
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 6480,
+            "completions": 1488,
+            "wall_seconds": 0.42906364900409244,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.4290773239918053,
+          "cpu_seconds": 0.42908176100000084,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "negative_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              3
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 6480,
+            "completions": 1480,
+            "wall_seconds": 0.39388330400106497,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.3938957469945308,
+          "cpu_seconds": 0.3938898970000011,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "even_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              8
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              0
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 6480,
+            "completions": 1464,
+            "wall_seconds": 0.4084084390196949,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.4084281660034321,
+          "cpu_seconds": 0.4084159279999984,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_square_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              45
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              129
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              47
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              14
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              29
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 6480,
+            "completions": 1496,
+            "wall_seconds": 0.39581173899932764,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.39582999399863183,
+          "cpu_seconds": 0.3957503950000003,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "odd_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              1
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 6480,
+            "completions": 1468,
+            "wall_seconds": 0.3847859799861908,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.3848015679977834,
+          "cpu_seconds": 0.38476280099999904,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "above_two_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              1
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 6480,
+            "completions": 1480,
+            "wall_seconds": 0.39755208598216996,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.3975655210088007,
+          "cpu_seconds": 0.3975620029999991,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "maximum_floor_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 6480,
+            "completions": 1444,
+            "wall_seconds": 0.3508805889869109,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.3508925719943363,
+          "cpu_seconds": 0.3508966230000006,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "minimum_ceiling_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              -2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              -7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              -2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 6480,
+            "completions": 1476,
+            "wall_seconds": 0.4197686249972321,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "new_donor_retention",
+          "wall_seconds": 0.41978210999513976,
+          "cpu_seconds": 0.4153519929999998,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "largest_magnitude",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 6480,
+            "completions": 1404,
+            "wall_seconds": 0.4070893609896302,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.4071033369982615,
+          "cpu_seconds": 0.4071082750000006,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_values_capped_at_two_total",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              5
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 6480,
+            "completions": 1420,
+            "wall_seconds": 0.37043453101068735,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.37044841700117104,
+          "cpu_seconds": 0.3704439199999996,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_count_capped_at_two",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              1
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "fragment": null,
+            "visited": 6480,
+            "completions": 1444,
+            "wall_seconds": 0.3541842279955745,
+            "tried_contexts": [
+              "decb72c3611a338c",
+              "cda43abf11ed8d3b",
+              "1624b462af912802",
+              "a2de4b05be8798d6"
+            ]
+          },
+          "role": "transfer",
+          "wall_seconds": 0.35419637002632953,
+          "cpu_seconds": 0.35420054899999975,
+          "held_ir_accepted": false
+        }
+      ],
+      "accepted": 0
+    },
+    {
+      "method": "classical_new_library",
+      "rows": [
+        {
+          "id": "positive_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              13
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              17
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              11
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              6
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              9
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "positive_total"
+            ],
+            "visited": 175,
+            "wall_seconds": 0.003010700980667025,
+            "budget_exhausted": false
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.0030196779989637434,
+          "cpu_seconds": 0.003020785000000359,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "negative_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              3
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "zero",
+              "value",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "above_two_count",
+              "negative_count"
+            ],
+            "visited": 54,
+            "wall_seconds": 0.0009346370061393827,
+            "budget_exhausted": false
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.0009402479918207973,
+          "cpu_seconds": 0.0009403439999999819,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "even_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              8
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              0
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "eq",
+              "zero",
+              "rem",
+              "value",
+              "two",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "1624b462af912802",
+            "donors": [
+              "positive_total"
+            ],
+            "visited": 24683,
+            "wall_seconds": 0.5041807149827946,
+            "budget_exhausted": false
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.5041904529789463,
+          "cpu_seconds": 0.5041946580000012,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "positive_square_total",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              45
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              129
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              47
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              14
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              29
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "mul",
+              "value",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "decb72c3611a338c",
+            "donors": [
+              "positive_square_total"
+            ],
+            "visited": 173,
+            "wall_seconds": 0.0025610080047044903,
+            "budget_exhausted": false
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.0025671299954410642,
+          "cpu_seconds": 0.0025675849999995393,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "odd_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              4
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              2
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              1
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "ne",
+              "zero",
+              "rem",
+              "value",
+              "two",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "above_two_count",
+              "negative_count"
+            ],
+            "visited": 30170,
+            "wall_seconds": 0.5661448549944907,
+            "budget_exhausted": false
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.5661559159925673,
+          "cpu_seconds": 0.5659333639999993,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "above_two_count",
+          "observed": [
+            [
+              [
+                -2,
+                2,
+                0,
+                3,
+                -3,
+                4,
+                4,
+                -9
+              ],
+              3
+            ],
+            [
+              [
+                10,
+                -1,
+                0,
+                -4,
+                5,
+                2,
+                -8
+              ],
+              2
+            ],
+            [
+              [
+                -7,
+                6,
+                0,
+                1,
+                1,
+                -2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              1
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "two",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "above_two_count",
+              "negative_count"
+            ],
+            "visited": 182,
+            "wall_seconds": 0.002925642009358853,
+            "budget_exhausted": false
+          },
+          "role": "old_retention",
+          "wall_seconds": 0.0029344179783947766,
+          "cpu_seconds": 0.0029350739999998154,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "maximum_floor_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "acc",
+              "set",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "a2de4b05be8798d6",
+            "donors": [
+              "minimum_ceiling_zero"
+            ],
+            "visited": 172,
+            "wall_seconds": 0.0024866400053724647,
+            "budget_exhausted": false
+          },
+          "role": "transfer",
+          "wall_seconds": 0.002493151987437159,
+          "cpu_seconds": 0.002493415999998305,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "minimum_ceiling_zero",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              -2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              -7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              -2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              0
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              -3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              0
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "acc",
+              "value",
+              "set",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "a2de4b05be8798d6",
+            "donors": [
+              "minimum_ceiling_zero"
+            ],
+            "visited": 28,
+            "wall_seconds": 0.00043282899423502386,
+            "budget_exhausted": false
+          },
+          "role": "new_donor_retention",
+          "wall_seconds": 0.0004372080147732049,
+          "cpu_seconds": 0.0004372799999998733,
+          "held_ir_accepted": true
+        },
+        {
+          "id": "largest_magnitude",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              7
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              3
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              3
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              4
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "visited": 58695,
+            "wall_seconds": 1.0000050410162657,
+            "budget_exhausted": true
+          },
+          "role": "transfer",
+          "wall_seconds": 1.0000164240191225,
+          "cpu_seconds": 1.0000032389999998,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_values_capped_at_two_total",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              5
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              2
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              5
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              6
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "visited": 59752,
+            "wall_seconds": 1.0000191619910765,
+            "budget_exhausted": true
+          },
+          "role": "transfer",
+          "wall_seconds": 1.000030061986763,
+          "cpu_seconds": 1.0000292480000006,
+          "held_ir_accepted": false
+        },
+        {
+          "id": "positive_count_capped_at_two",
+          "observed": [
+            [
+              [
+                -2,
+                5,
+                0,
+                3,
+                -1,
+                1
+              ],
+              2
+            ],
+            [
+              [
+                0,
+                -7,
+                -3,
+                0
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                -1,
+                -2,
+                0
+              ],
+              1
+            ],
+            [
+              [
+                1,
+                2,
+                3
+              ],
+              2
+            ],
+            [
+              [
+                -3,
+                -2,
+                -1
+              ],
+              0
+            ],
+            [
+              [
+                2,
+                3,
+                4
+              ],
+              2
+            ]
+          ],
+          "chosen": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "add",
+              "acc",
+              "acc",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "fragment": "cda43abf11ed8d3b",
+            "donors": [
+              "above_two_count",
+              "negative_count"
+            ],
+            "visited": 5882,
+            "wall_seconds": 0.09643226099433377,
+            "budget_exhausted": false
+          },
+          "role": "transfer",
+          "wall_seconds": 0.09644273098092526,
+          "cpu_seconds": 0.09644464900000038,
+          "held_ir_accepted": false
+        }
+      ],
+      "accepted": 8
+    }
+  ]
+}
