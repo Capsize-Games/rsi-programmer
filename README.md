@@ -2,23 +2,28 @@
 
 The primary development track is neural program synthesis: a learner that
 constructs executable programs and improves from independently checked
-training experience. Python and CURLEE are planned output targets. The
-[programmer roadmap](tracks/programmer/README.md) defines the next milestone;
-its construction controller and language backends are not implemented yet.
+training experience. The
+[programmer roadmap](tracks/programmer/README.md) defines the milestones.
+The first useful program experiment learns a composition that filters,
+deduplicates and sorts integer readings. It emits a standalone Python
+JSON-file utility and a bounded CURLEE processing routine. See the
+[execution results and limits](tracks/programmer/language-results.md).
+The learner selects supplied operations; their implementations and file
+handling come from the emitter. General programming remains unproven.
 
 The work is separated into three [research tracks](tracks/README.md):
 
 | Track | Current focus | Checks |
 | --- | --- | --- |
-| [Programmer](tracks/programmer/README.md) | Primary; ANN-first construction experiment with an SNN control planned | `just test-programmer` |
+| [Programmer](tracks/programmer/README.md) | Primary; generated Python and CURLEE code that executes correctly | `just test-programmer` |
 | [Sensing](tracks/sensing/README.md) | Preserved timed prediction and adaptation experiments | `just test-sensing` |
 | [Sound Companion](tracks/sound-companion/README.md) | Preserved native supervised sound-learning app | `just test-companion` |
 
 `just tracks` lists the declared scopes. Track separation preserves existing
 runtime import paths, fixtures, evidence and aggregate test commands.
 
-This project studies a spiking neural network (SNN) as a ranking policy
-for arithmetic program synthesis. The SNN ranks candidate operations;
+Earlier experiments study a spiking neural network (SNN) as a ranking policy
+for arithmetic program synthesis. Those policies rank candidate operations;
 classical search assembles selected steps into typed program graphs and
 computes their outputs on task rows. A separate interpreter checks
 accepted programs against the frozen training and held-out expectations.

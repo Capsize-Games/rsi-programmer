@@ -1,0 +1,227 @@
+fn process(input: &[Int; 256], count: Int,
+           output: &mut [Int; 256]) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    if (count < 0 || count > 256) { return -1; }
+    let s0: [Int; 256] = [0; 256];
+    let len0: Int = 0;
+    for (i0 in 0..count)
+        [ invariant count >= 0 && count <= 256;
+          invariant len0 >= 0 && len0 <= i0; ] {
+        if (i0 < 0 || i0 >= 256 || len0 < 0 || len0 >= 256) { return -1; }
+        let value: Int = input[i0];
+        if (value > 0) {
+            s0[len0] = value;
+            len0 = len0 + 1;
+        }
+    }
+    let s1: [Int; 256] = [0; 256];
+    let len1: Int = 0;
+    for (i1 in 0..len0)
+        [ invariant len0 >= 0 && len0 <= 256;
+          invariant len1 >= 0 && len1 <= i1; ] {
+        if (i1 < 0 || i1 >= 256 || len1 < 0 || len1 >= 256) { return -1; }
+        let value: Int = s0[i1];
+        let duplicate: Bool = false;
+        for (j1 in 0..len1)
+            [ invariant len1 >= 0 && len1 <= i1;
+              invariant i1 >= 0 && i1 < len0;
+              invariant len0 <= 256; ] {
+            if (j1 < 0 || j1 >= 256) { return -1; }
+            if (s1[j1] == value) {
+                duplicate = true;
+            }
+        }
+        if (!duplicate) {
+            s1[len1] = value;
+            len1 = len1 + 1;
+        }
+    }
+    let s2: [Int; 256] = [0; 256];
+    let len2: Int = 0;
+    for (i2 in 0..len1)
+        [ invariant len1 >= 0 && len1 <= 256;
+          invariant len2 >= 0 && len2 <= i2; ] {
+        if (i2 < 0 || i2 >= 256 || len2 < 0 || len2 >= 256) { return -1; }
+        let value: Int = s1[i2];
+        s2[len2] = value;
+        len2 = len2 + 1;
+    }
+    if (len2 > 1) {
+    for (a2 in 0..len2)
+        [ invariant len2 > 1 && len2 <= 256; ] {
+        for (b2 in 0..(len2 - 1))
+            [ invariant len2 > 1 && len2 <= 256; ] {
+            if (b2 < 0 || b2 >= 255) { return -1; }
+            let first: Int = s2[b2];
+            let second: Int = s2[b2 + 1];
+            if (first > second) {
+                s2[b2] = second;
+                s2[b2 + 1] = first;
+            }
+        }
+    }
+    }
+    for (i in 0..len2)
+        [ invariant len2 >= 0 && len2 <= 256; ] {
+        if (i < 0 || i >= 256) { return -1; }
+        output[i] = s2[i];
+    }
+    return len2;
+}
+
+fn correct(input: &[Int; 256], count: Int,
+           expected: &[Int; 256], expected_count: Int) -> Bool
+    [ requires count >= 0 && count <= 256;
+      requires expected_count >= 0 && expected_count <= 256; ]
+{
+    let output: [Int; 256] = [0; 256];
+    let size: Int = process(&input, count, &mut output);
+    if (size != expected_count) { return false; }
+    for (i in 0..expected_count)
+        [ invariant expected_count >= 0 && expected_count <= 256; ] {
+        if (i < 0 || i >= 256) { return false; }
+        if (output[i] != expected[i]) { return false; }
+    }
+    return true;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    let expected: [Int; 256] = [0; 256];
+    input[0] = 24;
+    input[1] = -48;
+    input[2] = -76;
+    input[3] = 11;
+    input[4] = 8;
+    input[5] = 76;
+    input[6] = -9;
+    input[7] = -64;
+    input[8] = 99;
+    input[9] = -7;
+    input[10] = -22;
+    input[11] = -69;
+    input[12] = 90;
+    input[13] = -71;
+    input[14] = 80;
+    input[15] = -87;
+    input[16] = 95;
+    input[17] = -88;
+    input[18] = 12;
+    input[19] = -32;
+    input[20] = 75;
+    input[21] = -38;
+    input[22] = 51;
+    input[23] = 39;
+    input[24] = -61;
+    input[25] = -66;
+    input[26] = -49;
+    input[27] = 66;
+    input[28] = 99;
+    input[29] = -58;
+    input[30] = 1;
+    input[31] = -79;
+    input[32] = -39;
+    input[33] = -59;
+    input[34] = -35;
+    input[35] = 11;
+    input[36] = -9;
+    input[37] = 9;
+    input[38] = -82;
+    input[39] = 90;
+    input[40] = -58;
+    input[41] = 34;
+    input[42] = 95;
+    input[43] = -84;
+    input[44] = 51;
+    input[45] = -97;
+    input[46] = 15;
+    input[47] = -73;
+    input[48] = -65;
+    input[49] = 0;
+    input[50] = 59;
+    input[51] = -32;
+    input[52] = 57;
+    input[53] = 71;
+    input[54] = 90;
+    input[55] = -75;
+    input[56] = -67;
+    input[57] = -73;
+    input[58] = -17;
+    input[59] = -9;
+    input[60] = -74;
+    input[61] = 29;
+    input[62] = -4;
+    input[63] = 86;
+    input[64] = 75;
+    input[65] = -5;
+    input[66] = 61;
+    input[67] = 27;
+    input[68] = -67;
+    input[69] = 84;
+    input[70] = -53;
+    input[71] = -34;
+    input[72] = -33;
+    input[73] = 98;
+    input[74] = -35;
+    input[75] = -34;
+    input[76] = 42;
+    input[77] = 25;
+    input[78] = -82;
+    input[79] = 21;
+    input[80] = -23;
+    input[81] = 8;
+    input[82] = 81;
+    input[83] = -56;
+    input[84] = -43;
+    input[85] = 30;
+    input[86] = -16;
+    input[87] = 19;
+    input[88] = -34;
+    input[89] = 23;
+    input[90] = 40;
+    input[91] = 59;
+    input[92] = -67;
+    input[93] = 73;
+    input[94] = -51;
+    input[95] = -22;
+    input[96] = -45;
+    input[97] = 19;
+    input[98] = -50;
+    expected[0] = 1;
+    expected[1] = 8;
+    expected[2] = 9;
+    expected[3] = 11;
+    expected[4] = 12;
+    expected[5] = 15;
+    expected[6] = 19;
+    expected[7] = 21;
+    expected[8] = 23;
+    expected[9] = 24;
+    expected[10] = 25;
+    expected[11] = 27;
+    expected[12] = 29;
+    expected[13] = 30;
+    expected[14] = 34;
+    expected[15] = 39;
+    expected[16] = 40;
+    expected[17] = 42;
+    expected[18] = 51;
+    expected[19] = 57;
+    expected[20] = 59;
+    expected[21] = 61;
+    expected[22] = 66;
+    expected[23] = 71;
+    expected[24] = 73;
+    expected[25] = 75;
+    expected[26] = 76;
+    expected[27] = 80;
+    expected[28] = 81;
+    expected[29] = 84;
+    expected[30] = 86;
+    expected[31] = 90;
+    expected[32] = 95;
+    expected[33] = 98;
+    expected[34] = 99;
+    if (!correct(&input, 99, &expected, 35)) { return 1; }
+    return 0;
+}

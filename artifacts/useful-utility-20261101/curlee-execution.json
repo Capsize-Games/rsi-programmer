@@ -1,0 +1,14 @@
+{
+  "check_exit": 1,
+  "first_diagnostics": [
+    "artifacts/useful-utility-20261101/curlee/check_clean_readings.curlee:1:27: error: unknown type 'Vec'",
+    "  |",
+    "  | fn process(input: Vec) -> Vec {",
+    "  |                           ^^^",
+    "artifacts/useful-utility-20261101/curlee/check_clean_readings.curlee:44:19: error: unknown type 'Vec'",
+    "  |",
+    "  | fn correct(input: Vec, expected: Vec) -> Bool {",
+    "  |                   ^^^"
+  ],
+  "full_failure": "curlee-vec-failed.json.gz"
+}

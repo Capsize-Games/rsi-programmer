@@ -1,0 +1,70 @@
+{
+  "program": [
+    "positive",
+    "unique",
+    "ascending"
+  ],
+  "examples": [
+    [
+      [
+        4,
+        0,
+        -2,
+        4,
+        7,
+        3,
+        -9,
+        3
+      ],
+      [
+        3,
+        4,
+        7
+      ]
+    ],
+    [
+      [
+        0,
+        -1,
+        9,
+        2,
+        9,
+        -5,
+        6,
+        2
+      ],
+      [
+        2,
+        6,
+        9
+      ]
+    ],
+    [
+      [
+        -3,
+        8,
+        5,
+        8,
+        0,
+        1,
+        -2,
+        5
+      ],
+      [
+        1,
+        5,
+        8
+      ]
+    ]
+  ],
+  "fit": {
+    "teacher_programs": 649,
+    "teacher_steps": 14850,
+    "epochs": 40,
+    "loss": 0.03566049784421921,
+    "target_function_excluded_on_probe_suite": true
+  },
+  "held_passed": 100,
+  "held_total": 100,
+  "scope": "Library-composition synthesis from examples. Complete target behavior excluded from teacher catalog on the probe suite."
+}

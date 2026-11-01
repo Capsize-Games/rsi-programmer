@@ -1,0 +1,24 @@
+{
+  "scope": "Real Python source execution in isolated namespaces with read-only system/source mounts, no host home/network namespace, cleared environment and bounded resources. Arithmetic functions only.",
+  "attempted_tasks": 135,
+  "generated_programs": 78,
+  "missing_programs": 57,
+  "positive": {
+    "programs": 78,
+    "passed_programs": 78,
+    "observed_cases": 2808,
+    "held_cases": 1872,
+    "failed_cases": 0,
+    "failures": []
+  },
+  "wrong_result_negative_control": {
+    "exit_code": 1,
+    "failed_cases": 53
+  },
+  "limits": {
+    "cpu_seconds": 5,
+    "address_space_bytes": 268435456,
+    "wall_timeout_seconds": 10,
+    "core_dump_bytes": 0
+  }
+}

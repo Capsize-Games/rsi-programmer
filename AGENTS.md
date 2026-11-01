@@ -33,9 +33,12 @@ scope is in `tracks/README.md`; the staged plan is in
 
 - Programmer owns typed program construction, search, graph-execution
   learning, independent checking and bounded learner-improvement research.
-  Use ANN as the primary proposed construction baseline and retain an SNN
-  comparison; a spiking architecture is not a prerequisite for success.
-  The ANN construction controller and Python/CURLEE backends remain planned.
+  Use the current ANN controller for useful-program trials. Retain completed
+  SNN comparisons as evidence; a spiking architecture is not a prerequisite
+  for success and another model-family comparison is not the current task.
+  A restricted arithmetic construction controller is implemented; its early
+  development results do not establish a cost advantage. Restricted Python
+  and CURLEE source backends and their first execution checks are implemented.
 - Sensing preserves timed sensor/audio prediction and adaptation. Sound
   Companion preserves the native supervised sound-learning application.
   Keep their outcomes separate from programmer capability claims.
@@ -49,6 +52,32 @@ scope is in `tracks/README.md`; the staged plan is in
 - Python and CURLEE execution require independent backend qualification.
   The arithmetic graph sandbox does not establish arbitrary-Python
   isolation, and a CURLEE proof covers only its declared modeled property.
+
+Owner priority (2026-11-01): establish results early. Use bounded development
+trials and report actual solve rates and costs before expanding infrastructure.
+Retain failed and negative trials. Do not spend
+hours on setup while deferring the first learning measurement. The final task
+set stays sealed while development choices are made.
+
+Owner correction (2026-11-01): the primary outcome is actual programming in
+Python and CURLEE. Do not substitute ANN/SNN comparisons or arithmetic-IR
+benchmarks for generated target-language code that checks and executes.
+Model comparisons and speed against enumeration are secondary diagnostics,
+not prerequisites for target-language work. Preserve their results. Report
+the supported language constructs explicitly; arithmetic-only source does
+not establish branches, loops, arrays, libraries or general program repair.
+
+Further owner clarification (2026-11-01): demonstrate real programs that
+perform useful tasks. Arithmetic wrappers do not meet that requirement.
+The first utility experiment learns a composition from 13 integer-list
+operations and emits a standalone Python JSON-file CLI plus a bounded CURLEE
+processing routine. The emitter supplies primitive implementations, loop
+contracts and CLI plumbing. Describe this as library-composition synthesis;
+do not claim the learner invented those implementations or can write
+arbitrary source. Prioritize additional useful task results over model-family
+comparisons or extended setup. Preserve failures and independent execution
+checks. CURLEE source remains in its local-only repository; use its existing
+resource guard for compiler execution and never modify or publish it here.
 
 ## Audit checkpoints
 

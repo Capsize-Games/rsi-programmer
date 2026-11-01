@@ -1,0 +1,190 @@
+fn synth_1b6ee5eeb2225693(x: Int, y: Int) -> Int {
+    let n0: Int = x * x;
+    let n1: Int = x * n0;
+    let n2: Int = x + n1;
+    return n2;
+}
+
+fn main() -> Int {
+    if (synth_1b6ee5eeb2225693(-3, -3) != -30) {
+        return 1;
+    }
+    if (synth_1b6ee5eeb2225693(-3, -2) != -30) {
+        return 2;
+    }
+    if (synth_1b6ee5eeb2225693(-3, -1) != -30) {
+        return 3;
+    }
+    if (synth_1b6ee5eeb2225693(-3, 0) != -30) {
+        return 4;
+    }
+    if (synth_1b6ee5eeb2225693(-3, 1) != -30) {
+        return 5;
+    }
+    if (synth_1b6ee5eeb2225693(-3, 2) != -30) {
+        return 6;
+    }
+    if (synth_1b6ee5eeb2225693(-2, -3) != -10) {
+        return 7;
+    }
+    if (synth_1b6ee5eeb2225693(-2, -2) != -10) {
+        return 8;
+    }
+    if (synth_1b6ee5eeb2225693(-2, -1) != -10) {
+        return 9;
+    }
+    if (synth_1b6ee5eeb2225693(-2, 0) != -10) {
+        return 10;
+    }
+    if (synth_1b6ee5eeb2225693(-2, 1) != -10) {
+        return 11;
+    }
+    if (synth_1b6ee5eeb2225693(-2, 2) != -10) {
+        return 12;
+    }
+    if (synth_1b6ee5eeb2225693(-1, -3) != -2) {
+        return 13;
+    }
+    if (synth_1b6ee5eeb2225693(-1, -2) != -2) {
+        return 14;
+    }
+    if (synth_1b6ee5eeb2225693(-1, -1) != -2) {
+        return 15;
+    }
+    if (synth_1b6ee5eeb2225693(-1, 0) != -2) {
+        return 16;
+    }
+    if (synth_1b6ee5eeb2225693(-1, 1) != -2) {
+        return 17;
+    }
+    if (synth_1b6ee5eeb2225693(-1, 2) != -2) {
+        return 18;
+    }
+    if (synth_1b6ee5eeb2225693(0, -3) != 0) {
+        return 19;
+    }
+    if (synth_1b6ee5eeb2225693(0, -2) != 0) {
+        return 20;
+    }
+    if (synth_1b6ee5eeb2225693(0, -1) != 0) {
+        return 21;
+    }
+    if (synth_1b6ee5eeb2225693(0, 0) != 0) {
+        return 22;
+    }
+    if (synth_1b6ee5eeb2225693(0, 1) != 0) {
+        return 23;
+    }
+    if (synth_1b6ee5eeb2225693(0, 2) != 0) {
+        return 24;
+    }
+    if (synth_1b6ee5eeb2225693(1, -3) != 2) {
+        return 25;
+    }
+    if (synth_1b6ee5eeb2225693(1, -2) != 2) {
+        return 26;
+    }
+    if (synth_1b6ee5eeb2225693(1, -1) != 2) {
+        return 27;
+    }
+    if (synth_1b6ee5eeb2225693(1, 0) != 2) {
+        return 28;
+    }
+    if (synth_1b6ee5eeb2225693(1, 1) != 2) {
+        return 29;
+    }
+    if (synth_1b6ee5eeb2225693(1, 2) != 2) {
+        return 30;
+    }
+    if (synth_1b6ee5eeb2225693(2, -3) != 10) {
+        return 31;
+    }
+    if (synth_1b6ee5eeb2225693(2, -2) != 10) {
+        return 32;
+    }
+    if (synth_1b6ee5eeb2225693(2, -1) != 10) {
+        return 33;
+    }
+    if (synth_1b6ee5eeb2225693(2, 0) != 10) {
+        return 34;
+    }
+    if (synth_1b6ee5eeb2225693(2, 1) != 10) {
+        return 35;
+    }
+    if (synth_1b6ee5eeb2225693(2, 2) != 10) {
+        return 36;
+    }
+    if (synth_1b6ee5eeb2225693(5, -2) != 130) {
+        return 37;
+    }
+    if (synth_1b6ee5eeb2225693(-1, 3) != -2) {
+        return 38;
+    }
+    if (synth_1b6ee5eeb2225693(-3, -4) != -30) {
+        return 39;
+    }
+    if (synth_1b6ee5eeb2225693(-4, 2) != -68) {
+        return 40;
+    }
+    if (synth_1b6ee5eeb2225693(-6, -3) != -222) {
+        return 41;
+    }
+    if (synth_1b6ee5eeb2225693(-4, 4) != -68) {
+        return 42;
+    }
+    if (synth_1b6ee5eeb2225693(-6, -4) != -222) {
+        return 43;
+    }
+    if (synth_1b6ee5eeb2225693(3, 3) != 30) {
+        return 44;
+    }
+    if (synth_1b6ee5eeb2225693(3, 4) != 30) {
+        return 45;
+    }
+    if (synth_1b6ee5eeb2225693(-4, -5) != -68) {
+        return 46;
+    }
+    if (synth_1b6ee5eeb2225693(-5, 6) != -130) {
+        return 47;
+    }
+    if (synth_1b6ee5eeb2225693(-5, -6) != -130) {
+        return 48;
+    }
+    if (synth_1b6ee5eeb2225693(4, -5) != 68) {
+        return 49;
+    }
+    if (synth_1b6ee5eeb2225693(0, -5) != 0) {
+        return 50;
+    }
+    if (synth_1b6ee5eeb2225693(2, 5) != 10) {
+        return 51;
+    }
+    if (synth_1b6ee5eeb2225693(6, -6) != 222) {
+        return 52;
+    }
+    if (synth_1b6ee5eeb2225693(-1, 5) != -2) {
+        return 53;
+    }
+    if (synth_1b6ee5eeb2225693(6, -4) != 222) {
+        return 54;
+    }
+    if (synth_1b6ee5eeb2225693(-6, -5) != -222) {
+        return 55;
+    }
+    if (synth_1b6ee5eeb2225693(-1, -5) != -2) {
+        return 56;
+    }
+    if (synth_1b6ee5eeb2225693(3, -3) != 30) {
+        return 57;
+    }
+    if (synth_1b6ee5eeb2225693(4, -6) != 68) {
+        return 58;
+    }
+    if (synth_1b6ee5eeb2225693(-6, -1) != -222) {
+        return 59;
+    }
+    if (synth_1b6ee5eeb2225693(-1, 4) != -2) {
+        return 60;
+    }
+    return 0;
+}

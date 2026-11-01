@@ -2,19 +2,24 @@
 
 This is the primary development track as of 2026-11-01.
 
-The active goal begins with the [sequential construction pilot](
-construction-v1.md). Its frozen corpus and typed state/checker are implemented;
-the ANN controller and its independent final evaluation are in progress.
+The primary outcome is a learner that writes useful programs in Python and
+CURLEE. The first [utility result](language-results.md) composes supplied
+list operations from examples and emits executable target source. The
+Python output reads and writes JSON files; CURLEE has a bounded processing
+interface. General source generation and program repair remain open.
 
 The objective is a neural controller that constructs executable programs
 from a task specification, learns from training execution and feedback, and
 reuses prior solutions on new tasks. Independent execution and acceptance
-remain outside the learner. Python and CURLEE are planned output targets;
-the current implementation does not synthesize or execute general programs
-in either language.
+remain outside the learner. Comparison with SNNs or enumeration is a
+secondary diagnostic rather than a gate on useful language work.
 
 ## Existing foundation
 
+- `construction_*` and `target_source.py`: sequential arithmetic decisions,
+  training, target-language lowering and independently checked executions.
+- `utility_policy.py`, `utility_ops.py` and `utility_source.py`: learned
+  selection from 13 supplied list operations, plus target-code emission.
 - `probe.py` and `actions.py`: typed expression graphs, validation and exact
   interpretation of the supported arithmetic/Boolean language.
 - `policy.py`, `modules.py`, `author.py`, `lattice.py`, `lauthor.py` and the
@@ -33,7 +38,12 @@ passed. See the [complete shortlist result](
 ../../docs/benchmark-complete-shortlist.md) and [encoder-learning result](
 ../../docs/online-plastic-encoder-result.md).
 
-## Development sequence
+## Capability roadmap
+
+The immediate next check is several unseen useful tasks, with every attempt
+reported, then a task requiring a new control-flow choice from the learner.
+The stages below describe the broader capability progression. They do not
+require repeating model-family comparisons before useful-program trials.
 
 1. **Learn to construct programs.** Define a sequential typed action API:
    choose an operation, select operands from live references, extend the
@@ -46,8 +56,8 @@ passed. See the [complete shortlist result](
    with recorded generator bias, training traces and execution feedback.
    Separate training, tuning and final evaluation by program function and
    composition. Generate supervision from the task engine rather than an
-   LLM. Compare trained/untrained ANN, SNN, and classical controls under the
-   same information and end-to-end budgets.
+   LLM. Include an untrained control and record search effort. Retain prior
+   model-family and classical-search comparisons as separate diagnostics.
 3. **Add Python output.** Lower the common typed representation to a
    restricted Python AST and compare its execution with the independent
    interpreter. Initially use pure functions with bounded inputs. Expanding
@@ -70,25 +80,28 @@ passed. See the [complete shortlist result](
    evaluation on fresh tasks. Current configuration tuning, hand-written
    proposer rules, and descriptive autonomy fields are insufficient evidence.
 
-These are planned stages, not implemented capabilities. Stage 1 is the next
-implementation milestone. A deployed LLM teacher or pretrained coding model
+The restricted construction policy, arithmetic language backends and first
+list-composition utility are implemented. The utility emitter supplies loops,
+branches, arrays and their contracts; the learner chooses the operations.
+Learning arbitrary control flow and the later stages remain work.
+A deployed LLM teacher or pretrained coding model
 would change the research question and requires an explicit owner decision.
 
 ## Acceptance and stopping rules
 
 - A learned program must pass independent correctness checks. Structural
   validity, training loss and compiler success alone are insufficient.
-- The first controller must show better held-task solve rate at equal total
-  cost, or lower total cost at equal correct coverage, against classical
-  search. Freeze the required margin, uncertainty method and resource cap
-  before measuring the final tasks.
+- The primary acceptance is generated Python and CURLEE code executing
+  correctly on independently held behavior tests. Cost and model comparisons
+  remain separate diagnostics. The earlier frozen construction cost gate is
+  preserved for that experiment, rather than blocking language work.
 - Report fitting, supervision generation, search, neural scoring, checking,
   and actual memory/CPU separately. Charge training at a declared usage
   volume; an amortization scenario is not additional task evidence.
 - Freeze final evaluation before tuning. If it is reused for diagnosis,
   label the work retrospective and acquire new final tasks.
-- If the first bounded experiment fails its gate, retain it and diagnose or
-  stop that approach before adding capacity, languages or self-editing.
+- Preserve failed experiments and diagnose them before adding capacity or
+  self-editing. Target-language work follows the owner's corrected priority.
 
 Initial candidate workloads are small arithmetic/branch functions, bounded
 array transforms, range checks and bit-field operations. Their exact scope
@@ -103,8 +116,9 @@ Read-only inspection on 2026-11-01 used the local CURLEE checkout's
 `docs/Running-Programs.md`, plus the function-contract and bounded-loop
 examples. It documents functions, assignments, branches, loops, fixed-size
 arrays, contracts, structured diagnostics and a fuel-bounded VM. Those
-features make a restricted backend plausible; no backend or compiler
-qualification was performed for this track split.
+features support the restricted backend. Its later execution checks are
+recorded in [language-results.md](language-results.md); they do not qualify
+the compiler generally.
 
 The compiler is pre-alpha and its verification scope records limitations.
 A proof concerns its modeled contract, not arbitrary task intent, compiler

@@ -1,0 +1,68 @@
+fn process(input: &[Int; 256], count: Int,
+           output: &mut [Int; 256]) -> Int {
+    if (count < 0 || count > 256) { return -1; }
+    let s0: [Int; 256] = [0; 256];
+    let len0: Int = 0;
+    for (i0 in 0..count) {
+        let value: Int = input[i0];
+        if (value > 0) {
+            s0[len0] = value;
+            len0 = len0 + 1;
+        }
+    }
+    let s1: [Int; 256] = [0; 256];
+    let len1: Int = 0;
+    for (i1 in 0..len0) {
+        let value: Int = s0[i1];
+        let duplicate: Bool = false;
+        for (j1 in 0..len1) {
+            if (s1[j1] == value) {
+                duplicate = true;
+            }
+        }
+        if (!duplicate) {
+            s1[len1] = value;
+            len1 = len1 + 1;
+        }
+    }
+    let s2: [Int; 256] = [0; 256];
+    let len2: Int = 0;
+    for (i2 in 0..len1) {
+        let value: Int = s1[i2];
+        s2[len2] = value;
+        len2 = len2 + 1;
+    }
+    if (len2 > 1) {
+    for (a2 in 0..len2) {
+        for (b2 in 0..(len2 - 1)) {
+            let first: Int = s2[b2];
+            let second: Int = s2[b2 + 1];
+            if (first > second) {
+                s2[b2] = second;
+                s2[b2 + 1] = first;
+            }
+        }
+    }
+    }
+    for (i in 0..len2) {
+        output[i] = s2[i];
+    }
+    return len2;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    let output: [Int; 256] = [0; 256];
+    input[0] = 7;
+    input[1] = -2;
+    input[2] = 7;
+    input[3] = 0;
+    input[4] = 4;
+    input[5] = 1;
+    let count: Int = process(&input, 6, &mut output);
+    if (count != 3) { return 1; }
+    if (output[0] != 1 || output[1] != 4 || output[2] != 7) { return 2; }
+    let empty: Int = process(&input, 0, &mut output);
+    if (empty != 0) { return 3; }
+    return 0;
+}
