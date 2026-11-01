@@ -53,9 +53,11 @@ passed. See the [complete shortlist result](
 
 ## Capability roadmap
 
-The immediate next check is bounded query feedback on the five failed
-stateful tasks, separating ambiguous examples from construction failures.
-Retain all failed attempts and the qualified earlier model.
+Bounded query feedback also produced no programs for the five stateful
+tasks. The next change should target construction and transfer of
+state-dependent updates. Retain all failed attempts and the qualified
+earlier model; broader typed holes and loop-state features remain proposed
+experiments.
 The stages below describe the broader capability progression. They do not
 require repeating model-family comparisons before useful-program trials.
 

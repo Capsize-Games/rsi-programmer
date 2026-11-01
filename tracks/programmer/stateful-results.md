@@ -102,6 +102,27 @@ These single trials establish neither a statistical learning curve nor a
 cost advantage. The earlier matched classical search control remains much
 faster on its two transfer tasks.
 
+## Query feedback without retraining
+
+A subsequent bounded diagnostic reused both fingerprint-checked models.
+Each task could receive three added examples from the existing query pool.
+All 73 distinct held inputs from the preceding two trials were removed
+from that pool before feedback, leaving 37 visible query inputs. Neither
+model changed its weights. All choices ended before generating 40 new
+random held arrays, also disjoint from observed, query and prior held rows.
+
+Both models ended with **0/5 programs**. Feedback rejected the misleading
+candidates but did not produce replacements within the declared search
+limits. The reports retain every attempt and counterexample for the
+[qualified model](
+../../artifacts/stateful-queries-v1-20261101/qualified/report.json)
+and [broader-curriculum model](
+../../artifacts/stateful-queries-v1-20261101/broader/report.json).
+The [protocol](
+../../artifacts/stateful-queries-v1-20261101/protocol.json) records the exact
+visible pool and source hash. No program survived construction, so there
+were no new Python or CURLEE program executions for this diagnostic.
+
 ## Gaps exposed
 
 The maximum and capped-sum tasks have identical first three
@@ -111,9 +132,16 @@ feedback are required to distinguish them. This ambiguity does not explain
 the other three failures, and adding more teacher functions did not produce
 correct stateful programs.
 
-The next diagnostic should separate specification ambiguity from program
-construction: apply the existing bounded query protocol to these tasks,
-then inspect state-dependent token choices using only observed executions.
+The query diagnostic separates specification ambiguity from the remaining
+construction failure: additional visible observations still yielded no
+programs. The next change should target construction and transfer of
+state-dependent updates. The current fragment library varies conditions
+while retaining a donor's update; its three contexts cannot directly
+replace the accumulator as the maximum/minimum tasks require. The capped
+count may still fit the counting context with a suitable arithmetic
+condition, so its failed search is not a grammar impossibility result.
+Broader typed holes or loop-state execution features are candidate
+experiments, not established fixes.
 Another model-family comparison or a larger undirected curriculum is not
 supported by this result. Strings, records, multiple mutable variables,
 general file processing, arbitrary libraries and source repair remain open.
@@ -125,6 +153,9 @@ functions, supplied grammar controls, eleven-function exclusion, statement
 construction, query repair, fragment provenance, held acceptance and track
 ownership. The earlier full programmer regression passed 520 tests at
 `88ca7d2`; it predates these additions and is not a full pass for this code.
+Exact commands, logs and exclusions are retained in the
+[validation receipt](
+../../artifacts/stateful-validation-20261101/receipt.json).
 
 Run the trials sequentially with fresh output directories:
 
@@ -136,6 +167,10 @@ flock /tmp/rsi-programmer-builder.lock \
 flock /tmp/rsi-programmer-builder.lock \
   env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python \
   -m scripts.measure_stateful_curriculum --output /tmp/stateful-fit-new
+
+flock /tmp/rsi-programmer-builder.lock \
+  env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python \
+  -m scripts.measure_stateful_queries --output /tmp/stateful-queries-new
 
 python3 /home/joe/Projects/curlee/scripts/run_limited.py \
   /usr/bin/python3 -m scripts.check_statement_curlee \

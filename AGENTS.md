@@ -113,6 +113,10 @@ See `tracks/programmer/stateful-results.md`. Preserve the failures. The
 maximum and capped-sum tasks share identical initial examples; separate
 that ambiguity from construction failure using bounded visible queries.
 Keep held rows outside feedback and leave the sealed final set untouched.
+The subsequent three-query trial produced no programs for either model.
+Its 37-input query pool excluded all 73 prior held inputs. Construction and
+transfer of state-dependent updates remain the next gap; broader typed
+holes and loop-state features are proposals, not established fixes.
 
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful

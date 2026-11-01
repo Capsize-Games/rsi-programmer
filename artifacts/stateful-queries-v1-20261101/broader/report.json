@@ -1,0 +1,1050 @@
+{
+  "scope": "Development query trial, no refit or held retry.",
+  "model": "broader",
+  "trained_hash": "50c8036716edc146373cb897b8ddf833279945028fcfeea1ea472ef48cf2e54d",
+  "tasks": 5,
+  "held_per_task": 40,
+  "rows": [
+    {
+      "id": "maximum_floor_zero",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 3156,
+        "completions": 1353,
+        "wall_seconds": 0.1823080519970972,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          3
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          4
+        ]
+      ],
+      "query_history": {
+        "chosen": {
+          "tokens": null,
+          "visited": 3275,
+          "completions": 46,
+          "wall_seconds": 0.16583867798908614
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": null,
+              "visited": 3319,
+              "completions": 42,
+              "wall_seconds": 0.14172222599154338
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                1,
+                2,
+                3
+              ],
+              "expected": 3,
+              "actual": null
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": null,
+              "visited": 3302,
+              "completions": 44,
+              "wall_seconds": 0.14032260098611005
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                -3,
+                -2,
+                -1
+              ],
+              "expected": 0,
+              "actual": null
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": null,
+              "visited": 3306,
+              "completions": 41,
+              "wall_seconds": 0.15988300301251002
+            },
+            "observed_count": 5,
+            "counterexample": {
+              "input": [
+                2,
+                3,
+                4
+              ],
+              "expected": 4,
+              "actual": null
+            }
+          },
+          {
+            "round": 3,
+            "attempt": {
+              "tokens": null,
+              "visited": 3275,
+              "completions": 46,
+              "wall_seconds": 0.16583867798908614
+            },
+            "observed_count": 6,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            5
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            2
+          ],
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            3
+          ],
+          [
+            [
+              -3,
+              -2,
+              -1
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              3,
+              4
+            ],
+            4
+          ]
+        ],
+        "added_examples": 3,
+        "oracle_calls": 3,
+        "candidate_executions": 0
+      },
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "minimum_ceiling_zero",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 2676,
+        "completions": 1104,
+        "wall_seconds": 0.14743137900950387,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          -2
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          -7
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          -2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          0
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          -3
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          0
+        ]
+      ],
+      "query_history": {
+        "chosen": {
+          "tokens": null,
+          "visited": 3257,
+          "completions": 49,
+          "wall_seconds": 0.17566401400836185
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": null,
+              "visited": 3283,
+              "completions": 46,
+              "wall_seconds": 0.1433365349948872
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                1,
+                2,
+                3
+              ],
+              "expected": 0,
+              "actual": null
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": null,
+              "visited": 3295,
+              "completions": 43,
+              "wall_seconds": 0.14781625900650397
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                -3,
+                -2,
+                -1
+              ],
+              "expected": -3,
+              "actual": null
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": null,
+              "visited": 3281,
+              "completions": 43,
+              "wall_seconds": 0.1514776200056076
+            },
+            "observed_count": 5,
+            "counterexample": {
+              "input": [
+                2,
+                3,
+                4
+              ],
+              "expected": 0,
+              "actual": null
+            }
+          },
+          {
+            "round": 3,
+            "attempt": {
+              "tokens": null,
+              "visited": 3257,
+              "completions": 49,
+              "wall_seconds": 0.17566401400836185
+            },
+            "observed_count": 6,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            -2
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            -7
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            -2
+          ],
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            0
+          ],
+          [
+            [
+              -3,
+              -2,
+              -1
+            ],
+            -3
+          ],
+          [
+            [
+              2,
+              3,
+              4
+            ],
+            0
+          ]
+        ],
+        "added_examples": 3,
+        "oracle_calls": 3,
+        "candidate_executions": 0
+      },
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "largest_magnitude",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 2664,
+        "completions": 1137,
+        "wall_seconds": 0.1452986930089537,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          7
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          3
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          3
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          4
+        ]
+      ],
+      "query_history": {
+        "chosen": {
+          "tokens": null,
+          "visited": 3257,
+          "completions": 57,
+          "wall_seconds": 0.16104804299538955
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": null,
+              "visited": 3286,
+              "completions": 53,
+              "wall_seconds": 0.12538493899046443
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                1,
+                2,
+                3
+              ],
+              "expected": 3,
+              "actual": null
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": null,
+              "visited": 3259,
+              "completions": 57,
+              "wall_seconds": 0.13100837302044965
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                -3,
+                -2,
+                -1
+              ],
+              "expected": 3,
+              "actual": null
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": null,
+              "visited": 3262,
+              "completions": 54,
+              "wall_seconds": 0.15563513099914417
+            },
+            "observed_count": 5,
+            "counterexample": {
+              "input": [
+                2,
+                3,
+                4
+              ],
+              "expected": 4,
+              "actual": null
+            }
+          },
+          {
+            "round": 3,
+            "attempt": {
+              "tokens": null,
+              "visited": 3257,
+              "completions": 57,
+              "wall_seconds": 0.16104804299538955
+            },
+            "observed_count": 6,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            5
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            7
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            2
+          ],
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            3
+          ],
+          [
+            [
+              -3,
+              -2,
+              -1
+            ],
+            3
+          ],
+          [
+            [
+              2,
+              3,
+              4
+            ],
+            4
+          ]
+        ],
+        "added_examples": 3,
+        "oracle_calls": 3,
+        "candidate_executions": 0
+      },
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "positive_values_capped_at_two_total",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 3132,
+        "completions": 1353,
+        "wall_seconds": 0.16514289498445578,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          5
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          6
+        ]
+      ],
+      "query_history": {
+        "chosen": {
+          "tokens": null,
+          "visited": 3300,
+          "completions": 43,
+          "wall_seconds": 0.16275631400640123
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": null,
+              "visited": 3319,
+              "completions": 42,
+              "wall_seconds": 0.10717229498550296
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                1,
+                2,
+                3
+              ],
+              "expected": 5,
+              "actual": null
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": null,
+              "visited": 3320,
+              "completions": 47,
+              "wall_seconds": 0.1292811350140255
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                -3,
+                -2,
+                -1
+              ],
+              "expected": 0,
+              "actual": null
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": null,
+              "visited": 3298,
+              "completions": 46,
+              "wall_seconds": 0.15311199499410577
+            },
+            "observed_count": 5,
+            "counterexample": {
+              "input": [
+                2,
+                3,
+                4
+              ],
+              "expected": 6,
+              "actual": null
+            }
+          },
+          {
+            "round": 3,
+            "attempt": {
+              "tokens": null,
+              "visited": 3300,
+              "completions": 43,
+              "wall_seconds": 0.16275631400640123
+            },
+            "observed_count": 6,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            5
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            2
+          ],
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            5
+          ],
+          [
+            [
+              -3,
+              -2,
+              -1
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              3,
+              4
+            ],
+            6
+          ]
+        ],
+        "added_examples": 3,
+        "oracle_calls": 3,
+        "candidate_executions": 0
+      },
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "positive_count_capped_at_two",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 2976,
+        "completions": 1407,
+        "wall_seconds": 0.17183013501926325,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          2
+        ]
+      ],
+      "query_history": {
+        "chosen": {
+          "tokens": null,
+          "visited": 3309,
+          "completions": 43,
+          "wall_seconds": 0.19973025401122868
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": null,
+              "visited": 3316,
+              "completions": 40,
+              "wall_seconds": 0.11592690201359801
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                1,
+                2,
+                3
+              ],
+              "expected": 2,
+              "actual": null
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": null,
+              "visited": 3317,
+              "completions": 48,
+              "wall_seconds": 0.1262182469945401
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                -3,
+                -2,
+                -1
+              ],
+              "expected": 0,
+              "actual": null
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": null,
+              "visited": 3307,
+              "completions": 42,
+              "wall_seconds": 0.15583020099438727
+            },
+            "observed_count": 5,
+            "counterexample": {
+              "input": [
+                2,
+                3,
+                4
+              ],
+              "expected": 2,
+              "actual": null
+            }
+          },
+          {
+            "round": 3,
+            "attempt": {
+              "tokens": null,
+              "visited": 3309,
+              "completions": 43,
+              "wall_seconds": 0.19973025401122868
+            },
+            "observed_count": 6,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            2
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            1
+          ],
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            2
+          ],
+          [
+            [
+              -3,
+              -2,
+              -1
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              3,
+              4
+            ],
+            2
+          ]
+        ],
+        "added_examples": 3,
+        "oracle_calls": 3,
+        "candidate_executions": 0
+      },
+      "python_records": [],
+      "accepted": false
+    }
+  ],
+  "accepted": 0
+}

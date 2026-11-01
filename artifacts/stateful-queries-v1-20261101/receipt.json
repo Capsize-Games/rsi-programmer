@@ -1,0 +1,9 @@
+{
+  "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 120 python3 /tmp/rsi-run-with-reserve.py flock /tmp/rsi-programmer-builder.lock .venv/bin/python -m scripts.measure_stateful_queries --output artifacts/stateful-queries-v1-20261101",
+  "exit_code": 0,
+  "refit": false,
+  "log": "run.log.gz",
+  "log_sha256_uncompressed": "d652625a24690dfeafbd885cc585d20c665086750a30da743ccc8fe85cd84c8c",
+  "audit": "Exact source hash, both model fingerprints, 37 visible queries, exclusion of all 73 prior held rows, three added examples for each task/model, disjoint fresh held rows and absence of emitted programs checked.",
+  "execution_exclusion": "No program was emitted; no Python or CURLEE executions for this query diagnostic."
+}
