@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import importlib
 import json
+import os
 import platform
 import subprocess
 import sys
@@ -131,12 +132,16 @@ def _dependency_git(roots: list[Path]) -> dict[str, Any]:
     """Return commit and dirty status when a package root is in a Git tree."""
     git_root: Path | None = None
     for root in roots:
-        for candidate in (root, *root.parents):
-            if (candidate / ".git").exists():
-                git_root = candidate
-                break
-        if git_root is not None:
-            break
+        probe = subprocess.run(
+            ["git", "-C", str(root), "rev-parse", "--show-toplevel"],
+            capture_output=True, text=True,
+            env={**os.environ, "LC_ALL": "C"})
+        if probe.returncode:
+            if "not a git repository" in probe.stderr:
+                continue
+            raise RuntimeError("cannot inspect dependency Git provenance")
+        git_root = Path(probe.stdout.strip())
+        break
     if git_root is None:
         return {"git_commit": None, "git_dirty": None}
     commit = subprocess.run(

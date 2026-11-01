@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -13,6 +14,42 @@ from scripts import measure_author_ablation as measurement
 
 
 class MeasurementProvenanceTests(unittest.TestCase):
+    def test_dependency_git_ignores_an_invalid_git_marker(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / ".git").mkdir()
+            package = root / "package"
+            package.mkdir()
+            self.assertEqual(measurement._dependency_git([package]),
+                             {"git_commit": None, "git_dirty": None})
+
+    def test_dependency_git_keeps_valid_commit_and_dirty_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            subprocess.run(["git", "init", "--quiet", str(root)], check=True)
+            subprocess.run([
+                "git", "-C", str(root), "-c", "core.hooksPath=/dev/null",
+                "-c", "user.name=Fixture", "-c",
+                "user.email=fixture@example.invalid", "commit", "--quiet",
+                "--allow-empty", "-m", "fixture"], check=True)
+            package = root / "package"
+            package.mkdir()
+            (package / "builder.py").write_text("VALUE = 1\n")
+            result = measurement._dependency_git([package])
+            expected = subprocess.run(
+                ["git", "-C", str(root), "rev-parse", "HEAD"],
+                check=True, capture_output=True, text=True).stdout.strip()
+            self.assertEqual(result["git_commit"], expected)
+            self.assertTrue(result["git_dirty"])
+
+    def test_dependency_git_does_not_hide_other_git_errors(self) -> None:
+        failed = subprocess.CompletedProcess(
+            ["git"], 128, stdout="",
+            stderr="fatal: detected dubious ownership in repository")
+        with patch.object(measurement.subprocess, "run", return_value=failed):
+            with self.assertRaisesRegex(RuntimeError, "Git provenance"):
+                measurement._dependency_git([Path("unused")])
+
     @staticmethod
     def _args(fixture: Path) -> argparse.Namespace:
         return argparse.Namespace(

@@ -9,7 +9,11 @@
   },
   "programmer_fast": {
     "command": ".venv/bin/python scripts/tracks.py test programmer --lane fast",
-    "status": "running; no pass claimed"
+    "status": "failed before provenance discovery fix; rerun pending",
+    "exit_code": 1,
+    "tests": 517,
+    "seconds": 347.491,
+    "errors": 1
   },
   "execution": {
     "tasks": 6,
@@ -66,5 +70,12 @@
     "tests/test_statement_fragments.py": "8fc3aba081d3e391df99cf932836292f7d43e585bf8af0a05eaab93e4c0d324b",
     "fixtures/statement_repair_v1.json": "028fc79e4807052f680d52735622c27f3f78985bc345ca67cebf04e71e536168",
     "fixtures/statement_transfer_v1.json": "4e728eb0f8d8424525d89961fc4035f33f35d9de157cb9c8304c5353c32c105e"
+  },
+  "provenance_fix": {
+    "problem": "An invalid ancestor .git marker under /tmp was mistaken for a dependency repository. Git discovery now verifies the actual worktree and still rejects unexpected Git errors.",
+    "command": ".venv/bin/python -m unittest tests.test_measurement_provenance -v",
+    "exit_code": 0,
+    "tests": 7,
+    "seconds": 0.048
   }
 }

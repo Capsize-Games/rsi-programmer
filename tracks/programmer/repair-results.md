@@ -130,8 +130,11 @@ was reused rather than rerunning the duplicate programs.
 Seventeen focused checks passed in 0.220 seconds. They exercise bounded
 query feedback, scope-preserving fragment extraction, changed-source and
 false-result rejection, nonempty held evidence, no-library termination and
-track ownership. The broader programmer fast lane is running; no pass is
-claimed yet. Logs, source hashes and exclusions are in the
+track ownership. The broader fast lane ran 517 checks with one provenance
+error: an invalid ancestor `.git` marker under `/tmp` was mistaken for a
+repository. Actual Git worktree discovery fixes that error; all seven
+affected provenance checks pass. The complete rerun is pending. Logs,
+source hashes and exclusions are in the
 [validation receipt](
 ../../artifacts/statement-repair-validation-20261101/receipt.json).
 
