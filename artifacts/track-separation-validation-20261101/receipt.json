@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-01",
+  "base_commit": "c306986c3f5035ccb2bd98fc0a195ee46b466c1b",
+  "scope": "Logical track separation, commands, ownership and research plan; no learner implementation or measured-performance change.",
+  "completed_runs": [
+    {
+      "command": "just test-programmer",
+      "result": "passed",
+      "tests": 469,
+      "unittest_seconds": 284.103,
+      "skipped": 0,
+      "excluded_from_selected_scope": [],
+      "raw_log_sha256": "85323a4f983d3d7eb51944ee196c8e9b0a484ef27f16c2315036d0c23a718d36"
+    },
+    {
+      "command": "just test-sensing",
+      "result": "passed",
+      "tests": 131,
+      "unittest_seconds": 31.321,
+      "skipped": 0,
+      "excluded_from_selected_scope": [],
+      "raw_log_sha256": "85e3afe42fc7aac7ddc7716b09b56d204c329b24d31869912c4caf5b8ee55eba"
+    },
+    {
+      "command": "just test-companion",
+      "result": "passed",
+      "tests": 87,
+      "unittest_seconds": 8.669,
+      "skipped": 0,
+      "excluded_from_selected_scope": [],
+      "raw_log_sha256": "9eb29ed7f366809b4efb09ed1bcfe0b23922fa1ddb54e66c8bc363fe75d5b194"
+    }
+  ],
+  "final_manifest_check": {
+    "command": "python3 -S -m unittest tests.test_track_manifest -v",
+    "result": "passed",
+    "tests": 4,
+    "unittest_seconds": 0.031,
+    "skipped": 0
+  },
+  "programmer_run_reuse": "The 469-test pass preceded formatting-only line wraps in tests/test_track_manifest.py. Its four tests passed again on the final source. All other programmer tests, the runner and the manifest were unchanged.",
+  "overlap": "The sensing and companion commands both run tests.test_audio_capture; track counts are not a sum of unique tests.",
+  "other_checks": [
+    "just tracks lists all three tracks and programmer as primary",
+    "All discovered test modules assigned; original fast/slow/retry module gates preserved",
+    "Listing works with python -S and no installed third-party packages",
+    "Busy builder-lock control returns 75 without starting a test process",
+    "New Python files meet the 79-column limit",
+    "Changed documentation local links checked; git diff --check passed"
+  ],
+  "not_run": [
+    "programmer slow lane",
+    "programmer retry lane",
+    "aggregate just test-fast after separation",
+    "full unittest discovery",
+    "new CI verdict",
+    "neural training or new performance benchmark",
+    "generated Python execution",
+    "CURLEE compiler execution or modification"
+  ],
+  "unchanged_evidence": "Existing runtime modules, fixtures, model data and benchmark artifacts were not edited.",
+  "source_sha256_after_final_format": {
+    "AGENTS.md": "5c3cebfd5f6a6710ce98ede9dc5aa66ec6c8a4d338e7a6b80f9c7636645b955a",
+    "README.md": "33134db83fc06ca711c6b247b347f40749e35968e1a0253373fdfecbec39f979",
+    "architecture.md": "d9dcc8b4fd1a2614113d4c5d1cf4b3bbbb92b92d6ddb116cfd9be73b02ccfa27",
+    "programmingplan.md": "47b00c983775def08af2e30b8bd208e1e74e100a07c7b7d3556bb764361708b0",
+    "docs/online-learning-direction.md": "01da0b02f8d358c340102d0d8f191d1cab4221b42941f3bb4589707fccddf03d",
+    "docs/sound-companion-validation.md": "5e0c71d6535facae2fe2971197c8a5f0a2cba1eeee4a894da62f2dd111f53e1a",
+    "justfile": "0d8e8eb2086994b1488f104161ae8f5d777d3182cbfb17e1ec1242e0e4873d2c",
+    "scripts/tracks.py": "61f72f2620aa1b3d3c23f9a7feeb9521487dd1d88c886d991dc4764ce52830ec",
+    "tests/test_track_manifest.py": "d9fcaef6b60d4fc5f40dfb1a43eed0a22fd3cbaabab52ebe7ecefe0efb46e6a4",
+    "tracks/manifest.json": "27506db8b5c4b4afaea883d704a979c1e0d9e7b503b037ba6da39d3deb91bf5b",
+    "tracks/README.md": "042909b7d8a7b6dc3feb8cb89d5f094ee4f8e03fe923a47c3c1e1cf31f889ded",
+    "tracks/programmer/README.md": "b7e6187f32e885b78e9c558f815e2b5e56d62db96790510d36300560678e1507",
+    "tracks/sensing/README.md": "8cd90c0619589b311ad32f5fc3825831a6dc89d2efdb2e81027551897dd49dd4",
+    "tracks/sound-companion/README.md": "8714e4d75f43a91bfdbc8a27f9800ff11d9dbbd1db4e03b726daef16f81576d5"
+  }
+}

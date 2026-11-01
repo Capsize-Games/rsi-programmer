@@ -1,5 +1,9 @@
 # Sound Companion validation
 
+Historical matcher-backend validation. The current app uses the SNN described
+in [the neural comparison](sound-snn-comparison.md); this report retains the
+earlier implementation and its exact evidence scope.
+
 The native microphone teaching demo supports Wake, Sleep, Dance and a
 one-minute timer. Its backend stores labeled feature examples and uses
 nearest-example matching. It does not use an SNN or an LLM.

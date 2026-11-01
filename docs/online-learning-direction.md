@@ -1,5 +1,10 @@
 # Online learning from graph execution
 
+Priority update, 2026-11-01: the [programmer track](
+../tracks/programmer/README.md) is again the primary focus. This document
+retains the earlier embedded objective, experiments and sensing diagnosis;
+it is not the current cross-track development plan.
+
 The owner clarified the objective on 2026-10-18: an embedded SNN that
 senses, retains experience and adapts from consequences, eventually on a
 chip connected to a small host such as a Raspberry Pi. An LLM may assist

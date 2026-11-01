@@ -24,6 +24,32 @@ BSD-3-Clause software, copyright Capsize LLC (see [LICENSE](LICENSE)).
   Learner-reported scores alone prove nothing.
 - Never commit `weights/*.pt`, lineage databases, or `.venv/`.
 
+## Research tracks
+
+Owner direction (2026-11-01): keep three tracks in this repository and
+concentrate new development on the original programmer objective. The current
+scope is in `tracks/README.md`; the staged plan is in
+`tracks/programmer/README.md`.
+
+- Programmer owns typed program construction, search, graph-execution
+  learning, independent checking and bounded learner-improvement research.
+  Use ANN as the primary proposed construction baseline and retain an SNN
+  comparison; a spiking architecture is not a prerequisite for success.
+  The ANN construction controller and Python/CURLEE backends remain planned.
+- Sensing preserves timed sensor/audio prediction and adaptation. Sound
+  Companion preserves the native supervised sound-learning application.
+  Keep their outcomes separate from programmer capability claims.
+- Runtime paths and historical evidence remain stable during this logical
+  split. Update `tracks/manifest.json` when adding test modules. Run the
+  affected tracks for shared changes; focused track passes do not replace
+  existing aggregate or release gates.
+- The deployed learner must make its own programming choices and learn
+  without an LLM teacher. A pretrained coding model would change that
+  research scope and requires an explicit owner decision.
+- Python and CURLEE execution require independent backend qualification.
+  The arithmetic graph sandbox does not establish arbitrary-Python
+  isolation, and a CURLEE proof covers only its declared modeled property.
+
 ## Audit checkpoints
 
 When publication is authorized, publish completed fixes and review evidence

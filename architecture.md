@@ -1,5 +1,10 @@
 # rsi-programmer architecture: learning and inference, as implemented
 
+The [research tracks](tracks/README.md) separate programmer, sensing and
+Sound Companion ownership. Programmer is the current development priority;
+its [planned construction controller and backends](tracks/programmer/README.md)
+are distinct from the implemented paths described here.
+
 This document was first written against `code-v40` (`f854a5e`). It
 now describes the implementation after the 2026-10-17 review fixes
 and links the issues that motivated those changes. Measurements made

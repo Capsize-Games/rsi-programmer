@@ -1,6 +1,9 @@
 # SNN Programming Plan — Signal Modules That Emit Graph Calls
 
-> Status: proposal only. No code in this document is implemented yet.
+> Historical plan, first proposed on 2026-10-15. Some components were later
+> implemented; the delivery log below records stages, not current acceptance.
+> The active 2026-11-01 direction is in
+> [the programmer track](tracks/programmer/README.md).
 > Source of truth for the current system is the code cited below, read
 > 2026-10-15 from `main` (`a567fe0`). Metrics marked "last measured" come
 > from the frozen session's training report (commit `85bf064`,

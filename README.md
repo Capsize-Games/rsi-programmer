@@ -1,5 +1,22 @@
 # rsi-programmer
 
+The primary development track is neural program synthesis: a learner that
+constructs executable programs and improves from independently checked
+training experience. Python and CURLEE are planned output targets. The
+[programmer roadmap](tracks/programmer/README.md) defines the next milestone;
+its construction controller and language backends are not implemented yet.
+
+The work is separated into three [research tracks](tracks/README.md):
+
+| Track | Current focus | Checks |
+| --- | --- | --- |
+| [Programmer](tracks/programmer/README.md) | Primary; ANN-first construction experiment with an SNN control planned | `just test-programmer` |
+| [Sensing](tracks/sensing/README.md) | Preserved timed prediction and adaptation experiments | `just test-sensing` |
+| [Sound Companion](tracks/sound-companion/README.md) | Preserved native supervised sound-learning app | `just test-companion` |
+
+`just tracks` lists the declared scopes. Track separation preserves existing
+runtime import paths, fixtures, evidence and aggregate test commands.
+
 This project studies a spiking neural network (SNN) as a ranking policy
 for arithmetic program synthesis. The SNN ranks candidate operations;
 classical search assembles selected steps into typed program graphs and

@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "primary_track": "programmer",
+  "shared_tests": [
+    "tests.test_audio_capture"
+  ],
+  "tracks": {
+    "programmer": {
+      "status": "primary",
+      "python": ".venv/bin/python",
+      "headless": false,
+      "tests": {
+        "fast": [
+          "tests.test_online_plastic_encoder",
+          "tests.test_online_plastic_benchmark",
+          "tests.test_audit_plastic_encoder",
+          "tests.test_plastic_control_comparison",
+          "tests.test_online_observed_context",
+          "tests.test_online_context_benchmark",
+          "tests.test_audit_observed_context",
+          "tests.test_counterbalanced_protocol",
+          "tests.test_online_diagnostics",
+          "tests.test_counterbalanced_audit",
+          "tests.test_online_spiking",
+          "tests.test_online_graph",
+          "tests.test_online_corpus",
+          "tests.test_online_audit",
+          "tests.test_online_benchmark",
+          "tests.test_pre_eval",
+          "tests.test_pre_eval_contract",
+          "tests.test_benchmark_policy",
+          "tests.test_pre_eval_features",
+          "tests.test_pre_eval_feature_contract",
+          "tests.test_benchmark_total_work",
+          "tests.test_total_work_contract",
+          "tests.test_bounded_pre_eval",
+          "tests.test_benchmark_bounded",
+          "tests.test_shortlist_pre_eval",
+          "tests.test_shortlist_contract",
+          "tests.test_benchmark_shortlist",
+          "tests.test_benchmark_fit_work",
+          "tests.test_frozen_benchmark",
+          "tests.test_frozen_benchmark_eval",
+          "tests.test_benchmark_v2_corpus",
+          "tests.test_benchmark_v2_runner",
+          "tests.test_benchmark_v2_runner_training",
+          "tests.test_benchmark_v2_runner_acceptance",
+          "tests.test_benchmark_v2_runner_provenance",
+          "tests.test_hub_release_lookup",
+          "tests.test_rich_amendments",
+          "tests.test_scale_amendments",
+          "tests.test_measurement_provenance",
+          "tests.test_search_amendments",
+          "tests.test_objective_amendments",
+          "tests.test_supervision_amendments",
+          "tests.test_generator_amendments",
+          "tests.test_review_search",
+          "tests.test_review_search_edges",
+          "tests.test_review_acceptance",
+          "tests.test_review_integrity",
+          "tests.test_review_lattice",
+          "tests.test_review_protocol",
+          "tests.test_rsi_actions",
+          "tests.test_rsi_sandbox",
+          "tests.test_rsi_headless",
+          "tests.test_proxy",
+          "tests.test_rsi_hard",
+          "tests.test_typed_dag_programming_probe",
+          "tests.test_rsi_decoder",
+          "tests.test_modular",
+          "tests.test_rsi_tasks",
+          "tests.test_edits",
+          "tests.test_self_gate",
+          "tests.test_autonomy",
+          "tests.test_rsi_ood",
+          "tests.test_gains",
+          "tests.test_rsi_words",
+          "tests.test_rsi_lattice",
+          "tests.test_rsi_lattice_train",
+          "tests.test_rsi_lattice_author",
+          "tests.test_rsi_bytecode",
+          "tests.test_rsi_selectivity",
+          "tests.test_rsi_proposer",
+          "tests.test_track_manifest"
+        ],
+        "slow": [
+          "tests.test_hub_verify",
+          "tests.test_rsi_author",
+          "tests.test_rsi_baseline",
+          "tests.test_rsi_beam",
+          "tests.test_rsi_evolve",
+          "tests.test_rsi_loop",
+          "tests.test_rsi_operands",
+          "tests.test_rsi_scale",
+          "tests.test_rsi_transfer"
+        ],
+        "retry": [
+          "tests.test_rsi_retry"
+        ]
+      }
+    },
+    "sensing": {
+      "status": "preserved",
+      "python": ".venv/bin/python",
+      "headless": false,
+      "tests": {
+        "fast": [
+          "tests.test_audio_capture",
+          "tests.test_audio_features",
+          "tests.test_audio_learning",
+          "tests.test_audio_session",
+          "tests.test_audio_runtime",
+          "tests.test_audio_session_audit",
+          "tests.test_sensing_memory",
+          "tests.test_audio_continual",
+          "tests.test_audio_continual_runtime",
+          "tests.test_audio_continual_audit",
+          "tests.test_sensing_data",
+          "tests.test_sensing_predictor",
+          "tests.test_sensing_baseline",
+          "tests.test_sensing_benchmark",
+          "tests.test_sensing_audit"
+        ],
+        "slow": [],
+        "retry": []
+      }
+    },
+    "sound-companion": {
+      "status": "preserved",
+      "python": ".venv-desktop/bin/python",
+      "headless": true,
+      "tests": {
+        "fast": [
+          "tests.test_sound_features",
+          "tests.test_sound_memory",
+          "tests.test_sound_contract",
+          "tests.test_sound_spiking",
+          "tests.test_sound_comparison",
+          "tests.test_sound_comparison_protocol",
+          "tests.test_sound_snn_controller",
+          "tests.test_sound_microphone",
+          "tests.test_sound_controller",
+          "tests.test_sound_window",
+          "tests.test_audio_capture",
+          "tests.test_install_sound_companion"
+        ],
+        "slow": [],
+        "retry": []
+      }
+    }
+  }
+}
