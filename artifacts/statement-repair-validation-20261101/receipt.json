@@ -9,11 +9,12 @@
   },
   "programmer_fast": {
     "command": ".venv/bin/python scripts/tracks.py test programmer --lane fast",
-    "status": "failed before provenance discovery fix; rerun pending",
-    "exit_code": 1,
-    "tests": 517,
-    "seconds": 347.491,
-    "errors": 1
+    "status": "passed",
+    "validated_commit": "88ca7d208b39519f0657cdb3bb311c5b8b24eaad",
+    "exit_code": 0,
+    "tests": 520,
+    "seconds": 298.24,
+    "resource_guard": "Admitted at >=9 GiB available; stop own process group below5 GiB. Completed without a reserve stop."
   },
   "execution": {
     "tasks": 6,
@@ -77,5 +78,13 @@
     "exit_code": 0,
     "tests": 7,
     "seconds": 0.048
+  },
+  "programmer_fast_initial": {
+    "command": ".venv/bin/python scripts/tracks.py test programmer --lane fast",
+    "status": "failed before provenance discovery fix; rerun pending",
+    "exit_code": 1,
+    "tests": 517,
+    "seconds": 347.491,
+    "errors": 1
   }
 }

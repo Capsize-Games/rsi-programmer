@@ -133,7 +133,8 @@ false-result rejection, nonempty held evidence, no-library termination and
 track ownership. The broader fast lane ran 517 checks with one provenance
 error: an invalid ancestor `.git` marker under `/tmp` was mistaken for a
 repository. Actual Git worktree discovery fixes that error; all seven
-affected provenance checks pass. The complete rerun is pending. Logs,
+affected provenance checks pass. The complete rerun at `88ca7d2` passed
+520 checks in 298.240 seconds under the memory-reserve wrapper. Logs,
 source hashes and exclusions are in the
 [validation receipt](
 ../../artifacts/statement-repair-validation-20261101/receipt.json).
