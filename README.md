@@ -4,11 +4,14 @@ The primary development track is neural program synthesis: a learner that
 constructs executable programs and improves from independently checked
 training experience. The
 [programmer roadmap](tracks/programmer/README.md) defines the milestones.
-The latest [statement-construction trial](
-tracks/programmer/statement-results.md) emits working Python file utilities
-and CURLEE routines for four of six requested totals/counts. The learner
-chooses loop, branch, update and return tokens; the emitter supplies syntax
-lowering and file handling. General programming remains unproven.
+The latest [verified-fragment trial](tracks/programmer/repair-results.md)
+retains four statement-generated utilities and repairs two more. All six
+pass 40 held cases each in Python and CURLEE. The learner constructs new
+conditions within contexts mined from previously checked programs; the
+emitter supplies syntax lowering and file handling. General programming
+and a neural cost advantage remain unproven. The preceding
+[statement-construction trial](tracks/programmer/statement-results.md)
+retains its failures and development results.
 The earlier [list-composition result](tracks/programmer/language-results.md)
 is retained separately.
 

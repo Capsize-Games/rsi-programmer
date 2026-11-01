@@ -1,5 +1,9 @@
 # Statement-generated Python and CURLEE utilities
 
+The subsequent [repair and fragment-transfer trial](repair-results.md)
+retains four programs and repairs the two failures described here. This
+page preserves the preceding trial's results and limitations.
+
 The 2026-11-01 development trial constructed four working utilities by
 choosing individual loop, condition, assignment, arithmetic and return
 tokens. Each emitted Python CLI and CURLEE routine passed 20 new inputs.

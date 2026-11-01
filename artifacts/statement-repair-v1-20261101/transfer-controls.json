@@ -1,0 +1,253 @@
+{
+  "scope": "Transfer component, equal 0.5s wall budgets. Shared fixed fragments and observed query labels; training and earlier query costs recorded separately, not a complete matched-total-cost trial.",
+  "rows": [
+    {
+      "id": "negative_count",
+      "method": "trained_neural",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "lt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 1262,
+        "completions": 650,
+        "wall_seconds": 0.12662759600789286,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ]
+      },
+      "held_total": 40,
+      "held_correct": 40,
+      "accepted": true
+    },
+    {
+      "id": "negative_count",
+      "method": "trained_neural_context_rank",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "lt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 2478,
+        "completions": 1286,
+        "wall_seconds": 0.2076965960150119,
+        "tried_contexts": [
+          "1624b462af912802",
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ]
+      },
+      "held_total": 40,
+      "held_correct": 40,
+      "accepted": true
+    },
+    {
+      "id": "negative_count",
+      "method": "untrained_neural",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 4860,
+        "completions": 1110,
+        "wall_seconds": 0.28555951101589017,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ]
+      },
+      "held_total": 40,
+      "held_correct": 0,
+      "accepted": false
+    },
+    {
+      "id": "negative_count",
+      "method": "classical_breadth_first",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "zero",
+          "value",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 41,
+        "wall_seconds": 0.0006565480143763125,
+        "budget_exhausted": false
+      },
+      "held_total": 40,
+      "held_correct": 40,
+      "accepted": true
+    },
+    {
+      "id": "above_two_count",
+      "method": "trained_neural",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 1231,
+        "completions": 641,
+        "wall_seconds": 0.07754254798055626,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ]
+      },
+      "held_total": 40,
+      "held_correct": 40,
+      "accepted": true
+    },
+    {
+      "id": "above_two_count",
+      "method": "trained_neural_context_rank",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 2439,
+        "completions": 1279,
+        "wall_seconds": 0.17294821800896898,
+        "tried_contexts": [
+          "1624b462af912802",
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ]
+      },
+      "held_total": 40,
+      "held_correct": 40,
+      "accepted": true
+    },
+    {
+      "id": "above_two_count",
+      "method": "untrained_neural",
+      "chosen": {
+        "tokens": null,
+        "fragment": null,
+        "visited": 4860,
+        "completions": 1110,
+        "wall_seconds": 0.2791652579908259,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b",
+          "1624b462af912802"
+        ]
+      },
+      "held_total": 40,
+      "held_correct": 0,
+      "accepted": false
+    },
+    {
+      "id": "above_two_count",
+      "method": "classical_breadth_first",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 137,
+        "wall_seconds": 0.002352306997636333,
+        "budget_exhausted": false
+      },
+      "held_total": 40,
+      "held_correct": 40,
+      "accepted": true
+    }
+  ]
+}

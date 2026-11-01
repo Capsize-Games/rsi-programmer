@@ -1,0 +1,257 @@
+{
+  "fragments": [
+    {
+      "id": "decb72c3611a338c",
+      "kind": "Bool condition",
+      "prefix": [
+        "for",
+        "if"
+      ],
+      "suffix": [
+        "set",
+        "add",
+        "acc",
+        "mul",
+        "value",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "donors": [
+        "positive_square_total"
+      ]
+    },
+    {
+      "id": "cda43abf11ed8d3b",
+      "kind": "Bool condition",
+      "prefix": [
+        "for",
+        "if"
+      ],
+      "suffix": [
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "donors": [
+        "odd_count"
+      ]
+    },
+    {
+      "id": "1624b462af912802",
+      "kind": "Bool condition",
+      "prefix": [
+        "for",
+        "if"
+      ],
+      "suffix": [
+        "set",
+        "add",
+        "acc",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "donors": [
+        "even_total",
+        "positive_total"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "negative_count",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "lt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 1262,
+        "completions": 650,
+        "wall_seconds": 0.2732242269848939,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          3
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          0
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          3
+        ],
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "id": "above_two_count",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 1231,
+        "completions": 641,
+        "wall_seconds": 0.13397195798461325,
+        "tried_contexts": [
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ]
+      },
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          2
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          1
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [],
+          0
+        ]
+      ]
+    }
+  ]
+}

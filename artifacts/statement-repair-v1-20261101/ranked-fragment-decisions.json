@@ -1,0 +1,70 @@
+{
+  "rows": [
+    {
+      "id": "negative_count",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "lt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 2478,
+        "completions": 1286,
+        "wall_seconds": 0.2735547949851025,
+        "tried_contexts": [
+          "1624b462af912802",
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ]
+      }
+    },
+    {
+      "id": "above_two_count",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "fragment": "cda43abf11ed8d3b",
+        "donors": [
+          "odd_count"
+        ],
+        "visited": 2439,
+        "completions": 1279,
+        "wall_seconds": 0.20680752300540917,
+        "tried_contexts": [
+          "1624b462af912802",
+          "decb72c3611a338c",
+          "cda43abf11ed8d3b"
+        ]
+      }
+    }
+  ]
+}

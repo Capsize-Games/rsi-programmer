@@ -3,9 +3,11 @@
 This is the primary development track as of 2026-11-01.
 
 The primary outcome is a learner that writes useful programs in Python and
-CURLEE. The latest [statement result](statement-results.md) constructs loops,
-branches, updates and returns for four of six development tasks, with actual
-Python and CURLEE execution. The earlier [utility result](language-results.md)
+CURLEE. The latest [fragment-transfer result](repair-results.md) repairs two
+failures and retains four programs, with 40 held cases each in both target
+languages. The preceding [statement result](statement-results.md) constructs
+loops, branches, updates and returns for four of six development tasks.
+The earlier [utility result](language-results.md)
 composes supplied list operations. Python reads and writes JSON files;
 CURLEE has a bounded processing interface. General source generation and
 program repair remain open.
@@ -24,6 +26,10 @@ secondary diagnostic rather than a gate on useful language work.
   selection from 13 supplied list operations, plus target-code emission.
 - `statement_*`: typed imperative syntax, independent execution, observed
   prefix execution, neural token choices and direct target-code lowering.
+  It now also includes bounded query feedback, qualified context mining,
+  neural hole filling and a classical transfer control. Classical search
+  wins the current small transfer comparison; neural scoring is not a
+  prerequisite for source correctness.
 - `probe.py` and `actions.py`: typed expression graphs, validation and exact
   interpretation of the supported arithmetic/Boolean language.
 - `policy.py`, `modules.py`, `author.py`, `lattice.py`, `lauthor.py` and the

@@ -1,0 +1,738 @@
+{
+  "fit": {
+    "teacher_functions": 366,
+    "teacher_states": 12614,
+    "epochs": 30,
+    "loss": 0.34517407417297363,
+    "wall_seconds": 5.821268989995588,
+    "execution_context": true,
+    "excluded_functions": [
+      "positive_total",
+      "negative_count",
+      "even_total",
+      "positive_square_total",
+      "odd_count",
+      "above_two_count"
+    ],
+    "exclusion_scope": "equivalence on 24 fixed probe arrays"
+  },
+  "trained_hash": "574e21dd961899332d7305ab59cccee84ddeb01a56d441fd21f84d2d66a742f3",
+  "metadata": {
+    "seed": 0,
+    "max_tokens": 32,
+    "tokens": [
+      "for",
+      "if",
+      "set",
+      "end",
+      "return",
+      "stop",
+      "value",
+      "acc",
+      "zero",
+      "one",
+      "two",
+      "minus_one",
+      "length",
+      "add",
+      "sub",
+      "mul",
+      "rem",
+      "gt",
+      "ge",
+      "lt",
+      "le",
+      "eq",
+      "ne"
+    ],
+    "execution_context": true
+  },
+  "checkpoint_reused": true,
+  "load_or_fit_wall_seconds": 0.07670984699507244,
+  "rows": [
+    {
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "visited": 1175,
+        "completions": 16,
+        "wall_seconds": 0.09295128201483749
+      },
+      "history": [
+        {
+          "round": 0,
+          "attempt": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "visited": 1175,
+            "completions": 16,
+            "wall_seconds": 0.09295128201483749
+          },
+          "observed_count": 3,
+          "counterexample": null
+        }
+      ],
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          13
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          17
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          11
+        ]
+      ],
+      "added_examples": 0,
+      "oracle_calls": 39,
+      "candidate_executions": 39,
+      "id": "positive_total"
+    },
+    {
+      "chosen": {
+        "tokens": null,
+        "visited": 3156,
+        "completions": 57,
+        "wall_seconds": 0.18800658898544498
+      },
+      "history": [
+        {
+          "round": 0,
+          "attempt": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "two",
+              "end",
+              "if",
+              "lt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "visited": 1950,
+            "completions": 14,
+            "wall_seconds": 0.0832516890077386
+          },
+          "observed_count": 3,
+          "counterexample": {
+            "input": [
+              1,
+              2,
+              3
+            ],
+            "expected": 0,
+            "actual": 2
+          }
+        },
+        {
+          "round": 1,
+          "attempt": {
+            "tokens": null,
+            "visited": 3186,
+            "completions": 55,
+            "wall_seconds": 0.20519992199842818
+          },
+          "observed_count": 4,
+          "counterexample": {
+            "input": [
+              -3,
+              -2,
+              -1
+            ],
+            "expected": 3,
+            "actual": null
+          }
+        },
+        {
+          "round": 2,
+          "attempt": {
+            "tokens": null,
+            "visited": 3222,
+            "completions": 45,
+            "wall_seconds": 0.17022933199768886
+          },
+          "observed_count": 5,
+          "counterexample": {
+            "input": [],
+            "expected": 0,
+            "actual": null
+          }
+        },
+        {
+          "round": 3,
+          "attempt": {
+            "tokens": null,
+            "visited": 3156,
+            "completions": 57,
+            "wall_seconds": 0.18800658898544498
+          },
+          "observed_count": 6,
+          "counterexample": null
+        }
+      ],
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          3
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          0
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          3
+        ],
+        [
+          [],
+          0
+        ]
+      ],
+      "added_examples": 3,
+      "oracle_calls": 3,
+      "candidate_executions": 1,
+      "id": "negative_count"
+    },
+    {
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "eq",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "visited": 1401,
+        "completions": 19,
+        "wall_seconds": 0.056225509993964806
+      },
+      "history": [
+        {
+          "round": 0,
+          "attempt": {
+            "tokens": [
+              "for",
+              "if",
+              "eq",
+              "rem",
+              "value",
+              "two",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "visited": 1401,
+            "completions": 19,
+            "wall_seconds": 0.056225509993964806
+          },
+          "observed_count": 3,
+          "counterexample": null
+        }
+      ],
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          8
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          0
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          4
+        ]
+      ],
+      "added_examples": 0,
+      "oracle_calls": 39,
+      "candidate_executions": 39,
+      "id": "even_total"
+    },
+    {
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "mul",
+          "value",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "visited": 1418,
+        "completions": 12,
+        "wall_seconds": 0.057415635004872456
+      },
+      "history": [
+        {
+          "round": 0,
+          "attempt": {
+            "tokens": [
+              "for",
+              "if",
+              "gt",
+              "value",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "mul",
+              "value",
+              "value",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "visited": 1418,
+            "completions": 12,
+            "wall_seconds": 0.057415635004872456
+          },
+          "observed_count": 3,
+          "counterexample": null
+        }
+      ],
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          45
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          129
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          47
+        ]
+      ],
+      "added_examples": 0,
+      "oracle_calls": 39,
+      "candidate_executions": 39,
+      "id": "positive_square_total"
+    },
+    {
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "ne",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "visited": 1473,
+        "completions": 9,
+        "wall_seconds": 0.05155663000186905
+      },
+      "history": [
+        {
+          "round": 0,
+          "attempt": {
+            "tokens": [
+              "for",
+              "if",
+              "ne",
+              "rem",
+              "value",
+              "two",
+              "zero",
+              "set",
+              "add",
+              "acc",
+              "one",
+              "end",
+              "end",
+              "return",
+              "acc",
+              "stop"
+            ],
+            "visited": 1473,
+            "completions": 9,
+            "wall_seconds": 0.05155663000186905
+          },
+          "observed_count": 3,
+          "counterexample": null
+        }
+      ],
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          2
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          4
+        ]
+      ],
+      "added_examples": 0,
+      "oracle_calls": 39,
+      "candidate_executions": 39,
+      "id": "odd_count"
+    },
+    {
+      "chosen": {
+        "tokens": null,
+        "visited": 3153,
+        "completions": 68,
+        "wall_seconds": 0.1917795519984793
+      },
+      "history": [
+        {
+          "round": 0,
+          "attempt": {
+            "tokens": null,
+            "visited": 3193,
+            "completions": 52,
+            "wall_seconds": 0.11978173401439562
+          },
+          "observed_count": 3,
+          "counterexample": {
+            "input": [
+              1,
+              2,
+              3
+            ],
+            "expected": 1,
+            "actual": null
+          }
+        },
+        {
+          "round": 1,
+          "attempt": {
+            "tokens": null,
+            "visited": 3178,
+            "completions": 52,
+            "wall_seconds": 0.1491575860127341
+          },
+          "observed_count": 4,
+          "counterexample": {
+            "input": [
+              -3,
+              -2,
+              -1
+            ],
+            "expected": 0,
+            "actual": null
+          }
+        },
+        {
+          "round": 2,
+          "attempt": {
+            "tokens": null,
+            "visited": 3209,
+            "completions": 48,
+            "wall_seconds": 0.1712791650206782
+          },
+          "observed_count": 5,
+          "counterexample": {
+            "input": [],
+            "expected": 0,
+            "actual": null
+          }
+        },
+        {
+          "round": 3,
+          "attempt": {
+            "tokens": null,
+            "visited": 3153,
+            "completions": 68,
+            "wall_seconds": 0.1917795519984793
+          },
+          "observed_count": 6,
+          "counterexample": null
+        }
+      ],
+      "observed": [
+        [
+          [
+            -2,
+            2,
+            0,
+            3,
+            -3,
+            4,
+            4,
+            -9
+          ],
+          3
+        ],
+        [
+          [
+            10,
+            -1,
+            0,
+            -4,
+            5,
+            2,
+            -8
+          ],
+          2
+        ],
+        [
+          [
+            -7,
+            6,
+            0,
+            1,
+            1,
+            -2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          1
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [],
+          0
+        ]
+      ],
+      "added_examples": 3,
+      "oracle_calls": 3,
+      "candidate_executions": 0,
+      "id": "above_two_count"
+    }
+  ]
+}

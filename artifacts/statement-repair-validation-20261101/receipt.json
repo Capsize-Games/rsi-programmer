@@ -1,0 +1,70 @@
+{
+  "base_commit": "1dc336a17f0a16332d21f250c902a84b95a1f3c3",
+  "focused_tests": {
+    "command": "/usr/bin/python3 -S -m unittest tests.test_statement_repair tests.test_statement_fragments tests.test_statement_evaluation tests.test_track_manifest -v",
+    "exit_code": 0,
+    "tests": 17,
+    "seconds": 0.22,
+    "neural_packages": "not imported by these pure checks"
+  },
+  "programmer_fast": {
+    "command": ".venv/bin/python scripts/tracks.py test programmer --lane fast",
+    "status": "running; no pass claimed"
+  },
+  "execution": {
+    "tasks": 6,
+    "donor_retention_tasks": 4,
+    "transfer_tasks": 2,
+    "held_per_task": 40,
+    "python_cases": 240,
+    "python_passed": 240,
+    "curlee_cases": 240,
+    "curlee_passed": 240,
+    "compiler_stable": true,
+    "wrong_expected_rejected": true
+  },
+  "reproduction": {
+    "same_model_fingerprint": true,
+    "same_program_sources": true,
+    "same_held_values": true,
+    "python_passed": 240,
+    "curlee_evidence": "reused original execution only after matching sources and held data; not rerun"
+  },
+  "negative_results": [
+    "query-only resynthesis repairs neither failure",
+    "neural context ranking searches the counting context later and is slower",
+    "classical transfer search is much faster than neural guidance",
+    "first compiler job refused below memory reserve",
+    "initial unit test omitted a distinguishing zero case; adding that observation preserves its independent expected assertion",
+    "initial test ownership check failed before registering new modules"
+  ],
+  "not_run": [
+    "programmer slow/retry lanes",
+    "aggregate suite",
+    "sensing/companion repeats; their source is unchanged",
+    "sealed arithmetic final inference",
+    "complete matched-total-cost gate",
+    "general-programmer or recursive-improvement evaluation"
+  ],
+  "lifecycle": {
+    "ci": "pending after publication",
+    "tag_release": "paused by the explicit project instruction in AGENTS.md; no release claimed"
+  },
+  "source_sha256": {
+    "rsi_programmer/statement_fragment_classical.py": "4e8b70884bab5f36e6149cde5610f55571e2d024ddb144a5324d231115ca1bc7",
+    "rsi_programmer/statement_fragments.py": "359fb3089f99c3bb51aa15d5e605680b7ab80038d5cd021dd62584b56c7468ac",
+    "rsi_programmer/statement_fragment_library.py": "2906400cbb0598226f81dad0eb1acf7f9129bdcdc63bcb1a1479717d85ae8adb",
+    "rsi_programmer/statement_fragment_rank.py": "a46e30548b0d333b4e3658b220ee9af89b37be509b2b1d8c70e247beac3db44a",
+    "rsi_programmer/statement_fragment_search.py": "f244c5460f9ffe72a1da59233a03a90f44edcf90e73d94a4c5050d1f98cf6c02",
+    "rsi_programmer/statement_checkpoint.py": "5c53083f187b4dec237604f064a1a05319a20e288d5bb239239c1bc0711d856a",
+    "rsi_programmer/statement_repair.py": "c9d0572ca192436eb6f593b6e70633f0471947ee9c59f11cbd55b384ec45ea7f",
+    "scripts/measure_statement_repair.py": "8689d017c2a53aa112ac39599b6f1169f27309189d55d5ccb5e85b347501093c",
+    "scripts/evaluate_statement_decisions.py": "76e0073c75818417878c91d09a2756801dd9787669db730b4d97ad2939c4e3ba",
+    "tests/test_statement_programs.py": "b1c592c9a0c3685afe9db637850c93de82a9b6f25d8733f0fb5abab7263b1324",
+    "tests/test_statement_repair.py": "427ca83f1f9aa2b3e30b9751aaea432504a949e8e7c4716c7dea7bccef8934cc",
+    "tests/test_statement_evaluation.py": "9fe8e974ed3256b84e98543d178cc0dcd47fa0cace8cffce879644de4df07fed",
+    "tests/test_statement_fragments.py": "8fc3aba081d3e391df99cf932836292f7d43e585bf8af0a05eaab93e4c0d324b",
+    "fixtures/statement_repair_v1.json": "028fc79e4807052f680d52735622c27f3f78985bc345ca67cebf04e71e536168",
+    "fixtures/statement_transfer_v1.json": "4e728eb0f8d8424525d89961fc4035f33f35d9de157cb9c8304c5353c32c105e"
+  }
+}

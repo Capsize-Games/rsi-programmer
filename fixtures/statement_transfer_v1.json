@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "scope": "Development transfer-stage controls only. Same observed query feedback and verified contexts for every controller. Not a complete end-to-end cost gate.",
+  "repair_protocol_sha256": "028fc79e4807052f680d52735622c27f3f78985bc345ca67cebf04e71e536168",
+  "target_ids": [
+    "negative_count",
+    "above_two_count"
+  ],
+  "wall_budget_seconds": 0.5,
+  "methods": [
+    "trained_neural",
+    "trained_neural_context_rank",
+    "untrained_neural",
+    "classical_breadth_first"
+  ],
+  "width": 32,
+  "top_choices": 4,
+  "held_seed": 589231,
+  "held_per_task": 40,
+  "amortization_requests": [
+    1,
+    1000
+  ]
+}

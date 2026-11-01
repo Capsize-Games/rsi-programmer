@@ -1,0 +1,94 @@
+fn process(input: &[Int; 256], count: Int) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let acc: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256; ] {
+        if (i < 0 || i >= 256) { return 0; }
+        let value: Int = input[i];
+        if ((value > 0)) {
+            acc = (acc + value);
+        }
+    }
+    return acc;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    input[0] = -4;
+    input[1] = 56;
+    input[2] = 69;
+    input[3] = -47;
+    input[4] = 8;
+    input[5] = -94;
+    input[6] = -6;
+    input[7] = 43;
+    input[8] = -33;
+    input[9] = -45;
+    input[10] = -16;
+    input[11] = -2;
+    input[12] = -51;
+    input[13] = -57;
+    input[14] = -66;
+    input[15] = -47;
+    input[16] = -74;
+    input[17] = -27;
+    input[18] = 10;
+    input[19] = 86;
+    input[20] = -73;
+    input[21] = 99;
+    input[22] = 66;
+    input[23] = 98;
+    input[24] = 3;
+    input[25] = -61;
+    input[26] = -91;
+    input[27] = 92;
+    input[28] = -95;
+    input[29] = -5;
+    input[30] = 91;
+    input[31] = -75;
+    input[32] = 45;
+    input[33] = 66;
+    input[34] = 47;
+    input[35] = 51;
+    input[36] = -54;
+    input[37] = 32;
+    input[38] = -100;
+    input[39] = 74;
+    input[40] = -56;
+    input[41] = 14;
+    input[42] = -29;
+    input[43] = -86;
+    input[44] = 56;
+    input[45] = -4;
+    input[46] = -38;
+    input[47] = -21;
+    input[48] = -37;
+    input[49] = -31;
+    input[50] = 42;
+    input[51] = -81;
+    input[52] = 59;
+    input[53] = 19;
+    input[54] = -27;
+    input[55] = -18;
+    input[56] = -91;
+    input[57] = 35;
+    input[58] = 9;
+    input[59] = -85;
+    input[60] = -32;
+    input[61] = 63;
+    input[62] = 16;
+    input[63] = 92;
+    input[64] = 62;
+    input[65] = -48;
+    input[66] = -22;
+    input[67] = 9;
+    input[68] = 95;
+    input[69] = 38;
+    input[70] = 16;
+    input[71] = 71;
+    input[72] = -85;
+    if (process(&input, 73) != 1732) {
+        return 1;
+    }
+    return 0;
+}

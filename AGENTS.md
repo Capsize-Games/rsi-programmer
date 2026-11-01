@@ -90,6 +90,18 @@ The next capability checks are bounded counterexample-guided resynthesis,
 new statement structures and useful fragment transfer. Keep held evaluation
 rows outside repair/query feedback and preserve the sealed final set.
 
+Subsequent implementation checkpoint (2026-11-01): bounded query-only
+resynthesis repaired neither failure. Three condition contexts mined from
+four independently qualified programs allowed neural hole filling to repair
+both tasks; all six programs passed 40 held Python and CURLEE cases each.
+See `tracks/programmer/repair-results.md`. Donor retention and transfer tasks
+must remain separately identified. Context mining is classical; neural
+context scoring was slower, and the classical hole-search control was much
+faster. Do not claim a cost advantage, general programming, learned
+abstraction discovery or recursive self-improvement from these results.
+Keep actual held rows out of feedback. Check source and recorded executions
+before promoting donors; preserve provenance, failed trials and controls.
+
 ## Audit checkpoints
 
 When publication is authorized, publish completed fixes and review evidence
