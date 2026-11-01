@@ -114,6 +114,14 @@ The CURLEE checkout is local-only and is not included in this repository.
 Run the commands sequentially; status 75 means the guard stopped or refused
 work. A partial command is not a pass.
 
+At implementation checkpoint `edeaa03`, the programmer fast lane passed 495
+tests in 283.759 seconds, sensing passed 131 in 31.736 seconds, and Sound
+Companion passed 87 in 8.531 seconds. The earlier 30 focused checks overlap
+these totals. Full logs and exclusions are in the [validation receipt](
+../../artifacts/useful-program-validation-20261101/receipt.json).
+Programmer slow/retry lanes, the aggregate suite and sealed final evaluation
+were not run. Remote CI was still in progress when this evidence was saved.
+
 ## Earlier arithmetic experiment
 
 The earlier ANN construction trial generated 78/135 development functions.

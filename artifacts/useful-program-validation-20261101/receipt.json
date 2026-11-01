@@ -15,17 +15,23 @@
     "curlee_wrong_expected_control_rejected": true
   },
   "programmer_fast": {
-    "status": "running; not a pass at this checkpoint",
-    "command": ".venv/bin/python scripts/tracks.py test programmer --lane fast"
+    "status": "passed",
+    "command": ".venv/bin/python scripts/tracks.py test programmer --lane fast",
+    "exit_code": 0,
+    "tests": 495,
+    "seconds": 283.759
   },
   "not_run_at_this_checkpoint": [
     "programmer slow and retry lanes",
-    "full aggregate test suite",
-    "sensing and companion repeat runs",
+    "full aggregate test suite, including the separate shared audio-capture module",
     "sealed arithmetic final inference",
     "general-programmer evaluation"
   ],
-  "ci": "pending after publication; no pass claimed",
+  "ci": {
+    "status": "in progress; no pass claimed",
+    "run_id": 41344938286,
+    "commit": "edeaa03ae5219b3987152b7958fc2f7192e577f7"
+  },
   "limits": "One development utility composed from 13 supplied operations; emitter supplies implementations and CLI. Earlier combined CURLEE harnesses stopped with guard exit 75. Compiler source unmodified.",
   "source_sha256": {
     "rsi_programmer/utility_ops.py": "10fd6ef58b714ca6e717f5a7c5d7798c0fb55c1f18034d79b3cb082f73a3be0d",
@@ -36,5 +42,18 @@
     "scripts/measure_useful_program.py": "565c8ab415c22c120d4555a0dc2057419dd3072cec3d77e770a2e491b5a1c168",
     "scripts/check_useful_curlee.py": "622086c74d10c57775ac963ca8457023a8bd067ba11e462ede300d2b482950b7",
     "tests/test_utility_program.py": "46b7b263563a7589bbaa969635ed7406a13e9d7ff52520ca9edd7ee2747772bd"
+  },
+  "validated_commit": "edeaa03ae5219b3987152b7958fc2f7192e577f7",
+  "sensing_all": {
+    "command": ".venv/bin/python scripts/tracks.py test sensing --lane all",
+    "exit_code": 0,
+    "tests": 131,
+    "seconds": 31.736
+  },
+  "sound_companion_all": {
+    "command": ".venv/bin/python scripts/tracks.py test sound-companion --lane all",
+    "exit_code": 0,
+    "tests": 87,
+    "seconds": 8.531
   }
 }
