@@ -137,6 +137,31 @@ def _training_prefixes(programs: Iterable[Sequence[str]], seed: int
     return sorted(prefixes, key=lambda value: (len(value), value))
 
 
+def _balanced_transitions(
+    prefixes: Sequence[tuple[str, ...]], programs: Sequence[Sequence[str]],
+    limit: int, rng: random.Random
+) -> list[tuple[tuple[str, ...], str]]:
+    """Sample action states across early, middle, and late prefix depths."""
+    max_depth = max((len(program) for program in programs), default=1)
+    strata: list[list[tuple[tuple[str, ...], str]]] = [[], [], []]
+    for prefix in prefixes:
+        try:
+            _, allowed = analyze(prefix)
+        except ValueError:
+            continue
+        depth_ratio = len(prefix) / max(1, max_depth)
+        stratum = min(2, int(depth_ratio * 3))
+        strata[stratum].extend((prefix, action) for action in allowed)
+    for values in strata:
+        rng.shuffle(values)
+    selected: list[tuple[tuple[str, ...], str]] = []
+    while len(selected) < limit and any(strata):
+        for stratum in strata:
+            if stratum and len(selected) < limit:
+                selected.append(stratum.pop())
+    return selected
+
+
 class EditValueRanker:
     """MLP action-value scorer trained from successful and failed rollouts.
 
@@ -187,54 +212,56 @@ class EditValueRanker:
             if not pairs:
                 raise ValueError("each corpus task needs visible pairs")
             programs = [tuple(program) for program in programs]
+            prefixes = _training_prefixes(programs, self.seed)
+            task_samples = _balanced_transitions(
+                prefixes, programs, max_per_task, rng)
+            program_depth = max((len(program) for program in programs),
+                                default=1)
             task_transitions = 0
-            for prefix in _training_prefixes(programs, self.seed):
-                try:
-                    _, allowed = analyze(prefix)
-                except ValueError:
-                    continue
-                for action in allowed:
-                    if (time.process_time() - started >= max_seconds or
-                            len(self.traces) >= max_transitions or
-                            task_transitions >= max_per_task):
-                        timed_out = (
-                            time.process_time() - started >= max_seconds)
-                        break
-                    child = (*prefix, action)
-                    outcomes_seen, invalid, censored = _walk_rollouts(
-                        prefix, action, pairs, rng, rollout_count,
-                        rollout_steps)
-                    # Engine-generated successful suffixes are observed
-                    # rollouts, while the scorer sees only the child state.
-                    teacher_success = any(
-                        program[:len(child)] == child and
-                        _is_success(program, pairs)
-                        for program in programs)
-                    if teacher_success:
-                        outcomes_seen.append(1)
-                    if outcomes_seen:
-                        label = sum(outcomes_seen) / len(outcomes_seen)
-                        vectors.append(_state_features(prefix, action, pairs))
-                        labels.append(label)
-                        status = "observed_success_or_failure"
-                    else:
-                        label = None
-                        status = "censored"
-                    self.traces.append({
-                        "signature": str(row["signature"]),
-                        "prefix": prefix, "action": action,
-                        "teacher_suffix_success": teacher_success,
-                        "outcomes": tuple(outcomes_seen),
-                        "invalid_rollouts": invalid,
-                        "censored_rollouts": censored,
-                        "label": label, "status": status,
-                    })
-                    task_transitions += 1
-                    if (len(self.traces) >= max_transitions or
-                            task_transitions >= max_per_task):
-                        break
+            for prefix, action in task_samples:
+                if (time.process_time() - started >= max_seconds or
+                        len(self.traces) >= max_transitions or
+                        task_transitions >= max_per_task):
+                    timed_out = (
+                        time.process_time() - started >= max_seconds)
+                    break
+                child = (*prefix, action)
+                outcomes_seen, invalid, censored = _walk_rollouts(
+                    prefix, action, pairs, rng, rollout_count,
+                    rollout_steps)
+                # Engine-generated successful suffixes are observed
+                # rollouts, while the scorer sees only the child state.
+                teacher_success = any(
+                    program[:len(child)] == child and
+                    _is_success(program, pairs)
+                    for program in programs)
+                if teacher_success:
+                    outcomes_seen.append(1)
+                if outcomes_seen:
+                    label = sum(outcomes_seen) / len(outcomes_seen)
+                    vectors.append(_state_features(prefix, action, pairs))
+                    labels.append(label)
+                    status = "observed_success_or_failure"
+                else:
+                    label = None
+                    status = "censored"
+                depth = len(prefix)
+                depth_bin = ("early" if depth * 3 <= program_depth else
+                             "middle" if depth * 3 <= 2 * program_depth
+                             else "late")
+                self.traces.append({
+                    "signature": str(row["signature"]),
+                    "prefix": prefix, "action": action,
+                    "depth": depth, "depth_bin": depth_bin,
+                    "teacher_suffix_success": teacher_success,
+                    "outcomes": tuple(outcomes_seen),
+                    "invalid_rollouts": invalid,
+                    "censored_rollouts": censored,
+                    "label": label, "status": status,
+                })
+                task_transitions += 1
                 if (len(self.traces) >= max_transitions or
-                        task_transitions >= max_per_task or timed_out):
+                        task_transitions >= max_per_task):
                     break
             if (len(self.traces) >= max_transitions or timed_out or
                     time.process_time() - started >= max_seconds):
@@ -256,6 +283,12 @@ class EditValueRanker:
         self.fitted_signatures = tuple(sorted({str(trace["signature"])
                                                for trace in self.traces}))
         payload = repr(self.traces).encode()
+        depth_histogram: dict[str, int] = {}
+        depth_bin_histogram = {"early": 0, "middle": 0, "late": 0}
+        for trace in self.traces:
+            depth = str(trace["depth"])
+            depth_histogram[depth] = depth_histogram.get(depth, 0) + 1
+            depth_bin_histogram[str(trace["depth_bin"])] += 1
         return {"seed": self.seed, "transitions": len(self.traces),
                 "labeled_transitions": len(labels),
                 "positive_rollouts": sum(
@@ -271,6 +304,8 @@ class EditValueRanker:
                 "selected_signatures": tuple(sorted(
                     str(row["signature"]) for row in rows)),
                 "unique_tasks_used": len(self.fitted_signatures),
+                "depth_histogram": depth_histogram,
+                "depth_bin_histogram": depth_bin_histogram,
                 "fitted_signatures": self.fitted_signatures,
                 "excluded_signatures": tuple(sorted(excluded)),
                 "fit_cpu_seconds": self.fit_seconds,

@@ -51,3 +51,11 @@ remain unsupported.
 Seventeen focused preflight tests pass in 1.327 seconds. The bounded
 measurement is pending resource admission at this checkpoint. Memory guards,
 backend isolation and the sealed original arithmetic set remain unchanged.
+
+The first launch stopped after fitting because the harness referenced the
+removed linear-model weight field. No choices or held outcomes existed.
+The failure and its cost are retained. Before the first completed evaluation,
+the adapter was corrected, checkpoints moved under ignored `weights/`, and
+training transitions balanced across early/middle/late depths. The task bank
+remains unchanged. Tests now use temporary model and compiler fixtures,
+so private local artifacts are not required by CI.

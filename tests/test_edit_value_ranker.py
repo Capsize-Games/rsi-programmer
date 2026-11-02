@@ -10,11 +10,12 @@ from rsi_programmer.edit_value_ranker import EditValueRanker, _state_features
 
 class EditValueRankerTests(unittest.TestCase):
     def test_fit_keeps_success_and_failure_transition_traces(self) -> None:
+        teacher = tuple("for append value append value end return "
+                        "output stop".split())
         corpus = [{
             "signature": "train-duplicate-v1",
             "pairs": [([1, 2], [1, 1, 2, 2]), ([0], [0, 0])],
-            "programs": [tuple("for append value append value end return "
-                                "output stop".split())],
+            "programs": [teacher],
         }]
         model = EditValueRanker(seed=17)
         report = model.fit(corpus, excluded_signatures={"sealed-v1"},
@@ -28,6 +29,9 @@ class EditValueRankerTests(unittest.TestCase):
         self.assertTrue(any(trace["label"] == 0.0 for trace in labeled))
         self.assertTrue(any(trace["status"] == "censored"
                             for trace in model.traces))
+        self.assertGreater(max(trace["depth"] for trace in model.traces),
+                           len(teacher) // 2)
+        self.assertGreater(report["depth_bin_histogram"]["late"], 0)
         self.assertEqual(report["seed"], 17)
         self.assertEqual(len(report["trace_sha256"]), 64)
 

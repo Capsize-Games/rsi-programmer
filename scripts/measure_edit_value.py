@@ -18,15 +18,19 @@ from rsi_programmer.array_curriculum import probes, teachers
 from rsi_programmer.array_execution import execute
 from rsi_programmer.array_policy import ArrayPolicy
 from rsi_programmer.array_tasks import TASKS, oracle
+from rsi_programmer.benchmark_policy import state_fingerprint
 from rsi_programmer.edit_value_ranker import EditValueRanker
 from rsi_programmer.campaign_worker import _execute_task
 from rsi_programmer.program_cost import CostClock
 from scripts.check_edit_value import BANK, ROOT, verify, verify_pre_fit
 
 BASELINE = ROOT / "weights/campaigns/6b844a6c0bd742d286d7567a/selected.pt"
+BASELINE_SHA256 = (
+    "16a852d7b2c2ebb37e9926b5ed1dca22c569dd24a5f786fe071268aca67be746")
 BASELINE_STATUS = ROOT / "artifacts/campaign-initial-20261102/status.json"
 COMPILER = Path("/home/joe/Projects/curlee/build/linux-debug/curlee")
 CURLEE_GUARD = Path("/home/joe/Projects/curlee/scripts/run_limited.py")
+WEIGHTS_DIR = ROOT / "weights"
 SOURCE_PATHS = (
     "rsi_programmer/array_curriculum.py",
     "rsi_programmer/array_execution.py",
@@ -65,6 +69,30 @@ def _write_json(path: Path, value: dict[str, Any]) -> None:
     temporary.replace(path)
 
 
+def _checkpoint_path(output: Path, source_hashes: dict[str, str]) -> Path:
+    identity = json.dumps({"output": str(output.resolve()),
+                           "source_sha256": source_hashes},
+                          sort_keys=True, separators=(",", ":"))
+    suffix = hashlib.sha256(identity.encode()).hexdigest()[:24]
+    return WEIGHTS_DIR / f"edit-value-{suffix}.pt"
+
+
+def _save_checkpoint(state: dict[str, Any], path: Path) -> str:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    torch.save(state, temporary)
+    candidate_sha = _sha(temporary)
+    if path.exists():
+        if _sha(path) != candidate_sha:
+            temporary.unlink()
+            raise FileExistsError(
+                f"checkpoint path already contains different weights: {path}")
+        temporary.unlink()
+        return candidate_sha
+    temporary.replace(path)
+    return candidate_sha
+
+
 def _signature(program: tuple[str, ...], rows: list[list[int]]) -> str:
     raw = json.dumps([execute(program, values) for values in rows],
                      separators=(",", ":"), sort_keys=True)
@@ -77,6 +105,16 @@ def _source_hashes() -> dict[str, str]:
     files["curlee_compiler"] = _sha(COMPILER)
     files["curlee_resource_guard"] = _sha(CURLEE_GUARD)
     return files
+
+
+def _ranker_fingerprint(model: EditValueRanker) -> str:
+    return state_fingerprint(model.network.state_dict(), {
+        "seed": model.seed, "architecture": "edit-value-ranker-v1"})
+
+
+def _baseline_fingerprint(model: ArrayPolicy) -> str:
+    return state_fingerprint(model.state_dict(), {
+        "seed": 0, "execution_context": True})
 
 
 def _baseline_metadata() -> dict[str, Any]:
@@ -164,9 +202,7 @@ def run(output: Path, *, budget: int = 5000, beam_width: int = 12,
     corpus_signatures = {str(row["signature"]) for row in corpus}
     if corpus_signatures & excluded:
         raise ValueError("fresh signatures remain in training corpus")
-    baseline_sha = (
-        "16a852d7b2c2ebb37e9926b5ed1dca22c569dd24a5f786fe071268aca67be746")
-    if _sha(BASELINE) != baseline_sha:
+    if _sha(BASELINE) != BASELINE_SHA256:
         raise ValueError("frozen original ArrayPolicy baseline changed")
     baseline_metadata = _baseline_metadata()
     _write_json(output / "run.json", {
@@ -188,9 +224,24 @@ def run(output: Path, *, budget: int = 5000, beam_width: int = 12,
                       rollout_steps=rollout_steps,
                       max_transitions=transitions,
                       max_tasks=training_tasks)
+    fit_fingerprint = _ranker_fingerprint(trained)
+    fit_checkpoint = _checkpoint_path(output, source_hashes)
+    checkpoint_sha = _save_checkpoint(trained.network.state_dict(),
+                                      fit_checkpoint)
+    fit_trace_path = output / "fit-traces.json"
+    _write_json(fit_trace_path, {"traces": trained.traces})
+    fit_artifacts = {
+        "model_state_fingerprint": fit_fingerprint,
+        "checkpoint_path": str(fit_checkpoint.relative_to(ROOT)),
+        "checkpoint_sha256": checkpoint_sha,
+        "trace_path": fit_trace_path.name,
+        "trace_sha256": _sha(fit_trace_path),
+        "fit_cpu_seconds": fit.get("fit_cpu_seconds"),
+    }
     _write_json(output / "run.json", {
         "status": "fit_complete", "protocol": initial,
         "source_sha256": source_hashes, "fit": fit,
+        "fit_artifacts": fit_artifacts,
         "original_array_policy_baseline": baseline_metadata,
         "fresh_excluded_signatures": sorted(excluded),
         "training_task_count": len(corpus),
@@ -203,10 +254,9 @@ def run(output: Path, *, budget: int = 5000, beam_width: int = 12,
     baseline.load_state_dict(torch.load(BASELINE, map_location="cpu",
                                         weights_only=True))
     baseline.eval()
-    trained_before = hashlib.sha256(repr(trained.weights).encode()).hexdigest()
-    baseline_before = hashlib.sha256("".join(
-        tensor.detach().cpu().numpy().tobytes().hex()
-        for tensor in baseline.state_dict().values()).encode()).hexdigest()
+    baseline_before = _baseline_fingerprint(baseline)
+    if baseline_before != baseline_metadata["model_fingerprint"]:
+        raise ValueError("ArrayPolicy fingerprint differs from metadata")
     development, fresh = _task_sets()
     all_tasks = development + fresh
     methods = {"edit_value_ranker": lambda pairs: trained.synthesize(
@@ -244,11 +294,9 @@ def run(output: Path, *, budget: int = 5000, beam_width: int = 12,
                                         default=list) + "\n")
     if _source_hashes() != source_hashes:
         raise ValueError("source changed before choices were frozen")
-    trained_after = hashlib.sha256(repr(trained.weights).encode()).hexdigest()
-    baseline_after = hashlib.sha256("".join(
-        tensor.detach().cpu().numpy().tobytes().hex()
-        for tensor in baseline.state_dict().values()).encode()).hexdigest()
-    if trained_before != trained_after or baseline_before != baseline_after:
+    trained_after = _ranker_fingerprint(trained)
+    baseline_after = _baseline_fingerprint(baseline)
+    if fit_fingerprint != trained_after or baseline_before != baseline_after:
         raise ValueError("model state changed during inference")
     frozen = {"status": "choices_frozen", "protocol": initial,
               "source_sha256": source_hashes,
@@ -256,8 +304,9 @@ def run(output: Path, *, budget: int = 5000, beam_width: int = 12,
               "training_signatures_sha256": hashlib.sha256(
                   "\n".join(sorted(corpus_signatures)).encode()).hexdigest(),
               "fit": fit, "methods": choices,
+              "fit_artifacts": fit_artifacts,
               "original_array_policy_baseline": baseline_metadata,
-              "model_state_sha256": {"edit_value_before": trained_before,
+              "model_state_sha256": {"edit_value_before": fit_fingerprint,
                                      "edit_value_after": trained_after,
                                      "array_policy_before": baseline_before,
                                      "array_policy_after": baseline_after},
@@ -296,6 +345,7 @@ def run(output: Path, *, budget: int = 5000, beam_width: int = 12,
                                          for row in development],
               "retention_status": protocol["retention_status"],
               "fit": fit, "source_sha256": source_hashes,
+              "fit_artifacts": fit_artifacts,
               "original_array_policy_baseline": baseline_metadata,
               "held_validation": held_validation,
               "cost": clock.elapsed(),
