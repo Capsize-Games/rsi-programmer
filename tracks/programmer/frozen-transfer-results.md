@@ -112,6 +112,10 @@ self-improvement is not supported by this result.
 
 The preflight checkpoint passes 44 focused tests, including task separation,
 source seals, lazy classical imports, timeout handling and malformed CLI
-output. The full programmer fast-track regression is running at this
-publication checkpoint. Other local tracks and slow/retry lanes were not
-rerun; remote aggregate and full CI remain separate checks.
+output. The full programmer fast-track regression passes **541 tests in
+262.267 seconds**. Its [validation receipt](
+../../artifacts/frozen-branch-transfer-validation-20261101/receipt.json)
+and compressed log record the exact scope. Other local tracks and slow/retry
+lanes were not rerun; remote aggregate and full CI remain separate pending
+checks. The earlier execution receipt preserves its publication-time
+regression status.
