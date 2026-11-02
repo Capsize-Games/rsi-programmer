@@ -1,0 +1,23 @@
+{
+  "command": [
+    "timeout",
+    "180",
+    "python3",
+    "/tmp/rsi-run-with-reserve.py",
+    "flock",
+    "/tmp/rsi-programmer-builder.lock",
+    ".venv/bin/python",
+    "-m",
+    "scripts.run_frozen_branch_transfer",
+    "--method",
+    "classical",
+    "--output",
+    "artifacts/frozen-branch-transfer-v1-20261101/classical"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 3.0356663959973957,
+  "cpu_seconds": 2.8598719999999997,
+  "whole_process_cpu_seconds": 2.884219,
+  "largest_child_rss_kib": 18720,
+  "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+}

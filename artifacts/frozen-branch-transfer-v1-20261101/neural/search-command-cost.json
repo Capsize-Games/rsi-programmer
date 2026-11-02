@@ -1,0 +1,23 @@
+{
+  "command": [
+    "timeout",
+    "180",
+    "python3",
+    "/tmp/rsi-run-with-reserve.py",
+    "flock",
+    "/tmp/rsi-programmer-builder.lock",
+    ".venv/bin/python",
+    "-m",
+    "scripts.run_frozen_branch_transfer",
+    "--method",
+    "neural",
+    "--output",
+    "artifacts/frozen-branch-transfer-v1-20261101/neural"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 56.43786855202052,
+  "cpu_seconds": 55.802416,
+  "whole_process_cpu_seconds": 55.832772,
+  "largest_child_rss_kib": 510964,
+  "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+}

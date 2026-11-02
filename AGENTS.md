@@ -171,6 +171,17 @@ Its 37-input query pool excluded all 73 prior held inputs. Construction and
 transfer of state-dependent updates remain the next gap; broader typed
 holes and loop-state features are proposals, not established fixes.
 
+Frozen transfer checkpoint (2026-11-01): the preregistered 18-function bank
+accepts 11/18 trained, 14/18 classical and 11/18 untrained programs in both
+Python and CURLEE. Every emitted program ran on all 20 held cases per
+language. Full measured controller CPU costs are 71.614, 21.127 and 26.600
+seconds respectively, including fresh fitting where applicable. Historical
+creation of the shared donor library is excluded. See
+`tracks/programmer/frozen-transfer-results.md`. No training or cost benefit
+is established. Preserve all failures and the original sealed arithmetic
+final set. Any solver changes informed by this bank make it development
+evidence and require a new frozen bank for subsequent final claims.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,

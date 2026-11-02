@@ -1,0 +1,5822 @@
+{
+  "scope": "Actual compiler check and VM execution for every generated statement program, including wrong attempts.",
+  "program_origin": "Frozen unseen branch-function evaluation. No held inputs loaded; choices now final.",
+  "compiler_before": "412d0e6ee5b8fb9e380322683863849523e1a5797e7e7dbd42bf174b138555ac",
+  "compiler_after": "412d0e6ee5b8fb9e380322683863849523e1a5797e7e7dbd42bf174b138555ac",
+  "compiler_stable": true,
+  "rows": [
+    {
+      "id": "transfer_000",
+      "tokens": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "value",
+        "end",
+        "if",
+        "gt",
+        "one",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.05554196299635805
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013032046990701929
+          },
+          "passed": true,
+          "source_sha256": "6013de503538b1fff67cb2942091975f0eb31fa759050ace57b90e63372ab96a"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.012678762985160574
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.011870162998093292
+          },
+          "passed": true,
+          "source_sha256": "0b8a946cf734ca03cea650acd7d52f7e3a3031444aea7b0b998db749e25c14d6"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.011470035999082029
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013322597020305693
+          },
+          "passed": true,
+          "source_sha256": "e2567971e6dff18c22d3cbab793fb1108621a74d1795923fda7e46ba32830b51"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013191133999498561
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014426222012843937
+          },
+          "passed": true,
+          "source_sha256": "c4144bbe325073575b61bf38bfa65ae6059ea440392bcaa33f09f1695c1a4959"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.028610078996280208
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04045880198827945
+          },
+          "passed": true,
+          "source_sha256": "a7625cbc228c96936d8d908df7ea91766cffe928e29d7250a76cba37e29aff34"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.028582078986801207
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04104408700368367
+          },
+          "passed": true,
+          "source_sha256": "a61f08c0d3e2c209d792fcc4864536bc5c8fb2dc91073511263f2be554f7dfe2"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018107834010152146
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019376126001589
+          },
+          "passed": true,
+          "source_sha256": "e07bc3f91305cb63244e3751b5a4a765a92294bbfb7e2b700ee15a027ece31f0"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016962262016022578
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019014218996744603
+          },
+          "passed": true,
+          "source_sha256": "11c7452897a88521efa194c11e4415d5819ede3e5c698a9e5cd2a3a872b53c3c"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01631818898022175
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018047431978629902
+          },
+          "passed": true,
+          "source_sha256": "90c74a7618ec220893d295f30435db7d7fe1976251265d8087799933fd4a901e"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017683191981632262
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020571641012793407
+          },
+          "passed": true,
+          "source_sha256": "5aaa573bf4fb167bb7d88bb0673a8a6c6830c80c3b12f79b7a16bd3defd8b676"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017248508986085653
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019378650991711766
+          },
+          "passed": true,
+          "source_sha256": "5b7e3cb1424f0915d71dbcba19883a6d66c2ecb31f568667f764213e5eb3ac54"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014210559020284563
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016794098017271608
+          },
+          "passed": true,
+          "source_sha256": "79c87e8f755ca34dd08237284a9594ecdaff76de144fc231b68fbdc3fdf67a8a"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018174269003793597
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.024211437004851177
+          },
+          "passed": true,
+          "source_sha256": "891e54cc1e8ded93c55db771db295aa912195a2742913d68074d3c2eb64cb1d9"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019939649995649233
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023165961989434436
+          },
+          "passed": true,
+          "source_sha256": "748451d185ca53c265854adcbe038a9fd8486eacae9a731c07f95115ea09f86e"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01981348398840055
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023962551000295207
+          },
+          "passed": true,
+          "source_sha256": "7079f0c60fda28080e695c74828f2f2a0cb90d04c0ddf4f2d2e1df465e5ad3a1"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018680717010283843
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.024072005006019026
+          },
+          "passed": true,
+          "source_sha256": "aea8124d63538023bac0ded393dc21d431d9119124d451d757f4ae206ef8a3a7"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017802383983507752
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020423954993020743
+          },
+          "passed": true,
+          "source_sha256": "e0031a613d09e78d5e0d28486cf42dd276e92cbdc4e5319a81b36eb07862fdf5"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01821094800834544
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021802092000143602
+          },
+          "passed": true,
+          "source_sha256": "6a9459bf96c46a87c1c1f7b9cab2a86f4ff3491116b39d5687c1d17e23f53393"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017773830011719838
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020905956014757976
+          },
+          "passed": true,
+          "source_sha256": "9b995905c80521268eb3d080d80a3cd6e5513e4dd98d8ed5e5f18a8a962c4242"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021174157998757437
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023242044990183786
+          },
+          "passed": true,
+          "source_sha256": "7d4def0f31e12d33a50e20b8ba081f990465b43a0f446acc19597619d5abde15"
+        }
+      ],
+      "accepted": true
+    },
+    {
+      "id": "transfer_001",
+      "tokens": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "value",
+        "end",
+        "if",
+        "gt",
+        "acc",
+        "two",
+        "set",
+        "sub",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014294695982243866
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015492676000576466
+          },
+          "passed": true,
+          "source_sha256": "fde20b87903b5dde1454b8a118ffeb0600926894db5ba26c61037ef1f99d276b"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014363994996529073
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016142580017913133
+          },
+          "passed": true,
+          "source_sha256": "a652dac5c10167334a4f3d9abe5a7b6e2c7cab90e55127de49b9c8a2a455b36f"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015705102996435016
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018588384002214298
+          },
+          "passed": true,
+          "source_sha256": "7a67b4df8456ce6de089562fe427f7901d2ec767fdd753b3837dd29b422bd636"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014840386982541531
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01797405502293259
+          },
+          "passed": true,
+          "source_sha256": "88d0fdc67b4c8447b2355277619b5ff93720cb8bde8533d15a32b126da222c9f"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02907973699620925
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.041455876984400675
+          },
+          "passed": true,
+          "source_sha256": "ab38e1ccdb904c65fe8c122ed7793a9f28f245acd5c1e5144af55d4b99ef3eef"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.029634166014147922
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04217763600172475
+          },
+          "passed": true,
+          "source_sha256": "e22c7c320a8213823263079cbcf6f894c0791ea8a51d9c767e19f36bb699e969"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01703663301304914
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021043282991740853
+          },
+          "passed": true,
+          "source_sha256": "310717189a9f529b281b8e226d77a95d8b0874ebd89354d11fbf7222729926ca"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016838120995089412
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021120087010785937
+          },
+          "passed": true,
+          "source_sha256": "d2c907cdaced33f991191cc0301d1ac85ee41a62414a8fc485284bbf1dccbf44"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01723433201550506
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01868457198725082
+          },
+          "passed": true,
+          "source_sha256": "f4d63b5cfaf93d11cb171cb9f940dc3b4433b41b56141aa5fd7de5cf0942d619"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01709380798274651
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021220434020506218
+          },
+          "passed": true,
+          "source_sha256": "c5333c5cd0c784a570e8d777206d666688f4a7b1e6440f84adf5f9ec2eaf9ae2"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016460112994536757
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019667932006996125
+          },
+          "passed": true,
+          "source_sha256": "6cc50b42f7a3c7106a7093f3dbf76037ec37693e8b2e8cd1857aa29081625c01"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013926968007581308
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014998863014625385
+          },
+          "passed": true,
+          "source_sha256": "435f01002a1f195b28ced44a97e071736ad5e865a3b215db3221d48d4b3eeaca"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016666590003296733
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020051548985065892
+          },
+          "passed": true,
+          "source_sha256": "4c5981a944b4a8bbda11ed93e1dbb1075feecb1a6a96c599186c58d1503f5227"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016917781002121046
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021879467007238418
+          },
+          "passed": true,
+          "source_sha256": "e482ba3b0f345a5a066d51ccd0d673dc9d610bcb0a0fa53c212ca09a3ea55457"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01906697900267318
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.022233888012124225
+          },
+          "passed": true,
+          "source_sha256": "6f8e42a00bb5f9fc485a8be0ee016c19751168fca3fa9b7735f5ec024bc5c48f"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01816316897748038
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021343784988857806
+          },
+          "passed": true,
+          "source_sha256": "c62294a20593784fe9f130b7be1c51c494f634af54b9887a6dd28109b23b0f99"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01644789200508967
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019294483994599432
+          },
+          "passed": true,
+          "source_sha256": "5342142905cd8bb43b28656d5d3598b3c47432c2a92680b2ceabb6e995828deb"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017122332006692886
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02149957700748928
+          },
+          "passed": true,
+          "source_sha256": "dc16d72dcfacef1be62cb97c73f17f81d6fb80e702abfce579d8d1c092f78a07"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01636848199996166
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019373761024326086
+          },
+          "passed": true,
+          "source_sha256": "7157eb8428ed48e134b7511dfe24a2dc3a7c8898f9ca66d4ffc0514b358cb604"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01751442500972189
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01992649500607513
+          },
+          "passed": true,
+          "source_sha256": "e12cb923d8a1e585935040076bac1fb94eaea9c6c2d8f9df6c5ed6284f3707b1"
+        }
+      ],
+      "accepted": true
+    },
+    {
+      "id": "transfer_002",
+      "tokens": null,
+      "records": [],
+      "accepted": false
+    },
+    {
+      "id": "transfer_003",
+      "tokens": [
+        "for",
+        "if",
+        "lt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "if",
+        "gt",
+        "one",
+        "acc",
+        "set",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013333690003491938
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01324991398723796
+          },
+          "passed": true,
+          "source_sha256": "b4fd27f6e432b1f8ccb5c8a389bb2932fc0af85839198739ec6604d8dead7886"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.012999582017073408
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013487197022186592
+          },
+          "passed": true,
+          "source_sha256": "eed6be3a3b411165e53239aa1542c9b399ced2f3b5f8c286fc32d675556ebecb"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014270220999605954
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013349868007935584
+          },
+          "passed": true,
+          "source_sha256": "dd9be30fbfe09f075ea4c207a86f3da5ff6b4cb0acc6975324fd55babaab93be"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013514707010472193
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013412997999694198
+          },
+          "passed": true,
+          "source_sha256": "ff81f5ecff10d9143ab8f4dbdb0390460641c6b274f3cb324f252079d023617f"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.027963399013970047
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.03781571102445014
+          },
+          "passed": true,
+          "source_sha256": "98dbe6fff923a9cb056046b858e063627ddfc8a76692008a1317aac9ab718dbe"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02838240601704456
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0401951200037729
+          },
+          "passed": true,
+          "source_sha256": "583ad072bce7a64acda2a6edd33615e5858d26f0bb0a8482b71f869e75f3c93c"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017050586990080774
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02003570899250917
+          },
+          "passed": true,
+          "source_sha256": "06a5a31bb5aced37ebea44ecd8ee441a134165ffb7a19fed4a38595de64a9eac"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018026453006314114
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021436898998217657
+          },
+          "passed": true,
+          "source_sha256": "f41c3f84d6edfe1bdf6f5fc7243a679df95583ea8483e2b4ff3ca73d9ade1aca"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016304211982060224
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018591939995530993
+          },
+          "passed": true,
+          "source_sha256": "3dd2580a8bffa24eb6b9c5f34c70a1500154cd0e426ca6a6e7abf6f7b91ed3b6"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01743158101453446
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021204213990131393
+          },
+          "passed": true,
+          "source_sha256": "32f9b28d65a32ad33a651b5e15b66fc60dd355098877e2ae9aa4c7e1996ae4e6"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01773756300099194
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02024601201992482
+          },
+          "passed": true,
+          "source_sha256": "5f0f4985033e88a37ebd95adb83300ee9e414d8e116b4005ff2aab24e7db9bc3"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015466997982002795
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015351192007074133
+          },
+          "passed": true,
+          "source_sha256": "c1c41c69fdb89809af1fc225b35f22ac745241c5d83a0ab1c75be12296b9b14e"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020280606986489147
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.022241242026211694
+          },
+          "passed": true,
+          "source_sha256": "8b3c2c53b409410869133625b68ccafef4b26defa2370e802a21d3053985537e"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01803454800392501
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02339906699489802
+          },
+          "passed": true,
+          "source_sha256": "ca529fc0773e4290f9dfde784e7ec1e3e7ee77a0f71253b0b737fc1429fe3af8"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019898603000910953
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02211315298336558
+          },
+          "passed": true,
+          "source_sha256": "438276473aee1cf2d89ddf02b8cf717f56345d0dda5e5b3b9257c72bf07b8990"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017341141996439546
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02062783599831164
+          },
+          "passed": true,
+          "source_sha256": "217862642455fa1f393666e7c8f02d6911a74397d497174e95f3498be0f61363"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015995815978385508
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019736229005502537
+          },
+          "passed": true,
+          "source_sha256": "fd759386a826660f5b8e72f5b9f949db587fb34a476e4e77390c0a89e95af64b"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018279887008247897
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021686314983526245
+          },
+          "passed": true,
+          "source_sha256": "c532036a198d505b30e89c1d6ea4c736a2072f44960cbab07bf7fbba20394b47"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01703904801979661
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01773969701025635
+          },
+          "passed": true,
+          "source_sha256": "0eda5414be80267e67a541aba0e616a301094f28a80155d0e15b25a47a5ef7f4"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017289264011196792
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01901000100770034
+          },
+          "passed": true,
+          "source_sha256": "17bdd3d535db162a8667f3fdae1fd68440b988941090d9add2f24b89ff61fb7c"
+        }
+      ],
+      "accepted": true
+    },
+    {
+      "id": "transfer_004",
+      "tokens": [
+        "for",
+        "if",
+        "eq",
+        "rem",
+        "value",
+        "two",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "value",
+        "end",
+        "if",
+        "gt",
+        "length",
+        "two",
+        "set",
+        "sub",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.012960210005985573
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01308573700953275
+          },
+          "passed": true,
+          "source_sha256": "0c7ce4ee17a9d23ad9ad0b8ce8e7da38bfa9fcb38a02ca6808c40e2db94fa5cf"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013806621980620548
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 1\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013111321983160451
+          },
+          "passed": false,
+          "source_sha256": "e2f6585adbba3b85146f031b3f50120284b78b6ac8aeb8e31cb952d2935dc09a"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013836419995641336
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 1\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.012852287996793166
+          },
+          "passed": false,
+          "source_sha256": "05aaa4d249f1b5b47b6018683460434067fcaaf82f22dcb0ab0ec32c59abbab8"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.012755826988723129
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 1\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014378504012711346
+          },
+          "passed": false,
+          "source_sha256": "ef12867416275cc8b3caaaccb6380e407ea5db4dfa7a54ef76f2c50df5c4ffb4"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02696258798823692
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04006692100665532
+          },
+          "passed": true,
+          "source_sha256": "f4913b0dee85a16951090116f4929b96ea128ff05820a486246bf5b14e4fdb52"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02910519699798897
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.044680585007881746
+          },
+          "passed": true,
+          "source_sha256": "6489c17bfd84e3ee76fd24294852c129a354a8a844e72a6ce69d20ba582848d5"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019157989008817822
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02216315598343499
+          },
+          "passed": true,
+          "source_sha256": "b27874edad48c80e280f198a1e5df9ae6f4340bcb50db49f607fa9d9f6eed8b1"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01785436100908555
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.022752388002118096
+          },
+          "passed": true,
+          "source_sha256": "5576bffee3a7a57f5008fdafbd4fe58029c5c999da859922fcf39638d2ac9f4b"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018073109997203574
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020856663992162794
+          },
+          "passed": true,
+          "source_sha256": "a4704ede7cc14aa8c2e175d097df2afb18b969e90706e7537007669c6c023260"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018541594996349886
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.026160993002122268
+          },
+          "passed": true,
+          "source_sha256": "f3fb93150b05d6c8a67264bafbec7f386057ca21ce3825a45f203014ae6a9aaf"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021603330998914316
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.024039253999944776
+          },
+          "passed": true,
+          "source_sha256": "2227b37c3738d222754e25a29cf471ec1f0c1f2be369af61fe7e0a35eec2b42b"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016632646991638467
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016322715993737802
+          },
+          "passed": true,
+          "source_sha256": "0209490fe3a7eba5be6191d701848673df0de95eba0606a02d474b3b26560b25"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01774935398134403
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023667250003200024
+          },
+          "passed": true,
+          "source_sha256": "d3cb44152465e6bafc34bb34facb661b49f6611c83a5fd50bf81776fb6ce4a59"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019172575004631653
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02246734598884359
+          },
+          "passed": true,
+          "source_sha256": "c00e718939d9690521f7c32c5c50142ba6271b959cbd42efaa5b82008bf43a54"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018883595999795943
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02613919900613837
+          },
+          "passed": true,
+          "source_sha256": "1b6a1af43ad049048f1fee65191f35f401518e4c82f846e5434207911489459d"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.025968750996980816
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.031463535997318104
+          },
+          "passed": true,
+          "source_sha256": "319fdf40020223cd80fb2749898f96c29aee7f79dfeede98c16c511a0f86d541"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023927684989757836
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02293259499128908
+          },
+          "passed": true,
+          "source_sha256": "85ba2fb44bab3ca1657412165a374aee5f563f6e04181ed16b114523f4d55ee8"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02076677599688992
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.03036055399570614
+          },
+          "passed": true,
+          "source_sha256": "3bcc7da8c3bd4feba6f63136afb6c3e4a4134a97573448ea0bfc07799ec9d9ce"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01701436098664999
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018639660003827885
+          },
+          "passed": true,
+          "source_sha256": "186db9ac4af4436b7018eed88e5170366b74a4bc1e8ed960dfd8b2d52375f98d"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017509596014861017
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02299282798776403
+          },
+          "passed": true,
+          "source_sha256": "8103fe8f48c1eeaab0d5f17a302d5ca7041be3bf3470ce40f160fca535a2cf6c"
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "id": "transfer_005",
+      "tokens": [
+        "for",
+        "if",
+        "eq",
+        "rem",
+        "value",
+        "two",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "value",
+        "end",
+        "if",
+        "gt",
+        "zero",
+        "acc",
+        "set",
+        "zero",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013866354012861848
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01408414202160202
+          },
+          "passed": true,
+          "source_sha256": "48e617edf10fc1ca8a5a2c59ecb9669e7df2f0e4c783ff169d6d7e3bb2ea45dc"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013729148980928585
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013854001997970045
+          },
+          "passed": true,
+          "source_sha256": "6b7157c5acabd0fccc3326d08c0b5475a241abcef842d54c1d90b5ab0734876b"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013312998984474689
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01366552000399679
+          },
+          "passed": true,
+          "source_sha256": "ca8b37f4f98f9f90b6c2a1e2f42946c958c6f749ef4480cabf14ff0045d09b7a"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014047123026102781
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015957142983097583
+          },
+          "passed": true,
+          "source_sha256": "c6f8e1c33fa9a7b842634833829031b3b04789d845d297928724a1125f06ffac"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02784718500333838
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.041759795014513656
+          },
+          "passed": true,
+          "source_sha256": "a7c9642a6faaded771a190bd774d4787f5909a5505af80736f30835c09af36ec"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02979700901778415
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0438467180065345
+          },
+          "passed": true,
+          "source_sha256": "b44fdccd0720807a8ca2ad68d8ada31700e5eae1f1e6df8af2a38e62b3486a2a"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01773418698576279
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021972218994051218
+          },
+          "passed": true,
+          "source_sha256": "a7e075672367cac0fccf5db31c3ce0fedf039ff0ff74bbd03c6b72c1481eef90"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017122062999987975
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019932867027819157
+          },
+          "passed": true,
+          "source_sha256": "599ab5642608c33b9630c36c7ead9fe6b7ab750e070f7dd99aabbcd1514c0341"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016626536002149805
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020627074991352856
+          },
+          "passed": true,
+          "source_sha256": "c206f5d665f5492d5aeed6b470e5ec92800f58e7f3a1960c07bdad6ab8b0c37b"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01836256100796163
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02164836399606429
+          },
+          "passed": true,
+          "source_sha256": "d68fe39e6733350e3f5cb424bef3d8037207fee4be85d87d1a3f08783bfd91b5"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017018468002788723
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.022315181005978957
+          },
+          "passed": true,
+          "source_sha256": "32bcfff266c9b1954fcc70a3c202815405c7763a93bb7f8c4ea84ca0d3b0ef93"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015721492003649473
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016252084024017677
+          },
+          "passed": true,
+          "source_sha256": "4d4e3959e1cf52a5145a0fa1ebf7abede53ea62d28aef317f790f79119e7513f"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017626765999011695
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02278550001210533
+          },
+          "passed": true,
+          "source_sha256": "d510ec6a2b92f31c667d0d1c9dfacb8422793dfbccbf224c8902a2b140acf1fb"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018923440016806126
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023787935002474114
+          },
+          "passed": true,
+          "source_sha256": "e9841ac4000b599b7e7c5208ab3aa312ebd24a51608e54ff888742dafef2f5ff"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018771514995023608
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.022817691991804168
+          },
+          "passed": true,
+          "source_sha256": "32df31668752bb96f95c7211cc1948a7b842207191cb47b5d3c5abb444bb7898"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018118603999027982
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.024205655994592234
+          },
+          "passed": true,
+          "source_sha256": "e40c95a5a4da77944f155ee4c230c1a15370af69cf8e1b6180c191c26fcfe8f5"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01732605302822776
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020751778996782377
+          },
+          "passed": true,
+          "source_sha256": "6d2a0ed97845eed8ceaef17aa801b4dc1d054f35a94220980034af6504905117"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017542296991450712
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02083418201073073
+          },
+          "passed": true,
+          "source_sha256": "5ee56b0dac3a4ebcc597e45a999eba61e29d2fe449d74f20ef880a4e7755451a"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017070535017410293
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02086927799973637
+          },
+          "passed": true,
+          "source_sha256": "365845de83d39f5a19255a70a85e854833c982a51e47bdb03e14cfd722c31245"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02026692099752836
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.028590343019459397
+          },
+          "passed": true,
+          "source_sha256": "0bd1dc97e83111fee5de5dc041c1a8f7109449a08c3de2f5e1d9405f048edb7e"
+        }
+      ],
+      "accepted": true
+    },
+    {
+      "id": "transfer_006",
+      "tokens": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "mul",
+        "value",
+        "value",
+        "end",
+        "if",
+        "ne",
+        "rem",
+        "length",
+        "two",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01968118699733168
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017983472993364558
+          },
+          "passed": true,
+          "source_sha256": "c779f58b4656f17e94adf634dea23c9fedc805e05e8cbc15b4cafbaa519883c5"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013596870994661003
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01628552601323463
+          },
+          "passed": true,
+          "source_sha256": "2993deed1aa069b7ae59b5f1d1d2931335ca3cc0ae2a53f13768e34a9cf12388"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017034918011631817
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015949870983604342
+          },
+          "passed": true,
+          "source_sha256": "3e229ebcc022322472132ec3edf54e2760811b1b6dfb74130131576a651ba1ac"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01414302398916334
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01371254600235261
+          },
+          "passed": true,
+          "source_sha256": "56e1545f043b44543d27cbde7b4685c7c193d5837029f0145785a1d1eb79a7e7"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.028577018994838
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04253693699138239
+          },
+          "passed": true,
+          "source_sha256": "5839b45078ccd5960fc8763f6773579342156f02acb5781049a8d86139a38ecf"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.031108983006561175
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.042606126982718706
+          },
+          "passed": true,
+          "source_sha256": "58f7bc6ebc12020214c41d9fd8c98122b2150295a886a8a377687e8c5ca86ced"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017579478007974103
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02081709000049159
+          },
+          "passed": true,
+          "source_sha256": "ea0e927c69eab23ea4e930a0fa49826da59daeef99cf3c01e35294f01d7a2cf9"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016883675998542458
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020102144015254453
+          },
+          "passed": true,
+          "source_sha256": "3581ac6455747107916e9b7c2ff301f24d62041b5295c1eae00295520a84c44b"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017030429997248575
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019292298995424062
+          },
+          "passed": true,
+          "source_sha256": "9ea21f38277933f47ea171a1409f5a17586ed683bd118a28da5214162f212274"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01736155801336281
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02184470198699273
+          },
+          "passed": true,
+          "source_sha256": "2ff6f2d8a069f1e5050b3dfacb2807091fedc8e63da6a9633195dd10f5bab72e"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01840582099976018
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020227338012773544
+          },
+          "passed": true,
+          "source_sha256": "29cbde667c878d8e9e3033aa0dfb5c4903aa03c0923780bbec5d34ae7f834aed"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014167797984555364
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015183768991846591
+          },
+          "passed": true,
+          "source_sha256": "9b4d915c4a8a1afbff80528a0a0073c5285e2314d0bb2568d70e8b33925b0872"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016934571001911536
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020292208006139845
+          },
+          "passed": true,
+          "source_sha256": "e80ee58206bbc21dc198452cd6693ea73caea7e6cb4a92e57e5cbdea58e64880"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017148512008134276
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021184987999731675
+          },
+          "passed": true,
+          "source_sha256": "564ae7f3787df38bf97e506e69daaf2a849fb91838dd3bfb531c5ca013624a02"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018858428025851026
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02215917900321074
+          },
+          "passed": true,
+          "source_sha256": "3dff345878936943b54cc2846d02b68aea73518881374a2dc02093a171c51e3e"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018176874000346288
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023728241998469457
+          },
+          "passed": true,
+          "source_sha256": "36ed1fe62bef670b60a2f14f8ffbf513e6c862283b2660ddcbd425994e0725ee"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016837971983477473
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018807072017807513
+          },
+          "passed": true,
+          "source_sha256": "ec70921ef9ae770febc62a6515ca9d01e1e0886e487f1de8957512a119d7d7d6"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016966772003797814
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02158802200574428
+          },
+          "passed": true,
+          "source_sha256": "7f9115b81c8765ffdd44a92ba99eec051dccd91b3f1e1145806d73e4acfa81c1"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016910095990169793
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01784094498725608
+          },
+          "passed": true,
+          "source_sha256": "55d3e8004a12628b47cc16e7e0d23d235d3be27033df68e1209ffc61266396fb"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016398517997004092
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020381957001518458
+          },
+          "passed": true,
+          "source_sha256": "d9a5f048cb1b2f7cad22999ff5bb957248c4c57b7c8d90843792672215aba3f5"
+        }
+      ],
+      "accepted": true
+    },
+    {
+      "id": "transfer_007",
+      "tokens": null,
+      "records": [],
+      "accepted": false
+    },
+    {
+      "id": "transfer_008",
+      "tokens": [
+        "for",
+        "if",
+        "ne",
+        "rem",
+        "value",
+        "two",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "if",
+        "gt",
+        "sub",
+        "length",
+        "one",
+        "two",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01409670599969104
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013699574017664418
+          },
+          "passed": true,
+          "source_sha256": "bed03b6f5fe6ce0ea096950f11b95734e242ba776dbdb6162a046f83034d08ca"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014333819010062143
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013346752006327733
+          },
+          "passed": true,
+          "source_sha256": "8bb507eebd8bb0a955b92af29d5b3bb84dbaa50f6455cc260f3cf828d89cc403"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.012853031978011131
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013498318003257737
+          },
+          "passed": true,
+          "source_sha256": "906e2e176eafa74a202bd1260c0ef69b88b7f6405daeeb8acdc24a9816783cf9"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014057710999622941
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013729217986110598
+          },
+          "passed": true,
+          "source_sha256": "68c33e98f1e046bdfab8965cfd8d62df5d8e9be342686b2269683b1bdf93ed86"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.028496768994955346
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04294686499633826
+          },
+          "passed": true,
+          "source_sha256": "9c6f98c8c43c4eddd5fecf2728edaa252e480f7217cba38c369215908c29726d"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.029765729006612673
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.044495801004813984
+          },
+          "passed": true,
+          "source_sha256": "bb8ad5f555ed4ddfd5e9f25ddb9fe8b09bc8ff11e4a6c7906f765d332b2e898e"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021910515002673492
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.024053521017776802
+          },
+          "passed": true,
+          "source_sha256": "a6bd8d8034ee6f0e226e4ad293f927b540cfed2912bf6307c5fa1db99f12bcea"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017807904980145395
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020649426995078102
+          },
+          "passed": true,
+          "source_sha256": "d1e3d42ab191bad411adb29ba305f33c1247bc19ed61b6c6e4861ab5160f9e41"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016995835991110653
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02154113500728272
+          },
+          "passed": true,
+          "source_sha256": "a36c6a3644a88e7ca61e524d42a5a66cd5c9248343495b1c8ef0203a4fc2df33"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0195425070123747
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.022184125991770998
+          },
+          "passed": true,
+          "source_sha256": "a877fcc0fe187928cbf731e62a4e13ab4badd493d72b8d31d66d20945a35e943"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017180731985718012
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02060143800918013
+          },
+          "passed": true,
+          "source_sha256": "33711419c898e09a468be6038686efc3a99ce0162edfa3c31ad2ccedabef3401"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01410717298858799
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015624692023266107
+          },
+          "passed": true,
+          "source_sha256": "dc42a934e1f499232997a6a271d793c4d9f29e55fa0a41509780e39e92589189"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01740684499964118
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021170430991332978
+          },
+          "passed": true,
+          "source_sha256": "5ad3835a1c1f6680b6fccf56f3288e0161af36d3fa54ede323acbf832d6ce924"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018028116988716647
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02324647200293839
+          },
+          "passed": true,
+          "source_sha256": "adbcf8b00bf09341bf631b43e8b95d2544f5fe02262a92f4e21efb6bcff16ca7"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019088397995801643
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.025080842024181038
+          },
+          "passed": true,
+          "source_sha256": "6e7c2c9c1df66208ded045268415dda621b4eee57eef2d296b2b89d4d26e15b1"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01807672600261867
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023186139995232224
+          },
+          "passed": true,
+          "source_sha256": "0840bd3750087cd6111c1efa3b01e87f58b509bbe18ee250b8211bf08b303b5a"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01704451601835899
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01908938999986276
+          },
+          "passed": true,
+          "source_sha256": "0c20ca27094f241a7fd558248ebbdfc81484d4728c881795f84a9b1a3eaf225f"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01663076301338151
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01979670298169367
+          },
+          "passed": true,
+          "source_sha256": "56d09532841d9347df1fac3b45056785ad4cdfdd340c0439532806d0f5d223ab"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015756870998302475
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018085593997966498
+          },
+          "passed": true,
+          "source_sha256": "9c03e399edd92d4474b92de2f8fd163b94c10b41cfda1884f06cadaf7a0b74c6"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016522481018910185
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01970786601305008
+          },
+          "passed": true,
+          "source_sha256": "4f55a516207051811186d275e60f45432f73ad1c037509dd18ed13895a16cf1e"
+        }
+      ],
+      "accepted": true
+    },
+    {
+      "id": "transfer_009",
+      "tokens": [
+        "for",
+        "if",
+        "ne",
+        "rem",
+        "value",
+        "two",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "if",
+        "eq",
+        "rem",
+        "sub",
+        "zero",
+        "value",
+        "two",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "sub",
+        "zero",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014198866003425792
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013063382997643203
+          },
+          "passed": true,
+          "source_sha256": "fd0d2880e5b6510f2480ca405a4cd4768495b2fb99efbf6b7953a5051201fbfb"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01329871398047544
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013311148009961471
+          },
+          "passed": true,
+          "source_sha256": "97e0ea4f68a67185609af77b38b1aa5d55089d5d0639b3474bdbedc0ac6127c3"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01326599100138992
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013321697013452649
+          },
+          "passed": true,
+          "source_sha256": "a04862c220537670359eb7e95a44294fead94c00a1d2348c85cd44f59afae2c5"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.012764876999426633
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014436880010180175
+          },
+          "passed": true,
+          "source_sha256": "6cedbdea86c7dd75bdfec52ef4e0f550957c4afc54ea26afc18217bb3c2d8424"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.028434171981643885
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04551983397686854
+          },
+          "passed": true,
+          "source_sha256": "0d68d9bd36e447e58e8e6afdb501da8722925bca7994ab6b16db1a3843b666b7"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02928827897994779
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04556430800585076
+          },
+          "passed": true,
+          "source_sha256": "b83433da514191d0c8e31244d63b72c9368551b069f8100d68d4247a48c2b544"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018125247006537393
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023660866980208084
+          },
+          "passed": true,
+          "source_sha256": "40ec19c834e64cd99dc5c13b543c5c0c65496cc5e571e2f178264f3b07ad616d"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017567915987456217
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02157544801593758
+          },
+          "passed": true,
+          "source_sha256": "229072e7beefc0331774a158a47e196a82b5c5308230127a0647d76611638fc6"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019211267994251102
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02042004800750874
+          },
+          "passed": true,
+          "source_sha256": "f0468f0305f68aaa099f412230eeebf2c2af48624d83cf29b42e6d2a2c6bb677"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018511830014176667
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.025847583980066702
+          },
+          "passed": true,
+          "source_sha256": "a8ae9ef157cd82fadc2c6658c0db3916c862b384e6e2d0716f92bc63b048a0ae"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018946563010104
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02362046198686585
+          },
+          "passed": true,
+          "source_sha256": "3924247f328bc91f94244369071ec021af8e04053a404ec8a196dc05f7157c71"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0170429139980115
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01712265398236923
+          },
+          "passed": true,
+          "source_sha256": "6566f2d99e7c94d63c4595c6f3e0d7cffefcb09d7b2d7dc5a2550e074d2a3224"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019056839984841645
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.024561390018789098
+          },
+          "passed": true,
+          "source_sha256": "400e93c8862db6f34a99438d0dc374216558c0221dbcca3416ef74494cab1d1f"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019103865983197466
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.024658462993102148
+          },
+          "passed": true,
+          "source_sha256": "d1c50733b4ece88e5ccfded99e43ab41c90a78c64beb9cdc0fd466c7f45a4e10"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019905024993931875
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.026286646025255322
+          },
+          "passed": true,
+          "source_sha256": "c75ffabe3aeeb20656ea0a6ed010894fec889f022f8eeef687adc00e3db2c277"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018564347992651165
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.025584863004041836
+          },
+          "passed": true,
+          "source_sha256": "bdeae62dd34ef085a34c46d38f9fa969c8767b29db1b43f8dc883f50a0bccc1c"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016962785011855885
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02131885799462907
+          },
+          "passed": true,
+          "source_sha256": "2856d0e26096b97fece304bd8bac3c46cd6b7eac690fee4756b21ca2482a3ab3"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01884138601599261
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02209206300904043
+          },
+          "passed": true,
+          "source_sha256": "d5e26d79de83ce72e2c34410d422ceb9fd0d8955d6abe3fdcf3b35e8726a4aee"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017412585992133245
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020986166025977582
+          },
+          "passed": true,
+          "source_sha256": "68211944ce29ff59a9a64dd596872e42c108808df36ecd11c304cf16469c3563"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01832265598932281
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02270973802660592
+          },
+          "passed": true,
+          "source_sha256": "dd0db9158c9360c47f51ae1239ae22ddfe5ae16d34c73832deaa93e43b7e592c"
+        }
+      ],
+      "accepted": true
+    },
+    {
+      "id": "transfer_010",
+      "tokens": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "two",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "if",
+        "gt",
+        "mul",
+        "value",
+        "length",
+        "zero",
+        "set",
+        "sub",
+        "acc",
+        "mul",
+        "value",
+        "length",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013455296983011067
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015226919000269845
+          },
+          "passed": true,
+          "source_sha256": "daa89c7a344826592facecfdca409b01cd901f148f1b45e03185fad0635cb229"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017302177991950884
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016640370013192296
+          },
+          "passed": true,
+          "source_sha256": "3f1bc94b664c03ac186370e12ea174f0c3312094a814bb2330cd659c93037fe4"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014496261981548741
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016225595987634733
+          },
+          "passed": true,
+          "source_sha256": "d88ad93d6ff2782aec443770df1d7e994178c86d67583ef141557f93991bd66e"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014175293006701395
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015607428998919204
+          },
+          "passed": true,
+          "source_sha256": "17f95f01b78911aa705eb3e17090f3c053d05a905da5840e27e0baa5574b51cf"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.028734633000567555
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04222500399919227
+          },
+          "passed": true,
+          "source_sha256": "6f065d2a8372a7734cb685d8bb47512524e450dca33c98c4fa535f95850b5331"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.029470719979144633
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04122908299905248
+          },
+          "passed": true,
+          "source_sha256": "5f12cc0204f9d84c85ae4be019aef43d57ad4bb2c840d3a7edb73d3fecf83fa9"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017299091996392235
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02179394700215198
+          },
+          "passed": true,
+          "source_sha256": "d1ac80d64e3e4ebe2b95e03378abcb9ab2051ce6afb77b0a91ceac167f5ea2f6"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01766340300673619
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.022569327004021034
+          },
+          "passed": true,
+          "source_sha256": "e15ac382c691468254bc2b66c1cad21c21de6e45b561ed069e95d7cb8c93fe86"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01737172802677378
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019402095000259578
+          },
+          "passed": true,
+          "source_sha256": "f531f95643ef925a79ea3c88bbf0ee71a56b45383a331085fa5b1fbdec79a1ed"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018225494015496224
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.024050225998507813
+          },
+          "passed": true,
+          "source_sha256": "68f352437de844ad30699e5aae10674933395bca8612909738b0713a2217e457"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019958545017288998
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.025111118011409417
+          },
+          "passed": true,
+          "source_sha256": "16faed8b41ffba60ed5f797579aae3edfbe4982c7f2032b3f70e42120116c9be"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018277823022799566
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018233770999358967
+          },
+          "passed": true,
+          "source_sha256": "ae78a035f47632181037baf33621cd2493b1886a76aca97f55244986f7d14ba6"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021598952007479966
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02120079699670896
+          },
+          "passed": true,
+          "source_sha256": "f261a607721c4a6afb604451eb0c916ccd023edbc7472a0254ee84c9c99eed9e"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017855943995527923
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021492572996066883
+          },
+          "passed": true,
+          "source_sha256": "e5c7d26584d99bdead94b7dbd072b0d16b6b6bf18b7b0f94f8dd1f0bff3b8346"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01894831599202007
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0245034410036169
+          },
+          "passed": true,
+          "source_sha256": "44f6e3046e3c3406965a234c7c12019b2f3f7ffba394d833a73bca5d41c5fd9e"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01956483899266459
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021829964010976255
+          },
+          "passed": true,
+          "source_sha256": "4b44c9c6f483094f413930470badda2febba35901cd5a349a9750e84dcff9592"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016071257006842643
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018479279009625316
+          },
+          "passed": true,
+          "source_sha256": "cd0c71e90910a9c3c3ed6fa5cb784cd2835114a0a0dfbbaaf687240f1f30b5ac"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01617048299522139
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019316655001603067
+          },
+          "passed": true,
+          "source_sha256": "0f587c1ea61bfde3b265c760f8eacb08451adb1eac4da0e61a6a67b851830c86"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015607501001795754
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019828591990517452
+          },
+          "passed": true,
+          "source_sha256": "f9dcf5893d587c4f2b54d5037979e63c4a5088f843c48b91eb347ac9531a7d28"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018739345978247002
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020745635993080214
+          },
+          "passed": true,
+          "source_sha256": "946ae615701b3ea99dc855a3c62520f90589ae3c6d1e71ea7a539f172afc5e87"
+        }
+      ],
+      "accepted": true
+    },
+    {
+      "id": "transfer_011",
+      "tokens": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "two",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "if",
+        "eq",
+        "rem",
+        "sub",
+        "acc",
+        "minus_one",
+        "two",
+        "zero",
+        "set",
+        "sub",
+        "acc",
+        "sub",
+        "acc",
+        "minus_one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013447089993860573
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013285328022902831
+          },
+          "passed": true,
+          "source_sha256": "5dd1abb5fec7c135cefb4cbf5523784c624233a2ea5ba900002e65d544176794"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013068594998912886
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013486853975336999
+          },
+          "passed": true,
+          "source_sha256": "0b13644fb16dcfd6e37c3e1d99999ea2f070c3a2b47629f16aa6f0fab399e1b2"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013199237990193069
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013686159014469013
+          },
+          "passed": true,
+          "source_sha256": "041d72c6692ead044ae0a4ec967ecd6076f6e2992d4122c8f5477849b4451b55"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013396114984061569
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01592835900373757
+          },
+          "passed": true,
+          "source_sha256": "203b429cb958d4cdebd7be8b41f011aec6a74e9ea75617b9cea2462d0ea75243"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02821830997709185
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04377880899119191
+          },
+          "passed": true,
+          "source_sha256": "08f70726dd78d82add5f77acdcada975ef4e9d2da4a7180984476bfa0169ed46"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.028949854982784018
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04216784899472259
+          },
+          "passed": true,
+          "source_sha256": "28738ef4f20db590e6803e2036401d4a9d2fb08319682b428bfa3e2204128f8e"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017626204004045576
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020553597016260028
+          },
+          "passed": true,
+          "source_sha256": "666e35a187d02d4bf555405fe8a921d31f6cadb2db4e9141440b1b32091943a5"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016540344018721953
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.022878795018186793
+          },
+          "passed": true,
+          "source_sha256": "81da72ee40579357f1a536eac746ead2086fd0dabd28488726f52239404f1a81"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016871543019078672
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020165702007943764
+          },
+          "passed": true,
+          "source_sha256": "0d3372c077c5b4158a3c27429204c7311ff5dc80e3a18f023afab00a6b51336e"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01878452001255937
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.025693738978588954
+          },
+          "passed": true,
+          "source_sha256": "800d9e64d1330b432c61c29dbd315b7ba5084d5c89b9dfa3c9371b5827408c83"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018627457990078256
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02450047599268146
+          },
+          "passed": true,
+          "source_sha256": "6e192ed0cb6bc8e2670b9dc3f74958e45898538b5a74a4d3ac4c277040e1e81e"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016101474000606686
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016480632009916008
+          },
+          "passed": true,
+          "source_sha256": "aa3c47a395cfb69a0285ba89da44e2f6f42c6f764b1c530474a56b198d29fb72"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018229681998491287
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02362471100059338
+          },
+          "passed": true,
+          "source_sha256": "1c297c4876e4672a43cd2ba7fc1f169a777e592bdae6bf57e71800e0db9c445a"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02023102401290089
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.024163466005120426
+          },
+          "passed": true,
+          "source_sha256": "af9993f28d847467fd31690876b0e21d03f1c9c423638a7c50113634fcebf479"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02080646000104025
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02683930902276188
+          },
+          "passed": true,
+          "source_sha256": "38e416ae39faf2204a9ac12fe3ac62b0ce9f75fc1fb237db7ac045b6bc251846"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020772035990376025
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023125365987652913
+          },
+          "passed": true,
+          "source_sha256": "cedecdf5f99d54803ed792fa5cea785d1423d7093e299d1fad2e13e6694f23af"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016253317007794976
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018818262993590906
+          },
+          "passed": true,
+          "source_sha256": "901dec22026f60e4a0b379becc5799017f5d5cc4366e282d2eca17bd10374e36"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016442762018414214
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020012886001495644
+          },
+          "passed": true,
+          "source_sha256": "d6bd28e35d9079fb7361d54a0863cfd9f3043ac7929dcabdfbc4fcb1fdd8d043"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015971181011991575
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019413806992815807
+          },
+          "passed": true,
+          "source_sha256": "1ab04b82ff13043a79505b5484dafcfb6de97b00ae096ccff4bbd8ff4922fcba"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017862094973679632
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023831004014937207
+          },
+          "passed": true,
+          "source_sha256": "ab80290c2e3ef9284a7e2b71fa85e2240bd7931dc1a468bd0b1cee86e2cab281"
+        }
+      ],
+      "accepted": true
+    },
+    {
+      "id": "transfer_012",
+      "tokens": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "acc",
+        "set",
+        "value",
+        "end",
+        "if",
+        "eq",
+        "rem",
+        "value",
+        "two",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01615742899593897
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01583298301557079
+          },
+          "passed": true,
+          "source_sha256": "8de202a8967944b5dd9d1d23050e7c0b916e05175e89ec5d539f00f3258d6b6a"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015000653977040201
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015020361985079944
+          },
+          "passed": true,
+          "source_sha256": "82c5282a03d4fcb48fad11c6e374ac995269cd3aab4ac9b801d3ebaf85f47e01"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013290249014971778
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015291228977730498
+          },
+          "passed": true,
+          "source_sha256": "cf595dd7fc48aecdbdfec5e9361c9ba8f7b58a5f61bd84b5f575eeece2ae469e"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014451858005486429
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013304243999300525
+          },
+          "passed": true,
+          "source_sha256": "b1223004fe1e8e65a06786e9757be33b64f98f1cf5a8e2759a81d0a47c88e1d6"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.027126706001581624
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.040453193010762334
+          },
+          "passed": true,
+          "source_sha256": "e5b209e2ef9da61dabc3848879c81be8f4ca64b31c86d9e0b7fbf53b6f082700"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.029310801008250564
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04252417400130071
+          },
+          "passed": true,
+          "source_sha256": "7482f76a96942578b1571e798f74bbcaf6d6a1c5ff9b34d089d97062b844e932"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01706279200152494
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020360787020763382
+          },
+          "passed": true,
+          "source_sha256": "0612133babfb642aa366f2209935e04dd8f6e806f2975634e615f6950d26e020"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016691747994627804
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019503343995893374
+          },
+          "passed": true,
+          "source_sha256": "d0b757bcbec33e53b2ded318503d1307f614b6d954612b5d955cc96fadc24e7b"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016965819988399744
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01950107901939191
+          },
+          "passed": true,
+          "source_sha256": "3ec6112657beb610d3ffb3a06442c860114b1edc62801679a5f6413fc1500638"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01870402999338694
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02208992000669241
+          },
+          "passed": true,
+          "source_sha256": "cb9f531d4d7f680e445ad50c0f5a704d1baac7240544c49c5da35a645bbc7e4b"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017101244011428207
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02021867097937502
+          },
+          "passed": true,
+          "source_sha256": "f817c05e1482663b4381e8adb264812976ceec32ad8e23bc45977f3a2c0a09b8"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014233701018383726
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0155646690109279
+          },
+          "passed": true,
+          "source_sha256": "405c167a937a043bc31511c912fcd1b8cc56aea8c61d175f6901e731be241d1b"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018445897003402933
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020947974000591785
+          },
+          "passed": true,
+          "source_sha256": "998abcc8940a740cb91cb45e3a44ca90c9d7d8ddb9b4ebe669e92455eb696b4d"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017649337998591363
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.022957110981224105
+          },
+          "passed": true,
+          "source_sha256": "c72c8a2f03539279892b6bae0a31bc8ff16cbd70b74c3b593812d8be45218e0e"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018716011982178316
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02303628998924978
+          },
+          "passed": true,
+          "source_sha256": "fabaeef28c8e97a6e8c0b4ca494dcb7fd0b30d17df5317db896dac43e3b15849"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018659886991372332
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021588202012935653
+          },
+          "passed": true,
+          "source_sha256": "4351a0b3377662fa81cdd89df5e97304d5d4bd3354b16a47749fd6122b3478bc"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01716045301873237
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02026045901584439
+          },
+          "passed": true,
+          "source_sha256": "96087ce183005b01502606b254d9b140b46c3bace856d66a33b3b8e0bb491e58"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017605655011720955
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019825295021291822
+          },
+          "passed": true,
+          "source_sha256": "fd3186882ebd4f20799fc5b4143d88b25209d4762447712e072c5257c68f9116"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016424408997409046
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01831191699602641
+          },
+          "passed": true,
+          "source_sha256": "4e3c859e7e9e06100df16e05913909cf92a32927d4a101272a92f31b2ef951b9"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017460615024901927
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021393628005171195
+          },
+          "passed": true,
+          "source_sha256": "ebab65d246c0292bb044b79bfeb1c9d6929913669a1679fc2c0556b1133e3904"
+        }
+      ],
+      "accepted": true
+    },
+    {
+      "id": "transfer_013",
+      "tokens": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "acc",
+        "set",
+        "value",
+        "end",
+        "if",
+        "gt",
+        "length",
+        "two",
+        "set",
+        "sub",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014620545989600942
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014825176011072472
+          },
+          "passed": true,
+          "source_sha256": "61f8cc7ab1fb30f0c64ee35a5a32d0134bcff21a892753f6b1e0db542c69d713"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014303931995527819
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014358465996338055
+          },
+          "passed": true,
+          "source_sha256": "18a620359efe2300560164fd46711c84d3d87a706ae994b17f3463fff4f69e9d"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01384475501254201
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014311234990600497
+          },
+          "passed": true,
+          "source_sha256": "ee0cbfca6ecc50360077e327fbe86e35c17d32793c99a8b86ddb2e2f9e25de1b"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014864661992760375
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01357974999700673
+          },
+          "passed": true,
+          "source_sha256": "ef239e3217c58a4f0c0b14406690980fe94af2755d5bcbf7b60d26a34734b974"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02850655501242727
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0418156289961189
+          },
+          "passed": true,
+          "source_sha256": "8559feb0d848b25d36d8db6abb270dbc25bf872bee72aa848d224c54a2d59ac7"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.031095326994545758
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.047393729008035734
+          },
+          "passed": true,
+          "source_sha256": "fd51569f1e2bc6d81360ccc6f79014a37cd3948d346d484c9625c769830eecb8"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018324650009162724
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021907529997406527
+          },
+          "passed": true,
+          "source_sha256": "159fe6593cd62d82d40f2b3d04488b8f67c695c477b2123a6f144b178c8bca20"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01747286700992845
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019793085986748338
+          },
+          "passed": true,
+          "source_sha256": "78fbecf8a6ab518d032c1e5a93af4d5399edfb86190083850a3a723a29a269ac"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016424688015831634
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020984722999855876
+          },
+          "passed": true,
+          "source_sha256": "2cb22e17fc5d88ac8d9ac0f9be9eb2bdf7a3da52472d943d4e0e3b91f52682b7"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020771634997799993
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023636833007913083
+          },
+          "passed": true,
+          "source_sha256": "836338b7ee0b57279dfac2ba285700022546f0089a8a370480a635d9360113d9"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019395993003854528
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0238129619974643
+          },
+          "passed": true,
+          "source_sha256": "f100e15f9c8868012479a98b73a1a78fd27455acbf2ba5426d64dec5896349ba"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017258185980608687
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018908521014964208
+          },
+          "passed": true,
+          "source_sha256": "ea9e60279310e079b388a7a7a43042ece85507a5e026dab23a063e2c7e832ac9"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019755194982280955
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02385576200322248
+          },
+          "passed": true,
+          "source_sha256": "4d2ac2793723b94db6a370fbd3ee8d6be8649248a3f3f2b476e30ee740bb18a1"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018428805022267625
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023294662008993328
+          },
+          "passed": true,
+          "source_sha256": "7d66b68469120769ede1d99970f01a304a1b8af415c1eac44a358069ddbcfa56"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020093216007808223
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.024876689014490694
+          },
+          "passed": true,
+          "source_sha256": "74f9ceab43df7b5e11dcf15ae2f11ed4992093f2fb0aaf6b266ce24b23e6f26c"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01869766798336059
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02260373000171967
+          },
+          "passed": true,
+          "source_sha256": "d89491ae06a9a1518d700b3cc114c9d8ada439f74454635cc16cb6f0532d2cca"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016020291979657486
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020191882009385154
+          },
+          "passed": true,
+          "source_sha256": "694f2c3995bf1798ed18fe4399b66381e9877dac7b275b447078408c97500213"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016602029994828627
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0193293479969725
+          },
+          "passed": true,
+          "source_sha256": "ba691ea3453d0bf62b5f07b0530eb23dc442c9a5d40eb430e71a24d77a76e99c"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015683722973335534
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01949276399682276
+          },
+          "passed": true,
+          "source_sha256": "468d867cf2dd209a834f1daac82b9b955430ed07ab2b9e2d66fe9a3a63426787"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018095109990099445
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023371225979644805
+          },
+          "passed": true,
+          "source_sha256": "44b8c0242fb1f2e4145c77576b73cb145f9454d85ef98fc98297653f7044628a"
+        }
+      ],
+      "accepted": true
+    },
+    {
+      "id": "transfer_014",
+      "tokens": [
+        "for",
+        "if",
+        "le",
+        "value",
+        "acc",
+        "set",
+        "value",
+        "end",
+        "if",
+        "gt",
+        "length",
+        "two",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015941093006404117
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015007547015557066
+          },
+          "passed": true,
+          "source_sha256": "7464fee097d78d8acdc5ff719818cddd019d685fd3588cf8122a5a6bbcd55eb9"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014106745016761124
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014248260005842894
+          },
+          "passed": true,
+          "source_sha256": "97c00fb50d05b1d22d18d4243ef8f5ba7f49a18c903a12da79f8efbcd32b7c5a"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013961040996946394
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013119357987307012
+          },
+          "passed": true,
+          "source_sha256": "d1bb6658aa8446eebdef9fa30eb63f2a17e50b52afe27eb2a96ca4d7310f6252"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.012890842015622184
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 1\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015101044002221897
+          },
+          "passed": false,
+          "source_sha256": "91f06d5bc2e5ce4b8a64529c8017658f7497b018b8c3215bc9c7c04e4fb4a4e9"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02917609698488377
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 1\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04227435699431226
+          },
+          "passed": false,
+          "source_sha256": "10bac737740f2c30c3bc452a92dff43a4ece9282b59908a097f30e9081bb13a7"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.028848808025941253
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04441445801057853
+          },
+          "passed": true,
+          "source_sha256": "d7b48dbab0093267752a3490a1ed7e5d247ff702450145abf2ceeab00355897f"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.026387593999970704
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.030837405007332563
+          },
+          "passed": true,
+          "source_sha256": "c310d9099126838c1b2233487b81ab3fb7b27e74b1f63db877385edfa8b9860c"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01976469301735051
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.024101610004436225
+          },
+          "passed": true,
+          "source_sha256": "99feaac349aa0b527b34f348c37af7a0417bcfcce0e3a92088c4bd9187f0f09c"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019726911996258423
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02405318000819534
+          },
+          "passed": true,
+          "source_sha256": "a63bc4dda88a86ca25d415a3a4f88bf8dc68553f64f855a6c3b21dcbf6c3a551"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0204708119854331
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023740126023767516
+          },
+          "passed": true,
+          "source_sha256": "64fe3bde3a79e490ea42f96fceaed2276e11188cab4753dc422526543c680840"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018164159992011264
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02202972798841074
+          },
+          "passed": true,
+          "source_sha256": "2e8a07b57a8cae74b404ea3c4020316bed4316d9281244d94ae8ce533f05847f"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016345189011190087
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017106892017181963
+          },
+          "passed": true,
+          "source_sha256": "cfac7a4ef5603401ead5ba9d61d6aadb5d1d129f554468a67dd6adecd298f401"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017791363992728293
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.020831908012041822
+          },
+          "passed": true,
+          "source_sha256": "60b39c0d2545879c48b0e1631b8dd70ccc061638e212e4fe0df906c95fe00a94"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017957262985873967
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.027208348998101428
+          },
+          "passed": true,
+          "source_sha256": "db2872a1dc4340740110d9984df2fb0eb32b745eb091a893b6aa5d2e208a7ea2"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019696355011546984
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.023875670012785122
+          },
+          "passed": true,
+          "source_sha256": "4510b7eee4e8ea275b57e76322fdd532cd0e250e7037c9b15067948452c8c2cc"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019067738990997896
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021085122018121183
+          },
+          "passed": true,
+          "source_sha256": "6c0bafc91d4b643cc5f3838a951c58a5ab646383f41cf354e6aed8dcac0962b9"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015809748001629487
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018072127975756302
+          },
+          "passed": true,
+          "source_sha256": "da281508309ffe9e70b3261329afae0bcf62cb18bd334267002070acd496bf69"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01646900997729972
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0218591189768631
+          },
+          "passed": true,
+          "source_sha256": "cf1b655a2ccc394e2a14d1b2aa6a0553ac12331b2bb99464c217b64047fbfedc"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01571283701923676
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017473790008807555
+          },
+          "passed": true,
+          "source_sha256": "9e80f37fbbac25360246b74d697dc1e582e41cfa50295d4a17178b058ad10a86"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016359376983018592
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01893024198943749
+          },
+          "passed": true,
+          "source_sha256": "124d0f1b630499d12287cbe6be7ec6fcaf0881b5047bf0b9aa6e866dff2adeae"
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "id": "transfer_015",
+      "tokens": [
+        "for",
+        "if",
+        "le",
+        "value",
+        "acc",
+        "set",
+        "value",
+        "end",
+        "if",
+        "gt",
+        "add",
+        "value",
+        "acc",
+        "two",
+        "set",
+        "sub",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "records": [
+        {
+          "case": 0,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014030833001015708
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.013670607004314661
+          },
+          "passed": true,
+          "source_sha256": "bf34d6f8476c8af27c25b217ac01250cf54e1b0e2adfba071a4cb414ef4f6f52"
+        },
+        {
+          "case": 1,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014153680996969342
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01316435300395824
+          },
+          "passed": true,
+          "source_sha256": "9ad854e10202730f3ddce6cb9109f43d54c4bbd229a37e17fa60bb4a4abb0bbc"
+        },
+        {
+          "case": 2,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014402225991943851
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 1\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015564679022645578
+          },
+          "passed": false,
+          "source_sha256": "d90feaeaad4201a11a2fa34a96c501370bde827208ccc34614d59c994a408a89"
+        },
+        {
+          "case": 3,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015833262994419783
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.014584908989490941
+          },
+          "passed": true,
+          "source_sha256": "0dd173ddcb42dd563212711d5747f885c8b1145595917337041d7f0424c0e0eb"
+        },
+        {
+          "case": 4,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.029067364026559517
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 1\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.04067820400814526
+          },
+          "passed": false,
+          "source_sha256": "e2aa7cfe6d52691d0315f28eff229eec54591448e2627bb2fc5ec6f3dfb53eca"
+        },
+        {
+          "case": 5,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02985487799742259
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.042375696008093655
+          },
+          "passed": true,
+          "source_sha256": "bf8fed7ddec6025a2e69a42ff7950e5360b01b795ef052090ffae42f3ccb71bb"
+        },
+        {
+          "case": 6,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018962353002279997
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.02199970098445192
+          },
+          "passed": true,
+          "source_sha256": "a4d97b487454fff03ac015d01b68c39a26c1c5e5ec13974c0f773e7f9990c1e6"
+        },
+        {
+          "case": 7,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017851587006589398
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021656849974533543
+          },
+          "passed": true,
+          "source_sha256": "920d43ffdcb5d294d89ebb09bb28f466d7f8bf710351b59df03778ec8a591f5e"
+        },
+        {
+          "case": 8,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017434266017517075
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 1\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018807072017807513
+          },
+          "passed": false,
+          "source_sha256": "af7102031de5683afdd2833322c041a1fdec8c81d63c011b41e0b585b680bdc5"
+        },
+        {
+          "case": 9,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0177084390015807
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021460122981807217
+          },
+          "passed": true,
+          "source_sha256": "2e0e892f76f13bf066b1e906e25804fe461a09ed1c64728a44f67d5084eacbf2"
+        },
+        {
+          "case": 10,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01817927899537608
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01985934001277201
+          },
+          "passed": true,
+          "source_sha256": "648916397b10484f1c304373317de96a9c4c11834b3ef7632f8de51b6ecedaab"
+        },
+        {
+          "case": 11,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015376889001345262
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.015240331995300949
+          },
+          "passed": true,
+          "source_sha256": "da04debb1e07a7d270360f4b64b19d17d49536b4c516c142c7fb31558e103119"
+        },
+        {
+          "case": 12,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017230564990313724
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.022983169998042285
+          },
+          "passed": true,
+          "source_sha256": "3c65a0da2962ff96513f0f49523a2b756da620dbf27bf412049795dfa9f410c9"
+        },
+        {
+          "case": 13,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019146926992107183
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.0217560860037338
+          },
+          "passed": true,
+          "source_sha256": "a7f32fb90b0ad06aac775b9a1233fcd176e9d8b1c125840eec1ebc3b41ee1139"
+        },
+        {
+          "case": 14,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018517129006795585
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.022894694993738085
+          },
+          "passed": true,
+          "source_sha256": "7569ceba21435858ad8219b604e442895bbd73d8b575532c976179f785d64493"
+        },
+        {
+          "case": 15,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018364574993029237
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.021178937022341415
+          },
+          "passed": true,
+          "source_sha256": "4511d3d4e02390f249e760c1aa2111c8d402b1aa3f5dd5732a94f454b1d083a7"
+        },
+        {
+          "case": 16,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01683956300257705
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018457118014339358
+          },
+          "passed": true,
+          "source_sha256": "a41c2692f6f0a88188de6239cc608852a559e6baf818de2e087d13b1676c16ab"
+        },
+        {
+          "case": 17,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.01777002401649952
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.019183696014806628
+          },
+          "passed": true,
+          "source_sha256": "d314b2859b70290b67b9266f34b5ea9cb3d8826ed20c87dc71051033aa5a51a2"
+        },
+        {
+          "case": 18,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016008311009500176
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 0\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.017712717002723366
+          },
+          "passed": true,
+          "source_sha256": "7e9ccb5dfb4c7977d42f47fffc1aa709643e742175f4ff8d9f8ed9586cece445"
+        },
+        {
+          "case": 19,
+          "check": {
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.016464312007883564
+          },
+          "run": {
+            "exit_code": 0,
+            "stdout": "curlee run: result 1\n",
+            "stderr": "",
+            "stderr_truncated": false,
+            "wall_seconds": 0.018910316022811458
+          },
+          "passed": false,
+          "source_sha256": "4c7ac7605e10ec4b76ae5d56f220e815c7b0070cc32a7e1c38818a0d84dec6db"
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "id": "transfer_016",
+      "tokens": null,
+      "records": [],
+      "accepted": false
+    },
+    {
+      "id": "transfer_017",
+      "tokens": null,
+      "records": [],
+      "accepted": false
+    }
+  ],
+  "wrong_expected_control": {
+    "task": "transfer_000",
+    "run": {
+      "exit_code": 0,
+      "stdout": "curlee run: result 1\n",
+      "stderr": "",
+      "stderr_truncated": false,
+      "wall_seconds": 0.016460935003124177
+    },
+    "rejected": true
+  },
+  "tasks": 18,
+  "accepted": 11
+}

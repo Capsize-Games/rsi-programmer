@@ -1,0 +1,354 @@
+{
+  "scope": "Frozen unseen-function comparison within the supplied two-branch integer-list grammar, all controller choices final before held execution.",
+  "solver_commit": "78d7e7df1b5d86df21bde20c36707d8e250ee2c6",
+  "accounting_commit": "7b0650f4e25c8d98dcb4b35becc5262ab72723bd",
+  "bank_hashes": {
+    "tasks.json": "1d587de0cbf84e607ec4628c36ba41585b5ad0ee01544899c225147bea0d8f1a",
+    "held.json": "25284232ece91f15ce3aac085e66cf44d71491a7b46c85591f9a7d8c4f21e37d",
+    "protocol.json": "c9eb5f08cb1f8efc7a9032e4d15c989af3e101e0020398578916136d72017309"
+  },
+  "solver_sources_unchanged": true,
+  "cost_definition": "Sum of full accounting-process CPU including completed child descendants across search/fresh-fit, isolated Python checking and guarded CURLEE checking. Largest child RSS is not aggregate simultaneous memory.",
+  "excluded_costs": [
+    "Historical creation of the shared qualified library",
+    "Benchmark-bank creation and preflight unit tests",
+    "Post-experiment regression testing and CI",
+    "Artifact analysis and publication"
+  ],
+  "original_arithmetic_final_opened": false,
+  "methods": {
+    "neural": {
+      "tasks": 18,
+      "emitted": 14,
+      "python_accepted": 11,
+      "curlee_accepted": 11,
+      "both_accepted": 11,
+      "accepted_ids": [
+        "transfer_000",
+        "transfer_001",
+        "transfer_003",
+        "transfer_005",
+        "transfer_006",
+        "transfer_008",
+        "transfer_009",
+        "transfer_010",
+        "transfer_011",
+        "transfer_012",
+        "transfer_013"
+      ],
+      "no_candidate": [
+        "transfer_002",
+        "transfer_007",
+        "transfer_016",
+        "transfer_017"
+      ],
+      "wrong_candidate": [
+        "transfer_004",
+        "transfer_014",
+        "transfer_015"
+      ],
+      "over_budget": [],
+      "python_actual_cases": 280,
+      "curlee_actual_cases": 280,
+      "python_correct_cases": 271,
+      "curlee_correct_cases": 271,
+      "curlee_vm_runs": 280,
+      "wrong_expected_control_rejected": true,
+      "command_costs": {
+        "search": {
+          "command": [
+            "timeout",
+            "180",
+            "python3",
+            "/tmp/rsi-run-with-reserve.py",
+            "flock",
+            "/tmp/rsi-programmer-builder.lock",
+            ".venv/bin/python",
+            "-m",
+            "scripts.run_frozen_branch_transfer",
+            "--method",
+            "neural",
+            "--output",
+            "artifacts/frozen-branch-transfer-v1-20261101/neural"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 56.43786855202052,
+          "cpu_seconds": 55.802416,
+          "whole_process_cpu_seconds": 55.832772,
+          "largest_child_rss_kib": 510964,
+          "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+        },
+        "python": {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "scripts.evaluate_frozen_branch_transfer",
+            "--method",
+            "neural",
+            "--output",
+            "artifacts/frozen-branch-transfer-v1-20261101"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 12.820782655006042,
+          "cpu_seconds": 3.922526,
+          "whole_process_cpu_seconds": 3.9474150000000003,
+          "largest_child_rss_kib": 207232,
+          "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+        },
+        "curlee": {
+          "command": [
+            "python3",
+            "/home/joe/Projects/curlee/scripts/run_limited.py",
+            "/usr/bin/python3",
+            "-m",
+            "scripts.check_frozen_branch_curlee",
+            "--compiler",
+            "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "--output",
+            "artifacts/frozen-branch-transfer-v1-20261101/neural"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 18.468575231003342,
+          "cpu_seconds": 11.800004999999999,
+          "whole_process_cpu_seconds": 11.834264999999998,
+          "largest_child_rss_kib": 34668,
+          "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+        }
+      },
+      "fresh_fit_cpu_seconds": 42.405603,
+      "request_cpu_seconds": 11.935621999999988,
+      "measured_total_cpu_seconds": 71.614452,
+      "measured_total_wall_seconds": 87.7272264380299,
+      "measured_cpu_per_actual_task_seconds": 3.9785806666666668,
+      "worker_peak_rss_kib": 510964,
+      "largest_single_child_rss_kib": 510964,
+      "hypothetical_volume_1000": {
+        "scope": "Assumes the same non-fit cost per request; no additional task or quality evidence.",
+        "cpu_per_request_seconds": 1.6651194363333333
+      },
+      "compiler_sha256": "412d0e6ee5b8fb9e380322683863849523e1a5797e7e7dbd42bf174b138555ac"
+    },
+    "classical": {
+      "tasks": 18,
+      "emitted": 16,
+      "python_accepted": 14,
+      "curlee_accepted": 14,
+      "both_accepted": 14,
+      "accepted_ids": [
+        "transfer_000",
+        "transfer_001",
+        "transfer_002",
+        "transfer_003",
+        "transfer_004",
+        "transfer_005",
+        "transfer_006",
+        "transfer_007",
+        "transfer_008",
+        "transfer_009",
+        "transfer_010",
+        "transfer_011",
+        "transfer_012",
+        "transfer_014"
+      ],
+      "no_candidate": [
+        "transfer_016",
+        "transfer_017"
+      ],
+      "wrong_candidate": [
+        "transfer_013",
+        "transfer_015"
+      ],
+      "over_budget": [],
+      "python_actual_cases": 320,
+      "curlee_actual_cases": 320,
+      "python_correct_cases": 314,
+      "curlee_correct_cases": 314,
+      "curlee_vm_runs": 320,
+      "wrong_expected_control_rejected": true,
+      "command_costs": {
+        "search": {
+          "command": [
+            "timeout",
+            "180",
+            "python3",
+            "/tmp/rsi-run-with-reserve.py",
+            "flock",
+            "/tmp/rsi-programmer-builder.lock",
+            ".venv/bin/python",
+            "-m",
+            "scripts.run_frozen_branch_transfer",
+            "--method",
+            "classical",
+            "--output",
+            "artifacts/frozen-branch-transfer-v1-20261101/classical"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 3.0356663959973957,
+          "cpu_seconds": 2.8598719999999997,
+          "whole_process_cpu_seconds": 2.884219,
+          "largest_child_rss_kib": 18720,
+          "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+        },
+        "python": {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "scripts.evaluate_frozen_branch_transfer",
+            "--method",
+            "classical",
+            "--output",
+            "artifacts/frozen-branch-transfer-v1-20261101"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 16.405640323995613,
+          "cpu_seconds": 4.918986,
+          "whole_process_cpu_seconds": 4.955621,
+          "largest_child_rss_kib": 206524,
+          "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+        },
+        "curlee": {
+          "command": [
+            "python3",
+            "/home/joe/Projects/curlee/scripts/run_limited.py",
+            "/usr/bin/python3",
+            "-m",
+            "scripts.check_frozen_branch_curlee",
+            "--compiler",
+            "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "--output",
+            "artifacts/frozen-branch-transfer-v1-20261101/classical"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 14.375480466987938,
+          "cpu_seconds": 13.259934,
+          "whole_process_cpu_seconds": 13.286788000000001,
+          "largest_child_rss_kib": 34832,
+          "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+        }
+      },
+      "fresh_fit_cpu_seconds": 0,
+      "request_cpu_seconds": 2.7308599999999994,
+      "measured_total_cpu_seconds": 21.126628,
+      "measured_total_wall_seconds": 33.816787186980946,
+      "measured_cpu_per_actual_task_seconds": 1.1737015555555557,
+      "worker_peak_rss_kib": 18592,
+      "largest_single_child_rss_kib": 206524,
+      "hypothetical_volume_1000": {
+        "scope": "Assumes the same non-fit cost per request; no additional task or quality evidence.",
+        "cpu_per_request_seconds": 1.1737015555555557
+      },
+      "compiler_sha256": "412d0e6ee5b8fb9e380322683863849523e1a5797e7e7dbd42bf174b138555ac"
+    },
+    "untrained": {
+      "tasks": 18,
+      "emitted": 13,
+      "python_accepted": 11,
+      "curlee_accepted": 11,
+      "both_accepted": 11,
+      "accepted_ids": [
+        "transfer_000",
+        "transfer_001",
+        "transfer_002",
+        "transfer_003",
+        "transfer_005",
+        "transfer_006",
+        "transfer_009",
+        "transfer_011",
+        "transfer_012",
+        "transfer_013",
+        "transfer_017"
+      ],
+      "no_candidate": [
+        "transfer_007",
+        "transfer_008",
+        "transfer_010",
+        "transfer_015",
+        "transfer_016"
+      ],
+      "wrong_candidate": [
+        "transfer_004",
+        "transfer_014"
+      ],
+      "over_budget": [],
+      "python_actual_cases": 260,
+      "curlee_actual_cases": 260,
+      "python_correct_cases": 255,
+      "curlee_correct_cases": 255,
+      "curlee_vm_runs": 260,
+      "wrong_expected_control_rejected": true,
+      "command_costs": {
+        "search": {
+          "command": [
+            "timeout",
+            "180",
+            "python3",
+            "/tmp/rsi-run-with-reserve.py",
+            "flock",
+            "/tmp/rsi-programmer-builder.lock",
+            ".venv/bin/python",
+            "-m",
+            "scripts.run_frozen_branch_transfer",
+            "--method",
+            "untrained",
+            "--output",
+            "artifacts/frozen-branch-transfer-v1-20261101/untrained"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 12.044077855010983,
+          "cpu_seconds": 11.837046999999998,
+          "whole_process_cpu_seconds": 11.862550999999998,
+          "largest_child_rss_kib": 224004,
+          "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+        },
+        "python": {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "scripts.evaluate_frozen_branch_transfer",
+            "--method",
+            "untrained",
+            "--output",
+            "artifacts/frozen-branch-transfer-v1-20261101"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 12.203664939996088,
+          "cpu_seconds": 3.852537,
+          "whole_process_cpu_seconds": 3.8774620000000004,
+          "largest_child_rss_kib": 207076,
+          "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+        },
+        "curlee": {
+          "command": [
+            "python3",
+            "/home/joe/Projects/curlee/scripts/run_limited.py",
+            "/usr/bin/python3",
+            "-m",
+            "scripts.check_frozen_branch_curlee",
+            "--compiler",
+            "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "--output",
+            "artifacts/frozen-branch-transfer-v1-20261101/untrained"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 12.32720068198978,
+          "cpu_seconds": 10.836158000000001,
+          "whole_process_cpu_seconds": 10.859960999999998,
+          "largest_child_rss_kib": 34676,
+          "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+        }
+      },
+      "fresh_fit_cpu_seconds": 0,
+      "request_cpu_seconds": 10.784359999999996,
+      "measured_total_cpu_seconds": 26.599973999999996,
+      "measured_total_wall_seconds": 36.57494347699685,
+      "measured_cpu_per_actual_task_seconds": 1.4777763333333331,
+      "worker_peak_rss_kib": 224004,
+      "largest_single_child_rss_kib": 224004,
+      "hypothetical_volume_1000": {
+        "scope": "Assumes the same non-fit cost per request; no additional task or quality evidence.",
+        "cpu_per_request_seconds": 1.4777763333333331
+      },
+      "compiler_sha256": "412d0e6ee5b8fb9e380322683863849523e1a5797e7e7dbd42bf174b138555ac"
+    }
+  }
+}

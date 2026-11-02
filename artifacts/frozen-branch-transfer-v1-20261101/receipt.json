@@ -1,0 +1,32 @@
+{
+  "stage": "All frozen choices and actual Python/CURLEE executions complete; full programmer fast regression running.",
+  "preflight": {
+    "tests": 44,
+    "seconds": 11.898,
+    "passed": true,
+    "evidence": "artifacts/frozen-transfer-preflight-20261101"
+  },
+  "programmer_fast": {
+    "status": "running",
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m scripts.run_accounted --cost-file artifacts/frozen-branch-transfer-validation-20261101/programmer-fast-command-cost.json -- python3 /tmp/rsi-run-with-reserve.py python3 -m scripts.tracks test programmer --lane fast",
+    "log": "/tmp/rsi-frozen-transfer-programmer-fast-20261101.log"
+  },
+  "excluded_local_lanes": [
+    "programmer slow",
+    "programmer retry",
+    "sensing",
+    "companion",
+    "aggregate full discovery"
+  ],
+  "ci": {
+    "status": "pending",
+    "accounting_commit_run": "https://github.com/Capsize-Games/rsi-programmer/actions/runs/41371779631",
+    "previous_582830f_fast_3_12": "success",
+    "previous_582830f_fast_3_13": "success",
+    "previous_582830f_full": "in_progress"
+  },
+  "release": "Tags and releases remain paused by the repository owner instruction.",
+  "reserve_wrapper_sha256": "119e49f9148aed5555ca4e01592ba5f7fd903a0bf0a140b401eef2d12688f42e",
+  "curlee_guard": "Existing local-only CURLEE scripts/run_limited.py; unchanged and not published.",
+  "notification": "Mattermost completion message not sent: broader programming goal remains active."
+}

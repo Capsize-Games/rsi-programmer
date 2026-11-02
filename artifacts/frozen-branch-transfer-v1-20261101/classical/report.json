@@ -1,0 +1,8597 @@
+{
+  "scope": "Frozen unseen branch-function evaluation. No held inputs loaded; choices now final.",
+  "method": "classical",
+  "tasks": 18,
+  "rows": [
+    {
+      "id": "transfer_000",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "one",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "positive_total",
+            "positive_total"
+          ],
+          "combine": "add",
+          "arg": [
+            "one"
+          ]
+        },
+        "visited": 97,
+        "contexts": 48,
+        "wall_seconds": 0.0034054650168400258,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          62
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          22
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "value",
+            "end",
+            "if",
+            "gt",
+            "one",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "positive_total",
+              "positive_total"
+            ],
+            "combine": "add",
+            "arg": [
+              "one"
+            ]
+          },
+          "visited": 97,
+          "contexts": 48,
+          "wall_seconds": 0.0034054650168400258,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "one",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "positive_total",
+                  "positive_total"
+                ],
+                "combine": "add",
+                "arg": [
+                  "one"
+                ]
+              },
+              "visited": 97,
+              "contexts": 48,
+              "wall_seconds": 0.0034054650168400258,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            62
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            4
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            22
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.006434285984141752,
+        "cpu_seconds": 0.00643500000000001
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 2,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 25856,
+          "expected": 25856,
+          "interpreted": 25856,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 256,
+          "expected": 256,
+          "interpreted": 256,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 2051,
+          "expected": 2051,
+          "interpreted": 2051,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 1769,
+          "expected": 1769,
+          "interpreted": 1769,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 1601,
+          "expected": 1601,
+          "interpreted": 1601,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 1838,
+          "expected": 1838,
+          "interpreted": 1838,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 1396,
+          "expected": 1396,
+          "interpreted": 1396,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 723,
+          "expected": 723,
+          "interpreted": 723,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 1750,
+          "expected": 1750,
+          "interpreted": 1750,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 2013,
+          "expected": 2013,
+          "interpreted": 2013,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 1920,
+          "expected": 1920,
+          "interpreted": 1920,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 2380,
+          "expected": 2380,
+          "interpreted": 2380,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 1500,
+          "expected": 1500,
+          "interpreted": 1500,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 1361,
+          "expected": 1361,
+          "interpreted": 1361,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 1054,
+          "expected": 1054,
+          "interpreted": 1054,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 1653,
+          "expected": 1653,
+          "interpreted": 1653,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "4e03b62c88f510d73408e1136f724ba8431448fe9d8f9b86c5b953dc88dbeb95",
+      "curlee_sha256": "7de6ae942b3fbf185c9864964c86a56ae87b665d590705cacd81b85cd6c5b3b8"
+    },
+    {
+      "id": "transfer_001",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "acc",
+          "two",
+          "set",
+          "sub",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "positive_total",
+            "above_two_count"
+          ],
+          "combine": "sub",
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 4,
+        "contexts": 48,
+        "wall_seconds": 0.0007301050063688308,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          38
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          1
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          7
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "value",
+            "end",
+            "if",
+            "gt",
+            "acc",
+            "two",
+            "set",
+            "sub",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "positive_total",
+              "above_two_count"
+            ],
+            "combine": "sub",
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 4,
+          "contexts": 48,
+          "wall_seconds": 0.0007301050063688308,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "acc",
+                "two",
+                "set",
+                "sub",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "positive_total",
+                  "above_two_count"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 4,
+              "contexts": 48,
+              "wall_seconds": 0.0007301050063688308,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            38
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            1
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            7
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.0041164340218529105,
+        "cpu_seconds": 0.004116999999999996
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 25344,
+          "expected": 25344,
+          "interpreted": 25344,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 1920,
+          "expected": 1920,
+          "interpreted": 1920,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 1643,
+          "expected": 1643,
+          "interpreted": 1643,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 1491,
+          "expected": 1491,
+          "interpreted": 1491,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 1679,
+          "expected": 1679,
+          "interpreted": 1679,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 1262,
+          "expected": 1262,
+          "interpreted": 1262,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 680,
+          "expected": 680,
+          "interpreted": 680,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 1607,
+          "expected": 1607,
+          "interpreted": 1607,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 1855,
+          "expected": 1855,
+          "interpreted": 1855,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 1741,
+          "expected": 1741,
+          "interpreted": 1741,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 2227,
+          "expected": 2227,
+          "interpreted": 2227,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 1400,
+          "expected": 1400,
+          "interpreted": 1400,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 1243,
+          "expected": 1243,
+          "interpreted": 1243,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 972,
+          "expected": 972,
+          "interpreted": 972,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 1533,
+          "expected": 1533,
+          "interpreted": 1533,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "0f3b9af974219029cc17c0604d71d4786dc318895dc99b3d8bbcdee562adf5fa",
+      "curlee_sha256": "9ad74dece10f460aad4650b96792351d978973991ad0f5dea082b11476e6a5b4"
+    },
+    {
+      "id": "transfer_002",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "lt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "if",
+          "gt",
+          "acc",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "negative_count",
+            "above_two_count"
+          ],
+          "combine": "add",
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 35,
+        "contexts": 48,
+        "wall_seconds": 0.0015567000082228333,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          8
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          11
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "lt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "if",
+            "gt",
+            "acc",
+            "two",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "negative_count",
+              "above_two_count"
+            ],
+            "combine": "add",
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 35,
+          "contexts": 48,
+          "wall_seconds": 0.0015567000082228333,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "lt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "gt",
+                "acc",
+                "two",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "negative_count",
+                  "above_two_count"
+                ],
+                "combine": "add",
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 35,
+              "contexts": 48,
+              "wall_seconds": 0.0015567000082228333,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            8
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            2
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            11
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.004750830004923046,
+        "cpu_seconds": 0.004750999999999991
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 510,
+          "expected": 510,
+          "interpreted": 510,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 93,
+          "expected": 93,
+          "interpreted": 93,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 81,
+          "expected": 81,
+          "interpreted": 81,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 78,
+          "expected": 78,
+          "interpreted": 78,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 113,
+          "expected": 113,
+          "interpreted": 113,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 101,
+          "expected": 101,
+          "interpreted": 101,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 27,
+          "expected": 27,
+          "interpreted": 27,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 104,
+          "expected": 104,
+          "interpreted": 104,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 112,
+          "expected": 112,
+          "interpreted": 112,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 126,
+          "expected": 126,
+          "interpreted": 126,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 104,
+          "expected": 104,
+          "interpreted": 104,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 66,
+          "expected": 66,
+          "interpreted": 66,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 83,
+          "expected": 83,
+          "interpreted": 83,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 67,
+          "expected": 67,
+          "interpreted": 67,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 76,
+          "expected": 76,
+          "interpreted": 76,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "45da61ac23b8de6b459be55a7787791317e3b8f2a4a0fe99522cbf3f0dc25b84",
+      "curlee_sha256": "a3dd620a845f4423f6a3afbbdc2ae63f88decbddd3f5536778164ccc6bb927c2"
+    },
+    {
+      "id": "transfer_003",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "lt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "if",
+          "gt",
+          "one",
+          "acc",
+          "set",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "negative_count",
+            "maximum_floor_zero"
+          ],
+          "combine": null,
+          "arg": [
+            "one"
+          ]
+        },
+        "visited": 103,
+        "contexts": 48,
+        "wall_seconds": 0.0055262999958358705,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          5
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          6
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "lt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "if",
+            "gt",
+            "one",
+            "acc",
+            "set",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "negative_count",
+              "maximum_floor_zero"
+            ],
+            "combine": null,
+            "arg": [
+              "one"
+            ]
+          },
+          "visited": 103,
+          "contexts": 48,
+          "wall_seconds": 0.0055262999958358705,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "lt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "gt",
+                "one",
+                "acc",
+                "set",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "negative_count",
+                  "maximum_floor_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "one"
+                ]
+              },
+              "visited": 103,
+              "contexts": 48,
+              "wall_seconds": 0.0055262999958358705,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            5
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            2
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            6
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.008090313000138849,
+        "cpu_seconds": 0.008091000000000001
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 256,
+          "expected": 256,
+          "interpreted": 256,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 29,
+          "expected": 29,
+          "interpreted": 29,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 28,
+          "expected": 28,
+          "interpreted": 28,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 29,
+          "expected": 29,
+          "interpreted": 29,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 38,
+          "expected": 38,
+          "interpreted": 38,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 39,
+          "expected": 39,
+          "interpreted": 39,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 9,
+          "expected": 9,
+          "interpreted": 9,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 37,
+          "expected": 37,
+          "interpreted": 37,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 39,
+          "expected": 39,
+          "interpreted": 39,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 48,
+          "expected": 48,
+          "interpreted": 48,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 32,
+          "expected": 32,
+          "interpreted": 32,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 21,
+          "expected": 21,
+          "interpreted": 21,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 31,
+          "expected": 31,
+          "interpreted": 31,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 25,
+          "expected": 25,
+          "interpreted": 25,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 25,
+          "expected": 25,
+          "interpreted": 25,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "8043566d85cdd2807081adba30a5b1b3e8fb6eee97079576abe8e1cc6465069d",
+      "curlee_sha256": "bea0e763eac3a5cd14679f45c797622e6438c91c01dbdd6d025d57433460dcee"
+    },
+    {
+      "id": "transfer_004",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "eq",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "if",
+          "ne",
+          "rem",
+          "one",
+          "two",
+          "zero",
+          "set",
+          "sub",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "even_total",
+            "odd_count"
+          ],
+          "combine": "sub",
+          "arg": [
+            "one"
+          ]
+        },
+        "visited": 122,
+        "contexts": 48,
+        "wall_seconds": 0.00421729197842069,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          -4
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          -11
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          -19
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "eq",
+            "rem",
+            "value",
+            "two",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "value",
+            "end",
+            "if",
+            "ne",
+            "rem",
+            "one",
+            "two",
+            "zero",
+            "set",
+            "sub",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "even_total",
+              "odd_count"
+            ],
+            "combine": "sub",
+            "arg": [
+              "one"
+            ]
+          },
+          "visited": 122,
+          "contexts": 48,
+          "wall_seconds": 0.00421729197842069,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "eq",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "if",
+                "ne",
+                "rem",
+                "one",
+                "two",
+                "zero",
+                "set",
+                "sub",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "even_total",
+                  "odd_count"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "one"
+                ]
+              },
+              "visited": 122,
+              "contexts": 48,
+              "wall_seconds": 0.00421729197842069,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            -4
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            -11
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            -19
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.008628967014374211,
+        "cpu_seconds": 0.008628999999999998
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": -1,
+          "expected": -1,
+          "interpreted": -1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": -1,
+          "expected": -1,
+          "interpreted": -1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": -1,
+          "expected": -1,
+          "interpreted": -1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 25344,
+          "expected": 25344,
+          "interpreted": 25344,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": -25856,
+          "expected": -25856,
+          "interpreted": -25856,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": -77,
+          "expected": -77,
+          "interpreted": -77,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 139,
+          "expected": 139,
+          "interpreted": 139,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": -85,
+          "expected": -85,
+          "interpreted": -85,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": -210,
+          "expected": -210,
+          "interpreted": -210,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": -353,
+          "expected": -353,
+          "interpreted": -353,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 172,
+          "expected": 172,
+          "interpreted": 172,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": -354,
+          "expected": -354,
+          "interpreted": -354,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 67,
+          "expected": 67,
+          "interpreted": 67,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 50,
+          "expected": 50,
+          "interpreted": 50,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 407,
+          "expected": 407,
+          "interpreted": 407,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 220,
+          "expected": 220,
+          "interpreted": 220,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": -199,
+          "expected": -199,
+          "interpreted": -199,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": -268,
+          "expected": -268,
+          "interpreted": -268,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 214,
+          "expected": 214,
+          "interpreted": 214,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "88ead2da207e22a64b0dc6bfd93b4fbca4fedd5d5dba9204f6dde92aa6ef719f",
+      "curlee_sha256": "6a54be107df6ad76f6b235718471d1f6a3e23fdbd2bee895f87896bb9c3874e6"
+    },
+    {
+      "id": "transfer_005",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "eq",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "zero",
+          "acc",
+          "set",
+          "zero",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "even_total",
+            "maximum_floor_zero"
+          ],
+          "combine": null,
+          "arg": [
+            "zero"
+          ]
+        },
+        "visited": 53,
+        "contexts": 48,
+        "wall_seconds": 0.002669870009412989,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          8
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          0
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          0
+        ],
+        [
+          [
+            94,
+            -90,
+            30,
+            -26,
+            -33,
+            -81,
+            -77,
+            52,
+            14,
+            39,
+            -43,
+            1,
+            -21,
+            88,
+            -34,
+            -21,
+            5,
+            -21,
+            98,
+            22,
+            42,
+            69,
+            -22,
+            65,
+            -100,
+            8,
+            52,
+            77,
+            -14,
+            -38
+          ],
+          176
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "eq",
+            "rem",
+            "value",
+            "two",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "value",
+            "end",
+            "if",
+            "gt",
+            "zero",
+            "acc",
+            "set",
+            "zero",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "even_total",
+              "maximum_floor_zero"
+            ],
+            "combine": null,
+            "arg": [
+              "zero"
+            ]
+          },
+          "visited": 53,
+          "contexts": 48,
+          "wall_seconds": 0.002669870009412989,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "two",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "ne",
+                "rem",
+                "mul",
+                "acc",
+                "length",
+                "two",
+                "zero",
+                "set",
+                "sub",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "above_two_count",
+                  "odd_count"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "mul",
+                  "acc",
+                  "length"
+                ]
+              },
+              "visited": 5290,
+              "contexts": 48,
+              "wall_seconds": 0.20118298797751777,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                94,
+                -90,
+                30,
+                -26,
+                -33,
+                -81,
+                -77,
+                52,
+                14,
+                39,
+                -43,
+                1,
+                -21,
+                88,
+                -34,
+                -21,
+                5,
+                -21,
+                98,
+                22,
+                42,
+                69,
+                -22,
+                65,
+                -100,
+                8,
+                52,
+                77,
+                -14,
+                -38
+              ],
+              "expected": 176,
+              "actual": 15
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "eq",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "zero",
+                "acc",
+                "set",
+                "zero",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "even_total",
+                  "maximum_floor_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "zero"
+                ]
+              },
+              "visited": 53,
+              "contexts": 48,
+              "wall_seconds": 0.002669870009412989,
+              "budget_exhausted": false
+            },
+            "observed_count": 4,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            8
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            0
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            0
+          ],
+          [
+            [
+              94,
+              -90,
+              30,
+              -26,
+              -33,
+              -81,
+              -77,
+              52,
+              14,
+              39,
+              -43,
+              1,
+              -21,
+              88,
+              -34,
+              -21,
+              5,
+              -21,
+              98,
+              22,
+              42,
+              69,
+              -22,
+              65,
+              -100,
+              8,
+              52,
+              77,
+              -14,
+              -38
+            ],
+            176
+          ]
+        ],
+        "added_examples": 1,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.2072341780003626,
+        "cpu_seconds": 0.20722799999999997
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 25600,
+          "expected": 25600,
+          "interpreted": 25600,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 290,
+          "expected": 290,
+          "interpreted": 290,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 230,
+          "expected": 230,
+          "interpreted": 230,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 20,
+          "expected": 20,
+          "interpreted": 20,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 248,
+          "expected": 248,
+          "interpreted": 248,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 34,
+          "expected": 34,
+          "interpreted": 34,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 230,
+          "expected": 230,
+          "interpreted": 230,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 332,
+          "expected": 332,
+          "interpreted": 332,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 194,
+          "expected": 194,
+          "interpreted": 194,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 184,
+          "expected": 184,
+          "interpreted": 184,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 554,
+          "expected": 554,
+          "interpreted": 554,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 458,
+          "expected": 458,
+          "interpreted": 458,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 402,
+          "expected": 402,
+          "interpreted": 402,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "ddbb552970cb9047e49969406c3da3ebe0ca8e4e1a722618b39be3b4e6b9ca7c",
+      "curlee_sha256": "ec3517fba8cf56adab71f1701236b9b2a6929c0ef7449eddbf9b0c37247fc0eb"
+    },
+    {
+      "id": "transfer_006",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "mul",
+          "value",
+          "value",
+          "end",
+          "if",
+          "ne",
+          "rem",
+          "length",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "positive_square_total",
+            "odd_count"
+          ],
+          "combine": "add",
+          "arg": [
+            "length"
+          ]
+        },
+        "visited": 251,
+        "contexts": 48,
+        "wall_seconds": 0.009811349009396508,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          332
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          84
+        ],
+        [
+          [
+            -12,
+            -19,
+            79,
+            35,
+            93,
+            28,
+            69,
+            36,
+            98,
+            65,
+            0,
+            32,
+            -73,
+            -19,
+            -56,
+            -29,
+            74,
+            -7,
+            -53,
+            39,
+            -94,
+            -81,
+            78,
+            29,
+            -95,
+            23,
+            -3,
+            55,
+            -5,
+            30,
+            -100,
+            24,
+            75,
+            -95,
+            -87,
+            20,
+            -99,
+            67,
+            -41,
+            60,
+            86,
+            -100
+          ],
+          78271
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "mul",
+            "value",
+            "value",
+            "end",
+            "if",
+            "ne",
+            "rem",
+            "length",
+            "two",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "positive_square_total",
+              "odd_count"
+            ],
+            "combine": "add",
+            "arg": [
+              "length"
+            ]
+          },
+          "visited": 251,
+          "contexts": 48,
+          "wall_seconds": 0.009811349009396508,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "mul",
+                "value",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "length",
+                "acc",
+                "set",
+                "length",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "positive_square_total",
+                  "maximum_floor_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "length"
+                ]
+              },
+              "visited": 247,
+              "contexts": 48,
+              "wall_seconds": 0.00863907701568678,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                -12,
+                -19,
+                79,
+                35,
+                93,
+                28,
+                69,
+                36,
+                98,
+                65,
+                0,
+                32,
+                -73,
+                -19,
+                -56,
+                -29,
+                74,
+                -7,
+                -53,
+                39,
+                -94,
+                -81,
+                78,
+                29,
+                -95,
+                23,
+                -3,
+                55,
+                -5,
+                30,
+                -100,
+                24,
+                75,
+                -95,
+                -87,
+                20,
+                -99,
+                67,
+                -41,
+                60,
+                86,
+                -100
+              ],
+              "expected": 78271,
+              "actual": 78313
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "mul",
+                "value",
+                "value",
+                "end",
+                "if",
+                "ne",
+                "rem",
+                "length",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "positive_square_total",
+                  "odd_count"
+                ],
+                "combine": "add",
+                "arg": [
+                  "length"
+                ]
+              },
+              "visited": 251,
+              "contexts": 48,
+              "wall_seconds": 0.009811349009396508,
+              "budget_exhausted": false
+            },
+            "observed_count": 4,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            332
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            4
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            84
+          ],
+          [
+            [
+              -12,
+              -19,
+              79,
+              35,
+              93,
+              28,
+              69,
+              36,
+              98,
+              65,
+              0,
+              32,
+              -73,
+              -19,
+              -56,
+              -29,
+              74,
+              -7,
+              -53,
+              39,
+              -94,
+              -81,
+              78,
+              29,
+              -95,
+              23,
+              -3,
+              55,
+              -5,
+              30,
+              -100,
+              24,
+              75,
+              -95,
+              -87,
+              20,
+              -99,
+              67,
+              -41,
+              60,
+              86,
+              -100
+            ],
+            78271
+          ]
+        ],
+        "added_examples": 1,
+        "oracle_calls": 25,
+        "candidate_executions": 25
+      },
+      "request_cost": {
+        "wall_seconds": 0.022368910984368995,
+        "cpu_seconds": 0.022368999999999972
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 2,
+          "expected": 2,
+          "interpreted": 2,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 2560000,
+          "expected": 2560000,
+          "interpreted": 2560000,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 139695,
+          "expected": 139695,
+          "interpreted": 139695,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 110747,
+          "expected": 110747,
+          "interpreted": 110747,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 108873,
+          "expected": 108873,
+          "interpreted": 108873,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 117158,
+          "expected": 117158,
+          "interpreted": 117158,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 85470,
+          "expected": 85470,
+          "interpreted": 85470,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 52129,
+          "expected": 52129,
+          "interpreted": 52129,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 110266,
+          "expected": 110266,
+          "interpreted": 110266,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 122301,
+          "expected": 122301,
+          "interpreted": 122301,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 119352,
+          "expected": 119352,
+          "interpreted": 119352,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 164086,
+          "expected": 164086,
+          "interpreted": 164086,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 92222,
+          "expected": 92222,
+          "interpreted": 92222,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 75505,
+          "expected": 75505,
+          "interpreted": 75505,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 68412,
+          "expected": 68412,
+          "interpreted": 68412,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 93861,
+          "expected": 93861,
+          "interpreted": 93861,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "97df491329e90f69dd51c0b1344a9104931722a2a462f5f5fdad3a3be0ef3560",
+      "curlee_sha256": "e1ff259156037fc6c97d09c56d00d78cf5117d499de66de3016016f11c3d4d6f"
+    },
+    {
+      "id": "transfer_007",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "mul",
+          "value",
+          "value",
+          "end",
+          "if",
+          "lt",
+          "add",
+          "length",
+          "value",
+          "zero",
+          "set",
+          "sub",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "positive_square_total",
+            "negative_count"
+          ],
+          "combine": "sub",
+          "arg": [
+            "add",
+            "length",
+            "value"
+          ]
+        },
+        "visited": 2314,
+        "contexts": 48,
+        "wall_seconds": 0.07861003099242225,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          332
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          0
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          75
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "mul",
+            "value",
+            "value",
+            "end",
+            "if",
+            "lt",
+            "add",
+            "length",
+            "value",
+            "zero",
+            "set",
+            "sub",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "positive_square_total",
+              "negative_count"
+            ],
+            "combine": "sub",
+            "arg": [
+              "add",
+              "length",
+              "value"
+            ]
+          },
+          "visited": 2314,
+          "contexts": 48,
+          "wall_seconds": 0.07861003099242225,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "mul",
+                "value",
+                "value",
+                "end",
+                "if",
+                "lt",
+                "add",
+                "length",
+                "value",
+                "zero",
+                "set",
+                "sub",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "positive_square_total",
+                  "negative_count"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "add",
+                  "length",
+                  "value"
+                ]
+              },
+              "visited": 2314,
+              "contexts": 48,
+              "wall_seconds": 0.07861003099242225,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            332
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            0
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            75
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.08181138301733881,
+        "cpu_seconds": 0.08179999999999998
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 2560000,
+          "expected": 2560000,
+          "interpreted": 2560000,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 139617,
+          "expected": 139617,
+          "interpreted": 139617,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 110672,
+          "expected": 110672,
+          "interpreted": 110672,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 108806,
+          "expected": 108806,
+          "interpreted": 108806,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 117151,
+          "expected": 117151,
+          "interpreted": 117151,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 85385,
+          "expected": 85385,
+          "interpreted": 85385,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 52121,
+          "expected": 52121,
+          "interpreted": 52121,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 110255,
+          "expected": 110255,
+          "interpreted": 110255,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 122218,
+          "expected": 122218,
+          "interpreted": 122218,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 119348,
+          "expected": 119348,
+          "interpreted": 119348,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 164004,
+          "expected": 164004,
+          "interpreted": 164004,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 92216,
+          "expected": 92216,
+          "interpreted": 92216,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 75438,
+          "expected": 75438,
+          "interpreted": 75438,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 68396,
+          "expected": 68396,
+          "interpreted": 68396,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 93851,
+          "expected": 93851,
+          "interpreted": 93851,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "5be70d82a9c053ead4b69fc6b002a655331ba70dfcbd9b3f0474dade70dea02f",
+      "curlee_sha256": "50c6e690cc080b798a55dfd2ced1dd391680efa8ffbdf771dd709e1d5481b923"
+    },
+    {
+      "id": "transfer_008",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "ne",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "if",
+          "gt",
+          "add",
+          "minus_one",
+          "length",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "odd_count",
+            "above_two_count"
+          ],
+          "combine": "add",
+          "arg": [
+            "add",
+            "minus_one",
+            "length"
+          ]
+        },
+        "visited": 1939,
+        "contexts": 48,
+        "wall_seconds": 0.06262190898996778,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          17
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          16
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "ne",
+            "rem",
+            "value",
+            "two",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "if",
+            "gt",
+            "add",
+            "minus_one",
+            "length",
+            "two",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "odd_count",
+              "above_two_count"
+            ],
+            "combine": "add",
+            "arg": [
+              "add",
+              "minus_one",
+              "length"
+            ]
+          },
+          "visited": 1939,
+          "contexts": 48,
+          "wall_seconds": 0.06262190898996778,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "ne",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "gt",
+                "add",
+                "minus_one",
+                "length",
+                "two",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "odd_count",
+                  "above_two_count"
+                ],
+                "combine": "add",
+                "arg": [
+                  "add",
+                  "minus_one",
+                  "length"
+                ]
+              },
+              "visited": 1939,
+              "contexts": 48,
+              "wall_seconds": 0.06262190898996778,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            17
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            2
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            16
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.06658718999824487,
+        "cpu_seconds": 0.06655599999999995
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 256,
+          "expected": 256,
+          "interpreted": 256,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 256,
+          "expected": 256,
+          "interpreted": 256,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 99,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 91,
+          "expected": 91,
+          "interpreted": 91,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 78,
+          "expected": 78,
+          "interpreted": 78,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 123,
+          "expected": 123,
+          "interpreted": 123,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 103,
+          "expected": 103,
+          "interpreted": 103,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 32,
+          "expected": 32,
+          "interpreted": 32,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 107,
+          "expected": 107,
+          "interpreted": 107,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 118,
+          "expected": 118,
+          "interpreted": 118,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 135,
+          "expected": 135,
+          "interpreted": 135,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 117,
+          "expected": 117,
+          "interpreted": 117,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 74,
+          "expected": 74,
+          "interpreted": 74,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 93,
+          "expected": 93,
+          "interpreted": 93,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 68,
+          "expected": 68,
+          "interpreted": 68,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 91,
+          "expected": 91,
+          "interpreted": 91,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "84aece574099afbddaa4ca8c2222eb273fd2d55286fe000034eb5bd3ccf21742",
+      "curlee_sha256": "a279b2e01f6dd1e356bd26954400fa7065c2d8736ced8b6bc9df78e40e39fed3"
+    },
+    {
+      "id": "transfer_009",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "ne",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "if",
+          "eq",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "sub",
+          "acc",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "odd_count",
+            "even_total"
+          ],
+          "combine": "sub",
+          "arg": [
+            "value"
+          ]
+        },
+        "visited": 310,
+        "contexts": 48,
+        "wall_seconds": 0.010028403979958966,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          -3
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          10
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          17
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "ne",
+            "rem",
+            "value",
+            "two",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "if",
+            "eq",
+            "rem",
+            "value",
+            "two",
+            "zero",
+            "set",
+            "sub",
+            "acc",
+            "value",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "odd_count",
+              "even_total"
+            ],
+            "combine": "sub",
+            "arg": [
+              "value"
+            ]
+          },
+          "visited": 310,
+          "contexts": 48,
+          "wall_seconds": 0.010028403979958966,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "ne",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "eq",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "sub",
+                "acc",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "odd_count",
+                  "even_total"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "value"
+                ]
+              },
+              "visited": 310,
+              "contexts": 48,
+              "wall_seconds": 0.010028403979958966,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            -3
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            10
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            17
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.013864765991456807,
+        "cpu_seconds": 0.01386499999999996
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": -25600,
+          "expected": -25600,
+          "interpreted": -25600,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 25600,
+          "expected": 25600,
+          "interpreted": 25600,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 42,
+          "expected": 42,
+          "interpreted": 42,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": -174,
+          "expected": -174,
+          "interpreted": -174,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 53,
+          "expected": 53,
+          "interpreted": 53,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 173,
+          "expected": 173,
+          "interpreted": 173,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 322,
+          "expected": 322,
+          "interpreted": 322,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": -184,
+          "expected": -184,
+          "interpreted": -184,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 317,
+          "expected": 317,
+          "interpreted": 317,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": -107,
+          "expected": -107,
+          "interpreted": -107,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": -95,
+          "expected": -95,
+          "interpreted": -95,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": -444,
+          "expected": -444,
+          "interpreted": -444,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": -246,
+          "expected": -246,
+          "interpreted": -246,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 174,
+          "expected": 174,
+          "interpreted": 174,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 248,
+          "expected": 248,
+          "interpreted": 248,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": -243,
+          "expected": -243,
+          "interpreted": -243,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "a4c229a26ecb6ca95a14ed7b9f893f9d207281f16ccba3f9ca08021d9dcc40bd",
+      "curlee_sha256": "b5ed17473d095d134990dca2260bc0c005675536ce0ede96c9b206faae159e66"
+    },
+    {
+      "id": "transfer_010",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "if",
+          "gt",
+          "mul",
+          "length",
+          "value",
+          "zero",
+          "set",
+          "sub",
+          "acc",
+          "mul",
+          "length",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "above_two_count",
+            "positive_total"
+          ],
+          "combine": "sub",
+          "arg": [
+            "mul",
+            "length",
+            "value"
+          ]
+        },
+        "visited": 7056,
+        "contexts": 48,
+        "wall_seconds": 0.23107920598704368,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          -592
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          -3
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          -115
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "two",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "if",
+            "gt",
+            "mul",
+            "length",
+            "value",
+            "zero",
+            "set",
+            "sub",
+            "acc",
+            "mul",
+            "length",
+            "value",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "above_two_count",
+              "positive_total"
+            ],
+            "combine": "sub",
+            "arg": [
+              "mul",
+              "length",
+              "value"
+            ]
+          },
+          "visited": 7056,
+          "contexts": 48,
+          "wall_seconds": 0.23107920598704368,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "two",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "gt",
+                "mul",
+                "length",
+                "value",
+                "zero",
+                "set",
+                "sub",
+                "acc",
+                "mul",
+                "length",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "above_two_count",
+                  "positive_total"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "mul",
+                  "length",
+                  "value"
+                ]
+              },
+              "visited": 7056,
+              "contexts": 48,
+              "wall_seconds": 0.23107920598704368,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            -592
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            -3
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            -115
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.2345148480089847,
+        "cpu_seconds": 0.23443899999999995
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": -1,
+          "expected": -1,
+          "interpreted": -1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": -6553344,
+          "expected": -6553344,
+          "interpreted": -6553344,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": -132891,
+          "expected": -132891,
+          "interpreted": -132891,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": -107444,
+          "expected": -107444,
+          "interpreted": -107444,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": -85004,
+          "expected": -85004,
+          "interpreted": -85004,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": -140602,
+          "expected": -140602,
+          "interpreted": -140602,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": -89014,
+          "expected": -89014,
+          "interpreted": -89014,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": -15410,
+          "expected": -15410,
+          "interpreted": -15410,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": -120782,
+          "expected": -120782,
+          "interpreted": -120782,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": -152746,
+          "expected": -152746,
+          "interpreted": -152746,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": -164660,
+          "expected": -164660,
+          "interpreted": -164660,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": -177290,
+          "expected": -177290,
+          "interpreted": -177290,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": -72471,
+          "expected": -72471,
+          "interpreted": -72471,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": -76789,
+          "expected": -76789,
+          "interpreted": -76789,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": -44421,
+          "expected": -44421,
+          "interpreted": -44421,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": -95544,
+          "expected": -95544,
+          "interpreted": -95544,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "f13daeb1b72a178d632d55f34db89b6bc4258374f73819febd870811261a806b",
+      "curlee_sha256": "a01b943827b3b4dea7e9f571d62c84663ea15abd15a44b3573ffa78c73873527"
+    },
+    {
+      "id": "transfer_011",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "if",
+          "gt",
+          "add",
+          "acc",
+          "acc",
+          "zero",
+          "set",
+          "sub",
+          "acc",
+          "add",
+          "acc",
+          "acc",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "above_two_count",
+            "positive_total"
+          ],
+          "combine": "sub",
+          "arg": [
+            "add",
+            "acc",
+            "acc"
+          ]
+        },
+        "visited": 352,
+        "contexts": 48,
+        "wall_seconds": 0.013587714987806976,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          0
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          0
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          0
+        ],
+        [
+          [
+            94,
+            -90,
+            30,
+            -26,
+            -33,
+            -81,
+            -77,
+            52,
+            14,
+            39,
+            -43,
+            1,
+            -21,
+            88,
+            -34,
+            -21,
+            5,
+            -21,
+            98,
+            22,
+            42,
+            69,
+            -22,
+            65,
+            -100,
+            8,
+            52,
+            77,
+            -14,
+            -38
+          ],
+          -1
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "two",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "if",
+            "gt",
+            "add",
+            "acc",
+            "acc",
+            "zero",
+            "set",
+            "sub",
+            "acc",
+            "add",
+            "acc",
+            "acc",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "above_two_count",
+              "positive_total"
+            ],
+            "combine": "sub",
+            "arg": [
+              "add",
+              "acc",
+              "acc"
+            ]
+          },
+          "visited": 352,
+          "contexts": 48,
+          "wall_seconds": 0.013587714987806976,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "two",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "eq",
+                "rem",
+                "acc",
+                "two",
+                "zero",
+                "set",
+                "sub",
+                "acc",
+                "acc",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "above_two_count",
+                  "even_total"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 4,
+              "contexts": 48,
+              "wall_seconds": 0.0006791290070395917,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                94,
+                -90,
+                30,
+                -26,
+                -33,
+                -81,
+                -77,
+                52,
+                14,
+                39,
+                -43,
+                1,
+                -21,
+                88,
+                -34,
+                -21,
+                5,
+                -21,
+                98,
+                22,
+                42,
+                69,
+                -22,
+                65,
+                -100,
+                8,
+                52,
+                77,
+                -14,
+                -38
+              ],
+              "expected": -1,
+              "actual": 1
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "two",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "gt",
+                "add",
+                "acc",
+                "acc",
+                "zero",
+                "set",
+                "sub",
+                "acc",
+                "add",
+                "acc",
+                "acc",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "above_two_count",
+                  "positive_total"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "add",
+                  "acc",
+                  "acc"
+                ]
+              },
+              "visited": 352,
+              "contexts": 48,
+              "wall_seconds": 0.013587714987806976,
+              "budget_exhausted": false
+            },
+            "observed_count": 4,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            0
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            0
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            0
+          ],
+          [
+            [
+              94,
+              -90,
+              30,
+              -26,
+              -33,
+              -81,
+              -77,
+              52,
+              14,
+              39,
+              -43,
+              1,
+              -21,
+              88,
+              -34,
+              -21,
+              5,
+              -21,
+              98,
+              22,
+              42,
+              69,
+              -22,
+              65,
+              -100,
+              8,
+              52,
+              77,
+              -14,
+              -38
+            ],
+            -1
+          ]
+        ],
+        "added_examples": 1,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.017749863996868953,
+        "cpu_seconds": 0.01773800000000003
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": -1,
+          "expected": -1,
+          "interpreted": -1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": -1,
+          "expected": -1,
+          "interpreted": -1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": -1,
+          "expected": -1,
+          "interpreted": -1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": -1,
+          "expected": -1,
+          "interpreted": -1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": -1,
+          "expected": -1,
+          "interpreted": -1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": -1,
+          "expected": -1,
+          "interpreted": -1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "e0de657a183bcd81d367aa428011b4e5bd3c1be45a7265d983d956407de2b876",
+      "curlee_sha256": "249fb2d7dfca11b9aab6422e6fe6343482d68218a3401e44b2cfa071705c3e16"
+    },
+    {
+      "id": "transfer_012",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "if",
+          "eq",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "maximum_floor_zero",
+            "even_total"
+          ],
+          "combine": "add",
+          "arg": [
+            "value"
+          ]
+        },
+        "visited": 324,
+        "contexts": 48,
+        "wall_seconds": 0.010368443006882444,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          16
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          1
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          3
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "acc",
+            "set",
+            "value",
+            "end",
+            "if",
+            "eq",
+            "rem",
+            "value",
+            "two",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "value",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "maximum_floor_zero",
+              "even_total"
+            ],
+            "combine": "add",
+            "arg": [
+              "value"
+            ]
+          },
+          "visited": 324,
+          "contexts": 48,
+          "wall_seconds": 0.010368443006882444,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "if",
+                "eq",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "maximum_floor_zero",
+                  "even_total"
+                ],
+                "combine": "add",
+                "arg": [
+                  "value"
+                ]
+              },
+              "visited": 324,
+              "contexts": 48,
+              "wall_seconds": 0.010368443006882444,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            16
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            1
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            3
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.013982617005240172,
+        "cpu_seconds": 0.013970999999999956
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 1,
+          "expected": 1,
+          "interpreted": 1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 25700,
+          "expected": 25700,
+          "interpreted": 25700,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": -200,
+          "expected": -200,
+          "interpreted": -200,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 324,
+          "expected": 324,
+          "interpreted": 324,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 328,
+          "expected": 328,
+          "interpreted": 328,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 106,
+          "expected": 106,
+          "interpreted": 106,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 316,
+          "expected": 316,
+          "interpreted": 316,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 119,
+          "expected": 119,
+          "interpreted": 119,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 324,
+          "expected": 324,
+          "interpreted": 324,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 390,
+          "expected": 390,
+          "interpreted": 390,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 270,
+          "expected": 270,
+          "interpreted": 270,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 246,
+          "expected": 246,
+          "interpreted": 246,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 624,
+          "expected": 624,
+          "interpreted": 624,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 500,
+          "expected": 500,
+          "interpreted": 500,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 36,
+          "expected": 36,
+          "interpreted": 36,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 95,
+          "expected": 95,
+          "interpreted": 95,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 445,
+          "expected": 445,
+          "interpreted": 445,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "b5487b4cd2b8fee6fcebd7527ac08518e4bfa0e8834794d78a17f88e6fdcde18",
+      "curlee_sha256": "f75b5e217f5300b55043098c6a11ac8b1c0725468e23fce9745989093640d3dc"
+    },
+    {
+      "id": "transfer_013",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "acc",
+          "zero",
+          "set",
+          "sub",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "maximum_floor_zero",
+            "positive_count"
+          ],
+          "combine": "sub",
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 44,
+        "contexts": 48,
+        "wall_seconds": 0.002028271002927795,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          7
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          0
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          1
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "acc",
+            "set",
+            "value",
+            "end",
+            "if",
+            "gt",
+            "acc",
+            "zero",
+            "set",
+            "sub",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "maximum_floor_zero",
+              "positive_count"
+            ],
+            "combine": "sub",
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 44,
+          "contexts": 48,
+          "wall_seconds": 0.002028271002927795,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "acc",
+                "zero",
+                "set",
+                "sub",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "maximum_floor_zero",
+                  "positive_count"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 44,
+              "contexts": 48,
+              "wall_seconds": 0.002028271002927795,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            7
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            0
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            1
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.005129095981828868,
+        "cpu_seconds": 0.00512199999999996
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 1,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 99,
+          "expected": 99,
+          "interpreted": 99,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": -101,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": 79,
+          "expected": 79,
+          "interpreted": 79,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": 70,
+          "expected": 70,
+          "interpreted": 70,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": 87,
+          "expected": 87,
+          "interpreted": 87,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": 79,
+          "expected": 79,
+          "interpreted": 79,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": 82,
+          "expected": 82,
+          "interpreted": 82,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": 84,
+          "expected": 84,
+          "interpreted": 84,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": 72,
+          "expected": 72,
+          "interpreted": 72,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": 68,
+          "expected": 68,
+          "interpreted": 68,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": 69,
+          "expected": 69,
+          "interpreted": 69,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": 85,
+          "expected": 85,
+          "interpreted": 85,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": 84,
+          "expected": 84,
+          "interpreted": 84,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": 69,
+          "expected": 69,
+          "interpreted": 69,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": 94,
+          "expected": 94,
+          "interpreted": 94,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": 88,
+          "expected": 88,
+          "interpreted": 88,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": false,
+      "python_sha256": "8a0069e9f75024728349f112cc4a344f7cf2b79aa4b581910ce9d51c8fc5720c",
+      "curlee_sha256": "5e38f6654f093cfa501d590ceda1005fb83a6aad4239ce8ff6d727524c77bd1e"
+    },
+    {
+      "id": "transfer_014",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "le",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "if",
+          "lt",
+          "acc",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "minimum_ceiling_zero",
+            "negative_count"
+          ],
+          "combine": "add",
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 7,
+        "contexts": 48,
+        "wall_seconds": 0.0006169730040710419,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          -4
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          -6
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          -4
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "le",
+            "value",
+            "acc",
+            "set",
+            "value",
+            "end",
+            "if",
+            "lt",
+            "acc",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "minimum_ceiling_zero",
+              "negative_count"
+            ],
+            "combine": "add",
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 7,
+          "contexts": 48,
+          "wall_seconds": 0.0006169730040710419,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "le",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "if",
+                "lt",
+                "acc",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "minimum_ceiling_zero",
+                  "negative_count"
+                ],
+                "combine": "add",
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 7,
+              "contexts": 48,
+              "wall_seconds": 0.0006169730040710419,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            -4
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            -6
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            -4
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 24,
+        "candidate_executions": 24
+      },
+      "request_cost": {
+        "wall_seconds": 0.0036394020135048777,
+        "cpu_seconds": 0.0036410000000000053
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": -91,
+          "expected": -91,
+          "interpreted": -91,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": -82,
+          "expected": -82,
+          "interpreted": -82,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": -89,
+          "expected": -89,
+          "interpreted": -89,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": -89,
+          "expected": -89,
+          "interpreted": -89,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": -73,
+          "expected": -73,
+          "interpreted": -73,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": -80,
+          "expected": -80,
+          "interpreted": -80,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": -72,
+          "expected": -72,
+          "interpreted": -72,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": -78,
+          "expected": -78,
+          "interpreted": -78,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": -80,
+          "expected": -80,
+          "interpreted": -80,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": -68,
+          "expected": -68,
+          "interpreted": -68,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": -50,
+          "expected": -50,
+          "interpreted": -50,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": -83,
+          "expected": -83,
+          "interpreted": -83,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": -89,
+          "expected": -89,
+          "interpreted": -89,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": -73,
+          "expected": -73,
+          "interpreted": -73,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": true,
+      "python_sha256": "d32e3716f3930ceedfad9b1f8602f5b33e0b648a30c50bce81f464e5147ccbfb",
+      "curlee_sha256": "34b8a56cb90e83412923af4d6c0c6b6d14c25099104714da1544a7929d3fc29f"
+    },
+    {
+      "id": "transfer_015",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "le",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "add",
+          "acc",
+          "value",
+          "two",
+          "set",
+          "sub",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "minimum_ceiling_zero",
+            "above_two_count"
+          ],
+          "combine": "sub",
+          "arg": [
+            "add",
+            "acc",
+            "value"
+          ]
+        },
+        "visited": 627,
+        "contexts": 48,
+        "wall_seconds": 0.026776287995744497,
+        "budget_exhausted": false
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          -8
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          -8
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          -8
+        ],
+        [
+          [
+            99,
+            -29,
+            77,
+            15,
+            39,
+            -89,
+            89,
+            95,
+            54,
+            -45,
+            -37,
+            -84,
+            71
+          ],
+          -90
+        ],
+        [
+          [
+            -55,
+            -80,
+            72,
+            2,
+            -47,
+            -53,
+            97,
+            -93,
+            -97,
+            -24,
+            38,
+            -65,
+            97,
+            -60,
+            5
+          ],
+          -97
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "le",
+            "value",
+            "acc",
+            "set",
+            "value",
+            "end",
+            "if",
+            "gt",
+            "add",
+            "acc",
+            "value",
+            "two",
+            "set",
+            "sub",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "minimum_ceiling_zero",
+              "above_two_count"
+            ],
+            "combine": "sub",
+            "arg": [
+              "add",
+              "acc",
+              "value"
+            ]
+          },
+          "visited": 627,
+          "contexts": 48,
+          "wall_seconds": 0.026776287995744497,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "le",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "if",
+                "le",
+                "acc",
+                "acc",
+                "set",
+                "acc",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "minimum_ceiling_zero",
+                  "minimum_ceiling_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 1,
+              "contexts": 48,
+              "wall_seconds": 0.00043779899715445936,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                99,
+                -29,
+                77,
+                15,
+                39,
+                -89,
+                89,
+                95,
+                54,
+                -45,
+                -37,
+                -84,
+                71
+              ],
+              "expected": -90,
+              "actual": -89
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "le",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "if",
+                "ne",
+                "rem",
+                "acc",
+                "two",
+                "zero",
+                "set",
+                "sub",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "minimum_ceiling_zero",
+                  "odd_count"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 10,
+              "contexts": 48,
+              "wall_seconds": 0.0010494310117792338,
+              "budget_exhausted": false
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                -55,
+                -80,
+                72,
+                2,
+                -47,
+                -53,
+                97,
+                -93,
+                -97,
+                -24,
+                38,
+                -65,
+                97,
+                -60,
+                5
+              ],
+              "expected": -97,
+              "actual": -98
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "le",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "add",
+                "acc",
+                "value",
+                "two",
+                "set",
+                "sub",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "minimum_ceiling_zero",
+                  "above_two_count"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "add",
+                  "acc",
+                  "value"
+                ]
+              },
+              "visited": 627,
+              "contexts": 48,
+              "wall_seconds": 0.026776287995744497,
+              "budget_exhausted": false
+            },
+            "observed_count": 5,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            -8
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            -8
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            -8
+          ],
+          [
+            [
+              99,
+              -29,
+              77,
+              15,
+              39,
+              -89,
+              89,
+              95,
+              54,
+              -45,
+              -37,
+              -84,
+              71
+            ],
+            -90
+          ],
+          [
+            [
+              -55,
+              -80,
+              72,
+              2,
+              -47,
+              -53,
+              97,
+              -93,
+              -97,
+              -24,
+              38,
+              -65,
+              97,
+              -60,
+              5
+            ],
+            -97
+          ]
+        ],
+        "added_examples": 2,
+        "oracle_calls": 30,
+        "candidate_executions": 30
+      },
+      "request_cost": {
+        "wall_seconds": 0.031769962020916864,
+        "cpu_seconds": 0.03177299999999994
+      },
+      "over_budget": false,
+      "python_records": [
+        {
+          "case": 0,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 1,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": 0,
+          "interpreted": 0,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 2,
+          "exit_code": 0,
+          "actual": 0,
+          "expected": -1,
+          "interpreted": 0,
+          "correct": false,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 3,
+          "exit_code": 0,
+          "actual": -1,
+          "expected": -1,
+          "interpreted": -1,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 4,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -100,
+          "interpreted": -98,
+          "correct": false,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 5,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 6,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 7,
+          "exit_code": 0,
+          "actual": -96,
+          "expected": -96,
+          "interpreted": -96,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 8,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -99,
+          "interpreted": -98,
+          "correct": false,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 9,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 10,
+          "exit_code": 0,
+          "actual": -97,
+          "expected": -97,
+          "interpreted": -97,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 11,
+          "exit_code": 0,
+          "actual": -82,
+          "expected": -82,
+          "interpreted": -82,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 12,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 13,
+          "exit_code": 0,
+          "actual": -94,
+          "expected": -94,
+          "interpreted": -94,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 14,
+          "exit_code": 0,
+          "actual": -95,
+          "expected": -95,
+          "interpreted": -95,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 15,
+          "exit_code": 0,
+          "actual": -96,
+          "expected": -96,
+          "interpreted": -96,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 16,
+          "exit_code": 0,
+          "actual": -98,
+          "expected": -98,
+          "interpreted": -98,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 17,
+          "exit_code": 0,
+          "actual": -100,
+          "expected": -100,
+          "interpreted": -100,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 18,
+          "exit_code": 0,
+          "actual": -99,
+          "expected": -99,
+          "interpreted": -99,
+          "correct": true,
+          "stderr": "",
+          "output_error": null
+        },
+        {
+          "case": 19,
+          "exit_code": 0,
+          "actual": -96,
+          "expected": -97,
+          "interpreted": -96,
+          "correct": false,
+          "stderr": "",
+          "output_error": null
+        }
+      ],
+      "accepted": false,
+      "python_sha256": "2c97011092e818c51898dce9a818ff213992190513eb1afa1a0017ccfdd55eea",
+      "curlee_sha256": "18849da4c8ea6ee3ecc8f9d651f792b5d974a300f9296b660807cab5f812bd97"
+    },
+    {
+      "id": "transfer_016",
+      "chosen": {
+        "tokens": null,
+        "budget_exhausted": true
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          27
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          10
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          21
+        ],
+        [
+          [
+            94,
+            -90,
+            30,
+            -26,
+            -33,
+            -81,
+            -77,
+            52,
+            14,
+            39,
+            -43,
+            1,
+            -21,
+            88,
+            -34,
+            -21,
+            5,
+            -21,
+            98,
+            22,
+            42,
+            69,
+            -22,
+            65,
+            -100,
+            8,
+            52,
+            77,
+            -14,
+            -38
+          ],
+          623
+        ],
+        [
+          [
+            -12,
+            -19,
+            79,
+            35,
+            93,
+            28,
+            69,
+            36,
+            98,
+            65,
+            0,
+            32,
+            -73,
+            -19,
+            -56,
+            -29,
+            74,
+            -7,
+            -53,
+            39,
+            -94,
+            -81,
+            78,
+            29,
+            -95,
+            23,
+            -3,
+            55,
+            -5,
+            30,
+            -100,
+            24,
+            75,
+            -95,
+            -87,
+            20,
+            -99,
+            67,
+            -41,
+            60,
+            86,
+            -100
+          ],
+          1071
+        ],
+        [
+          [
+            99,
+            -29,
+            77,
+            15,
+            39,
+            -89,
+            89,
+            95,
+            54,
+            -45,
+            -37,
+            -84,
+            71
+          ],
+          287
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": null,
+          "budget_exhausted": true
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": null,
+              "visited": 33169,
+              "wall_seconds": 0.6833853530115448,
+              "budget_exhausted": true
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                94,
+                -90,
+                30,
+                -26,
+                -33,
+                -81,
+                -77,
+                52,
+                14,
+                39,
+                -43,
+                1,
+                -21,
+                88,
+                -34,
+                -21,
+                5,
+                -21,
+                98,
+                22,
+                42,
+                69,
+                -22,
+                65,
+                -100,
+                8,
+                52,
+                77,
+                -14,
+                -38
+              ],
+              "expected": 623,
+              "actual": null
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": null,
+              "budget_exhausted": true
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                -12,
+                -19,
+                79,
+                35,
+                93,
+                28,
+                69,
+                36,
+                98,
+                65,
+                0,
+                32,
+                -73,
+                -19,
+                -56,
+                -29,
+                74,
+                -7,
+                -53,
+                39,
+                -94,
+                -81,
+                78,
+                29,
+                -95,
+                23,
+                -3,
+                55,
+                -5,
+                30,
+                -100,
+                24,
+                75,
+                -95,
+                -87,
+                20,
+                -99,
+                67,
+                -41,
+                60,
+                86,
+                -100
+              ],
+              "expected": 1071,
+              "actual": null
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": null,
+              "budget_exhausted": true
+            },
+            "observed_count": 5,
+            "counterexample": {
+              "input": [
+                99,
+                -29,
+                77,
+                15,
+                39,
+                -89,
+                89,
+                95,
+                54,
+                -45,
+                -37,
+                -84,
+                71
+              ],
+              "expected": 287,
+              "actual": null
+            }
+          },
+          {
+            "round": 3,
+            "attempt": {
+              "tokens": null,
+              "budget_exhausted": true
+            },
+            "observed_count": 6,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            27
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            10
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            21
+          ],
+          [
+            [
+              94,
+              -90,
+              30,
+              -26,
+              -33,
+              -81,
+              -77,
+              52,
+              14,
+              39,
+              -43,
+              1,
+              -21,
+              88,
+              -34,
+              -21,
+              5,
+              -21,
+              98,
+              22,
+              42,
+              69,
+              -22,
+              65,
+              -100,
+              8,
+              52,
+              77,
+              -14,
+              -38
+            ],
+            623
+          ],
+          [
+            [
+              -12,
+              -19,
+              79,
+              35,
+              93,
+              28,
+              69,
+              36,
+              98,
+              65,
+              0,
+              32,
+              -73,
+              -19,
+              -56,
+              -29,
+              74,
+              -7,
+              -53,
+              39,
+              -94,
+              -81,
+              78,
+              29,
+              -95,
+              23,
+              -3,
+              55,
+              -5,
+              30,
+              -100,
+              24,
+              75,
+              -95,
+              -87,
+              20,
+              -99,
+              67,
+              -41,
+              60,
+              86,
+              -100
+            ],
+            1071
+          ],
+          [
+            [
+              99,
+              -29,
+              77,
+              15,
+              39,
+              -89,
+              89,
+              95,
+              54,
+              -45,
+              -37,
+              -84,
+              71
+            ],
+            287
+          ]
+        ],
+        "added_examples": 3,
+        "oracle_calls": 3,
+        "candidate_executions": 0
+      },
+      "request_cost": {
+        "wall_seconds": 1.00041123398114,
+        "cpu_seconds": 1.0001829999999998
+      },
+      "over_budget": false,
+      "python_records": [],
+      "accepted": false
+    },
+    {
+      "id": "transfer_017",
+      "chosen": {
+        "tokens": null,
+        "budget_exhausted": true
+      },
+      "observed": [
+        [
+          [
+            5,
+            8,
+            -8,
+            4,
+            4,
+            7,
+            -7,
+            7,
+            -2,
+            7,
+            -6,
+            8
+          ],
+          20
+        ],
+        [
+          [
+            -3,
+            -8,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            -3,
+            1,
+            -1,
+            7,
+            -8,
+            5,
+            -5,
+            -2,
+            -5
+          ],
+          12
+        ],
+        [
+          [
+            94,
+            -90,
+            30,
+            -26,
+            -33,
+            -81,
+            -77,
+            52,
+            14,
+            39,
+            -43,
+            1,
+            -21,
+            88,
+            -34,
+            -21,
+            5,
+            -21,
+            98,
+            22,
+            42,
+            69,
+            -22,
+            65,
+            -100,
+            8,
+            52,
+            77,
+            -14,
+            -38
+          ],
+          46
+        ],
+        [
+          [
+            -12,
+            -19,
+            79,
+            35,
+            93,
+            28,
+            69,
+            36,
+            98,
+            65,
+            0,
+            32,
+            -73,
+            -19,
+            -56,
+            -29,
+            74,
+            -7,
+            -53,
+            39,
+            -94,
+            -81,
+            78,
+            29,
+            -95,
+            23,
+            -3,
+            55,
+            -5,
+            30,
+            -100,
+            24,
+            75,
+            -95,
+            -87,
+            20,
+            -99,
+            67,
+            -41,
+            60,
+            86,
+            -100
+          ],
+          64
+        ],
+        [
+          [
+            99,
+            -29,
+            77,
+            15,
+            39,
+            -89,
+            89,
+            95,
+            54,
+            -45,
+            -37,
+            -84,
+            71
+          ],
+          21
+        ]
+      ],
+      "repair": {
+        "chosen": {
+          "tokens": null,
+          "budget_exhausted": true
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": null,
+              "visited": 35970,
+              "wall_seconds": 0.6978142700099852,
+              "budget_exhausted": true
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                94,
+                -90,
+                30,
+                -26,
+                -33,
+                -81,
+                -77,
+                52,
+                14,
+                39,
+                -43,
+                1,
+                -21,
+                88,
+                -34,
+                -21,
+                5,
+                -21,
+                98,
+                22,
+                42,
+                69,
+                -22,
+                65,
+                -100,
+                8,
+                52,
+                77,
+                -14,
+                -38
+              ],
+              "expected": 46,
+              "actual": null
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": null,
+              "budget_exhausted": true
+            },
+            "observed_count": 4,
+            "counterexample": {
+              "input": [
+                -12,
+                -19,
+                79,
+                35,
+                93,
+                28,
+                69,
+                36,
+                98,
+                65,
+                0,
+                32,
+                -73,
+                -19,
+                -56,
+                -29,
+                74,
+                -7,
+                -53,
+                39,
+                -94,
+                -81,
+                78,
+                29,
+                -95,
+                23,
+                -3,
+                55,
+                -5,
+                30,
+                -100,
+                24,
+                75,
+                -95,
+                -87,
+                20,
+                -99,
+                67,
+                -41,
+                60,
+                86,
+                -100
+              ],
+              "expected": 64,
+              "actual": null
+            }
+          },
+          {
+            "round": 2,
+            "attempt": {
+              "tokens": null,
+              "budget_exhausted": true
+            },
+            "observed_count": 5,
+            "counterexample": {
+              "input": [
+                99,
+                -29,
+                77,
+                15,
+                39,
+                -89,
+                89,
+                95,
+                54,
+                -45,
+                -37,
+                -84,
+                71
+              ],
+              "expected": 21,
+              "actual": null
+            }
+          },
+          {
+            "round": 3,
+            "attempt": {
+              "tokens": null,
+              "budget_exhausted": true
+            },
+            "observed_count": 6,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              5,
+              8,
+              -8,
+              4,
+              4,
+              7,
+              -7,
+              7,
+              -2,
+              7,
+              -6,
+              8
+            ],
+            20
+          ],
+          [
+            [
+              -3,
+              -8,
+              1
+            ],
+            4
+          ],
+          [
+            [
+              -3,
+              1,
+              -1,
+              7,
+              -8,
+              5,
+              -5,
+              -2,
+              -5
+            ],
+            12
+          ],
+          [
+            [
+              94,
+              -90,
+              30,
+              -26,
+              -33,
+              -81,
+              -77,
+              52,
+              14,
+              39,
+              -43,
+              1,
+              -21,
+              88,
+              -34,
+              -21,
+              5,
+              -21,
+              98,
+              22,
+              42,
+              69,
+              -22,
+              65,
+              -100,
+              8,
+              52,
+              77,
+              -14,
+              -38
+            ],
+            46
+          ],
+          [
+            [
+              -12,
+              -19,
+              79,
+              35,
+              93,
+              28,
+              69,
+              36,
+              98,
+              65,
+              0,
+              32,
+              -73,
+              -19,
+              -56,
+              -29,
+              74,
+              -7,
+              -53,
+              39,
+              -94,
+              -81,
+              78,
+              29,
+              -95,
+              23,
+              -3,
+              55,
+              -5,
+              30,
+              -100,
+              24,
+              75,
+              -95,
+              -87,
+              20,
+              -99,
+              67,
+              -41,
+              60,
+              86,
+              -100
+            ],
+            64
+          ],
+          [
+            [
+              99,
+              -29,
+              77,
+              15,
+              39,
+              -89,
+              89,
+              95,
+              54,
+              -45,
+              -37,
+              -84,
+              71
+            ],
+            21
+          ]
+        ],
+        "added_examples": 3,
+        "oracle_calls": 3,
+        "candidate_executions": 0
+      },
+      "request_cost": {
+        "wall_seconds": 1.0002343810047023,
+        "cpu_seconds": 1.0001519999999997
+      },
+      "over_budget": false,
+      "python_records": [],
+      "accepted": false
+    }
+  ],
+  "bank_hashes": {
+    "tasks.json": "1d587de0cbf84e607ec4628c36ba41585b5ad0ee01544899c225147bea0d8f1a",
+    "held.json": "25284232ece91f15ce3aac085e66cf44d71491a7b46c85591f9a7d8c4f21e37d",
+    "protocol.json": "c9eb5f08cb1f8efc7a9032e4d15c989af3e101e0020398578916136d72017309"
+  },
+  "qualification_cost": {
+    "wall_seconds": 0.0609722450026311,
+    "cpu_seconds": 0.060971
+  },
+  "fresh_fits": [],
+  "worker_cost": {
+    "wall_seconds": 2.7942821379983798,
+    "cpu_seconds": 2.793795
+  },
+  "untrained_fingerprint": null,
+  "process_cpu_seconds": 2.817925,
+  "peak_worker_rss_kib": 18592,
+  "runtime": {
+    "python": "3.13.5",
+    "cpu_affinity": [
+      15
+    ]
+  },
+  "execution_pending": false,
+  "accepted": 14
+}

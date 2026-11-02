@@ -3,7 +3,12 @@
 This is the primary development track as of 2026-11-01.
 
 The primary outcome is a learner that writes useful programs in Python and
-CURLEE. The [branch-composition result](branch-results.md) accepts all
+CURLEE. The [frozen transfer result](frozen-transfer-results.md) passes
+11/18 unseen functions in both languages, alongside 11/18 for untrained
+and 14/18 for classical search. Its full measured controller CPU costs
+are 71.614, 26.600 and 21.127 seconds respectively; historical donor
+creation is excluded. No training or cost benefit is established.
+The [branch-composition result](branch-results.md) accepts all
 11 development tasks in both languages, 40 held cases each. Shared
 expressions fill classically composed verified branches. A stronger
 classical control also solves all eleven; no total-cost advantage is shown.
@@ -74,10 +79,12 @@ The component-preserving curriculum then constructed a qualified minimum.
 Transfer from that donor constructed a qualified maximum, and bounded
 visible-query repair recovered minimum retention. Branch composition then
 passed the three remaining tasks.
-The next required check is frozen unseen-function evaluation and matched
-total-cost accounting, using strong classical and untrained controls.
-These eleven functions have been used repeatedly for development; they
-are not a final generalization set. Preserve every failed attempt.
+Frozen unseen-function evaluation now confirms target-language transfer
+within this grammar, but the trained route passes fewer functions and
+costs more than classical search. These eleven functions have been used
+repeatedly for development; they are not a final generalization set.
+Preserve every failed attempt. Further changes need a specific programming
+failure to address and a new frozen bank for subsequent final claims.
 The stages below describe the broader capability progression. They do not
 require repeating model-family comparisons before useful-program trials.
 
