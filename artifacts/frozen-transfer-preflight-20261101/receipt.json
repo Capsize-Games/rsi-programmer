@@ -1,0 +1,30 @@
+{
+  "scope": "Preflight and source seal before any frozen-transfer solver run. No solve-rate claim.",
+  "source_checkpoint": "582830f7390b0149a69acf20da0a092799676c55",
+  "source_hashes": {
+    "scripts/freeze_branch_transfer.py": "8cc7d56ce15a3250ed47dcb0f2971946d4f02963ac91cfef3b22f689f352b6ea",
+    "scripts/seal_branch_transfer.py": "7c94256673bbc079f87969a7f1dc3fccf4b36f15e65121b0ba5a500fada439e8",
+    "scripts/run_frozen_branch_transfer.py": "715bf97021f02402fb4a9c6de99cca809bbf0d912a4074643f831e09d3856733",
+    "scripts/evaluate_frozen_branch_transfer.py": "f171ddb8f1febf2abf3596595e485a7ed42c118097e3150c8616f933d0078caf",
+    "scripts/check_frozen_branch_curlee.py": "1c39e781ed0d06e975f66bfb988a0cee739fe2b39eb371882fdc0e6a3c47c37a",
+    "rsi_programmer/program_cost.py": "e7491a32749353051af53f4c28beff0ae9e65d6bc946d5fc7d387e1724b40b46",
+    "rsi_programmer/statement_branch_search.py": "6bc28031db6ee472b60032a2064a97e9c86759e678bd176cf472935e08f8841b",
+    "scripts/evaluate_statement_decisions.py": "67ee42046b754e723955be77f80c5d90992a2cf7f6a453d4ca525f1208056725",
+    "tests/test_frozen_branch_transfer.py": "ea2b7fe714412758e0bfb2a6b1a98c4ab33bf76f3361ff09e15554f511f80b4d",
+    "tests/test_statement_evaluation.py": "d668c79cff5b14af416fa71402202aae310b447b110074d0348b5b798514e6cf"
+  },
+  "tests": 44,
+  "seconds": 11.898,
+  "exit_code": 0,
+  "bank_tasks": 18,
+  "teacher_functions_excluded": 2647,
+  "old_training_subset_verified": true,
+  "prior_held_input_separation_checked": true,
+  "original_final_set_opened": false,
+  "exclusions": [
+    "No new full-track pass claimed; previous 535 pass predates these changes.",
+    "Common historical donor-creation costs outside the controller comparison. No end-to-end cost advantage claim.",
+    "Hypothetical volume 1000 is not extra quality evidence.",
+    "Remote CI pending; tags/releases remain paused."
+  ]
+}

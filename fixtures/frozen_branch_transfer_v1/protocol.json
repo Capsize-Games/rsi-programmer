@@ -1,0 +1,22 @@
+{
+  "source_checkpoint": "582830f7390b0149a69acf20da0a092799676c55",
+  "frozen_before_solver_use": true,
+  "tasks": 18,
+  "methods": [
+    "neural",
+    "classical",
+    "untrained"
+  ],
+  "request_cpu_budget_seconds": 1.0,
+  "budget_overrun_tolerance_seconds": 0.05,
+  "max_added_examples": 3,
+  "branch_width": 8,
+  "first_limit": 3,
+  "held_per_task": 20,
+  "cost_policy": "Measure setup, fresh fingerprint-reproducing neural fits, search, visible feedback and actual backend checks. Shared qualified library is an existing input; historical donor creation costs remain outside this controller comparison.",
+  "actual_fit_usage_volume": 18,
+  "hypothetical_fit_usage_volume": 1000,
+  "hypothetical_scope": "Amortization scenario, not additional quality evidence or the end-to-end gate.",
+  "held_access": "Workers load tasks and visible queries only; held input file is loaded after all choices end.",
+  "generator_sha256": "8cc7d56ce15a3250ed47dcb0f2971946d4f02963ac91cfef3b22f689f352b6ea"
+}

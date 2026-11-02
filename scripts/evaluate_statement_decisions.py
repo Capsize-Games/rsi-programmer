@@ -5,6 +5,7 @@ from collections.abc import Callable
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 import tempfile
 from typing import Any
 
@@ -48,11 +49,20 @@ def evaluate(root: Path, decisions: list[dict[str, Any]],
                     filename = f"{index:03}.json"
                     (input_dir / filename).write_text(
                         json.dumps(values) + "\n")
-                    result = run_cli(folder / "python", input_dir, output_dir,
-                                     filename, filename)
+                    try:
+                        result = run_cli(folder / "python", input_dir,
+                                         output_dir, filename, filename)
+                    except subprocess.TimeoutExpired:
+                        result = subprocess.CompletedProcess(
+                            [], 124, "", "Generated Python program timed out.")
                     path = output_dir / filename
-                    actual = (json.loads(path.read_text())
-                              if path.exists() else None)
+                    output_error = None
+                    try:
+                        actual = (json.loads(path.read_text())
+                                  if path.exists() else None)
+                    except (OSError, ValueError) as error:
+                        actual = None
+                        output_error = str(error)
                     expected = task_oracle(name, values)
                     try:
                         interpreted = execute(tokens, values)
@@ -64,7 +74,11 @@ def evaluate(root: Path, decisions: list[dict[str, Any]],
                         "interpreted": interpreted,
                         "correct": result.returncode == 0
                         and type(actual) is int and actual == expected
-                        and interpreted == expected, "stderr": result.stderr})
+                        and interpreted == expected, "stderr": result.stderr,
+                        "output_error": output_error})
+                    if result.returncode or output_error is not None:
+                        entry["execution_stopped_on_error"] = True
+                        break
             entry["accepted"] = (
                 len(entry["python_records"]) == len(inputs)
                 and all(record["correct"]

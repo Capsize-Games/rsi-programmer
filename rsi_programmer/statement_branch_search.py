@@ -3,14 +3,14 @@ from __future__ import annotations
 
 import itertools
 import time
-from typing import Any
-
-import torch
+from typing import Any, TYPE_CHECKING
 
 from rsi_programmer.statement_branch_library import instantiate, pattern
 from rsi_programmer.statement_execution import execute
-from rsi_programmer.statement_policy import StatementPolicy, _prefix
 from rsi_programmer.statement_syntax import ARITHMETIC, LEAVES, TOKENS
+
+if TYPE_CHECKING:
+    from rsi_programmer.statement_policy import StatementPolicy
 
 LEAF = (*LEAVES, "value")
 
@@ -88,6 +88,9 @@ def synthesize(model: StatementPolicy | None,
                     budget_seconds):
                 break
     else:
+        import torch
+        from rsi_programmer.statement_policy import _prefix
+
         inputs = [values for values, _ in examples]
         targets = [target for _, target in examples]
         with torch.inference_mode():
