@@ -5,5 +5,19 @@
     "input.json",
     "context.json"
   ],
-  "cost_exclusion": "Per-process runtime not collected in the agent-run diagnostic; no cost advantage claimed."
+  "cost_exclusion": "Per-process runtime not collected in the agent-run diagnostic; no cost advantage claimed.",
+  "coverage_correction": {
+    "reason": "The prior nested-condition count used if-token count > 1, which included sequential conditions.",
+    "definition": "Nested means parsed maximum condition depth >= 2; multiple means parsed if_count > 1.",
+    "corrected_counts": {
+      "contains_nested_conditions": 16,
+      "contains_multiple_conditions": 351
+    },
+    "reports_updated": [
+      "input.json",
+      "context.json"
+    ],
+    "no_model_inference_or_fitting": true
+  },
+  "correction_source_sha256": "8d5cffbeef4e7ff1855abe6965406096716dddf9a7a57085c8c0996ce7cf5628"
 }

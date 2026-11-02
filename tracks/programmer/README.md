@@ -13,6 +13,10 @@ including partial execution features and a wider search beam. Four
 supplied controls pass 20 Python and CURLEE cases each, including the
 two-write output boundary. Typed append construction is implemented,
 with no new neural capability established yet.
+The subsequent [edit-value experiment](edit-value-results.md) passes 1/6
+fresh array functions, tied with untrained and classical controls and the
+incumbent. All routes remain at 0/3 on the original array tasks. This
+bounded change establishes no learned gain or broader-family transfer.
 The [branch-composition result](branch-results.md) accepts all
 11 development tasks in both languages, 40 held cases each. Shared
 expressions fill classically composed verified branches. A stronger

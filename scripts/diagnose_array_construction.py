@@ -191,8 +191,11 @@ def diagnose(policy: ArrayPolicy) -> dict[str, Any]:
                                     for item in teacher_set),
         "contains_multiple_appends": sum(item.count("append") > 1
                                           for item in teacher_set),
-        "contains_nested_conditions": sum(item.count("if") > 1
-                                           for item in teacher_set),
+        "contains_multiple_conditions": sum(
+            feature["if_count"] > 1 for feature in teacher_features),
+        "contains_nested_conditions": sum(
+            feature["max_condition_depth"] >= 2
+            for feature in teacher_features),
         "condition_comparisons": dict(Counter(
             operator for feature in teacher_features
             for operator, count in feature["comparisons"].items()

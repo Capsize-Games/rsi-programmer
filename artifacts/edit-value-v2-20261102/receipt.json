@@ -1,0 +1,51 @@
+{
+  "status": "completed_negative_trial",
+  "valid_trial_source_commit": "7aff8d9a2248946b5f006c6abcfeb80767a17090",
+  "diagnosis_source_commit": "708f853e9d6b0d92a9d2d5318db168e425a56d44",
+  "fresh_acceptance": {
+    "edit_value_ranker": 1,
+    "untrained_edit_value": 1,
+    "classical_diagnostic": 1,
+    "original_array_policy": 1
+  },
+  "development_recheck_acceptance": {
+    "edit_value_ranker": 0,
+    "untrained_edit_value": 0,
+    "classical_diagnostic": 0,
+    "original_array_policy": 0
+  },
+  "fresh_tasks": 6,
+  "development_rechecks": 3,
+  "actual_cases_per_backend": 89,
+  "accepted_programs_cases_each": 20,
+  "wrong_incumbent_filter_cases_per_backend": 9,
+  "early_stop_policy": "Wrong incumbent filter stopped on first incorrect case; remaining11 were not executed.",
+  "learning_benefit": "not_established",
+  "new_language_families": "none",
+  "retention": "unmeasured for new ranker; old scalar controller unchanged but not retested",
+  "training": {
+    "unique_tasks_used": 64,
+    "transitions": 1988,
+    "labeled_transitions": 1987,
+    "positive_rollouts": 1105,
+    "negative_rollouts": 3329,
+    "censored_rollouts": 12,
+    "fit_cpu_seconds": 2.8663183119999998
+  },
+  "whole_command_cpu_seconds": 38.969193000000004,
+  "whole_command_wall_seconds": 470.3947708019987,
+  "peak_single_child_rss_kib": 347868,
+  "cost_limits": "No cost advantage claim; pretrained incumbent fitting and untimed diagnosis excluded. Original ArrayPolicy wall-budget differs from edit CPU-budget. Agent/development time, preflight, regression tests, CI and publication are excluded.",
+  "prior_failed_attempt": "artifacts/edit-value-v1-20261102/failure-receipt.json",
+  "post_evaluation_tuning": false,
+  "promotion": "No default learner replacement or donor promotion.",
+  "bank_future_use": "This evaluated bank cannot support a new final claim after outcome-informed changes; use a fresh bank.",
+  "focused_checks": {
+    "passed": 19,
+    "seconds": 1.651
+  },
+  "other_local_lanes": "Not rerun; prior resource-interrupted full runs remain incomplete.",
+  "ci": "Pending publication/check collection.",
+  "release": "Tags/releases remain paused.",
+  "validation_range": "Declared held values and capacities; no extreme-int64 or universal compiler qualification."
+}

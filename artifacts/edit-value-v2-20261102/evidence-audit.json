@@ -1,0 +1,247 @@
+{
+  "counts": {
+    "edit_value_ranker": {
+      "python_cases": 20,
+      "curlee_cases": 20,
+      "qualified_fresh": 1,
+      "qualified_recheck": 0
+    },
+    "untrained_edit_value": {
+      "python_cases": 20,
+      "curlee_cases": 20,
+      "qualified_fresh": 1,
+      "qualified_recheck": 0
+    },
+    "classical_diagnostic": {
+      "python_cases": 20,
+      "curlee_cases": 20,
+      "qualified_fresh": 1,
+      "qualified_recheck": 0
+    },
+    "original_array_policy": {
+      "python_cases": 29,
+      "curlee_cases": 29,
+      "qualified_fresh": 1,
+      "qualified_recheck": 0
+    }
+  },
+  "attempts": [
+    {
+      "method": "edit_value_ranker",
+      "task": "clip_negative_readings",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "edit_value_ranker",
+      "task": "cap_positive_readings",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "edit_value_ranker",
+      "task": "negative_magnitudes",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "edit_value_ranker",
+      "task": "fresh_filter_nonpositive",
+      "qualified": true,
+      "cases_match": true
+    },
+    {
+      "method": "edit_value_ranker",
+      "task": "fresh_map_absolute_value",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "edit_value_ranker",
+      "task": "fresh_duplicate_positive",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "edit_value_ranker",
+      "task": "fresh_add_output_index",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "edit_value_ranker",
+      "task": "fresh_keep_first_then_map",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "edit_value_ranker",
+      "task": "fresh_filter_and_map",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "untrained_edit_value",
+      "task": "clip_negative_readings",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "untrained_edit_value",
+      "task": "cap_positive_readings",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "untrained_edit_value",
+      "task": "negative_magnitudes",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "untrained_edit_value",
+      "task": "fresh_filter_nonpositive",
+      "qualified": true,
+      "cases_match": true
+    },
+    {
+      "method": "untrained_edit_value",
+      "task": "fresh_map_absolute_value",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "untrained_edit_value",
+      "task": "fresh_duplicate_positive",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "untrained_edit_value",
+      "task": "fresh_add_output_index",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "untrained_edit_value",
+      "task": "fresh_keep_first_then_map",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "untrained_edit_value",
+      "task": "fresh_filter_and_map",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "classical_diagnostic",
+      "task": "clip_negative_readings",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "classical_diagnostic",
+      "task": "cap_positive_readings",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "classical_diagnostic",
+      "task": "negative_magnitudes",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "classical_diagnostic",
+      "task": "fresh_filter_nonpositive",
+      "qualified": true,
+      "cases_match": true
+    },
+    {
+      "method": "classical_diagnostic",
+      "task": "fresh_map_absolute_value",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "classical_diagnostic",
+      "task": "fresh_duplicate_positive",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "classical_diagnostic",
+      "task": "fresh_add_output_index",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "classical_diagnostic",
+      "task": "fresh_keep_first_then_map",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "classical_diagnostic",
+      "task": "fresh_filter_and_map",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "original_array_policy",
+      "task": "clip_negative_readings",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "original_array_policy",
+      "task": "cap_positive_readings",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "original_array_policy",
+      "task": "negative_magnitudes",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "original_array_policy",
+      "task": "fresh_filter_nonpositive",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "original_array_policy",
+      "task": "fresh_map_absolute_value",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "original_array_policy",
+      "task": "fresh_duplicate_positive",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "original_array_policy",
+      "task": "fresh_add_output_index",
+      "qualified": true,
+      "cases_match": true
+    },
+    {
+      "method": "original_array_policy",
+      "task": "fresh_keep_first_then_map",
+      "qualified": false,
+      "cases_match": true
+    },
+    {
+      "method": "original_array_policy",
+      "task": "fresh_filter_and_map",
+      "qualified": false,
+      "cases_match": true
+    }
+  ],
+  "scope": "Source-hash and per-case cross-backend audit; no new fitting or solver choices."
+}

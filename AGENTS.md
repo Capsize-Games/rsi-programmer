@@ -214,6 +214,21 @@ expected output. This is never a neural success or donor. Resource-aborted
 full regressions remain incomplete. Preserve checkpoint/source hashes,
 sealed audit separation, runtime weight exclusions and memory guards.
 
+Edit-value checkpoint (2026-11-02): frozen-model diagnostics show all three
+supplied array witness paths pruned by token or beam ranking; this does not
+prove every equivalent solution was pruned. Sixteen teachers are genuinely
+nested, while 351 have multiple conditions; preserve that corrected metric.
+One goal-conditioned ANN trained on completed successful/failed rollouts
+passes 1/6 fresh functions, equal to untrained/classical and incumbent
+routes, and 0/3 original rechecks. Actual Python and CURLEE runs qualify the
+accepted programs on 20 cases each; the wrong incumbent filter stops after
+case nine. There are 89 actual executions per backend. See
+`tracks/programmer/edit-value-results.md`. No learner promotion, learning
+benefit, retention of scalar abilities or broader-family gain is established.
+The first harness failure and all failed constructions remain recorded.
+The evaluated bank requires replacement for any subsequent final claim
+informed by these outcomes. Do not continue parameter sweeps as progress.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,
