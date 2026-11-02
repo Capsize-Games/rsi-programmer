@@ -1,0 +1,43 @@
+fn process(input: &[Int; 256], count: Int) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let acc: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256; ] {
+        if (i < 0 || i >= 256) { return 0; }
+        let value: Int = input[i];
+        if ((value <= acc)) {
+            acc = value;
+        }
+    }
+    return acc;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    input[0] = -29;
+    input[1] = -54;
+    input[2] = 46;
+    input[3] = 19;
+    input[4] = 81;
+    input[5] = -74;
+    input[6] = -49;
+    input[7] = -19;
+    input[8] = 1;
+    input[9] = -100;
+    input[10] = 36;
+    input[11] = -50;
+    input[12] = 85;
+    input[13] = -78;
+    input[14] = 34;
+    input[15] = 89;
+    input[16] = 84;
+    input[17] = 34;
+    input[18] = -23;
+    input[19] = 71;
+    input[20] = 7;
+    input[21] = -50;
+    if (process(&input, 22) != -100) {
+        return 1;
+    }
+    return 0;
+}

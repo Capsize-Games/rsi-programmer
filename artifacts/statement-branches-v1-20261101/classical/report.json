@@ -1,0 +1,290 @@
+{
+  "scope": "Development two-branch template composition. Host copies branch pairs and enumerates add/sub variants; neural scores choose a shared expression. No refit.",
+  "method": "classical",
+  "rows": [
+    {
+      "id": "largest_magnitude",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          7
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          3
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          3
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          4
+        ]
+      ],
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "sub",
+          "zero",
+          "value",
+          "acc",
+          "set",
+          "sub",
+          "zero",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "maximum_floor_zero",
+            "maximum_floor_zero"
+          ],
+          "combine": null,
+          "arg": [
+            "sub",
+            "zero",
+            "value"
+          ]
+        },
+        "visited": 2899,
+        "contexts": 42,
+        "wall_seconds": 0.07230933499522507,
+        "budget_exhausted": false
+      },
+      "cpu_seconds": 0.07225846400000013,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "positive_values_capped_at_two_total",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          5
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          2
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          5
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          6
+        ]
+      ],
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "sub",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "sub",
+          "acc",
+          "sub",
+          "value",
+          "two",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "positive_total",
+            "positive_total"
+          ],
+          "combine": "sub",
+          "arg": [
+            "sub",
+            "value",
+            "two"
+          ]
+        },
+        "visited": 4258,
+        "contexts": 42,
+        "wall_seconds": 0.1130203400098253,
+        "budget_exhausted": false
+      },
+      "cpu_seconds": 0.113006728,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "positive_count_capped_at_two",
+      "observed": [
+        [
+          [
+            -2,
+            5,
+            0,
+            3,
+            -1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            0,
+            -7,
+            -3,
+            0
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            -1,
+            -2,
+            0
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          2
+        ],
+        [
+          [
+            -3,
+            -2,
+            -1
+          ],
+          0
+        ],
+        [
+          [
+            2,
+            3,
+            4
+          ],
+          2
+        ]
+      ],
+      "chosen": {
+        "tokens": null,
+        "composition": null,
+        "visited": 8526,
+        "contexts": 42,
+        "wall_seconds": 0.22206623599049635,
+        "budget_exhausted": false
+      },
+      "cpu_seconds": 0.22206366599999994,
+      "held_ir_accepted": false
+    }
+  ],
+  "tasks": 3,
+  "held_per_task": 40,
+  "execution_pending": false,
+  "model_hash": null,
+  "control_scope": "Independent held IR only; no additional Python/CURLEE executions.",
+  "accepted": 2
+}

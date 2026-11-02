@@ -1,0 +1,154 @@
+{
+  "source_checkpoint": "75455929e091f918a4f06adebdcabc3d3a11d992",
+  "scope": "Development branch composition and integrated 11-task route, with prior failures and stronger classical control retained. Not a final generalization or matched-total-cost result.",
+  "current_source_hashes": {
+    "rsi_programmer/stateful_tasks.py": "b16fd28eac3894282d4b99d733a046a779b29136f2d7a4d067514fcf63a9b45f",
+    "rsi_programmer/statement_branch_library.py": "3cdffd8789a1be2e80896007caa71c56cf7840c49172d533146ed9c68721bb76",
+    "rsi_programmer/statement_branch_search.py": "0334f2d972019858f1e58e7f97274f9653743db218836e97436e2f6152cd1cee",
+    "scripts/measure_branch_composition.py": "a0493679fcc12760196de29cddab73c69cfd90ab350414488e247d4265d8c568",
+    "scripts/qualify_positive_counter.py": "fa02baa5f8885aea2dc7662860a86e8e0c2592e48bbf1e5181f5bf2738230e63",
+    "scripts/measure_context_repair.py": "208772ce6ebaac9278a81ab8cb0dcd619fa7a26e1e217a0e2e5f42836447ffee",
+    "scripts/measure_stronger_branch_control.py": "389a8d047a468417c4578c6b9853bcdf6e870fb73126e29ad371816a46e891e2",
+    "tests/test_statement_branches.py": "9a514cd268b3efad68a48ee8c4a0eea695e5e174822a5f75b1631c01e707ee6a",
+    "tests/test_stateful_tasks.py": "426e88306837c77de8e8d6d339fdb661167cdcf0008dfeebae82c884eee5af6c"
+  },
+  "logs": {
+    "composition-v1-choices": {
+      "exit_code": 0,
+      "path": "composition-v1-choices.log.gz",
+      "sha256_uncompressed": "f416ad99d9c243f3fd75c7c8205d35df7a28acf307f0e14ee9a799236c0855c0"
+    },
+    "composition-v1-python": {
+      "exit_code": 0,
+      "path": "composition-v1-python.log.gz",
+      "sha256_uncompressed": "881fee81deacae45846a3bc535b98ef7c8d797584d68150d661375572103f117"
+    },
+    "composition-v1-curlee": {
+      "exit_code": 0,
+      "path": "composition-v1-curlee.log.gz",
+      "sha256_uncompressed": "0cbaff584d41d6d98169fbe6f1362026db1b1300f1d3f4913600d6da415e441b"
+    },
+    "counter-choices": {
+      "exit_code": 0,
+      "path": "counter-choices.log.gz",
+      "sha256_uncompressed": "a34aeba8a1da9792e42e89e81d3d1128f9513f61e886d0d035d2f6f0a6a53fa5"
+    },
+    "counter-python": {
+      "exit_code": 0,
+      "path": "counter-python.log.gz",
+      "sha256_uncompressed": "1ba82ae22eef006a21304dcccb81121f3df79458ba423f9984c78597a1e8cee3"
+    },
+    "counter-curlee": {
+      "exit_code": 0,
+      "path": "counter-curlee.log.gz",
+      "sha256_uncompressed": "d7846e5ecaf7417ca1676e5cf204664c7be236c934ea32729ca0ce143fde1c4f"
+    },
+    "composition-v2-choices": {
+      "exit_code": 0,
+      "path": "composition-v2-choices.log.gz",
+      "sha256_uncompressed": "cd77b07e4c681e8120020615bfdaddaf75d895ae0843ea911799417d0e2123df"
+    },
+    "composition-v2-python": {
+      "exit_code": 0,
+      "path": "composition-v2-python.log.gz",
+      "sha256_uncompressed": "46cc43e14122978bc2fa74b07e5c433f4984e0e7a8630f6e981afb3293dbdf14"
+    },
+    "composition-v2-curlee": {
+      "exit_code": 0,
+      "path": "composition-v2-curlee.log.gz",
+      "sha256_uncompressed": "47617b6245c8a4cf636cb36a17cf9f40eb75278b9466ef8fe24748fa85d8045c"
+    },
+    "integrated-choices": {
+      "exit_code": 0,
+      "path": "integrated-choices.log.gz",
+      "sha256_uncompressed": "a28b0ddebb971c974d41da9cc8a8f26eac847b63b5b30e767734df41186ca715"
+    },
+    "integrated-python": {
+      "exit_code": 0,
+      "path": "integrated-python.log.gz",
+      "sha256_uncompressed": "e1895b69929cf674607cabb246c982545e0d4d7be5acd78dc8954e70c6f89388"
+    },
+    "integrated-curlee-stopped": {
+      "exit_code": 75,
+      "path": "integrated-curlee-stopped.log.gz",
+      "sha256_uncompressed": "70a46e96590f00e5c443deca3271fab863382b702e185fba497e81d87d8fa2a3"
+    },
+    "integrated-curlee-retry": {
+      "exit_code": 0,
+      "path": "integrated-curlee-retry.log.gz",
+      "sha256_uncompressed": "09d2975afb93cbe827b9db9c90d7ff2e7bc8d66cc3572cee8f4ff7490a4708c0"
+    },
+    "stronger-classical": {
+      "exit_code": 0,
+      "path": "stronger-classical.log.gz",
+      "sha256_uncompressed": "a19171525dd22eaa7f0fc4d1b8a09689b49ddc79088371c86e9ae4201bacd2a0"
+    },
+    "focused-initial": {
+      "exit_code": 0,
+      "path": "focused-initial.log.gz",
+      "sha256_uncompressed": "f3ccd38761a656fde8ad0fdc4e01d53138520a46ae69a0a6d91be1eeda36d96b"
+    },
+    "focused-primitive": {
+      "exit_code": 0,
+      "path": "focused-primitive.log.gz",
+      "sha256_uncompressed": "9aef087b5c4f47775124d6fd1a8a7c78e2cb32232d303e7a7ef31ed7c1abb17c"
+    },
+    "focused-argument-guard": {
+      "exit_code": 0,
+      "path": "focused-argument-guard.log.gz",
+      "sha256_uncompressed": "f07dae373409fa24833718ae82efd149c85b4c118e9ac4ce0ab803d606b8112e"
+    }
+  },
+  "focused_tests": {
+    "tests": 38,
+    "seconds": 8.433,
+    "exit_code": 0,
+    "scope": "Latest shared-argument shape guard and all affected statement/track tests."
+  },
+  "broader_tests": {
+    "before_argument_guard": {
+      "tests": 535,
+      "seconds": 262.998,
+      "exit_code": 0,
+      "log": "programmer-fast-before-guard.log.gz"
+    },
+    "latest_after_guard": {
+      "tests": 535,
+      "seconds": 267.209,
+      "exit_code": 0,
+      "log": "programmer-fast-final.log.gz",
+      "scope": "Programmer fast only; other lanes/tracks not rerun."
+    }
+  },
+  "actual_integrated_acceptance": {
+    "new_donor_retention": 2,
+    "old_retention": 6,
+    "transfer": 3
+  },
+  "actual_integrated_python_cases": 440,
+  "actual_integrated_curlee_cases": 440,
+  "stronger_classical_held_ir_accepted": 11,
+  "initial_untrained_held_ir_accepted": 10,
+  "controls_scope": "Controls are held-IR only. Neural primary outputs have independent actual Python/CURLEE checks.",
+  "metadata_corrections": [
+    "Integrated protocol had a stale two-search cost description; actual route can use two condition searches plus composition. Original field and measured source preserved.",
+    "Maximum already existed as a branch donor; relabeled donor retention, preserving legacy row role. No decisions, held inputs or executions changed.",
+    "A stricter shared-argument expression-shape guard was added after the searches. Valid generated arguments unchanged; new rejection case and latest focused tests pass.",
+    "Reproduction scripts received line wrapping; measured source snapshots retain original versions."
+  ],
+  "exclusions": [
+    "All eleven tasks were repeatedly used for development. Original sealed final set remains untouched.",
+    "The positive counter is a previously trained primitive, not a new unseen-function success.",
+    "Host supplies branch-pair search, add/sub variants and lowering; no learned abstraction discovery or general source generation.",
+    "No demonstrated total-cost advantage or recursive learner improvement.",
+    "Other test lanes/tracks and remote CI not claimed passed. Weights remain ignored. Tags/releases remain paused under project-specific instruction."
+  ],
+  "commands": {
+    "integrated_choices": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 180 python3 /tmp/rsi-run-with-reserve.py flock /tmp/rsi-programmer-builder.lock .venv/bin/python -m scripts.measure_context_repair --branch-donor artifacts/positive-counter-v1-20261101 --held-seed 461067 --output artifacts/statement-composed-route-v1-20261101",
+    "integrated_python": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m scripts.execute_statement_trial --output artifacts/statement-composed-route-v1-20261101",
+    "integrated_curlee_retry": "python3 /home/joe/Projects/curlee/scripts/run_limited.py /usr/bin/python3 -m scripts.check_statement_curlee --compiler /home/joe/Projects/curlee/build/linux-debug/curlee --output artifacts/statement-composed-route-v1-20261101",
+    "stronger_classical": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 60 python3 /tmp/rsi-run-with-reserve.py flock /tmp/rsi-programmer-builder.lock .venv/bin/python -m scripts.measure_stronger_branch_control --output artifacts/statement-classical-compose-first-20261101",
+    "programmer_fast": "python3 /tmp/rsi-run-with-reserve.py python3 scripts/tracks.py test programmer --lane fast"
+  },
+  "compiler_resource_guard_sha256": "40068777a1fc6f036c2a5c9c8f3580d1471cbbbfe03e1022fc474f34a77e910a"
+}

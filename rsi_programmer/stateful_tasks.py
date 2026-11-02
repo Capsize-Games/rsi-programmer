@@ -3,6 +3,8 @@ from __future__ import annotations
 
 
 def oracle(name: str, values: list[int]) -> int:
+    if name == "positive_count":
+        return sum(value > 0 for value in values)
     if name == "maximum_floor_zero":
         return max([0, *values])
     if name == "minimum_ceiling_zero":

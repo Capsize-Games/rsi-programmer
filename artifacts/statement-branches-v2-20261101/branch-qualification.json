@@ -1,0 +1,588 @@
+{
+  "qualification": {
+    "donors": [
+      "positive_total",
+      "negative_count",
+      "even_total",
+      "positive_square_total",
+      "odd_count",
+      "above_two_count",
+      "maximum_floor_zero",
+      "minimum_ceiling_zero"
+    ],
+    "fragments": [
+      {
+        "id": "decb72c3611a338c",
+        "kind": "Bool condition",
+        "prefix": [
+          "for",
+          "if"
+        ],
+        "suffix": [
+          "set",
+          "add",
+          "acc",
+          "mul",
+          "value",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "donors": [
+          "positive_square_total"
+        ]
+      },
+      {
+        "id": "cda43abf11ed8d3b",
+        "kind": "Bool condition",
+        "prefix": [
+          "for",
+          "if"
+        ],
+        "suffix": [
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "donors": [
+          "above_two_count",
+          "negative_count",
+          "odd_count"
+        ]
+      },
+      {
+        "id": "1624b462af912802",
+        "kind": "Bool condition",
+        "prefix": [
+          "for",
+          "if"
+        ],
+        "suffix": [
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "donors": [
+          "even_total",
+          "positive_total"
+        ]
+      },
+      {
+        "id": "a2de4b05be8798d6",
+        "kind": "Bool condition",
+        "prefix": [
+          "for",
+          "if"
+        ],
+        "suffix": [
+          "set",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "donors": [
+          "maximum_floor_zero",
+          "minimum_ceiling_zero"
+        ]
+      }
+    ],
+    "report_sha256": "1a5c1a941abaac10ba2615c73130ce82eea92b920ebd7a352918a9dd16b62ab0",
+    "compiler_proof_sha256": "6955b6906a21338c92060c69e63cc42af06378ddb668667908ebe1413456524f"
+  },
+  "branches": [
+    {
+      "donor": "positive_total",
+      "program": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "body": [
+        "if",
+        "gt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "value",
+        "end"
+      ],
+      "condition": [
+        "gt",
+        [
+          "$arg"
+        ],
+        [
+          "zero"
+        ]
+      ],
+      "update": [
+        "add",
+        [
+          "acc"
+        ],
+        [
+          "$arg"
+        ]
+      ]
+    },
+    {
+      "donor": "negative_count",
+      "program": [
+        "for",
+        "if",
+        "lt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "body": [
+        "if",
+        "lt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end"
+      ],
+      "condition": [
+        "lt",
+        [
+          "$arg"
+        ],
+        [
+          "zero"
+        ]
+      ],
+      "update": [
+        "add",
+        [
+          "acc"
+        ],
+        [
+          "one"
+        ]
+      ]
+    },
+    {
+      "donor": "even_total",
+      "program": [
+        "for",
+        "if",
+        "eq",
+        "rem",
+        "value",
+        "two",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "body": [
+        "if",
+        "eq",
+        "rem",
+        "value",
+        "two",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "value",
+        "end"
+      ],
+      "condition": [
+        "eq",
+        [
+          "rem",
+          [
+            "$arg"
+          ],
+          [
+            "two"
+          ]
+        ],
+        [
+          "zero"
+        ]
+      ],
+      "update": [
+        "add",
+        [
+          "acc"
+        ],
+        [
+          "$arg"
+        ]
+      ]
+    },
+    {
+      "donor": "positive_square_total",
+      "program": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "mul",
+        "value",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "body": [
+        "if",
+        "gt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "mul",
+        "value",
+        "value",
+        "end"
+      ],
+      "condition": [
+        "gt",
+        [
+          "$arg"
+        ],
+        [
+          "zero"
+        ]
+      ],
+      "update": [
+        "add",
+        [
+          "acc"
+        ],
+        [
+          "mul",
+          [
+            "$arg"
+          ],
+          [
+            "$arg"
+          ]
+        ]
+      ]
+    },
+    {
+      "donor": "odd_count",
+      "program": [
+        "for",
+        "if",
+        "ne",
+        "rem",
+        "value",
+        "two",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "body": [
+        "if",
+        "ne",
+        "rem",
+        "value",
+        "two",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end"
+      ],
+      "condition": [
+        "ne",
+        [
+          "rem",
+          [
+            "$arg"
+          ],
+          [
+            "two"
+          ]
+        ],
+        [
+          "zero"
+        ]
+      ],
+      "update": [
+        "add",
+        [
+          "acc"
+        ],
+        [
+          "one"
+        ]
+      ]
+    },
+    {
+      "donor": "above_two_count",
+      "program": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "two",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "body": [
+        "if",
+        "gt",
+        "value",
+        "two",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end"
+      ],
+      "condition": [
+        "gt",
+        [
+          "$arg"
+        ],
+        [
+          "two"
+        ]
+      ],
+      "update": [
+        "add",
+        [
+          "acc"
+        ],
+        [
+          "one"
+        ]
+      ]
+    },
+    {
+      "donor": "maximum_floor_zero",
+      "program": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "acc",
+        "set",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "body": [
+        "if",
+        "gt",
+        "value",
+        "acc",
+        "set",
+        "value",
+        "end"
+      ],
+      "condition": [
+        "gt",
+        [
+          "$arg"
+        ],
+        [
+          "acc"
+        ]
+      ],
+      "update": [
+        "$arg"
+      ]
+    },
+    {
+      "donor": "minimum_ceiling_zero",
+      "program": [
+        "for",
+        "if",
+        "le",
+        "value",
+        "acc",
+        "set",
+        "value",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "body": [
+        "if",
+        "le",
+        "value",
+        "acc",
+        "set",
+        "value",
+        "end"
+      ],
+      "condition": [
+        "le",
+        [
+          "$arg"
+        ],
+        [
+          "acc"
+        ]
+      ],
+      "update": [
+        "$arg"
+      ]
+    },
+    {
+      "donor": "positive_count",
+      "program": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end",
+        "end",
+        "return",
+        "acc",
+        "stop"
+      ],
+      "body": [
+        "if",
+        "gt",
+        "value",
+        "zero",
+        "set",
+        "add",
+        "acc",
+        "one",
+        "end"
+      ],
+      "condition": [
+        "gt",
+        [
+          "$arg"
+        ],
+        [
+          "zero"
+        ]
+      ],
+      "update": [
+        "add",
+        [
+          "acc"
+        ],
+        [
+          "one"
+        ]
+      ]
+    }
+  ],
+  "scope": "Classically mined shared Int-input branch templates. Accumulator add/sub variants are supplied grammar choices, not learned abstraction discovery.",
+  "extra_qualifications": [
+    {
+      "donors": [
+        "positive_count"
+      ],
+      "fragments": [
+        {
+          "id": "cda43abf11ed8d3b",
+          "kind": "Bool condition",
+          "prefix": [
+            "for",
+            "if"
+          ],
+          "suffix": [
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "donors": [
+            "positive_count"
+          ]
+        }
+      ],
+      "report_sha256": "941f20a2d071d2da9db6451ea6c1e947162d20165ff0938aece1e87b616096a7",
+      "compiler_proof_sha256": "7c39caf8d1653da0e8219dcd95e84276bee6699f3a783151da756b2f4f06271a"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+fn process(input: &[Int; 256], count: Int) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let acc: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256; ] {
+        if (i < 0 || i >= 256) { return 0; }
+        let value: Int = input[i];
+        if ((value > 0)) {
+            acc = (acc + 1);
+        }
+        if (((acc - 2) > 0)) {
+            acc = (acc - 1);
+        }
+    }
+    return acc;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    input[0] = -43;
+    input[1] = -52;
+    input[2] = -25;
+    input[3] = -73;
+    input[4] = 31;
+    input[5] = 63;
+    input[6] = -43;
+    input[7] = 91;
+    input[8] = 89;
+    input[9] = -39;
+    input[10] = -55;
+    input[11] = 40;
+    input[12] = 21;
+    input[13] = 88;
+    input[14] = 22;
+    input[15] = 72;
+    input[16] = -34;
+    input[17] = 67;
+    input[18] = 92;
+    input[19] = -37;
+    input[20] = -52;
+    input[21] = 55;
+    input[22] = -45;
+    input[23] = -42;
+    input[24] = -99;
+    input[25] = -64;
+    input[26] = -3;
+    input[27] = -83;
+    input[28] = 77;
+    input[29] = -19;
+    input[30] = -51;
+    input[31] = 37;
+    input[32] = 66;
+    input[33] = -9;
+    input[34] = 3;
+    input[35] = 77;
+    input[36] = -14;
+    input[37] = 67;
+    input[38] = 94;
+    input[39] = 100;
+    input[40] = 31;
+    input[41] = 39;
+    input[42] = 0;
+    input[43] = 76;
+    input[44] = 82;
+    input[45] = 85;
+    input[46] = -98;
+    input[47] = -31;
+    input[48] = -87;
+    input[49] = -30;
+    input[50] = -45;
+    input[51] = 98;
+    input[52] = -33;
+    input[53] = 63;
+    input[54] = 73;
+    input[55] = 66;
+    input[56] = 31;
+    input[57] = -88;
+    input[58] = -3;
+    input[59] = 52;
+    input[60] = -21;
+    input[61] = 48;
+    input[62] = 11;
+    input[63] = 17;
+    input[64] = -87;
+    input[65] = -15;
+    input[66] = -38;
+    input[67] = -96;
+    if (process(&input, 68) != 2) {
+        return 1;
+    }
+    return 0;
+}

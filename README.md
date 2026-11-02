@@ -4,7 +4,14 @@ The primary development track is neural program synthesis: a learner that
 constructs executable programs and improves from independently checked
 training experience. The
 [programmer roadmap](tracks/programmer/README.md) defines the milestones.
-The [query-repair result](tracks/programmer/context-repair-results.md)
+The [branch-composition result](tracks/programmer/branch-results.md)
+accepts all 11 development tasks in Python and CURLEE, with 40 held cases
+each per language. It adds largest magnitude, capped-value sum and capped
+count by composing verified branches and choosing shared expressions.
+The host supplies the composition grammar; the learner's weights stay
+fixed during search. A stronger classical control also solves all eleven.
+General programming and a matched-total-cost advantage remain unproven.
+The preceding [query-repair result](tracks/programmer/context-repair-results.md)
 accepts 8/11 development tasks in Python and CURLEE: six earlier utilities,
 maximum and minimum, each with 40 held cases per language. Three more
 complex tasks remain unsolved. The learner resynthesizes conditions from

@@ -1,0 +1,45 @@
+{
+  "scope": "Development two-branch template composition. Host copies branch pairs and enumerates add/sub variants; neural scores choose a shared expression. No refit.",
+  "task_ids": [
+    "largest_magnitude",
+    "positive_values_capped_at_two_total",
+    "positive_count_capped_at_two"
+  ],
+  "methods": [
+    "trained",
+    "untrained",
+    "classical"
+  ],
+  "additional_observed_inputs": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      -3,
+      -2,
+      -1
+    ],
+    [
+      2,
+      3,
+      4
+    ]
+  ],
+  "width": 8,
+  "first_donors_by_residual": 3,
+  "argument_grammar": "leaf or binary operation on two leaves",
+  "wall_budget_per_task": 5.0,
+  "held_seed": 461061,
+  "held_per_task": 40,
+  "extra_donor_roots": [
+    "artifacts/positive-counter-v1-20261101"
+  ],
+  "source_hashes": {
+    "scripts/measure_branch_composition.py": "2736dfbf1673a6acc6d7dc81b2a18e936539a35993ad494022ce721988c0b4b7",
+    "rsi_programmer/statement_branch_library.py": "55ac111a4546b418ddf43d47c4a6e34349c521f1d3c876da1d3939becd795acd",
+    "rsi_programmer/statement_branch_search.py": "0334f2d972019858f1e58e7f97274f9653743db218836e97436e2f6152cd1cee",
+    "rsi_programmer/statement_policy.py": "391e25d3bf7f79a66f31d9f4db5e785e562b0785f62f8aadb9ece37016c81477"
+  }
+}

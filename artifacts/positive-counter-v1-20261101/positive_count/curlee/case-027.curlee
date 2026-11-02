@@ -1,0 +1,92 @@
+fn process(input: &[Int; 256], count: Int) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let acc: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256; ] {
+        if (i < 0 || i >= 256) { return 0; }
+        let value: Int = input[i];
+        if ((value > 0)) {
+            acc = (acc + 1);
+        }
+    }
+    return acc;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    input[0] = -65;
+    input[1] = -3;
+    input[2] = 93;
+    input[3] = -31;
+    input[4] = -75;
+    input[5] = 91;
+    input[6] = 31;
+    input[7] = -8;
+    input[8] = -53;
+    input[9] = 30;
+    input[10] = 37;
+    input[11] = 1;
+    input[12] = 29;
+    input[13] = -94;
+    input[14] = -93;
+    input[15] = -100;
+    input[16] = 58;
+    input[17] = -78;
+    input[18] = -92;
+    input[19] = 72;
+    input[20] = -26;
+    input[21] = -83;
+    input[22] = 22;
+    input[23] = 67;
+    input[24] = 62;
+    input[25] = 98;
+    input[26] = -10;
+    input[27] = -30;
+    input[28] = 8;
+    input[29] = -67;
+    input[30] = -100;
+    input[31] = -27;
+    input[32] = -60;
+    input[33] = 85;
+    input[34] = 95;
+    input[35] = -15;
+    input[36] = -68;
+    input[37] = -96;
+    input[38] = 50;
+    input[39] = -78;
+    input[40] = 0;
+    input[41] = 76;
+    input[42] = 26;
+    input[43] = -61;
+    input[44] = -83;
+    input[45] = 95;
+    input[46] = 42;
+    input[47] = -65;
+    input[48] = 41;
+    input[49] = 4;
+    input[50] = -57;
+    input[51] = -91;
+    input[52] = -24;
+    input[53] = -24;
+    input[54] = 100;
+    input[55] = 87;
+    input[56] = -72;
+    input[57] = 40;
+    input[58] = -3;
+    input[59] = 47;
+    input[60] = 47;
+    input[61] = 86;
+    input[62] = -98;
+    input[63] = -74;
+    input[64] = 53;
+    input[65] = -44;
+    input[66] = 7;
+    input[67] = -83;
+    input[68] = -10;
+    input[69] = 97;
+    input[70] = 51;
+    if (process(&input, 71) != 33) {
+        return 1;
+    }
+    return 0;
+}

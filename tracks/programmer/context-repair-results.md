@@ -12,6 +12,10 @@ trial, the earlier negative experiments and the unchanged trained models.
 This is bounded query-guided resynthesis with verified contexts, not
 general programming or recursive self-improvement.
 
+The subsequent [branch-composition result](branch-results.md) constructs
+the three remaining tasks. The eight-task result and its failures below
+remain unchanged as historical evidence.
+
 ## What the learner changed
 
 The maximum initially used the wrong update: it added a value when the

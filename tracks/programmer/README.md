@@ -3,10 +3,15 @@
 This is the primary development track as of 2026-11-01.
 
 The primary outcome is a learner that writes useful programs in Python and
-CURLEE. The [query-repair result](context-repair-results.md) accepts 8/11
+CURLEE. The [branch-composition result](branch-results.md) accepts all
+11 development tasks in both languages, 40 held cases each. Shared
+expressions fill classically composed verified branches. A stronger
+classical control also solves all eleven; no total-cost advantage is shown.
+The preceding [query-repair result](context-repair-results.md) accepts 8/11
 development tasks, with 40 held cases each per language. It retains the
 six earlier utilities and minimum, and transfers maximum; three tasks
-remain unsolved. The preceding [context-growth trial](context-growth-results.md) constructs
+remain unsolved. The preceding
+[context-growth trial](context-growth-results.md) constructs
 maximum from the qualified minimum donor, with 40 cases in each language.
 Its route retains the earlier six utilities but fails to retain minimum,
 for 7/11 accepted tasks. The preceding
@@ -67,10 +72,12 @@ passed. See the [complete shortlist result](
 Loop-body transfer and wider search alone produced no new programs.
 The component-preserving curriculum then constructed a qualified minimum.
 Transfer from that donor constructed a qualified maximum, and bounded
-visible-query repair recovered minimum retention. The next check is
-composition of qualified branch fragments for the three unresolved tasks.
-Freeze all choices before held evaluation and retain old-library,
-untrained and classical controls, plus every failed attempt.
+visible-query repair recovered minimum retention. Branch composition then
+passed the three remaining tasks.
+The next required check is frozen unseen-function evaluation and matched
+total-cost accounting, using strong classical and untrained controls.
+These eleven functions have been used repeatedly for development; they
+are not a final generalization set. Preserve every failed attempt.
 The stages below describe the broader capability progression. They do not
 require repeating model-family comparisons before useful-program trials.
 

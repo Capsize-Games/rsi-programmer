@@ -1,0 +1,78 @@
+fn process(input: &[Int; 256], count: Int) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let acc: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256; ] {
+        if (i < 0 || i >= 256) { return 0; }
+        let value: Int = input[i];
+        if ((value > 2)) {
+            acc = (acc + 1);
+        }
+    }
+    return acc;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    input[0] = -79;
+    input[1] = -25;
+    input[2] = 32;
+    input[3] = -14;
+    input[4] = 98;
+    input[5] = 25;
+    input[6] = 73;
+    input[7] = 66;
+    input[8] = -31;
+    input[9] = 7;
+    input[10] = -88;
+    input[11] = -93;
+    input[12] = -83;
+    input[13] = 47;
+    input[14] = -41;
+    input[15] = -61;
+    input[16] = -44;
+    input[17] = 59;
+    input[18] = -23;
+    input[19] = -28;
+    input[20] = -47;
+    input[21] = -68;
+    input[22] = 31;
+    input[23] = 86;
+    input[24] = -33;
+    input[25] = 61;
+    input[26] = -14;
+    input[27] = 24;
+    input[28] = 37;
+    input[29] = -45;
+    input[30] = -61;
+    input[31] = -12;
+    input[32] = 79;
+    input[33] = -91;
+    input[34] = -44;
+    input[35] = -27;
+    input[36] = -82;
+    input[37] = 64;
+    input[38] = -96;
+    input[39] = -98;
+    input[40] = -79;
+    input[41] = 77;
+    input[42] = -1;
+    input[43] = 85;
+    input[44] = -68;
+    input[45] = 91;
+    input[46] = -88;
+    input[47] = 83;
+    input[48] = -56;
+    input[49] = 10;
+    input[50] = -7;
+    input[51] = -17;
+    input[52] = -78;
+    input[53] = 63;
+    input[54] = 96;
+    input[55] = 30;
+    input[56] = -39;
+    if (process(&input, 57) != 23) {
+        return 1;
+    }
+    return 0;
+}

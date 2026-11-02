@@ -12,6 +12,8 @@ from typing import Any
 import torch
 
 from rsi_programmer.benchmark_policy import state_fingerprint
+from rsi_programmer.statement_branch_library import qualify_branches
+from rsi_programmer.statement_branch_search import synthesize as compose
 from rsi_programmer.statement_curriculum import oracle
 from rsi_programmer.statement_execution import execute
 from rsi_programmer.statement_fragment_classical import synthesize as classical
@@ -28,6 +30,9 @@ Pairs = list[tuple[list[int], int]]
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--branch-donor", type=Path, action="append",
+                        default=[])
+    parser.add_argument("--held-seed", type=int, default=461047)
     args = parser.parse_args()
     root = args.output.resolve()
     root.mkdir(parents=True, exist_ok=False)
@@ -45,8 +50,10 @@ def main() -> int:
                  "growth. Fixed weights; no held-row feedback.",
         "methods": ["neural", "untrained", "classical", "old_library"],
         "query_inputs": pool, "max_added_examples": 3,
-        "search_budget_seconds": 1.0, "held_seed": 461047,
+        "search_budget_seconds": 1.0, "held_seed": args.held_seed,
         "held_per_task": 40,
+        "extra_branch_donors": [str(path) for path in args.branch_donor],
+        "composition_budget_seconds": 5.0 if args.branch_donor else None,
         "primary_backend_method": "neural",
         "cost_scope": "Neural route can use two searches per repair call; "
                       "all methods get the same query limit. Component "
@@ -58,9 +65,28 @@ def main() -> int:
                 "rsi_programmer/statement_repair.py",
                 "rsi_programmer/statement_fragment_search.py",
                 "rsi_programmer/statement_fragment_classical.py",
-                "rsi_programmer/statement_fragment_library.py")}}
+                "rsi_programmer/statement_fragment_library.py",
+                "rsi_programmer/statement_branch_library.py",
+                "rsi_programmer/statement_branch_search.py")}}
+    if args.branch_donor:
+        protocol["cost_scope"] = (
+            "Neural route can use two condition searches and one composition "
+            "search per repair call; controls use one condition search and "
+            "one composition search. Same query limit, differing work. "
+            "Not matched total cost.")
     (root / "protocol.json").write_text(json.dumps(protocol, indent=2) + "\n")
     old, new = qualify(old_root), qualify(new_root)
+    branches = []
+    branch_proofs = []
+    if args.branch_donor:
+        base = ROOT / "artifacts/statement-context-repair-v1-20261101"
+        for donor_root in (base, *args.branch_donor):
+            library = qualify_branches(donor_root.resolve())
+            branches.extend(library["branches"])
+            branch_proofs.append(library["qualification"])
+    qualified_names = set(new["donors"])
+    for proof in branch_proofs:
+        qualified_names.update(proof["donors"])
     torch.set_num_threads(1)
     previous = _model("statement-repair-v1.pt", old_root)
     current = _model("statement-return-v1.pt", new_root)
@@ -70,10 +96,18 @@ def main() -> int:
 
     def solve(method: str, examples: Pairs) -> dict[str, Any]:
         if method == "classical":
-            return classical(examples, new["fragments"], 1.0)
+            first = classical(examples, new["fragments"], 1.0)
+            if first["tokens"] is not None or not branches:
+                return first
+            second = compose(None, examples, branches)
+            return {**second, "route": [first, second]}
         if method == "untrained":
-            return synthesize(untrained, examples, new["fragments"],
-                              budget_seconds=1.0)
+            first = synthesize(untrained, examples, new["fragments"],
+                               budget_seconds=1.0)
+            if first["tokens"] is not None or not branches:
+                return first
+            second = compose(untrained, examples, branches)
+            return {**second, "route": [first, second]}
         if method == "old_library":
             return synthesize(current[0], examples, old["fragments"],
                               budget_seconds=1.0)
@@ -83,6 +117,10 @@ def main() -> int:
             return {**first, "selected_model": "previous", "route": [first]}
         second = synthesize(current[0], examples, new["fragments"],
                             budget_seconds=1.0)
+        if second["tokens"] is None and branches:
+            third = compose(current[0], examples, branches)
+            return {**third, "selected_model": "current",
+                    "route": [first, second, third]}
         return {**second, "selected_model": "current",
                 "route": [first, second]}
 
@@ -97,7 +135,7 @@ def main() -> int:
                 pool, lambda values: oracle(name, values),
                 protocol["max_added_examples"])
             role = ("old_retention" if task in old_tasks else
-                    "new_donor_retention" if name in new["donors"] else
+                    "new_donor_retention" if name in qualified_names else
                     "transfer")
             rows.append({"id": name, "chosen": repair["chosen"],
                          "observed": repair["observed"], "role": role,
@@ -141,7 +179,9 @@ def main() -> int:
               "execution_pending": True}
     for name, data in (("report.json", report), ("held-inputs.json", held),
                        ("fragment-qualification.json", {"old": old,
-                                                         "new": new}),
+                                                         "new": new,
+                                                         "branches":
+                                                         branch_proofs}),
                        ("controls.json", {"scope": "Independent held IR "
                                          "checks only; target languages "
                                          "pending for the neural route.",

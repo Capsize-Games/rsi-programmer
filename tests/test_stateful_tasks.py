@@ -11,6 +11,11 @@ from rsi_programmer.statement_execution import execute
 class StatefulTaskTests(unittest.TestCase):
     """Check independent oracles and confirm that witness controls can run."""
 
+    def test_positive_counter_primitive_has_independent_answers(self) -> None:
+        self.assertEqual(oracle("positive_count", [-2, 0, 1, 5, 1]), 3)
+        self.assertEqual(oracle("positive_count", []), 0)
+        self.assertEqual(oracle("positive_count", [100] * 256), 256)
+
     def test_oracles_have_independent_golden_answers(self) -> None:
         values = [-2, 5, 0, 3, -1, 1]
         expected = [5, -2, 5, 5, 2]

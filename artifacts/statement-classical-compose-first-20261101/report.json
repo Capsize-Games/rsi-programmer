@@ -1,0 +1,1992 @@
+{
+  "scope": "Retrospective stronger classical control. Compose before condition-only search; same visible query pool and three-added-example cap. Fresh held IR only; no target-language acceptance claim.",
+  "rows": [
+    {
+      "id": "positive_total",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "acc",
+          "acc",
+          "set",
+          "acc",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "positive_total",
+            "maximum_floor_zero"
+          ],
+          "combine": null,
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 7,
+        "contexts": 48,
+        "wall_seconds": 0.001131005003117025,
+        "budget_exhausted": false
+      },
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "value",
+            "end",
+            "if",
+            "gt",
+            "acc",
+            "acc",
+            "set",
+            "acc",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "positive_total",
+              "maximum_floor_zero"
+            ],
+            "combine": null,
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 7,
+          "contexts": 48,
+          "wall_seconds": 0.001131005003117025,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "acc",
+                "acc",
+                "set",
+                "acc",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "positive_total",
+                  "maximum_floor_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 7,
+              "contexts": 48,
+              "wall_seconds": 0.001131005003117025,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            13
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            17
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            11
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.0021132710098754615,
+      "cpu_seconds": 0.002112020999999853,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "negative_count",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "lt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "if",
+          "lt",
+          "acc",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "negative_count",
+            "negative_count"
+          ],
+          "combine": "add",
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 1,
+        "contexts": 48,
+        "wall_seconds": 0.005397720000473782,
+        "budget_exhausted": false
+      },
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "lt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "if",
+            "lt",
+            "acc",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "negative_count",
+              "negative_count"
+            ],
+            "combine": "add",
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 1,
+          "contexts": 48,
+          "wall_seconds": 0.005397720000473782,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "lt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "lt",
+                "acc",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "negative_count",
+                  "negative_count"
+                ],
+                "combine": "add",
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 1,
+              "contexts": 48,
+              "wall_seconds": 0.005397720000473782,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            3
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            3
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            2
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.007040670985588804,
+      "cpu_seconds": 0.0021375860000001357,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "even_total",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "eq",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "acc",
+          "acc",
+          "set",
+          "acc",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "even_total",
+            "maximum_floor_zero"
+          ],
+          "combine": null,
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 5,
+        "contexts": 48,
+        "wall_seconds": 0.002706038998439908,
+        "budget_exhausted": false
+      },
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "eq",
+            "rem",
+            "value",
+            "two",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "value",
+            "end",
+            "if",
+            "gt",
+            "acc",
+            "acc",
+            "set",
+            "acc",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "even_total",
+              "maximum_floor_zero"
+            ],
+            "combine": null,
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 5,
+          "contexts": 48,
+          "wall_seconds": 0.002706038998439908,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "eq",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "acc",
+                "acc",
+                "set",
+                "acc",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "even_total",
+                  "maximum_floor_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 5,
+              "contexts": 48,
+              "wall_seconds": 0.002706038998439908,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            8
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            0
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            4
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.0038400480116251856,
+      "cpu_seconds": 0.0022866480000001133,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "positive_square_total",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "mul",
+          "value",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "acc",
+          "acc",
+          "set",
+          "acc",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "positive_square_total",
+            "maximum_floor_zero"
+          ],
+          "combine": null,
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 7,
+        "contexts": 48,
+        "wall_seconds": 0.0010546509874984622,
+        "budget_exhausted": false
+      },
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "mul",
+            "value",
+            "value",
+            "end",
+            "if",
+            "gt",
+            "acc",
+            "acc",
+            "set",
+            "acc",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "positive_square_total",
+              "maximum_floor_zero"
+            ],
+            "combine": null,
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 7,
+          "contexts": 48,
+          "wall_seconds": 0.0010546509874984622,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "mul",
+                "value",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "acc",
+                "acc",
+                "set",
+                "acc",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "positive_square_total",
+                  "maximum_floor_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 7,
+              "contexts": 48,
+              "wall_seconds": 0.0010546509874984622,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            45
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            129
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            47
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.002540109009714797,
+      "cpu_seconds": 0.0025331600000000343,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "odd_count",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "ne",
+          "rem",
+          "value",
+          "two",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "if",
+          "gt",
+          "acc",
+          "acc",
+          "set",
+          "acc",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "odd_count",
+            "maximum_floor_zero"
+          ],
+          "combine": null,
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 7,
+        "contexts": 48,
+        "wall_seconds": 0.001081050984794274,
+        "budget_exhausted": false
+      },
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "ne",
+            "rem",
+            "value",
+            "two",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "if",
+            "gt",
+            "acc",
+            "acc",
+            "set",
+            "acc",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "odd_count",
+              "maximum_floor_zero"
+            ],
+            "combine": null,
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 7,
+          "contexts": 48,
+          "wall_seconds": 0.001081050984794274,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "ne",
+                "rem",
+                "value",
+                "two",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "gt",
+                "acc",
+                "acc",
+                "set",
+                "acc",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "odd_count",
+                  "maximum_floor_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 7,
+              "contexts": 48,
+              "wall_seconds": 0.001081050984794274,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            3
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            2
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            4
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.002441193995764479,
+      "cpu_seconds": 0.0022614699999998766,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "above_two_count",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "if",
+          "gt",
+          "acc",
+          "acc",
+          "set",
+          "acc",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "above_two_count",
+            "maximum_floor_zero"
+          ],
+          "combine": null,
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 5,
+        "contexts": 48,
+        "wall_seconds": 0.00094201197498478,
+        "budget_exhausted": false
+      },
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "two",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "if",
+            "gt",
+            "acc",
+            "acc",
+            "set",
+            "acc",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "above_two_count",
+              "maximum_floor_zero"
+            ],
+            "combine": null,
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 5,
+          "contexts": 48,
+          "wall_seconds": 0.00094201197498478,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "two",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "gt",
+                "acc",
+                "acc",
+                "set",
+                "acc",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "above_two_count",
+                  "maximum_floor_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 5,
+              "contexts": 48,
+              "wall_seconds": 0.00094201197498478,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              2,
+              0,
+              3,
+              -3,
+              4,
+              4,
+              -9
+            ],
+            3
+          ],
+          [
+            [
+              10,
+              -1,
+              0,
+              -4,
+              5,
+              2,
+              -8
+            ],
+            2
+          ],
+          [
+            [
+              -7,
+              6,
+              0,
+              1,
+              1,
+              -2,
+              3
+            ],
+            2
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.0019472500134725124,
+      "cpu_seconds": 0.0019491959999999864,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "maximum_floor_zero",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "acc",
+          "acc",
+          "set",
+          "acc",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "maximum_floor_zero",
+            "maximum_floor_zero"
+          ],
+          "combine": null,
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 1,
+        "contexts": 48,
+        "wall_seconds": 0.0006308490119408816,
+        "budget_exhausted": false
+      },
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "acc",
+            "set",
+            "value",
+            "end",
+            "if",
+            "gt",
+            "acc",
+            "acc",
+            "set",
+            "acc",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "maximum_floor_zero",
+              "maximum_floor_zero"
+            ],
+            "combine": null,
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 1,
+          "contexts": 48,
+          "wall_seconds": 0.0006308490119408816,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "acc",
+                "acc",
+                "set",
+                "acc",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "maximum_floor_zero",
+                  "maximum_floor_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 1,
+              "contexts": 48,
+              "wall_seconds": 0.0006308490119408816,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            5
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            2
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.0016382220201194286,
+      "cpu_seconds": 0.0015760639999999881,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "minimum_ceiling_zero",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "le",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "if",
+          "le",
+          "acc",
+          "acc",
+          "set",
+          "acc",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "minimum_ceiling_zero",
+            "minimum_ceiling_zero"
+          ],
+          "combine": null,
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 1,
+        "contexts": 48,
+        "wall_seconds": 0.0010558239882811904,
+        "budget_exhausted": false
+      },
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "le",
+            "value",
+            "acc",
+            "set",
+            "value",
+            "end",
+            "if",
+            "le",
+            "acc",
+            "acc",
+            "set",
+            "acc",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "minimum_ceiling_zero",
+              "minimum_ceiling_zero"
+            ],
+            "combine": null,
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 1,
+          "contexts": 48,
+          "wall_seconds": 0.0010558239882811904,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "le",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "if",
+                "le",
+                "acc",
+                "acc",
+                "set",
+                "acc",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "minimum_ceiling_zero",
+                  "minimum_ceiling_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 1,
+              "contexts": 48,
+              "wall_seconds": 0.0010558239882811904,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            -2
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            -7
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            -2
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.0022252799826674163,
+      "cpu_seconds": 0.0017591400000001034,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "largest_magnitude",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "acc",
+          "set",
+          "value",
+          "end",
+          "if",
+          "gt",
+          "sub",
+          "zero",
+          "value",
+          "acc",
+          "set",
+          "sub",
+          "zero",
+          "value",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "maximum_floor_zero",
+            "maximum_floor_zero"
+          ],
+          "combine": null,
+          "arg": [
+            "sub",
+            "zero",
+            "value"
+          ]
+        },
+        "visited": 3313,
+        "contexts": 48,
+        "wall_seconds": 0.17393918498419225,
+        "budget_exhausted": false
+      },
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "acc",
+            "set",
+            "value",
+            "end",
+            "if",
+            "gt",
+            "sub",
+            "zero",
+            "value",
+            "acc",
+            "set",
+            "sub",
+            "zero",
+            "value",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "maximum_floor_zero",
+              "maximum_floor_zero"
+            ],
+            "combine": null,
+            "arg": [
+              "sub",
+              "zero",
+              "value"
+            ]
+          },
+          "visited": 3313,
+          "contexts": 48,
+          "wall_seconds": 0.17393918498419225,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "sub",
+                "zero",
+                "value",
+                "acc",
+                "set",
+                "sub",
+                "zero",
+                "value",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "maximum_floor_zero",
+                  "maximum_floor_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "sub",
+                  "zero",
+                  "value"
+                ]
+              },
+              "visited": 3313,
+              "contexts": 48,
+              "wall_seconds": 0.17393918498419225,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            5
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            7
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            2
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.17491190301370807,
+      "cpu_seconds": 0.156081492,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "positive_values_capped_at_two_total",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "if",
+          "gt",
+          "add",
+          "one",
+          "value",
+          "two",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "positive_count",
+            "above_two_count"
+          ],
+          "combine": "add",
+          "arg": [
+            "add",
+            "one",
+            "value"
+          ]
+        },
+        "visited": 1315,
+        "contexts": 48,
+        "wall_seconds": 0.1612696619995404,
+        "budget_exhausted": false
+      },
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "if",
+            "gt",
+            "add",
+            "one",
+            "value",
+            "two",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "positive_count",
+              "above_two_count"
+            ],
+            "combine": "add",
+            "arg": [
+              "add",
+              "one",
+              "value"
+            ]
+          },
+          "visited": 1315,
+          "contexts": 48,
+          "wall_seconds": 0.1612696619995404,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "acc",
+                "set",
+                "value",
+                "end",
+                "if",
+                "gt",
+                "acc",
+                "acc",
+                "set",
+                "acc",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "maximum_floor_zero",
+                  "maximum_floor_zero"
+                ],
+                "combine": null,
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 1,
+              "contexts": 48,
+              "wall_seconds": 0.000931029993807897,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": {
+              "input": [
+                1,
+                2,
+                3
+              ],
+              "expected": 5,
+              "actual": 3
+            }
+          },
+          {
+            "round": 1,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "gt",
+                "add",
+                "one",
+                "value",
+                "two",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "positive_count",
+                  "above_two_count"
+                ],
+                "combine": "add",
+                "arg": [
+                  "add",
+                  "one",
+                  "value"
+                ]
+              },
+              "visited": 1315,
+              "contexts": 48,
+              "wall_seconds": 0.1612696619995404,
+              "budget_exhausted": false
+            },
+            "observed_count": 4,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            5
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            2
+          ],
+          [
+            [
+              1,
+              2,
+              3
+            ],
+            5
+          ]
+        ],
+        "added_examples": 1,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.16338419399107806,
+      "cpu_seconds": 0.1418693230000001,
+      "held_ir_accepted": true
+    },
+    {
+      "id": "positive_count_capped_at_two",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "set",
+          "add",
+          "acc",
+          "one",
+          "end",
+          "if",
+          "gt",
+          "acc",
+          "two",
+          "set",
+          "sub",
+          "acc",
+          "one",
+          "end",
+          "end",
+          "return",
+          "acc",
+          "stop"
+        ],
+        "composition": {
+          "donors": [
+            "positive_count",
+            "above_two_count"
+          ],
+          "combine": "sub",
+          "arg": [
+            "acc"
+          ]
+        },
+        "visited": 20,
+        "contexts": 48,
+        "wall_seconds": 0.0014771409914828837,
+        "budget_exhausted": false
+      },
+      "repair": {
+        "chosen": {
+          "tokens": [
+            "for",
+            "if",
+            "gt",
+            "value",
+            "zero",
+            "set",
+            "add",
+            "acc",
+            "one",
+            "end",
+            "if",
+            "gt",
+            "acc",
+            "two",
+            "set",
+            "sub",
+            "acc",
+            "one",
+            "end",
+            "end",
+            "return",
+            "acc",
+            "stop"
+          ],
+          "composition": {
+            "donors": [
+              "positive_count",
+              "above_two_count"
+            ],
+            "combine": "sub",
+            "arg": [
+              "acc"
+            ]
+          },
+          "visited": 20,
+          "contexts": 48,
+          "wall_seconds": 0.0014771409914828837,
+          "budget_exhausted": false
+        },
+        "history": [
+          {
+            "round": 0,
+            "attempt": {
+              "tokens": [
+                "for",
+                "if",
+                "gt",
+                "value",
+                "zero",
+                "set",
+                "add",
+                "acc",
+                "one",
+                "end",
+                "if",
+                "gt",
+                "acc",
+                "two",
+                "set",
+                "sub",
+                "acc",
+                "one",
+                "end",
+                "end",
+                "return",
+                "acc",
+                "stop"
+              ],
+              "composition": {
+                "donors": [
+                  "positive_count",
+                  "above_two_count"
+                ],
+                "combine": "sub",
+                "arg": [
+                  "acc"
+                ]
+              },
+              "visited": 20,
+              "contexts": 48,
+              "wall_seconds": 0.0014771409914828837,
+              "budget_exhausted": false
+            },
+            "observed_count": 3,
+            "counterexample": null
+          }
+        ],
+        "observed": [
+          [
+            [
+              -2,
+              5,
+              0,
+              3,
+              -1,
+              1
+            ],
+            2
+          ],
+          [
+            [
+              0,
+              -7,
+              -3,
+              0
+            ],
+            0
+          ],
+          [
+            [
+              2,
+              -1,
+              -2,
+              0
+            ],
+            1
+          ]
+        ],
+        "added_examples": 0,
+        "oracle_calls": 37,
+        "candidate_executions": 37
+      },
+      "wall_seconds": 0.0024213950091507286,
+      "cpu_seconds": 0.0024234139999999016,
+      "held_ir_accepted": true
+    }
+  ],
+  "accepted": 11,
+  "frozen_prior_choices_on_same_fresh_rows": {
+    "neural": 11,
+    "untrained": 10,
+    "classical": 10
+  },
+  "prior_report_sha256": "dd153af310262d78d4015a55bc89d6069165f956be016b23241f9f47f5af1460"
+}

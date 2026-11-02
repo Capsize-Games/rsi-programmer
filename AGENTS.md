@@ -104,6 +104,23 @@ before promoting donors; preserve provenance, failed trials and controls.
 
 ## Audit checkpoints
 
+Branch-composition checkpoint (2026-11-01): the integrated route accepts
+all 11 development tasks, with 40 actual held Python and CURLEE cases per
+task. A host-supplied grammar copies two qualified branches and enumerates
+add/sub variants; neural token scores choose a shared Int argument. A
+positive counter already present in training was separately qualified as
+a donor; do not count it as unseen-function success. See
+`tracks/programmer/branch-results.md`. The initial condition-first
+classical control misses one task; the stronger composition-first control
+accepts all 11 on fresh IR rows and is faster in this small experiment.
+Controls are held-IR only, while the primary programs have actual target
+executions. Do not claim neural superiority, matched-total-cost advantage,
+general programming, learned abstraction discovery or recursive
+self-improvement. These eleven tasks have been repeatedly used in
+development. Next freeze unseen-function evaluation and total-cost
+accounting before expanding capacity. Keep the existing sealed set,
+all negative trials, donor provenance and held/query separation intact.
+
 Context-repair checkpoint (2026-11-01): bounded visible-query resynthesis
 repairs minimum retention and retains maximum and the earlier six
 utilities. All eight pass 40 held Python and CURLEE cases each: 8/11 tasks
