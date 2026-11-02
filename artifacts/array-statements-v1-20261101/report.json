@@ -1,0 +1,441 @@
+{
+  "scope": "Development trial: token construction of bounded list statements. Supplied witnesses qualify the backend only; they are not learner successes.",
+  "rows": [
+    {
+      "method": "neural",
+      "id": "clip_negative_readings",
+      "chosen": {
+        "tokens": null,
+        "visited": 1890,
+        "completions": 42,
+        "wall_seconds": 0.028288645000429824
+      },
+      "observed": [
+        [
+          [
+            -3,
+            0,
+            1,
+            4,
+            -1
+          ],
+          [
+            0,
+            0,
+            1,
+            4,
+            0
+          ]
+        ],
+        [
+          [
+            2,
+            -2,
+            5,
+            1
+          ],
+          [
+            2,
+            0,
+            5,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            -4,
+            2
+          ],
+          [
+            0,
+            3,
+            0,
+            2
+          ]
+        ]
+      ],
+      "cost": {
+        "wall_seconds": 0.02837117898161523,
+        "cpu_seconds": 0.027255999999999503
+      }
+    },
+    {
+      "method": "neural",
+      "id": "cap_positive_readings",
+      "chosen": {
+        "tokens": null,
+        "visited": 1543,
+        "completions": 46,
+        "wall_seconds": 0.02139303699368611
+      },
+      "observed": [
+        [
+          [
+            -3,
+            0,
+            1,
+            4,
+            -1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            -2,
+            5,
+            1
+          ],
+          [
+            2,
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            -4,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      "cost": {
+        "wall_seconds": 0.021451285982038826,
+        "cpu_seconds": 0.021452999999999278
+      }
+    },
+    {
+      "method": "neural",
+      "id": "negative_magnitudes",
+      "chosen": {
+        "tokens": null,
+        "visited": 1405,
+        "completions": 52,
+        "wall_seconds": 0.019684451021021232
+      },
+      "observed": [
+        [
+          [
+            -3,
+            0,
+            1,
+            4,
+            -1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            -2,
+            5,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            -4,
+            2
+          ],
+          [
+            4
+          ]
+        ]
+      ],
+      "cost": {
+        "wall_seconds": 0.019734545989194885,
+        "cpu_seconds": 0.019737000000000116
+      }
+    },
+    {
+      "method": "untrained",
+      "id": "clip_negative_readings",
+      "chosen": {
+        "tokens": null,
+        "visited": 1966,
+        "completions": 39,
+        "wall_seconds": 0.025052616983884946
+      },
+      "observed": [
+        [
+          [
+            -3,
+            0,
+            1,
+            4,
+            -1
+          ],
+          [
+            0,
+            0,
+            1,
+            4,
+            0
+          ]
+        ],
+        [
+          [
+            2,
+            -2,
+            5,
+            1
+          ],
+          [
+            2,
+            0,
+            5,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            -4,
+            2
+          ],
+          [
+            0,
+            3,
+            0,
+            2
+          ]
+        ]
+      ],
+      "cost": {
+        "wall_seconds": 0.025109051988692954,
+        "cpu_seconds": 0.025112000000000023
+      }
+    },
+    {
+      "method": "untrained",
+      "id": "cap_positive_readings",
+      "chosen": {
+        "tokens": null,
+        "visited": 1958,
+        "completions": 39,
+        "wall_seconds": 0.025030996010173112
+      },
+      "observed": [
+        [
+          [
+            -3,
+            0,
+            1,
+            4,
+            -1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            -2,
+            5,
+            1
+          ],
+          [
+            2,
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            -4,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      "cost": {
+        "wall_seconds": 0.02508724099607207,
+        "cpu_seconds": 0.025088999999999473
+      }
+    },
+    {
+      "method": "untrained",
+      "id": "negative_magnitudes",
+      "chosen": {
+        "tokens": null,
+        "visited": 1971,
+        "completions": 40,
+        "wall_seconds": 0.025347066984977573
+      },
+      "observed": [
+        [
+          [
+            -3,
+            0,
+            1,
+            4,
+            -1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            -2,
+            5,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            -4,
+            2
+          ],
+          [
+            4
+          ]
+        ]
+      ],
+      "cost": {
+        "wall_seconds": 0.025402710976777598,
+        "cpu_seconds": 0.02540600000000026
+      }
+    },
+    {
+      "method": "supplied_control",
+      "id": "clip_negative_readings",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "append",
+          "value",
+          "end",
+          "if",
+          "le",
+          "value",
+          "zero",
+          "append",
+          "zero",
+          "end",
+          "end",
+          "return",
+          "output",
+          "stop"
+        ]
+      }
+    },
+    {
+      "method": "supplied_control",
+      "id": "cap_positive_readings",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "gt",
+          "value",
+          "zero",
+          "if",
+          "le",
+          "value",
+          "two",
+          "append",
+          "value",
+          "end",
+          "end",
+          "if",
+          "gt",
+          "value",
+          "two",
+          "append",
+          "two",
+          "end",
+          "end",
+          "return",
+          "output",
+          "stop"
+        ]
+      }
+    },
+    {
+      "method": "supplied_control",
+      "id": "negative_magnitudes",
+      "chosen": {
+        "tokens": [
+          "for",
+          "if",
+          "lt",
+          "value",
+          "zero",
+          "append",
+          "sub",
+          "zero",
+          "value",
+          "end",
+          "end",
+          "return",
+          "output",
+          "stop"
+        ]
+      }
+    }
+  ],
+  "fit": {
+    "teacher_functions": 512,
+    "states": 19966,
+    "epochs": 30,
+    "loss": 0.41442257165908813,
+    "rejected_invalid_training_draws": 0,
+    "wall_seconds": 6.4713552729808725,
+    "exclusion": "Three complete development functions excluded on 24 fixed probes; components may occur."
+  },
+  "trained_hash": "32139817355d90b050851462f59096abbee0e88ab05e0e5d3fb80a9db54bce09",
+  "untrained_hash": "b10a7197c7867e5ec3b1696d9ff64d8cf76c5c3428dccd7e00187bf483693f24",
+  "cost": {
+    "wall_seconds": 6.735571736004204,
+    "cpu_seconds": 6.525527
+  },
+  "source_sha256": {
+    "rsi_programmer/array_syntax.py": "978b3797d96e5c3a4a777959540eddbaf67b38871a93387abe97d64a4065e2e6",
+    "rsi_programmer/array_tasks.py": "d72d8d5c767f5d053e3cc2feabbd10160c22d373c0c661cbc05b99f5c4c073f2",
+    "rsi_programmer/array_execution.py": "288dc8a36fec35db25f28a002235da0ada98420a1e7be28970dadb07af9289f4",
+    "rsi_programmer/array_curriculum.py": "6dc4a46d97783575b7cbf9836471fa0fa3f4284423beab8d8c0d40a85c7f4326",
+    "rsi_programmer/array_policy.py": "1d5965d9a472deb7610889805f0fbd6b9bf8ef4d6dbbd06ab9a38c66f9ba7611",
+    "rsi_programmer/array_source.py": "1ffedd8658040a8a5f3b1b5b709a4e4a333960e525f9f2410e9ea216faaec8c9",
+    "/home/joe/Projects/rsi-programmer/scripts/measure_array_statements.py": "1a12316ee43a3d180da9756e1e13a46b1c7ff57d33c6177690696246889c5759"
+  },
+  "execution_pending": true
+}

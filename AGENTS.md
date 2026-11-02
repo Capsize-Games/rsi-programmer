@@ -182,6 +182,16 @@ is established. Preserve all failures and the original sealed arithmetic
 final set. Any solver changes informed by this bank make it development
 evidence and require a new frozen bank for subsequent final claims.
 
+List-output development checkpoint (2026-11-01): the first array-statement
+ANN constructs 0/3 tasks, as does its untrained control. Three supplied
+controls pass 20 Python and CURLEE cases each after qualifying a structural
+output-bound invariant. These controls are never neural successes or
+donors. The initial guard stop and compiler rejection are retained. See
+`tracks/programmer/array-results.md`. The grammar supports one input loop,
+conditions and at most two append nodes; source lowering, CLI plumbing and
+contracts remain supplied. Partial-program execution features are the next
+bounded development check, not an established improvement.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,

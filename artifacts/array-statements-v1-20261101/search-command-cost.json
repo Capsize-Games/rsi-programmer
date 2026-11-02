@@ -1,0 +1,21 @@
+{
+  "command": [
+    "timeout",
+    "150",
+    "python3",
+    "/tmp/rsi-run-with-reserve.py",
+    "flock",
+    "/tmp/rsi-programmer-builder.lock",
+    ".venv/bin/python",
+    "-m",
+    "scripts.measure_array_statements",
+    "--output",
+    "artifacts/array-statements-v1-20261101"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 8.636521323991474,
+  "cpu_seconds": 7.824716999999999,
+  "whole_process_cpu_seconds": 7.8508309999999994,
+  "largest_child_rss_kib": 309756,
+  "accounting_source_sha256": "cec8ed657dc711bbf63b12abfd987c6e9435f2db2e715c15acd3031038ccea8e"
+}

@@ -1,0 +1,93 @@
+fn process(input: &[Int; 256], count: Int,
+           output: &mut [Int; 512]) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let outlen: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256;
+          invariant outlen >= 0 && outlen <= 2 * i; ] {
+        if (i < 0 || i >= 256) { return -1; }
+        let value: Int = input[i];
+        if ((value > 0)) {
+            if ((value <= 2)) {
+                if (outlen < 0 || outlen >= 512) { return -1; }
+                output[outlen] = value;
+                outlen = outlen + 1;
+            }
+        }
+        if ((value > 2)) {
+            if (outlen < 0 || outlen >= 512) { return -1; }
+            output[outlen] = 2;
+            outlen = outlen + 1;
+        }
+    }
+    return outlen;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    let output: [Int; 512] = [0; 512];
+    input[0] = 21;
+    input[1] = -14;
+    input[2] = 88;
+    input[3] = -84;
+    input[4] = 84;
+    input[5] = -82;
+    input[6] = -4;
+    input[7] = -58;
+    input[8] = -54;
+    input[9] = 14;
+    input[10] = 78;
+    input[11] = 62;
+    input[12] = -29;
+    input[13] = 39;
+    input[14] = 50;
+    input[15] = 16;
+    input[16] = -89;
+    input[17] = -14;
+    input[18] = 70;
+    input[19] = 9;
+    input[20] = -53;
+    input[21] = -31;
+    input[22] = 36;
+    input[23] = 75;
+    input[24] = 100;
+    input[25] = 80;
+    input[26] = 98;
+    input[27] = -70;
+    input[28] = 76;
+    input[29] = -96;
+    input[30] = 54;
+    input[31] = 38;
+    input[32] = 17;
+    input[33] = -4;
+    input[34] = -12;
+    input[35] = -39;
+    input[36] = 89;
+    input[37] = -62;
+    input[38] = -58;
+    input[39] = 31;
+    if (process(&input, 40, &mut output) != 22) { return 1; }
+    if (output[0] != 2) { return 1; }
+    if (output[1] != 2) { return 1; }
+    if (output[2] != 2) { return 1; }
+    if (output[3] != 2) { return 1; }
+    if (output[4] != 2) { return 1; }
+    if (output[5] != 2) { return 1; }
+    if (output[6] != 2) { return 1; }
+    if (output[7] != 2) { return 1; }
+    if (output[8] != 2) { return 1; }
+    if (output[9] != 2) { return 1; }
+    if (output[10] != 2) { return 1; }
+    if (output[11] != 2) { return 1; }
+    if (output[12] != 2) { return 1; }
+    if (output[13] != 2) { return 1; }
+    if (output[14] != 2) { return 1; }
+    if (output[15] != 2) { return 1; }
+    if (output[16] != 2) { return 1; }
+    if (output[17] != 2) { return 1; }
+    if (output[18] != 2) { return 1; }
+    if (output[19] != 2) { return 1; }
+    if (output[20] != 2) { return 1; }
+    if (output[21] != 2) { return 1; }
+    return 0;
+}

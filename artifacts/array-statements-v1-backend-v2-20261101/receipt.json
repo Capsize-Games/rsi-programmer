@@ -1,0 +1,22 @@
+{
+  "scope": "Same fixed neural/untrained choices, with a qualified list-output backend. No retraining or outcome feedback.",
+  "neural_accepted": 0,
+  "untrained_accepted": 0,
+  "tasks": 3,
+  "supplied_control_accepted": 3,
+  "actual_python_control_cases": 60,
+  "actual_curlee_control_cases": 60,
+  "compiler_sha256": "412d0e6ee5b8fb9e380322683863849523e1a5797e7e7dbd42bf174b138555ac",
+  "wrong_expected_control_rejected": true,
+  "source_snapshot": "source-snapshot/",
+  "prior_interrupted_attempt": "artifacts/array-statements-v1-20261101",
+  "initial_bound_fix": "The supplied invariant outlen <= 2*i follows the parser limit of two append nodes. It is host code, not a learned proof.",
+  "validation": {
+    "focused_passed": 11,
+    "focused_seconds": 0.441,
+    "full_programmer_fast": "pending after next development trial",
+    "other_local_lanes": "not rerun",
+    "ci": "pending publication"
+  },
+  "post_snapshot_edits": "Only four lines were wrapped to obey the 79-column source convention; executable semantics unchanged."
+}
