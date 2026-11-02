@@ -226,6 +226,116 @@ class CampaignSupervisorTests(unittest.TestCase):
             self.assertEqual(result["status"], "completed")
             self.assertEqual(result["development"]["qualified_tasks"], 0)
 
+    def test_invalid_recovery_receipt_is_not_scored(self) -> None:
+        class ReceiptWorker:
+            pid = 1
+
+            def __init__(self, command: list[str], **_options: object):
+                output = Path(command[command.index("--output") + 1])
+                spec = json.loads(Path(
+                    command[command.index("--spec") + 1]).read_text())
+                rows = [{"task_id": item, "qualified": False}
+                        for item in spec["development_task_ids"]]
+                receipt = {
+                    "status": "completed", "phase": spec["phase"],
+                    "trial_index": spec["trial_index"],
+                    "recipe": spec["recipe"],
+                    "source_sha256": spec["source_sha256"],
+                    "development": {"qualified_tasks": 0,
+                                    "task_count": len(rows),
+                                    "per_task": rows},
+                }
+                (output / "result.json").write_text(json.dumps(receipt))
+
+            def poll(self) -> int:
+                return 0
+
+            def wait(self, **_options: object) -> int:
+                return 0
+
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            supervisor._atomic_json(directory / "status.json", {
+                "started_at": time.time(),
+            })
+            trial_dir = directory / "trial-001"
+            trial_dir.mkdir()
+            (trial_dir / "result.json").write_text(json.dumps({
+                "status": "completed", "phase": "audit",
+                "trial_index": 99,
+            }))
+            spec = {"schema_version": 1, "phase": "development",
+                    "trial_index": 1, "recipe": {"seed": 1},
+                    "development_task_ids": ["task-a"],
+                    "source_sha256": {}}
+            config = self._config(min_available_gib=1,
+                                  stop_available_gib=0)
+            with patch.object(supervisor, "_available_gib", return_value=10), \
+                    patch.object(supervisor.subprocess, "Popen",
+                                 ReceiptWorker):
+                result = supervisor._run_trial(
+                    directory, config, spec, trial_dir,
+                )
+            self.assertEqual(result["status"], "completed")
+            self.assertNotIn("recovered_receipt", result)
+            self.assertTrue((directory / "trial-001-attempt-1" /
+                             "result.json").exists())
+
+    def test_retry_uses_a_fresh_worker_output_directory(self) -> None:
+        output_dirs: list[Path] = []
+        return_codes = iter([1, 0])
+
+        class RetryWorker:
+            pid = 1
+
+            def __init__(self, command: list[str], **_options: object):
+                output = Path(command[command.index("--output") + 1])
+                output_dirs.append(output)
+                if len(output_dirs) == 2:
+                    spec = json.loads(Path(
+                        command[command.index("--spec") + 1]).read_text())
+                    rows = [{"task_id": item, "qualified": False}
+                            for item in spec["development_task_ids"]]
+                    receipt = {
+                        "status": "completed", "phase": spec["phase"],
+                        "trial_index": spec["trial_index"],
+                        "recipe": spec["recipe"],
+                        "source_sha256": spec["source_sha256"],
+                        "development": {"qualified_tasks": 0,
+                                        "task_count": len(rows),
+                                        "per_task": rows},
+                    }
+                    (output / "result.json").write_text(json.dumps(receipt))
+                self.return_code = next(return_codes)
+
+            def poll(self) -> int:
+                return self.return_code
+
+            def wait(self, **_options: object) -> int:
+                return self.return_code
+
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            supervisor._atomic_json(directory / "status.json", {
+                "started_at": time.time(),
+            })
+            spec = {"schema_version": 1, "phase": "development",
+                    "trial_index": 1, "recipe": {"seed": 1},
+                    "development_task_ids": ["task-a"],
+                    "source_sha256": {}}
+            config = self._config(min_available_gib=1,
+                                  stop_available_gib=0, retry_count=1)
+            with patch.object(supervisor, "_available_gib", return_value=10), \
+                    patch.object(supervisor.subprocess, "Popen", RetryWorker):
+                result = supervisor._run_trial(
+                    directory, config, spec, directory / "trial-001",
+                )
+            self.assertEqual(result["status"], "completed")
+            self.assertEqual(len(output_dirs), 2)
+            self.assertNotEqual(output_dirs[0], output_dirs[1])
+            self.assertTrue((output_dirs[0] / "worker.log").exists())
+            self.assertTrue((output_dirs[1] / "worker.log").exists())
+
     def test_audit_local_gain_remains_local_and_uses_fresh_task_ids(
         self,
     ) -> None:

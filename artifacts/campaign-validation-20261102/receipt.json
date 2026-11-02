@@ -3,7 +3,7 @@
   "seconds": 1.075,
   "passed": true,
   "scope": "campaign supervisor, worker, array syntax/features, track manifest",
-  "full_programmer_latest": "running; no passing summary yet",
+  "full_programmer_latest": "RESOURCE_INTERRUPTED: reserve guard stopped own job below5GiB, no final unittest summary; not passed",
   "other_local_lanes": "not rerun",
   "campaign_launch": "completed without intervention",
   "ci": "pending publication",
@@ -14,5 +14,30 @@
     0
   ],
   "tasks_per_trial": 3,
-  "audit": "not opened; no accepted development program"
+  "audit": "not opened; no accepted development program",
+  "prior_ci": {
+    "run": 41374021589,
+    "full_3_13": "failure:1failed,10skipped,828tests; live hub asset assertion",
+    "full_3_12": "cancelled",
+    "fast_3_12": "success",
+    "fast_3_13": "success"
+  },
+  "published_checkpoint": "2b3a8bfb6e833f9cbc9d79d51d69ca0a2b2d3df5",
+  "monitor": "monitor-programmer-campaign-validation",
+  "final_focused_tests": 36,
+  "final_focused_seconds": 3.114,
+  "final_focused_passed": true,
+  "live_release_and_hub_check": "passed, retained alongside deterministic verifier tests",
+  "prior_ci_failure_remediation": "bounded transient release-list retries; live integration gate preserved",
+  "latest_ci": "pending next publication",
+  "checker_smoke": {
+    "qualified": true,
+    "python_cases": 2,
+    "curlee_cases": 2,
+    "boundary_outputs": 512,
+    "wrong_expected_rejected": true,
+    "program_origin": "supplied_control; never neural success or donor",
+    "initial_admission_exit_code": 75,
+    "first_invocation_error": "missing examples metadata in smoke invocation; retained traceback; corrected before successful run"
+  }
 }

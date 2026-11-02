@@ -1,0 +1,26 @@
+fn process(input: &[Int; 256], count: Int,
+           output: &mut [Int; 512]) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let outlen: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256;
+          invariant outlen >= 0 && outlen <= 2 * i; ] {
+        if (i < 0 || i >= 256) { return -1; }
+        let value: Int = input[i];
+        if (outlen < 0 || outlen >= 512) { return -1; }
+        output[outlen] = value;
+        outlen = outlen + 1;
+        if (outlen < 0 || outlen >= 512) { return -1; }
+        output[outlen] = value;
+        outlen = outlen + 1;
+    }
+    return outlen;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    let output: [Int; 512] = [0; 512];
+    if (process(&input, 0, &mut output) != 1) { return 1; }
+    if (output[0] != 123) { return 1; }
+    return 0;
+}

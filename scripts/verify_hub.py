@@ -15,6 +15,7 @@ import hashlib
 import json
 import subprocess
 import tempfile
+import time
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -22,6 +23,8 @@ from typing import Any
 HUB_BASE = "https://hub.spikeforge.net"
 HUB_HANDLE = "reference"
 TIMEOUT_S = 60
+RELEASE_LIST_ATTEMPTS = 3
+RELEASE_LIST_BACKOFF_S = (1, 2)
 
 
 def local_sha256(path: str) -> str:
@@ -35,12 +38,26 @@ def local_sha256(path: str) -> str:
 
 def _release_with_asset(repo: str, asset: str) -> str:
     """Tag of the newest release carrying one asset name."""
-    out = subprocess.run(
-        ["gh", "api", "--paginate", "repos/%s/releases" % repo,
-         "--jq", ".[] | {tag_name, assets: [.assets[].name]}"],
-        capture_output=True, text=True, timeout=TIMEOUT_S)
-    if out.returncode != 0:
-        raise ValueError("release list failed")
+    command = ["gh", "api", "--paginate", "repos/%s/releases" % repo,
+               "--jq", ".[] | {tag_name, assets: [.assets[].name]}"]
+    for attempt in range(RELEASE_LIST_ATTEMPTS):
+        try:
+            out = subprocess.run(command, capture_output=True, text=True,
+                                 timeout=TIMEOUT_S)
+        except subprocess.TimeoutExpired as exc:
+            detail = str(exc)
+            if attempt + 1 == RELEASE_LIST_ATTEMPTS:
+                raise ValueError("release list failed: " + detail) from exc
+            time.sleep(RELEASE_LIST_BACKOFF_S[attempt])
+            continue
+        if out.returncode == 0:
+            break
+        detail = out.stderr.strip() or out.stdout.strip() or (
+            "exit status %d" % out.returncode)
+        if (attempt + 1 == RELEASE_LIST_ATTEMPTS
+                or not _transient_release_error(detail)):
+            raise ValueError("release list failed: " + detail)
+        time.sleep(RELEASE_LIST_BACKOFF_S[attempt])
     try:
         rows = [json.loads(line) for line in out.stdout.splitlines()
                 if line.strip()]
@@ -55,6 +72,21 @@ def _release_with_asset(repo: str, asset: str) -> str:
         if asset in row["assets"]:
             return tag
     raise ValueError("asset missing: " + asset)
+
+
+def _transient_release_error(detail: str) -> bool:
+    """Whether gh reported a retryable network or server failure."""
+    lowered = detail.lower()
+    if any(code in lowered for code in ("401", "403", "404")):
+        return False
+    if any(code in lowered for code in (
+            "429", "500", "501", "502", "503", "504", "505", "506",
+            "507", "508", "509", "510", "511")):
+        return True
+    return any(message in lowered for message in (
+        "error connecting", "connection reset", "connection refused",
+        "connection closed", "timed out", "timeout", "temporary failure",
+    ))
 
 
 def github_asset_bytes(repo: str, asset: str,

@@ -197,6 +197,23 @@ languages, including 512 outputs from 256 inputs. Qualified neural fragment
 transfer or a structural curriculum change remain proposals. No supplied
 control is a neural donor.
 
+Owner direction (2026-11-02): measure progress toward general programming
+through broader unseen task families, transfer across new combinations,
+retention and reduced task-specific host assistance. A growing count of
+hand-shaped special cases is insufficient. Do not send Mattermost messages.
+
+Unattended campaign checkpoint (2026-11-02): the first runner campaign
+completed both development recipes at 0/3 and stopped NO_MEASURED_GAIN
+without opening its audit. See `tracks/programmer/campaign-runner.md`.
+The current adapter only supports bounded integer-list programs. Automatic
+curriculum invention, fragment-library growth and broader types remain
+unimplemented; do not claim this runner establishes generality growth.
+Its separate supplied-control checker smoke passes two actual Python and
+CURLEE cases, including 512 outputs from 256 inputs, and rejects a wrong
+expected output. This is never a neural success or donor. Resource-aborted
+full regressions remain incomplete. Preserve checkpoint/source hashes,
+sealed audit separation, runtime weight exclusions and memory guards.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,

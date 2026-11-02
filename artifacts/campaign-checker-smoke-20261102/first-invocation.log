@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<stdin>", line 9, in <module>
+  File "/home/joe/Projects/rsi-programmer/rsi_programmer/campaign_worker.py", line 239, in _execute_task
+    inputs, expected = _held(task, seed, audit)
+                       ~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/joe/Projects/rsi-programmer/rsi_programmer/campaign_worker.py", line 186, in _held
+    example_inputs = {tuple(pair["input"]) for pair in task["examples"]}
+                                                       ~~~~^^^^^^^^^^^^
+KeyError: 'examples'

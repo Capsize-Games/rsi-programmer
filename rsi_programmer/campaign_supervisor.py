@@ -117,10 +117,19 @@ def _run_trial(directory: Path, config: dict[str, Any], spec: dict[str, Any],
                 recovered = json.loads(prior.read_text())
             except (OSError, json.JSONDecodeError):
                 recovered = None
-            if isinstance(recovered, dict):
-                _append_event(directory, "trial_receipt_recovered",
-                              trial=str(trial_dir))
-                return recovered
+            reason = "receipt is not a completed result"
+            if isinstance(recovered, dict) and recovered.get(
+                    "status") == "completed":
+                valid, reason = _validate_worker_result(recovered, spec)
+                if valid:
+                    recovered["recovered_receipt"] = True
+                    _append_event(directory, "trial_receipt_recovered",
+                                  trial=str(trial_dir))
+                    return recovered
+                _append_event(directory, "invalid_trial_receipt_preserved",
+                              trial=str(trial_dir),
+                              invalid_reason=reason if isinstance(
+                                  recovered, dict) else "invalid JSON receipt")
         suffix = 1
         while (directory / f"{trial_dir.name}-attempt-{suffix}").exists():
             suffix += 1
@@ -128,16 +137,6 @@ def _run_trial(directory: Path, config: dict[str, Any], spec: dict[str, Any],
         _append_event(directory, "incomplete_trial_preserved",
                       trial=str(trial_dir), retry=str(replacement))
         trial_dir = replacement
-    trial_dir.mkdir(parents=True, exist_ok=False)
-    spec_path = trial_dir / "spec.json"
-    _atomic_json(spec_path, spec)
-    command = [*config["worker"], "--spec", str(spec_path), "--output",
-               str(trial_dir)]
-    if audit:
-        command.extend(["--audit", "--baseline-recipe",
-                        json.dumps(spec["baseline_recipe"], sort_keys=True),
-                        "--selected-recipe",
-                        json.dumps(spec["selected_recipe"], sort_keys=True)])
     started = time.monotonic()
     attempt = 0
     admission_waits = 0
@@ -158,8 +157,26 @@ def _run_trial(directory: Path, config: dict[str, Any], spec: dict[str, Any],
                         "available_gib": memory}
             continue
         attempt += 1
-        log_path = trial_dir / f"worker-{attempt}.log"
-        _append_event(directory, "trial_start", trial=str(trial_dir),
+        attempt_dir = trial_dir
+        if attempt_dir.exists():
+            suffix = attempt
+            while (directory / f"{trial_dir.name}-attempt-{suffix}").exists():
+                suffix += 1
+            attempt_dir = directory / f"{trial_dir.name}-attempt-{suffix}"
+        attempt_dir.mkdir(parents=True, exist_ok=False)
+        spec_path = attempt_dir / "spec.json"
+        _atomic_json(spec_path, spec)
+        command = [*config["worker"], "--spec", str(spec_path), "--output",
+                   str(attempt_dir)]
+        if audit:
+            command.extend([
+                "--audit", "--baseline-recipe",
+                json.dumps(spec["baseline_recipe"], sort_keys=True),
+                "--selected-recipe",
+                json.dumps(spec["selected_recipe"], sort_keys=True),
+            ])
+        log_path = attempt_dir / "worker.log"
+        _append_event(directory, "trial_start", trial=str(attempt_dir),
                       attempt=attempt, available_gib=memory)
         with log_path.open("w", encoding="utf-8") as log:
             lock_path = Path("/tmp/rsi-programmer-builder.lock")
@@ -218,9 +235,8 @@ def _run_trial(directory: Path, config: dict[str, Any], spec: dict[str, Any],
         if interrupted == "wall_limit":
             return {"status": "wall_limit"}
         if interrupted == "timeout":
-            return {"status": "infrastructure_failure",
-                    "return_code": 124, "reason": "trial timeout"}
-        result_path = trial_dir / "result.json"
+            return_code = 124
+        result_path = attempt_dir / "result.json"
         if return_code == 0 and result_path.exists():
             try:
                 result = json.loads(result_path.read_text())
@@ -236,21 +252,27 @@ def _run_trial(directory: Path, config: dict[str, Any], spec: dict[str, Any],
                           "error": "worker returned unsupported status"}
             if result.get("status") == "infrastructure_failure":
                 _append_event(directory, "worker_result_invalid",
-                              trial=str(trial_dir),
+                              trial=str(attempt_dir),
                               error=result.get("error"))
+                if attempt <= config["retry_count"]:
+                    time.sleep(config["retry_backoff_seconds"])
+                    continue
                 return result
             valid, reason = _validate_worker_result(result, spec)
             if not valid:
                 _append_event(directory, "worker_result_invalid",
-                              trial=str(trial_dir), error=reason)
+                              trial=str(attempt_dir), error=reason)
+                if attempt <= config["retry_count"]:
+                    time.sleep(config["retry_backoff_seconds"])
+                    continue
                 return {"status": "infrastructure_failure",
                         "error": reason}
             result["supervisor_attempt"] = attempt
-            _append_event(directory, "trial_end", trial=str(trial_dir),
+            _append_event(directory, "trial_end", trial=str(attempt_dir),
                           status=result.get("status"),
                           elapsed=time.monotonic() - started)
             return result
-        _append_event(directory, "trial_failure", trial=str(trial_dir),
+        _append_event(directory, "trial_failure", trial=str(attempt_dir),
                       attempt=attempt, return_code=return_code,
                       result_exists=result_path.exists())
         if attempt > config["retry_count"]:
