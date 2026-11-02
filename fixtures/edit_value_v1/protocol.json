@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "protocol": "bounded-integer-list-edit-value-v1",
+  "status": "frozen-before-edit-value-solver-trial",
+  "domain": "bounded integer lists; existing one-loop, two-append array grammar",
+  "claims": [
+    "Fresh tasks are new functions within one representable integer-list grammar.",
+    "Task labels identify operations or structures, not new language families.",
+    "Strings, records, arbitrary Python, general programming, and new language-family generalization are unsupported."
+  ],
+  "development_tasks": [
+    "clip_negative_readings",
+    "cap_positive_readings",
+    "negative_magnitudes"
+  ],
+  "retention_tasks": [],
+  "fresh_tasks": [
+    {
+      "task_id": "fresh_filter_nonpositive",
+      "task_type": "filter_by_comparison",
+      "reference": "keep_nonpositive",
+      "witness": [
+        "for",
+        "if",
+        "le",
+        "value",
+        "zero",
+        "append",
+        "value",
+        "end",
+        "end",
+        "return",
+        "output",
+        "stop"
+      ],
+      "task_family": "bounded_integer_list"
+    },
+    {
+      "task_id": "fresh_map_absolute_value",
+      "task_type": "two_branch_map",
+      "reference": "absolute_value",
+      "witness": [
+        "for",
+        "if",
+        "lt",
+        "value",
+        "zero",
+        "append",
+        "sub",
+        "zero",
+        "value",
+        "end",
+        "if",
+        "ge",
+        "value",
+        "zero",
+        "append",
+        "value",
+        "end",
+        "end",
+        "return",
+        "output",
+        "stop"
+      ],
+      "task_family": "bounded_integer_list"
+    },
+    {
+      "task_id": "fresh_duplicate_positive",
+      "task_type": "conditional_two_write",
+      "reference": "duplicate_positive",
+      "witness": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "zero",
+        "append",
+        "value",
+        "append",
+        "value",
+        "end",
+        "end",
+        "return",
+        "output",
+        "stop"
+      ],
+      "task_family": "bounded_integer_list"
+    },
+    {
+      "task_id": "fresh_add_output_index",
+      "task_type": "output_length_expression",
+      "reference": "add_output_index_for_positive",
+      "witness": [
+        "for",
+        "if",
+        "gt",
+        "value",
+        "zero",
+        "append",
+        "add",
+        "value",
+        "outlen",
+        "end",
+        "end",
+        "return",
+        "output",
+        "stop"
+      ],
+      "task_family": "bounded_integer_list"
+    },
+    {
+      "task_id": "fresh_keep_first_then_map",
+      "task_type": "output_length_branch",
+      "reference": "first_original_then_negate",
+      "witness": [
+        "for",
+        "if",
+        "eq",
+        "outlen",
+        "zero",
+        "append",
+        "value",
+        "end",
+        "if",
+        "gt",
+        "outlen",
+        "zero",
+        "append",
+        "sub",
+        "zero",
+        "value",
+        "end",
+        "end",
+        "return",
+        "output",
+        "stop"
+      ],
+      "task_family": "bounded_integer_list"
+    },
+    {
+      "task_id": "fresh_filter_and_map",
+      "task_type": "filter_then_map",
+      "reference": "negative_magnitude_if_negative_else_one",
+      "witness": [
+        "for",
+        "if",
+        "lt",
+        "value",
+        "zero",
+        "append",
+        "sub",
+        "zero",
+        "value",
+        "end",
+        "if",
+        "ge",
+        "value",
+        "zero",
+        "append",
+        "one",
+        "end",
+        "end",
+        "return",
+        "output",
+        "stop"
+      ],
+      "task_family": "bounded_integer_list"
+    }
+  ],
+  "solver_input_fields": [
+    "task_id",
+    "task_type",
+    "examples"
+  ],
+  "checker_only_fields": [
+    "reference",
+    "witness",
+    "held_inputs",
+    "expected"
+  ],
+  "probe_exclusion": {
+    "count": 24,
+    "method": "Compare complete function outputs on the array curriculum's fixed 24 probes against all 512 training teachers and three original development tasks.",
+    "scope": "Bounded signature exclusion only; not universal inequivalence."
+  },
+  "evaluation": {
+    "fresh_task_count": 6,
+    "held_case_count_per_task": 20,
+    "backends": [
+      "standalone Python emitted CLI",
+      "guarded CURLEE generated routine"
+    ],
+    "qualification": "All frozen held cases pass independently in both backends."
+  },
+  "baseline_recheck_tasks": [
+    "clip_negative_readings",
+    "cap_positive_readings",
+    "negative_magnitudes"
+  ],
+  "retention_status": "not_measured_for_edit_value_ranker; prior list-array campaign had 0/3 accepted; historical scalar-route evidence is separate and is not ranker retention."
+}

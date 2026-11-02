@@ -1,0 +1,297 @@
+[
+  {
+    "task_id": "fresh_filter_nonpositive",
+    "task_family": "bounded_integer_list",
+    "task_type": "filter_by_comparison",
+    "examples": [
+      {
+        "input": [],
+        "output": []
+      },
+      {
+        "input": [
+          0
+        ],
+        "output": [
+          0
+        ]
+      },
+      {
+        "input": [
+          1
+        ],
+        "output": []
+      },
+      {
+        "input": [
+          -1
+        ],
+        "output": [
+          -1
+        ]
+      },
+      {
+        "input": [
+          1,
+          -2,
+          0,
+          3,
+          -4
+        ],
+        "output": [
+          -2,
+          0,
+          -4
+        ]
+      }
+    ]
+  },
+  {
+    "task_id": "fresh_map_absolute_value",
+    "task_family": "bounded_integer_list",
+    "task_type": "two_branch_map",
+    "examples": [
+      {
+        "input": [],
+        "output": []
+      },
+      {
+        "input": [
+          0
+        ],
+        "output": [
+          0
+        ]
+      },
+      {
+        "input": [
+          1
+        ],
+        "output": [
+          1
+        ]
+      },
+      {
+        "input": [
+          -1
+        ],
+        "output": [
+          1
+        ]
+      },
+      {
+        "input": [
+          1,
+          -2,
+          0,
+          3,
+          -4
+        ],
+        "output": [
+          1,
+          2,
+          0,
+          3,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "task_id": "fresh_duplicate_positive",
+    "task_family": "bounded_integer_list",
+    "task_type": "conditional_two_write",
+    "examples": [
+      {
+        "input": [],
+        "output": []
+      },
+      {
+        "input": [
+          0
+        ],
+        "output": []
+      },
+      {
+        "input": [
+          1
+        ],
+        "output": [
+          1,
+          1
+        ]
+      },
+      {
+        "input": [
+          -1
+        ],
+        "output": []
+      },
+      {
+        "input": [
+          1,
+          -2,
+          0,
+          3,
+          -4
+        ],
+        "output": [
+          1,
+          1,
+          3,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "task_id": "fresh_add_output_index",
+    "task_family": "bounded_integer_list",
+    "task_type": "output_length_expression",
+    "examples": [
+      {
+        "input": [],
+        "output": []
+      },
+      {
+        "input": [
+          0
+        ],
+        "output": []
+      },
+      {
+        "input": [
+          1
+        ],
+        "output": [
+          1
+        ]
+      },
+      {
+        "input": [
+          -1
+        ],
+        "output": []
+      },
+      {
+        "input": [
+          1,
+          -2,
+          0,
+          3,
+          -4
+        ],
+        "output": [
+          1,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "task_id": "fresh_keep_first_then_map",
+    "task_family": "bounded_integer_list",
+    "task_type": "output_length_branch",
+    "examples": [
+      {
+        "input": [],
+        "output": []
+      },
+      {
+        "input": [
+          0
+        ],
+        "output": [
+          0,
+          0
+        ]
+      },
+      {
+        "input": [
+          1
+        ],
+        "output": [
+          1,
+          -1
+        ]
+      },
+      {
+        "input": [
+          -1
+        ],
+        "output": [
+          -1,
+          1
+        ]
+      },
+      {
+        "input": [
+          1,
+          -2,
+          0,
+          3,
+          -4
+        ],
+        "output": [
+          1,
+          -1,
+          2,
+          0,
+          -3,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "task_id": "fresh_filter_and_map",
+    "task_family": "bounded_integer_list",
+    "task_type": "filter_then_map",
+    "examples": [
+      {
+        "input": [],
+        "output": []
+      },
+      {
+        "input": [
+          0
+        ],
+        "output": [
+          1
+        ]
+      },
+      {
+        "input": [
+          1
+        ],
+        "output": [
+          1
+        ]
+      },
+      {
+        "input": [
+          -1
+        ],
+        "output": [
+          1
+        ]
+      },
+      {
+        "input": [
+          1,
+          -2,
+          0,
+          3,
+          -4
+        ],
+        "output": [
+          1,
+          2,
+          1,
+          1,
+          4
+        ]
+      }
+    ]
+  }
+]

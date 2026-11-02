@@ -1,0 +1,630 @@
+{
+  "scope": "Frozen-model control-witness audit only; controls are not training data, runtime guidance, or donors.",
+  "execution_context": true,
+  "teacher_coverage": {
+    "teacher_functions": 512,
+    "contains_conditions": 496,
+    "contains_arithmetic": 374,
+    "contains_multiple_appends": 335,
+    "contains_nested_conditions": 351,
+    "condition_comparisons": {
+      "gt": 155,
+      "ne": 152,
+      "le": 146,
+      "eq": 109,
+      "lt": 134,
+      "ge": 151
+    },
+    "expression_nodes": {
+      "one": 451,
+      "minus_one": 449,
+      "length": 469,
+      "add": 209,
+      "outlen": 471,
+      "two": 490,
+      "rem": 128,
+      "value": 577,
+      "mul": 203,
+      "zero": 381,
+      "sub": 207
+    },
+    "body_structures": {
+      "if=2,append=2,depth=1": 335,
+      "if=1,append=1,depth=1": 145,
+      "if=0,append=1,depth=0": 16,
+      "if=2,append=1,depth=2": 16
+    },
+    "teacher_token_counts": {
+      "for": 512,
+      "if": 847,
+      "append": 847,
+      "end": 1359,
+      "return": 512,
+      "output": 512,
+      "stop": 512,
+      "value": 577,
+      "zero": 381,
+      "one": 451,
+      "two": 490,
+      "minus_one": 449,
+      "length": 469,
+      "outlen": 471,
+      "add": 209,
+      "sub": 207,
+      "mul": 203,
+      "rem": 128,
+      "gt": 155,
+      "ge": 151,
+      "lt": 134,
+      "le": 146,
+      "eq": 109,
+      "ne": 152
+    }
+  },
+  "tasks": {
+    "clip_negative_readings": {
+      "grammarable": true,
+      "witness_token_count": 19,
+      "witness_structure": {
+        "if_count": 2,
+        "append_count": 2,
+        "max_condition_depth": 1,
+        "comparisons": {
+          "gt": 1,
+          "le": 1
+        },
+        "expressions": {
+          "value": 3,
+          "zero": 3
+        }
+      },
+      "teacher_forced": {
+        "action_count": 19,
+        "rank_1": 13,
+        "mean_rank": 2.210526315789474,
+        "ranks": [
+          1,
+          1,
+          2,
+          4,
+          1,
+          1,
+          1,
+          1,
+          1,
+          4,
+          6,
+          6,
+          1,
+          7,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "correct_prefix_probability": 6.272100905872624e-10
+      },
+      "beam_32": {
+        "width": 32,
+        "token_choices": 4,
+        "scope_note": "Only this supplied witness path is traced; its pruning does not prove every equivalent program was pruned.",
+        "first_pruning_point": {
+          "depth": 10,
+          "reason": "beam_width",
+          "correct_action_rank": 4
+        },
+        "correct_prefix_probability": 6.272100905872624e-10,
+        "survival": [
+          {
+            "depth": 1,
+            "beam_size": 1,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 1,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 2,
+            "beam_size": 2,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 2,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 3,
+            "beam_size": 8,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 8,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 4,
+            "beam_size": 31,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 31,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 5,
+            "beam_size": 32,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 32,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 6,
+            "beam_size": 32,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 32,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 7,
+            "beam_size": 32,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 32,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 8,
+            "beam_size": 32,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 32,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 9,
+            "beam_size": 32,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 32,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 10,
+            "beam_size": 32,
+            "correct_prefix_survives": false,
+            "distinct_prefixes": 32,
+            "completed_candidates_seen": 0
+          }
+        ],
+        "completed_candidate_count": 0,
+        "completed_candidate_hashes": []
+      },
+      "beam_256": {
+        "width": 256,
+        "token_choices": 8,
+        "scope_note": "Only this supplied witness path is traced; its pruning does not prove every equivalent program was pruned.",
+        "first_pruning_point": {
+          "depth": 10,
+          "reason": "beam_width",
+          "correct_action_rank": 4
+        },
+        "correct_prefix_probability": 6.272100905872624e-10,
+        "survival": [
+          {
+            "depth": 1,
+            "beam_size": 1,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 1,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 2,
+            "beam_size": 2,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 2,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 3,
+            "beam_size": 14,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 14,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 4,
+            "beam_size": 88,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 88,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 5,
+            "beam_size": 256,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 256,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 6,
+            "beam_size": 256,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 256,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 7,
+            "beam_size": 256,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 256,
+            "completed_candidates_seen": 1
+          },
+          {
+            "depth": 8,
+            "beam_size": 256,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 256,
+            "completed_candidates_seen": 1
+          },
+          {
+            "depth": 9,
+            "beam_size": 256,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 256,
+            "completed_candidates_seen": 1
+          },
+          {
+            "depth": 10,
+            "beam_size": 256,
+            "correct_prefix_survives": false,
+            "distinct_prefixes": 256,
+            "completed_candidates_seen": 1
+          }
+        ],
+        "completed_candidate_count": 1,
+        "completed_candidate_hashes": [
+          "d843013804c7db60df9a832d323c18e8b0c2d96be0e8679c4a67876f56205b9a"
+        ]
+      }
+    },
+    "cap_positive_readings": {
+      "grammarable": true,
+      "witness_token_count": 24,
+      "witness_structure": {
+        "if_count": 3,
+        "append_count": 2,
+        "max_condition_depth": 2,
+        "comparisons": {
+          "gt": 2,
+          "le": 1
+        },
+        "expressions": {
+          "value": 4,
+          "zero": 1,
+          "two": 3
+        }
+      },
+      "teacher_forced": {
+        "action_count": 24,
+        "rank_1": 13,
+        "mean_rank": 2.4166666666666665,
+        "ranks": [
+          1,
+          1,
+          4,
+          1,
+          5,
+          2,
+          2,
+          4,
+          3,
+          1,
+          5,
+          1,
+          1,
+          2,
+          1,
+          3,
+          6,
+          1,
+          9,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "correct_prefix_probability": 5.4163405913597325e-20
+      },
+      "beam_32": {
+        "width": 32,
+        "token_choices": 4,
+        "scope_note": "Only this supplied witness path is traced; its pruning does not prove every equivalent program was pruned.",
+        "first_pruning_point": {
+          "depth": 5,
+          "reason": "token_choices_cutoff",
+          "correct_action_rank": 5
+        },
+        "correct_prefix_probability": 5.4163405913597325e-20,
+        "survival": [
+          {
+            "depth": 1,
+            "beam_size": 1,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 1,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 2,
+            "beam_size": 2,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 2,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 3,
+            "beam_size": 8,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 8,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 4,
+            "beam_size": 30,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 30,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 5,
+            "beam_size": 32,
+            "correct_prefix_survives": false,
+            "distinct_prefixes": 32,
+            "completed_candidates_seen": 0
+          }
+        ],
+        "completed_candidate_count": 0,
+        "completed_candidate_hashes": []
+      },
+      "beam_256": {
+        "width": 256,
+        "token_choices": 8,
+        "scope_note": "Only this supplied witness path is traced; its pruning does not prove every equivalent program was pruned.",
+        "first_pruning_point": {
+          "depth": 6,
+          "reason": "beam_width",
+          "correct_action_rank": 2
+        },
+        "correct_prefix_probability": 5.4163405913597325e-20,
+        "survival": [
+          {
+            "depth": 1,
+            "beam_size": 1,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 1,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 2,
+            "beam_size": 2,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 2,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 3,
+            "beam_size": 14,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 14,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 4,
+            "beam_size": 88,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 88,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 5,
+            "beam_size": 256,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 256,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 6,
+            "beam_size": 256,
+            "correct_prefix_survives": false,
+            "distinct_prefixes": 256,
+            "completed_candidates_seen": 0
+          }
+        ],
+        "completed_candidate_count": 0,
+        "completed_candidate_hashes": []
+      }
+    },
+    "negative_magnitudes": {
+      "grammarable": true,
+      "witness_token_count": 14,
+      "witness_structure": {
+        "if_count": 1,
+        "append_count": 1,
+        "max_condition_depth": 1,
+        "comparisons": {
+          "lt": 1
+        },
+        "expressions": {
+          "value": 2,
+          "zero": 2,
+          "sub": 1
+        }
+      },
+      "teacher_forced": {
+        "action_count": 14,
+        "rank_1": 9,
+        "mean_rank": 2.0714285714285716,
+        "ranks": [
+          1,
+          1,
+          2,
+          2,
+          6,
+          1,
+          7,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "correct_prefix_probability": 2.0920175705800242e-07
+      },
+      "beam_32": {
+        "width": 32,
+        "token_choices": 4,
+        "scope_note": "Only this supplied witness path is traced; its pruning does not prove every equivalent program was pruned.",
+        "first_pruning_point": {
+          "depth": 5,
+          "reason": "token_choices_cutoff",
+          "correct_action_rank": 6
+        },
+        "correct_prefix_probability": 2.0920175705800242e-07,
+        "survival": [
+          {
+            "depth": 1,
+            "beam_size": 1,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 1,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 2,
+            "beam_size": 2,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 2,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 3,
+            "beam_size": 8,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 8,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 4,
+            "beam_size": 30,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 30,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 5,
+            "beam_size": 32,
+            "correct_prefix_survives": false,
+            "distinct_prefixes": 32,
+            "completed_candidates_seen": 0
+          }
+        ],
+        "completed_candidate_count": 0,
+        "completed_candidate_hashes": []
+      },
+      "beam_256": {
+        "width": 256,
+        "token_choices": 8,
+        "scope_note": "Only this supplied witness path is traced; its pruning does not prove every equivalent program was pruned.",
+        "first_pruning_point": {
+          "depth": 7,
+          "reason": "beam_width",
+          "correct_action_rank": 7
+        },
+        "correct_prefix_probability": 2.0920175705800242e-07,
+        "survival": [
+          {
+            "depth": 1,
+            "beam_size": 1,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 1,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 2,
+            "beam_size": 2,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 2,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 3,
+            "beam_size": 14,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 14,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 4,
+            "beam_size": 84,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 84,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 5,
+            "beam_size": 256,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 256,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 6,
+            "beam_size": 256,
+            "correct_prefix_survives": true,
+            "distinct_prefixes": 256,
+            "completed_candidates_seen": 0
+          },
+          {
+            "depth": 7,
+            "beam_size": 256,
+            "correct_prefix_survives": false,
+            "distinct_prefixes": 256,
+            "completed_candidates_seen": 0
+          }
+        ],
+        "completed_candidate_count": 0,
+        "completed_candidate_hashes": []
+      }
+    }
+  },
+  "checkpoint": "weights/campaigns/6b844a6c0bd742d286d7567a/selected.pt",
+  "checkpoint_sha256": "16a852d7b2c2ebb37e9926b5ed1dca22c569dd24a5f786fe071268aca67be746",
+  "fingerprint": "fdc071602ef2cf52c17104105ae42f084281cad6e58e8099388810fd0bf82954",
+  "fingerprint_metadata": {
+    "seed": 0,
+    "execution_context": true
+  },
+  "legacy_seed_only_fingerprint": "52cd33a3201ad1bc7e557ddd16bf286d5965264a26fea96446443ff9a617024d",
+  "matching_campaigns": [
+    {
+      "report": "artifacts/array-statements-context-v1-20261101/report.json",
+      "expected_metadata": {
+        "seed": 0,
+        "execution_context": true
+      },
+      "fingerprint_basis": "exact report metadata",
+      "report_fingerprint": "fdc071602ef2cf52c17104105ae42f084281cad6e58e8099388810fd0bf82954",
+      "outcomes": {
+        "clip_negative_readings": false,
+        "cap_positive_readings": false,
+        "negative_magnitudes": false
+      }
+    },
+    {
+      "report": "artifacts/array-statements-broad-search-v1-20261101/report.json",
+      "expected_metadata": {
+        "seed": 0,
+        "execution_context": true
+      },
+      "fingerprint_basis": "exact report metadata",
+      "report_fingerprint": "fdc071602ef2cf52c17104105ae42f084281cad6e58e8099388810fd0bf82954",
+      "outcomes": {
+        "clip_negative_readings": false,
+        "cap_positive_readings": false,
+        "negative_magnitudes": false
+      }
+    }
+  ]
+}
