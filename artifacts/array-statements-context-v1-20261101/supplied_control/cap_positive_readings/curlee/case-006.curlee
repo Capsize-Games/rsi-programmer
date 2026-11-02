@@ -1,0 +1,180 @@
+fn process(input: &[Int; 256], count: Int,
+           output: &mut [Int; 512]) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let outlen: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256;
+          invariant outlen >= 0 && outlen <= 2 * i; ] {
+        if (i < 0 || i >= 256) { return -1; }
+        let value: Int = input[i];
+        if ((value > 0)) {
+            if ((value <= 2)) {
+                if (outlen < 0 || outlen >= 512) { return -1; }
+                output[outlen] = value;
+                outlen = outlen + 1;
+            }
+        }
+        if ((value > 2)) {
+            if (outlen < 0 || outlen >= 512) { return -1; }
+            output[outlen] = 2;
+            outlen = outlen + 1;
+        }
+    }
+    return outlen;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    let output: [Int; 512] = [0; 512];
+    input[0] = -77;
+    input[1] = 19;
+    input[2] = 57;
+    input[3] = 2;
+    input[4] = 21;
+    input[5] = -48;
+    input[6] = -10;
+    input[7] = 84;
+    input[8] = 21;
+    input[9] = -40;
+    input[10] = -61;
+    input[11] = 57;
+    input[12] = -34;
+    input[13] = -72;
+    input[14] = 94;
+    input[15] = -27;
+    input[16] = -94;
+    input[17] = -15;
+    input[18] = -75;
+    input[19] = 51;
+    input[20] = 80;
+    input[21] = 72;
+    input[22] = -43;
+    input[23] = -33;
+    input[24] = 6;
+    input[25] = 40;
+    input[26] = 24;
+    input[27] = 57;
+    input[28] = 54;
+    input[29] = 11;
+    input[30] = -79;
+    input[31] = 32;
+    input[32] = -78;
+    input[33] = -83;
+    input[34] = 44;
+    input[35] = 38;
+    input[36] = 59;
+    input[37] = -88;
+    input[38] = 31;
+    input[39] = -35;
+    input[40] = 34;
+    input[41] = 15;
+    input[42] = -35;
+    input[43] = 91;
+    input[44] = 45;
+    input[45] = -22;
+    input[46] = -4;
+    input[47] = -40;
+    input[48] = 9;
+    input[49] = 100;
+    input[50] = 90;
+    input[51] = 73;
+    input[52] = 64;
+    input[53] = 17;
+    input[54] = -33;
+    input[55] = -66;
+    input[56] = -94;
+    input[57] = 59;
+    input[58] = 25;
+    input[59] = -29;
+    input[60] = 60;
+    input[61] = 53;
+    input[62] = -13;
+    input[63] = 50;
+    input[64] = -1;
+    input[65] = 2;
+    input[66] = -30;
+    input[67] = -20;
+    input[68] = 37;
+    input[69] = -100;
+    input[70] = 31;
+    input[71] = 22;
+    input[72] = -95;
+    input[73] = -73;
+    input[74] = 25;
+    input[75] = -52;
+    input[76] = 7;
+    input[77] = -10;
+    input[78] = -22;
+    input[79] = 67;
+    input[80] = -14;
+    input[81] = 79;
+    input[82] = -71;
+    input[83] = 77;
+    input[84] = 84;
+    input[85] = 66;
+    input[86] = -94;
+    input[87] = 21;
+    input[88] = 83;
+    input[89] = -26;
+    input[90] = -98;
+    input[91] = -40;
+    input[92] = 90;
+    input[93] = -34;
+    input[94] = 22;
+    input[95] = 94;
+    if (process(&input, 96, &mut output) != 53) { return 1; }
+    if (output[0] != 2) { return 1; }
+    if (output[1] != 2) { return 1; }
+    if (output[2] != 2) { return 1; }
+    if (output[3] != 2) { return 1; }
+    if (output[4] != 2) { return 1; }
+    if (output[5] != 2) { return 1; }
+    if (output[6] != 2) { return 1; }
+    if (output[7] != 2) { return 1; }
+    if (output[8] != 2) { return 1; }
+    if (output[9] != 2) { return 1; }
+    if (output[10] != 2) { return 1; }
+    if (output[11] != 2) { return 1; }
+    if (output[12] != 2) { return 1; }
+    if (output[13] != 2) { return 1; }
+    if (output[14] != 2) { return 1; }
+    if (output[15] != 2) { return 1; }
+    if (output[16] != 2) { return 1; }
+    if (output[17] != 2) { return 1; }
+    if (output[18] != 2) { return 1; }
+    if (output[19] != 2) { return 1; }
+    if (output[20] != 2) { return 1; }
+    if (output[21] != 2) { return 1; }
+    if (output[22] != 2) { return 1; }
+    if (output[23] != 2) { return 1; }
+    if (output[24] != 2) { return 1; }
+    if (output[25] != 2) { return 1; }
+    if (output[26] != 2) { return 1; }
+    if (output[27] != 2) { return 1; }
+    if (output[28] != 2) { return 1; }
+    if (output[29] != 2) { return 1; }
+    if (output[30] != 2) { return 1; }
+    if (output[31] != 2) { return 1; }
+    if (output[32] != 2) { return 1; }
+    if (output[33] != 2) { return 1; }
+    if (output[34] != 2) { return 1; }
+    if (output[35] != 2) { return 1; }
+    if (output[36] != 2) { return 1; }
+    if (output[37] != 2) { return 1; }
+    if (output[38] != 2) { return 1; }
+    if (output[39] != 2) { return 1; }
+    if (output[40] != 2) { return 1; }
+    if (output[41] != 2) { return 1; }
+    if (output[42] != 2) { return 1; }
+    if (output[43] != 2) { return 1; }
+    if (output[44] != 2) { return 1; }
+    if (output[45] != 2) { return 1; }
+    if (output[46] != 2) { return 1; }
+    if (output[47] != 2) { return 1; }
+    if (output[48] != 2) { return 1; }
+    if (output[49] != 2) { return 1; }
+    if (output[50] != 2) { return 1; }
+    if (output[51] != 2) { return 1; }
+    if (output[52] != 2) { return 1; }
+    return 0;
+}

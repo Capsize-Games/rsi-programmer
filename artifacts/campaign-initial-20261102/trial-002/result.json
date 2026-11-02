@@ -1,0 +1,101 @@
+{
+  "status": "completed",
+  "phase": "development",
+  "trial_index": 2,
+  "recipe": {
+    "execution_context": true,
+    "seconds": 3.0,
+    "seed": 0,
+    "token_choices": 8,
+    "width": 256
+  },
+  "model_fingerprint": "fdc071602ef2cf52c17104105ae42f084281cad6e58e8099388810fd0bf82954",
+  "checkpoint": "weights/campaigns/6b844a6c0bd742d286d7567a/selected.pt",
+  "checkpoint_sha256": "16a852d7b2c2ebb37e9926b5ed1dca22c569dd24a5f786fe071268aca67be746",
+  "development": {
+    "qualified_tasks": 0,
+    "task_count": 3,
+    "failed_task_ids": [
+      "clip_negative_readings",
+      "cap_positive_readings",
+      "negative_magnitudes"
+    ],
+    "per_task": [
+      {
+        "task_id": "clip_negative_readings",
+        "family_id": "bounded_integer_list",
+        "tokens": null,
+        "python_cases": 0,
+        "curlee_cases": 0,
+        "python_accepted": false,
+        "curlee_accepted": false,
+        "qualified": false
+      },
+      {
+        "task_id": "cap_positive_readings",
+        "family_id": "bounded_integer_list",
+        "tokens": null,
+        "python_cases": 0,
+        "curlee_cases": 0,
+        "python_accepted": false,
+        "curlee_accepted": false,
+        "qualified": false
+      },
+      {
+        "task_id": "negative_magnitudes",
+        "family_id": "bounded_integer_list",
+        "tokens": null,
+        "python_cases": 0,
+        "curlee_cases": 0,
+        "python_accepted": false,
+        "curlee_accepted": false,
+        "qualified": false
+      }
+    ]
+  },
+  "execution_evidence": {
+    "python": "standalone emitted Python CLI, isolated via bwrap",
+    "curlee": "generated source checked and run using CURLEE",
+    "curlee_compiler": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+    "curlee_guard": "/home/joe/Projects/curlee/scripts/run_limited.py",
+    "held_seed": 804317,
+    "held_input_policy": "choices frozen before held rows generated/read"
+  },
+  "wall_seconds": 13.008442430000287,
+  "cost": {
+    "wall_seconds": 13.008453410991933,
+    "cpu_seconds": 13.003874000000001,
+    "peak_rss_kib": 357684,
+    "peak_rss_scope": "worker or any completed child; platform resource accounting"
+  },
+  "supported_scope": "Within-family list-array construction from primitive statement tokens; Python CLI and bounded CURLEE routine are supplied lowerings, not learner-authored runtime infrastructure.",
+  "unsupported_capabilities": [
+    "general source synthesis",
+    "strings",
+    "records",
+    "functions",
+    "libraries",
+    "generalization beyond the qualified task family"
+  ],
+  "source_sha256": {
+    "rsi_programmer/array_curriculum.py": "2b7fec6ae73930b08f21658827ffd29575e83490d82f46454280433197137e63",
+    "rsi_programmer/array_execution.py": "288dc8a36fec35db25f28a002235da0ada98420a1e7be28970dadb07af9289f4",
+    "rsi_programmer/array_partial.py": "28a281c6f6dd0898bb6f3d6681df0d16df055abea88e14aaa17a5885c95dbc5f",
+    "rsi_programmer/array_policy.py": "a1874730d01f1bf0fcbfbcd806d1d1fc80be17d86584f0bcb54b309220131557",
+    "rsi_programmer/array_source.py": "7f0f3a941c5e504dac69d6c197e753f9c1c3da5ae657abcba61d4814b4003dd9",
+    "rsi_programmer/array_syntax.py": "978b3797d96e5c3a4a777959540eddbaf67b38871a93387abe97d64a4065e2e6",
+    "rsi_programmer/array_tasks.py": "897759e5b943f51dc5ed9d8d55fd23917efa64827c6dc301846a145e497675dc",
+    "rsi_programmer/benchmark_policy.py": "d27beff1a76e9cfd2f178088d34a21946b41a27c333f22c59d9d14ba4aa07d74",
+    "rsi_programmer/campaign_supervisor.py": "5207b8d70b6f5f12149d9f471dd2de491bbd051e39807406ff932764573bb090",
+    "rsi_programmer/campaign_worker.py": "b7c90cfdbcde4f708fc77cca64f5639948a3ceb0d86cfaa01fdac1d185c7d48a",
+    "rsi_programmer/program_cost.py": "e7491a32749353051af53f4c28beff0ae9e65d6bc946d5fc7d387e1724b40b46",
+    "rsi_programmer/statement_source.py": "911dabe2c39fa20ae83628235ada20860e2cf63c8bf88da13a3249fdcc29bea3",
+    "rsi_programmer/utility_policy.py": "173f887a243ebfa42d73c42d9f7d7156fde5b7d6c7082068d1f13ce2eb7e7e12",
+    "scripts/campaign_trial.py": "f12707e67d331696c98bf83010eda7091f7702c8f59bc1668be0cfa00a421485",
+    "scripts/check_statement_curlee.py": "ef732c8f41b62e26101abdc8d60bd5b0c886665bc1ed5f745ccbd1dcd166a763",
+    "scripts/check_useful_curlee.py": "622086c74d10c57775ac963ca8457023a8bd067ba11e462ede300d2b482950b7",
+    "scripts/measure_useful_program.py": "565c8ab415c22c120d4555a0dc2057419dd3072cec3d77e770a2e491b5a1c168",
+    "scripts/programmer_campaign.py": "18aa66f15aa67515586720931a2d1790cb24be7b0863852e75a39dedbded62bc"
+  },
+  "guard_script_exists": true
+}

@@ -1,0 +1,165 @@
+fn process(input: &[Int; 256], count: Int,
+           output: &mut [Int; 512]) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let outlen: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256;
+          invariant outlen >= 0 && outlen <= 2 * i; ] {
+        if (i < 0 || i >= 256) { return -1; }
+        let value: Int = input[i];
+        if ((value < 0)) {
+            if (outlen < 0 || outlen >= 512) { return -1; }
+            output[outlen] = (0 - value);
+            outlen = outlen + 1;
+        }
+    }
+    return outlen;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    let output: [Int; 512] = [0; 512];
+    input[0] = -40;
+    input[1] = 71;
+    input[2] = 16;
+    input[3] = -18;
+    input[4] = -16;
+    input[5] = 95;
+    input[6] = -27;
+    input[7] = -43;
+    input[8] = 93;
+    input[9] = -59;
+    input[10] = 1;
+    input[11] = -30;
+    input[12] = 90;
+    input[13] = 89;
+    input[14] = 52;
+    input[15] = 92;
+    input[16] = 43;
+    input[17] = 87;
+    input[18] = 1;
+    input[19] = -20;
+    input[20] = 21;
+    input[21] = -83;
+    input[22] = 20;
+    input[23] = 23;
+    input[24] = -71;
+    input[25] = -23;
+    input[26] = 71;
+    input[27] = -83;
+    input[28] = 76;
+    input[29] = -11;
+    input[30] = 57;
+    input[31] = 80;
+    input[32] = -8;
+    input[33] = -30;
+    input[34] = -79;
+    input[35] = -97;
+    input[36] = -69;
+    input[37] = 4;
+    input[38] = -43;
+    input[39] = -99;
+    input[40] = -98;
+    input[41] = -58;
+    input[42] = 61;
+    input[43] = -47;
+    input[44] = 7;
+    input[45] = -5;
+    input[46] = 99;
+    input[47] = -26;
+    input[48] = 72;
+    input[49] = 29;
+    input[50] = 20;
+    input[51] = 11;
+    input[52] = -25;
+    input[53] = 59;
+    input[54] = -6;
+    input[55] = 67;
+    input[56] = 45;
+    input[57] = 88;
+    input[58] = -48;
+    input[59] = 60;
+    input[60] = 74;
+    input[61] = 100;
+    input[62] = -80;
+    input[63] = 88;
+    input[64] = -93;
+    input[65] = 66;
+    input[66] = 16;
+    input[67] = 58;
+    input[68] = -88;
+    input[69] = -27;
+    input[70] = -49;
+    input[71] = -56;
+    input[72] = 28;
+    input[73] = 45;
+    input[74] = -26;
+    input[75] = 75;
+    input[76] = 86;
+    input[77] = 40;
+    input[78] = 38;
+    input[79] = -65;
+    input[80] = 76;
+    input[81] = -12;
+    input[82] = -84;
+    input[83] = -20;
+    input[84] = 42;
+    input[85] = -67;
+    input[86] = 43;
+    input[87] = -19;
+    input[88] = 29;
+    input[89] = -59;
+    input[90] = 62;
+    input[91] = 63;
+    input[92] = 60;
+    input[93] = 82;
+    input[94] = 49;
+    input[95] = -21;
+    input[96] = 78;
+    input[97] = 35;
+    if (process(&input, 98, &mut output) != 43) { return 1; }
+    if (output[0] != 40) { return 1; }
+    if (output[1] != 18) { return 1; }
+    if (output[2] != 16) { return 1; }
+    if (output[3] != 27) { return 1; }
+    if (output[4] != 43) { return 1; }
+    if (output[5] != 59) { return 1; }
+    if (output[6] != 30) { return 1; }
+    if (output[7] != 20) { return 1; }
+    if (output[8] != 83) { return 1; }
+    if (output[9] != 71) { return 1; }
+    if (output[10] != 23) { return 1; }
+    if (output[11] != 83) { return 1; }
+    if (output[12] != 11) { return 1; }
+    if (output[13] != 8) { return 1; }
+    if (output[14] != 30) { return 1; }
+    if (output[15] != 79) { return 1; }
+    if (output[16] != 97) { return 1; }
+    if (output[17] != 69) { return 1; }
+    if (output[18] != 43) { return 1; }
+    if (output[19] != 99) { return 1; }
+    if (output[20] != 98) { return 1; }
+    if (output[21] != 58) { return 1; }
+    if (output[22] != 47) { return 1; }
+    if (output[23] != 5) { return 1; }
+    if (output[24] != 26) { return 1; }
+    if (output[25] != 25) { return 1; }
+    if (output[26] != 6) { return 1; }
+    if (output[27] != 48) { return 1; }
+    if (output[28] != 80) { return 1; }
+    if (output[29] != 93) { return 1; }
+    if (output[30] != 88) { return 1; }
+    if (output[31] != 27) { return 1; }
+    if (output[32] != 49) { return 1; }
+    if (output[33] != 56) { return 1; }
+    if (output[34] != 26) { return 1; }
+    if (output[35] != 65) { return 1; }
+    if (output[36] != 12) { return 1; }
+    if (output[37] != 84) { return 1; }
+    if (output[38] != 20) { return 1; }
+    if (output[39] != 67) { return 1; }
+    if (output[40] != 19) { return 1; }
+    if (output[41] != 59) { return 1; }
+    if (output[42] != 21) { return 1; }
+    return 0;
+}

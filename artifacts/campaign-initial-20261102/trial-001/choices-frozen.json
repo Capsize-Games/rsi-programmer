@@ -1,0 +1,174 @@
+{
+  "frozen_at_seconds": 6.878652585990494,
+  "runs": [
+    {
+      "label": "selected",
+      "recipe": {
+        "execution_context": false,
+        "seconds": 3.0,
+        "seed": 0,
+        "token_choices": 4,
+        "width": 32
+      },
+      "model_fingerprint": "4e6a9172477ff6a6c82790b1e857143ebce84b590f9c71a8175d756eb9f98f36",
+      "choices": [
+        {
+          "task_id": "clip_negative_readings",
+          "family_id": "bounded_integer_list",
+          "examples": [
+            [
+              [
+                -3,
+                0,
+                1,
+                4,
+                -1
+              ],
+              [
+                0,
+                0,
+                1,
+                4,
+                0
+              ]
+            ],
+            [
+              [
+                2,
+                -2,
+                5,
+                1
+              ],
+              [
+                2,
+                0,
+                5,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                3,
+                -4,
+                2
+              ],
+              [
+                0,
+                3,
+                0,
+                2
+              ]
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "visited": 1890,
+            "completions": 42,
+            "wall_seconds": 0.04753725498449057
+          },
+          "controller_seconds": 0.04754438798408955
+        },
+        {
+          "task_id": "cap_positive_readings",
+          "family_id": "bounded_integer_list",
+          "examples": [
+            [
+              [
+                -3,
+                0,
+                1,
+                4,
+                -1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            [
+              [
+                2,
+                -2,
+                5,
+                1
+              ],
+              [
+                2,
+                2,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                3,
+                -4,
+                2
+              ],
+              [
+                2,
+                2
+              ]
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "visited": 1543,
+            "completions": 46,
+            "wall_seconds": 0.03696003000368364
+          },
+          "controller_seconds": 0.03696561200194992
+        },
+        {
+          "task_id": "negative_magnitudes",
+          "family_id": "bounded_integer_list",
+          "examples": [
+            [
+              [
+                -3,
+                0,
+                1,
+                4,
+                -1
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                -2,
+                5,
+                1
+              ],
+              [
+                2
+              ]
+            ],
+            [
+              [
+                0,
+                3,
+                -4,
+                2
+              ],
+              [
+                4
+              ]
+            ]
+          ],
+          "chosen": {
+            "tokens": null,
+            "visited": 1405,
+            "completions": 52,
+            "wall_seconds": 0.0350708510086406
+          },
+          "controller_seconds": 0.035075277992291376
+        }
+      ]
+    }
+  ]
+}

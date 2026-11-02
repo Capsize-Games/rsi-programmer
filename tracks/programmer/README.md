@@ -8,9 +8,11 @@ CURLEE. The [frozen transfer result](frozen-transfer-results.md) passes
 and 14/18 for classical search. Its full measured controller CPU costs
 are 71.614, 26.600 and 21.127 seconds respectively; historical donor
 creation is excluded. No training or cost benefit is established.
-The next [list-output trial](array-results.md) constructs 0/3 programs;
-supplied controls pass 20 Python and CURLEE cases each. It adds typed
-append construction, with no new neural capability established yet.
+Three bounded [list-output trials](array-results.md) construct 0/3 programs,
+including partial execution features and a wider search beam. Four
+supplied controls pass 20 Python and CURLEE cases each, including the
+two-write output boundary. Typed append construction is implemented,
+with no new neural capability established yet.
 The [branch-composition result](branch-results.md) accepts all
 11 development tasks in both languages, 40 held cases each. Shared
 expressions fill classically composed verified branches. A stronger

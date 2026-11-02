@@ -44,7 +44,49 @@ expected output is rejected, and the compiler hash remains unchanged.
 The control result covers the declared tests, not universal integer or
 compiler qualification.
 
-This trial exposes a construction gap. The initial policy does not observe
-execution of its partial program. A bounded follow-up will test that
-feedback while preserving this failed trial. This is development work;
-the previously frozen transfer bank is not used for repair or tuning.
+## Bounded follow-ups
+
+Execution-context features also construct **0/3**, alongside 0/3 untrained.
+The model observes a fixed completion of each syntax prefix executed on
+visible inputs, its output list compared with the visible target, and an
+execution-validity flag. Completion reads no target. The fit uses the same
+512 functions, 19,966 states and 30 epochs, and takes 9.443 seconds.
+The [trial](
+../../artifacts/array-statements-context-v1-20261101/report.json) preserves
+its decisions and exact source snapshot.
+
+A broader search keeps 256 prefixes and eight token choices per step,
+instead of 32 and four. Fresh fitting reproduces the execution-context
+model's trained and untrained fingerprints. It still constructs **0/3**
+for each controller. The fit takes 9.465 seconds; its full worker takes
+16.047 seconds wall time. The [broader trial](
+../../artifacts/array-statements-broad-search-v1-20261101/report.json)
+preserves the negative choices. No target-language learner program runs
+because none is emitted. Common controls are not rerun for this unchanged
+backend; this is an explicit exclusion, not additional execution evidence.
+
+| Development recipe | Trained constructed | Untrained constructed | Fit wall time |
+| --- | ---: | ---: | ---: |
+| Input/output features, beam 32 | 0/3 | 0/3 | 6.471 s |
+| Execution context, beam 32 | 0/3 | 0/3 | 9.443 s |
+| Same parameters, beam 256 | 0/3 | 0/3 | 9.465 s |
+
+The execution-context trial also qualifies a fourth supplied control that
+appends each input twice. All four controls pass 20 cases per language,
+including 512 outputs from 256 inputs: **80 Python and 80 CURLEE cases**.
+This extends backend boundary evidence; it is not a fourth neural task or
+a donor. The earlier sixty-case qualification is a separate run.
+
+Direct token construction remains the gap. Partial execution features and
+this wider beam are insufficient under these recipes. Reusing separately
+qualified neural fragments or changing the structural curriculum are
+possible next checks, not established fixes. The previously frozen
+transfer bank is not used for repair or tuning, and no supplied control is
+promoted into the neural library.
+
+Fourteen focused tests pass, covering functional exclusion, the two-write
+bound, array semantics, prefix execution and track ownership. The full
+programmer fast regression was interrupted by the reserve guard when
+available memory fell below 5 GiB. It has no passing completion summary;
+the partial log is retained in `artifacts/array-statements-validation-20261101`.
+Remote CI, other local tracks and slow/retry lanes remain separate checks.

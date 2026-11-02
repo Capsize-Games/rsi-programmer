@@ -189,8 +189,13 @@ output-bound invariant. These controls are never neural successes or
 donors. The initial guard stop and compiler rejection are retained. See
 `tracks/programmer/array-results.md`. The grammar supports one input loop,
 conditions and at most two append nodes; source lowering, CLI plumbing and
-contracts remain supplied. Partial-program execution features are the next
-bounded development check, not an established improvement.
+contracts remain supplied. Partial-program execution features and a wider
+search also construct 0/3 for both trained and untrained controllers. The
+broader trial reproduces the preceding parameters; retain all three
+failures. A fourth supplied two-append control passes 20 cases in both
+languages, including 512 outputs from 256 inputs. Qualified neural fragment
+transfer or a structural curriculum change remain proposals. No supplied
+control is a neural donor.
 
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful

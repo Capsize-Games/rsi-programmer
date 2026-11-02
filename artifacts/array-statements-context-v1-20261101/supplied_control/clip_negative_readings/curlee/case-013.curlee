@@ -1,0 +1,133 @@
+fn process(input: &[Int; 256], count: Int,
+           output: &mut [Int; 512]) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let outlen: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256;
+          invariant outlen >= 0 && outlen <= 2 * i; ] {
+        if (i < 0 || i >= 256) { return -1; }
+        let value: Int = input[i];
+        if ((value > 0)) {
+            if (outlen < 0 || outlen >= 512) { return -1; }
+            output[outlen] = value;
+            outlen = outlen + 1;
+        }
+        if ((value <= 0)) {
+            if (outlen < 0 || outlen >= 512) { return -1; }
+            output[outlen] = 0;
+            outlen = outlen + 1;
+        }
+    }
+    return outlen;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    let output: [Int; 512] = [0; 512];
+    input[0] = -51;
+    input[1] = -45;
+    input[2] = 38;
+    input[3] = -30;
+    input[4] = -29;
+    input[5] = -51;
+    input[6] = 4;
+    input[7] = 47;
+    input[8] = 91;
+    input[9] = -96;
+    input[10] = -39;
+    input[11] = -43;
+    input[12] = -74;
+    input[13] = -44;
+    input[14] = -14;
+    input[15] = -72;
+    input[16] = 17;
+    input[17] = 3;
+    input[18] = 49;
+    input[19] = -72;
+    input[20] = 58;
+    input[21] = -24;
+    input[22] = 39;
+    input[23] = 35;
+    input[24] = 83;
+    input[25] = 75;
+    input[26] = -56;
+    input[27] = 19;
+    input[28] = 47;
+    input[29] = -17;
+    input[30] = -85;
+    input[31] = 64;
+    input[32] = 61;
+    input[33] = 35;
+    input[34] = -20;
+    input[35] = -18;
+    input[36] = 36;
+    input[37] = 37;
+    input[38] = 29;
+    input[39] = 33;
+    input[40] = -8;
+    input[41] = 58;
+    input[42] = 28;
+    input[43] = -79;
+    input[44] = 38;
+    input[45] = 37;
+    input[46] = -54;
+    input[47] = 53;
+    input[48] = -80;
+    input[49] = -4;
+    input[50] = -43;
+    input[51] = 34;
+    if (process(&input, 52, &mut output) != 52) { return 1; }
+    if (output[0] != 0) { return 1; }
+    if (output[1] != 0) { return 1; }
+    if (output[2] != 38) { return 1; }
+    if (output[3] != 0) { return 1; }
+    if (output[4] != 0) { return 1; }
+    if (output[5] != 0) { return 1; }
+    if (output[6] != 4) { return 1; }
+    if (output[7] != 47) { return 1; }
+    if (output[8] != 91) { return 1; }
+    if (output[9] != 0) { return 1; }
+    if (output[10] != 0) { return 1; }
+    if (output[11] != 0) { return 1; }
+    if (output[12] != 0) { return 1; }
+    if (output[13] != 0) { return 1; }
+    if (output[14] != 0) { return 1; }
+    if (output[15] != 0) { return 1; }
+    if (output[16] != 17) { return 1; }
+    if (output[17] != 3) { return 1; }
+    if (output[18] != 49) { return 1; }
+    if (output[19] != 0) { return 1; }
+    if (output[20] != 58) { return 1; }
+    if (output[21] != 0) { return 1; }
+    if (output[22] != 39) { return 1; }
+    if (output[23] != 35) { return 1; }
+    if (output[24] != 83) { return 1; }
+    if (output[25] != 75) { return 1; }
+    if (output[26] != 0) { return 1; }
+    if (output[27] != 19) { return 1; }
+    if (output[28] != 47) { return 1; }
+    if (output[29] != 0) { return 1; }
+    if (output[30] != 0) { return 1; }
+    if (output[31] != 64) { return 1; }
+    if (output[32] != 61) { return 1; }
+    if (output[33] != 35) { return 1; }
+    if (output[34] != 0) { return 1; }
+    if (output[35] != 0) { return 1; }
+    if (output[36] != 36) { return 1; }
+    if (output[37] != 37) { return 1; }
+    if (output[38] != 29) { return 1; }
+    if (output[39] != 33) { return 1; }
+    if (output[40] != 0) { return 1; }
+    if (output[41] != 58) { return 1; }
+    if (output[42] != 28) { return 1; }
+    if (output[43] != 0) { return 1; }
+    if (output[44] != 38) { return 1; }
+    if (output[45] != 37) { return 1; }
+    if (output[46] != 0) { return 1; }
+    if (output[47] != 53) { return 1; }
+    if (output[48] != 0) { return 1; }
+    if (output[49] != 0) { return 1; }
+    if (output[50] != 0) { return 1; }
+    if (output[51] != 34) { return 1; }
+    return 0;
+}

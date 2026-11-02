@@ -1,0 +1,142 @@
+fn process(input: &[Int; 256], count: Int,
+           output: &mut [Int; 512]) -> Int
+    [ requires count >= 0 && count <= 256; ] {
+    let outlen: Int = 0;
+    for (i in 0..count)
+        [ invariant count >= 0 && count <= 256;
+          invariant outlen >= 0 && outlen <= 2 * i; ] {
+        if (i < 0 || i >= 256) { return -1; }
+        let value: Int = input[i];
+        if (outlen < 0 || outlen >= 512) { return -1; }
+        output[outlen] = value;
+        outlen = outlen + 1;
+        if (outlen < 0 || outlen >= 512) { return -1; }
+        output[outlen] = value;
+        outlen = outlen + 1;
+    }
+    return outlen;
+}
+
+fn main() -> Int {
+    let input: [Int; 256] = [0; 256];
+    let output: [Int; 512] = [0; 512];
+    input[0] = -8;
+    input[1] = 42;
+    input[2] = -54;
+    input[3] = 23;
+    input[4] = -74;
+    input[5] = 97;
+    input[6] = -27;
+    input[7] = 3;
+    input[8] = -76;
+    input[9] = -6;
+    input[10] = -57;
+    input[11] = -56;
+    input[12] = -99;
+    input[13] = 1;
+    input[14] = 67;
+    input[15] = 64;
+    input[16] = -21;
+    input[17] = 76;
+    input[18] = -91;
+    input[19] = -71;
+    input[20] = 34;
+    input[21] = -95;
+    input[22] = 89;
+    input[23] = 86;
+    input[24] = 35;
+    input[25] = 48;
+    input[26] = 28;
+    input[27] = -14;
+    input[28] = -50;
+    input[29] = 100;
+    input[30] = 21;
+    input[31] = -30;
+    input[32] = 51;
+    input[33] = 6;
+    input[34] = -20;
+    input[35] = -39;
+    input[36] = 90;
+    input[37] = 91;
+    input[38] = -85;
+    if (process(&input, 39, &mut output) != 78) { return 1; }
+    if (output[0] != -8) { return 1; }
+    if (output[1] != -8) { return 1; }
+    if (output[2] != 42) { return 1; }
+    if (output[3] != 42) { return 1; }
+    if (output[4] != -54) { return 1; }
+    if (output[5] != -54) { return 1; }
+    if (output[6] != 23) { return 1; }
+    if (output[7] != 23) { return 1; }
+    if (output[8] != -74) { return 1; }
+    if (output[9] != -74) { return 1; }
+    if (output[10] != 97) { return 1; }
+    if (output[11] != 97) { return 1; }
+    if (output[12] != -27) { return 1; }
+    if (output[13] != -27) { return 1; }
+    if (output[14] != 3) { return 1; }
+    if (output[15] != 3) { return 1; }
+    if (output[16] != -76) { return 1; }
+    if (output[17] != -76) { return 1; }
+    if (output[18] != -6) { return 1; }
+    if (output[19] != -6) { return 1; }
+    if (output[20] != -57) { return 1; }
+    if (output[21] != -57) { return 1; }
+    if (output[22] != -56) { return 1; }
+    if (output[23] != -56) { return 1; }
+    if (output[24] != -99) { return 1; }
+    if (output[25] != -99) { return 1; }
+    if (output[26] != 1) { return 1; }
+    if (output[27] != 1) { return 1; }
+    if (output[28] != 67) { return 1; }
+    if (output[29] != 67) { return 1; }
+    if (output[30] != 64) { return 1; }
+    if (output[31] != 64) { return 1; }
+    if (output[32] != -21) { return 1; }
+    if (output[33] != -21) { return 1; }
+    if (output[34] != 76) { return 1; }
+    if (output[35] != 76) { return 1; }
+    if (output[36] != -91) { return 1; }
+    if (output[37] != -91) { return 1; }
+    if (output[38] != -71) { return 1; }
+    if (output[39] != -71) { return 1; }
+    if (output[40] != 34) { return 1; }
+    if (output[41] != 34) { return 1; }
+    if (output[42] != -95) { return 1; }
+    if (output[43] != -95) { return 1; }
+    if (output[44] != 89) { return 1; }
+    if (output[45] != 89) { return 1; }
+    if (output[46] != 86) { return 1; }
+    if (output[47] != 86) { return 1; }
+    if (output[48] != 35) { return 1; }
+    if (output[49] != 35) { return 1; }
+    if (output[50] != 48) { return 1; }
+    if (output[51] != 48) { return 1; }
+    if (output[52] != 28) { return 1; }
+    if (output[53] != 28) { return 1; }
+    if (output[54] != -14) { return 1; }
+    if (output[55] != -14) { return 1; }
+    if (output[56] != -50) { return 1; }
+    if (output[57] != -50) { return 1; }
+    if (output[58] != 100) { return 1; }
+    if (output[59] != 100) { return 1; }
+    if (output[60] != 21) { return 1; }
+    if (output[61] != 21) { return 1; }
+    if (output[62] != -30) { return 1; }
+    if (output[63] != -30) { return 1; }
+    if (output[64] != 51) { return 1; }
+    if (output[65] != 51) { return 1; }
+    if (output[66] != 6) { return 1; }
+    if (output[67] != 6) { return 1; }
+    if (output[68] != -20) { return 1; }
+    if (output[69] != -20) { return 1; }
+    if (output[70] != -39) { return 1; }
+    if (output[71] != -39) { return 1; }
+    if (output[72] != 90) { return 1; }
+    if (output[73] != 90) { return 1; }
+    if (output[74] != 91) { return 1; }
+    if (output[75] != 91) { return 1; }
+    if (output[76] != -85) { return 1; }
+    if (output[77] != -85) { return 1; }
+    return 0;
+}
