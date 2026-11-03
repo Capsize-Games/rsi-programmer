@@ -37,9 +37,9 @@ def local_sha256(path: str) -> str:
 
 
 def _release_with_asset(repo: str, asset: str) -> str:
-    """Tag of the newest release carrying one asset name."""
+    """Tag of the newest published release carrying one asset name."""
     command = ["gh", "api", "--paginate", "repos/%s/releases" % repo,
-               "--jq", ".[] | {tag_name, assets: [.assets[].name]}"]
+               "--jq", ".[] | {tag_name, draft, assets: [.assets[].name]}"]
     output = _github_read(command, "release list")
     try:
         rows = [json.loads(line) for line in output.splitlines()
@@ -49,12 +49,13 @@ def _release_with_asset(repo: str, asset: str) -> str:
     for row in rows:
         if (not isinstance(row, dict)
                 or not isinstance(row.get("tag_name"), str)
-                or not isinstance(row.get("assets"), list)):
+                or not isinstance(row.get("assets"), list)
+                or not isinstance(row.get("draft"), bool)):
             raise ValueError("release list returned invalid data")
         tag = row["tag_name"]
-        if asset in row["assets"]:
+        if not row["draft"] and asset in row["assets"]:
             return tag
-    raise ValueError("asset missing: " + asset)
+    raise ValueError("asset missing from published releases: " + asset)
 
 
 def _transient_release_error(detail: str) -> bool:
