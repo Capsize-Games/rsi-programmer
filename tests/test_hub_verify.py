@@ -50,7 +50,7 @@ class HubVerifyTests(unittest.TestCase):
             res = check(REPO, str(weights_dir),
                         "rsi-search-policy-w2.manifest.json")
         self.assertEqual(res["model"], "rsi-search-policy-w2")
-        self.assertEqual(res["github"], "PASS")
+        self.assertEqual(res["github"], "PASS", res["detail"])
         self.assertEqual(res["hub"], "FAIL")
         self.assertEqual(res["detail"], "not published")
 
@@ -60,7 +60,7 @@ class HubVerifyTests(unittest.TestCase):
         res = check(REPO, str(ROOT / "weights"),
                     "rsi-search-policy-w2.manifest.json")
         self.assertEqual(res["model"], "rsi-search-policy-w2")
-        self.assertEqual(res["github"], "PASS")
+        self.assertEqual(res["github"], "PASS", res["detail"])
         self.assertEqual(res["hub"], "FAIL")
         self.assertTrue(res["detail"])
 
