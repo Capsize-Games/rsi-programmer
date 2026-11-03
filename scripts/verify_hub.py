@@ -23,8 +23,8 @@ from typing import Any
 HUB_BASE = "https://hub.spikeforge.net"
 HUB_HANDLE = "reference"
 TIMEOUT_S = 60
-RELEASE_LIST_ATTEMPTS = 3
-RELEASE_LIST_BACKOFF_S = (1, 2)
+GITHUB_READ_ATTEMPTS = 3
+GITHUB_READ_BACKOFF_S = (1, 2)
 
 
 def local_sha256(path: str) -> str:
@@ -40,26 +40,9 @@ def _release_with_asset(repo: str, asset: str) -> str:
     """Tag of the newest release carrying one asset name."""
     command = ["gh", "api", "--paginate", "repos/%s/releases" % repo,
                "--jq", ".[] | {tag_name, assets: [.assets[].name]}"]
-    for attempt in range(RELEASE_LIST_ATTEMPTS):
-        try:
-            out = subprocess.run(command, capture_output=True, text=True,
-                                 timeout=TIMEOUT_S)
-        except subprocess.TimeoutExpired as exc:
-            detail = str(exc)
-            if attempt + 1 == RELEASE_LIST_ATTEMPTS:
-                raise ValueError("release list failed: " + detail) from exc
-            time.sleep(RELEASE_LIST_BACKOFF_S[attempt])
-            continue
-        if out.returncode == 0:
-            break
-        detail = out.stderr.strip() or out.stdout.strip() or (
-            "exit status %d" % out.returncode)
-        if (attempt + 1 == RELEASE_LIST_ATTEMPTS
-                or not _transient_release_error(detail)):
-            raise ValueError("release list failed: " + detail)
-        time.sleep(RELEASE_LIST_BACKOFF_S[attempt])
+    output = _github_read(command, "release list")
     try:
-        rows = [json.loads(line) for line in out.stdout.splitlines()
+        rows = [json.loads(line) for line in output.splitlines()
                 if line.strip()]
     except ValueError as exc:
         raise ValueError("release list returned invalid JSON") from exc
@@ -89,16 +72,41 @@ def _transient_release_error(detail: str) -> bool:
     ))
 
 
+def _github_read_once(command: list[str]) -> tuple[str | None, str, bool]:
+    """Read through gh once; classify only transport and server failures."""
+    try:
+        out = subprocess.run(command, capture_output=True, text=True,
+                             timeout=TIMEOUT_S)
+    except subprocess.TimeoutExpired:
+        return None, "request timed out", True
+    if out.returncode == 0:
+        return out.stdout, "", False
+    detail = out.stderr.strip() or out.stdout.strip() or (
+        "exit status %d" % out.returncode)
+    return None, detail, _transient_release_error(detail)
+
+
+def _github_read(command: list[str], operation: str) -> str:
+    """Bound retries for read-only release metadata and asset downloads."""
+    detail = "no attempts"
+    for attempt in range(GITHUB_READ_ATTEMPTS):
+        output, detail, transient = _github_read_once(command)
+        if output is not None:
+            return output
+        if not transient or attempt + 1 == GITHUB_READ_ATTEMPTS:
+            break
+        time.sleep(GITHUB_READ_BACKOFF_S[attempt])
+    raise ValueError(operation + " failed: " + detail)
+
+
 def github_asset_bytes(repo: str, asset: str,
                        workdir: str) -> bytes:
     """Download a release asset by name from any release."""
     tag = _release_with_asset(repo, asset)
-    out = subprocess.run(
+    _github_read(
         ["gh", "release", "download", tag, "--repo", repo,
          "--pattern", asset, "--dir", workdir, "--clobber"],
-        capture_output=True, text=True, timeout=TIMEOUT_S)
-    if out.returncode != 0:
-        raise ValueError("asset missing: " + asset)
+        "asset download")
     data = Path(workdir, asset).read_bytes()
     if not data:
         raise ValueError("asset empty: " + asset)

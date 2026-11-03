@@ -4,10 +4,12 @@ from __future__ import annotations
 
 import json
 import subprocess
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
-from scripts.verify_hub import _release_with_asset
+from scripts.verify_hub import _release_with_asset, github_asset_bytes
 
 
 class HubReleaseLookupTests(unittest.TestCase):
@@ -101,6 +103,60 @@ class HubReleaseLookupTests(unittest.TestCase):
                 _release_with_asset("owner/repo", "weights.pt")
         run.assert_called_once()
         sleep.assert_not_called()
+
+    def test_asset_download_retries_transport_failure(self) -> None:
+        failed = subprocess.CompletedProcess([], 1, "", "HTTP 503")
+        passed = subprocess.CompletedProcess([], 0, "", "")
+        with tempfile.TemporaryDirectory() as workdir:
+            Path(workdir, "weights.pt").write_bytes(b"opaque model bytes")
+            with patch("scripts.verify_hub._release_with_asset",
+                       return_value="weights-v1"), \
+                    patch("scripts.verify_hub.subprocess.run",
+                          side_effect=[failed, passed]) as run, \
+                    patch("scripts.verify_hub.time.sleep") as sleep:
+                data = github_asset_bytes("o/r", "weights.pt", workdir)
+        self.assertEqual(data, b"opaque model bytes")
+        self.assertEqual(run.call_count, 2)
+        sleep.assert_called_once_with(1)
+
+    def test_asset_timeout_is_bounded_and_explained(self) -> None:
+        timeout = subprocess.TimeoutExpired("gh", 60)
+        with patch("scripts.verify_hub._release_with_asset",
+                   return_value="weights-v1"), \
+                patch("scripts.verify_hub.subprocess.run",
+                      side_effect=timeout) as run, \
+                patch("scripts.verify_hub.time.sleep") as sleep:
+            with self.assertRaisesRegex(ValueError,
+                                        "asset download failed: "
+                                        "request timed out"):
+                github_asset_bytes("o/r", "weights.pt", "/unused")
+        self.assertEqual(run.call_count, 3)
+        self.assertEqual([c.args[0] for c in sleep.call_args_list], [1, 2])
+
+    def test_asset_permission_and_missing_errors_do_not_retry(self) -> None:
+        for error in ("HTTP 401", "HTTP 403", "HTTP 404"):
+            with self.subTest(error=error), \
+                    patch("scripts.verify_hub._release_with_asset",
+                          return_value="weights-v1"), \
+                    patch("scripts.verify_hub.subprocess.run",
+                          return_value=subprocess.CompletedProcess(
+                              [], 1, "", error)) as run, \
+                    patch("scripts.verify_hub.time.sleep") as sleep:
+                with self.assertRaisesRegex(ValueError, error):
+                    github_asset_bytes("o/r", "weights.pt", "/unused")
+                run.assert_called_once()
+                sleep.assert_not_called()
+
+    def test_successful_download_with_empty_file_still_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as workdir:
+            Path(workdir, "weights.pt").write_bytes(b"")
+            with patch("scripts.verify_hub._release_with_asset",
+                       return_value="weights-v1"), \
+                    patch("scripts.verify_hub.subprocess.run",
+                          return_value=subprocess.CompletedProcess(
+                              [], 0, "", "")):
+                with self.assertRaisesRegex(ValueError, "asset empty"):
+                    github_asset_bytes("o/r", "weights.pt", workdir)
 
 
 if __name__ == "__main__":
