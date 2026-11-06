@@ -239,6 +239,20 @@ The first harness failure and all failed constructions remain recorded.
 The evaluated bank requires replacement for any subsequent final claim
 informed by these outcomes. Do not continue parameter sweeps as progress.
 
+Execution-feedback checkpoint (2026-11-06): the sealed hard-bank run
+(`artifacts/construction-hard-final-20261106/report.json`) fails both
+prongs of its frozen kill criterion. Feedback (expert iteration on
+checker-scored rollouts) averages 18.7/300 solves vs imitation 28.7,
+untrained 0 and streaming 63.3, and loses the equal-CPU comparison to
+streaming by ~47x with fit and rollout generation charged. Rollout
+acceptance was ~1 in 1,200 per round, so the feedback loop reached a
+fixed point after one round; seed 2 stopped on zero acceptance. See
+`tracks/programmer/feedback-construction-results.md`. Per the frozen
+criterion the ANN-construction hypothesis at accessible scale is closed
+and is not tuned further. The failed sampled-bank calibration, the
+level-8 enumeration-prefix caveat and all per-seed costs are retained
+in the result doc. The 300 eval tasks are now development data.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,

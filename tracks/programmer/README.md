@@ -13,6 +13,13 @@ classical vs 27-30 trained and 27-30 untrained, so the neural arm
 leaves that route under its kill criterion. CPU-matched ranking
 establishes no advantage over streaming
 ([result](../../docs/benchmark-cpu-matched-result.md)).
+The sealed [execution-feedback result](feedback-construction-results.md)
+then tested checker-scored rollouts (expert iteration) against teacher
+imitation on a non-saturating bank: feedback 18.7 mean solves vs
+imitation 28.7, untrained 0 and streaming 63.3 of 300, and a ~47x
+equal-CPU deficit to streaming. Rollout acceptance was ~1 in 1,200, so
+the feedback signal never engaged; the frozen kill criterion closes the
+ANN-construction hypothesis at accessible scale.
 The [frozen transfer result](frozen-transfer-results.md) passes
 11/18 unseen functions in both languages, alongside 11/18 for untrained
 and 14/18 for classical search. Its full measured controller CPU costs
