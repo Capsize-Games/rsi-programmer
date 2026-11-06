@@ -25,11 +25,12 @@ setup SPIKEFORGE_DIR="$HOME/Projects/spikeforge/spikeforge":
 test:
     .venv/bin/python -m unittest discover -s tests -t . -v
 
-# Lanes (measured code-v34 era, Ryzen 5800X, CPU-only torch):
-# test-fast ~5 min (147 tests); test-slow ~2 h 11 min (60
-# tests: hub/author/baseline/beam/evolve/loop/operands/
-# scale/transfer); test-retry ~61 min (distractor solved,
-# tried=830954). Full `just test` ~3.7 h wall. One builder
+# Lanes (timings code-v34 era, Ryzen 5800X, CPU-only torch; counts
+# rechecked 2026-11-05 as AST test definitions in each recipe):
+# test-fast ~5 min (120 modules, 829 defs); test-slow ~2 h 11 min (9
+# modules, 65 defs: hub/author/baseline/beam/evolve/loop/operands/
+# scale/transfer); test-retry ~61 min (1 module, 3 defs; distractor
+# solved, tried=830954). Full `just test` ~3.7 h wall. One builder
 # at a time: never run lanes in parallel and never train in
 # the background during a build (freeze lesson). A red lane
 # stays red and blocking; never split a lane to pass.
@@ -77,7 +78,7 @@ test-fast:
         tests.test_benchmark_v2_runner_training \
         tests.test_benchmark_v2_runner_acceptance \
         tests.test_benchmark_v2_runner_provenance \
-        tests.test_hub_release_lookup tests.test_rich_amendments tests.test_scale_amendments tests.test_measurement_provenance tests.test_search_amendments tests.test_objective_amendments tests.test_supervision_amendments tests.test_generator_amendments tests.test_review_search tests.test_review_search_edges tests.test_review_acceptance tests.test_review_integrity tests.test_review_lattice tests.test_review_protocol tests.test_rsi_actions tests.test_rsi_sandbox tests.test_rsi_headless tests.test_proxy tests.test_rsi_hard tests.test_typed_dag_programming_probe tests.test_rsi_decoder tests.test_modular tests.test_rsi_tasks tests.test_edits tests.test_self_gate tests.test_autonomy tests.test_rsi_ood tests.test_gains tests.test_rsi_words tests.test_rsi_lattice tests.test_rsi_lattice_train tests.test_rsi_lattice_author tests.test_rsi_bytecode tests.test_rsi_selectivity tests.test_rsi_proposer tests.test_track_manifest tests.test_construction_state tests.test_construction_corpus tests.test_construction_policy tests.test_target_source tests.test_utility_program tests.test_utility_suite tests.test_statement_programs tests.test_statement_repair tests.test_statement_fragments tests.test_statement_evaluation tests.test_stateful_tasks tests.test_statement_bodies tests.test_statement_branches tests.test_frozen_branch_transfer tests.test_array_programs tests.test_array_execution_features tests.test_edit_value_ranker tests.test_edit_value_evaluation tests.test_array_diagnosis tests.test_campaign_supervisor tests.test_campaign_worker -v
+        tests.test_hub_release_lookup tests.test_rich_amendments tests.test_scale_amendments tests.test_measurement_provenance tests.test_search_amendments tests.test_objective_amendments tests.test_supervision_amendments tests.test_generator_amendments tests.test_review_search tests.test_review_search_edges tests.test_review_acceptance tests.test_review_integrity tests.test_review_lattice tests.test_review_protocol tests.test_rsi_actions tests.test_rsi_sandbox tests.test_rsi_headless tests.test_proxy tests.test_rsi_hard tests.test_typed_dag_programming_probe tests.test_rsi_decoder tests.test_modular tests.test_rsi_tasks tests.test_edits tests.test_self_gate tests.test_autonomy tests.test_rsi_ood tests.test_gains tests.test_rsi_words tests.test_rsi_lattice tests.test_rsi_lattice_train tests.test_rsi_lattice_author tests.test_rsi_bytecode tests.test_rsi_selectivity tests.test_rsi_proposer tests.test_track_manifest tests.test_construction_state tests.test_construction_corpus tests.test_construction_policy tests.test_target_source tests.test_utility_program tests.test_utility_suite tests.test_statement_programs tests.test_statement_repair tests.test_statement_fragments tests.test_statement_evaluation tests.test_stateful_tasks tests.test_statement_bodies tests.test_statement_branches tests.test_frozen_branch_transfer tests.test_array_programs tests.test_array_execution_features tests.test_edit_value_ranker tests.test_edit_value_evaluation tests.test_array_diagnosis tests.test_campaign_supervisor tests.test_campaign_worker tests.test_construction_final tests.test_benchmark_cpu_matched tests.test_frozen_branch_transfer_v2 tests.test_cost_ledger -v
 
 test-slow:
     .venv/bin/python -m unittest tests.test_hub_verify tests.test_rsi_author tests.test_rsi_baseline tests.test_rsi_beam tests.test_rsi_evolve tests.test_rsi_loop tests.test_rsi_operands tests.test_rsi_scale tests.test_rsi_transfer -v
@@ -85,9 +86,10 @@ test-slow:
 test-retry:
     .venv/bin/python -m unittest tests.test_rsi_retry -v
 
-# Parallel lanes for local iteration only (measured: 8268s
-# wall vs 13530s sequential = 1.64x; fast 147, slow 60,
-# retry 3 all green, memory under 70%). Lane granularity
+# Parallel lanes for local iteration only (timings code-v34 era: 8268s
+# wall vs 13530s sequential = 1.64x; counts rechecked 2026-11-05 as
+# fast 120 modules / 829 defs, slow 9 / 65, retry 1 / 3; that run all
+# green, memory under 70%). Lane granularity
 # cannot reach 2x since slow dominates. Release gates and
 # CI stay sequential for deterministic logs. One builder at
 # a time still applies: never train in the background

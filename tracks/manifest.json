@@ -46,6 +46,7 @@
           "tests.test_benchmark_v2_runner_training",
           "tests.test_benchmark_v2_runner_acceptance",
           "tests.test_benchmark_v2_runner_provenance",
+          "tests.test_benchmark_cpu_matched",
           "tests.test_hub_release_lookup",
           "tests.test_rich_amendments",
           "tests.test_scale_amendments",
@@ -85,6 +86,7 @@
           "tests.test_construction_state",
           "tests.test_construction_corpus",
           "tests.test_construction_policy",
+          "tests.test_construction_final",
           "tests.test_target_source",
           "tests.test_utility_program",
           "tests.test_utility_suite",
@@ -96,13 +98,15 @@
           "tests.test_statement_bodies",
           "tests.test_statement_branches",
           "tests.test_frozen_branch_transfer",
+          "tests.test_frozen_branch_transfer_v2",
           "tests.test_array_programs",
           "tests.test_array_execution_features",
           "tests.test_edit_value_ranker",
           "tests.test_edit_value_evaluation",
           "tests.test_array_diagnosis",
           "tests.test_campaign_supervisor",
-          "tests.test_campaign_worker"
+          "tests.test_campaign_worker",
+          "tests.test_cost_ledger"
         ],
         "slow": [
           "tests.test_hub_verify",
