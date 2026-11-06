@@ -1,0 +1,89 @@
+{
+  "protocol_id": "construction-hard-v1",
+  "status": "protocol_frozen_before_calibration",
+  "corpus_path": "fixtures/construction_hard_corpus_v1.json",
+  "corpus_sha256": null,
+  "question": "Can a learned sequential controller construct correct new arithmetic functions on a bank deep enough that streaming enumeration does not saturate within budget, and does any gain justify its complete cost?",
+  "grammar": {
+    "operators": [
+      "add",
+      "sub",
+      "mul"
+    ],
+    "terminals": [
+      "x",
+      "y"
+    ],
+    "max_tree_ops": 7,
+    "max_graph_nodes": 7,
+    "explicit_stop": true,
+    "constants": false,
+    "branching": false,
+    "loops": false
+  },
+  "strata": [
+    5,
+    6,
+    7
+  ],
+  "quotas": {
+    "train": 1200,
+    "dev": 200,
+    "eval": 300
+  },
+  "scope_note": "Stratum records the sampled tree-op count. The v1 catalog minimality claim does not scale to random-tree sampling and is not claimed for this bank.",
+  "data": {
+    "train_functions": 1200,
+    "development_functions": 200,
+    "final_functions": 300,
+    "observed_rows_per_task": 36,
+    "held_rows_per_task": 24,
+    "function_disjoint": true,
+    "observed_grid": [
+      -3,
+      2
+    ],
+    "held_grid": [
+      -6,
+      6
+    ],
+    "final_split_access": "Do not run model inference on final tasks until the recipe, runtime and development choices have a separate frozen receipt."
+  },
+  "evaluation": {
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "per_task_cpu_seconds": null,
+    "frozen_at": null,
+    "beam_width": 8,
+    "operator_top_k": 2,
+    "held_feedback": false,
+    "oracle_retry": false,
+    "acceptance": [
+      "typed_grammar_and_budget",
+      "observed_rows",
+      "held_rows",
+      "exact_integer_polynomial"
+    ],
+    "failure_policy": "Retain failures, premature stops, budget exhaustion and invalid actions. Stop search on first explicit neural STOP whose graph meets observed rows; only then check held rows and identity.",
+    "bound": 7,
+    "imitation_epochs": 100,
+    "feedback": {
+      "rounds": 4,
+      "epochs_per_round": 30,
+      "rollout_budget": 256
+    }
+  },
+  "decision_rules": {
+    "kill_criterion": "if the feedback-trained arm does not beat **both** untrained and imitation arms on solves, **or** does not beat streaming at equal total CPU (fit and rollout generation charged, amortized over the actual evaluation volume), the ANN-construction hypothesis at accessible scale is closed \u2014 not tuned further."
+  },
+  "calibration_note": "per_task_cpu_seconds and frozen_at are set at calibration on a train-pool sample only, before any arm is trained for the decisive run. Arm knobs above may be adjusted ONLY at calibration freeze, before training.",
+  "source_provenance": {
+    "generator_sha256": {
+      "rsi_programmer/construction_hard_corpus.py": "b8f3a3e8a4b0ffb3ce59f6415632044ccc1aa5930cafb6407a8bbc01e5cfbbc5",
+      "scripts/generate_construction_hard_corpus.py": "feec691a0621c7ec063bf18cce8140b618b19ea198c6d847ad95445e65094927"
+    }
+  }
+}
