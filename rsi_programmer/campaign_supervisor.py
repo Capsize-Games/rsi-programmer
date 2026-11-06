@@ -179,7 +179,8 @@ def _run_trial(directory: Path, config: dict[str, Any], spec: dict[str, Any],
         _append_event(directory, "trial_start", trial=str(attempt_dir),
                       attempt=attempt, available_gib=memory)
         with log_path.open("w", encoding="utf-8") as log:
-            lock_path = Path("/tmp/rsi-programmer-builder.lock")
+            lock_path = Path(os.environ.get(
+                "RSI_BUILDER_LOCK", "/tmp/rsi-programmer-builder.lock"))
             with lock_path.open("a") as build_lock:
                 lock_deadline = time.monotonic() + config.get(
                     "builder_lock_wait_seconds", 300)

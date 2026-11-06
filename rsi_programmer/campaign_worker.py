@@ -380,7 +380,8 @@ def run_campaign(spec: dict[str, Any], output: Path, *, audit: bool = False,
     if os.environ.get("RSI_CAMPAIGN_LOCK_HELD") == "1":
         build_choices()
     else:
-        lock_path = Path("/tmp/rsi-programmer-builder.lock")
+        lock_path = Path(os.environ.get(
+            "RSI_BUILDER_LOCK", "/tmp/rsi-programmer-builder.lock"))
         lock_path.parent.mkdir(parents=True, exist_ok=True)
         with lock_path.open("a+") as lock:
             fcntl.flock(lock.fileno(), fcntl.LOCK_EX)

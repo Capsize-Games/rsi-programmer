@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -14,6 +15,17 @@ from rsi_programmer import campaign_supervisor as supervisor
 
 
 class CampaignSupervisorTests(unittest.TestCase):
+    def setUp(self) -> None:
+        # Point the builder lock at a per-test file: the real lock is
+        # held by lock-holding harnesses (scripts.tracks) for a whole
+        # test lane, and the supervisor would otherwise poll it until
+        # its wait deadline instead of running the fake worker.
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        lock = Path(temporary.name) / "builder.lock"
+        env = patch.dict(os.environ, {"RSI_BUILDER_LOCK": str(lock)})
+        env.start()
+        self.addCleanup(env.stop)
     def _config(self, **overrides: object) -> dict[str, object]:
         config: dict[str, object] = {
             "worker": ["fake-worker"],

@@ -1,6 +1,7 @@
 """Fast mocked tests for campaign worker boundaries and audit claims."""
 from __future__ import annotations
 
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -10,6 +11,14 @@ from rsi_programmer import campaign_worker as worker
 
 
 class CampaignWorkerTests(unittest.TestCase):
+    def setUp(self) -> None:
+        # The supervisor runs the worker with the builder lock already
+        # held and says so via this variable. Without it the worker
+        # blocking-flocks that lock itself, which deadlocks when a
+        # lock-holding harness (scripts.tracks) runs these tests.
+        env = patch.dict(os.environ, {"RSI_CAMPAIGN_LOCK_HELD": "1"})
+        env.start()
+        self.addCleanup(env.stop)
     def _recipe(self, seed: int) -> dict[str, object]:
         return {"execution_context": False, "seed": seed, "width": 2,
                 "seconds": 0.1, "token_choices": 2}
