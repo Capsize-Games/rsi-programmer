@@ -1,0 +1,130 @@
+{
+  "arms": [
+    "streaming",
+    "heuristic",
+    "seeded_random",
+    "untrained_mlp",
+    "trained_mlp",
+    "trained_recurrent"
+  ],
+  "arm_definitions": {
+    "heuristic": "2*(left_hit+right_hit)+0.5*(left_inside+right_inside)-0.05*(left_size+right_size); fixed, zero fit CPU.",
+    "seeded_random": "BLAKE2b seeded candidate order, reseeded per task from base seed and task ID; fixed, zero fit CPU.",
+    "streaming": "policy=None probe order with lazy descriptors; no ranking features, zero fit CPU.",
+    "trained_mlp": "12-to-16 ReLU-to-1, 225 parameters, same capped groups and margin loss as v2, Adam lr=0.05, 40 epochs; fit CPU charged.",
+    "trained_recurrent": "12-to-16 input and 16-to-16 tanh recurrence, six ticks from zero per drive, averaged readout; same groups/loss/optimizer/epochs; fit CPU charged.",
+    "untrained_mlp": "Same 12-to-16 ReLU-to-1 architecture as trained_mlp with its initialization seed and no fitting; zero fit CPU."
+  },
+  "claim_scope": "Only this frozen corpus, arms, budgets and recorded environment. A pass supports further investigation of learned ranking, not unrestricted generalization, SNN claims, or energy claims.",
+  "corpus": {
+    "counts": {
+      "eval_tasks": 48,
+      "tasks_per_eval_family": 16,
+      "train_per_family": 8,
+      "train_tasks": 24
+    },
+    "derivation": "Same enumerator and selection code path as benchmark-pre-eval-v2 (rsi_programmer/benchmark_v2_corpus.py) with fresh family seeds {repeated_subtree: 83071, balanced: 83072, skewed: 83073}, split seed 83074 and input seed 83075. The 102 exact integer-polynomial functions already banked in v1/v2 were removed from eligibility before selection and recorded as prior_bank_functions; selection quotas and rules are otherwise unchanged.",
+    "difficulty_floor": "Require degree>=2 and (degree>=5 or degree==4 and coefficient L1>1 or degree==3 and L1>2 or degree==2 and L1>4).",
+    "disjoint_from": [
+      {
+        "path": "fixtures/benchmark_pre_eval_corpus_v1.json",
+        "sha256": "81dba9b0d683e725e4598dd19c16da55c1b3d8b8c73000df2aba54df8df4b5c7"
+      },
+      {
+        "path": "fixtures/benchmark_pre_eval_corpus_v2.json",
+        "sha256": "a8fd6add90b34da732da8dc96f2c0fafcabc2f017a17cdef4b31303eec4ba921"
+      }
+    ],
+    "dsl": {
+      "max_tree_ops": 5,
+      "operators": [
+        "add",
+        "sub",
+        "mul"
+      ],
+      "terminals": [
+        "x",
+        "y"
+      ],
+      "witness_tree_ops": [
+        4,
+        5
+      ]
+    },
+    "families": [
+      "balanced",
+      "repeated_subtree",
+      "skewed"
+    ],
+    "generator_source": {
+      "rsi_programmer/benchmark_v2_corpus.py": "13c49ca629ce51e766ffdd3615a925a601ede4c9cff9a713710d159698f6526f",
+      "rsi_programmer/cpu_budget.py": "e0895b002d548d4ff9be595d758625b7d0bbae59a2977ac6386f3a68b6f6a97b",
+      "rsi_programmer/cpu_matched_verdict.py": "c6ef9d4bf17f2601934a5eb2cd30c6f09af3f9d467fc54beebad615e5decba7f",
+      "scripts/generate_benchmark_cpu_matched_corpus.py": "ad60369ee16271c28697b803c1fa674e36bdbfeac6baacc65f5ef141aebcaa67"
+    },
+    "path": "fixtures/benchmark_cpu_matched_corpus_v1.json",
+    "rows_per_task": {
+      "held": 12,
+      "observed": 12
+    },
+    "sha256": "494e5d04bee656afb090a06245a2cc45c1a048dddfa21bdeac2f1c0738a8fd6d",
+    "split_guarantees": [
+      "72 globally distinct canonical integer polynomial functions across train and eval",
+      "zero exact function overlap with v1 and v2 (runner re-verifies at load)",
+      "unique witness syntax and task IDs",
+      "globally disjoint observed and held coordinate pairs",
+      "selection uses syntax, exact algebra, fixed seeds and quotas only; no solver, ranker or runtime outcome filtering"
+    ]
+  },
+  "cost": {
+    "amortization_note": "Fit CPU is charged once per seed and amortized as fit_cpu/48 added to each of that seed's 48 eval cells. The declared volume is the actual evaluation volume (48 tasks x 3 seeds = 144 cells), not a hypothetical deployment volume. Both unamortized totals and amortized charged totals are reported.",
+    "amortization_volume_per_seed": 48,
+    "cell_budget_cpu_seconds": 10.0,
+    "cell_budget_note": "Identical per arm per cell, enforced by a process CPU timer (ITIMER_VIRTUAL); over-budget cells are recorded as cpu-budget-exceeded failures, never retried. 10.0 s is ~17x the slowest pre-freeze probe cell (0.57 s, median 0.12 s), so it binds only pathological cells.",
+    "fit_accounting": "CostClock CPU seconds around fit_with_work for each learned arm and seed; 0.0 for fixed arms."
+  },
+  "decision_rule": {
+    "equal_cpu_method": "Per seed, order cells in frozen task order, accumulate charged CPU (search CPU plus amortized fit share), and truncate the higher-total arm at the lower arm's total; compare accepted fractions. Average over seeds.",
+    "learned_arms": [
+      "trained_mlp",
+      "trained_recurrent"
+    ],
+    "slow_win_rule": "A learned arm that solves more only with more than 2x streaming's total charged CPU also closes the line.",
+    "verbatim_kill": "at equal total CPU the learned ranker solves no more than streaming/heuristic, or its solve advantage needs more than 2x streaming's time => close line"
+  },
+  "evaluation": {
+    "acceptance": "Exactly one search attempt per cell using only twelve observed rows, common bound five, oracle=None. Independently validate any returned graph on observed and held rows, then canonicalize the returned graph polynomial and require equality to the frozen expected polynomial.",
+    "budget_unit": "cpu_seconds (identical per arm per cell); candidate_backstop is a non-binding safety net only",
+    "candidate_backstop": 131072,
+    "run_matrix": "3 seeds x 48 tasks x 6 arms: 864 rows, including every failure and budget-exceeded censoring event",
+    "task_split": "eval",
+    "tree_bound": 5
+  },
+  "feature_encoding": {
+    "definition": "Operator one-hot (3); left/right/root tree sizes divided by common bound (3); operand hit and inside fractions against observed targets (4); original generation ordinal divided by full layer width and its complement (2). No candidate output, exact-match flag, witness, canonical function, held row or evaluation-task feature participates in fitting.",
+    "dimensions": 12,
+    "name": "layer-ordinal-v1"
+  },
+  "protocol_id": "benchmark-cpu-matched-v1",
+  "provenance": {
+    "freeze": "Protocol, corpus and generator hashes pinned here and in rsi_programmer/cpu_matched_frozen.py before any full-matrix measurement. The runner rejects any byte drift.",
+    "snn_exclusion": "No SNN arm by owner direction (Drop: SNN-specific advantage claims everywhere). Untrained_mlp is the untrained control."
+  },
+  "schema_version": 1,
+  "status": "frozen-before-measurement",
+  "training": {
+    "epochs": 40,
+    "learning_rate": 0.05,
+    "loss": "Sum of per-group mean softplus(1 - (positive score - negative score)); one optimizer update per epoch for eligible groups.",
+    "negative_cap": 256,
+    "optimizer": "Adam",
+    "positive_cap": 16,
+    "sampling_seed": 83078,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "task_split": "train"
+  }
+}
