@@ -1,4 +1,4 @@
-"""Create the hard construction bank at exact sampled op counts."""
+"""Create the hard construction bank at minimal tree-op counts."""
 from __future__ import annotations
 
 import argparse
@@ -7,7 +7,6 @@ import json
 from pathlib import Path
 
 from rsi_programmer.construction_hard_corpus import (
-    MAX_ATTEMPTS,
     QUOTAS,
     SEED,
     V1_CORPUS,
@@ -24,7 +23,6 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--dev", type=int, default=QUOTAS["dev"])
     parser.add_argument("--eval", type=int, default=QUOTAS["eval"])
     parser.add_argument("--v1-corpus", type=Path, default=V1_CORPUS)
-    parser.add_argument("--max-attempts", type=int, default=MAX_ATTEMPTS)
     return parser
 
 
@@ -36,8 +34,7 @@ def main() -> int:
         parser.error(f"refusing to overwrite existing {args.output}")
     quotas = {"train": args.train, "dev": args.dev, "eval": args.eval}
     corpus = generate_corpus(seed=args.seed, quotas=quotas,
-                             v1_path=args.v1_corpus,
-                             max_attempts=args.max_attempts)
+                             v1_path=args.v1_corpus)
     data = (json.dumps(corpus, sort_keys=True, separators=(",", ":"))
             + "\n").encode()
     with args.output.open("xb") as stream:

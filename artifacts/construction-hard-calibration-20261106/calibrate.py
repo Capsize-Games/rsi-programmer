@@ -29,7 +29,7 @@ from rsi_programmer.pre_eval import pre_evaluation_search  # noqa: E402
 
 CAP = 10.0
 PER_STRATUM = 40
-BOUND = 7
+BOUND = 8
 BACKSTOP = 2_000_000
 
 
@@ -75,7 +75,7 @@ def measure(tasks: list[dict[str, Any]], arm: str,
                     budget=BACKSTOP, width=8, seed=0)["graph"]
         graph, cpu, capped = timed(search)
         out.append({"id": task["id"],
-                    "stratum": task["generator"]["sampled_ops"],
+                    "stratum": task["generator"]["minimal_tree_ops"],
                     "solved": accepted(task, graph),
                     "cpu_seconds": cpu, "capped": capped})
     return out
@@ -84,7 +84,7 @@ def measure(tasks: list[dict[str, Any]], arm: str,
 def fractions(rows: list[dict[str, Any]],
               budgets: list[float]) -> dict[str, Any]:
     result: dict[str, Any] = {}
-    for stratum in (5, 6, 7, "all"):
+    for stratum in (6, 7, 8, "all"):
         part = [r for r in rows
                 if stratum == "all" or r["stratum"] == stratum]
         result[str(stratum)] = {
@@ -99,10 +99,10 @@ def main() -> int:
         (ROOT / "fixtures/construction_hard_corpus_v1.json").read_text())
     train = corpus["splits"]["train"]
     sample: list[dict[str, Any]] = []
-    for stratum in (5, 6, 7):
+    for stratum in (6, 7, 8):
         part = sorted(
             (t for t in train
-             if t["generator"]["sampled_ops"] == stratum),
+             if t["generator"]["minimal_tree_ops"] == stratum),
             key=lambda t: t["id"])[:PER_STRATUM]
         sample.extend(part)
     budgets = [0.5, 1.0, 2.0, 5.0]

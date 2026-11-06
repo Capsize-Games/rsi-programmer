@@ -106,7 +106,7 @@ def _checked_row(task: dict[str, Any], arm: str,
     return {"id": task["id"], "accepted": check["accepted"],
             "cpu_seconds": time.process_time() - started,
             "executions": out["executions"], "error": out["error"],
-            "stratum": task["generator"].get("sampled_ops")}
+            "stratum": task["generator"].get("minimal_tree_ops")}
 
 
 def evaluate_arm(tasks: list[dict[str, Any]], arm: str,

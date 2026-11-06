@@ -14,7 +14,7 @@
       "x",
       "y"
     ],
-    "max_tree_ops": 7,
+    "max_tree_ops": 8,
     "max_graph_nodes": 7,
     "explicit_stop": true,
     "constants": false,
@@ -22,16 +22,16 @@
     "loops": false
   },
   "strata": [
-    5,
     6,
-    7
+    7,
+    8
   ],
   "quotas": {
     "train": 1200,
     "dev": 200,
     "eval": 300
   },
-  "scope_note": "Stratum records the sampled tree-op count. The v1 catalog minimality claim does not scale to random-tree sampling and is not claimed for this bank.",
+  "scope_note": "Stratum is the exact minimal tree-op count: each task polynomial first appears at its stratum level in the generator-side catalog enumeration. Level-8 collection early-stops after a recorded multiple of its quota; minimality holds because the seen set is complete below level 8. Any shortfall is recorded, never silently rebalanced.",
   "data": {
     "train_functions": 1200,
     "development_functions": 200,
@@ -68,7 +68,7 @@
       "exact_integer_polynomial"
     ],
     "failure_policy": "Retain failures, premature stops, budget exhaustion and invalid actions. Stop search on first explicit neural STOP whose graph meets observed rows; only then check held rows and identity.",
-    "bound": 7,
+    "bound": 8,
     "imitation_epochs": 100,
     "feedback": {
       "rounds": 4,
@@ -82,8 +82,8 @@
   "calibration_note": "per_task_cpu_seconds and frozen_at are set at calibration on a train-pool sample only, before any arm is trained for the decisive run. Arm knobs above may be adjusted ONLY at calibration freeze, before training.",
   "source_provenance": {
     "generator_sha256": {
-      "rsi_programmer/construction_hard_corpus.py": "198d7290713e9774115da0ace6eacb248414dcc4134a1693c89cf0d4cc37a139",
-      "scripts/generate_construction_hard_corpus.py": "feec691a0621c7ec063bf18cce8140b618b19ea198c6d847ad95445e65094927"
+      "rsi_programmer/construction_hard_corpus.py": "caf3231dc6485b8f530b3317f5cb98546da8742a3e5c35da5e03aa449e386685",
+      "scripts/generate_construction_hard_corpus.py": "bc5fd03c8cca29298c25a31ed2ebd9b07c44538b830bbe712c952c4b6da6192f"
     }
   }
 }

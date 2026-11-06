@@ -1,4 +1,4 @@
-"""Random-tree hard bank: schema, exclusion, determinism, refusal."""
+"""Minimal-size hard bank: minimality, exclusion, refusal."""
 from __future__ import annotations
 
 import json
@@ -9,9 +9,20 @@ import unittest
 from pathlib import Path
 from typing import Any
 
+from rsi_programmer.benchmark_v2_corpus import (
+    OPERATORS,
+    Node,
+    Polynomial,
+    apply,
+    leaf,
+    polynomial,
+)
 from rsi_programmer.construction_check import check_graph
 from rsi_programmer.construction_hard_corpus import (
+    BOUND,
+    EARLY_STOP_MULTIPLE,
     STRATA,
+    catalog_levels,
     generate_corpus,
     load_v1_identities,
 )
@@ -28,6 +39,7 @@ KILL = ("if the feedback-trained arm does not beat **both** "
 
 
 def _identities(corpus: dict[str, Any]) -> set[Any]:
+    """Collect every task polynomial identity in a corpus."""
     found: set[Any] = set()
     for tasks in corpus["splits"].values():
         for task in tasks:
@@ -36,18 +48,46 @@ def _identities(corpus: dict[str, Any]) -> set[Any]:
     return found
 
 
+def _grow_reference(levels: dict[int, list[Node]],
+                    seen: set[Polynomial], size: int) -> list[Node]:
+    """Enumerate one reference level without the module builder."""
+    current: list[Node] = []
+    for left_size in range(size):
+        for left in levels[left_size]:
+            for right in levels[size - left_size - 1]:
+                for op in OPERATORS:
+                    node = apply(op, left, right)
+                    identity = polynomial(node)
+                    if identity not in seen:
+                        seen.add(identity)
+                        current.append(node)
+    return current
+
+
+def _reference_below() -> dict[int, set[Polynomial]]:
+    """Recompute level 0..5 identities independently of the module."""
+    levels: dict[int, list[Node]] = {0: [leaf("x"), leaf("y")]}
+    seen: set[Polynomial] = {polynomial(node) for node in levels[0]}
+    below = {0: set(seen)}
+    for size in range(1, 6):
+        levels[size] = _grow_reference(levels, seen, size)
+        below[size] = {polynomial(node) for node in levels[size]}
+    return below
+
+
 class ConstructionHardCorpusTests(unittest.TestCase):
-    """Validate the strata-even random-tree bank before any fitting."""
+    """Validate the minimal-size bank before any fitting."""
 
     @classmethod
     def setUpClass(cls) -> None:
         cls.v1 = load_v1_identities(V1)
+        cls.levels, _ = catalog_levels()
+        cls.reference = _reference_below()
         cls.corpus: dict[str, Any] = generate_corpus(
             seed=7, quotas=dict(TINY), v1_path=V1)
 
     def test_schema_and_strata_even_counts(self) -> None:
-        self.assertEqual(set(self.corpus["splits"]),
-                         {"train", "dev", "eval"})
+        self.assertEqual(set(self.corpus["splits"]), {"train", "dev", "eval"})
         self.assertEqual(self.corpus["seed"], 7)
         for name, total in TINY.items():
             tasks = self.corpus["splits"][name]
@@ -55,8 +95,8 @@ class ConstructionHardCorpusTests(unittest.TestCase):
             counts = {ops: 0 for ops in STRATA}
             for task in tasks:
                 self.assertEqual(task["split"], name)
-                self.assertEqual(task["max_tree_ops"], 7)
-                counts[task["generator"]["sampled_ops"]] += 1
+                self.assertEqual(task["max_tree_ops"], BOUND)
+                counts[task["generator"]["minimal_tree_ops"]] += 1
             for ops in STRATA:
                 self.assertEqual(counts[ops], total // 3)
 
@@ -69,7 +109,8 @@ class ConstructionHardCorpusTests(unittest.TestCase):
                 held = {(x, y) for x, y, _ in task["held"]}
                 self.assertFalse(seen & held)
                 generator = task["generator"]
-                self.assertIn(generator["sampled_ops"], set(STRATA))
+                self.assertIn(generator["minimal_tree_ops"], set(STRATA))
+                self.assertNotIn("sampled_ops", generator)
                 self.assertIn("program", generator)
                 self.assertIn("polynomial", generator)
 
@@ -85,24 +126,22 @@ class ConstructionHardCorpusTests(unittest.TestCase):
                                      task["max_tree_ops"])
                 self.assertTrue(result["accepted"], task["id"])
 
-    def test_splits_are_function_and_id_disjoint(self) -> None:
-        seen: set[Any] = set()
-        identifiers: set[str] = set()
+    def test_minimal_ops_match_first_appearance(self) -> None:
+        below = dict(self.reference)
+        below[6] = {polynomial(node) for node in self.levels[6]}
+        below[7] = {polynomial(node) for node in self.levels[7]}
         for tasks in self.corpus["splits"].values():
             for task in tasks:
                 poly = task["generator"]["polynomial"]
                 identity = tuple(tuple(term) for term in poly)
-                self.assertNotIn(identity, seen)
-                self.assertNotIn(task["id"], identifiers)
-                seen.add(identity)
-                identifiers.add(task["id"])
+                claimed = task["generator"]["minimal_tree_ops"]
+                for size in range(claimed):
+                    self.assertNotIn(identity, below[size], task["id"])
 
     def test_cross_stratum_identities_never_repeat_at_scale(
             self) -> None:
-        # Regression: the first full-size generation (2026-11-06)
-        # repeated 124 identities across strata/splits because each
-        # stratum pooled independently. Tiny quotas rarely collide,
-        # so exercise a few hundred tasks at the production seed.
+        # The first sampled generation repeated identities across
+        # strata; the level catalog keeps each identity at one size.
         corpus = generate_corpus(
             seed=20261106,
             quotas={"train": 300, "dev": 30, "eval": 30},
@@ -110,6 +149,12 @@ class ConstructionHardCorpusTests(unittest.TestCase):
         identities = _identities(corpus)
         total = sum(len(tasks) for tasks in corpus["splits"].values())
         self.assertEqual(len(identities), total)
+        self.assertFalse(identities & self.v1)
+        strata = [task["generator"]["minimal_tree_ops"]
+                  for tasks in corpus["splits"].values()
+                  for task in tasks]
+        for ops, want in ((6, 120), (7, 120), (8, 120)):
+            self.assertEqual(strata.count(ops), want)
         ids = [task["id"] for tasks in corpus["splits"].values()
                for task in tasks]
         self.assertEqual(len(set(ids)), total)
@@ -131,10 +176,6 @@ class ConstructionHardCorpusTests(unittest.TestCase):
         self.assertFalse(_identities(second) & planted)
         for name, total in TINY.items():
             self.assertEqual(len(second["splits"][name]), total)
-
-    def test_real_v1_polynomials_never_reappear(self) -> None:
-        self.assertTrue(self.v1)
-        self.assertFalse(_identities(self.corpus) & self.v1)
 
     def test_deterministic_byte_identical_regeneration(self) -> None:
         left = generate_corpus(seed=13, quotas=dict(TINY),
@@ -158,12 +199,31 @@ class ConstructionHardCorpusTests(unittest.TestCase):
             self.assertNotEqual(proc.returncode, 0)
             self.assertEqual(target.read_text(), "sentinel\n")
 
+    def test_level_8_collection_early_stops(self) -> None:
+        record = self.corpus["level_8_collection"]
+        sizes = self.corpus["catalog_level_sizes"]
+        self.assertEqual(record["multiple"], EARLY_STOP_MULTIPLE)
+        self.assertTrue(record["early_stop"])
+        self.assertEqual(record["collected"],
+                         EARLY_STOP_MULTIPLE * record["need"])
+        self.assertGreaterEqual(record["examined"], record["collected"])
+        self.assertEqual(sizes["8"], record["collected"])
+        self.assertEqual(set(sizes), {str(n) for n in range(9)})
+        self.assertEqual(sizes["0"], 2)
+        for size in range(8):
+            self.assertEqual(sizes[str(size)], len(self.levels[size]))
+
+    def test_tiny_corpus_excludes_real_v1_identities(self) -> None:
+        self.assertTrue(self.v1)
+        self.assertFalse(_identities(self.corpus) & self.v1)
+
     def test_protocol_fixture_freezes_arms_and_budgets(self) -> None:
         path = ROOT / "fixtures" / "construction_hard_v1.json"
         protocol = json.loads(path.read_text())
         self.assertEqual(protocol["quotas"],
                          {"train": 1200, "dev": 200, "eval": 300})
-        self.assertEqual(protocol["strata"], [5, 6, 7])
+        self.assertEqual(protocol["strata"], [6, 7, 8])
+        self.assertEqual(protocol["grammar"]["max_tree_ops"], 8)
         evaluation = protocol["evaluation"]
         self.assertEqual(evaluation["model_seeds"], [0, 1, 2])
         self.assertEqual(evaluation["beam_width"], 8)
@@ -174,7 +234,7 @@ class ConstructionHardCorpusTests(unittest.TestCase):
         self.assertEqual(evaluation["feedback"]["rounds"], 4)
         self.assertEqual(evaluation["feedback"]["epochs_per_round"], 30)
         self.assertEqual(evaluation["feedback"]["rollout_budget"], 256)
-        self.assertEqual(evaluation["bound"], 7)
+        self.assertEqual(evaluation["bound"], 8)
 
     def test_protocol_kill_criterion_matches_design_doc(self) -> None:
         path = ROOT / "fixtures" / "construction_hard_v1.json"
@@ -184,3 +244,7 @@ class ConstructionHardCorpusTests(unittest.TestCase):
         design = ROOT / "tracks" / "programmer"
         text = (design / "feedback-construction-design.md").read_text()
         self.assertIn(KILL, " ".join(text.split()))
+
+
+if __name__ == "__main__":
+    raise SystemExit(unittest.main())

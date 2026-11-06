@@ -30,7 +30,7 @@ PROGRAMS = {"add": lambda x, y: x + y, "mul": lambda x, y: x * y}
 KILL = "feedback must beat both arms and survive equal CPU"
 
 
-def _task(task_id: str, split: str, op: str, sampled: int
+def _task(task_id: str, split: str, op: str, minimal: int
           ) -> dict[str, Any]:
     """Build a tiny witness-backed task with a stratum label."""
     program = lower_to_dag(Expr(op, Expr("input", "x"), Expr("input", "y")))
@@ -39,7 +39,7 @@ def _task(task_id: str, split: str, op: str, sampled: int
             for y in range(-1, 2)]
     return {"id": task_id, "split": split, "observed": rows[:6],
             "held": rows[6:], "max_tree_ops": 4,
-            "generator": {"program": program, "sampled_ops": sampled,
+            "generator": {"program": program, "minimal_tree_ops": minimal,
                           "polynomial": [list(t) for t in poly]}}
 
 
@@ -249,16 +249,16 @@ class HardRunnerTests(unittest.TestCase):
                         "stopped_zero_acceptance"):
                 self.assertIn(key, row["feedback_loop"])
 
-    def test_summarize_stratifies_by_sampled_ops(self) -> None:
-        rows = [{"accepted": True, "cpu_seconds": 0.1, "stratum": 5},
-                {"accepted": False, "cpu_seconds": 0.1, "stratum": 6}]
+    def test_summarize_stratifies_by_minimal_tree_ops(self) -> None:
+        rows = [{"accepted": True, "cpu_seconds": 0.1, "stratum": 7},
+                {"accepted": False, "cpu_seconds": 0.1, "stratum": 8}]
         arms = ("streaming", "untrained", "imitation", "feedback")
         arms_rows = {arm: {0: [dict(row) for row in rows]}
                      for arm in arms}
         costs = {arm: {0: {"fit_cpu": 0.0, "rollout_cpu": 0.0}}
                  for arm in arms}
         summary = summarize_hard(arms_rows, costs, KILL)
-        self.assertEqual(summary["strata"]["feedback"], {"5": 1.0})
+        self.assertEqual(summary["strata"]["feedback"], {"7": 1.0})
         self.assertIn("verdict", summary)
 
 
