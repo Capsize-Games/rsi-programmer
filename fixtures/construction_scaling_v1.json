@@ -2,7 +2,7 @@
   "protocol_id": "construction-scaling-v1",
   "status": "protocol_frozen_before_generation",
   "corpus_path": "fixtures/construction_scaling_corpus_v1.json",
-  "corpus_sha256": null,
+  "corpus_sha256": "2bff2fd82a9f5f3611408d722c14d2619bc99dcd21af6bb5321123a5eb5d88c8",
   "question": "Does a data-scaled (4,800-task) imitation constructor beat streaming enumeration on solves at equal total CPU at a declared volume of 12,000 tasks on a shape-broad bank?",
   "grammar": {
     "operators": [
@@ -59,7 +59,7 @@
     "budget": 2000000,
     "imitation_epochs": 100,
     "declared_volume": 12000,
-    "frozen_at": null,
+    "frozen_at": "2026-11-06",
     "held_feedback": false,
     "oracle_retry": false,
     "acceptance": [
@@ -71,12 +71,12 @@
     "failure_policy": "Retain failures, premature stops, budget exhaustion and invalid actions."
   },
   "decision_rules": {
-    "kill_criterion": "if the data-scaled learned arm does not beat streaming on solves at equal total CPU (fit charged, truncated at the common budget, declared volume 12,000) on the sealed shape-broad bank, the data-scaling route closes at accessible scale — no retest at larger volume, wider beam, or larger train pool."
+    "kill_criterion": "if the data-scaled learned arm does not beat streaming on solves at equal total CPU (fit charged, truncated at the common budget, declared volume 12,000) on the sealed shape-broad bank, the data-scaling route closes at accessible scale \u2014 no retest at larger volume, wider beam, or larger train pool."
   },
   "source_provenance": {
     "generator_sha256": {
-      "rsi_programmer/construction_broad_corpus.py": null,
-      "scripts/generate_construction_scaling_corpus.py": null
+      "rsi_programmer/construction_broad_corpus.py": "0b591091dcbaf023c1a839bd408b566a85c2aea79a90978ca86c1463d7cd3e92",
+      "scripts/generate_construction_scaling_corpus.py": "ff1e3f05df6b1ccf6b113ac07116f60dead3b329859f16bfd9ecbf71c4c4054b"
     }
   }
 }
