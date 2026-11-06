@@ -1,0 +1,159 @@
+{
+  "scope": "Frozen branch-transfer v2: 54 sealed functions, actual Python and CURLEE execution of every arm on 20 held cases per task. Donor-library creation declared excluded (see cost ledger).",
+  "bank": "fixtures/frozen_branch_transfer_v2",
+  "methods": [
+    {
+      "method": "classical",
+      "seed": null,
+      "tasks": 54,
+      "emitted": 40,
+      "python_accepted": 38,
+      "curlee_accepted": 38,
+      "both_accepted": 38,
+      "python_actual_cases": 800,
+      "curlee_actual_cases": 800,
+      "wrong_expected_control_rejected": true,
+      "compiler_stable": true,
+      "fresh_fit_wall_seconds": 0,
+      "command_cpu_seconds": {
+        "search_incl_fit": 16.941718,
+        "python_evaluation": 9.26926599999996,
+        "curlee_execution": 28.46770300000003
+      },
+      "total_command_cpu_seconds": 54.67868699999999,
+      "report_sha256": "9341c7bb76a24b1fc97376a349b38775586fb191b541b8606db5309fa17e0d5f"
+    },
+    {
+      "method": "neural",
+      "seed": 0,
+      "tasks": 54,
+      "emitted": 36,
+      "python_accepted": 30,
+      "curlee_accepted": 30,
+      "both_accepted": 30,
+      "python_actual_cases": 720,
+      "curlee_actual_cases": 720,
+      "wrong_expected_control_rejected": true,
+      "compiler_stable": true,
+      "fresh_fit_wall_seconds": 41.11187028399945,
+      "command_cpu_seconds": {
+        "search_incl_fit": 77.50670399999998,
+        "python_evaluation": 8.395138000000031,
+        "curlee_execution": 22.80690000000004
+      },
+      "total_command_cpu_seconds": 108.70874200000006,
+      "report_sha256": "ead3039da882b6123f49bf6c64d406fa2a7b0a1e90af53edef1175e494781fa8"
+    },
+    {
+      "method": "neural",
+      "seed": 1,
+      "tasks": 54,
+      "emitted": 32,
+      "python_accepted": 28,
+      "curlee_accepted": 28,
+      "both_accepted": 28,
+      "python_actual_cases": 640,
+      "curlee_actual_cases": 640,
+      "wrong_expected_control_rejected": true,
+      "compiler_stable": true,
+      "fresh_fit_wall_seconds": 41.0252186710004,
+      "command_cpu_seconds": {
+        "search_incl_fit": 80.39242199999998,
+        "python_evaluation": 7.867948999999953,
+        "curlee_execution": 20.000643999999966
+      },
+      "total_command_cpu_seconds": 108.2610149999999,
+      "report_sha256": "ccb5a841aae3abf46a1c690d201c6c303f2280e5404fcfb11ededaceafba4718"
+    },
+    {
+      "method": "neural",
+      "seed": 2,
+      "tasks": 54,
+      "emitted": 32,
+      "python_accepted": 27,
+      "curlee_accepted": 27,
+      "both_accepted": 27,
+      "python_actual_cases": 640,
+      "curlee_actual_cases": 640,
+      "wrong_expected_control_rejected": true,
+      "compiler_stable": true,
+      "fresh_fit_wall_seconds": 41.00957244999972,
+      "command_cpu_seconds": {
+        "search_incl_fit": 80.70842199999998,
+        "python_evaluation": 7.73297500000001,
+        "curlee_execution": 19.99740399999996
+      },
+      "total_command_cpu_seconds": 108.43880099999996,
+      "report_sha256": "52dfe6d8a537af1062806194b019362771f310536195b46bbe485067629aed5c"
+    },
+    {
+      "method": "untrained",
+      "seed": 0,
+      "tasks": 54,
+      "emitted": 33,
+      "python_accepted": 28,
+      "curlee_accepted": 28,
+      "both_accepted": 28,
+      "python_actual_cases": 660,
+      "curlee_actual_cases": 660,
+      "wrong_expected_control_rejected": true,
+      "compiler_stable": true,
+      "fresh_fit_wall_seconds": 0,
+      "command_cpu_seconds": {
+        "search_incl_fit": 35.30965900000001,
+        "python_evaluation": 7.676474999999982,
+        "curlee_execution": 20.70655899999997
+      },
+      "total_command_cpu_seconds": 63.69269299999996,
+      "report_sha256": "2245049ffb58ebe6cf67be28e75cfd1f555ce484f08b91c0f339eb20da869d79"
+    },
+    {
+      "method": "untrained",
+      "seed": 1,
+      "tasks": 54,
+      "emitted": 38,
+      "python_accepted": 30,
+      "curlee_accepted": 30,
+      "both_accepted": 30,
+      "python_actual_cases": 760,
+      "curlee_actual_cases": 760,
+      "wrong_expected_control_rejected": true,
+      "compiler_stable": true,
+      "fresh_fit_wall_seconds": 0,
+      "command_cpu_seconds": {
+        "search_incl_fit": 32.90055899999993,
+        "python_evaluation": 8.758058000000005,
+        "curlee_execution": 23.63309000000004
+      },
+      "total_command_cpu_seconds": 65.29170699999997,
+      "report_sha256": "83b44c347f847a706b75c0abde1c558d95c801679bf5e8182159d70990abf7b0"
+    },
+    {
+      "method": "untrained",
+      "seed": 2,
+      "tasks": 54,
+      "emitted": 34,
+      "python_accepted": 27,
+      "curlee_accepted": 27,
+      "both_accepted": 27,
+      "python_actual_cases": 680,
+      "curlee_actual_cases": 680,
+      "wrong_expected_control_rejected": true,
+      "compiler_stable": true,
+      "fresh_fit_wall_seconds": 0,
+      "command_cpu_seconds": {
+        "search_incl_fit": 34.82255800000007,
+        "python_evaluation": 7.997723000000008,
+        "curlee_execution": 21.094065
+      },
+      "total_command_cpu_seconds": 63.91434600000008,
+      "report_sha256": "ba0b3186e0a0641b88ebb6efc20282ce3e344733bafcd77a8524de30c4c9cb23"
+    }
+  ],
+  "excluded_costs": [
+    "donor-library creation from empty (mixed-unit ~50.1s lower bound; needs instrumented rerun, issue #92)",
+    "bank creation/freeze (complete before this run)"
+  ],
+  "cost_ledger": "cost-ledger.json",
+  "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement."
+}

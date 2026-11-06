@@ -3,7 +3,17 @@
 This is the primary development track as of 2026-11-01.
 
 The primary outcome is a learner that writes useful programs in Python and
-CURLEE. The [frozen transfer result](frozen-transfer-results.md) passes
+CURLEE. The 2026-11-05 audit follow-through then ran the three
+preregistered decisive tests. The sealed construction final
+([result](construction-final-results.md)) passes its learning gate on
+all three seeds (94-119/244 vs ~0 untrained/random) and fails its cost
+gate (no full coverage; streaming 244/244). The powered
+[frozen transfer v2](frozen-transfer-results-v2.md) passes 38/54
+classical vs 27-30 trained and 27-30 untrained, so the neural arm
+leaves that route under its kill criterion. CPU-matched ranking
+establishes no advantage over streaming
+([result](../../docs/benchmark-cpu-matched-result.md)).
+The [frozen transfer result](frozen-transfer-results.md) passes
 11/18 unseen functions in both languages, alongside 11/18 for untrained
 and 14/18 for classical search. Its full measured controller CPU costs
 are 71.614, 26.600 and 21.127 seconds respectively; historical donor

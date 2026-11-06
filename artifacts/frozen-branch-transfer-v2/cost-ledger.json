@@ -1,0 +1,401 @@
+{
+  "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+  "excluded_costs": [
+    "donor-library creation from empty (mixed-unit ~50.1s lower bound; needs instrumented rerun, issue #92)",
+    "bank creation/freeze (complete before this run)"
+  ],
+  "phases": {
+    "search": {
+      "n_cpu_seconds": 7.0,
+      "total_cpu_seconds": 358.58204199999994,
+      "mean_cpu_seconds": 51.22600599999999,
+      "stdev_cpu_seconds": 27.215820712651613,
+      "minimum_cpu_seconds": 16.941718,
+      "maximum_cpu_seconds": 80.70842199999998,
+      "total_wall_seconds": 358.83749315600016
+    },
+    "backend_execution": {
+      "n_cpu_seconds": 7.0,
+      "total_cpu_seconds": 156.706365,
+      "mean_cpu_seconds": 22.386623571428572,
+      "stdev_cpu_seconds": 3.016743032672782,
+      "minimum_cpu_seconds": 19.99740399999996,
+      "maximum_cpu_seconds": 28.46770300000003,
+      "total_wall_seconds": 156.53426821500125
+    },
+    "candidate_evaluation": {
+      "n_cpu_seconds": 7.0,
+      "total_cpu_seconds": 57.69758399999995,
+      "mean_cpu_seconds": 8.242511999999993,
+      "stdev_cpu_seconds": 0.5949161125368814,
+      "minimum_cpu_seconds": 7.676474999999982,
+      "maximum_cpu_seconds": 9.26926599999996,
+      "total_wall_seconds": 201.3755247399995
+    }
+  },
+  "command_costs": {
+    "search": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/run_frozen_branch_transfer_v2.py",
+        "--method",
+        "classical",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 17.01789313900008,
+      "cpu_seconds": 16.941718,
+      "whole_process_cpu_seconds": 16.96719,
+      "largest_child_rss_kib": 209640,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "search_1": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/run_frozen_branch_transfer_v2.py",
+        "--method",
+        "neural",
+        "--seed",
+        "0",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 77.53813109800012,
+      "cpu_seconds": 77.50670399999998,
+      "whole_process_cpu_seconds": 94.47409999999999,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "search_2": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/run_frozen_branch_transfer_v2.py",
+        "--method",
+        "neural",
+        "--seed",
+        "1",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 80.41512700400017,
+      "cpu_seconds": 80.39242199999998,
+      "whole_process_cpu_seconds": 174.866657,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "search_3": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/run_frozen_branch_transfer_v2.py",
+        "--method",
+        "neural",
+        "--seed",
+        "2",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 80.73368534899964,
+      "cpu_seconds": 80.70842199999998,
+      "whole_process_cpu_seconds": 255.57520599999998,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "search_4": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/run_frozen_branch_transfer_v2.py",
+        "--method",
+        "untrained",
+        "--seed",
+        "0",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 35.387547106000056,
+      "cpu_seconds": 35.30965900000001,
+      "whole_process_cpu_seconds": 290.884992,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "search_5": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/run_frozen_branch_transfer_v2.py",
+        "--method",
+        "untrained",
+        "--seed",
+        "1",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 32.91472990700004,
+      "cpu_seconds": 32.90055899999993,
+      "whole_process_cpu_seconds": 323.78568299999995,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "search_6": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/run_frozen_branch_transfer_v2.py",
+        "--method",
+        "untrained",
+        "--seed",
+        "2",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 34.83037955300006,
+      "cpu_seconds": 34.82255800000007,
+      "whole_process_cpu_seconds": 358.608399,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "candidate_evaluation": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/evaluate_frozen_branch_transfer_v2.py",
+        "--method",
+        "classical",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 32.580226582999785,
+      "cpu_seconds": 9.26926599999996,
+      "whole_process_cpu_seconds": 367.877814,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "candidate_evaluation_8": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/evaluate_frozen_branch_transfer_v2.py",
+        "--method",
+        "neural",
+        "--seed",
+        "0",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 29.362040003999937,
+      "cpu_seconds": 8.395138000000031,
+      "whole_process_cpu_seconds": 376.27310900000003,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "candidate_evaluation_9": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/evaluate_frozen_branch_transfer_v2.py",
+        "--method",
+        "neural",
+        "--seed",
+        "1",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 26.713421440000275,
+      "cpu_seconds": 7.867948999999953,
+      "whole_process_cpu_seconds": 384.14122799999996,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "candidate_evaluation_10": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/evaluate_frozen_branch_transfer_v2.py",
+        "--method",
+        "neural",
+        "--seed",
+        "2",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 27.008012682999833,
+      "cpu_seconds": 7.73297500000001,
+      "whole_process_cpu_seconds": 391.874389,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "candidate_evaluation_11": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/evaluate_frozen_branch_transfer_v2.py",
+        "--method",
+        "untrained",
+        "--seed",
+        "0",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 26.876498937999713,
+      "cpu_seconds": 7.676474999999982,
+      "whole_process_cpu_seconds": 399.551022,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "candidate_evaluation_12": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/evaluate_frozen_branch_transfer_v2.py",
+        "--method",
+        "untrained",
+        "--seed",
+        "1",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 30.958462237000276,
+      "cpu_seconds": 8.758058000000005,
+      "whole_process_cpu_seconds": 408.309258,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "candidate_evaluation_13": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/evaluate_frozen_branch_transfer_v2.py",
+        "--method",
+        "untrained",
+        "--seed",
+        "2",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 27.876862854999672,
+      "cpu_seconds": 7.997723000000008,
+      "whole_process_cpu_seconds": 416.307144,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "backend_execution": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/check_frozen_branch_curlee_v2.py",
+        "--compiler",
+        "/home/joe/Projects/curlee/build/linux-debug/curlee",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2/classical"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 28.853307258000314,
+      "cpu_seconds": 28.46770300000003,
+      "whole_process_cpu_seconds": 444.77505199999996,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "backend_execution_15": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/check_frozen_branch_curlee_v2.py",
+        "--compiler",
+        "/home/joe/Projects/curlee/build/linux-debug/curlee",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2/neural/seed-0"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 22.711287373999767,
+      "cpu_seconds": 22.80690000000004,
+      "whole_process_cpu_seconds": 467.582131,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "backend_execution_16": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/check_frozen_branch_curlee_v2.py",
+        "--compiler",
+        "/home/joe/Projects/curlee/build/linux-debug/curlee",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2/neural/seed-1"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 19.91718249600035,
+      "cpu_seconds": 20.000643999999966,
+      "whole_process_cpu_seconds": 487.58290999999997,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "backend_execution_17": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/check_frozen_branch_curlee_v2.py",
+        "--compiler",
+        "/home/joe/Projects/curlee/build/linux-debug/curlee",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2/neural/seed-2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 19.897527680000167,
+      "cpu_seconds": 19.99740399999996,
+      "whole_process_cpu_seconds": 507.580449,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "backend_execution_18": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/check_frozen_branch_curlee_v2.py",
+        "--compiler",
+        "/home/joe/Projects/curlee/build/linux-debug/curlee",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2/untrained/seed-0"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 20.604879574000734,
+      "cpu_seconds": 20.70655899999997,
+      "whole_process_cpu_seconds": 528.287174,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "backend_execution_19": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/check_frozen_branch_curlee_v2.py",
+        "--compiler",
+        "/home/joe/Projects/curlee/build/linux-debug/curlee",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2/untrained/seed-1"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 23.539207769000313,
+      "cpu_seconds": 23.63309000000004,
+      "whole_process_cpu_seconds": 551.920435,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    },
+    "backend_execution_20": {
+      "command": [
+        "/home/joe/Projects/rsi-programmer/.venv/bin/python",
+        "scripts/check_frozen_branch_curlee_v2.py",
+        "--compiler",
+        "/home/joe/Projects/curlee/build/linux-debug/curlee",
+        "--output",
+        "/home/joe/Projects/rsi-programmer/artifacts/frozen-branch-transfer-v2/untrained/seed-2"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 21.010876063999604,
+      "cpu_seconds": 21.094065,
+      "whole_process_cpu_seconds": 573.014646,
+      "largest_child_rss_kib": 514204,
+      "accounting_source_sha256": "823cb9e81f6ac00b32ee2f740ea36a569413035840622073c23b57f85409d37d"
+    }
+  },
+  "measured_total_cpu_seconds": 572.9859909999999,
+  "measured_total_wall_seconds": 716.7472861110009,
+  "largest_single_child_rss_kib": 514204
+}
