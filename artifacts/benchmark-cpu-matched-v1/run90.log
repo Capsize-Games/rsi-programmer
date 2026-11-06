@@ -1,0 +1,21 @@
+{
+  "arms": [
+    {
+      "close_arm": false,
+      "kill_vs_heuristic": false,
+      "kill_vs_streaming": true,
+      "learned_arm": "trained_mlp",
+      "slow_win_over_2x": false
+    },
+    {
+      "close_arm": true,
+      "kill_vs_heuristic": true,
+      "kill_vs_streaming": true,
+      "learned_arm": "trained_recurrent",
+      "slow_win_over_2x": false
+    }
+  ],
+  "close_line": false,
+  "kill_criterion": "at equal total CPU the learned ranker solves no more than streaming/heuristic, or its solve advantage needs more than 2x streaming's time => close line",
+  "line": "CONTINUE"
+}
