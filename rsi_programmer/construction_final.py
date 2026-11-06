@@ -14,6 +14,9 @@ from rsi_programmer.pre_eval import pre_evaluation_search
 
 MARGIN = 0.10
 COST_RATIO = 0.90
+# The frozen corpus names its sealed split "eval"
+# (construction_corpus QUOTAS); "final" is only the protocol word.
+FINAL_SPLIT = "eval"
 
 
 def verify_frozen_corpus(corpus_path: Path,
@@ -42,10 +45,10 @@ def verify_generator_sources(root: Path,
 
 
 def require_final_only(tasks: list[dict[str, Any]]) -> None:
-    """Refuse inference on anything but final-split tasks."""
-    if not tasks or any(task.get("split") != "final"
+    """Refuse inference on anything but sealed eval-split tasks."""
+    if not tasks or any(task.get("split") != FINAL_SPLIT
                         for task in tasks):
-        raise ValueError("final inference needs final-split tasks only")
+        raise ValueError("final inference needs eval-split tasks only")
 
 
 def _check_task(task: dict[str, Any], method: str,

@@ -138,7 +138,7 @@ counterexamples, not neural weight adaptation or recursive improvement.
 Classical and untrained controls are held-IR checks only; classical also
 accepts 8/11. Do not claim a matched-total-cost advantage. The unchanged
 package/test sources pass the programmer fast track (96 modules,
-629 test definitions by AST count as of 2026-11-05, including the
+630 test definitions by AST count as of 2026-11-05, including the
 four audit follow-through test modules); other lanes
 and tracks were not rerun, and remote CI remains pending. Next test bounded
 composition of qualified branch fragments, preserving all failures,

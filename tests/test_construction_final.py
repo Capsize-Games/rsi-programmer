@@ -10,7 +10,9 @@ from pathlib import Path
 from typing import Any
 from unittest import mock
 
+from rsi_programmer.construction_corpus import QUOTAS
 from rsi_programmer.construction_final import (
+    FINAL_SPLIT,
     cost_gate,
     evaluate_final,
     learning_gate,
@@ -40,8 +42,8 @@ def _task(task_id: str, split: str, op: str) -> dict[str, Any]:
 def _bundle(directory: Path) -> tuple[Path, Path, Path]:
     """Write a synthetic corpus, protocol and receipt for tests."""
     corpus = {"splits": {"train": [_task("train-add", "train", "add")],
-                         "dev": [], "final": [_task("final-mul",
-                                                    "final", "mul")]}}
+                         "dev": [], "eval": [_task("final-mul",
+                                                   "eval", "mul")]}}
     raw = (json.dumps(corpus, sort_keys=True) + "\n").encode()
     corpus_path = directory / "corpus.json"
     corpus_path.write_bytes(raw)
@@ -63,7 +65,7 @@ class FinalSealTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as name:
             corpus_path, protocol_path, _ = _bundle(Path(name))
             bundle = verify_frozen_corpus(corpus_path, protocol_path)
-            self.assertEqual(len(bundle["corpus"]["splits"]["final"]), 1)
+            self.assertEqual(len(bundle["corpus"]["splits"]["eval"]), 1)
 
     def test_tampered_bytes_are_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as name:
@@ -82,12 +84,20 @@ class FinalSealTests(unittest.TestCase):
                 verify_generator_sources(root, protocol)
 
     def test_final_only_rejects_dev_empty_and_mixed(self) -> None:
-        require_final_only([_task("f", "final", "add")])
+        require_final_only([_task("f", "eval", "add")])
         for tasks in ([], [_task("d", "dev", "add")],
-                      [_task("f", "final", "add"),
+                      [_task("f", "eval", "add"),
                        _task("d", "dev", "add")]):
             with self.assertRaises(ValueError):
                 require_final_only(tasks)
+
+    def test_final_split_name_matches_generator_quotas(self) -> None:
+        # The 2026-11-05 first one-shot invocation died pre-inference
+        # on splits["final"]; the generator names the split "eval".
+        for quotas in QUOTAS.values():
+            self.assertIn(FINAL_SPLIT, quotas)
+        self.assertEqual(
+            sum(q[FINAL_SPLIT] for q in QUOTAS.values()), 244)
 
     def test_evaluate_final_refuses_dev_tasks(self) -> None:
         with self.assertRaises(ValueError):
@@ -131,7 +141,7 @@ class FinalGateTests(unittest.TestCase):
         self.assertFalse(cost_gate(trained, streaming, 0.0, 2)["passed"])
 
     def test_streaming_solves_trivial_final_task(self) -> None:
-        summary, rows = evaluate_final([_task("f", "final", "add")],
+        summary, rows = evaluate_final([_task("f", "eval", "add")],
                                        "streaming", None, 64)
         self.assertEqual(summary["accepted"], 1)
         self.assertTrue(rows[0]["checker"]["accepted"])

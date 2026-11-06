@@ -27,7 +27,7 @@ test:
 
 # Lanes (timings code-v34 era, Ryzen 5800X, CPU-only torch; counts
 # rechecked 2026-11-05 as AST test definitions in each recipe):
-# test-fast ~5 min (120 modules, 829 defs); test-slow ~2 h 11 min (9
+# test-fast ~5 min (120 modules, 830 defs); test-slow ~2 h 11 min (9
 # modules, 65 defs: hub/author/baseline/beam/evolve/loop/operands/
 # scale/transfer); test-retry ~61 min (1 module, 3 defs; distractor
 # solved, tried=830954). Full `just test` ~3.7 h wall. One builder
@@ -88,7 +88,7 @@ test-retry:
 
 # Parallel lanes for local iteration only (timings code-v34 era: 8268s
 # wall vs 13530s sequential = 1.64x; counts rechecked 2026-11-05 as
-# fast 120 modules / 829 defs, slow 9 / 65, retry 1 / 3; that run all
+# fast 120 modules / 830 defs, slow 9 / 65, retry 1 / 3; that run all
 # green, memory under 70%). Lane granularity
 # cannot reach 2x since slow dominates. Release gates and
 # CI stay sequential for deterministic logs. One builder at

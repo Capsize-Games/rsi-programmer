@@ -14,6 +14,7 @@ from typing import Any
 import torch
 
 from rsi_programmer.construction_final import (
+    FINAL_SPLIT,
     cost_gate,
     evaluate_final,
     learning_gate,
@@ -129,7 +130,7 @@ def _tasks(bundle: dict[str, Any],
            args: argparse.Namespace) -> tuple[list[dict[str, Any]],
                                              list[dict[str, Any]]]:
     """Split train/final tasks, guarding the sealed final size."""
-    final = [task for task in bundle["corpus"]["splits"]["final"]]
+    final = [task for task in bundle["corpus"]["splits"][FINAL_SPLIT]]
     if len(final) != 244 and args.corpus == (
             ROOT / "fixtures/construction_corpus_v1.json"):
         raise ValueError("sealed final split changed size")
