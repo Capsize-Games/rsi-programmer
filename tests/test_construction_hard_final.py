@@ -87,8 +87,7 @@ def _install_feedback_fake() -> None:
 class RealFixtureTests(unittest.TestCase):
     """The shipped W1 fixture must satisfy this runner's contract."""
 
-    def test_real_fixture_keys_and_unfrozen_budget_refusal(
-            self) -> None:
+    def test_real_fixture_keys_and_frozen_budget(self) -> None:
         root = Path(__file__).resolve().parents[1]
         protocol = json.loads(
             (root / "fixtures/construction_hard_v1.json").read_text())
@@ -98,8 +97,11 @@ class RealFixtureTests(unittest.TestCase):
         for key in FEEDBACK_KEYS:
             self.assertIn(key, evaluation["feedback"])
         self.assertIn("kill_criterion", protocol["decision_rules"])
+        self.assertEqual(require_hard_budget(protocol), 0.5)
+        unfrozen = json.loads(json.dumps(protocol))
+        unfrozen["evaluation"]["per_task_cpu_seconds"] = None
         with self.assertRaises(ValueError):
-            require_hard_budget(protocol)
+            require_hard_budget(unfrozen)
 
 
 class HardSealTests(unittest.TestCase):
