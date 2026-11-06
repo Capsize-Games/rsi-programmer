@@ -267,6 +267,17 @@ The binding constraint is shape-level generalization (5.3%/0%/1.6%
 broad vs 47% on train tasks). Next diagnostic varies training-set
 size (never varied; fixed at 1,200) on shape-broad development data.
 
+D1 diagnostics checkpoint (2026-11-06): training-set size is a live
+lever on shape-broad development data. Nested pools of 1,200 vs 4,800
+tasks give 2 vs 24 solves on 300 unseen broad tasks at beam width 8;
+at width 32 the 4,800-task model solves 51/300 vs streaming's 42/300
+at lower eval CPU (fit 1,758 s still loses any 300-task total-cost
+comparison). See `tracks/programmer/d1-diagnostics-results.md`. This
+is single-seed development evidence for designing a preregistered
+test, not a capability claim, and it does not disturb any sealed
+verdict. Next: a 19,200-task third scaling point on the same dev
+split, then a preregistered sealed test at a declared volume.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,

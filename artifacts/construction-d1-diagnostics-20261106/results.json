@@ -1,0 +1,80 @@
+{
+ "seed": 0,
+ "d1_seed": 20261108,
+ "pools": {
+  "6": {
+   "pool": 31443
+  },
+  "7": {
+   "pool": 183064
+  },
+  "8": {
+   "pool": 1700
+  },
+  "sizes": {
+   "small": 1200,
+   "large": 4800,
+   "eval": 300
+  }
+ },
+ "fit_small": {
+  "complete_cpu_seconds": 425.229941028,
+  "final_loss": 1.1583350896835327,
+  "final_hash": "829247ac41d396b929e5c9c092b22fcb0b0766edcbfa17ea65a9310dba663b18",
+  "teacher_steps": 9387
+ },
+ "fit_large": {
+  "complete_cpu_seconds": 1758.4214773390001,
+  "final_loss": 1.06069815158844,
+  "final_hash": "e3816f3e41335cb5df7bdd3df9f21f8af135568f883cb556feacc26d46227407",
+  "teacher_steps": 37539
+ },
+ "eval": {
+  "small@w8": {
+   "solved": 2,
+   "n": 300,
+   "by_stratum": {
+    "6": 2
+   },
+   "cpu_seconds": 25.944724349000353
+  },
+  "small@w32": {
+   "solved": 12,
+   "n": 300,
+   "by_stratum": {
+    "6": 7,
+    "7": 3,
+    "8": 2
+   },
+   "cpu_seconds": 96.00856340100017
+  },
+  "large@w8": {
+   "solved": 24,
+   "n": 300,
+   "by_stratum": {
+    "6": 13,
+    "7": 6,
+    "8": 5
+   },
+   "cpu_seconds": 25.00609350700006
+  },
+  "large@w32": {
+   "solved": 51,
+   "n": 300,
+   "by_stratum": {
+    "6": 29,
+    "7": 14,
+    "8": 8
+   },
+   "cpu_seconds": 89.9348540140004
+  },
+  "streaming@0.5": {
+   "solved": 42,
+   "n": 300,
+   "by_stratum": {
+    "6": 42
+   },
+   "cpu_seconds": 165.12463400099705
+  }
+ }
+}
