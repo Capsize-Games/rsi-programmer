@@ -1,0 +1,82 @@
+{
+  "protocol_id": "construction-scaling-v1",
+  "status": "protocol_frozen_before_generation",
+  "corpus_path": "fixtures/construction_scaling_corpus_v1.json",
+  "corpus_sha256": null,
+  "question": "Does a data-scaled (4,800-task) imitation constructor beat streaming enumeration on solves at equal total CPU at a declared volume of 12,000 tasks on a shape-broad bank?",
+  "grammar": {
+    "operators": [
+      "add",
+      "sub",
+      "mul"
+    ],
+    "terminals": [
+      "x",
+      "y"
+    ],
+    "max_tree_ops": 8,
+    "max_graph_nodes": 7,
+    "explicit_stop": true,
+    "constants": false,
+    "branching": false,
+    "loops": false
+  },
+  "strata": [
+    6,
+    7,
+    8
+  ],
+  "quotas": {
+    "train": 4800,
+    "eval": 12000
+  },
+  "scope_note": "Shape-broad sampling: complete levels 6/7; level 8 balanced across left-subtree sizes; exclusions: v1 corpus, sealed hard corpus, and all D1/D2 dev identities; any shortfall is recorded, never silently rebalanced.",
+  "data": {
+    "train_functions": 4800,
+    "final_functions": 12000,
+    "observed_rows_per_task": 36,
+    "held_rows_per_task": 24,
+    "function_disjoint": true,
+    "observed_grid": [
+      -3,
+      2
+    ],
+    "held_grid": [
+      -6,
+      6
+    ],
+    "final_split_access": "Do not run model inference on eval tasks until this fixture carries corpus_sha256 and frozen_at."
+  },
+  "evaluation": {
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "per_task_cpu_seconds": 0.5,
+    "beam_width": 32,
+    "bound": 8,
+    "budget": 2000000,
+    "imitation_epochs": 100,
+    "declared_volume": 12000,
+    "frozen_at": null,
+    "held_feedback": false,
+    "oracle_retry": false,
+    "acceptance": [
+      "typed_grammar_and_budget",
+      "observed_rows",
+      "held_rows",
+      "exact_integer_polynomial"
+    ],
+    "failure_policy": "Retain failures, premature stops, budget exhaustion and invalid actions."
+  },
+  "decision_rules": {
+    "kill_criterion": "if the data-scaled learned arm does not beat streaming on solves at equal total CPU (fit charged, truncated at the common budget, declared volume 12,000) on the sealed shape-broad bank, the data-scaling route closes at accessible scale — no retest at larger volume, wider beam, or larger train pool."
+  },
+  "source_provenance": {
+    "generator_sha256": {
+      "rsi_programmer/construction_broad_corpus.py": null,
+      "scripts/generate_construction_scaling_corpus.py": null
+    }
+  }
+}
