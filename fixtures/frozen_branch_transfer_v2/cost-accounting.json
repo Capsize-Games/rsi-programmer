@@ -1,0 +1,171 @@
+{
+ "scope": "End-to-end v2 cost from an empty library; argv commands.",
+ "bank": "fixtures/frozen_branch_transfer_v2",
+ "tasks": 54,
+ "stages": [
+  {
+   "ledger_stage": "donor_library_creation",
+   "description": "Mine and qualify branch templates from empty. Existing artifacts cannot supply this CPU-incl-children total (mixed-unit lower bound ~50.1s, issue #92); measurement requires a ledger-instrumented rerun of the four donor-creating trials. Until then this stage is declared excluded with that bound on record.",
+   "command": [],
+   "metric": "process CPU seconds with children",
+   "status": "pending",
+   "ledger_phases": [
+    "donor_library_creation",
+    "mining",
+    "qualification"
+   ]
+  },
+  {
+   "ledger_stage": "bank_freeze",
+   "description": "Generate and hash bank, held set, protocol, seal. No ledger phase: one-off bank creation before the freeze, declared excluded.",
+   "command": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/freeze_branch_transfer_v2.py",
+    "--output",
+    "fixtures/frozen_branch_transfer_v2"
+   ],
+   "metric": "wall seconds; sha256.json verifies output",
+   "status": "complete",
+   "ledger_phases": []
+  },
+  {
+   "ledger_stage": "fresh_fit",
+   "description": "Fit neural models afresh per seed with recipe.",
+   "command": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/run_frozen_branch_transfer_v2.py",
+    "--method",
+    "neural",
+    "--seed",
+    "0",
+    "--output",
+    "artifacts/frozen-branch-transfer-v2"
+   ],
+   "metric": "CPU seconds incl. supervision and fingerprint",
+   "status": "pending",
+   "ledger_phases": [
+    "fit"
+   ]
+  },
+  {
+   "ledger_stage": "search_and_visible_feedback",
+   "description": "Per-task search plus visible-query repairs.",
+   "command": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/run_frozen_branch_transfer_v2.py",
+    "--method",
+    "METHOD",
+    "--seed",
+    "SEED",
+    "--output",
+    "artifacts/frozen-branch-transfer-v2"
+   ],
+   "metric": "CPU per task, budget 1.0 s + 0.05 s; over voids",
+   "status": "pending",
+   "ledger_phases": [
+    "search",
+    "oracle_labelling"
+   ]
+  },
+  {
+   "ledger_stage": "emission",
+   "description": "Lower choices to source, contracts, CLI.",
+   "command": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/evaluate_frozen_branch_transfer_v2.py",
+    "--method",
+    "METHOD",
+    "--seed",
+    "SEED",
+    "--output",
+    "artifacts/frozen-branch-transfer-v2"
+   ],
+   "metric": "CPU seconds inside the Python-check command",
+   "status": "pending",
+   "ledger_phases": [
+    "emission"
+   ]
+  },
+  {
+   "ledger_stage": "python_execution",
+   "description": "Isolated Python runs on all 20 held rows.",
+   "command": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/evaluate_frozen_branch_transfer_v2.py",
+    "--method",
+    "METHOD",
+    "--seed",
+    "SEED",
+    "--output",
+    "artifacts/frozen-branch-transfer-v2"
+   ],
+   "metric": "CPU seconds; 1080 cases per arm",
+   "status": "pending",
+   "ledger_phases": [
+    "backend_execution"
+   ]
+  },
+  {
+   "ledger_stage": "curlee_execution",
+   "description": "Guarded CURLEE runs plus wrong-expected control.",
+   "command": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/check_frozen_branch_curlee_v2.py",
+    "--output",
+    "artifacts/frozen-branch-transfer-v2/ARM"
+   ],
+   "metric": "CPU seconds; 1080 cases per arm",
+   "status": "pending",
+   "ledger_phases": [
+    "backend_execution"
+   ]
+  },
+  {
+   "ledger_stage": "candidate_evaluation",
+   "description": "Acceptance gating, no repair from held rows.",
+   "command": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/evaluate_frozen_branch_transfer_v2.py",
+    "--method",
+    "METHOD",
+    "--seed",
+    "SEED",
+    "--output",
+    "artifacts/frozen-branch-transfer-v2"
+   ],
+   "metric": "accepted counts per arm",
+   "status": "pending",
+   "ledger_phases": [
+    "candidate_evaluation"
+   ]
+  }
+ ],
+ "ledger_interface": {
+  "note": "Resolved at integration 2026-11-05 against issue #92. Runners do not import the ledger; stage costs are captured by external command timing and converted post-run via CostLedger.from_legacy/record/write_json.",
+  "module": "rsi_programmer/cost_ledger.py",
+  "class": "CostLedger",
+  "methods": {
+   "measure": "measure(phase) context manager",
+   "record": "record(phase, cpu_seconds, wall_seconds=None)",
+   "run": "run(phase, command) -> exit code",
+   "declare_excluded": "declare_excluded(description)",
+   "write_json": "write_json(path, volume=None)",
+   "from_legacy": "CostLedger.from_legacy(summary_dict)"
+  },
+  "ledger_file": "artifacts/frozen-branch-transfer-v2/cost-ledger.json"
+ }
+}

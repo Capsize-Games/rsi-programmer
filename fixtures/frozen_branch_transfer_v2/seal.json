@@ -1,0 +1,41 @@
+{
+  "scope": "Sources pinned before any transfer controller runs.",
+  "bank_hashes": {
+    "tasks.json": "9541990e1ba8c543f76f3c4f921f5573c6089127262a71da8ce473cc099c175c",
+    "held.json": "95f3d6a8bc30f9b5b1e86e9e7d0b38e6a7f46f4b6cc1efd15b5b82af21462ce4",
+    "protocol.json": "3062032f61c0a1434b58c1bb0f1d3d21650417e77318d3aa32e914bda1ab2eaf"
+  },
+  "solver_sources": {
+    "scripts/run_frozen_branch_transfer_v2.py": "6f47f291c20063e700f2c929139d7f98252c9ccc0eaeb39e4dbd1865401f06ee",
+    "scripts/evaluate_frozen_branch_transfer_v2.py": "6e6c6ff6902ed8f57dcf4540fe457f3686eba30afd3317cd0185e67c73ffa94c",
+    "scripts/check_frozen_branch_curlee_v2.py": "7119232ecf7ec6ff5e5f05dac398ef68cc9ded96c90494fee081d456e8b4f187",
+    "scripts/branch_transfer_v2_search.py": "904f5cd17dd7a96219b5a40071228fd317ac1bcb50c1841088c21e1f627fe201",
+    "scripts/evaluate_statement_decisions.py": "67ee42046b754e723955be77f80c5d90992a2cf7f6a453d4ca525f1208056725",
+    "scripts/check_statement_curlee.py": "ef732c8f41b62e26101abdc8d60bd5b0c886665bc1ed5f745ccbd1dcd166a763",
+    "scripts/check_useful_curlee.py": "622086c74d10c57775ac963ca8457023a8bd067ba11e462ede300d2b482950b7",
+    "scripts/measure_useful_program.py": "565c8ab415c22c120d4555a0dc2057419dd3072cec3d77e770a2e491b5a1c168",
+    "rsi_programmer/program_cost.py": "e7491a32749353051af53f4c28beff0ae9e65d6bc946d5fc7d387e1724b40b46",
+    "rsi_programmer/statement_policy.py": "391e25d3bf7f79a66f31d9f4db5e785e562b0785f62f8aadb9ece37016c81477",
+    "rsi_programmer/statement_curriculum.py": "60fbe0450d06c8fdde22bf645277956e33602d474e9f31673e71a33c5876b840",
+    "rsi_programmer/statement_stateful_curriculum.py": "c2c4bdd070ae42571f1132f0df7932bfe303821a910d5a6abddfd91d26335a4f",
+    "rsi_programmer/statement_return_curriculum.py": "51047a73b196f90d23a5adee4fe67eb155cf148351a6039ce8b054aa49df4dd1",
+    "rsi_programmer/stateful_tasks.py": "b16fd28eac3894282d4b99d733a046a779b29136f2d7a4d067514fcf63a9b45f",
+    "rsi_programmer/statement_syntax.py": "50e9498e03a494dd7409f1bdbcdfdd08336849e77e57857a69fddf4096456310",
+    "rsi_programmer/statement_execution.py": "e667a14fd264d086c16cfe7bf4cddb638b86c2b2378412a60b40cb1df72004a3",
+    "rsi_programmer/statement_partial.py": "0a2c6d219d7ac05eafb1a552b16f8eecc6684d0fc13c0ca379e0450877fd2171",
+    "rsi_programmer/statement_source.py": "911dabe2c39fa20ae83628235ada20860e2cf63c8bf88da13a3249fdcc29bea3",
+    "rsi_programmer/statement_branch_library.py": "3cdffd8789a1be2e80896007caa71c56cf7840c49172d533146ed9c68721bb76",
+    "rsi_programmer/statement_branch_search.py": "6bc28031db6ee472b60032a2064a97e9c86759e678bd176cf472935e08f8841b",
+    "rsi_programmer/statement_fragment_search.py": "482b8ce5285951e1977def006ffa3a899cc2ecb53261efbf2fd0d4de33eeb63a",
+    "rsi_programmer/statement_fragment_classical.py": "4e8b70884bab5f36e6149cde5610f55571e2d024ddb144a5324d231115ca1bc7",
+    "rsi_programmer/statement_fragment_library.py": "2906400cbb0598226f81dad0eb1acf7f9129bdcdc63bcb1a1479717d85ae8adb",
+    "rsi_programmer/statement_fragments.py": "359fb3089f99c3bb51aa15d5e605680b7ab80038d5cd021dd62584b56c7468ac",
+    "rsi_programmer/statement_repair.py": "c9d0572ca192436eb6f593b6e70633f0471947ee9c59f11cbd55b384ec45ea7f",
+    "rsi_programmer/utility_policy.py": "173f887a243ebfa42d73c42d9f7d7156fde5b7d6c7082068d1f13ce2eb7e7e12",
+    "rsi_programmer/utility_source.py": "e7fa6083d70b078ad17b36f3ce927982b9b2599e46cf9cc730faa7551a237777",
+    "rsi_programmer/utility_ops.py": "10fd6ef58b714ca6e717f5a7c5d7798c0fb55c1f18034d79b3cb082f73a3be0d",
+    "rsi_programmer/utility_harness.py": "d4a01c8fe966323bf6b9dc135a1441454d4c96f16531add75600841c85eac6b0",
+    "rsi_programmer/benchmark_policy.py": "d27beff1a76e9cfd2f178088d34a21946b41a27c333f22c59d9d14ba4aa07d74"
+  },
+  "backend_policy": "Execute fixed choices only. Timeout, process failure or malformed output rejects a program and stops further cases for it; acceptance requires all held cases in both backends."
+}

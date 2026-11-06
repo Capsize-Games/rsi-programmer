@@ -1,0 +1,35 @@
+{
+  "source_checkpoint": "v2-freeze",
+  "frozen_before_solver_use": true,
+  "tasks": 54,
+  "methods": [
+    "classical",
+    "neural",
+    "untrained"
+  ],
+  "seeds": {
+    "neural": [
+      0,
+      1,
+      2
+    ],
+    "untrained": [
+      0,
+      1,
+      2
+    ],
+    "classical": [
+      null
+    ]
+  },
+  "request_cpu_budget_seconds": 1.0,
+  "budget_overrun_tolerance_seconds": 0.05,
+  "max_added_examples": 3,
+  "branch_width": 8,
+  "first_limit": 3,
+  "held_per_task": 20,
+  "cost_policy": "End-to-end from an empty donor library, including library creation, fits, search, visible feedback, emission and actual backend checks.",
+  "actual_fit_usage_volume": 54,
+  "held_access": "Workers load tasks and visible queries only; held inputs load after every arm finishes.",
+  "generator_sha256": "d79dcd83a13abd19dd10c66fea1375ed2a3b741daebfd482c704da582911134c"
+}
