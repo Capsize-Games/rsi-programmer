@@ -2,7 +2,7 @@
   "protocol_id": "construction-hard-v1",
   "status": "protocol_frozen_before_calibration",
   "corpus_path": "fixtures/construction_hard_corpus_v1.json",
-  "corpus_sha256": null,
+  "corpus_sha256": "59f31765f9ace22a1120beacd4bc9c492a1fde279e279faa77919a2574352d0d",
   "question": "Can a learned sequential controller construct correct new arithmetic functions on a bank deep enough that streaming enumeration does not saturate within budget, and does any gain justify its complete cost?",
   "grammar": {
     "operators": [
@@ -55,8 +55,8 @@
       1,
       2
     ],
-    "per_task_cpu_seconds": null,
-    "frozen_at": null,
+    "per_task_cpu_seconds": 0.5,
+    "frozen_at": "2026-11-06",
     "beam_width": 8,
     "operator_top_k": 2,
     "held_feedback": false,
@@ -74,6 +74,12 @@
       "rounds": 4,
       "epochs_per_round": 30,
       "rollout_budget": 256
+    },
+    "calibration": {
+      "artifact": "artifacts/construction-hard-calibration-20261106/calibration.json",
+      "rule": "smallest budget in {0.5,1,2,5}s with streaming <=25% and imitation >=10% on train-pool sample (40/stratum)",
+      "streaming_at_budget": 0.2167,
+      "imitation_at_budget": 0.5
     }
   },
   "decision_rules": {
