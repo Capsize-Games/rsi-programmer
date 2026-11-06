@@ -152,6 +152,25 @@ tests registered in `tracks/manifest.json`).
 - The runner refuses to run if corpus/protocol hashes drift, and
   refuses a second run into an existing output directory.
 
+## Bank v2 amendment (2026-11-06, after calibration)
+
+Calibration of the sampled-ops bank failed its design rule at
+every budget: streaming solves 80% at 0.5 s and 100% within the
+10 s cap (sampled trees collapse to low-complexity polynomials;
+`artifacts/construction-hard-calibration-20261106/`). The bank
+therefore switches strata from sampled tree-op count to **exact
+minimal tree-op count**, the intrinsic property the v1 catalog
+used: enumerate polynomial identities level by level (exact,
+generator-side, solver-free), strata {6, 7, 8}, bound 8, witness
+= first-appearance catalog node. Catalog growth measured:
+39,093 cumulative identities through size 6 in 1.7 CPU s. Level 8
+collection may early-stop after collecting a recorded multiple
+of its quota (first appearance at level 8 is minimal regardless
+of enumeration order, provided the seen set is complete below
+8); any shortfall is recorded, never silently rebalanced. The
+failed sampled bank and its calibration are retained as evidence;
+no solver ever ran on its eval split.
+
 ## Calibration (parent, serialized, before freezing budgets)
 
 On a train-pool sample only (never eval rows): measure streaming
