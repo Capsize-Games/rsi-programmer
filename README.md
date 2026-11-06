@@ -4,6 +4,24 @@ The primary development track is neural program synthesis: a learner that
 constructs executable programs and improves from independently checked
 training experience. The
 [programmer roadmap](tracks/programmer/README.md) defines the milestones.
+The [edit-value experiment](tracks/programmer/edit-value-results.md)
+passes 1/6 fresh array functions, tied with untrained, classical and
+incumbent routes, and 0/3 on the original array tasks. Accepted programs
+qualified on 20 actual cases per language (89 executions per backend).
+No learning benefit or broader-family gain is established. The first
+[runner campaign](tracks/programmer/campaign-runner.md) ran both
+development recipes at 0/3 and stopped NO_MEASURED_GAIN without opening
+its audit; its adapter supports only bounded integer-list programs.
+Three bounded [list-output trials](tracks/programmer/array-results.md)
+construct 0/3 programs each, matching untrained controls. Four supplied
+controls pass 20 Python and CURLEE cases each, including 512 outputs
+from 256 inputs. See the
+[frozen-transfer result](tracks/programmer/frozen-transfer-results.md):
+11/18 unseen functions pass in both languages (20 held cases each),
+matching untrained 11/18 against classical 14/18. Full measured
+controller CPU is 71.614 s
+trained, 26.600 s untrained and 21.127 s classical, excluding historical
+donor-library creation. No training or cost benefit is established.
 The [branch-composition result](tracks/programmer/branch-results.md)
 accepts all 11 development tasks in Python and CURLEE, with 40 held cases
 each per language. It adds largest magnitude, capped-value sum and capped

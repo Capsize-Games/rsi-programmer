@@ -92,3 +92,9 @@ Current checks are `tests.test_construction_state` and
 development selection, the frozen final runner, independent replay and cost
 measurement remain outstanding at the foundation checkpoint. Python/CURLEE
 backends remain later stages.
+
+Status as of 2026-11-05: development-split construction trials have
+since run on the 135-function development split (ANN 78/135, all 78
+passing 4,680 actual Python and CURLEE cases per language; see
+[language-results.md](language-results.md)). The sealed 244-function
+final evaluation and its cost gate remain unopened.

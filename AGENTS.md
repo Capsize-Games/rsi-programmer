@@ -15,13 +15,21 @@ BSD-3-Clause software, copyright Capsize LLC (see [LICENSE](LICENSE)).
 
 - One class per file, full type hints, 79-column lines. When a limit is
   reached, split the module instead of growing past it.
-- `rsi_programmer/lineage.py` is the only persistence: a sqlite record of
-  missions and intent entries. It replaces the rover mission stack the
-  training loops were extracted from; keep training runnable without it
-  gaining mission/authority semantics.
-- The engine decides success: a synthesised program counts only when the
-  independent checker (`probe.validate_graph`) holds on held-out rows.
-  Learner-reported scores alone prove nothing.
+- `rsi_programmer/lineage.py` is the only sqlite store: a record of
+  missions and intent entries. Its schema already carries authority and
+  fence terms, and other artefacts persist outside it (weight files via
+  `torch.save`, JSON manifests and reports). It replaces the rover
+  mission stack the training loops were extracted from; keep training
+  runnable without depending on it.
+- The engine decides success: a synthesised program counts only when an
+  independent semantic checker holds on held-out rows.
+  `probe.validate_graph` is structural only (field, type and reference
+  shape; it takes no rows). Semantics come from
+  `construction_check.check_graph`, `benchmark_v2_runner`'s
+  `validate_graph_exact`, sandboxed execution (`sandbox.SandboxRunner`,
+  `headless.HeadlessLoop`), the donor `qualify()` gates and dual-backend
+  Python/CURLEE held-case acceptance. Learner-reported scores alone
+  prove nothing.
 - Never commit `weights/*.pt`, lineage databases, or `.venv/`.
 
 ## Research tracks
@@ -129,7 +137,9 @@ remain unsolved. Models stay fixed during repair; this is conditioning on
 counterexamples, not neural weight adaptation or recursive improvement.
 Classical and untrained controls are held-IR checks only; classical also
 accepts 8/11. Do not claim a matched-total-cost advantage. The unchanged
-package/test sources pass 530 programmer fast-track tests; other lanes
+package/test sources pass the programmer fast track (96 modules,
+629 test definitions by AST count as of 2026-11-05, including the
+four audit follow-through test modules); other lanes
 and tracks were not rerun, and remote CI remains pending. Next test bounded
 composition of qualified branch fragments, preserving all failures,
 provenance, controls and separation of held data from feedback.

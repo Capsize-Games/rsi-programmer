@@ -96,6 +96,10 @@ Preserve every failed attempt. Further changes need a specific programming
 failure to address and a new frozen bank for subsequent final claims.
 The stages below describe the broader capability progression. They do not
 require repeating model-family comparisons before useful-program trials.
+Status as of 2026-11-05: stages 1-4 are partially implemented (restricted
+construction policy, arithmetic backends, first list utility), so read
+their imperatives as open remainder rather than unstarted work; stages
+5-6 remain open.
 
 1. **Learn to construct programs.** Define a sequential typed action API:
    choose an operation, select operands from live references, extend the
