@@ -278,6 +278,19 @@ test, not a capability claim, and it does not disturb any sealed
 verdict. Next: a 19,200-task third scaling point on the same dev
 split, then a preregistered sealed test at a declared volume.
 
+D2 diagnostics checkpoint (2026-11-06): the 19,200-task fit solves
+62/300 unseen broad tasks at width 8 and 105/300 at width 32 vs
+streaming 50/300 (paired width-32 discordance 70 learned-only vs 15
+streaming-only). Scaling points at width 8: 2 (1,200 tasks), 24
+(4,800), 62 (19,200). Dev arithmetic picks the 4,800-task width-32
+operating point (smallest break-even volume, ~7,300 tasks) for a
+preregistered sealed test at declared volume 12,000 on a fresh
+shape-broad bank; design and kill criterion are frozen in
+`tracks/programmer/scaling-sealed-design.md`. See
+`tracks/programmer/d2-diagnostics-results.md`. Streaming counts at a
+0.5 s CPU cap carry several-task jitter (42 vs 50 observed on
+identical tasks); retain that caveat in the sealed result.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,
