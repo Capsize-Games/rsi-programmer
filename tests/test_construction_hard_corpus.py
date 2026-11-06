@@ -97,6 +97,23 @@ class ConstructionHardCorpusTests(unittest.TestCase):
                 seen.add(identity)
                 identifiers.add(task["id"])
 
+    def test_cross_stratum_identities_never_repeat_at_scale(
+            self) -> None:
+        # Regression: the first full-size generation (2026-11-06)
+        # repeated 124 identities across strata/splits because each
+        # stratum pooled independently. Tiny quotas rarely collide,
+        # so exercise a few hundred tasks at the production seed.
+        corpus = generate_corpus(
+            seed=20261106,
+            quotas={"train": 300, "dev": 30, "eval": 30},
+            v1_path=V1)
+        identities = _identities(corpus)
+        total = sum(len(tasks) for tasks in corpus["splits"].values())
+        self.assertEqual(len(identities), total)
+        ids = [task["id"] for tasks in corpus["splits"].values()
+               for task in tasks]
+        self.assertEqual(len(set(ids)), total)
+
     def test_planted_v1_polynomials_are_excluded(self) -> None:
         first = generate_corpus(seed=11, quotas=dict(TINY),
                                 v1_path=None)

@@ -88,9 +88,9 @@ def _task(identity: Polynomial, expr: Expr, ops: int,
 
 
 def _sample_stratum(ops: int, need: int, seed: int,
-                    v1: set[Polynomial], budget: int
-                    ) -> tuple[dict[Polynomial, Expr], int]:
-    """Collect distinct non-v1 identities; report v1 exclusion hits."""
+                    v1: set[Polynomial], taken: set[Polynomial],
+                    budget: int) -> tuple[dict[Polynomial, Expr], int]:
+    """Collect distinct identities outside v1 and earlier strata."""
     rng = random.Random(seed + ops)
     pool: dict[Polynomial, Expr] = {}
     excluded = 0
@@ -101,7 +101,8 @@ def _sample_stratum(ops: int, need: int, seed: int,
         identity = expr_polynomial(expr)
         if identity in v1:
             excluded += 1
-        elif identity and identity not in IDENTITY and identity not in pool:
+        elif (identity and identity not in IDENTITY
+              and identity not in pool and identity not in taken):
             pool[identity] = expr
     return pool, excluded
 
@@ -119,9 +120,12 @@ def generate_corpus(seed: int = SEED,
     available: dict[str, int] = {}
     excluded: dict[str, int] = {}
     shortfalls: dict[str, dict[str, int]] = {n: {} for n in wanted}
+    taken: set[Polynomial] = set()
     for ops in STRATA:
         need = sum(share[ops] for share in shares.values())
-        pool, hits = _sample_stratum(ops, need, seed, v1, max_attempts)
+        pool, hits = _sample_stratum(ops, need, seed, v1, taken,
+                                      max_attempts)
+        taken.update(pool)
         excluded[str(ops)] = hits
         available[str(ops)] = len(pool)
         ordered = sorted(pool.items(),
