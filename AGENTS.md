@@ -253,6 +253,20 @@ and is not tuned further. The failed sampled-bank calibration, the
 level-8 enumeration-prefix caveat and all per-seed costs are retained
 in the result doc. The 300 eval tasks are now development data.
 
+D0 diagnostics checkpoint (2026-11-06): development diagnostics after
+the feedback closure (`tracks/programmer/d0-diagnostics-results.md`).
+The corpus's stratum-8 pool is a single shape family (`x <op>` earliest
+level-7 nodes, first 2,900 enumeration triples); the sealed seed-0
+model, reproduced bit-for-bit, solves 20% of unseen identities in that
+family but 1/64 on shape-broad stratum-8 sampling. The amortization
+hypothesis is dead on its premise and its bank is not built. Rollout
+acceptance at 100 epochs is 44.5%/25.3%/72.3% per stratum on training
+tasks, so the sealed loop's ~1/1,200 sparsity was substantially its
+30-epoch reset recipe; the sealed verdict stands as preregistered.
+The binding constraint is shape-level generalization (5.3%/0%/1.6%
+broad vs 47% on train tasks). Next diagnostic varies training-set
+size (never varied; fixed at 1,200) on shape-broad development data.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,

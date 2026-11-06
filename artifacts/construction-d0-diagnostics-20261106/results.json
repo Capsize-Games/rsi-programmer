@@ -1,0 +1,187 @@
+{
+ "seed": 0,
+ "bound": 8,
+ "fit": {
+  "complete_cpu_seconds": 506.09612566600003,
+  "final_loss": 0.7593051791191101,
+  "final_hash": "04649380bda0135b7887bb369a9b63ffbe8af6bb5d8fc516cf2ea2324a3365bf",
+  "teacher_steps": 9493
+ },
+ "d0a_acceptance": {
+  "rollout_cpu_seconds": 96.31766662899997,
+  "6": {
+   "n": 400,
+   "accepted": 178,
+   "mean_match_fraction": 0.445,
+   "match_ge_0.9": 178,
+   "match_eq_1": 178
+  },
+  "7": {
+   "n": 400,
+   "accepted": 101,
+   "mean_match_fraction": 0.2525,
+   "match_ge_0.9": 101,
+   "match_eq_1": 101
+  },
+  "8": {
+   "n": 400,
+   "accepted": 289,
+   "mean_match_fraction": 0.7225,
+   "match_ge_0.9": 289,
+   "match_eq_1": 289
+  }
+ },
+ "d0c_widths": {
+  "8": {
+   "solved": 60,
+   "n": 120,
+   "by_stratum": {
+    "6": 19,
+    "7": 9,
+    "8": 32
+   },
+   "cpu_seconds": 9.863473829000554
+  },
+  "32": {
+   "solved": 82,
+   "n": 120,
+   "by_stratum": {
+    "6": 27,
+    "7": 17,
+    "8": 38
+   },
+   "cpu_seconds": 35.11767105500019
+  },
+  "128": {
+   "solved": 89,
+   "n": 120,
+   "by_stratum": {
+    "6": 30,
+    "7": 21,
+    "8": 38
+   },
+   "cpu_seconds": 122.93185824800037
+  }
+ },
+ "streaming_caps": {
+  "6": {
+   "0.25": {
+    "fraction": 0.125,
+    "cpu_per_solve": 1.957786243600026
+   },
+   "0.5": {
+    "fraction": 0.625,
+    "cpu_per_solve": 0.623688152199984
+   },
+   "1.0": {
+    "fraction": 0.825,
+    "cpu_per_solve": 0.6330975614848464
+   },
+   "2.0": {
+    "fraction": 1.0,
+    "cpu_per_solve": 0.5616797127749976
+   }
+  },
+  "7": {
+   "0.25": {
+    "fraction": 0.0,
+    "cpu_per_solve": null
+   },
+   "0.5": {
+    "fraction": 0.0,
+    "cpu_per_solve": null
+   },
+   "1.0": {
+    "fraction": 0.0,
+    "cpu_per_solve": null
+   },
+   "2.0": {
+    "fraction": 0.15,
+    "cpu_per_solve": 13.148475534999989
+   }
+  },
+  "8": {
+   "0.25": {
+    "fraction": 0.0,
+    "cpu_per_solve": null
+   },
+   "0.5": {
+    "fraction": 0.0,
+    "cpu_per_solve": null
+   },
+   "1.0": {
+    "fraction": 0.0,
+    "cpu_per_solve": null
+   },
+   "2.0": {
+    "fraction": 0.0,
+    "cpu_per_solve": null
+   }
+  },
+  "all": {
+   "0.25": {
+    "fraction": 0.041666666666666664,
+    "cpu_per_solve": 5.957786243600026
+   },
+   "0.5": {
+    "fraction": 0.20833333333333334,
+    "cpu_per_solve": 2.223688152199984
+   },
+   "1.0": {
+    "fraction": 0.275,
+    "cpu_per_solve": 3.0573399857272707
+   },
+   "2.0": {
+    "fraction": 0.38333333333333336,
+    "cpu_per_solve": 3.9425661243695616
+   }
+  }
+ },
+ "d0b": {
+  "broad_blocks_sampled": {
+   "0": 8,
+   "1": 8,
+   "2": 8,
+   "3": 8,
+   "4": 8,
+   "5": 8,
+   "6": 8,
+   "7": 8
+  },
+  "prefix_unseen": {
+   "learned": {
+    "solved": 12,
+    "n": 60,
+    "by_stratum": {
+     "8": 12
+    },
+    "cpu_seconds": 4.9464968249998265
+   },
+   "streaming@0.5": {
+    "solved": 0,
+    "n": 60,
+    "by_stratum": {},
+    "cpu_seconds": 33.485828622999975
+   }
+  },
+  "shape_broad": {
+   "learned": {
+    "solved": 1,
+    "n": 64,
+    "by_stratum": {
+     "8": 1
+    },
+    "cpu_seconds": 5.26353217999997
+   },
+   "streaming@0.5": {
+    "solved": 0,
+    "n": 64,
+    "by_stratum": {},
+    "cpu_seconds": 35.30855084400059
+   },
+   "learned_by_left_block": {
+    "6": 1
+   }
+  }
+ }
+}
