@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/joe/Projects/rsi-programmer/scripts/run_construction_final.py", line 163, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/joe/Projects/rsi-programmer/scripts/run_construction_final.py", line 146, in main
+    train, final = _tasks(bundle, args)
+                   ~~~~~~^^^^^^^^^^^^^^
+  File "/home/joe/Projects/rsi-programmer/scripts/run_construction_final.py", line 132, in _tasks
+    final = [task for task in bundle["corpus"]["splits"]["final"]]
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'final'
