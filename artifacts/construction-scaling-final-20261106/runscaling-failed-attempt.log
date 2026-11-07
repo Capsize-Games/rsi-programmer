@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/joe/Projects/rsi-programmer/scripts/run_construction_scaling_final.py", line 64, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/joe/Projects/rsi-programmer/scripts/run_construction_scaling_final.py", line 45, in main
+    args.output.mkdir(parents=True, exist_ok=False)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joe/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/lib/python3.13/pathlib/_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: 'artifacts/construction-scaling-final-20261106'

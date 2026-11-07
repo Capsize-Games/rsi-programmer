@@ -291,6 +291,19 @@ shape-broad bank; design and kill criterion are frozen in
 0.5 s CPU cap carry several-task jitter (42 vs 50 observed on
 identical tasks); retain that caveat in the sealed result.
 
+Scaling-bank checkpoint (2026-11-06): the preregistered sealed scaling
+test on a fresh shape-broad bank (4,800 train / 12,000 eval, corpus
+sha256 `2bff2fd8...`) FAILS its frozen kill criterion: credited solves
+at equal total CPU 1,626.7 learned (mean, 3 seeds) vs 1,880 streaming,
+untrained 0; raw solves 1,662.3 vs 2,293. Streaming solves only
+stratum 6 (2,293/4,000); the learned arm alone reaches strata 7/8
+(540 mean solves). See `tracks/programmer/scaling-sealed-results.md`.
+Per the criterion the data-scaling route is closed with no retest at
+larger volume, wider beam, or larger train pool. The earlier
+"ANN-construction hypothesis closed" statement above should be read
+as scoped to its own preregistered recipe, as these later checkpoints
+were separately preregistered hypotheses.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,
