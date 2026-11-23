@@ -15,9 +15,10 @@ from scripts.verify_hub import _release_with_asset, github_asset_bytes
 class HubReleaseLookupTests(unittest.TestCase):
     def test_finds_asset_beyond_first_fifty_releases(self) -> None:
         asset = "rsi-search-policy-w2.pt"
-        records = [{"tag_name": "code-%d" % index, "assets": []}
-                   for index in range(51)]
-        records.append({"tag_name": "weights-v3", "assets": [asset]})
+        records = [{"draft": False, "tag_name": "code-%d" % index,
+                    "assets": []} for index in range(51)]
+        records.append({"draft": False, "tag_name": "weights-v3",
+                        "assets": [asset]})
         output = "\n".join(json.dumps(row) for row in records)
         result = subprocess.CompletedProcess(
             args=[], returncode=0, stdout=output, stderr="")
@@ -29,6 +30,25 @@ class HubReleaseLookupTests(unittest.TestCase):
         self.assertEqual(command[:3], ["gh", "api", "--paginate"])
         self.assertEqual(command[3], "repos/owner/repo/releases")
         run.assert_called_once()
+
+    def test_draft_asset_does_not_prove_public_distribution(self) -> None:
+        records = [
+            {"tag_name": "held", "draft": True, "assets": ["weights.pt"]},
+            {"tag_name": "public", "draft": False, "assets": ["weights.pt"]},
+        ]
+        output = "\n".join(json.dumps(row) for row in records)
+        result = subprocess.CompletedProcess([], 0, output, "")
+        with patch("scripts.verify_hub.subprocess.run", return_value=result):
+            self.assertEqual(_release_with_asset("o/r", "weights.pt"),
+                             "public")
+
+    def test_draft_only_asset_remains_missing(self) -> None:
+        row = {"tag_name": "held", "draft": True, "assets": ["weights.pt"]}
+        result = subprocess.CompletedProcess([], 0, json.dumps(row), "")
+        with patch("scripts.verify_hub.subprocess.run", return_value=result):
+            with self.assertRaisesRegex(ValueError,
+                                        "asset missing from published"):
+                _release_with_asset("o/r", "weights.pt")
 
     def test_release_api_error_fails_closed(self) -> None:
         result = subprocess.CompletedProcess(
@@ -47,7 +67,7 @@ class HubReleaseLookupTests(unittest.TestCase):
             args=[], returncode=1, stdout="", stderr="HTTP 503")
         passed = subprocess.CompletedProcess(
             args=[], returncode=0,
-            stdout=json.dumps({"tag_name": "weights-v1",
+            stdout=json.dumps({"draft": False, "tag_name": "weights-v1",
                                "assets": [asset]}), stderr="")
         with patch("scripts.verify_hub.subprocess.run",
                    side_effect=[failed, passed]) as run, \
@@ -84,7 +104,8 @@ class HubReleaseLookupTests(unittest.TestCase):
                          [1, 2])
 
     def test_missing_asset_reports_missing(self) -> None:
-        records = [{"tag_name": "code-v1", "assets": ["other.pt"]}]
+        records = [{"draft": False, "tag_name": "code-v1",
+                    "assets": ["other.pt"]}]
         result = subprocess.CompletedProcess(
             args=[], returncode=0,
             stdout=json.dumps(records[0]), stderr="")
