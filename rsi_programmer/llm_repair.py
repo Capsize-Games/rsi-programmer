@@ -13,11 +13,15 @@ held rows). Repair drives only the repair-facing judge API
 (``judge_visible`` plus ``counterexamples`` scoped to visible
 or query); any held scope raises before feedback is built.
 
-Stop on accept, round cap ``R_MAX``, per-task token/CPU cap, or
-a repeated candidate hash (declared loop). Every round is
-stored with full provenance, and the round-0 verdict stays
-recoverable as the single-shot outcome from the same artifact.
-No network calls, no LLM calls, and no lineage imports.
+Stop on accept, round cap ``R_MAX``, per-task token/CPU cap,
+a repeated candidate hash (declared loop), or a round verdict
+outside the value-mismatch set below (repair continues only
+for executable candidates with wrong values, never for
+structural, gate, timeout, or backend-error failures).
+Every round is stored with full provenance, and the round-0
+verdict stays recoverable as the single-shot outcome from the
+same artifact. No network calls, no LLM calls, and no lineage
+imports.
 """
 from __future__ import annotations
 
@@ -45,6 +49,17 @@ REPAIR_TEMPLATE = (
 )
 
 KINDS = ("graph", "statement")
+
+VALUE_MISMATCH_TAXONOMIES = frozenset(
+    {"python_mismatch", "curlee_mismatch",
+     "identity_mismatch"})
+
+
+def _is_value_miss(lite: Mapping[str, Any]) -> bool:
+    """True when repair may continue from this round verdict."""
+    taxonomy = lite.get("taxonomy") or []
+    return len(taxonomy) == 1 and taxonomy[0] in \
+        VALUE_MISMATCH_TAXONOMIES
 
 _PAIR_BOUNDARY = ((0, 0), (6, 6), (-6, -6), (6, -6),
                   (-6, 6), (0, 6))
@@ -304,6 +319,9 @@ class RepairLoop:
                 break
             if number >= self._max_rounds:
                 status = "round_cap"
+                break
+            if not _is_value_miss(lite):
+                status = "not_near_miss"
                 break
             if prompt_total + completion_total > \
                     self._token_cap or \

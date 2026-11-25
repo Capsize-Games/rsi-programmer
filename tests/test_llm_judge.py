@@ -170,6 +170,23 @@ class SadPathTests(JudgeFixtures):
             scope="query")
         self.assertEqual(rows, [])
 
+    def test_python_mismatch_skips_curlee(self) -> None:
+        """A Python failure costs one backend, not two."""
+        verdict, commands = self.judge.judge_visible(
+            GRAPH_TASK, "graph", json.dumps(GRAPH_WRONG))
+        self.assertFalse(verdict["accepted"])
+        self.assertEqual(verdict["taxonomy"], ["python_mismatch"])
+        self.assertFalse(verdict["python_correct"])
+        self.assertIsNone(verdict["curlee_correct"])
+        self.assertEqual(
+            verdict["costs"]["curlee_check"]["cpu_seconds"],
+            0.0)
+        self.assertEqual(
+            verdict["costs"]["curlee_run"]["cpu_seconds"], 0.0)
+        self.assertEqual(
+            [name for name in commands
+             if name.startswith("curlee_")], [])
+
 
 class BadPathTests(JudgeFixtures):
     def test_malformed_graph_rejected(self) -> None:

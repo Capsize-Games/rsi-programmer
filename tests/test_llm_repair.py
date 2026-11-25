@@ -14,6 +14,7 @@ from rsi_programmer.llm_judge import LlmJudge, SealedHeldError
 from rsi_programmer.llm_proposer import MODEL_ID, ProposerAdapter
 from rsi_programmer.llm_repair import QUERY_REVEAL_CAP, R_MAX
 from rsi_programmer.llm_repair import RepairLoop
+from rsi_programmer.llm_repair import _is_value_miss
 from rsi_programmer.llm_repair import assert_disjoint_from_held
 from rsi_programmer.llm_repair import template_sha256
 
@@ -27,8 +28,16 @@ FRAG = {"provenance": {"source": "test"}, "tokens": ["return"]}
 
 
 def _verdict(task_id: str, kind: str, accepted: bool,
-             fails: list[list[Any]]) -> dict[str, Any]:
+             fails: list[list[Any]],
+             taxonomy: list[str] | None = None
+             ) -> dict[str, Any]:
     """Minimal judge-shaped verdict over canned failures."""
+    if accepted:
+        codes: list[str] = []
+    elif taxonomy is not None:
+        codes = list(taxonomy)
+    else:
+        codes = ["python_mismatch"]
     return {"task_id": task_id, "kind": kind, "stage": "visible",
             "accepted": accepted, "valid": True,
             "python_correct": accepted,
@@ -36,7 +45,7 @@ def _verdict(task_id: str, kind: str, accepted: bool,
             "identity_ok": None, "rows_checked": 7,
             "mismatches": 0 if accepted else len(fails),
             "first_mismatch": None if accepted else 0,
-            "taxonomy": [] if accepted else ["python_mismatch"],
+            "taxonomy": codes,
             "detail": "ok" if accepted else "rows differ",
             "signature": None, "counterexamples": fails,
             "compiler": {"path": "canned", "sha256": "canned",
@@ -222,6 +231,61 @@ class CapAndLoopTests(unittest.TestCase):
         self.assertEqual(got["totals"]["prompt_tokens"], 10)
         self.assertEqual(
             got["totals"]["completion_tokens"], 5)
+
+
+class StructuralJudge(FakeJudge):
+    """Every candidate fails before any backend runs."""
+
+    def judge_visible(
+            self, task_id: str, kind: str, text: str,
+            proposal: Any = None) -> tuple[dict[str, Any],
+                                           dict[str, Any]]:
+        """Canned structural failure; no rows ever execute."""
+        self.calls.append(("judge_visible", text))
+        return _verdict(task_id, kind, False, [],
+                        ["structural"]), {}
+
+
+class NearMissGateTests(unittest.TestCase):
+    def test_gate_accepts_only_single_value_codes(
+            self) -> None:
+        """Only runnable-but-wrong verdicts continue repair."""
+        for code in ("python_mismatch", "curlee_mismatch",
+                     "identity_mismatch"):
+            self.assertTrue(
+                _is_value_miss({"taxonomy": [code]}),
+                msg=code)
+        for taxonomy in ([], ["structural"], ["timeout"],
+                          ["budget"], ["python_error"],
+                          ["curlee_error"], ["curlee_check"],
+                          ["int64_range"], ["execution_mismatch"],
+                          ["python_mismatch",
+                           "curlee_mismatch"], ["nope"]):
+            self.assertFalse(
+                _is_value_miss({"taxonomy": taxonomy}),
+                msg=str(taxonomy))
+        self.assertFalse(_is_value_miss({}))
+
+    def test_structural_round_zero_stops(self) -> None:
+        """A non-executable round 0 costs one round, not four."""
+        judge = StructuralJudge(set(), {})
+        got = _loop(judge).repair(
+            TASK, KIND, _script(["first stop",
+                                 "second stop"]))
+        self.assertEqual(got["status"], "not_near_miss")
+        self.assertFalse(got["accepted"])
+        self.assertEqual(len(got["rounds"]), 1)
+        judged = [call for call in judge.calls
+                  if call[0] == "judge_visible"]
+        self.assertEqual(len(judged), 1)
+
+    def test_value_mismatch_still_repairs(self) -> None:
+        """A runnable-but-wrong round 0 keeps its rounds."""
+        judge = FakeJudge({FIXED}, {WRONG: [VISIBLE[0]]})
+        got = _loop(judge).repair(
+            TASK, KIND, _script([WRONG, FIXED]))
+        self.assertTrue(got["accepted"])
+        self.assertEqual(got["accepted_round"], 1)
 
 
 class HeldIsolationTests(unittest.TestCase):

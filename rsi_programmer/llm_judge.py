@@ -465,7 +465,13 @@ class LlmJudge:
                   stage: str,
                   proposal: Mapping[str, Any] | None
                   ) -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
-        """Run gate, CURLEE check, both backends and identity."""
+        """Run gate, Python sandbox first, then CURLEE and identity.
+
+        CURLEE check/run is skipped when the Python sandbox
+        already fails the candidate, so broken proposals cost
+        one backend instead of two. ``curlee_correct`` stays
+        ``None`` for those verdicts.
+        """
         task = self._task(task_id)
         rows = self._split_rows(task_id, stage)
         costs = _zero_costs()
@@ -520,18 +526,6 @@ class LlmJudge:
             verdict["valid"] = False
             return finish("curlee_lower", f"lower: {exc}")
         tag = f"{task_id}_{stage}"
-        status, record = self._run_curlee_source(
-            source, tag, costs, commands)
-        if status == "timeout":
-            if record["check"] and \
-                    record["check"].get("exit_code") == 75:
-                return finish("timeout",
-                              "resource guard refused job")
-            return finish("timeout", "CURLEE stage timed out")
-        if status == "check":
-            check = record["check"]
-            return finish("curlee_check",
-                          f"check rc={check.get('exit_code')}")
         clock = CostClock()
         if kind == "graph":
             state, outputs, detail = self._run_python_graph(
@@ -569,6 +563,18 @@ class LlmJudge:
             return finish("python_mismatch",
                           f"{len(bad)} of {len(rows)} rows differ")
         verdict["python_correct"] = True
+        status, record = self._run_curlee_source(
+            source, tag, costs, commands)
+        if status == "timeout":
+            if record["check"] and \
+                    record["check"].get("exit_code") == 75:
+                return finish("timeout",
+                              "resource guard refused job")
+            return finish("timeout", "CURLEE stage timed out")
+        if status == "check":
+            check = record["check"]
+            return finish("curlee_check",
+                          f"check rc={check.get('exit_code')}")
         if status == "mismatch":
             verdict["curlee_correct"] = False
             verdict["mismatches"] = len(rows)
