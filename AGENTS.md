@@ -57,6 +57,14 @@ scope is in `tracks/README.md`; the staged plan is in
 - The deployed learner must make its own programming choices and learn
   without an LLM teacher. A pretrained coding model would change that
   research scope and requires an explicit owner decision.
+- Owner direction (2026-11-25): RSI Inversion. The programmer track
+  proposer is now an LLM: Spark 1.3 background workers supervised by
+  the harness. The ANN/SNN construction line is closed (see
+  tracks/programmer/feedback-construction-results.md and
+  tracks/programmer/scaling-sealed-results.md). Judge infrastructure
+  stays the acceptance authority. Research question is now whether
+  LLM proposals become verified CURLEE better than enumeration.
+  Sensing and Sound Companion tracks are untouched.
 - Python and CURLEE execution require independent backend qualification.
   The arithmetic graph sandbox does not establish arbitrary-Python
   isolation, and a CURLEE proof covers only its declared modeled property.
