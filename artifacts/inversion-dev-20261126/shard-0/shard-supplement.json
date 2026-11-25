@@ -1,0 +1,75 @@
+{
+  "bank_mapping_confirmed": true,
+  "code_modified": false,
+  "cpu_seconds": {
+    "a": 1.3047689910991218,
+    "b": 2.000453724147854,
+    "c": 1.8567700257177506,
+    "d": 0.9060859999999966,
+    "e": 0.38107800000000047
+  },
+  "final_accepts_by_arm": {
+    "a": [],
+    "b": [],
+    "c": [],
+    "d": [],
+    "e": []
+  },
+  "guard_refusals": {
+    "evidence": "21.6s total wall vs 30s CURLEE timeout; all sequential; every timeout verdict fast rc75 refusal, recorded as timeout per hard rules, no retry/wait",
+    "final_stage": 14,
+    "total": 30,
+    "visible_stage": 16
+  },
+  "head_commit": "0f290720d9bb26fd407c3300797af5dd06860fec",
+  "machine": {
+    "end": {
+      "MemAvailable": "10251892 kB",
+      "uptime_seconds": 679412.19
+    },
+    "start": {
+      "MemAvailable": "10383536 kB",
+      "uptime_seconds": 679390.6
+    }
+  },
+  "protocol_sha256": "d8754a641e94dc9eeda0ed796ffd6f5982d561e5dd56bd5f19bf4af67cf1c7d8",
+  "shard": "shard-0",
+  "shard_decision": "KILL",
+  "tasks": [
+    "llm_dev_004",
+    "llm_dev_022",
+    "llm_dev_030",
+    "llm_dev_049",
+    "llm_dev_073"
+  ],
+  "tokens": {
+    "a": {
+      "completion": 266,
+      "prompt": 5
+    },
+    "b": {
+      "completion": 532,
+      "prompt": 10
+    },
+    "c": {
+      "completion": 532,
+      "prompt": 10
+    },
+    "d": {
+      "completion": 0,
+      "prompt": 0
+    },
+    "e": {
+      "completion": 0,
+      "prompt": 0
+    }
+  },
+  "visible_accept_task_ids_unresolved": "arm b count=1; per-task ids not persisted by runner",
+  "visible_accepted_counts": {
+    "a": 0,
+    "b": 1,
+    "c": 0,
+    "d": 0,
+    "e": 0
+  }
+}
