@@ -866,6 +866,13 @@ class DevDiagnosticRunner:
                     arm: len(final[arm]) for arm in ARMS}},
             "breakdown": {"by_family_final": by_family},
             "costs": {"cpu_seconds": cpu, "tokens": tokens,
+                      "cpu_by_task": {
+                          arm: {task: float(
+                              self._records[arm].get(
+                                  task, {}).get(
+                                  "cpu_seconds", 0.0))
+                              for task in self._task_ids}
+                          for arm in ARMS},
                       "per_accepted_total": per_accepted,
                       "marginal_per_accepted": marginals,
                       "ledgers": {

@@ -395,6 +395,32 @@ class RunnerSmokeTests(unittest.TestCase):
         stmt = runner._records["d"][STMT_TASK]
         self.assertEqual(stmt["status"], "not_applicable")
 
+    def test_cpu_by_task_recomputes_ratio(self) -> None:
+        """Persisted per-task CPU re-derives the bar ratio."""
+        runner = make_runner(self.tmp)
+        summary = drive(runner)
+        by_task = summary["costs"]["cpu_by_task"]
+        self.assertEqual(set(by_task), set("abcde"))
+        self.assertEqual(
+            set(by_task["a"]), {PAIR_TASK, STMT_TASK})
+        for arm, table in by_task.items():
+            self.assertAlmostEqual(
+                sum(table.values()),
+                summary["costs"]["cpu_seconds"][arm])
+        disc = summary["discordance_best_vs_streaming"]
+        best = disc["best_arm"]
+        shared = disc["both"]
+        if shared and sum(
+                by_task["d"][task] for task in shared) > 0:
+            ratio = (sum(by_task[best][task]
+                         for task in shared)
+                     / sum(by_task["d"][task]
+                           for task in shared))
+            self.assertAlmostEqual(
+                ratio,
+                summary["decision"]["prongs"][
+                    "cost_ratio"])
+
 
 class RealBackendSmokeTests(unittest.TestCase):
     """One real single-task judge call, bounded under 60 s."""
