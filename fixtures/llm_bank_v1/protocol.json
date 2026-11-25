@@ -1,0 +1,172 @@
+{
+  "bank_id": "llm_bank_v1",
+  "counts": {
+    "per_family_per_pool": 15,
+    "per_pool": 90,
+    "pools": {
+      "dev": {
+        "by_family": {
+          "A6": 15,
+          "A7": 15,
+          "A8": 15,
+          "S1": 15,
+          "S2": 15,
+          "S3": 15
+        },
+        "count": 90
+      },
+      "sealed": {
+        "by_family": {
+          "A6": 15,
+          "A7": 15,
+          "A8": 15,
+          "S1": 15,
+          "S2": 15,
+          "S3": 15
+        },
+        "count": 90
+      }
+    },
+    "tasks": 180
+  },
+  "curlee_binary": {
+    "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+    "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+  },
+  "design": "tracks/programmer/inversion-design.md Bank v1",
+  "exclusions": {
+    "declared": {
+      "array_dev_tasks": {
+        "count": 3,
+        "note": "Array-output dev tasks; scope disjoint.",
+        "status": "scope-disjoint"
+      },
+      "array_teachers": {
+        "note": "512 array teachers emit list outputs; this bank is scalar-return only.",
+        "status": "scope-disjoint"
+      },
+      "diagnostic_pools": {
+        "d1": {
+          "sizes": {
+            "eval": 300,
+            "large": 4800,
+            "small": 1200
+          },
+          "status": "count-declared"
+        },
+        "d2": {
+          "sizes": {
+            "eval": 300,
+            "train": 19200
+          },
+          "status": "count-declared"
+        }
+      },
+      "statement_dev_names": {
+        "names": [
+          "positive_total",
+          "negative_count",
+          "even_total",
+          "positive_square_total",
+          "odd_count",
+          "above_two_count",
+          "maximum_floor_zero",
+          "minimum_ceiling_zero",
+          "largest_magnitude",
+          "positive_values_capped_at_two_total",
+          "positive_count_capped_at_two"
+        ],
+        "note": "11 development functions; exact token matches excluded via loaded banks.",
+        "status": "named"
+      },
+      "teacher_functions": {
+        "count": 2647,
+        "note": "2647-function curriculum list is not identity-listed on disk; bank tokens are disjoint from all loaded banks.",
+        "status": "count-declared"
+      }
+    },
+    "excluded_identities": 19555,
+    "excluded_polynomials": 19483,
+    "excluded_token_programs": 72,
+    "polynomial_fixtures": {
+      "fixtures/benchmark_pre_eval_corpus_v2.json": {
+        "identities": 72,
+        "status": "loaded"
+      },
+      "fixtures/construction_corpus_v1.json": {
+        "identities": 925,
+        "status": "loaded"
+      },
+      "fixtures/construction_hard_corpus_v1.json": {
+        "identities": 1700,
+        "status": "loaded"
+      },
+      "fixtures/construction_scaling_corpus_v1.json": {
+        "identities": 16800,
+        "status": "loaded"
+      }
+    },
+    "token_fixtures": {
+      "fixtures/frozen_branch_transfer_v1/tasks.json": {
+        "programs": 18,
+        "status": "loaded"
+      },
+      "fixtures/frozen_branch_transfer_v2/tasks.json": {
+        "programs": 54,
+        "status": "loaded"
+      }
+    }
+  },
+  "files": {
+    "held": "24a1cb7bf0409be159b4cbb4b72936cde4040701077a331539a14f1f4681b929",
+    "protocol": "28c2f50d29f35bc824283a24bb5987acde37606c61525c4be7dddb58dd44282a",
+    "query": "cf3fcb4e47f410685a25789064e76b1ef551b818e7cfc0e5c9fc492440252c42",
+    "tasks": "d570e3ed1facab93862225dac48ebeaaeed55fe9c5eb6f8595257b68871ff575",
+    "visible": "2a70eab713e6322492b9fe1ff4c2189278490654fa4d70db6233c1666a227b00"
+  },
+  "generator": "rsi_programmer.llm_bank",
+  "generator_sources": {
+    "rsi_programmer/benchmark_v2_corpus.py": "13c49ca629ce51e766ffdd3615a925a601ede4c9cff9a713710d159698f6526f",
+    "rsi_programmer/construction_hard_corpus.py": "caf3231dc6485b8f530b3317f5cb98546da8742a3e5c35da5e03aa449e386685",
+    "rsi_programmer/llm_bank.py": "5f9629f5e78f45d9da2579173cf7a8a26e009a8fa6410f77d51e525f27ed14a1",
+    "rsi_programmer/statement_source.py": "911dabe2c39fa20ae83628235ada20860e2cf63c8bf88da13a3249fdcc29bea3",
+    "rsi_programmer/target_source.py": "db90394b964ab3d17830f5d7cfa706fd012eff37ab0af7420ad7000a0b9d6ba3"
+  },
+  "interfaces": {
+    "list": "bounded integer list; emitters statement_source python/curlee",
+    "pair": "integer pair (x, y); emitters target_source.emit_function"
+  },
+  "minimality_note": "A strata are witness-size bands, not catalog-certified minimal sizes; contamination control rests on polynomial-identity exclusion.",
+  "row_discipline": {
+    "acceptance_bound": 4611686018427387904,
+    "backends": [
+      "python",
+      "curlee"
+    ],
+    "held": 40,
+    "held_boundary": 6,
+    "held_seeded": 34,
+    "inputs_disjoint_within_task": true,
+    "int64_range": [
+      -9223372036854775808,
+      9223372036854775807
+    ],
+    "note": "Python ints are unbounded; CURLEE Ints are i64. Acceptance states the i64 range; rows stay within acceptance_bound.",
+    "query": 24,
+    "visible": 3
+  },
+  "seal": {
+    "file_guard": "load_held refuses without unseal",
+    "held_access": "solvers load protocol, tasks, visible and query only; held opens via load_held(unseal=True) after choices end.",
+    "sealed": true
+  },
+  "seed": 20261125,
+  "shapes": {
+    "A6": "arithmetic graph, 6 tree ops",
+    "A7": "arithmetic graph, 7 tree ops",
+    "A8": "arithmetic graph, 8 tree ops",
+    "S1": "statement loop plus accumulate",
+    "S2": "statement loop plus branch",
+    "S3": "statement loop plus branch plus update"
+  }
+}
