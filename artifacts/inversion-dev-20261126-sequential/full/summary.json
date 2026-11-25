@@ -1,0 +1,1179 @@
+{
+  "arms": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e"
+  ],
+  "bank_dir": "fixtures/llm_bank_v1",
+  "breakdown": {
+    "by_family_final": {
+      "A6": {
+        "a": 2,
+        "b": 5,
+        "c": 5,
+        "d": 1,
+        "e": 0
+      },
+      "A7": {
+        "a": 2,
+        "b": 2,
+        "c": 2,
+        "d": 2,
+        "e": 0
+      },
+      "A8": {
+        "a": 1,
+        "b": 5,
+        "c": 5,
+        "d": 1,
+        "e": 0
+      },
+      "S1": {
+        "a": 4,
+        "b": 4,
+        "c": 4,
+        "d": 0,
+        "e": 0
+      },
+      "S2": {
+        "a": 4,
+        "b": 5,
+        "c": 5,
+        "d": 0,
+        "e": 0
+      },
+      "S3": {
+        "a": 4,
+        "b": 4,
+        "c": 4,
+        "d": 0,
+        "e": 0
+      }
+    }
+  },
+  "costs": {
+    "cpu_seconds": {
+      "a": 17.01588937755513,
+      "b": 38.55365058232077,
+      "c": 35.58341906441551,
+      "d": 4.763671999999758,
+      "e": 2.1973669999999856
+    },
+    "judge_ledger": {
+      "command_costs": {},
+      "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+      "excluded_costs": [
+        "Historical donor-library creation outside this run",
+        "LLM pretraining and proposal token generation outside the harness",
+        "Sealed held handling outside judge_final",
+        "Proposer CPU is reported per proposal; only gate and judge work is ledgered"
+      ],
+      "largest_single_child_rss_kib": 0,
+      "measured_total_cpu_seconds": 98.65641299999923,
+      "measured_total_wall_seconds": 1196.420711159939,
+      "phases": {
+        "backend_execution": {
+          "maximum_cpu_seconds": 0.36696699999995985,
+          "mean_cpu_seconds": 0.0901587778793414,
+          "minimum_cpu_seconds": 0.020611000000002377,
+          "n_cpu_seconds": 1094.0,
+          "stdev_cpu_seconds": 0.0753818340806232,
+          "total_cpu_seconds": 98.6337029999995,
+          "total_wall_seconds": 1196.392452738015
+        },
+        "candidate_evaluation": {
+          "maximum_cpu_seconds": 8.399999998687235e-05,
+          "mean_cpu_seconds": 4.350574712593868e-05,
+          "minimum_cpu_seconds": 8.999999991488039e-06,
+          "n_cpu_seconds": 522.0,
+          "stdev_cpu_seconds": 1.1816290745626039e-05,
+          "total_cpu_seconds": 0.022709999999739994,
+          "total_wall_seconds": 0.028258421923965216
+        }
+      }
+    },
+    "ledgers": {
+      "a": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-a: donor library creation outside this run",
+          "arm-a: LLM pretraining and proposal tokens outside the harness",
+          "arm-a: sealed held handling outside judge_final",
+          "arm-a: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 3.921312377555296,
+        "measured_total_wall_seconds": 0.0,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 1.7228074009763077,
+            "mean_cpu_seconds": 0.13071041258517652,
+            "minimum_cpu_seconds": 9.228195995092392e-05,
+            "n_cpu_seconds": 30.0,
+            "stdev_cpu_seconds": 0.3278328985335887,
+            "total_cpu_seconds": 3.921312377555296,
+            "total_wall_seconds": 0.0
+          }
+        }
+      },
+      "b": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-b: donor library creation outside this run",
+          "arm-b: LLM pretraining and proposal tokens outside the harness",
+          "arm-b: sealed held handling outside judge_final",
+          "arm-b: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 22.675347582320683,
+        "measured_total_wall_seconds": 0.0,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 2.3961230179993436,
+            "mean_cpu_seconds": 0.31937109270874203,
+            "minimum_cpu_seconds": 0.00012784905266016722,
+            "n_cpu_seconds": 71.0,
+            "stdev_cpu_seconds": 0.6243393160063023,
+            "total_cpu_seconds": 22.675347582320683,
+            "total_wall_seconds": 0.0
+          }
+        }
+      },
+      "c": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-c: donor library creation outside this run",
+          "arm-c: LLM pretraining and proposal tokens outside the harness",
+          "arm-c: sealed held handling outside judge_final",
+          "arm-c: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 19.375942064415895,
+        "measured_total_wall_seconds": 0.0010430600959807634,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 2.428421632037498,
+            "mean_cpu_seconds": 0.2728858882312099,
+            "minimum_cpu_seconds": 0.0001052970765158534,
+            "n_cpu_seconds": 71.0,
+            "stdev_cpu_seconds": 0.6232253623513225,
+            "total_cpu_seconds": 19.374898064415902,
+            "total_wall_seconds": 0.0
+          },
+          "donor_library_creation": {
+            "maximum_cpu_seconds": 5.300000000829641e-05,
+            "mean_cpu_seconds": 4.175999999972646e-05,
+            "minimum_cpu_seconds": 3.499999999689862e-05,
+            "n_cpu_seconds": 25.0,
+            "stdev_cpu_seconds": 4.075127811322721e-06,
+            "total_cpu_seconds": 0.0010439999999931615,
+            "total_wall_seconds": 0.0010430600959807634
+          }
+        }
+      },
+      "d": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-d: donor library creation outside this run",
+          "arm-d: LLM pretraining and proposal tokens outside the harness",
+          "arm-d: sealed held handling outside judge_final",
+          "arm-d: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 2.5518539999999916,
+        "measured_total_wall_seconds": 2.7245729190763086,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.0,
+            "mean_cpu_seconds": 0.0,
+            "minimum_cpu_seconds": 0.0,
+            "n_cpu_seconds": 10.0,
+            "stdev_cpu_seconds": 0.0,
+            "total_cpu_seconds": 0.0,
+            "total_wall_seconds": 0.0
+          },
+          "search": {
+            "maximum_cpu_seconds": 0.5375920000000178,
+            "mean_cpu_seconds": 0.08506179999999972,
+            "minimum_cpu_seconds": 0.0,
+            "n_cpu_seconds": 30.0,
+            "stdev_cpu_seconds": 0.14652966303399234,
+            "total_cpu_seconds": 2.5518539999999916,
+            "total_wall_seconds": 2.7245729190763086
+          }
+        }
+      },
+      "e": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-e: donor library creation outside this run",
+          "arm-e: LLM pretraining and proposal tokens outside the harness",
+          "arm-e: sealed held handling outside judge_final",
+          "arm-e: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.00015099999998824387,
+        "measured_total_wall_seconds": 0.0001643492141738534,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 8.000000008223651e-06,
+            "mean_cpu_seconds": 5.033333332941463e-06,
+            "minimum_cpu_seconds": 3.000000006636583e-06,
+            "n_cpu_seconds": 30.0,
+            "stdev_cpu_seconds": 1.1290317299229215e-06,
+            "total_cpu_seconds": 0.00015099999998824387,
+            "total_wall_seconds": 0.0001643492141738534
+          }
+        }
+      }
+    },
+    "marginal_per_accepted": {
+      "b_vs_a": 2.692220150595705,
+      "c_vs_b": null
+    },
+    "per_accepted_total": {
+      "a": 1.0009346692679488,
+      "b": 1.5421460232928308,
+      "c": 1.4233367625766205,
+      "d": 1.1909179999999395,
+      "e": null
+    },
+    "tokens": {
+      "a": {
+        "completion": 1363,
+        "prompt": 30
+      },
+      "b": {
+        "completion": 3446,
+        "prompt": 7477
+      },
+      "c": {
+        "completion": 3446,
+        "prompt": 15831
+      },
+      "d": {
+        "completion": 0,
+        "prompt": 0
+      },
+      "e": {
+        "completion": 0,
+        "prompt": 0
+      }
+    }
+  },
+  "counts": {
+    "final_accepted": {
+      "a": 17,
+      "b": 25,
+      "c": 25,
+      "d": 4,
+      "e": 0
+    },
+    "visible_accepted": {
+      "a": 19,
+      "b": 27,
+      "c": 27,
+      "d": 4,
+      "e": 0
+    }
+  },
+  "curlee_check_pass_rate_final": 0.5461538461538461,
+  "decision": {
+    "best_arm": "c",
+    "prongs": {
+      "cost_ratio": 1.1611593755628198,
+      "counts": {
+        "a": 17,
+        "b": 25,
+        "c": 25
+      },
+      "deep_reach": true,
+      "deep_tasks": [
+        "llm_dev_031",
+        "llm_dev_039",
+        "llm_dev_042",
+        "llm_dev_043",
+        "llm_dev_062",
+        "llm_dev_065",
+        "llm_dev_068",
+        "llm_dev_072",
+        "llm_dev_073",
+        "llm_dev_075",
+        "llm_dev_076",
+        "llm_dev_081",
+        "llm_dev_083"
+      ],
+      "delta": true,
+      "multiple_m": 3,
+      "shared_tasks": [
+        "llm_dev_010",
+        "llm_dev_021",
+        "llm_dev_022",
+        "llm_dev_030"
+      ]
+    },
+    "reasons": [
+      "deep reach: c holds ['llm_dev_031', 'llm_dev_039', 'llm_dev_042', 'llm_dev_043', 'llm_dev_062', 'llm_dev_065', 'llm_dev_068', 'llm_dev_072', 'llm_dev_073', 'llm_dev_075', 'llm_dev_076', 'llm_dev_081', 'llm_dev_083']",
+      "cost/accepted ratio 1.161 vs M=3",
+      "counts a/b/c=17/25/25"
+    ],
+    "verdict": "PROCEED"
+  },
+  "discordance_best_vs_streaming": {
+    "best_arm": "c",
+    "both": [
+      "llm_dev_010",
+      "llm_dev_021",
+      "llm_dev_022",
+      "llm_dev_030"
+    ],
+    "llm_only": [
+      "llm_dev_002",
+      "llm_dev_004",
+      "llm_dev_009",
+      "llm_dev_011",
+      "llm_dev_031",
+      "llm_dev_039",
+      "llm_dev_042",
+      "llm_dev_043",
+      "llm_dev_045",
+      "llm_dev_047",
+      "llm_dev_048",
+      "llm_dev_050",
+      "llm_dev_062",
+      "llm_dev_065",
+      "llm_dev_068",
+      "llm_dev_072",
+      "llm_dev_073",
+      "llm_dev_075",
+      "llm_dev_076",
+      "llm_dev_081",
+      "llm_dev_083"
+    ],
+    "neither": [
+      "llm_dev_016",
+      "llm_dev_018",
+      "llm_dev_020",
+      "llm_dev_049",
+      "llm_dev_088"
+    ],
+    "streaming_only": []
+  },
+  "full_run_extra": {
+    "bank_mapping_confirmed": true,
+    "code_modified": false,
+    "cost_ratio_even_spread": 7.4697458314546665,
+    "cost_ratio_exact": 1.1611593755628198,
+    "counts_final": {
+      "a": 17,
+      "b": 25,
+      "c": 25,
+      "d": 4,
+      "e": 0
+    },
+    "counts_visible": {
+      "a": 19,
+      "b": 27,
+      "c": 27,
+      "d": 4,
+      "e": 0
+    },
+    "cpu_seconds": {
+      "a": 17.01588937755513,
+      "b": 38.55365058232077,
+      "c": 35.58341906441551,
+      "d": 4.763671999999758,
+      "e": 2.1973669999999856
+    },
+    "decision": {
+      "best_arm": "c",
+      "prongs": {
+        "cost_ratio": 1.1611593755628198,
+        "counts": {
+          "a": 17,
+          "b": 25,
+          "c": 25
+        },
+        "deep_reach": true,
+        "deep_tasks": [
+          "llm_dev_031",
+          "llm_dev_039",
+          "llm_dev_042",
+          "llm_dev_043",
+          "llm_dev_062",
+          "llm_dev_065",
+          "llm_dev_068",
+          "llm_dev_072",
+          "llm_dev_073",
+          "llm_dev_075",
+          "llm_dev_076",
+          "llm_dev_081",
+          "llm_dev_083"
+        ],
+        "delta": true,
+        "multiple_m": 3,
+        "shared_tasks": [
+          "llm_dev_010",
+          "llm_dev_021",
+          "llm_dev_022",
+          "llm_dev_030"
+        ]
+      },
+      "reasons": [
+        "deep reach: c holds ['llm_dev_031', 'llm_dev_039', 'llm_dev_042', 'llm_dev_043', 'llm_dev_062', 'llm_dev_065', 'llm_dev_068', 'llm_dev_072', 'llm_dev_073', 'llm_dev_075', 'llm_dev_076', 'llm_dev_081', 'llm_dev_083']",
+        "cost/accepted ratio 1.161 vs M=3",
+        "counts a/b/c=17/25/25"
+      ],
+      "verdict": "PROCEED"
+    },
+    "final_accepts_by_arm": {
+      "a": [
+        "llm_dev_004",
+        "llm_dev_010",
+        "llm_dev_021",
+        "llm_dev_022",
+        "llm_dev_030",
+        "llm_dev_045",
+        "llm_dev_047",
+        "llm_dev_048",
+        "llm_dev_050",
+        "llm_dev_065",
+        "llm_dev_068",
+        "llm_dev_072",
+        "llm_dev_073",
+        "llm_dev_075",
+        "llm_dev_076",
+        "llm_dev_081",
+        "llm_dev_083"
+      ],
+      "b": [
+        "llm_dev_002",
+        "llm_dev_004",
+        "llm_dev_009",
+        "llm_dev_010",
+        "llm_dev_011",
+        "llm_dev_021",
+        "llm_dev_022",
+        "llm_dev_030",
+        "llm_dev_031",
+        "llm_dev_039",
+        "llm_dev_042",
+        "llm_dev_043",
+        "llm_dev_045",
+        "llm_dev_047",
+        "llm_dev_048",
+        "llm_dev_050",
+        "llm_dev_062",
+        "llm_dev_065",
+        "llm_dev_068",
+        "llm_dev_072",
+        "llm_dev_073",
+        "llm_dev_075",
+        "llm_dev_076",
+        "llm_dev_081",
+        "llm_dev_083"
+      ],
+      "c": [
+        "llm_dev_002",
+        "llm_dev_004",
+        "llm_dev_009",
+        "llm_dev_010",
+        "llm_dev_011",
+        "llm_dev_021",
+        "llm_dev_022",
+        "llm_dev_030",
+        "llm_dev_031",
+        "llm_dev_039",
+        "llm_dev_042",
+        "llm_dev_043",
+        "llm_dev_045",
+        "llm_dev_047",
+        "llm_dev_048",
+        "llm_dev_050",
+        "llm_dev_062",
+        "llm_dev_065",
+        "llm_dev_068",
+        "llm_dev_072",
+        "llm_dev_073",
+        "llm_dev_075",
+        "llm_dev_076",
+        "llm_dev_081",
+        "llm_dev_083"
+      ],
+      "d": [
+        "llm_dev_010",
+        "llm_dev_021",
+        "llm_dev_022",
+        "llm_dev_030"
+      ],
+      "e": []
+    },
+    "frozen_reference": {
+      "a": 19,
+      "b": 28,
+      "c": 28,
+      "d": 4,
+      "e": 0,
+      "multiple_m": 3,
+      "ratio": 5.605
+    },
+    "guard_refusals": {
+      "evidence": "timeout taxonomy counts from summary.json; lite verdicts drop the rc75 detail string, so any timeout is an upper bound on guard refusals; wall-time cross-check in results doc",
+      "final_timeout_verdicts": 0,
+      "total_timeout_verdicts": 0,
+      "visible_timeout_verdicts": 0
+    },
+    "head_commit": "2f34a912158a419848bd7e25022c18fa79c4aa6e",
+    "machine": {
+      "end": {
+        "MemAvailable": "9562576 kB",
+        "loadavg_1_5_15": [
+          1.47,
+          1.81,
+          1.95
+        ],
+        "uptime_seconds": 681386.15
+      },
+      "start": {
+        "MemAvailable": "9754528 kB",
+        "loadavg_1_5_15": [
+          1.56,
+          2.08,
+          2.14
+        ],
+        "uptime_seconds": 680136.07
+      }
+    },
+    "protocol_sha256": "5433a5c48ad780954c8aeca1f0a6526914fb9eb0845901bd31e7f33a5025eb17",
+    "tasks": [
+      "llm_dev_004",
+      "llm_dev_002",
+      "llm_dev_011",
+      "llm_dev_010",
+      "llm_dev_009",
+      "llm_dev_018",
+      "llm_dev_022",
+      "llm_dev_020",
+      "llm_dev_016",
+      "llm_dev_021",
+      "llm_dev_039",
+      "llm_dev_031",
+      "llm_dev_030",
+      "llm_dev_042",
+      "llm_dev_043",
+      "llm_dev_047",
+      "llm_dev_050",
+      "llm_dev_045",
+      "llm_dev_049",
+      "llm_dev_048",
+      "llm_dev_068",
+      "llm_dev_065",
+      "llm_dev_062",
+      "llm_dev_072",
+      "llm_dev_073",
+      "llm_dev_076",
+      "llm_dev_088",
+      "llm_dev_083",
+      "llm_dev_081",
+      "llm_dev_075"
+    ],
+    "tokens": {
+      "a": {
+        "completion": 1363,
+        "prompt": 30
+      },
+      "b": {
+        "completion": 3446,
+        "prompt": 7477
+      },
+      "c": {
+        "completion": 3446,
+        "prompt": 15831
+      },
+      "d": {
+        "completion": 0,
+        "prompt": 0
+      },
+      "e": {
+        "completion": 0,
+        "prompt": 0
+      }
+    },
+    "visible_accepts_by_arm": {
+      "a": [
+        "llm_dev_004",
+        "llm_dev_010",
+        "llm_dev_021",
+        "llm_dev_022",
+        "llm_dev_030",
+        "llm_dev_045",
+        "llm_dev_047",
+        "llm_dev_048",
+        "llm_dev_049",
+        "llm_dev_050",
+        "llm_dev_065",
+        "llm_dev_068",
+        "llm_dev_072",
+        "llm_dev_073",
+        "llm_dev_075",
+        "llm_dev_076",
+        "llm_dev_081",
+        "llm_dev_083",
+        "llm_dev_088"
+      ],
+      "b": [
+        "llm_dev_002",
+        "llm_dev_004",
+        "llm_dev_009",
+        "llm_dev_010",
+        "llm_dev_011",
+        "llm_dev_021",
+        "llm_dev_022",
+        "llm_dev_030",
+        "llm_dev_031",
+        "llm_dev_039",
+        "llm_dev_042",
+        "llm_dev_043",
+        "llm_dev_045",
+        "llm_dev_047",
+        "llm_dev_048",
+        "llm_dev_049",
+        "llm_dev_050",
+        "llm_dev_062",
+        "llm_dev_065",
+        "llm_dev_068",
+        "llm_dev_072",
+        "llm_dev_073",
+        "llm_dev_075",
+        "llm_dev_076",
+        "llm_dev_081",
+        "llm_dev_083",
+        "llm_dev_088"
+      ],
+      "c": [
+        "llm_dev_002",
+        "llm_dev_004",
+        "llm_dev_009",
+        "llm_dev_010",
+        "llm_dev_011",
+        "llm_dev_021",
+        "llm_dev_022",
+        "llm_dev_030",
+        "llm_dev_031",
+        "llm_dev_039",
+        "llm_dev_042",
+        "llm_dev_043",
+        "llm_dev_045",
+        "llm_dev_047",
+        "llm_dev_048",
+        "llm_dev_049",
+        "llm_dev_050",
+        "llm_dev_062",
+        "llm_dev_065",
+        "llm_dev_068",
+        "llm_dev_072",
+        "llm_dev_073",
+        "llm_dev_075",
+        "llm_dev_076",
+        "llm_dev_081",
+        "llm_dev_083",
+        "llm_dev_088"
+      ],
+      "d": [
+        "llm_dev_010",
+        "llm_dev_021",
+        "llm_dev_022",
+        "llm_dev_030"
+      ],
+      "e": []
+    }
+  },
+  "held_opened": true,
+  "library": {
+    "entries": [
+      {
+        "arm": "a",
+        "fragment_id": "46362182d9105be2",
+        "task_id": "llm_dev_004"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "c9766b07c90d4620",
+        "task_id": "llm_dev_010"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "b1258fd6e5a9a838",
+        "task_id": "llm_dev_022"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "594228129fa5e51f",
+        "task_id": "llm_dev_021"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "a0a124e1268d9aa6",
+        "task_id": "llm_dev_030"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "fde780b83eb1b061",
+        "task_id": "llm_dev_047"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "e97652feef87df74",
+        "task_id": "llm_dev_050"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "66b2dde99b56ce24",
+        "task_id": "llm_dev_045"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "09de10b6c285247f",
+        "task_id": "llm_dev_048"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "d96fac47d0968b1e",
+        "task_id": "llm_dev_068"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "ac233e96b19625a0",
+        "task_id": "llm_dev_065"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "95578712580a3e3e",
+        "task_id": "llm_dev_072"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "a91ccb71b8fd01c4",
+        "task_id": "llm_dev_073"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "77d5017692e53aa6",
+        "task_id": "llm_dev_076"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "5c54c1fde2a79e6c",
+        "task_id": "llm_dev_083"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "b8b8b7d09893aff6",
+        "task_id": "llm_dev_081"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "a3182f3bc57f3506",
+        "task_id": "llm_dev_075"
+      },
+      {
+        "arm": "b",
+        "fragment_id": "c00b81338e2e36bc",
+        "task_id": "llm_dev_002"
+      },
+      {
+        "arm": "b",
+        "fragment_id": "9291bca0e32039dd",
+        "task_id": "llm_dev_011"
+      },
+      {
+        "arm": "b",
+        "fragment_id": "a605725444d35238",
+        "task_id": "llm_dev_009"
+      },
+      {
+        "arm": "b",
+        "fragment_id": "638cf9e9140d930a",
+        "task_id": "llm_dev_039"
+      },
+      {
+        "arm": "b",
+        "fragment_id": "cfd0df5f3a2fea2f",
+        "task_id": "llm_dev_031"
+      },
+      {
+        "arm": "b",
+        "fragment_id": "f348ab663ae6bed4",
+        "task_id": "llm_dev_042"
+      },
+      {
+        "arm": "b",
+        "fragment_id": "577c6306a2d4f957",
+        "task_id": "llm_dev_043"
+      },
+      {
+        "arm": "b",
+        "fragment_id": "02028ca1387a89fe",
+        "task_id": "llm_dev_062"
+      }
+    ],
+    "entry_count": 25,
+    "skipped": [
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_002"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_011"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_009"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_018"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_020"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_016"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_039"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_031"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_042"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_043"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_049"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_062"
+      },
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_088"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: 46362182d9105be2",
+        "task_id": "llm_dev_004"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: c9766b07c90d4620",
+        "task_id": "llm_dev_010"
+      },
+      {
+        "arm": "b",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_018"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: b1258fd6e5a9a838",
+        "task_id": "llm_dev_022"
+      },
+      {
+        "arm": "b",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_020"
+      },
+      {
+        "arm": "b",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_016"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: 594228129fa5e51f",
+        "task_id": "llm_dev_021"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: a0a124e1268d9aa6",
+        "task_id": "llm_dev_030"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: fde780b83eb1b061",
+        "task_id": "llm_dev_047"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: e97652feef87df74",
+        "task_id": "llm_dev_050"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: 66b2dde99b56ce24",
+        "task_id": "llm_dev_045"
+      },
+      {
+        "arm": "b",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_049"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: 09de10b6c285247f",
+        "task_id": "llm_dev_048"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: d96fac47d0968b1e",
+        "task_id": "llm_dev_068"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: ac233e96b19625a0",
+        "task_id": "llm_dev_065"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: 95578712580a3e3e",
+        "task_id": "llm_dev_072"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: a91ccb71b8fd01c4",
+        "task_id": "llm_dev_073"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: 77d5017692e53aa6",
+        "task_id": "llm_dev_076"
+      },
+      {
+        "arm": "b",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_088"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: 5c54c1fde2a79e6c",
+        "task_id": "llm_dev_083"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: b8b8b7d09893aff6",
+        "task_id": "llm_dev_081"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: a3182f3bc57f3506",
+        "task_id": "llm_dev_075"
+      }
+    ],
+    "version_hash": "4503dc50f5b0c0b632b16567c3b5d87e90fbf0fe0c752d79933f3ff7350e8b09"
+  },
+  "protocol": {
+    "arms": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "bank_id": "llm_bank_v1",
+    "candidate_budget_d": 50000,
+    "card_id": "bce2d353-1794-4466-b747-fee7d0a1a04",
+    "cost_multiple_m": 3,
+    "cpu_cap_s": 5.0,
+    "deep_families": [
+      "A7",
+      "A8",
+      "S2",
+      "S3"
+    ],
+    "held_policy": "dev tasks/visible/query plus dev held opened identically for all arms at final; sealed pool never loaded (ids must start with llm_dev_)",
+    "library_plan": "build in-run from dev-held-accepted a/b programs via FragmentLibrary.add_entry with judge_final evidence, then freeze (version_hash) before arm c",
+    "max_ops_d": {
+      "A6": 6,
+      "A7": 7,
+      "A8": 8
+    },
+    "max_rounds": 3,
+    "model_id": "spark-1.3",
+    "model_version": "Spark 1.3 supervised background workers",
+    "proposer_prompt": "canonical-json-v1",
+    "query_cap": 3,
+    "repair_template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+    "seed": 20261125,
+    "task_ids": [
+      "llm_dev_004",
+      "llm_dev_002",
+      "llm_dev_011",
+      "llm_dev_010",
+      "llm_dev_009",
+      "llm_dev_018",
+      "llm_dev_022",
+      "llm_dev_020",
+      "llm_dev_016",
+      "llm_dev_021",
+      "llm_dev_039",
+      "llm_dev_031",
+      "llm_dev_030",
+      "llm_dev_042",
+      "llm_dev_043",
+      "llm_dev_047",
+      "llm_dev_050",
+      "llm_dev_045",
+      "llm_dev_049",
+      "llm_dev_048",
+      "llm_dev_068",
+      "llm_dev_065",
+      "llm_dev_062",
+      "llm_dev_072",
+      "llm_dev_073",
+      "llm_dev_076",
+      "llm_dev_088",
+      "llm_dev_083",
+      "llm_dev_081",
+      "llm_dev_075"
+    ],
+    "token_cap": 4000,
+    "top_k": 3,
+    "verdict_rule": "PROCEED iff best LLM arm accepts >=1 deep-family task where streaming accepts 0 AND cost/accepted <=Mx streaming on shared-solved tasks AND b>a or c>b strictly on identical tasks; else KILL"
+  },
+  "protocol_sha256": "5433a5c48ad780954c8aeca1f0a6526914fb9eb0845901bd31e7f33a5025eb17",
+  "repair_conversion_b": {
+    "converted": 8,
+    "rate": 0.7272727272727273,
+    "round0_rejected": 11,
+    "tasks": [
+      "llm_dev_002",
+      "llm_dev_011",
+      "llm_dev_009",
+      "llm_dev_039",
+      "llm_dev_031",
+      "llm_dev_042",
+      "llm_dev_043",
+      "llm_dev_062"
+    ]
+  },
+  "repair_delta_b_vs_a": {
+    "a_only": [],
+    "b_only": [
+      "llm_dev_002",
+      "llm_dev_009",
+      "llm_dev_011",
+      "llm_dev_031",
+      "llm_dev_039",
+      "llm_dev_042",
+      "llm_dev_043",
+      "llm_dev_062"
+    ],
+    "delta": 8
+  },
+  "retrieval_delta_c_vs_b": {
+    "b_only": [],
+    "c_only": [],
+    "delta": 0
+  },
+  "tasks": [
+    "llm_dev_004",
+    "llm_dev_002",
+    "llm_dev_011",
+    "llm_dev_010",
+    "llm_dev_009",
+    "llm_dev_018",
+    "llm_dev_022",
+    "llm_dev_020",
+    "llm_dev_016",
+    "llm_dev_021",
+    "llm_dev_039",
+    "llm_dev_031",
+    "llm_dev_030",
+    "llm_dev_042",
+    "llm_dev_043",
+    "llm_dev_047",
+    "llm_dev_050",
+    "llm_dev_045",
+    "llm_dev_049",
+    "llm_dev_048",
+    "llm_dev_068",
+    "llm_dev_065",
+    "llm_dev_062",
+    "llm_dev_072",
+    "llm_dev_073",
+    "llm_dev_076",
+    "llm_dev_088",
+    "llm_dev_083",
+    "llm_dev_081",
+    "llm_dev_075"
+  ],
+  "taxonomy": {
+    "final": {
+      "a": {
+        "python_mismatch": 13
+      },
+      "b": {
+        "python_mismatch": 5
+      },
+      "c": {
+        "python_mismatch": 5
+      },
+      "d": {
+        "python_mismatch": 6
+      },
+      "e": {
+        "python_mismatch": 30
+      }
+    },
+    "visible": {
+      "a": {
+        "python_mismatch": 11
+      },
+      "b": {
+        "python_mismatch": 3
+      },
+      "c": {
+        "python_mismatch": 3
+      },
+      "d": {
+        "python_mismatch": 6
+      },
+      "e": {
+        "python_mismatch": 30
+      }
+    }
+  }
+}
