@@ -312,6 +312,17 @@ larger volume, wider beam, or larger train pool. The earlier
 as scoped to its own preregistered recipe, as these later checkpoints
 were separately preregistered hypotheses.
 
+Inversion dev-diagnostic checkpoint (2026-11-25): the RSI Inversion
+epic (LLM proposer, RSI judge, dual-backend Python/CURLEE
+acceptance) FAILS its frozen proceed/kill bar on 30/30 dev tasks:
+best arm c 28 accepts incl. 16 deep tasks streaming scores zero
+on, strict b-vs-a repair delta, untrained 0, but cost per shared
+accept 5.605 vs M=3. Merged verdict KILL; counts a/b/c/d/e =
+19/28/28/4/0. See `tracks/programmer/inversion-dev-results.md`
+and `artifacts/inversion-dev-20261125/`. Per the frozen protocol
+the route is closed: no Phase 7 sealed test, no retest without a
+new epic. The sealed 90-task bank was never touched.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,

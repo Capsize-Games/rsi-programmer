@@ -1,0 +1,5532 @@
+{
+  "families": {
+    "llm_dev_010": "A6",
+    "llm_dev_021": "A7",
+    "llm_dev_039": "A8",
+    "llm_dev_045": "S1",
+    "llm_dev_083": "S3"
+  },
+  "guard_refusals": {
+    "per_arm": {
+      "a": 0,
+      "b": 0,
+      "c": 0,
+      "d": 0,
+      "e": 0
+    },
+    "total": 0
+  },
+  "model": "spark-1.3",
+  "protocol_sha256": "c1ee97b7f972a37898560bb94b3fa21833ccc820e5bf9cb9d8ee80023c7edb15",
+  "records": {
+    "a": {
+      "llm_dev_010": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "a",
+        "candidate_sha256": "24e58c203d8429a326c7ec82bd369c0675709af466a36768e32b49c42318fc3c",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_010_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0517065359745175
+          },
+          "curlee_run_llm_dev_010_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0546658630482852
+          }
+        },
+        "cpu_seconds": 0.41553826808091265,
+        "family": "A6",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.04216326808091253,
+          "model": "spark-1.3",
+          "prompt_sha256": "6c36020d78c4f0432290d1fc4c8fdeb92d62de7cac66b76d525962fe458a0ba8",
+          "token_usage": {
+            "completion": 76,
+            "prompt": 1
+          }
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "accepted_final",
+        "task_id": "llm_dev_010",
+        "tokens": {
+          "completion": 76,
+          "prompt": 1
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06869999999999976,
+              "wall_seconds": 2.0517065359745175
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.07247599999999821,
+              "wall_seconds": 2.0546658630482852
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 6.600000000034356e-05,
+              "wall_seconds": 6.617396138608456e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.048228000000001714,
+              "wall_seconds": 0.047881308011710644
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              5,
+              -29
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_010",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06723700000000005,
+              "wall_seconds": 2.0521199869690463
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06959700000000002,
+              "wall_seconds": 2.0532987560145557
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.300000000001525e-05,
+              "wall_seconds": 4.697695840150118e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.04216326808091253,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.047028000000000014,
+              "wall_seconds": 0.04667403199709952
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.04216326808091253,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              5,
+              -29
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_010",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 76,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_021": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "a",
+        "candidate_sha256": "bde0c1884077ed571cd9e7bb4dbe54639f1b77ad7d230b7f17e209d78a0e377f",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"y\", 3], \"op\": \"sub\", \"type\": \"Int\"}], \"output\": 4}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_021_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0523649769602343
+          },
+          "curlee_run_llm_dev_021_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0505459180567414
+          }
+        },
+        "cpu_seconds": 0.4376534310610446,
+        "family": "A7",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.060922431061044335,
+          "model": "spark-1.3",
+          "prompt_sha256": "ebe2932ee41c5fc2b58ba00c6a131141b2c0689a35ac04569ebaea96f137c241",
+          "token_usage": {
+            "completion": 76,
+            "prompt": 1
+          }
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "accepted_final",
+        "task_id": "llm_dev_021",
+        "tokens": {
+          "completion": 76,
+          "prompt": 1
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06816099999999992,
+              "wall_seconds": 2.0523649769602343
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06881600000000176,
+              "wall_seconds": 2.0505459180567414
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.5999999997548e-05,
+              "wall_seconds": 4.670699127018452e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.049755000000001104,
+              "wall_seconds": 0.04940143693238497
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "sub",
+            "sig": [
+              2,
+              -10,
+              -2
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_021",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06930900000000007,
+              "wall_seconds": 2.054481383995153
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.07183399999999995,
+              "wall_seconds": 2.0536158999893814
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.199999999998649e-05,
+              "wall_seconds": 4.2930012568831444e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.060922431061044335,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04876799999999992,
+              "wall_seconds": 0.048433637944981456
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.060922431061044335,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "sub",
+            "sig": [
+              2,
+              -10,
+              -2
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_021",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 76,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_039": {
+        "accepted_final": false,
+        "accepted_visible": false,
+        "arm": "a",
+        "candidate_sha256": "1a3187529a1a47982de754798a2696d432280420d266e5b8dedea7f8a9fe2d17",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"mul\", \"type\": \"Int\"}], \"output\": 3}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_039_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.058278269949369
+          },
+          "curlee_run_llm_dev_039_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0524766250746325
+          }
+        },
+        "cpu_seconds": 0.3875877659713277,
+        "family": "A8",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.006798765971325338,
+          "model": "spark-1.3",
+          "prompt_sha256": "785647da3d6d87af00c56a3446321a890338cf95ea52ad7c6b81e2dfc529606f",
+          "token_usage": {
+            "completion": 64,
+            "prompt": 1
+          }
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "held_rejected",
+        "task_id": "llm_dev_039",
+        "tokens": {
+          "completion": 64,
+          "prompt": 1
+        },
+        "verdict_final": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.07788699999999693,
+              "wall_seconds": 2.058278269949369
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06965100000000035,
+              "wall_seconds": 2.0524766250746325
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.400000000259752e-05,
+              "wall_seconds": 4.499393980950117e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04977000000000231,
+              "wall_seconds": 0.04941721598152071
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "37 of 40 rows differ",
+          "first_mismatch": 1,
+          "identity_ok": null,
+          "kind": "graph",
+          "mismatches": 37,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "mul",
+            "sig": [
+              0,
+              6,
+              -54
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_039",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06761799999999996,
+              "wall_seconds": 2.052856201073155
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06712400000000007,
+              "wall_seconds": 2.051628536079079
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 3.900000000001125e-05,
+              "wall_seconds": 3.983394708484411e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.006798765971325338,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.048656000000000144,
+              "wall_seconds": 0.048322911956347525
+            }
+          },
+          "counterexample_count": 21,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "21 of 27 rows differ",
+          "first_mismatch": 3,
+          "identity_ok": null,
+          "kind": "graph",
+          "mismatches": 21,
+          "proposal_cpu": 0.006798765971325338,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "mul",
+            "sig": [
+              0,
+              6,
+              -54
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_039",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 64,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_045": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "a",
+        "candidate_sha256": "b87b108f083efccd08d09f4ec429f7fc446d1b23dd98938baaf44ef2b1fbb1c8",
+        "candidate_text": "for set add acc acc end return acc stop",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_045_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.053594561992213
+          },
+          "curlee_run_llm_dev_045_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.051993421977386
+          }
+        },
+        "cpu_seconds": 0.6690164259917609,
+        "family": "S1",
+        "kind": "statement",
+        "note": "",
+        "proposal": {
+          "cpu": 0.00012642599176615477,
+          "model": "spark-1.3",
+          "prompt_sha256": "00a0fcf1f7594b4c2e33321d4a545166a01663fc335d9b80b950ff17fa359b5b",
+          "token_usage": {
+            "completion": 9,
+            "prompt": 1
+          }
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "accepted_final",
+        "task_id": "llm_dev_045",
+        "tokens": {
+          "completion": 9,
+          "prompt": 1
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.17526699999999806,
+              "wall_seconds": 2.053594561992213
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.23927799999999877,
+              "wall_seconds": 2.051993421977386
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.699999999857596e-05,
+              "wall_seconds": 4.765903577208519e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.02290299999999945,
+              "wall_seconds": 0.022522190934978426
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              0,
+              0,
+              0
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_045",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.09577199999999997,
+              "wall_seconds": 2.0529562280280516
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.11295199999999994,
+              "wall_seconds": 2.054868839913979
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 3.100000000000325e-05,
+              "wall_seconds": 3.217998892068863e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.00012642599176615477,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.022639999999999993,
+              "wall_seconds": 0.036635403987020254
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 0.00012642599176615477,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              0,
+              0,
+              0
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_045",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 9,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_083": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "a",
+        "candidate_sha256": "22608cc3526bcef90248289568d29ecb7637e4489c61413d9cd37e7ff20a2f25",
+        "candidate_text": "for set add acc one if gt value zero set add acc one end end return acc stop",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_083_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0508443269645795
+          },
+          "curlee_run_llm_dev_083_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0522923399694264
+          }
+        },
+        "cpu_seconds": 0.8289152780366202,
+        "family": "S3",
+        "kind": "statement",
+        "note": "",
+        "proposal": {
+          "cpu": 0.003827278036624193,
+          "model": "spark-1.3",
+          "prompt_sha256": "5984394a6cafaaba524f54587c4b596fa60c81aaaeafc15e47a4f975f11a8b92",
+          "token_usage": {
+            "completion": 19,
+            "prompt": 1
+          }
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "accepted_final",
+        "task_id": "llm_dev_083",
+        "tokens": {
+          "completion": 19,
+          "prompt": 1
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.187580999999998,
+              "wall_seconds": 2.0508443269645795
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.28202599999999833,
+              "wall_seconds": 2.0522923399694264
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 6.399999999828765e-05,
+              "wall_seconds": 6.403005681931973e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.025922000000001333,
+              "wall_seconds": 0.02562322106678039
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              2,
+              3,
+              6
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_083",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.1297940000000002,
+              "wall_seconds": 2.0536922910250723
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.17573799999999995,
+              "wall_seconds": 2.0536918099969625
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 3.2000000000032e-05,
+              "wall_seconds": 3.174995072185993e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.003827278036624193,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.023930999999999925,
+              "wall_seconds": 0.023616574006155133
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 0.003827278036624193,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              2,
+              3,
+              6
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_083",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 19,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      }
+    },
+    "b": {
+      "llm_dev_010": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "b",
+        "candidate_sha256": "24e58c203d8429a326c7ec82bd369c0675709af466a36768e32b49c42318fc3c",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_010_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0521883560577407
+          },
+          "curlee_run_llm_dev_010_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.051576424972154
+          }
+        },
+        "cpu_seconds": 0.454488033817797,
+        "family": "A6",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.04400451690889895,
+          "model": "spark-1.3",
+          "prompt_sha256": "6c36020d78c4f0432290d1fc4c8fdeb92d62de7cac66b76d525962fe458a0ba8",
+          "token_usage": {
+            "completion": 76,
+            "prompt": 1
+          }
+        },
+        "repair": {
+          "accepted_round": 0,
+          "revealed_count": 0,
+          "rounds": 1,
+          "single_shot_accepted": true,
+          "status": "accepted"
+        },
+        "retrieval": null,
+        "status": "accepted_final",
+        "task_id": "llm_dev_010",
+        "tokens": {
+          "completion": 152,
+          "prompt": 2
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06764300000000034,
+              "wall_seconds": 2.0521883560577407
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06994299999999853,
+              "wall_seconds": 2.051576424972154
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 6.30000000008124e-05,
+              "wall_seconds": 6.236706394702196e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.048152999999999224,
+              "wall_seconds": 0.04778237291611731
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              5,
+              -29
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_010",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.0657239999999999,
+              "wall_seconds": 2.050204496947117
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06820400000000015,
+              "wall_seconds": 2.0527819819981232
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 3.8999999999900226e-05,
+              "wall_seconds": 3.9233011193573475e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.04400451690889895,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04671000000000025,
+              "wall_seconds": 0.046403898973949254
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.04400451690889895,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              5,
+              -29
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_010",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 76,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_021": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "b",
+        "candidate_sha256": "bde0c1884077ed571cd9e7bb4dbe54639f1b77ad7d230b7f17e209d78a0e377f",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"y\", 3], \"op\": \"sub\", \"type\": \"Int\"}], \"output\": 4}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_021_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.05244668899104
+          },
+          "curlee_run_llm_dev_021_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0525561820250005
+          }
+        },
+        "cpu_seconds": 0.49140238204184117,
+        "family": "A7",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.05861469102092087,
+          "model": "spark-1.3",
+          "prompt_sha256": "ebe2932ee41c5fc2b58ba00c6a131141b2c0689a35ac04569ebaea96f137c241",
+          "token_usage": {
+            "completion": 76,
+            "prompt": 1
+          }
+        },
+        "repair": {
+          "accepted_round": 0,
+          "revealed_count": 0,
+          "rounds": 1,
+          "single_shot_accepted": true,
+          "status": "accepted"
+        },
+        "retrieval": null,
+        "status": "accepted_final",
+        "task_id": "llm_dev_021",
+        "tokens": {
+          "completion": 152,
+          "prompt": 2
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06902799999999942,
+              "wall_seconds": 2.05244668899104
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.07089399999999912,
+              "wall_seconds": 2.0525561820250005
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.700000000212867e-05,
+              "wall_seconds": 4.763901233673096e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.049237999999999005,
+              "wall_seconds": 0.04887863004114479
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "sub",
+            "sig": [
+              2,
+              -10,
+              -2
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_021",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06690799999999975,
+              "wall_seconds": 2.052062710048631
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.067129,
+              "wall_seconds": 2.050965618924238
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 5.100000000002325e-05,
+              "wall_seconds": 4.994391929358244e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.05861469102092087,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.05087799999999998,
+              "wall_seconds": 0.05051553505472839
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.05861469102092087,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "sub",
+            "sig": [
+              2,
+              -10,
+              -2
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_021",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 76,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_039": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "b",
+        "candidate_sha256": "8d23b0990e78fd32848f99098e510063086138be69922ee3f7c5a2ab0ef51939",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [0, 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_039_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.051476277061738
+          },
+          "curlee_run_llm_dev_039_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0517617610748857
+          }
+        },
+        "cpu_seconds": 1.0514640161068929,
+        "family": "A8",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.3369129040511325,
+          "model": "spark-1.3",
+          "prompt_sha256": "4cd74bb1bec7b01e4aa93ebc55af71772ac150762d6cdb1f0975edf6e3f5017e",
+          "token_usage": {
+            "completion": 76,
+            "prompt": 386
+          }
+        },
+        "repair": {
+          "accepted_round": 1,
+          "revealed_count": 3,
+          "rounds": 2,
+          "single_shot_accepted": false,
+          "status": "accepted"
+        },
+        "retrieval": null,
+        "status": "accepted_final",
+        "task_id": "llm_dev_039",
+        "tokens": {
+          "completion": 216,
+          "prompt": 773
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06793300000000002,
+              "wall_seconds": 2.051476277061738
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.07053100000000256,
+              "wall_seconds": 2.0517617610748857
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.699999999857596e-05,
+              "wall_seconds": 4.707800690084696e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04916600000000315,
+              "wall_seconds": 0.04879235802218318
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "add",
+            "sig": [
+              0,
+              6,
+              -54
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_039",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06527400000000005,
+              "wall_seconds": 2.049865174922161
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06924999999999981,
+              "wall_seconds": 2.052966144052334
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.900000000018778e-05,
+              "wall_seconds": 4.946300759911537e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.3369129040511325,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04782399999999987,
+              "wall_seconds": 0.04748694004956633
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.3369129040511325,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "add",
+            "sig": [
+              0,
+              6,
+              -54
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_039",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 76,
+            "prompt": 386
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_045": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "b",
+        "candidate_sha256": "b87b108f083efccd08d09f4ec429f7fc446d1b23dd98938baaf44ef2b1fbb1c8",
+        "candidate_text": "for set add acc acc end return acc stop",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_045_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.052964747999795
+          },
+          "curlee_run_llm_dev_045_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0507483560359105
+          }
+        },
+        "cpu_seconds": 0.6590717821399088,
+        "family": "S1",
+        "kind": "statement",
+        "note": "",
+        "proposal": {
+          "cpu": 8.089106995612383e-05,
+          "model": "spark-1.3",
+          "prompt_sha256": "00a0fcf1f7594b4c2e33321d4a545166a01663fc335d9b80b950ff17fa359b5b",
+          "token_usage": {
+            "completion": 9,
+            "prompt": 1
+          }
+        },
+        "repair": {
+          "accepted_round": 0,
+          "revealed_count": 0,
+          "rounds": 1,
+          "single_shot_accepted": true,
+          "status": "accepted"
+        },
+        "retrieval": null,
+        "status": "accepted_final",
+        "task_id": "llm_dev_045",
+        "tokens": {
+          "completion": 18,
+          "prompt": 2
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.17119099999999676,
+              "wall_seconds": 2.052964747999795
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.23756900000000414,
+              "wall_seconds": 2.0507483560359105
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.699999999857596e-05,
+              "wall_seconds": 4.7459034249186516e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.023529999999997386,
+              "wall_seconds": 0.023204574012197554
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              0,
+              0,
+              0
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_045",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.09180900000000003,
+              "wall_seconds": 2.050172568997368
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.1111150000000003,
+              "wall_seconds": 2.0525786670623347
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 3.0999999999892225e-05,
+              "wall_seconds": 3.041699528694153e-05
+            },
+            "proposer": {
+              "cpu_seconds": 8.089106995612383e-05,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.023617999999999473,
+              "wall_seconds": 0.023232326027937233
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 8.089106995612383e-05,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              0,
+              0,
+              0
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_045",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 9,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_083": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "b",
+        "candidate_sha256": "22608cc3526bcef90248289568d29ecb7637e4489c61413d9cd37e7ff20a2f25",
+        "candidate_text": "for set add acc one if gt value zero set add acc one end end return acc stop",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_083_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0514600180322304
+          },
+          "curlee_run_llm_dev_083_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0521643109386787
+          }
+        },
+        "cpu_seconds": 0.8274936641456749,
+        "family": "S3",
+        "kind": "statement",
+        "note": "",
+        "proposal": {
+          "cpu": 0.003508832072839141,
+          "model": "spark-1.3",
+          "prompt_sha256": "5984394a6cafaaba524f54587c4b596fa60c81aaaeafc15e47a4f975f11a8b92",
+          "token_usage": {
+            "completion": 19,
+            "prompt": 1
+          }
+        },
+        "repair": {
+          "accepted_round": 0,
+          "revealed_count": 0,
+          "rounds": 1,
+          "single_shot_accepted": true,
+          "status": "accepted"
+        },
+        "retrieval": null,
+        "status": "accepted_final",
+        "task_id": "llm_dev_083",
+        "tokens": {
+          "completion": 38,
+          "prompt": 2
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.1881900000000023,
+              "wall_seconds": 2.0514600180322304
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.2829619999999977,
+              "wall_seconds": 2.0521643109386787
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 5.3999999998666226e-05,
+              "wall_seconds": 5.396106280386448e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.026005999999998863,
+              "wall_seconds": 0.025642046006396413
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              2,
+              3,
+              6
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_083",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.1259999999999999,
+              "wall_seconds": 2.0509796789847314
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.1750240000000005,
+              "wall_seconds": 2.0529399079969153
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 3.500000000000725e-05,
+              "wall_seconds": 3.527605440467596e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.003508832072839141,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.022204999999998698,
+              "wall_seconds": 0.02192222001031041
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 0.003508832072839141,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              2,
+              3,
+              6
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_083",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 19,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      }
+    },
+    "c": {
+      "llm_dev_010": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "c",
+        "candidate_sha256": "24e58c203d8429a326c7ec82bd369c0675709af466a36768e32b49c42318fc3c",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_010_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.052661391091533
+          },
+          "curlee_run_llm_dev_010_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0535282680066302
+          }
+        },
+        "cpu_seconds": 0.4662199079492808,
+        "family": "A6",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.04387295397464186,
+          "model": "spark-1.3",
+          "prompt_sha256": "b8d97c4b85f88c0e050bbde86041a6f551e17aa9e897f4cbf9b72e9923ab7932",
+          "token_usage": {
+            "completion": 76,
+            "prompt": 1
+          }
+        },
+        "repair": {
+          "accepted_round": 0,
+          "revealed_count": 0,
+          "rounds": 1,
+          "single_shot_accepted": true,
+          "status": "accepted"
+        },
+        "retrieval": {
+          "shown": [
+            "c9766b07c90d4620"
+          ],
+          "version": "87103ca42d2e5f9b16f07391303a22132d7ef69c0ab439a63ea756477ac1ef0a"
+        },
+        "status": "accepted_final",
+        "task_id": "llm_dev_010",
+        "tokens": {
+          "completion": 152,
+          "prompt": 2
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06912000000000162,
+              "wall_seconds": 2.052661391091533
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.07275299999999874,
+              "wall_seconds": 2.0535282680066302
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 6.099999999875649e-05,
+              "wall_seconds": 6.239698268473148e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.05025999999999797,
+              "wall_seconds": 0.049873128067702055
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              5,
+              -29
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_010",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06807800000000164,
+              "wall_seconds": 2.0525088749127463
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06889699999999976,
+              "wall_seconds": 2.052354286890477
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.7999999999603915e-05,
+              "wall_seconds": 4.8891990445554256e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.04387295397464186,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.049256999999998996,
+              "wall_seconds": 0.0489392529707402
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.04387295397464186,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              5,
+              -29
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_010",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 76,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_021": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "c",
+        "candidate_sha256": "bde0c1884077ed571cd9e7bb4dbe54639f1b77ad7d230b7f17e209d78a0e377f",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"y\", 3], \"op\": \"sub\", \"type\": \"Int\"}], \"output\": 4}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_021_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.054280561977066
+          },
+          "curlee_run_llm_dev_021_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.054291823063977
+          }
+        },
+        "cpu_seconds": 0.48422944000340173,
+        "family": "A7",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.05757422000169754,
+          "model": "spark-1.3",
+          "prompt_sha256": "5336aff160724eed8d309cec9bfb3ff094cd5dc9b12d6a48078cbb3b89a85aaf",
+          "token_usage": {
+            "completion": 76,
+            "prompt": 1
+          }
+        },
+        "repair": {
+          "accepted_round": 0,
+          "revealed_count": 0,
+          "rounds": 1,
+          "single_shot_accepted": true,
+          "status": "accepted"
+        },
+        "retrieval": {
+          "shown": [
+            "594228129fa5e51f"
+          ],
+          "version": "87103ca42d2e5f9b16f07391303a22132d7ef69c0ab439a63ea756477ac1ef0a"
+        },
+        "status": "accepted_final",
+        "task_id": "llm_dev_021",
+        "tokens": {
+          "completion": 152,
+          "prompt": 2
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.0708359999999999,
+              "wall_seconds": 2.054280561977066
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.07221099999999936,
+              "wall_seconds": 2.054291823063977
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.700000000212867e-05,
+              "wall_seconds": 4.7408975660800934e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.047217000000003395,
+              "wall_seconds": 0.046848018071614206
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "sub",
+            "sig": [
+              2,
+              -10,
+              -2
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_021",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.0647700000000011,
+              "wall_seconds": 2.04925058898516
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06681099999999951,
+              "wall_seconds": 2.0500742900185287
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 3.799999999998249e-05,
+              "wall_seconds": 3.8341968320310116e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.05757422000169754,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.047151000000001275,
+              "wall_seconds": 0.046798455994576216
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.05757422000169754,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "sub",
+            "sig": [
+              2,
+              -10,
+              -2
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_021",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 76,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_039": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "c",
+        "candidate_sha256": "8d23b0990e78fd32848f99098e510063086138be69922ee3f7c5a2ab0ef51939",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [0, 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_039_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0508427509339526
+          },
+          "curlee_run_llm_dev_039_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0535896110814065
+          }
+        },
+        "cpu_seconds": 0.3763266101821081,
+        "family": "A8",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.0001090141013264656,
+          "model": "spark-1.3",
+          "prompt_sha256": "5e7ed1ac25c1ba71baef6797c7516d718784d6264f50c5d273925e9d36a5151c",
+          "token_usage": {
+            "completion": 76,
+            "prompt": 545
+          }
+        },
+        "repair": {
+          "accepted_round": 1,
+          "revealed_count": 3,
+          "rounds": 2,
+          "single_shot_accepted": false,
+          "status": "accepted"
+        },
+        "retrieval": {
+          "shown": [
+            "638cf9e9140d930a"
+          ],
+          "version": "87103ca42d2e5f9b16f07391303a22132d7ef69c0ab439a63ea756477ac1ef0a"
+        },
+        "status": "accepted_final",
+        "task_id": "llm_dev_039",
+        "tokens": {
+          "completion": 216,
+          "prompt": 1091
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06735499999999917,
+              "wall_seconds": 2.0508427509339526
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.07231300000000473,
+              "wall_seconds": 2.0535896110814065
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.6999999995023245e-05,
+              "wall_seconds": 4.7999899834394455e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.046465999999998786,
+              "wall_seconds": 0.04610482999123633
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "add",
+            "sig": [
+              0,
+              6,
+              -54
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_039",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06724899999999856,
+              "wall_seconds": 2.0521848899079487
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06694399999999945,
+              "wall_seconds": 2.050584040931426
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.999999999988347e-05,
+              "wall_seconds": 4.976300988346338e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0001090141013264656,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.048770999999998565,
+              "wall_seconds": 0.04846652108244598
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0001090141013264656,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "add",
+            "sig": [
+              0,
+              6,
+              -54
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_039",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 76,
+            "prompt": 545
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_045": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "c",
+        "candidate_sha256": "b87b108f083efccd08d09f4ec429f7fc446d1b23dd98938baaf44ef2b1fbb1c8",
+        "candidate_text": "for set add acc acc end return acc stop",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_045_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0555003790650517
+          },
+          "curlee_run_llm_dev_045_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.055824964889325
+          }
+        },
+        "cpu_seconds": 0.6747106819790911,
+        "family": "S1",
+        "kind": "statement",
+        "note": "",
+        "proposal": {
+          "cpu": 0.00012384098954498768,
+          "model": "spark-1.3",
+          "prompt_sha256": "e2cdb25241c0a89a3ff8e3bfeb0a15439c49448d3be29a51ced5290d7cf0075c",
+          "token_usage": {
+            "completion": 9,
+            "prompt": 1
+          }
+        },
+        "repair": {
+          "accepted_round": 0,
+          "revealed_count": 0,
+          "rounds": 1,
+          "single_shot_accepted": true,
+          "status": "accepted"
+        },
+        "retrieval": {
+          "shown": [
+            "66b2dde99b56ce24"
+          ],
+          "version": "87103ca42d2e5f9b16f07391303a22132d7ef69c0ab439a63ea756477ac1ef0a"
+        },
+        "status": "accepted_final",
+        "task_id": "llm_dev_045",
+        "tokens": {
+          "completion": 18,
+          "prompt": 2
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.1746019999999966,
+              "wall_seconds": 2.0555003790650517
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.24514299999999878,
+              "wall_seconds": 2.055824964889325
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 5.499999999969418e-05,
+              "wall_seconds": 5.572394002228975e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.02550600000000358,
+              "wall_seconds": 0.025163423037156463
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              0,
+              0,
+              0
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_045",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.09517400000000009,
+              "wall_seconds": 2.0531882740324363
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.1121130000000008,
+              "wall_seconds": 2.0529699969338253
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 3.500000000045134e-05,
+              "wall_seconds": 3.5205972380936146e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.00012384098954498768,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.02183500000000116,
+              "wall_seconds": 0.02150161296594888
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 0.00012384098954498768,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              0,
+              0,
+              0
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_045",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 9,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_083": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "c",
+        "candidate_sha256": "22608cc3526bcef90248289568d29ecb7637e4489c61413d9cd37e7ff20a2f25",
+        "candidate_text": "for set add acc one if gt value zero set add acc one end end return acc stop",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_083_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.055039438069798
+          },
+          "curlee_run_llm_dev_083_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.051061289035715
+          }
+        },
+        "cpu_seconds": 0.8341023801054241,
+        "family": "S3",
+        "kind": "statement",
+        "note": "",
+        "proposal": {
+          "cpu": 0.0053441900527104735,
+          "model": "spark-1.3",
+          "prompt_sha256": "836231fb67119dde5c457ac61b29a45d4177207687226129bbd1e95b090d8dcf",
+          "token_usage": {
+            "completion": 19,
+            "prompt": 1
+          }
+        },
+        "repair": {
+          "accepted_round": 0,
+          "revealed_count": 0,
+          "rounds": 1,
+          "single_shot_accepted": true,
+          "status": "accepted"
+        },
+        "retrieval": {
+          "shown": [
+            "5c54c1fde2a79e6c"
+          ],
+          "version": "87103ca42d2e5f9b16f07391303a22132d7ef69c0ab439a63ea756477ac1ef0a"
+        },
+        "status": "accepted_final",
+        "task_id": "llm_dev_083",
+        "tokens": {
+          "completion": 38,
+          "prompt": 2
+        },
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.196314000000001,
+              "wall_seconds": 2.055039438069798
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.28226700000000093,
+              "wall_seconds": 2.051061289035715
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.5999999997548e-05,
+              "wall_seconds": 4.635599907487631e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.025507000000001057,
+              "wall_seconds": 0.025111224967986345
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              2,
+              3,
+              6
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_083",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.1264320000000012,
+              "wall_seconds": 2.051328059984371
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.17028600000000083,
+              "wall_seconds": 2.0500850579701364
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 3.900000000101045e-05,
+              "wall_seconds": 3.97850526496768e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0053441900527104735,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.022522999999999627,
+              "wall_seconds": 0.022221939056180418
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 0,
+          "proposal_cpu": 0.0053441900527104735,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              2,
+              3,
+              6
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_083",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 19,
+            "prompt": 1
+          },
+          "valid": true
+        }
+      }
+    },
+    "d": {
+      "llm_dev_010": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "d",
+        "candidate_sha256": "24e58c203d8429a326c7ec82bd369c0675709af466a36768e32b49c42318fc3c",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_010_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.050913294078782
+          },
+          "curlee_run_llm_dev_010_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0528289310168475
+          }
+        },
+        "cpu_seconds": 0.4137490000000046,
+        "family": "A6",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.0,
+          "model": null,
+          "prompt_sha256": null,
+          "token_usage": {}
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "accepted_final",
+        "task_id": "llm_dev_010",
+        "tokens": {
+          "completion": 0,
+          "prompt": 0
+        },
+        "tried": 8905,
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06742000000000203,
+              "wall_seconds": 2.050913294078782
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.07092400000000154,
+              "wall_seconds": 2.0528289310168475
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 6.199999999978445e-05,
+              "wall_seconds": 6.17349287495017e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.0490189999999977,
+              "wall_seconds": 0.048708923044614494
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              5,
+              -29
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_010",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06680200000000092,
+              "wall_seconds": 2.0525346419308335
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06823100000000082,
+              "wall_seconds": 2.051692869979888
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.400000000082116e-05,
+              "wall_seconds": 4.464306402951479e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04798400000000136,
+              "wall_seconds": 0.04759713797830045
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              5,
+              -29
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_010",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_021": {
+        "accepted_final": true,
+        "accepted_visible": true,
+        "arm": "d",
+        "candidate_sha256": "bde0c1884077ed571cd9e7bb4dbe54639f1b77ad7d230b7f17e209d78a0e377f",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"y\", 3], \"op\": \"sub\", \"type\": \"Int\"}], \"output\": 4}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_021_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.053070680005476
+          },
+          "curlee_run_llm_dev_021_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0556800060439855
+          }
+        },
+        "cpu_seconds": 0.43210500000000174,
+        "family": "A7",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.0,
+          "model": null,
+          "prompt_sha256": null,
+          "token_usage": {}
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "accepted_final",
+        "task_id": "llm_dev_021",
+        "tokens": {
+          "completion": 0,
+          "prompt": 0
+        },
+        "tried": 11738,
+        "verdict_final": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06946599999999847,
+              "wall_seconds": 2.053070680005476
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.07380699999999862,
+              "wall_seconds": 2.0556800060439855
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.600000000465343e-05,
+              "wall_seconds": 4.6686967834830284e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04660600000000059,
+              "wall_seconds": 0.046229573083110154
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "sub",
+            "sig": [
+              2,
+              -10,
+              -2
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_021",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": true,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06661599999999979,
+              "wall_seconds": 2.0509976129978895
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06810199999999789,
+              "wall_seconds": 2.0514962730230764
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.7000000000352316e-05,
+              "wall_seconds": 4.759791772812605e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04766600000000132,
+              "wall_seconds": 0.04733965592458844
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": true,
+          "detail": "valid and correct in both backends",
+          "first_mismatch": null,
+          "identity_ok": true,
+          "kind": "graph",
+          "mismatches": 0,
+          "proposal_cpu": 0.0,
+          "python_correct": true,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "sub",
+            "sig": [
+              2,
+              -10,
+              -2
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_021",
+          "taxonomy": [],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_039": {
+        "accepted_final": false,
+        "accepted_visible": false,
+        "arm": "d",
+        "candidate_sha256": "1a3187529a1a47982de754798a2696d432280420d266e5b8dedea7f8a9fe2d17",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"mul\", \"type\": \"Int\"}], \"output\": 3}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_039_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.050729547976516
+          },
+          "curlee_run_llm_dev_039_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0511064850725234
+          }
+        },
+        "cpu_seconds": 0.37420900000000756,
+        "family": "A8",
+        "kind": "graph",
+        "note": "",
+        "proposal": {
+          "cpu": 0.0,
+          "model": null,
+          "prompt_sha256": null,
+          "token_usage": {}
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "held_rejected",
+        "task_id": "llm_dev_039",
+        "tokens": {
+          "completion": 0,
+          "prompt": 0
+        },
+        "tried": 1509,
+        "verdict_final": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06733400000000245,
+              "wall_seconds": 2.050729547976516
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06873200000000068,
+              "wall_seconds": 2.0511064850725234
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.500000000007276e-05,
+              "wall_seconds": 4.4482992962002754e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04743000000000208,
+              "wall_seconds": 0.04708407900761813
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "37 of 40 rows differ",
+          "first_mismatch": 1,
+          "identity_ok": null,
+          "kind": "graph",
+          "mismatches": 37,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "mul",
+            "sig": [
+              0,
+              6,
+              -54
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_039",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06842500000000129,
+              "wall_seconds": 2.053801678935997
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06604400000000155,
+              "wall_seconds": 2.0502551950048655
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.999999999988347e-05,
+              "wall_seconds": 4.97129512950778e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04882699999999929,
+              "wall_seconds": 0.048527966951951385
+            }
+          },
+          "counterexample_count": 21,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "21 of 27 rows differ",
+          "first_mismatch": 3,
+          "identity_ok": null,
+          "kind": "graph",
+          "mismatches": 21,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "mul",
+            "sig": [
+              0,
+              6,
+              -54
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_039",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_045": {
+        "accepted_final": null,
+        "accepted_visible": false,
+        "arm": "d",
+        "candidate_sha256": "",
+        "candidate_text": "",
+        "check_passed": false,
+        "commands": {},
+        "cpu_seconds": 0.0,
+        "family": "S1",
+        "kind": "statement",
+        "note": "no enumeration grammar for statement tasks",
+        "proposal": {
+          "cpu": 0.0,
+          "model": null,
+          "prompt_sha256": null,
+          "token_usage": {}
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "not_applicable",
+        "task_id": "llm_dev_045",
+        "tokens": {
+          "completion": 0,
+          "prompt": 0
+        },
+        "tried": 0,
+        "verdict_final": null,
+        "verdict_visible": null
+      },
+      "llm_dev_083": {
+        "accepted_final": null,
+        "accepted_visible": false,
+        "arm": "d",
+        "candidate_sha256": "",
+        "candidate_text": "",
+        "check_passed": false,
+        "commands": {},
+        "cpu_seconds": 0.0,
+        "family": "S3",
+        "kind": "statement",
+        "note": "no enumeration grammar for statement tasks",
+        "proposal": {
+          "cpu": 0.0,
+          "model": null,
+          "prompt_sha256": null,
+          "token_usage": {}
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "not_applicable",
+        "task_id": "llm_dev_083",
+        "tokens": {
+          "completion": 0,
+          "prompt": 0
+        },
+        "tried": 0,
+        "verdict_final": null,
+        "verdict_visible": null
+      }
+    },
+    "e": {
+      "llm_dev_010": {
+        "accepted_final": false,
+        "accepted_visible": false,
+        "arm": "e",
+        "candidate_sha256": "ac3d4c6ed36e746f075808bf5819ba6147929d168c12e6333cc8d88b05680b57",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 0}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_010_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.055545432958752
+          },
+          "curlee_run_llm_dev_010_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.053059933008626
+          }
+        },
+        "cpu_seconds": 0.3775060000000092,
+        "family": "A6",
+        "kind": "graph",
+        "note": "seed=20261125",
+        "proposal": {
+          "cpu": 0.0,
+          "model": null,
+          "prompt_sha256": null,
+          "token_usage": {}
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "held_rejected",
+        "task_id": "llm_dev_010",
+        "tokens": {
+          "completion": 0,
+          "prompt": 0
+        },
+        "verdict_final": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.07222300000000104,
+              "wall_seconds": 2.055545432958752
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.0709850000000003,
+              "wall_seconds": 2.053059933008626
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 3.799999999998249e-05,
+              "wall_seconds": 3.732892218977213e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04642000000000479,
+              "wall_seconds": 0.04608920100145042
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "30 of 40 rows differ",
+          "first_mismatch": 1,
+          "identity_ok": null,
+          "kind": "graph",
+          "mismatches": 30,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              1,
+              -5
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_010",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.07064500000000251,
+              "wall_seconds": 2.055682130041532
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06821000000000055,
+              "wall_seconds": 2.052514726994559
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 2.3000000000550358e-05,
+              "wall_seconds": 2.3344065994024277e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.048956000000000444,
+              "wall_seconds": 0.048675622092559934
+            }
+          },
+          "counterexample_count": 23,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "23 of 27 rows differ",
+          "first_mismatch": 1,
+          "identity_ok": null,
+          "kind": "graph",
+          "mismatches": 23,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              1,
+              -5
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_010",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_021": {
+        "accepted_final": false,
+        "accepted_visible": false,
+        "arm": "e",
+        "candidate_sha256": "709bf510711ea33d8e39f67906f11fbcd1060a186c9902f9c4a5545147ea8069",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"sub\", \"type\": \"Int\"}], \"output\": 0}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_021_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.052187071996741
+          },
+          "curlee_run_llm_dev_021_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.05511255399324
+          }
+        },
+        "cpu_seconds": 0.3683409999999956,
+        "family": "A7",
+        "kind": "graph",
+        "note": "seed=20261126",
+        "proposal": {
+          "cpu": 0.0,
+          "model": null,
+          "prompt_sha256": null,
+          "token_usage": {}
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "held_rejected",
+        "task_id": "llm_dev_021",
+        "tokens": {
+          "completion": 0,
+          "prompt": 0
+        },
+        "verdict_final": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06878799999999785,
+              "wall_seconds": 2.052187071996741
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.07190099999999688,
+              "wall_seconds": 2.05511255399324
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 4.6000000001100716e-05,
+              "wall_seconds": 4.6245986595749855e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04785400000000095,
+              "wall_seconds": 0.04750277998391539
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "39 of 40 rows differ",
+          "first_mismatch": 1,
+          "identity_ok": null,
+          "kind": "graph",
+          "mismatches": 39,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "sub",
+            "sig": [
+              -1,
+              3,
+              1
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_021",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06745900000000304,
+              "wall_seconds": 2.0521115720039234
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06640399999999858,
+              "wall_seconds": 2.0521159009076655
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 1.600000000046009e-05,
+              "wall_seconds": 1.5589059330523014e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04586699999999766,
+              "wall_seconds": 0.0454253819771111
+            }
+          },
+          "counterexample_count": 27,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "27 of 27 rows differ",
+          "first_mismatch": 0,
+          "identity_ok": null,
+          "kind": "graph",
+          "mismatches": 27,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "sub",
+            "sig": [
+              -1,
+              3,
+              1
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_021",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_039": {
+        "accepted_final": false,
+        "accepted_visible": false,
+        "arm": "e",
+        "candidate_sha256": "ac3d4c6ed36e746f075808bf5819ba6147929d168c12e6333cc8d88b05680b57",
+        "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 0}",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_039_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.050763751962222
+          },
+          "curlee_run_llm_dev_039_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.05192546301987
+          }
+        },
+        "cpu_seconds": 0.36510099999999923,
+        "family": "A8",
+        "kind": "graph",
+        "note": "seed=20261127",
+        "proposal": {
+          "cpu": 0.0,
+          "model": null,
+          "prompt_sha256": null,
+          "token_usage": {}
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "held_rejected",
+        "task_id": "llm_dev_039",
+        "tokens": {
+          "completion": 0,
+          "prompt": 0
+        },
+        "verdict_final": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.0675329999999974,
+              "wall_seconds": 2.050763751962222
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.06870999999999938,
+              "wall_seconds": 2.05192546301987
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 3.300000000194814e-05,
+              "wall_seconds": 3.202003426849842e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04688899999999663,
+              "wall_seconds": 0.04654561297502369
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "39 of 40 rows differ",
+          "first_mismatch": 1,
+          "identity_ok": null,
+          "kind": "graph",
+          "mismatches": 39,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              1,
+              -5
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_039",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.06515800000000027,
+              "wall_seconds": 2.051016588928178
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.0679690000000015,
+              "wall_seconds": 2.0529065270675346
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 1.5000000001208491e-05,
+              "wall_seconds": 1.4596967957913876e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.04879000000000033,
+              "wall_seconds": 0.04845347604714334
+            }
+          },
+          "counterexample_count": 27,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "27 of 27 rows differ",
+          "first_mismatch": 0,
+          "identity_ok": null,
+          "kind": "graph",
+          "mismatches": 27,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "add",
+            "sig": [
+              1,
+              1,
+              -5
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_039",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_045": {
+        "accepted_final": false,
+        "accepted_visible": false,
+        "arm": "e",
+        "candidate_sha256": "136cefc972be971c8e5d115d8984c2dfa35baf7fb7db9ee37316dd993f5b8dd6",
+        "candidate_text": "for set add acc one end return acc stop",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_045_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.051896840916015
+          },
+          "curlee_run_llm_dev_045_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0521501440089196
+          }
+        },
+        "cpu_seconds": 0.5921870000000062,
+        "family": "S1",
+        "kind": "statement",
+        "note": "seed=20261128",
+        "proposal": {
+          "cpu": 0.0,
+          "model": null,
+          "prompt_sha256": null,
+          "token_usage": {}
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "held_rejected",
+        "task_id": "llm_dev_045",
+        "tokens": {
+          "completion": 0,
+          "prompt": 0
+        },
+        "verdict_final": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.1744050000000037,
+              "wall_seconds": 2.051896840916015
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.18016000000000432,
+              "wall_seconds": 2.0521501440089196
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 5.5999999997169425e-05,
+              "wall_seconds": 5.575490649789572e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.023814000000001556,
+              "wall_seconds": 0.023443249985575676
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "39 of 40 rows differ",
+          "first_mismatch": 1,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 39,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              1,
+              2,
+              4
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_045",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.0966540000000009,
+              "wall_seconds": 2.054443506989628
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.09508900000000153,
+              "wall_seconds": 2.0508832710329443
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 1.0999999997096666e-05,
+              "wall_seconds": 1.1351075954735279e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.021992999999998375,
+              "wall_seconds": 0.021656102035194635
+            }
+          },
+          "counterexample_count": 27,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "27 of 27 rows differ",
+          "first_mismatch": 0,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 27,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              1,
+              2,
+              4
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_045",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        }
+      },
+      "llm_dev_083": {
+        "accepted_final": false,
+        "accepted_visible": false,
+        "arm": "e",
+        "candidate_sha256": "f3a1fc93d1262307709fa646fa6751dc77f802ad331a0e8dbd7570c1ce33d41a",
+        "candidate_text": "return acc stop",
+        "check_passed": true,
+        "commands": {
+          "curlee_check_llm_dev_083_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.051672850968316
+          },
+          "curlee_run_llm_dev_083_final": {
+            "exit_code": 0,
+            "wall_seconds": 2.0518685079878196
+          }
+        },
+        "cpu_seconds": 0.6888779999999954,
+        "family": "S3",
+        "kind": "statement",
+        "note": "seed=20261129",
+        "proposal": {
+          "cpu": 0.0,
+          "model": null,
+          "prompt_sha256": null,
+          "token_usage": {}
+        },
+        "repair": null,
+        "retrieval": null,
+        "status": "held_rejected",
+        "task_id": "llm_dev_083",
+        "tokens": {
+          "completion": 0,
+          "prompt": 0
+        },
+        "verdict_final": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.1875019999999985,
+              "wall_seconds": 2.051672850968316
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.19878699999999938,
+              "wall_seconds": 2.0518685079878196
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 2.800000000036107e-05,
+              "wall_seconds": 2.8413021937012672e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.023230999999999113,
+              "wall_seconds": 0.022852406022138894
+            }
+          },
+          "counterexample_count": 0,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "39 of 40 rows differ",
+          "first_mismatch": 1,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 39,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 40,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              0,
+              0,
+              0
+            ]
+          },
+          "stage": "final",
+          "task_id": "llm_dev_083",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        },
+        "verdict_visible": {
+          "accepted": false,
+          "compiler": {
+            "guard": true,
+            "path": "/home/joe/Projects/curlee/build/linux-debug/curlee",
+            "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+          },
+          "costs": {
+            "curlee_check": {
+              "cpu_seconds": 0.12519600000000253,
+              "wall_seconds": 2.0519813490100205
+            },
+            "curlee_run": {
+              "cpu_seconds": 0.13183700000000087,
+              "wall_seconds": 2.052085505099967
+            },
+            "dedup": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "gate": {
+              "cpu_seconds": 1.1999999998124622e-05,
+              "wall_seconds": 1.2604054063558578e-05
+            },
+            "proposer": {
+              "cpu_seconds": 0.0,
+              "wall_seconds": 0.0
+            },
+            "sandbox": {
+              "cpu_seconds": 0.022281999999997026,
+              "wall_seconds": 0.02195108390878886
+            }
+          },
+          "counterexample_count": 27,
+          "counterexamples": [],
+          "curlee_correct": null,
+          "detail": "27 of 27 rows differ",
+          "first_mismatch": 0,
+          "identity_ok": null,
+          "kind": "statement",
+          "mismatches": 27,
+          "proposal_cpu": 0.0,
+          "python_correct": false,
+          "range_note": "Python ints are unbounded; CURLEE Ints are i64. Every expected and actual output must lie in [-2**63, 2**63 - 1]; bank rows stay within 2**62.",
+          "rows_checked": 27,
+          "signature": {
+            "op": "statement",
+            "sig": [
+              0,
+              0,
+              0
+            ]
+          },
+          "stage": "visible",
+          "task_id": "llm_dev_083",
+          "taxonomy": [
+            "python_mismatch"
+          ],
+          "tokens": {
+            "completion": 0,
+            "prompt": 0
+          },
+          "valid": true
+        }
+      }
+    }
+  },
+  "repair": {
+    "b/llm_dev_010": {
+      "accepted": true,
+      "accepted_round": 0,
+      "cost_ledger": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-b: donor library creation outside this run",
+          "arm-b: LLM pretraining and proposal tokens outside the harness",
+          "arm-b: sealed held handling outside judge_final",
+          "arm-b: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.04400451690889895,
+        "measured_total_wall_seconds": 0.0,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.04400451690889895,
+            "mean_cpu_seconds": 0.04400451690889895,
+            "minimum_cpu_seconds": 0.04400451690889895,
+            "n_cpu_seconds": 1.0,
+            "stdev_cpu_seconds": 0.0,
+            "total_cpu_seconds": 0.04400451690889895,
+            "total_wall_seconds": 0.0
+          }
+        }
+      },
+      "kind": "graph",
+      "revealed_count": 0,
+      "revealed_query_rows": [],
+      "rounds": [
+        {
+          "candidate_sha256": "24e58c203d8429a326c7ec82bd369c0675709af466a36768e32b49c42318fc3c",
+          "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+          "note": "",
+          "prompt": null,
+          "proposal": {
+            "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+            "cpu": 0.04400451690889895,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "6c36020d78c4f0432290d1fc4c8fdeb92d62de7cac66b76d525962fe458a0ba8",
+            "token_usage": {
+              "completion": 76,
+              "prompt": 1
+            }
+          },
+          "revealed_count": 0,
+          "round": 0,
+          "spec": {
+            "counterexamples": [],
+            "fragments": [],
+            "kind": "graph",
+            "params": {},
+            "task_id": "llm_dev_010",
+            "visible_rows": [
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                2,
+                -1,
+                5
+              ],
+              [
+                -2,
+                -3,
+                -29
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": true,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 0,
+            "counterexamples": [],
+            "curlee_correct": true,
+            "detail": "valid and correct in both backends",
+            "first_mismatch": null,
+            "identity_ok": true,
+            "kind": "graph",
+            "mismatches": 0,
+            "python_correct": true,
+            "rows_checked": 27,
+            "signature": {
+              "op": "add",
+              "sig": [
+                1,
+                5,
+                -29
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_010",
+            "taxonomy": [],
+            "valid": true
+          }
+        }
+      ],
+      "single_shot": {
+        "accepted": true,
+        "candidate_sha256": "24e58c203d8429a326c7ec82bd369c0675709af466a36768e32b49c42318fc3c"
+      },
+      "single_shot_accepted": true,
+      "status": "accepted",
+      "task_id": "llm_dev_010",
+      "template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+      "template_version": "llm_repair_prompt_v1",
+      "totals": {
+        "completion_tokens": 76,
+        "cpu_seconds": 0.04400451690889895,
+        "prompt_tokens": 1
+      }
+    },
+    "b/llm_dev_021": {
+      "accepted": true,
+      "accepted_round": 0,
+      "cost_ledger": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-b: donor library creation outside this run",
+          "arm-b: LLM pretraining and proposal tokens outside the harness",
+          "arm-b: sealed held handling outside judge_final",
+          "arm-b: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.14662372483871877,
+        "measured_total_wall_seconds": 0.0,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.05861469102092087,
+            "mean_cpu_seconds": 0.04887457494623959,
+            "minimum_cpu_seconds": 0.04400451690889895,
+            "n_cpu_seconds": 3.0,
+            "stdev_cpu_seconds": 0.008435187956483159,
+            "total_cpu_seconds": 0.14662372483871877,
+            "total_wall_seconds": 0.0
+          }
+        }
+      },
+      "kind": "graph",
+      "revealed_count": 0,
+      "revealed_query_rows": [],
+      "rounds": [
+        {
+          "candidate_sha256": "bde0c1884077ed571cd9e7bb4dbe54639f1b77ad7d230b7f17e209d78a0e377f",
+          "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"y\", 3], \"op\": \"sub\", \"type\": \"Int\"}], \"output\": 4}",
+          "note": "",
+          "prompt": null,
+          "proposal": {
+            "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"y\", 3], \"op\": \"sub\", \"type\": \"Int\"}], \"output\": 4}",
+            "cpu": 0.05861469102092087,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "ebe2932ee41c5fc2b58ba00c6a131141b2c0689a35ac04569ebaea96f137c241",
+            "token_usage": {
+              "completion": 76,
+              "prompt": 1
+            }
+          },
+          "revealed_count": 0,
+          "round": 0,
+          "spec": {
+            "counterexamples": [],
+            "fragments": [],
+            "kind": "graph",
+            "params": {},
+            "task_id": "llm_dev_021",
+            "visible_rows": [
+              [
+                0,
+                1,
+                2
+              ],
+              [
+                2,
+                -1,
+                -10
+              ],
+              [
+                -2,
+                -3,
+                -2
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": true,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 0,
+            "counterexamples": [],
+            "curlee_correct": true,
+            "detail": "valid and correct in both backends",
+            "first_mismatch": null,
+            "identity_ok": true,
+            "kind": "graph",
+            "mismatches": 0,
+            "python_correct": true,
+            "rows_checked": 27,
+            "signature": {
+              "op": "sub",
+              "sig": [
+                2,
+                -10,
+                -2
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_021",
+            "taxonomy": [],
+            "valid": true
+          }
+        }
+      ],
+      "single_shot": {
+        "accepted": true,
+        "candidate_sha256": "bde0c1884077ed571cd9e7bb4dbe54639f1b77ad7d230b7f17e209d78a0e377f"
+      },
+      "single_shot_accepted": true,
+      "status": "accepted",
+      "task_id": "llm_dev_021",
+      "template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+      "template_version": "llm_repair_prompt_v1",
+      "totals": {
+        "completion_tokens": 76,
+        "cpu_seconds": 0.05861469102092087,
+        "prompt_tokens": 1
+      }
+    },
+    "b/llm_dev_039": {
+      "accepted": true,
+      "accepted_round": 1,
+      "cost_ledger": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-b: donor library creation outside this run",
+          "arm-b: LLM pretraining and proposal tokens outside the harness",
+          "arm-b: sealed held handling outside judge_final",
+          "arm-b: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.5497155279153958,
+        "measured_total_wall_seconds": 0.0,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.3369129040511325,
+            "mean_cpu_seconds": 0.09161925465256597,
+            "minimum_cpu_seconds": 0.0075642080046236515,
+            "n_cpu_seconds": 6.0,
+            "stdev_cpu_seconds": 0.12161180390412901,
+            "total_cpu_seconds": 0.5497155279153958,
+            "total_wall_seconds": 0.0
+          }
+        }
+      },
+      "kind": "graph",
+      "revealed_count": 3,
+      "revealed_query_rows": [
+        [
+          -1,
+          1,
+          -2
+        ],
+        [
+          -5,
+          2,
+          -55
+        ],
+        [
+          -6,
+          -1,
+          -306
+        ]
+      ],
+      "rounds": [
+        {
+          "candidate_sha256": "1a3187529a1a47982de754798a2696d432280420d266e5b8dedea7f8a9fe2d17",
+          "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"mul\", \"type\": \"Int\"}], \"output\": 3}",
+          "note": "",
+          "prompt": null,
+          "proposal": {
+            "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"mul\", \"type\": \"Int\"}], \"output\": 3}",
+            "cpu": 0.0075642080046236515,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "785647da3d6d87af00c56a3446321a890338cf95ea52ad7c6b81e2dfc529606f",
+            "token_usage": {
+              "completion": 64,
+              "prompt": 1
+            }
+          },
+          "revealed_count": 0,
+          "round": 0,
+          "spec": {
+            "counterexamples": [],
+            "fragments": [],
+            "kind": "graph",
+            "params": {},
+            "task_id": "llm_dev_039",
+            "visible_rows": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                2,
+                -1,
+                6
+              ],
+              [
+                -2,
+                -3,
+                -54
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": false,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 21,
+            "counterexamples": [],
+            "curlee_correct": null,
+            "detail": "21 of 27 rows differ",
+            "first_mismatch": 3,
+            "identity_ok": null,
+            "kind": "graph",
+            "mismatches": 21,
+            "python_correct": false,
+            "rows_checked": 27,
+            "signature": {
+              "op": "mul",
+              "sig": [
+                0,
+                6,
+                -54
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_039",
+            "taxonomy": [
+              "python_mismatch"
+            ],
+            "valid": true
+          }
+        },
+        {
+          "candidate_sha256": "8d23b0990e78fd32848f99098e510063086138be69922ee3f7c5a2ab0ef51939",
+          "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [0, 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+          "note": "",
+          "prompt": "{\"diagnostics\":{\"accepted\":false,\"compiler\":{\"guard\":true,\"sha256\":\"9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832\"},\"counterexample_count\":21,\"counterexamples\":[],\"curlee_correct\":null,\"detail\":\"21 of 27 rows differ\",\"first_mismatch\":3,\"identity_ok\":null,\"kind\":\"graph\",\"mismatches\":21,\"python_correct\":false,\"rows_checked\":27,\"signature\":{\"op\":\"mul\",\"sig\":[0,6,-54]},\"stage\":\"visible\",\"task_id\":\"llm_dev_039\",\"taxonomy\":[\"python_mismatch\"],\"valid\":true},\"failing_batch\":[[-1,1,-2]],\"fragments\":[],\"instruction\":\"Propose a general fix for the previous candidate so it passes every visible row and the shown failing batch. Repair the underlying rule; do not special-case rows. Every expected and actual output must lie in i64 bounds [-2**63, 2**63 - 1]; bank rows stay within 2**62.\",\"kind\":\"graph\",\"previous_candidate\":\"{\\\"input_types\\\": {\\\"x\\\": \\\"Int\\\", \\\"y\\\": \\\"Int\\\"}, \\\"nodes\\\": [{\\\"args\\\": [\\\"y\\\", \\\"y\\\"], \\\"op\\\": \\\"add\\\", \\\"type\\\": \\\"Int\\\"}, {\\\"args\\\": [\\\"y\\\", 0], \\\"op\\\": \\\"add\\\", \\\"type\\\": \\\"Int\\\"}, {\\\"args\\\": [\\\"y\\\", 1], \\\"op\\\": \\\"mul\\\", \\\"type\\\": \\\"Int\\\"}, {\\\"args\\\": [\\\"x\\\", 2], \\\"op\\\": \\\"mul\\\", \\\"type\\\": \\\"Int\\\"}], \\\"output\\\": 3}\",\"previous_candidate_sha256\":\"1a3187529a1a47982de754798a2696d432280420d266e5b8dedea7f8a9fe2d17\",\"query_cap\":3,\"revealed_count\":3,\"revealed_query_rows\":[[-1,1,-2],[-5,2,-55],[-6,-1,-306]],\"task_id\":\"llm_dev_039\",\"template_sha256\":\"7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1\",\"template_version\":\"llm_repair_prompt_v1\",\"visible_rows\":[[0,1,0],[2,-1,6],[-2,-3,-54]]}",
+          "proposal": {
+            "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [0, 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+            "cpu": 0.3369129040511325,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "4cd74bb1bec7b01e4aa93ebc55af71772ac150762d6cdb1f0975edf6e3f5017e",
+            "token_usage": {
+              "completion": 76,
+              "prompt": 386
+            }
+          },
+          "revealed_count": 3,
+          "round": 1,
+          "spec": {
+            "counterexamples": [
+              [
+                -1,
+                1,
+                -2
+              ]
+            ],
+            "fragments": [],
+            "kind": "graph",
+            "params": {},
+            "task_id": "llm_dev_039",
+            "visible_rows": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                2,
+                -1,
+                6
+              ],
+              [
+                -2,
+                -3,
+                -54
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": true,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 0,
+            "counterexamples": [],
+            "curlee_correct": true,
+            "detail": "valid and correct in both backends",
+            "first_mismatch": null,
+            "identity_ok": true,
+            "kind": "graph",
+            "mismatches": 0,
+            "python_correct": true,
+            "rows_checked": 27,
+            "signature": {
+              "op": "add",
+              "sig": [
+                0,
+                6,
+                -54
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_039",
+            "taxonomy": [],
+            "valid": true
+          }
+        }
+      ],
+      "single_shot": {
+        "accepted": false,
+        "candidate_sha256": "1a3187529a1a47982de754798a2696d432280420d266e5b8dedea7f8a9fe2d17"
+      },
+      "single_shot_accepted": false,
+      "status": "accepted",
+      "task_id": "llm_dev_039",
+      "template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+      "template_version": "llm_repair_prompt_v1",
+      "totals": {
+        "completion_tokens": 140,
+        "cpu_seconds": 0.34447711205575615,
+        "prompt_tokens": 387
+      }
+    },
+    "b/llm_dev_045": {
+      "accepted": true,
+      "accepted_round": 0,
+      "cost_ledger": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-b: donor library creation outside this run",
+          "arm-b: LLM pretraining and proposal tokens outside the harness",
+          "arm-b: sealed held handling outside judge_final",
+          "arm-b: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.8867093230364844,
+        "measured_total_wall_seconds": 0.0,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.3369129040511325,
+            "mean_cpu_seconds": 0.11083866537956055,
+            "minimum_cpu_seconds": 8.089106995612383e-05,
+            "n_cpu_seconds": 8.0,
+            "stdev_cpu_seconds": 0.1411889891989696,
+            "total_cpu_seconds": 0.8867093230364844,
+            "total_wall_seconds": 0.0
+          }
+        }
+      },
+      "kind": "statement",
+      "revealed_count": 0,
+      "revealed_query_rows": [],
+      "rounds": [
+        {
+          "candidate_sha256": "b87b108f083efccd08d09f4ec429f7fc446d1b23dd98938baaf44ef2b1fbb1c8",
+          "candidate_text": "for set add acc acc end return acc stop",
+          "note": "",
+          "prompt": null,
+          "proposal": {
+            "candidate_text": "for set add acc acc end return acc stop",
+            "cpu": 8.089106995612383e-05,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "00a0fcf1f7594b4c2e33321d4a545166a01663fc335d9b80b950ff17fa359b5b",
+            "token_usage": {
+              "completion": 9,
+              "prompt": 1
+            }
+          },
+          "revealed_count": 0,
+          "round": 0,
+          "spec": {
+            "counterexamples": [],
+            "fragments": [],
+            "kind": "statement",
+            "params": {},
+            "task_id": "llm_dev_045",
+            "visible_rows": [
+              [
+                [
+                  1
+                ],
+                0
+              ],
+              [
+                [
+                  -2,
+                  3
+                ],
+                0
+              ],
+              [
+                [
+                  4,
+                  0,
+                  -1,
+                  2
+                ],
+                0
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": true,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 0,
+            "counterexamples": [],
+            "curlee_correct": true,
+            "detail": "valid and correct in both backends",
+            "first_mismatch": null,
+            "identity_ok": null,
+            "kind": "statement",
+            "mismatches": 0,
+            "python_correct": true,
+            "rows_checked": 27,
+            "signature": {
+              "op": "statement",
+              "sig": [
+                0,
+                0,
+                0
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_045",
+            "taxonomy": [],
+            "valid": true
+          }
+        }
+      ],
+      "single_shot": {
+        "accepted": true,
+        "candidate_sha256": "b87b108f083efccd08d09f4ec429f7fc446d1b23dd98938baaf44ef2b1fbb1c8"
+      },
+      "single_shot_accepted": true,
+      "status": "accepted",
+      "task_id": "llm_dev_045",
+      "template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+      "template_version": "llm_repair_prompt_v1",
+      "totals": {
+        "completion_tokens": 9,
+        "cpu_seconds": 8.089106995612383e-05,
+        "prompt_tokens": 1
+      }
+    },
+    "b/llm_dev_083": {
+      "accepted": true,
+      "accepted_round": 0,
+      "cost_ledger": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-b: donor library creation outside this run",
+          "arm-b: LLM pretraining and proposal tokens outside the harness",
+          "arm-b: sealed held handling outside judge_final",
+          "arm-b: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.8902990461792797,
+        "measured_total_wall_seconds": 0.0,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.3369129040511325,
+            "mean_cpu_seconds": 0.08902990461792797,
+            "minimum_cpu_seconds": 8.089106995612383e-05,
+            "n_cpu_seconds": 10.0,
+            "stdev_cpu_seconds": 0.13273661134629314,
+            "total_cpu_seconds": 0.8902990461792797,
+            "total_wall_seconds": 0.0
+          }
+        }
+      },
+      "kind": "statement",
+      "revealed_count": 0,
+      "revealed_query_rows": [],
+      "rounds": [
+        {
+          "candidate_sha256": "22608cc3526bcef90248289568d29ecb7637e4489c61413d9cd37e7ff20a2f25",
+          "candidate_text": "for set add acc one if gt value zero set add acc one end end return acc stop",
+          "note": "",
+          "prompt": null,
+          "proposal": {
+            "candidate_text": "for set add acc one if gt value zero set add acc one end end return acc stop",
+            "cpu": 0.003508832072839141,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "5984394a6cafaaba524f54587c4b596fa60c81aaaeafc15e47a4f975f11a8b92",
+            "token_usage": {
+              "completion": 19,
+              "prompt": 1
+            }
+          },
+          "revealed_count": 0,
+          "round": 0,
+          "spec": {
+            "counterexamples": [],
+            "fragments": [],
+            "kind": "statement",
+            "params": {},
+            "task_id": "llm_dev_083",
+            "visible_rows": [
+              [
+                [
+                  1
+                ],
+                2
+              ],
+              [
+                [
+                  -2,
+                  3
+                ],
+                3
+              ],
+              [
+                [
+                  4,
+                  0,
+                  -1,
+                  2
+                ],
+                6
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": true,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 0,
+            "counterexamples": [],
+            "curlee_correct": true,
+            "detail": "valid and correct in both backends",
+            "first_mismatch": null,
+            "identity_ok": null,
+            "kind": "statement",
+            "mismatches": 0,
+            "python_correct": true,
+            "rows_checked": 27,
+            "signature": {
+              "op": "statement",
+              "sig": [
+                2,
+                3,
+                6
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_083",
+            "taxonomy": [],
+            "valid": true
+          }
+        }
+      ],
+      "single_shot": {
+        "accepted": true,
+        "candidate_sha256": "22608cc3526bcef90248289568d29ecb7637e4489c61413d9cd37e7ff20a2f25"
+      },
+      "single_shot_accepted": true,
+      "status": "accepted",
+      "task_id": "llm_dev_083",
+      "template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+      "template_version": "llm_repair_prompt_v1",
+      "totals": {
+        "completion_tokens": 19,
+        "cpu_seconds": 0.003508832072839141,
+        "prompt_tokens": 1
+      }
+    },
+    "c/llm_dev_010": {
+      "accepted": true,
+      "accepted_round": 0,
+      "cost_ledger": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-c: donor library creation outside this run",
+          "arm-c: LLM pretraining and proposal tokens outside the harness",
+          "arm-c: sealed held handling outside judge_final",
+          "arm-c: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.044052953974644815,
+        "measured_total_wall_seconds": 0.00017906399443745613,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.04387295397464186,
+            "mean_cpu_seconds": 0.04387295397464186,
+            "minimum_cpu_seconds": 0.04387295397464186,
+            "n_cpu_seconds": 1.0,
+            "stdev_cpu_seconds": 0.0,
+            "total_cpu_seconds": 0.04387295397464186,
+            "total_wall_seconds": 0.0
+          },
+          "donor_library_creation": {
+            "maximum_cpu_seconds": 4.699999999946414e-05,
+            "mean_cpu_seconds": 3.6000000000591115e-05,
+            "minimum_cpu_seconds": 2.600000000185787e-05,
+            "n_cpu_seconds": 5.0,
+            "stdev_cpu_seconds": 9.027735042051085e-06,
+            "total_cpu_seconds": 0.00018000000000295557,
+            "total_wall_seconds": 0.00017906399443745613
+          }
+        }
+      },
+      "kind": "graph",
+      "revealed_count": 0,
+      "revealed_query_rows": [],
+      "rounds": [
+        {
+          "candidate_sha256": "24e58c203d8429a326c7ec82bd369c0675709af466a36768e32b49c42318fc3c",
+          "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+          "note": "",
+          "prompt": null,
+          "proposal": {
+            "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+            "cpu": 0.04387295397464186,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "b8d97c4b85f88c0e050bbde86041a6f551e17aa9e897f4cbf9b72e9923ab7932",
+            "token_usage": {
+              "completion": 76,
+              "prompt": 1
+            }
+          },
+          "revealed_count": 0,
+          "round": 0,
+          "spec": {
+            "counterexamples": [],
+            "fragments": [
+              {
+                "content": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+                "family": "A6",
+                "fragment_id": "c9766b07c90d4620",
+                "kind": "graph",
+                "provenance": {
+                  "arm": "a",
+                  "artifact": "dev-diagnostic/arm-a",
+                  "model": "spark-1.3",
+                  "prompt_hash": "6c36020d78c4f0432290d1fc4c8fdeb92d62de7cac66b76d525962fe458a0ba8",
+                  "task": "llm_dev_010"
+                }
+              }
+            ],
+            "kind": "graph",
+            "params": {},
+            "task_id": "llm_dev_010",
+            "visible_rows": [
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                2,
+                -1,
+                5
+              ],
+              [
+                -2,
+                -3,
+                -29
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": true,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 0,
+            "counterexamples": [],
+            "curlee_correct": true,
+            "detail": "valid and correct in both backends",
+            "first_mismatch": null,
+            "identity_ok": true,
+            "kind": "graph",
+            "mismatches": 0,
+            "python_correct": true,
+            "rows_checked": 27,
+            "signature": {
+              "op": "add",
+              "sig": [
+                1,
+                5,
+                -29
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_010",
+            "taxonomy": [],
+            "valid": true
+          }
+        }
+      ],
+      "single_shot": {
+        "accepted": true,
+        "candidate_sha256": "24e58c203d8429a326c7ec82bd369c0675709af466a36768e32b49c42318fc3c"
+      },
+      "single_shot_accepted": true,
+      "status": "accepted",
+      "task_id": "llm_dev_010",
+      "template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+      "template_version": "llm_repair_prompt_v1",
+      "totals": {
+        "completion_tokens": 76,
+        "cpu_seconds": 0.04387295397464186,
+        "prompt_tokens": 1
+      }
+    },
+    "c/llm_dev_021": {
+      "accepted": true,
+      "accepted_round": 0,
+      "cost_ledger": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-c: donor library creation outside this run",
+          "arm-c: LLM pretraining and proposal tokens outside the harness",
+          "arm-c: sealed held handling outside judge_final",
+          "arm-c: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.14550012795098421,
+        "measured_total_wall_seconds": 0.00017906399443745613,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.05757422000169754,
+            "mean_cpu_seconds": 0.048440042650327086,
+            "minimum_cpu_seconds": 0.04387295397464186,
+            "n_cpu_seconds": 3.0,
+            "stdev_cpu_seconds": 0.007910429628959272,
+            "total_cpu_seconds": 0.14532012795098126,
+            "total_wall_seconds": 0.0
+          },
+          "donor_library_creation": {
+            "maximum_cpu_seconds": 4.699999999946414e-05,
+            "mean_cpu_seconds": 3.6000000000591115e-05,
+            "minimum_cpu_seconds": 2.600000000185787e-05,
+            "n_cpu_seconds": 5.0,
+            "stdev_cpu_seconds": 9.027735042051085e-06,
+            "total_cpu_seconds": 0.00018000000000295557,
+            "total_wall_seconds": 0.00017906399443745613
+          }
+        }
+      },
+      "kind": "graph",
+      "revealed_count": 0,
+      "revealed_query_rows": [],
+      "rounds": [
+        {
+          "candidate_sha256": "bde0c1884077ed571cd9e7bb4dbe54639f1b77ad7d230b7f17e209d78a0e377f",
+          "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"y\", 3], \"op\": \"sub\", \"type\": \"Int\"}], \"output\": 4}",
+          "note": "",
+          "prompt": null,
+          "proposal": {
+            "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"y\", 3], \"op\": \"sub\", \"type\": \"Int\"}], \"output\": 4}",
+            "cpu": 0.05757422000169754,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "5336aff160724eed8d309cec9bfb3ff094cd5dc9b12d6a48078cbb3b89a85aaf",
+            "token_usage": {
+              "completion": 76,
+              "prompt": 1
+            }
+          },
+          "revealed_count": 0,
+          "round": 0,
+          "spec": {
+            "counterexamples": [],
+            "fragments": [
+              {
+                "content": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"sub\", \"type\": \"Int\"}, {\"args\": [\"y\", 3], \"op\": \"sub\", \"type\": \"Int\"}], \"output\": 4}",
+                "family": "A7",
+                "fragment_id": "594228129fa5e51f",
+                "kind": "graph",
+                "provenance": {
+                  "arm": "a",
+                  "artifact": "dev-diagnostic/arm-a",
+                  "model": "spark-1.3",
+                  "prompt_hash": "ebe2932ee41c5fc2b58ba00c6a131141b2c0689a35ac04569ebaea96f137c241",
+                  "task": "llm_dev_021"
+                }
+              }
+            ],
+            "kind": "graph",
+            "params": {},
+            "task_id": "llm_dev_021",
+            "visible_rows": [
+              [
+                0,
+                1,
+                2
+              ],
+              [
+                2,
+                -1,
+                -10
+              ],
+              [
+                -2,
+                -3,
+                -2
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": true,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 0,
+            "counterexamples": [],
+            "curlee_correct": true,
+            "detail": "valid and correct in both backends",
+            "first_mismatch": null,
+            "identity_ok": true,
+            "kind": "graph",
+            "mismatches": 0,
+            "python_correct": true,
+            "rows_checked": 27,
+            "signature": {
+              "op": "sub",
+              "sig": [
+                2,
+                -10,
+                -2
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_021",
+            "taxonomy": [],
+            "valid": true
+          }
+        }
+      ],
+      "single_shot": {
+        "accepted": true,
+        "candidate_sha256": "bde0c1884077ed571cd9e7bb4dbe54639f1b77ad7d230b7f17e209d78a0e377f"
+      },
+      "single_shot_accepted": true,
+      "status": "accepted",
+      "task_id": "llm_dev_021",
+      "template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+      "template_version": "llm_repair_prompt_v1",
+      "totals": {
+        "completion_tokens": 76,
+        "cpu_seconds": 0.05757422000169754,
+        "prompt_tokens": 1
+      }
+    },
+    "c/llm_dev_039": {
+      "accepted": true,
+      "accepted_round": 1,
+      "cost_ledger": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-c: donor library creation outside this run",
+          "arm-c: LLM pretraining and proposal tokens outside the harness",
+          "arm-c: sealed held handling outside judge_final",
+          "arm-c: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.21009694403346924,
+        "measured_total_wall_seconds": 0.00017906399443745613,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.05757422000169754,
+            "mean_cpu_seconds": 0.03498615733891105,
+            "minimum_cpu_seconds": 0.0001090141013264656,
+            "n_cpu_seconds": 6.0,
+            "stdev_cpu_seconds": 0.025230442193241897,
+            "total_cpu_seconds": 0.20991694403346628,
+            "total_wall_seconds": 0.0
+          },
+          "donor_library_creation": {
+            "maximum_cpu_seconds": 4.699999999946414e-05,
+            "mean_cpu_seconds": 3.6000000000591115e-05,
+            "minimum_cpu_seconds": 2.600000000185787e-05,
+            "n_cpu_seconds": 5.0,
+            "stdev_cpu_seconds": 9.027735042051085e-06,
+            "total_cpu_seconds": 0.00018000000000295557,
+            "total_wall_seconds": 0.00017906399443745613
+          }
+        }
+      },
+      "kind": "graph",
+      "revealed_count": 3,
+      "revealed_query_rows": [
+        [
+          -1,
+          1,
+          -2
+        ],
+        [
+          -5,
+          2,
+          -55
+        ],
+        [
+          -6,
+          -1,
+          -306
+        ]
+      ],
+      "rounds": [
+        {
+          "candidate_sha256": "1a3187529a1a47982de754798a2696d432280420d266e5b8dedea7f8a9fe2d17",
+          "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"mul\", \"type\": \"Int\"}], \"output\": 3}",
+          "note": "",
+          "prompt": null,
+          "proposal": {
+            "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"y\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 0], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"y\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"mul\", \"type\": \"Int\"}], \"output\": 3}",
+            "cpu": 0.006913581979461014,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "47981548983f4c3842c253e64ed4ad1d951664cbbb4df5ed2e7bdd192742f137",
+            "token_usage": {
+              "completion": 64,
+              "prompt": 1
+            }
+          },
+          "revealed_count": 0,
+          "round": 0,
+          "spec": {
+            "counterexamples": [],
+            "fragments": [
+              {
+                "content": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [0, 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+                "family": "A8",
+                "fragment_id": "638cf9e9140d930a",
+                "kind": "graph",
+                "provenance": {
+                  "arm": "b",
+                  "artifact": "dev-diagnostic/arm-b",
+                  "model": "spark-1.3",
+                  "prompt_hash": "785647da3d6d87af00c56a3446321a890338cf95ea52ad7c6b81e2dfc529606f",
+                  "task": "llm_dev_039"
+                }
+              }
+            ],
+            "kind": "graph",
+            "params": {},
+            "task_id": "llm_dev_039",
+            "visible_rows": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                2,
+                -1,
+                6
+              ],
+              [
+                -2,
+                -3,
+                -54
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": false,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 21,
+            "counterexamples": [],
+            "curlee_correct": null,
+            "detail": "21 of 27 rows differ",
+            "first_mismatch": 3,
+            "identity_ok": null,
+            "kind": "graph",
+            "mismatches": 21,
+            "python_correct": false,
+            "rows_checked": 27,
+            "signature": {
+              "op": "mul",
+              "sig": [
+                0,
+                6,
+                -54
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_039",
+            "taxonomy": [
+              "python_mismatch"
+            ],
+            "valid": true
+          }
+        },
+        {
+          "candidate_sha256": "8d23b0990e78fd32848f99098e510063086138be69922ee3f7c5a2ab0ef51939",
+          "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [0, 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+          "note": "",
+          "prompt": "{\"diagnostics\":{\"accepted\":false,\"compiler\":{\"guard\":true,\"sha256\":\"9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832\"},\"counterexample_count\":21,\"counterexamples\":[],\"curlee_correct\":null,\"detail\":\"21 of 27 rows differ\",\"first_mismatch\":3,\"identity_ok\":null,\"kind\":\"graph\",\"mismatches\":21,\"python_correct\":false,\"rows_checked\":27,\"signature\":{\"op\":\"mul\",\"sig\":[0,6,-54]},\"stage\":\"visible\",\"task_id\":\"llm_dev_039\",\"taxonomy\":[\"python_mismatch\"],\"valid\":true},\"failing_batch\":[[-1,1,-2]],\"fragments\":[{\"content\":\"{\\\"input_types\\\": {\\\"x\\\": \\\"Int\\\", \\\"y\\\": \\\"Int\\\"}, \\\"nodes\\\": [{\\\"args\\\": [\\\"x\\\", \\\"y\\\"], \\\"op\\\": \\\"add\\\", \\\"type\\\": \\\"Int\\\"}, {\\\"args\\\": [0, 0], \\\"op\\\": \\\"mul\\\", \\\"type\\\": \\\"Int\\\"}, {\\\"args\\\": [\\\"x\\\", 1], \\\"op\\\": \\\"mul\\\", \\\"type\\\": \\\"Int\\\"}, {\\\"args\\\": [\\\"x\\\", 2], \\\"op\\\": \\\"add\\\", \\\"type\\\": \\\"Int\\\"}, {\\\"args\\\": [\\\"x\\\", 3], \\\"op\\\": \\\"add\\\", \\\"type\\\": \\\"Int\\\"}], \\\"output\\\": 4}\",\"family\":\"A8\",\"fragment_id\":\"638cf9e9140d930a\",\"kind\":\"graph\",\"provenance\":{\"arm\":\"b\",\"artifact\":\"dev-diagnostic/arm-b\",\"model\":\"spark-1.3\",\"prompt_hash\":\"785647da3d6d87af00c56a3446321a890338cf95ea52ad7c6b81e2dfc529606f\",\"task\":\"llm_dev_039\"}}],\"instruction\":\"Propose a general fix for the previous candidate so it passes every visible row and the shown failing batch. Repair the underlying rule; do not special-case rows. Every expected and actual output must lie in i64 bounds [-2**63, 2**63 - 1]; bank rows stay within 2**62.\",\"kind\":\"graph\",\"previous_candidate\":\"{\\\"input_types\\\": {\\\"x\\\": \\\"Int\\\", \\\"y\\\": \\\"Int\\\"}, \\\"nodes\\\": [{\\\"args\\\": [\\\"y\\\", \\\"y\\\"], \\\"op\\\": \\\"add\\\", \\\"type\\\": \\\"Int\\\"}, {\\\"args\\\": [\\\"y\\\", 0], \\\"op\\\": \\\"add\\\", \\\"type\\\": \\\"Int\\\"}, {\\\"args\\\": [\\\"y\\\", 1], \\\"op\\\": \\\"mul\\\", \\\"type\\\": \\\"Int\\\"}, {\\\"args\\\": [\\\"x\\\", 2], \\\"op\\\": \\\"mul\\\", \\\"type\\\": \\\"Int\\\"}], \\\"output\\\": 3}\",\"previous_candidate_sha256\":\"1a3187529a1a47982de754798a2696d432280420d266e5b8dedea7f8a9fe2d17\",\"query_cap\":3,\"revealed_count\":3,\"revealed_query_rows\":[[-1,1,-2],[-5,2,-55],[-6,-1,-306]],\"task_id\":\"llm_dev_039\",\"template_sha256\":\"7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1\",\"template_version\":\"llm_repair_prompt_v1\",\"visible_rows\":[[0,1,0],[2,-1,6],[-2,-3,-54]]}",
+          "proposal": {
+            "candidate_text": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [0, 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+            "cpu": 0.0001090141013264656,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "5e7ed1ac25c1ba71baef6797c7516d718784d6264f50c5d273925e9d36a5151c",
+            "token_usage": {
+              "completion": 76,
+              "prompt": 545
+            }
+          },
+          "revealed_count": 3,
+          "round": 1,
+          "spec": {
+            "counterexamples": [
+              [
+                -1,
+                1,
+                -2
+              ]
+            ],
+            "fragments": [
+              {
+                "content": "{\"input_types\": {\"x\": \"Int\", \"y\": \"Int\"}, \"nodes\": [{\"args\": [\"x\", \"y\"], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [0, 0], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 1], \"op\": \"mul\", \"type\": \"Int\"}, {\"args\": [\"x\", 2], \"op\": \"add\", \"type\": \"Int\"}, {\"args\": [\"x\", 3], \"op\": \"add\", \"type\": \"Int\"}], \"output\": 4}",
+                "family": "A8",
+                "fragment_id": "638cf9e9140d930a",
+                "kind": "graph",
+                "provenance": {
+                  "arm": "b",
+                  "artifact": "dev-diagnostic/arm-b",
+                  "model": "spark-1.3",
+                  "prompt_hash": "785647da3d6d87af00c56a3446321a890338cf95ea52ad7c6b81e2dfc529606f",
+                  "task": "llm_dev_039"
+                }
+              }
+            ],
+            "kind": "graph",
+            "params": {},
+            "task_id": "llm_dev_039",
+            "visible_rows": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                2,
+                -1,
+                6
+              ],
+              [
+                -2,
+                -3,
+                -54
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": true,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 0,
+            "counterexamples": [],
+            "curlee_correct": true,
+            "detail": "valid and correct in both backends",
+            "first_mismatch": null,
+            "identity_ok": true,
+            "kind": "graph",
+            "mismatches": 0,
+            "python_correct": true,
+            "rows_checked": 27,
+            "signature": {
+              "op": "add",
+              "sig": [
+                0,
+                6,
+                -54
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_039",
+            "taxonomy": [],
+            "valid": true
+          }
+        }
+      ],
+      "single_shot": {
+        "accepted": false,
+        "candidate_sha256": "1a3187529a1a47982de754798a2696d432280420d266e5b8dedea7f8a9fe2d17"
+      },
+      "single_shot_accepted": false,
+      "status": "accepted",
+      "task_id": "llm_dev_039",
+      "template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+      "template_version": "llm_repair_prompt_v1",
+      "totals": {
+        "completion_tokens": 140,
+        "cpu_seconds": 0.00702259608078748,
+        "prompt_tokens": 546
+      }
+    },
+    "c/llm_dev_045": {
+      "accepted": true,
+      "accepted_round": 0,
+      "cost_ledger": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-c: donor library creation outside this run",
+          "arm-c: LLM pretraining and proposal tokens outside the harness",
+          "arm-c: sealed held handling outside judge_final",
+          "arm-c: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.2103297991243407,
+        "measured_total_wall_seconds": 0.00017906399443745613,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.05757422000169754,
+            "mean_cpu_seconds": 0.026268724890542217,
+            "minimum_cpu_seconds": 0.0001090141013264656,
+            "n_cpu_seconds": 8.0,
+            "stdev_cpu_seconds": 0.026744086823221002,
+            "total_cpu_seconds": 0.21014979912433773,
+            "total_wall_seconds": 0.0
+          },
+          "donor_library_creation": {
+            "maximum_cpu_seconds": 4.699999999946414e-05,
+            "mean_cpu_seconds": 3.6000000000591115e-05,
+            "minimum_cpu_seconds": 2.600000000185787e-05,
+            "n_cpu_seconds": 5.0,
+            "stdev_cpu_seconds": 9.027735042051085e-06,
+            "total_cpu_seconds": 0.00018000000000295557,
+            "total_wall_seconds": 0.00017906399443745613
+          }
+        }
+      },
+      "kind": "statement",
+      "revealed_count": 0,
+      "revealed_query_rows": [],
+      "rounds": [
+        {
+          "candidate_sha256": "b87b108f083efccd08d09f4ec429f7fc446d1b23dd98938baaf44ef2b1fbb1c8",
+          "candidate_text": "for set add acc acc end return acc stop",
+          "note": "",
+          "prompt": null,
+          "proposal": {
+            "candidate_text": "for set add acc acc end return acc stop",
+            "cpu": 0.00012384098954498768,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "e2cdb25241c0a89a3ff8e3bfeb0a15439c49448d3be29a51ced5290d7cf0075c",
+            "token_usage": {
+              "completion": 9,
+              "prompt": 1
+            }
+          },
+          "revealed_count": 0,
+          "round": 0,
+          "spec": {
+            "counterexamples": [],
+            "fragments": [
+              {
+                "content": "for set add acc acc end return acc stop",
+                "family": "S1",
+                "fragment_id": "66b2dde99b56ce24",
+                "kind": "statement",
+                "provenance": {
+                  "arm": "a",
+                  "artifact": "dev-diagnostic/arm-a",
+                  "model": "spark-1.3",
+                  "prompt_hash": "00a0fcf1f7594b4c2e33321d4a545166a01663fc335d9b80b950ff17fa359b5b",
+                  "task": "llm_dev_045"
+                }
+              }
+            ],
+            "kind": "statement",
+            "params": {},
+            "task_id": "llm_dev_045",
+            "visible_rows": [
+              [
+                [
+                  1
+                ],
+                0
+              ],
+              [
+                [
+                  -2,
+                  3
+                ],
+                0
+              ],
+              [
+                [
+                  4,
+                  0,
+                  -1,
+                  2
+                ],
+                0
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": true,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 0,
+            "counterexamples": [],
+            "curlee_correct": true,
+            "detail": "valid and correct in both backends",
+            "first_mismatch": null,
+            "identity_ok": null,
+            "kind": "statement",
+            "mismatches": 0,
+            "python_correct": true,
+            "rows_checked": 27,
+            "signature": {
+              "op": "statement",
+              "sig": [
+                0,
+                0,
+                0
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_045",
+            "taxonomy": [],
+            "valid": true
+          }
+        }
+      ],
+      "single_shot": {
+        "accepted": true,
+        "candidate_sha256": "b87b108f083efccd08d09f4ec429f7fc446d1b23dd98938baaf44ef2b1fbb1c8"
+      },
+      "single_shot_accepted": true,
+      "status": "accepted",
+      "task_id": "llm_dev_045",
+      "template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+      "template_version": "llm_repair_prompt_v1",
+      "totals": {
+        "completion_tokens": 9,
+        "cpu_seconds": 0.00012384098954498768,
+        "prompt_tokens": 1
+      }
+    },
+    "c/llm_dev_083": {
+      "accepted": true,
+      "accepted_round": 0,
+      "cost_ledger": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-c: donor library creation outside this run",
+          "arm-c: LLM pretraining and proposal tokens outside the harness",
+          "arm-c: sealed held handling outside judge_final",
+          "arm-c: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.21579783016659615,
+        "measured_total_wall_seconds": 0.00017906399443745613,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.05757422000169754,
+            "mean_cpu_seconds": 0.02156178301665932,
+            "minimum_cpu_seconds": 0.0001090141013264656,
+            "n_cpu_seconds": 10.0,
+            "stdev_cpu_seconds": 0.025618052129940234,
+            "total_cpu_seconds": 0.2156178301665932,
+            "total_wall_seconds": 0.0
+          },
+          "donor_library_creation": {
+            "maximum_cpu_seconds": 4.699999999946414e-05,
+            "mean_cpu_seconds": 3.6000000000591115e-05,
+            "minimum_cpu_seconds": 2.600000000185787e-05,
+            "n_cpu_seconds": 5.0,
+            "stdev_cpu_seconds": 9.027735042051085e-06,
+            "total_cpu_seconds": 0.00018000000000295557,
+            "total_wall_seconds": 0.00017906399443745613
+          }
+        }
+      },
+      "kind": "statement",
+      "revealed_count": 0,
+      "revealed_query_rows": [],
+      "rounds": [
+        {
+          "candidate_sha256": "22608cc3526bcef90248289568d29ecb7637e4489c61413d9cd37e7ff20a2f25",
+          "candidate_text": "for set add acc one if gt value zero set add acc one end end return acc stop",
+          "note": "",
+          "prompt": null,
+          "proposal": {
+            "candidate_text": "for set add acc one if gt value zero set add acc one end end return acc stop",
+            "cpu": 0.0053441900527104735,
+            "model": "spark-1.3",
+            "model_version": "Spark 1.3 supervised background workers",
+            "params": {},
+            "prompt_sha256": "836231fb67119dde5c457ac61b29a45d4177207687226129bbd1e95b090d8dcf",
+            "token_usage": {
+              "completion": 19,
+              "prompt": 1
+            }
+          },
+          "revealed_count": 0,
+          "round": 0,
+          "spec": {
+            "counterexamples": [],
+            "fragments": [
+              {
+                "content": "for set add acc one if gt value zero set add acc one end end return acc stop",
+                "family": "S3",
+                "fragment_id": "5c54c1fde2a79e6c",
+                "kind": "statement",
+                "provenance": {
+                  "arm": "a",
+                  "artifact": "dev-diagnostic/arm-a",
+                  "model": "spark-1.3",
+                  "prompt_hash": "5984394a6cafaaba524f54587c4b596fa60c81aaaeafc15e47a4f975f11a8b92",
+                  "task": "llm_dev_083"
+                }
+              }
+            ],
+            "kind": "statement",
+            "params": {},
+            "task_id": "llm_dev_083",
+            "visible_rows": [
+              [
+                [
+                  1
+                ],
+                2
+              ],
+              [
+                [
+                  -2,
+                  3
+                ],
+                3
+              ],
+              [
+                [
+                  4,
+                  0,
+                  -1,
+                  2
+                ],
+                6
+              ]
+            ]
+          },
+          "verdict": {
+            "accepted": true,
+            "compiler": {
+              "guard": true,
+              "sha256": "9697bc76461c703303cbe5506399553e16ad3ccbc808a6388de82891a4466832"
+            },
+            "counterexample_count": 0,
+            "counterexamples": [],
+            "curlee_correct": true,
+            "detail": "valid and correct in both backends",
+            "first_mismatch": null,
+            "identity_ok": null,
+            "kind": "statement",
+            "mismatches": 0,
+            "python_correct": true,
+            "rows_checked": 27,
+            "signature": {
+              "op": "statement",
+              "sig": [
+                2,
+                3,
+                6
+              ]
+            },
+            "stage": "visible",
+            "task_id": "llm_dev_083",
+            "taxonomy": [],
+            "valid": true
+          }
+        }
+      ],
+      "single_shot": {
+        "accepted": true,
+        "candidate_sha256": "22608cc3526bcef90248289568d29ecb7637e4489c61413d9cd37e7ff20a2f25"
+      },
+      "single_shot_accepted": true,
+      "status": "accepted",
+      "task_id": "llm_dev_083",
+      "template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+      "template_version": "llm_repair_prompt_v1",
+      "totals": {
+        "completion_tokens": 19,
+        "cpu_seconds": 0.0053441900527104735,
+        "prompt_tokens": 1
+      }
+    }
+  },
+  "retrieval": {
+    "llm_dev_010": {
+      "family": "A6",
+      "shown": [
+        "c9766b07c90d4620"
+      ],
+      "version": "87103ca42d2e5f9b16f07391303a22132d7ef69c0ab439a63ea756477ac1ef0a"
+    },
+    "llm_dev_021": {
+      "family": "A7",
+      "shown": [
+        "594228129fa5e51f"
+      ],
+      "version": "87103ca42d2e5f9b16f07391303a22132d7ef69c0ab439a63ea756477ac1ef0a"
+    },
+    "llm_dev_039": {
+      "family": "A8",
+      "shown": [
+        "638cf9e9140d930a"
+      ],
+      "version": "87103ca42d2e5f9b16f07391303a22132d7ef69c0ab439a63ea756477ac1ef0a"
+    },
+    "llm_dev_045": {
+      "family": "S1",
+      "shown": [
+        "66b2dde99b56ce24"
+      ],
+      "version": "87103ca42d2e5f9b16f07391303a22132d7ef69c0ab439a63ea756477ac1ef0a"
+    },
+    "llm_dev_083": {
+      "family": "S3",
+      "shown": [
+        "5c54c1fde2a79e6c"
+      ],
+      "version": "87103ca42d2e5f9b16f07391303a22132d7ef69c0ab439a63ea756477ac1ef0a"
+    }
+  },
+  "tasks": [
+    "llm_dev_010",
+    "llm_dev_021",
+    "llm_dev_039",
+    "llm_dev_045",
+    "llm_dev_083"
+  ],
+  "uses_guard": true
+}

@@ -1,0 +1,533 @@
+{
+  "arms": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e"
+  ],
+  "bank_dir": "fixtures/llm_bank_v1",
+  "breakdown": {
+    "by_family_final": {
+      "A6": {
+        "a": 1,
+        "b": 1,
+        "c": 1,
+        "d": 1,
+        "e": 0
+      },
+      "A7": {
+        "a": 1,
+        "b": 1,
+        "c": 1,
+        "d": 1,
+        "e": 0
+      },
+      "A8": {
+        "a": 0,
+        "b": 1,
+        "c": 1,
+        "d": 0,
+        "e": 0
+      },
+      "S1": {
+        "a": 1,
+        "b": 1,
+        "c": 1,
+        "d": 0,
+        "e": 0
+      },
+      "S3": {
+        "a": 1,
+        "b": 1,
+        "c": 1,
+        "d": 0,
+        "e": 0
+      }
+    }
+  },
+  "control_validity_caveat": "arm-d streaming control reaches only ~2.6% into the size-6 enumeration layer, so d=0 on A6+ tasks is by construction, not a capability signal",
+  "costs": {
+    "cpu_seconds": {
+      "a": 2.7387111691416663,
+      "b": 3.483919878252115,
+      "c": 2.835589020219306,
+      "d": 1.2200630000000139,
+      "e": 2.3920130000000057
+    },
+    "judge_ledger": {
+      "command_costs": {},
+      "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+      "excluded_costs": [
+        "Historical donor-library creation outside this run",
+        "LLM pretraining and proposal token generation outside the harness",
+        "Sealed held handling outside judge_final",
+        "Proposer CPU is reported per proposal; only gate and judge work is ledgered"
+      ],
+      "largest_single_child_rss_kib": 0,
+      "measured_total_cpu_seconds": 22.005916000000024,
+      "measured_total_wall_seconds": 364.6885272694053,
+      "phases": {
+        "backend_execution": {
+          "maximum_cpu_seconds": 0.28797099999999975,
+          "mean_cpu_seconds": 0.08334163636363648,
+          "minimum_cpu_seconds": 0.020042000000001003,
+          "n_cpu_seconds": 264.0,
+          "stdev_cpu_seconds": 0.05878308482381118,
+          "total_cpu_seconds": 22.00219200000003,
+          "total_wall_seconds": 364.68477526982315
+        },
+        "candidate_evaluation": {
+          "maximum_cpu_seconds": 7.999999999874774e-05,
+          "mean_cpu_seconds": 4.231818181811059e-05,
+          "minimum_cpu_seconds": 1.0999999997096666e-05,
+          "n_cpu_seconds": 88.0,
+          "stdev_cpu_seconds": 1.1513655515132606e-05,
+          "total_cpu_seconds": 0.0037239999999937323,
+          "total_wall_seconds": 0.0037519995821639895
+        }
+      }
+    },
+    "ledgers": {
+      "a": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-a: donor library creation outside this run",
+          "arm-a: LLM pretraining and proposal tokens outside the harness",
+          "arm-a: sealed held handling outside judge_final",
+          "arm-a: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.11383816914167255,
+        "measured_total_wall_seconds": 0.0,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.060922431061044335,
+            "mean_cpu_seconds": 0.02276763382833451,
+            "minimum_cpu_seconds": 0.00012642599176615477,
+            "n_cpu_seconds": 5.0,
+            "stdev_cpu_seconds": 0.027195336412604177,
+            "total_cpu_seconds": 0.11383816914167255,
+            "total_wall_seconds": 0.0
+          }
+        }
+      },
+      "b": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-b: donor library creation outside this run",
+          "arm-b: LLM pretraining and proposal tokens outside the harness",
+          "arm-b: sealed held handling outside judge_final",
+          "arm-b: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.8938078782521188,
+        "measured_total_wall_seconds": 0.0,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.3369129040511325,
+            "mean_cpu_seconds": 0.08125526165928353,
+            "minimum_cpu_seconds": 8.089106995612383e-05,
+            "n_cpu_seconds": 11.0,
+            "stdev_cpu_seconds": 0.12853794380262035,
+            "total_cpu_seconds": 0.8938078782521188,
+            "total_wall_seconds": 0.0
+          }
+        }
+      },
+      "c": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-c: donor library creation outside this run",
+          "arm-c: LLM pretraining and proposal tokens outside the harness",
+          "arm-c: sealed held handling outside judge_final",
+          "arm-c: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.22114202021930662,
+        "measured_total_wall_seconds": 0.00017906399443745613,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.05757422000169754,
+            "mean_cpu_seconds": 0.020087456383573062,
+            "minimum_cpu_seconds": 0.0001090141013264656,
+            "n_cpu_seconds": 11.0,
+            "stdev_cpu_seconds": 0.024790445027679592,
+            "total_cpu_seconds": 0.22096202021930367,
+            "total_wall_seconds": 0.0
+          },
+          "donor_library_creation": {
+            "maximum_cpu_seconds": 4.699999999946414e-05,
+            "mean_cpu_seconds": 3.6000000000591115e-05,
+            "minimum_cpu_seconds": 2.600000000185787e-05,
+            "n_cpu_seconds": 5.0,
+            "stdev_cpu_seconds": 9.027735042051085e-06,
+            "total_cpu_seconds": 0.00018000000000295557,
+            "total_wall_seconds": 0.00017906399443745613
+          }
+        }
+      },
+      "d": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-d: donor library creation outside this run",
+          "arm-d: LLM pretraining and proposal tokens outside the harness",
+          "arm-d: sealed held handling outside judge_final",
+          "arm-d: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 0.11033399999999993,
+        "measured_total_wall_seconds": 0.11035089090000838,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 0.0,
+            "mean_cpu_seconds": 0.0,
+            "minimum_cpu_seconds": 0.0,
+            "n_cpu_seconds": 3.0,
+            "stdev_cpu_seconds": 0.0,
+            "total_cpu_seconds": 0.0,
+            "total_wall_seconds": 0.0
+          },
+          "search": {
+            "maximum_cpu_seconds": 0.05974900000000005,
+            "mean_cpu_seconds": 0.022066799999999987,
+            "minimum_cpu_seconds": 0.0,
+            "n_cpu_seconds": 5.0,
+            "stdev_cpu_seconds": 0.0276609993619174,
+            "total_cpu_seconds": 0.11033399999999993,
+            "total_wall_seconds": 0.11035089090000838
+          }
+        }
+      },
+      "e": {
+        "command_costs": {},
+        "cost_definition": "Sum of process CPU including completed child descendants (resource RUSAGE_SELF plus RUSAGE_CHILDREN) across every recorded phase. Largest child RSS is a maximum, not an aggregate simultaneous memory measurement.",
+        "excluded_costs": [
+          "arm-e: donor library creation outside this run",
+          "arm-e: LLM pretraining and proposal tokens outside the harness",
+          "arm-e: sealed held handling outside judge_final",
+          "arm-e: proposer inference estimates"
+        ],
+        "largest_single_child_rss_kib": 0,
+        "measured_total_cpu_seconds": 2.3999999999801958e-05,
+        "measured_total_wall_seconds": 2.5907880626618862e-05,
+        "phases": {
+          "candidate_evaluation": {
+            "maximum_cpu_seconds": 5.999999999062311e-06,
+            "mean_cpu_seconds": 4.799999999960392e-06,
+            "minimum_cpu_seconds": 2.9999999995311555e-06,
+            "n_cpu_seconds": 5.0,
+            "stdev_cpu_seconds": 1.3038404807459366e-06,
+            "total_cpu_seconds": 2.3999999999801958e-05,
+            "total_wall_seconds": 2.5907880626618862e-05
+          }
+        }
+      }
+    },
+    "marginal_per_accepted": {
+      "b_vs_a": 0.7452087091104485,
+      "c_vs_b": null
+    },
+    "per_accepted_total": {
+      "a": 0.6846777922854166,
+      "b": 0.6967839756504229,
+      "c": 0.5671178040438611,
+      "d": 0.6100315000000069,
+      "e": null
+    },
+    "tokens": {
+      "a": {
+        "completion": 244,
+        "prompt": 5
+      },
+      "b": {
+        "completion": 576,
+        "prompt": 781
+      },
+      "c": {
+        "completion": 576,
+        "prompt": 1099
+      },
+      "d": {
+        "completion": 0,
+        "prompt": 0
+      },
+      "e": {
+        "completion": 0,
+        "prompt": 0
+      }
+    }
+  },
+  "counts": {
+    "final_accepted": {
+      "a": 4,
+      "b": 5,
+      "c": 5,
+      "d": 2,
+      "e": 0
+    },
+    "visible_accepted": {
+      "a": 4,
+      "b": 5,
+      "c": 5,
+      "d": 2,
+      "e": 0
+    }
+  },
+  "curlee_check_pass_rate_final": 1.0,
+  "decision": {
+    "best_arm": "c",
+    "prongs": {
+      "cost_ratio": 1.1236565033122448,
+      "counts": {
+        "a": 4,
+        "b": 5,
+        "c": 5
+      },
+      "deep_reach": true,
+      "deep_tasks": [
+        "llm_dev_039",
+        "llm_dev_083"
+      ],
+      "delta": true,
+      "multiple_m": 3,
+      "shared_tasks": [
+        "llm_dev_010",
+        "llm_dev_021"
+      ]
+    },
+    "reasons": [
+      "deep reach: c holds ['llm_dev_039', 'llm_dev_083']",
+      "cost/accepted ratio 1.124 vs M=3",
+      "counts a/b/c=4/5/5"
+    ],
+    "verdict": "PROCEED"
+  },
+  "discordance_best_vs_streaming": {
+    "best_arm": "c",
+    "both": [
+      "llm_dev_010",
+      "llm_dev_021"
+    ],
+    "llm_only": [
+      "llm_dev_039",
+      "llm_dev_045",
+      "llm_dev_083"
+    ],
+    "neither": [],
+    "streaming_only": []
+  },
+  "guard_refusals": {
+    "per_arm": {
+      "a": 0,
+      "b": 0,
+      "c": 0,
+      "d": 0,
+      "e": 0
+    },
+    "total": 0
+  },
+  "held_opened": true,
+  "library": {
+    "entries": [
+      {
+        "arm": "a",
+        "fragment_id": "c9766b07c90d4620",
+        "task_id": "llm_dev_010"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "594228129fa5e51f",
+        "task_id": "llm_dev_021"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "66b2dde99b56ce24",
+        "task_id": "llm_dev_045"
+      },
+      {
+        "arm": "a",
+        "fragment_id": "5c54c1fde2a79e6c",
+        "task_id": "llm_dev_083"
+      },
+      {
+        "arm": "b",
+        "fragment_id": "638cf9e9140d930a",
+        "task_id": "llm_dev_039"
+      }
+    ],
+    "entry_count": 5,
+    "skipped": [
+      {
+        "arm": "a",
+        "reason": "held-accepted judge_final verdict required",
+        "task_id": "llm_dev_039"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: c9766b07c90d4620",
+        "task_id": "llm_dev_010"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: 594228129fa5e51f",
+        "task_id": "llm_dev_021"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: 66b2dde99b56ce24",
+        "task_id": "llm_dev_045"
+      },
+      {
+        "arm": "b",
+        "reason": "fragment entry already qualified: 5c54c1fde2a79e6c",
+        "task_id": "llm_dev_083"
+      }
+    ],
+    "version_hash": "87103ca42d2e5f9b16f07391303a22132d7ef69c0ab439a63ea756477ac1ef0a"
+  },
+  "machine": {
+    "end": {
+      "event": "end",
+      "machine": {
+        "MemAvailable": "10666528 kB",
+        "loadavg_1_5_15": [
+          "0.79",
+          "1.00",
+          "1.13"
+        ],
+        "uptime_seconds": 678167.26
+      },
+      "shard": [
+        "llm_dev_010",
+        "llm_dev_021",
+        "llm_dev_039",
+        "llm_dev_045",
+        "llm_dev_083"
+      ]
+    },
+    "start": {
+      "event": "start",
+      "machine": {
+        "MemAvailable": "10720256 kB",
+        "loadavg_1_5_15": [
+          "0.97",
+          "1.28",
+          "1.25"
+        ],
+        "uptime_seconds": 677801.44
+      },
+      "shard": [
+        "llm_dev_010",
+        "llm_dev_021",
+        "llm_dev_039",
+        "llm_dev_045",
+        "llm_dev_083"
+      ]
+    }
+  },
+  "protocol": {
+    "arms": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "bank_id": "llm_bank_v1",
+    "candidate_budget_d": 50000,
+    "card_id": "bce2d353-1794-4466-b747-fee7d0a1a04",
+    "cost_multiple_m": 3,
+    "cpu_cap_s": 5.0,
+    "deep_families": [
+      "A7",
+      "A8",
+      "S2",
+      "S3"
+    ],
+    "held_policy": "dev tasks/visible/query plus dev held opened identically for all arms at final; sealed pool never loaded (ids must start with llm_dev_)",
+    "library_plan": "build in-run from dev-held-accepted a/b programs via FragmentLibrary.add_entry with judge_final evidence, then freeze (version_hash) before arm c",
+    "max_ops_d": {
+      "A6": 6,
+      "A7": 7,
+      "A8": 8
+    },
+    "max_rounds": 3,
+    "model_id": "spark-1.3",
+    "model_version": "Spark 1.3 supervised background workers",
+    "proposer_prompt": "canonical-json-v1",
+    "query_cap": 3,
+    "repair_template_sha256": "7448ea57ad810e592ef0b1e2571f0cba89e9f20d5be0ed24084569d4285069f1",
+    "seed": 20261125,
+    "task_ids": [
+      "llm_dev_010",
+      "llm_dev_021",
+      "llm_dev_039",
+      "llm_dev_045",
+      "llm_dev_083"
+    ],
+    "token_cap": 4000,
+    "top_k": 3,
+    "verdict_rule": "PROCEED iff best LLM arm accepts >=1 deep-family task where streaming accepts 0 AND cost/accepted <=Mx streaming on shared-solved tasks AND b>a or c>b strictly on identical tasks; else KILL"
+  },
+  "protocol_sha256": "c1ee97b7f972a37898560bb94b3fa21833ccc820e5bf9cb9d8ee80023c7edb15",
+  "repair_conversion_b": {
+    "converted": 1,
+    "rate": 1.0,
+    "round0_rejected": 1,
+    "tasks": [
+      "llm_dev_039"
+    ]
+  },
+  "repair_delta_b_vs_a": {
+    "a_only": [],
+    "b_only": [
+      "llm_dev_039"
+    ],
+    "delta": 1
+  },
+  "retrieval_delta_c_vs_b": {
+    "b_only": [],
+    "c_only": [],
+    "delta": 0
+  },
+  "tasks": [
+    "llm_dev_010",
+    "llm_dev_021",
+    "llm_dev_039",
+    "llm_dev_045",
+    "llm_dev_083"
+  ],
+  "taxonomy": {
+    "final": {
+      "a": {
+        "python_mismatch": 1
+      },
+      "b": {},
+      "c": {},
+      "d": {
+        "python_mismatch": 1
+      },
+      "e": {
+        "python_mismatch": 5
+      }
+    },
+    "visible": {
+      "a": {
+        "python_mismatch": 1
+      },
+      "b": {},
+      "c": {},
+      "d": {
+        "python_mismatch": 1
+      },
+      "e": {
+        "python_mismatch": 5
+      }
+    }
+  }
+}
