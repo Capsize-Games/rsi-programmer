@@ -323,6 +323,17 @@ and `artifacts/inversion-dev-20261125/`. Per the frozen protocol
 the route is closed: no Phase 7 sealed test, no retest without a
 new epic. The sealed 90-task bank was never touched.
 
+Cost-lever sealed checkpoint (2026-11-26): follow-up epic
+with python-first gating + near-miss repair PASSES its
+frozen bar on the sealed 90-task bank: a/b/c/d/e =
+46/73/73/9/0, deep reach 41 streaming-0 tasks, exact
+per-task cost ratio 1.108 vs M=3 on 9 shared tasks,
+repair delta +27. Zero final timeouts. The dev-trial
+even-spread approximation is retired: `cpu_by_task`
+is now persisted and the ratio recomputes from the
+artifact. See `tracks/programmer/lever-sealed-design.md`
+and `artifacts/inversion-sealed-20261126/`.
+
 When publication is authorized, publish completed fixes and review evidence
 as the work progresses, including during long test runs. Push meaningful
 checkpoints and tag published snapshots. Record the exact completed tests,
